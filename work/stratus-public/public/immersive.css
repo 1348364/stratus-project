@@ -38,3 +38,5 @@ body.effects-paused .atmosphere-fog,body.effects-paused .scroll-invitation span{
 @media(prefers-reduced-motion:reduce){.atmosphere-fog,.scroll-invitation span{animation:none!important}.stratus-immersive .hero-image{transform:none!important;filter:saturate(.7) brightness(.8)!important;will-change:auto}.stratus-immersive .scroll-reveal{opacity:1!important;filter:none!important;transform:none!important;transition:none!important}.stratus-immersive .topbar{transition:none}.stratus-immersive .scene img{transition:none}}
 
 .stratus-immersive .hero-shade{pointer-events:none}.stratus-immersive .hero-content{z-index:3}.stratus-immersive .hero-bottom{z-index:4}.stratus-immersive .hero-manifesto{z-index:2}
+
+@media(max-width:800px){.stratus-immersive .topbar nav .feedback-nav{position:absolute;right:4%;top:14px;min-height:31px;margin:0;padding:7px 10px;font-size:8px}.stratus-immersive .topbar nav{padding-right:0}}
