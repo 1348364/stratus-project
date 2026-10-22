@@ -261,6 +261,10 @@
     "work/Custom instructions/COMPLETED-CHANGES.md",
     "work/Custom instructions/CURRENT-CONTEXT.md",
     "work/Custom instructions/GOALS.md",
+    "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CHANGES.md",
+    "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CONTEXT.md",
+    "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/PROGRESS.md",
+    "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/TASK.md",
     "work/Custom instructions/PROMPTS.md",
     "work/Custom instructions/README.md",
     "work/Custom instructions/SHADER-SPEC-1.6.7.md",
@@ -324,6 +328,7 @@
     "work/stratus-public/scripts/vite/sites-vite-plugin.LICENSE",
     "work/stratus-public/scripts/vite/sites-vite-plugin.ts",
     "work/stratus-public/tsconfig.json",
+    "work/stratus-public/verification/IMMERSIVE-REVIEW.md",
     "work/stratus-public/verification/automatic-release-notes.png",
     "work/stratus-public/verification/igloo-inspired-home.png",
     "work/stratus-public/vite.config.ts",
@@ -789,10 +794,10 @@
     "work/stratus-studio/workflow.py"
   ],
   "site_commits": {
-    "stratus-public": "9662dfbd0b96e6028c0a8069e90e94d4d69240cb",
+    "stratus-public": "c6b2d090f4c918c9930ee6adfedf85dc1a749422",
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.11",
-  "fingerprint": "b7444d8847419906696e26306b408a8e6c1e33eb9f695733d0ddfca6a4104631",
+  "fingerprint": "daa0760d058f5b2199358128f392416ea6798557de45649b0ae477781e489687",
   "policy": "Committed websites, settled standalone services/docs and final packaged shader. No model calls."
 }

@@ -58,40 +58,73 @@ def candidates():
   try:
    r=json.loads(receipt.read_text());v=r['version']
    if not re.fullmatch(r'\d+\.\d+\.\d+',v):continue
-   # Showcase refreshes follow feature releases (x.y.0), not patch releases.
-   if int(v.split('.')[2])!=0:continue
-   if not r.get('release_loaded') or r.get('runtime_pack')!='Stratus-'+v+'.zip':continue
+   # Refresh whenever the full version ends in 0: .0, .10, .20, .100, etc.
+   if not v.endswith('0'):continue
+   pack='Stratus-'+v+'.zip'
+   legacy=r.get('release_loaded') is True and r.get('runtime_pack')==pack
+   current=(r.get('loaded') is True and r.get('selected') is True
+            and r.get('installed_bytes_equal_release') is True
+            and Path(r.get('installed','')).name==pack)
+   if not (legacy or current):continue
    package=server.PROJECT/'outputs'/('Stratus-'+v+'.zip')
    if not package.is_file() or hashlib.sha256(package.read_bytes()).hexdigest()!=r.get('sha256'):continue
    folder=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase')
    images=sorted(folder.glob('*.png')) if folder.is_dir() else []
+   # Prefer the release report's reviewed, hash-verified final-pack captures.
+   # QA/baseline/isolated variants and menus are not release showcase images.
+   report=server.PROJECT/'outputs'/('Stratus-'+v+'-visual-checks')
+   manifest=report/'manifest.json'
+   if not images and manifest.is_file():
+    captures=json.loads(manifest.read_text())
+    if captures.get('version')==v:
+     for capture in captures.get('captures',[]):
+      if capture.get('pack')!=pack or capture.get('status')!='reviewed':continue
+      image=(report/capture.get('file','')).resolve()
+      if not image.is_relative_to(report.resolve()) or not image.is_file():continue
+      if any(word in image.stem.lower() for word in ['menu','restored']):continue
+      if hashlib.sha256(image.read_bytes()).hexdigest()!=capture.get('sha256'):continue
+      images.append(image)
    if not images and r.get('runtime_evidence'):
     evidence=(server.PROJECT/r['runtime_evidence']).resolve()
     if not evidence.is_relative_to(server.PROJECT) or not evidence.is_file():continue
     folder=evidence.parent/'screenshots';prefix='s'+v.replace('.','')+'-release-'
     images=sorted(x for x in folder.glob(prefix+'*.png') if not any(word in x.stem for word in ['menu','restored']))
-   if images:yield tuple(map(int,v.split('.'))),v,r,images[:8]
+   if len(images)>=2:yield tuple(map(int,v.split('.'))),v,r,images[:10]
   except (OSError,ValueError,KeyError):continue
 
 def sync_showcase():
  choices=sorted(candidates(),reverse=True)
- if not choices:return {'status':'waiting','detail':'No loaded release with release captures.'}
+ if not choices:return {'status':'waiting','detail':'No eligible loaded release with at least two release captures.'}
  _,v,receipt,images=choices[0]
+ labels={}
+ labels_path=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase')/'showcase.json'
+ if labels_path.is_file():
+  labelled=json.loads(labels_path.read_text())
+  if labelled.get('version')!=v:raise ValueError('Showcase labels have the wrong version.')
+  labels={item['file']:item for item in labelled.get('scenes',[])}
  scenes=[];uploads=[]
  for i,p in enumerate(images):
   if not p.resolve().is_relative_to(server.PROJECT):raise ValueError('Image is outside project.')
   raw=p.read_bytes()
   if not raw.startswith(b'\x89PNG\r\n\x1a\n') or len(raw)>10000000:continue
+  label=labels.get(p.name,{})
+  if labels and (not label or hashlib.sha256(raw).hexdigest()!=label.get('sha256')):raise ValueError('Curated showcase capture hash mismatch.')
   digest=hashlib.sha256(raw).hexdigest()[:12];name=re.sub(r'^s\d+-release-','',p.stem);name=re.sub('[^a-z0-9-]','-',name.lower())[:40]
-  key=f'{v}/{name}-{digest}.png';uploads.append((key,raw));scenes.append({'id':name,'title':name.replace('-',' ').capitalize()+'.','description':f'Actual Minecraft release capture from Stratus {v}.','alt':f'Stratus {v}: '+name.replace('-',' '),'image':'/api/images/'+key})
- if not scenes:return {'status':'waiting'}
+  if any(scene['id']==name for scene in scenes):name=f'{name[:27]}-{digest}'
+  title=label.get('title',name.replace('-',' ').capitalize()+'.')
+  description=label.get('description',f'Actual Minecraft release capture from Stratus {v}.')
+  key=f'{v}/{name}-{digest}.png';uploads.append((key,raw));scenes.append({'id':name,'title':title,'description':description,'alt':f'Stratus {v}: '+title,'image':'/api/images/'+key})
+ if len(scenes)<2:return {'status':'waiting','detail':'At least two valid PNG captures are required; existing gallery preserved.'}
  # Prefer a river/landscape over a material close-up for the home image.
  scenes.sort(key=lambda s:('river' not in s['id'],s['id']))
- summary=f'Stratus {v} is packaged and recorded as loaded in Minecraft. These are release captures. Visual checks and performance measurements are separate; no FPS improvement is implied.'
+ summary=f'Stratus {v} is packaged and recorded as loaded in Minecraft. Each image labels its release or Reference preset settings. Visual checks and performance measurements are separate; no FPS improvement is implied.'
  manifest={'version':v,'date':receipt.get('verification_date',''),'summary':summary,'scenes':scenes}
  fingerprint=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
  old=json.loads(STATE.read_text()) if STATE.exists() else {}
- if old.get('fingerprint')==fingerprint:return {'status':'unchanged','version':v}
+ if old.get('fingerprint')==fingerprint:
+  live=api('/api/release')
+  if live.get('version')==v and live.get('scenes')==[{**s,'tag':'STRATUS '+v} for s in scenes]:
+   return {'status':'unchanged','version':v,'images':len(scenes)}
  for key,raw in uploads:api('/api/manage/images/'+key,'PUT',raw=raw)
  api('/api/manage/release','PUT',manifest)
  read=api('/api/release')
@@ -100,7 +133,7 @@ def sync_showcase():
  return {'status':'published','version':v,'images':len(scenes)}
 
 def sync():
- # Notes include every final release, independently of the x.y.0 gallery policy.
+ # Notes include every final release, independently of the ending-in-0 gallery policy.
  updates=sync_updates()
  showcase=sync_showcase()
  return {'updates':updates,'showcase':showcase}
