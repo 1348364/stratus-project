@@ -1,60 +1,50 @@
-STRATUS 1.6.10 — SETTINGS MIGRATION AND MEASURED-WORK OPTIMISATION
-22 October 2026 / Minecraft Java1.21.11 / Iris1.10.8 / Sodium0.8.14
-Apple M1, macOS, GLSL330 / OpenGL4.1. Original MIT source.
+STRATUS1.6.11 — YOUR REFERENCE PRESET AND CHUNK-READY QA
+22 October2026 / Minecraft Java1.21.11 / Iris1.10.8 / Sodium0.8.14
+Apple M1 / macOS / OpenGL4.1. Original MIT source.
 
-CHANGES
-Preserve the 1.6.9 vanilla colour, independent surface film and native animated
-water texture. Reference is now labelled Reference (Recommended); its ID and
-full effect resolution/quality remain unchanged. All 62 controls, choices and
-menus remain. Every preset explicitly uses the approved colour/film/water-texture
-visual defaults. Existing quality assignments remain exactly as before.
+APPROVED PRESET CHANGE
+Reference(Recommended) and the source defaults now use the captured latest Main
+visual AND quality choices, explicitly approved by the user. Its quality is
+half-resolution water/atmosphere, cloud sampling2, mist3, sky-only reflections
+and refraction1. This supersedes the old full-detail Reference definition.
+High retains full effect resolution, detailed scenery reflections/refraction
+and cloud sampling3. All those quality choices remain manually selectable.
+Fast/Balanced use lighter quality choices; no component exceeds Reference.
+Every preset explicitly shares the same56 visual settings from Reference.
+All62 IDs, allowed values, labels/tooltips and menu paths remain available.
+Selecting a preset deliberately applies these visual and quality defaults.
 
-The scenery tracer reuses projected interval endpoints and invariant dot
-products. Mist skips density work only for its zero-weight clear foreground,
-and skips sunlight density samples only when sunlight/scattering contributes
-zero. No effect, sample budget, range, resolution or quality selection is cut.
-The slower plane-cache experiment was rejected and is not included.
+CAPTURED MAIN TUNING
+Visual values include sky ambient1, film amount0.65, water visibility2.2,
+extinction0.9, turbidity3, ripple height0.55/size0.40/rate1, water texture1.
+Remaining source visual values are retained and explicit in every profile.
+See RELEASE-POLICY.json and CHECKS.json for the complete machine-readable state.
 
-SETTINGS MIGRATION
-Use install.py to carry only unrelated latest overrides to a new release.
-RELEASE-POLICY.json lists the nine related colour/film/water-texture keys reset
-to intended defaults for this release. This reset was explicitly user-approved.
-Original old settings remain untouched. Existing new-version settings always
-win; the installer never overwrites them or a conflicting archive. Selecting a
-preset deliberately applies its explicit visual defaults and original quality.
-Future visual defaults apply to all presets; combined visual/performance
-changes default to Reference unless explicitly approved otherwise. Performance
-implementation changes in this release apply to all presets without quality cuts.
-
-INSTALL
-Keep the ZIP zipped. From the editable source folder run:
-python3 install.py --profile "/path/to/Modrinth/profile" --dry-run
-python3 install.py --profile "/path/to/Modrinth/profile"
-Then select Stratus-1.6.10.zip in Iris. Use --archive for a ZIP elsewhere and
---previous-settings for an explicit old .zip.txt path. This matters if a test
-pack is currently selected. Installing is separate from selecting/loading.
-Manual ZIP copying does not run the selective-settings migration.
+MIGRATION AND NEWER EDITS
+The installer resets only the related changed-default/quality keys to the
+approved captured Reference values. It carries unrelated overrides and preserves
+later manual old-version edits that differ from that capture, including removal
+of an override to return to an older source default. Existing new-version
+preferences always win. Old archives/preferences are never overwritten.
+Run python3 install.py --profile "/path/to/profile" --dry-run, then repeat without
+--dry-run. Use --previous-settings when a QA pack is selected. Select the new
+ZIP in Iris afterwards. Installing, selecting and loading are separate stages.
+Manual ZIP copying does not perform this migration.
 
 VERIFICATION
-768 native compile/link pairs / zero failures. Actual GLSL matched tracer
-checks: 344,064 pixels per variant, three qualities, zero hit mismatches.
-Atmosphere: 131,072 matched pixels across day/night, max linear error <0.0001.
-Ten underwater resolve cases and nine installer integration checks passed.
-Finite actual Main captures cover water, materials, night and cloud views;
-see the labelled visual report and install receipt for exact accepted scope.
+768 native compile/link pairs/eight variants/zero failures. Iris interpreted
+all four62-option profiles and each matched after applying its declared values.
+Ten underwater resolve cases at current Reference optics and ten installer
+integration checks passed. Actual Main views compare matched Reference tuning,
+water/underwater/fixtures, occupied clouds and independent cirrus/day/sunset.
+See the labelled report and external Stratus-1.6.11-install.json for exact scope.
 
-FOCUSED FULL-REFERENCE RESULTS AND LIMITS
-1440x842 / render12 / simulation8 / same six Reference quality selections,
-weather clear / time6000 / fixed matched cameras / saved VSync true / cap70.
-Dynamic FPS FOCUSED; vanilla limiter NONE/cap70 confirmed every5seconds.
-River, two30-second samples per build: baseline19.6154 / new20.1645 FPS.
-Forest, one30-second sample per build: baseline17.7699 / new18.0673 FPS.
-All six samples had zero focus-loss polls. Small finite gains (~2.8% river,
-~1.7% forest) are not a general gameplay guarantee. Reference60FPS remains
-unmet and pending. Earlier~56FPS samples used different saved quality choices.
-No native GPU probe/profiler ran concurrently. Temporary activity resets left
-saved options unchanged and were stopped; original client state was restored.
-Screen-space misses, finite cloud range and approximate film/atmosphere remain.
-Occupied-cloud interior, clearer independent cirrus/sunset, exact historical
-pole/leaf views and exhaustive scene/preset/mod/motion coverage remain pending.
-See VALIDATION.txt, CHECKS.json and Stratus-1.6.10-performance.json in outputs/.
+CHUNK READINESS AND PERFORMANCE
+The QA driver checks all441 columns in the render12 view disk, Sodium build
+jobs/workers/upload/task queues and stable counts for at least5seconds before
+allowing a steady-state check. Live traces show it blocked while uploads were
+pending. Future FPS sampling also requires focus and valid active-game limits.
+FPS WAS EXPLICITLY DEFERRED BY THE USER. No new FPS samples or60FPS claim.
+The approved lower-cost Reference baseline is not a code-optimisation speedup.
+Existing1.6.10 rendering algorithms are retained in this release. Performance,
+exact original pole/leaf scenes and remaining leaf-fog acceptance stay pending.

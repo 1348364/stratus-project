@@ -156,8 +156,8 @@
   },
   {
     "path": "shaders/core/options.glsl",
-    "bytes": 4852,
-    "sha256": "fa8825624eaf6fca2e2a72083e06126943e94eda69e7762a2ad2b2324b9c97fb"
+    "bytes": 4916,
+    "sha256": "26f9348eb27344f632190dfc66c05b9bd39c66b1e7cdaa148691a17dca428105"
   },
   {
     "path": "shaders/core/output.frag.glsl",
@@ -521,8 +521,8 @@
   },
   {
     "path": "shaders/shaders.properties",
-    "bytes": 14067,
-    "sha256": "25f5c276c10a7f58ec06597c7d8c7b87f05c60e8fbc02195d10a6dd8f35eea01"
+    "bytes": 17631,
+    "sha256": "51dc4fe69788cc9f8c2d4ce1136f95c7c4df05cb75f6009cb0801ba844aa9ceb"
   },
   {
     "path": "shaders/volumes/weather.rgba8",

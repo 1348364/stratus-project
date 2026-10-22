@@ -1,34 +1,22 @@
-STRATUS 1.6.10 — LIVE CHECKS AND FOLLOW-UP
+STRATUS1.6.11 — LIVE CHECKS / NEXT PERFORMANCE RUN
+Select the new ZIP after running the change-aware installer. Reference now
+represents the explicitly approved Main visual AND quality baseline. High keeps
+full-resolution detailed optics; Fast/Balanced are lighter. Every control remains.
+Confirm Reference(Recommended) in Iris and the expected film/water defaults.
+A later preserved manual override can correctly make the active profile Custom.
 
-Run install.py with the latest actual previous release settings, then select
-Stratus-1.6.10.zip. Confirm active Iris pipeline and log before judging it.
-The installer preserves unrelated tuning; testing Reference should not erase
-your normal saved quality preferences. Reference (Recommended) retains its ID.
-Materials: film amount, sheen conditions/strength, retired darkening. Water:
-vanilla texture strength. Lighting: vanilla/enhanced switch and retained tuning.
+Completed technical/live checks are listed in VALIDATION.txt and the external
+visual report. Initial unloaded frames are rejected and labelled separately.
+The active cloud texture was read only into private work evidence; no Minecraft
+texture is bundled with the shader. Existing source uses active resource assets.
 
-Review actual river/reflections, shallow/deep water, waterline, underwater air
-exits, glass, submerged wood, particles and waterfall. Review clouds below,
-within and above the layer, small spans/grazing rays, cirrus alone, motion,
-sunset and native mode. Review clear/rain film, cave/local lamps/night and
-native/polished sun. Reject unloaded terrain and inside-block captures. The
-versioned visual report records finite checks and any remaining gaps.
-
-To complete performance acceptance: unlock/focus the existing Main window,
-use full Reference at1440x842/render12/simulation8 and matched fixed cameras,
-weather clear/time6000. Record focus continuously, Dynamic FPS state and the
-Minecraft inactivity limiter. Temporary activity resets may hold NONE/cap70
-without modifying saved settings; stop the helper afterwards. Compare30-second
-baseline/candidate samples with no concurrent native GPU test/profiler. A locked,
-background-throttled or AFK-limited window is invalid even if a counter appears.
-Keep the approximately60 FPS target pending until actual evidence supports it.
-
-Restore original camera/HUD/pause/flight, weather/daytime/timers and temporary
-fixture blocks after testing. Preserve all older ZIPs, preferences, mods and
-worlds. Exact historical pole/leaf contexts remain separately unverified.
-
-RECORDED FULL-REFERENCE RESULT
-Matched focused30-second samples completed with no focus loss and NONE/cap70.
-River19.6154→20.1645 FPS (two samples/build), forest17.7699→18.0673 (one/build).
-The approximately60FPS target remains unmet. Continue measured optimisation
-without quality cuts; do not retest merely to recertify unchanged source.
+FPS TESTING IS DEFERRED: do not start sampling until the user requests it again.
+For that future run: confirm actual profile/pack/options/framebuffer/render and
+simulation distances/weather/time/camera. READY must wait for all view-distance
+columns plus empty Sodium jobs/workers/uploads/task queues and stable counts
+>=5seconds. A fresh successful gate is required at BENCH start. Record focus,
+Dynamic FPS and vanilla AFK limiter continuously. Label chunk-loading samples
+separately; never use them as steady-state results. Compare at matched quality;
+the preset rebase is not a rendering-algorithm speedup. Keep60FPS pending until
+actual evidence supports it. Stop all temporary helpers and restore client/world
+state afterwards. Do not substitute old full-detail Reference benchmarks.

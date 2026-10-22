@@ -4,6 +4,15 @@ Archive of completed requests and their release/evidence references. This is his
 
 ## Completed changes
 
+### Stratus 1.6.11 — 22 October 2026
+
+- [x] Adopted the captured latest Main visual **and quality** tuning as Reference/source defaults, by explicit user choice. All four presets share 56 visual defaults; six quality settings are ordered below/at/above Reference. All 62 IDs, allowed values and menu paths remain; High retains full detailed optics. Actual Iris reports Reference with zero overrides and all62 values match the approved capture.
+- [x] Extended selective migration to preserve later related manual edits and removal of an old override, alongside unrelated tuning and existing new-version settings. Ten temporary-profile checks pass; old Main settings remain intact.
+- [x] Completed the occupied-cloud interior and clearer independent cirrus/day/sunset portions of the prior verification request. The active cloud texture confirms an occupied alpha255 cell; accepted on/off views were chunk-gated. Unloaded initial attempts are labelled rejected/superseded. The distant-foliage and original pole/leaf checks remain pending in CHANGES.md.
+
+[Stratus1.6.11 ZIP](../../outputs/Stratus-1.6.11.zip), [change log and evidence](CHANGE-LOG.md#22-october-2026--stratus-1611), [actual captures](../../outputs/Stratus-1.6.11-visual-checks/index.html), [install/load receipt](../../outputs/Stratus-1.6.11-install.json). Native768 pairs, ten underwater cases and four62-option Iris profile checks passed. The readiness barrier was live-checked without FPS; actual FPS integration and60FPS acceptance are explicitly deferred by the user. No new rendering-algorithm speedup is claimed.
+
+
 ### Stratus 1.6.10 — 22 October 2026
 
 - [x] Selective settings migration: carry unrelated latest overrides only, reset approved related keys, preserve every old file and existing new-version preferences. Approved 1.6.9 colour/film/water-texture visual defaults apply explicitly in all four presets; future mixed visual/performance defaults belong to Reference unless approved otherwise. Actual Main migration preserved eight unrelated overrides and reset the related film override; nine integration checks pass.

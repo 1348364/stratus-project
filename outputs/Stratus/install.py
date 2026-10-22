@@ -26,8 +26,17 @@ def read_values(path: Path) -> dict[str, str]:
 
 def migrate(values: dict[str, str], policy: dict) -> tuple[dict, dict]:
     related = set(policy['reset_related_overrides'])
-    return ({k: v for k, v in values.items() if k not in related},
-            {k: v for k, v in values.items() if k in related})
+    carried = {k: v for k, v in values.items() if k not in related}
+    reset = {k: v for k, v in values.items() if k in related}
+    if policy.get('preserve_newer_manual_overrides'):
+        captured = policy['captured_previous_values']
+        previous_defaults = policy['previous_source_defaults']
+        for key in related:
+            latest = values.get(key, previous_defaults[key])
+            if latest != captured[key]:
+                carried[key] = latest
+                reset.pop(key, None)
+    return carried, reset
 
 
 def create_if_absent(path: Path, data: bytes) -> bool:
@@ -83,6 +92,7 @@ def install(archive: Path, profile: Path, previous_settings: Path | None = None,
               'previous_settings': str(previous_settings) if previous_settings else None,
               'unrelated_overrides_carried': preserved, 'related_overrides_reset': reset,
               'related_visual_defaults': policy['visual_defaults'],
+              'newer_manual_overrides_preserved': {k: v for k, v in preserved.items() if k in policy['reset_related_overrides']},
               'existing_new_version_preferences_preserved': settings_existed,
               'dry_run': dry_run, 'loaded': False}
     if not dry_run:

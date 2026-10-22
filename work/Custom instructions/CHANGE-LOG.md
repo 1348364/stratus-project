@@ -1,5 +1,64 @@
 # Stratus change and output log
 
+## 22 October 2026 — Stratus 1.6.11
+
+### At a glance
+
+- Reference/source defaults now use the user's explicitly approved Main visual **and quality** tuning. All four presets share56 visual settings with six ordered quality choices. All62 controls/ranges/menu access remain; High retains full detailed optics. The installer preserves later manual edits.
+- Built **[Stratus1.6.11](../../outputs/Stratus-1.6.11.zip)**, installed, selected and loaded in Main. Iris reports **REFERENCE / zero overrides**; all62 runtime values match the captured Main baseline. [Receipt](../../outputs/Stratus-1.6.11-install.json), [18 labelled actual captures](../../outputs/Stratus-1.6.11-visual-checks/index.html).
+- Passed768 native pairs, ten underwater cases, ten migration checks and actual Iris interpretation/matching for all four62-option profiles. The readiness barrier blocked while work was pending and waited for stable loaded chunks. Occupied-cloud and clearer independent cirrus/day/sunset views passed finite review. **FPS/60FPS and remaining leaf/historical acceptance stay pending by explicit user deferral.**
+
+### Frozen request and approved scope
+
+Stratus Studio `stage_run` **d5f466f4-5927-4054-a65f-6a32e48779c1**. Current TASK/CHANGES matched their frozen snapshots at start. The nonempty TASK diff only repeats completed1.6.10 reference/migration/optimisation/evidence reconciliation, so no duplicate source work was invented. Existing pending requests supplied the new preset and chunk-readiness work. [Staging record](../stratus-refine-1611/staging.json).
+
+The preset request conflicted with TASK's old full-resolution detailed-Reference definition. The user explicitly chose **“Adopt my current visual and quality choices as Reference”**. This deliberate baseline change supersedes that definition. It is not an equivalent-quality code optimisation and must not be compared with old full-detail Reference as a speedup. The user later said **“skip for now, i will request this later”** for FPS; no FPS samples were taken.
+
+Main preferences changed during the initial reads. Preserved both snapshots and captured the latest saved tuning for the approved baseline; later related manual edits are protected during migration. No newer project-document edits were overwritten. During this run, newer CHANGES/root/local AGENTS wording added a durable IN-PROGRESS batch workflow. It was preserved verbatim. This earlier frozen request names no batch, and no d5f466f4 batch directory exists; its remaining items stay in the shared CHANGES pending queue under the explicit legacy request. Saving those newer workflow files was not treated as another execution trigger. [Initial settings snapshot](../stratus-refine-1611/Main-initial-tuning-snapshot.txt), [approved captured settings](../stratus-refine-1611/Main-before-Stratus-1.6.10.zip.txt).
+
+### Presets and compatibility
+
+Fourteen source defaults change to captured Main values. All56 non-quality visual values are explicit in every profile; quality is ordered componentwise Fast≤Balanced≤Reference≤High:
+
+| Preset | Water/atmosphere quality | Clouds/mist | Reflection/refraction quality |
+| --- | --- | --- | --- |
+| Fast |0/0|1/1|0/0|
+| Balanced |1/1|1/2|0/0|
+| Reference |1/1|2/3|0/1|
+| High |2/2|3/3|2/2|
+
+Reference uses balanced-resolution water/atmosphere, sky-only reflection and balanced refraction. High retains full-resolution detailed scenery/refraction; every prior manual quality choice remains available. Common visual values include the user's film0.65, water visibility2.2/extinction0.9/turbidity3, ripple height0.55/size0.40/rate1 and water texture1. Exact complete values remain in source and machine-readable policy, not a duplicated TASK inventory.
+
+Only `shaders/core/options.glsl` and profile assignments in `shaders/shaders.properties` change at runtime. Rendering algorithms, pole filter, resource texture handling, option IDs/allowed values, menus and language controls are unchanged. `install.py`, policy, package version and release documentation are updated. [Option audit](../stratus-refine-1611/option-audit.json), [source inventory](../stratus-refine-1611/source-changes.json), [diff](../stratus-refine-1611/changes.diff).
+
+The migration resets fifteen related changed-default/quality keys to the captured Reference defaults. Actual old preferences had14 overrides, all promoted to identical source defaults; no unrelated override was discarded. The old file remains byte-identical to its pre-install snapshot, and Iris now recognises Reference with zero overrides. Future later manual values differing from the capture, including removal of an old override to return to its previous source default, are carried forward. Existing new-version settings and conflicting archives are never overwritten. [Dry run](../stratus-refine-1611/install-dry-run.json), [ten migration checks](../stratus-refine-1611/migration-checks.json).
+
+### Chunk readiness and deferred performance
+
+Added an actual-data readiness barrier to the saved QA driver: all columns in the configured view-distance disk must be present; Sodium scheduled jobs, busy workers, pending uploads/task lists must be empty; loaded-column/section counts must remain stable≥5seconds. At render12 the required disk contains441 columns. Runtime traces include many not-ready observations with pending work, followed by successful gates; each accepted gated capture followed that barrier. A fresh gate is required at future BENCH start, with cheaper queue/count/camera monitoring during samples and focus/size checks. [Barrier checks](../stratus-refine-1611/chunk-gate-checks.json), [raw trace](../stratus-refine-1611/chunk-readiness.jsonl), [driver source](../stratus-refine-1611/agent/Visual1611Driver.java).
+
+**No FPS sampling was performed**, as explicitly requested. FPS integration/renewed-loading rejection still needs a later requested run. The approximately60FPS target is unverified on the newly approved Reference. Old1.6.10 full-detail results used a different baseline and establish neither new performance nor a code speedup. No new rendering-algorithm optimisation is claimed. [Performance status and exact next check](../stratus-refine-1611/performance-summary.json).
+
+### Verification and actual visuals
+
+- Native macOS compatibility-shim compile/link: **768 pairs/eight variants/three dimensions/zero failures**, separate from Iris loading. [Log](../stratus-refine-1611/compile.log).
+- Current-reference underwater resolve: **ten cases/zero failures/API errors**, covering air exits, shallow/deep receivers, glass, particles and vertical exit. Expected optics use the approved new visibility/extinction/turbidity. [Results](../stratus-refine-1611/water-checks.json).
+- Actual installed Iris parses62 assignments in each profile and matches each after applying its declared map. All62 final runtime values equal the approved Reference defaults. Actual root/Performance/Materials pages show Reference(Recommended), intended quality and Moderate film. [Iris profile checks](../stratus-refine-1611/iris-profile-checks.json), [final runtime](../stratus-refine-1611/runtime-v3-Optional_Stratus-1.6.11.zip_.txt).
+- Matched62-option baseline/candidate river, final release river/underwater and loaded submerged fixtures were inspected. Water animation varies; no screenshot pixel-equivalence claim.
+- Occupied-cloud camera: eye altitude256 at active cloud-cell(22,1), sampled alpha255 from the **actual running resource**; mist/cirrus disabled and drift0 isolate the occupied lower cloud. The private reference matches the active vanilla footprint. No Minecraft texture is bundled. [Camera/resource evidence](../stratus-refine-1611/cloud-interior-camera.json).
+- Clearer independent cirrus remains visible with lower clouds/mist off. Chunk-gated on/off day and sunset comparisons were inspected; matched sky ROI mean absolute differences are about23.5/22.8 RGB codes. Initial incomplete-terrain attempts are rejected/superseded. [Finite comparison](../stratus-refine-1611/cirrus-comparison.json), [labelled captures](../../outputs/Stratus-1.6.11-visual-checks/index.html).
+
+Relevant exact-depth distant-leaf fallback acceptance, original pole/leaf contexts and exhaustive preset/mod/weather/motion coverage remain pending. Those gaps are not rewritten as completed behaviour.
+
+### Build, restoration and queue reconciliation
+
+ZIP **245 entries/235 runtime assets**,7,780,712 bytes; SHA256 `252e040c62f5be4847814a3227fab06924d46e875f54b67a7d3e60bf58462e62`. Every archive/source byte and manifest hash passes; immutable candidate runtime equals release runtime. The installed hash matches and IrisRenderingPipeline is loaded. Previous1.6.10 archive remains byte-identical. [Package checks](../stratus-refine-1611/package-checks.json).
+
+Original latest camera restored within0.00003block, orientation within0.000004degrees modulo360, original HUD/pause/flight/menu restored. Original daylight1000, rain0 and all weather/thunder timers/flags restored and verified; no fixture block was changed. The first test helper hit a loaded-class version mismatch; only its own class was briefly patched to stop, restored, and replaced by a uniquely versioned working helper. No Minecraft/Iris classes were patched. All helper threads are stopped. Temporary Main QA copies were removed only after byte/default-equivalence checks and backups; old release/settings and workspace evidence are preserved. [Restoration checks](../stratus-refine-1611/restoration-checks.json), [cleanup](../stratus-refine-1611/qa-cleanup.json).
+
+Reconciled TASK with the explicitly approved preset definition and current actual evidence. Moved verified preset/migration and occupied-cloud/cirrus portions into the separate **[COMPLETED-CHANGES archive](COMPLETED-CHANGES.md#stratus-1611--22-october-2026)**. CHANGES remains pending-only: performance/FPS integration is deferred, and leaf/historical scenes remain open. [Reconciliation](../stratus-refine-1611/reconciliation.json). No other chat was messaged.
+
+
 ## 22 October 2026 — Stratus 1.6.10
 
 ### At a glance

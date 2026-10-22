@@ -1,7 +1,7 @@
 {
   "files": [
     "AGENTS.md",
-    "outputs/Stratus-1.6.10-install.json",
+    "outputs/Stratus-1.6.11-install.json",
     "outputs/Stratus/CHECKS.json",
     "outputs/Stratus/IN-GAME-TEST.txt",
     "outputs/Stratus/LICENSE.txt",
@@ -789,7 +789,7 @@
     "stratus-public": "9662dfbd0b96e6028c0a8069e90e94d4d69240cb",
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
-  "shader_release": "1.6.10",
-  "fingerprint": "070bb54a815bda2da7cc6c7e97e237c69e2cacb5d8e47f957252c68757c3e0a0",
+  "shader_release": "1.6.11",
+  "fingerprint": "1ac84111fc29e10a7bbdabea6aa9bcf7a6657a8bd951d498e73689b18137201e",
   "policy": "Committed websites, settled standalone services/docs and final packaged shader. No model calls."
 }
