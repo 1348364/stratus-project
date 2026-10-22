@@ -3,6 +3,8 @@ import seed from '../../../lib/seed.json';
 export const dynamic='force-dynamic';
 const chat='Coding Stratus (2)';
 const keys=['spec','changes'];
+const runActions=['run','stage_run','run_both'];
+function emptyPending(text:string){const headings=[...text.matchAll(/^##[ \t]+Pending changes[ \t]*\r?$/gmi)];if(headings.length!==1)return null;const heading=headings[0],start=heading.index!+heading[0].length;const next=text.slice(start).search(/^#{1,2}[ \t]+/m);return text.slice(0,start)+'\n\nNo pending changes.\n\n'+(next<0?'':text.slice(start+next));}
 const token='cloud-owner-session';
 const json=(value:any,status=200)=>Response.json(value,{status,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 async function hash(text:string){return [...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(text)))].map(x=>x.toString(16).padStart(2,'0')).join('');}
@@ -29,6 +31,7 @@ async function handle(request:Request){
   if(path==='/api/workspace'){const connection=await meta(db,'bridge');const release=all.spec.text.match(/Stratus-(\d+\.\d+\.\d+)\.zip/);return json({name:'Stratus Studio',project:seed.project,cloud:true,bridge:connection,release:release?.[1]||'Unspecified',token,documents:all});}
   if(path==='/api/activity')return json({filename:'CHANGE-LOG.md',text:(await meta(db,'activity'))?.text||seed.activity});
   if(path==='/api/chat'){const {results}=await db.prepare('SELECT id,operation,status,detail,queueId,created FROM jobs ORDER BY created DESC LIMIT 10').all();return json({name:chat,available:true,requests:results});}
+  const batchPath=path.match(/^\/api\/chat\/([a-f0-9-]{36})$/);if(batchPath){const snapshot=await meta(db,'job:'+batchPath[1]);return snapshot?json(snapshot):json({error:'Saved batch not found.'},404);}
   if(path==='/api/bridge/state'){const {results}=await db.prepare("SELECT * FROM jobs WHERE status IN ('waiting','dispatching') ORDER BY created LIMIT 1").all();return json({documents:all,jobs:results.map((r:any)=>({...r,revisions:JSON.parse(r.revisions)}))});}
   const history=path.match(/^\/api\/history\/(spec|changes)(?:\/([\w.-]+))?$/);
   if(history){if(history[2]){const row=await db.prepare('SELECT text,id AS name FROM history WHERE document=? AND id=?').bind(history[1],history[2]).first();return row?json(row):json({error:'Revision not found.'},404);}const {results}=await db.prepare('SELECT id AS name,length(text) AS bytes,modified FROM history WHERE document=? ORDER BY modified DESC LIMIT 100').bind(history[1]).all();return json({entries:results});}
@@ -41,13 +44,20 @@ async function handle(request:Request){
   if(['spec','related'].includes(body.operation)&&!body.instructions.trim())return json({error:'Describe your specification edit or related shader work.'},400);
   const existing=await db.prepare('SELECT * FROM jobs WHERE id=?').bind(body.id).first();if(existing)return json(existing);
   if(keys.some(id=>body.revisions?.[id]!==all[id].revision))return json({error:'Documents changed. Review the latest saved files.'},409);
-  const created=new Date().toISOString();const detail='Saved in the cloud queue. Coding Stratus (2) will receive this when your Mac is online and synced.';
+  const detached=runActions.includes(body.operation);
+  const cleared=detached?emptyPending(all.changes.text):null;
+  if(detached&&cleared===null)return json({error:'CHANGES.md needs exactly one ## Pending changes heading before sending a run.'},400);
+  const created=new Date().toISOString();const detail=detached?'Saved as a separate batch. Pending changes is ready for new work. Coding Stratus (2) will receive this batch when your Mac is online.':'Saved in the cloud queue. Coding Stratus (2) will receive this when your Mac is online and synced.';
   const instructions=body.instructions;
-  // Immutable snapshots preserve the exact files the user chose to send.
-  await putMeta(db,'job:'+body.id,{spec:all.spec,changes:all.changes});
-  const inserted=await db.prepare("INSERT OR IGNORE INTO jobs (id,operation,instructions,revisions,status,detail,created) SELECT ?,?,?,?,'waiting',?,? WHERE (SELECT revision FROM documents WHERE id='spec')=? AND (SELECT revision FROM documents WHERE id='changes')=?").bind(body.id,body.operation,instructions,JSON.stringify(body.revisions),detail,created,all.spec.revision,all.changes.revision).run();
-  if(!inserted.meta.changes)return json({error:'Documents changed while staging. Review and send again.'},409);
-  return json({id:body.id,status:'waiting',detail,created,operation:body.operation});
+  // One transaction stores the job and immutable snapshots before freeing the editor.
+  // Every write is conditional on the inserted job and the original revisions.
+  const statements=[db.prepare("INSERT OR IGNORE INTO jobs (id,operation,instructions,revisions,status,detail,created) SELECT ?,?,?,?,'waiting',?,? WHERE (SELECT revision FROM documents WHERE id='spec')=? AND (SELECT revision FROM documents WHERE id='changes')=?").bind(body.id,body.operation,instructions,JSON.stringify(body.revisions),detail,created,all.spec.revision,all.changes.revision),
+   db.prepare('INSERT OR IGNORE INTO metadata (key,value) SELECT ?,? WHERE EXISTS (SELECT 1 FROM jobs WHERE id=? AND created=?)').bind('job:'+body.id,JSON.stringify({spec:all.spec,changes:all.changes,detached}),body.id,created)];
+  if(detached){statements.push(db.prepare("INSERT INTO history (id,document,text,revision,modified) SELECT ?,'changes',text,revision,? FROM documents WHERE id='changes' AND revision=? AND EXISTS (SELECT 1 FROM jobs WHERE id=? AND created=?)").bind(crypto.randomUUID()+'.md',created,all.changes.revision,body.id,created));
+   statements.push(db.prepare("UPDATE documents SET text=?,revision=?,modified=? WHERE id='changes' AND revision=? AND EXISTS (SELECT 1 FROM jobs WHERE id=? AND created=?)").bind(cleared,await hash(cleared!),created,all.changes.revision,body.id,created));}
+  const saved=await db.batch(statements);
+  if(!saved[0].meta.changes){const prior=await db.prepare('SELECT * FROM jobs WHERE id=?').bind(body.id).first();return prior?json(prior):json({error:'Documents changed while staging. Review and send again.'},409);}
+  return json({id:body.id,status:'waiting',detail,created,operation:body.operation,changesMoved:detached});
  }
  if(request.method==='POST'&&path==='/api/bridge/heartbeat'){await putMeta(db,'bridge',{seen:new Date().toISOString(),status:body.status||'online',detail:String(body.detail||'').slice(0,500)});if(typeof body.activity==='string')await putMeta(db,'activity',{text:body.activity});return json({ok:true});}
  if(request.method==='POST'&&path==='/api/bridge/job'){

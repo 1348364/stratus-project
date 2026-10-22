@@ -33,6 +33,43 @@ CHAT_NAME = 'Coding Stratus (2)'
 BRIDGE = HERE / '.bridge'
 BRIDGE_LOCK = threading.Lock()
 SPEC_STAGE_BASE = BRIDGE / 'spec-stage-base.md'
+RUN_ACTIONS = ('run', 'stage_run', 'run_both')
+BATCHES = DOCS / 'IN-PROGRESS'
+
+
+def empty_pending(text):
+    """Keep document context; move only the unique Pending changes section."""
+    headings = list(re.finditer(r'^##[ \t]+Pending changes[ \t]*\r?$', text, re.M | re.I))
+    if len(headings) != 1:
+        raise ValueError('CHANGES.md needs exactly one ## Pending changes heading before sending a run.')
+    heading = headings[0]
+    following = re.search(r'^#{1,2}[ \t]+', text[heading.end():], re.M)
+    end = heading.end() + following.start() if following else len(text)
+    return text[:heading.end()] + '\n\nNo pending changes.\n\n' + text[end:]
+
+
+def batch_snapshot(request_id):
+    return {key: {'text': (BRIDGE / (request_id + '-' + name)).read_text()}
+            for key, name in (('changes', 'CHANGES.md'), ('spec', 'TASK.md'))}
+
+
+def release_pending(snapshot, receipt):
+    """Clear only the version sent, never subsequent user or coder edits."""
+    with LOCK:
+        current = document('changes')
+        if current['revision'] != snapshot['revision']:
+            receipt['detail'] += ' Newer CHANGES.md edits were preserved.'
+            return
+        text = empty_pending(snapshot['text'])
+        folder = HISTORY / 'changes'
+        folder.mkdir(parents=True, exist_ok=True)
+        stamp = datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S%fZ')
+        atomic_write(folder / (stamp + '-' + current['revision'][:12] + '.md'), current['text'].encode())
+        if document('changes')['revision'] != current['revision']:
+            receipt['detail'] += ' Newer CHANGES.md edits were preserved.'
+            return
+        atomic_write(DOCUMENTS['changes'], text.encode())
+        receipt['changesMoved'] = True
 
 
 def codex_binary():
@@ -50,7 +87,7 @@ def bridge_requests():
     return entries
 
 
-def send_to_chat(body):
+def send_to_chat(body, frozen=None):
     operation = body.get('operation')
     instructions = body.get('instructions', '')
     request_id = body.get('id', '')
@@ -69,11 +106,12 @@ def send_to_chat(body):
         if receipt_path.exists():
             return json.loads(receipt_path.read_text())
         with LOCK:
-            snapshots = {}
+            snapshots = frozen if frozen is not None else {key: document(key) for key in DOCUMENTS}
             for key in DOCUMENTS:
-                snapshots[key] = document(key)
-                if body.get('revisions', {}).get(key) != snapshots[key]['revision']:
+                if body.get('revisions', {}).get(key) != snapshots[key]['revision'] or digest(snapshots[key]['text'].encode()) != snapshots[key]['revision']:
                     raise ValueError('Project files changed. Refresh the editor and review them before sending.')
+        for key, name in (('changes', 'CHANGES.md'), ('spec', 'TASK.md')):
+            atomic_write(BRIDGE / (request_id + '-' + name), snapshots[key]['text'].encode())
         staging_context = ''
         if operation in ('stage_run', 'run_both'):
             before = SPEC_STAGE_BASE.read_text() if SPEC_STAGE_BASE.exists() else snapshots['spec']['text']
@@ -85,6 +123,14 @@ def send_to_chat(body):
             atomic_write(target_path, snapshots['spec']['text'].encode())
             atomic_write(changes_path, snapshots['changes']['text'].encode())
             staging_context = f'\nFrozen specification delta: {delta_path}\nFrozen complete target: {target_path}\nFrozen change brief: {changes_path}\n'
+        if operation in RUN_ACTIONS:
+            empty_pending(snapshots['changes']['text'])
+            batch = BATCHES / request_id
+            batch.mkdir(parents=True, exist_ok=True)
+            for key, name in (('changes', 'CHANGES.md'), ('spec', 'TASK.md')):
+                if not (batch / name).exists():
+                    atomic_write(batch / name, snapshots[key]['text'].encode())
+            staging_context += f'\nActive batch brief: {batch / "CHANGES.md"}\nBatch target snapshot: {batch / "TASK.md"}\n'
         actions = {
             'run_both': 'The user explicitly requests RUN CHANGES + TASK.md. Read both frozen snapshots below and current project instructions, AGENTS.md and GOALS.md. This action authorises implementing pending CHANGES.md requests AND unfinished requirements in the complete TASK.md target, even when there is no new specification delta. Review actual source and recorded verification first; preserve already completed features, controls, preferences and newer edits. Stage concrete unmet TASK.md requirements in CHANGES.md alongside the existing pending requests, then implement and verify them in this chat. Do not rebuild working code merely because TASK.md describes a clean rebuild. Do not treat obsolete wording or missing evidence alone as proof that working features are absent; record verification-only gaps separately and pursue them as appropriate. Resolve genuine conflicts without silently discarding either file. Preserve the intended full target, reconcile only approved completed changes and record actual evidence in CHANGE-LOG.md. Keep unfinished or unverified requests pending. If both files have no actionable unfinished work, report that and stop. Do not message another chat or revive the archived broken coding chat.',
             'related': 'Carry out only the related Stratus shader work explicitly described by the user below, in this chat. Read the project instructions and relevant TASK.md, CHANGES.md and CHANGE-LOG.md context. Saving or attaching these files does not authorise implementing their entire contents or other pending work. Preserve newer user edits and unrelated shader settings. If the requested work changes shader code, follow the project verification, specification reconciliation and completed-change recording rules. Do not send a handoff to another chat.',
@@ -95,6 +141,13 @@ def send_to_chat(body):
         }
         if operation in ('run', 'stage_run', 'run_both'):
             actions[operation] += (' After the required verification, move completed requests out of CHANGES.md Pending changes into the separate work/Custom instructions/COMPLETED-CHANGES.md archive with the release and CHANGE-LOG.md reference. Keep CHANGES.md pending-only; never append completed history to it. Do not leave checked-off completed items under Pending changes. Preserve partial, failed, unverified and newly added user requests. When none remain, leave only "No pending changes." under the heading. Queue delivery or a finished chat turn is never proof that requests are complete.')
+            actions[operation] = re.sub(r'(?<![-\w])CHANGES\.md', 'the active batch CHANGES.md', actions[operation])
+            staging_context += ('\nBATCH WORKFLOW: Process this saved batch before any later queued batch. '
+                'All change staging, implementation and pending-item reconciliation in this request refer to the active batch brief above. '
+                'The shared work/Custom instructions/CHANGES.md is now the user\'s NEXT unsent batch: never clear it, replace it, stage into it, or implement new requests from it during this run. '
+                'Keep unfinished/unverified items in the active batch brief; move verified items to COMPLETED-CHANGES.md with evidence. '
+                'Reconcile the current shared TASK.md carefully, preserving later edits. Frozen .bridge snapshots are immutable delivery evidence. '
+                'Report the batch path and remaining work. A queued batch is not completed work.\n')
         prompt = (f'Stratus Studio request {request_id}\nAction: {operation}\nProject: {PROJECT}\n'
                   f'Documents: {DOCS / "CHANGES.md"} and {DOCS / "TASK.md"}\n'
                   f'{actions[operation]}{staging_context}\n\nUser instructions:\n{instructions.strip() or "Use the saved project files."}\n'
@@ -111,12 +164,19 @@ def send_to_chat(body):
             if operation in ('stage_run', 'run_both'):
                 with BRIDGE_LOCK:
                     atomic_write(SPEC_STAGE_BASE, snapshots['spec']['text'].encode())
+            if operation in RUN_ACTIONS:
+                receipt['batchPath'] = str(BATCHES / request_id / 'CHANGES.md')
+                if frozen is None:
+                    release_pending(snapshots['changes'], receipt)
         else:
             receipt.update(status='failed', detail=(result.stderr or result.stdout or 'Codex could not queue the request.')[-1800:])
     except subprocess.TimeoutExpired:
         receipt.update(status='unknown', detail='Delivery timed out. Check the chat before sending another request; it may already have arrived.')
     except OSError:
-        receipt.update(status='failed', detail='Could not launch Codex. Open the Codex app and try again.')
+        if receipt.get('status') == 'queued':
+            receipt['detail'] += ' Could not clear the pending editor; the saved batch is safe. Do not resend it.'
+        else:
+            receipt.update(status='failed', detail='Could not launch Codex. Open the Codex app and try again.')
     atomic_write(receipt_path, json.dumps(receipt).encode())
     return receipt
 
@@ -186,6 +246,9 @@ class Handler(BaseHTTPRequestHandler):
                     'documents': {'spec': spec, 'changes': document('changes')}})
             if route == '/api/chat':
                 return self.reply(200, {'name': CHAT_NAME, 'available': bool(codex_binary()), 'requests': bridge_requests()})
+            batch_match = re.fullmatch(r'/api/chat/([a-f0-9-]{36})', route)
+            if batch_match:
+                return self.reply(200, batch_snapshot(batch_match.group(1)))
             if route == '/api/activity':
                 return self.reply(200, {'text': (DOCS / 'CHANGE-LOG.md').read_text(), 'filename': 'CHANGE-LOG.md'})
             match = re.fullmatch(r'/api/history/(changes|spec)(?:/([a-zA-Z0-9.-]+))?', route)

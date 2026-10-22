@@ -110,3 +110,11 @@ The background sender checks every minute while the Mac is awake and logged in. 
 ## Automatic GitHub publishing
 
 The standalone `tools/github_sync.py` LaunchAgent checks every five minutes. It publishes committed websites, settled local tools/documents and final packaged shaders, then uploads new shader release ZIPs and visual reports. It uses no ChatGPT automation. Configuration and recovery guidance are in `tools/GITHUB-SYNC.md`. Private feedback, credentials and runtime delivery state are excluded.
+
+## Separate run batches
+
+Run changes, Stage & send and Run Changes + TASK.md preserve the submitted CHANGES.md and TASK.md as a durable, independent batch. The shared Pending changes section is cleared for the next requests after the cloud transaction saves the job and snapshots (or after confirmed local CLI delivery). Saves and staging-only actions do not clear it. New edits never invalidate a detached batch or get silently included in its coding pass.
+
+The Mac materialises each active brief under `work/Custom instructions/IN-PROGRESS/<request-id>/CHANGES.md`, with its TASK.md snapshot. The coder reconciles this active brief and moves only verified items into COMPLETED-CHANGES.md. Unfinished work stays in the active batch. `.bridge` snapshots and cloud job metadata retain the original submission, and revision history retains the previous editor text. Open Chat → Saved batches & delivery receipts → View saved batch to inspect an original submission. Delivery states are not implementation status. A failed/uncertain delivery retains its batch for recovery; inspect its receipt before resubmitting.
+
+The cloud bridge dispatches frozen batches in queue order, independently of later document edits. Existing older jobs retain their original revision checks. Pending clearing uses revision checks so later edits are preserved. Sending while a batch is being coded queues the next batch; it does not start a parallel coder or interrupt the current one.

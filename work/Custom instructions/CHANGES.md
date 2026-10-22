@@ -1,6 +1,6 @@
 # Stratus — changes for the next coding pass
 
-Put only the changes you want worked on now under **Pending changes**. `TASK.md` is the complete shader target and remains in force for everything else. A saved file does not start work; tell the coding chat **“Apply the pending changes.”** After implementation and verification, move completed requests to [COMPLETED-CHANGES.md](COMPLETED-CHANGES.md) with the release/evidence reference. If none remain pending, leave **“No pending changes.”** Partial or unverified work stays pending.
+Put only the changes you want worked on now under **Pending changes**. `TASK.md` is the complete shader target and remains in force for everything else. A saved file does not start work; tell the coding chat **“Apply the pending changes.”** After implementation and verification, move completed requests to [COMPLETED-CHANGES.md](COMPLETED-CHANGES.md) with the release/evidence reference. If none remain pending, leave **“No pending changes.”** Partial or unverified work stays pending. Studio run actions save the submitted brief as a separate `IN-PROGRESS/<request-id>/CHANGES.md` batch and clear this pending section for your next requests. The coder works on that saved batch; queued work is not completed work.
 
 ## Pending changes
 
@@ -16,3 +16,12 @@ Historical 1.6.9 focused samples were 57.7→56.2 FPS river and 59.1→60.1 fore
 
 - [ ] Cloud/foliage verification only — obtain an actual occupied-cloud interior view, clearer independent high-cirrus and sunset framing, and the relevant exact-depth distant-foliage fog fallback scene. Below/above, layer-height grazing, small-span, native and finite motion-pair captures were reviewed in 1.6.10; the layer-height camera was in a footprint hole and cirrus was too subtle for firm acceptance. Preserve the implemented cloud/fog code and controls; stage concrete defects only if reproduced. [Labelled captures](../../outputs/Stratus-1.6.10-visual-checks/index.html).
 - [ ] Original-issue verification only — recover/review the originally reported downward-water pole and distant-leaf camera/context. The finite pitch90/shoreline regressions and unchanged pole-filter source do not certify those exact historical views.
+
+### Staged clarification — STAGE AND RUN d5f466f4 (22 October 2026)
+
+- [ ] Adopt the latest saved Main visual **and quality** choices as the Reference baseline, explicitly confirmed by the user. This supersedes TASK’s old full-resolution/detailed-reflection Reference definition. Preserve every control and allowed choice. Share Reference visual defaults across presets; order performance settings below/at/above Reference. Preserve old archives/settings and newer edits.
+- [ ] Require actual chunk readiness before steady-state FPS sampling; record readiness evidence. Any chunk-loading FPS samples must be labelled separately. Compare optimisation at matched quality; do not count the approved preset rebase as a code speedup.
+
+The frozen TASK delta repeats completed1.6.10 migration/optimisation/evidence reconciliation; no duplicate implementation was staged from it. The existing approximately60FPS and remaining scene-verification requests remain pending.
+
+FPS deferral for request d5f466f4: the user explicitly said “skip for now, i will request this later.” Do not collect FPS in this pass. The chunk-readiness gate can be checked without FPS sampling; performance acceptance remains pending.

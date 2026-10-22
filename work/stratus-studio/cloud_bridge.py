@@ -91,18 +91,21 @@ def main():
             server.atomic_write(STATE,json.dumps(sync).encode())
             activity=(server.DOCS/'CHANGE-LOG.md').read_text()
             cloud('/api/bridge/heartbeat','POST',{'status':'conflict' if conflict else 'online','detail':'Both cloud and Mac edited '+', '.join(conflict)+'. Resolve before running.' if conflict else 'Documents synced.','activity':activity})
-            if not conflict:
-                for job in remote['jobs']:
-                    current={key:server.document(key)['revision'] for key in server.DOCUMENTS}
-                    if current!=job['revisions']:
-                        cloud('/api/bridge/job','POST',{'id':job['id'],'status':'failed','detail':'Files changed after this request was staged. Review the latest documents and send a new request.'});continue
-                    claim=cloud('/api/bridge/job','POST',{'id':job['id'],'claim':True})
-                    if not claim['claimed']:continue
-                    # Persistent local request IDs prevent duplicate Codex messages after reconnecting.
-                    body={'id':job['id'],'operation':job['operation'],'instructions':job['instructions'],'revisions':current}
-                    result=server.send_to_chat(body)
-                    status=result['status'] if result['status'] in ('queued','failed','unknown') else 'unknown'
-                    cloud('/api/bridge/job','POST',{'id':job['id'],'status':status,'detail':result.get('detail','Check the chat before retrying.'),'queueId':result.get('queueId')})
+            for job in remote['jobs']:
+                claim=cloud('/api/bridge/job','POST',{'id':job['id'],'claim':True})
+                if not claim['claimed']:continue
+                snapshot=claim.get('snapshot')
+                detached=bool(snapshot and snapshot.get('detached'))
+                if conflict and not detached:
+                    cloud('/api/bridge/job','POST',{'id':job['id'],'status':'waiting','detail':'Waiting for document conflicts to be resolved.'});continue
+                current={key:server.document(key)['revision'] for key in server.DOCUMENTS}
+                if not detached and current!=job['revisions']:
+                    cloud('/api/bridge/job','POST',{'id':job['id'],'status':'failed','detail':'Files changed after this request was staged. Review the latest documents and send a new request.'});continue
+                # Persistent local request IDs prevent duplicate Codex messages after reconnecting.
+                body={'id':job['id'],'operation':job['operation'],'instructions':job['instructions'],'revisions':job['revisions'] if detached else current}
+                result=server.send_to_chat(body,frozen=snapshot if detached else None)
+                status=result['status'] if result['status'] in ('queued','failed','unknown') else 'unknown'
+                cloud('/api/bridge/job','POST',{'id':job['id'],'status':status,'detail':result.get('detail','Check the chat before retrying.'),'queueId':result.get('queueId')})
             if time.monotonic()-public_checked>60:
                 public_checked=time.monotonic()
                 try:
