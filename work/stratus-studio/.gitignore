@@ -8,3 +8,5 @@ feedback-cache.json
 .feedback-*
 .public-sync-state.json
 .public-updates-state.json
+
+.github-sync*

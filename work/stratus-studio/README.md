@@ -106,3 +106,7 @@ The background sender checks every minute while the Mac is awake and logged in. 
 ### Local feedback cache
 
 `feedback-cache.json` keeps full downloaded feedback messages, optional reply addresses, cloud status and local delivery receipts. It is updated before SMTP authentication or sending, so it works even before Gmail setup succeeds. The existing mail LaunchAgent refreshes it every minute while this Mac is awake and online. Unsent, uncertain and delivered messages stay in the cache; absent cloud records never remove local copies. The file is private to the current user (0600), excluded from Git, and contains no SMTP credentials. Run `python3 feedback_mail.py cache` to refresh without sending. Messages not yet downloaded remain in the hosted queue while the Mac is offline. Delivery still requires cloud claim checks to avoid duplicates.
+
+## Automatic GitHub publishing
+
+The standalone `tools/github_sync.py` LaunchAgent checks every five minutes. It publishes committed websites, settled local tools/documents and final packaged shaders, then uploads new shader release ZIPs and visual reports. It uses no ChatGPT automation. Configuration and recovery guidance are in `tools/GITHUB-SYNC.md`. Private feedback, credentials and runtime delivery state are excluded.

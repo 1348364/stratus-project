@@ -15,7 +15,7 @@ SECRET=[re.compile(rb'gh[pousr]_[A-Za-z0-9_]{25,}'),re.compile(rb'github_pat_[A-
 def safe(p):
  rel=p.relative_to(ROOT)
  if any(x in SKIP_DIR for x in rel.parts):return False
- if p.name in SKIP_FILE or p.name.startswith(('.env','.dev.vars','.feedback-','.cloud-','.public-')):return False
+ if p.name in SKIP_FILE or p.name.startswith(('.env','.dev.vars','.feedback-','.cloud-','.public-','.github-sync')):return False
  if p.suffix.lower() in {'.log','.class','.lock'} and p.name not in {'package-lock.json'}:return False
  if any(x in {'dist','outputs'} for x in rel.parts[2:-1]) and rel.parts[1:2] in [('stratus-public',),('stratus-studio-cloud',)]:return False
  return True
