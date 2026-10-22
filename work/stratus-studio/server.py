@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import difflib
 import hashlib
+import importlib.util
 import json
 import mimetypes
 import os
@@ -122,7 +123,7 @@ def send_to_chat(body, frozen=None):
             atomic_write(delta_path, delta.encode())
             atomic_write(target_path, snapshots['spec']['text'].encode())
             atomic_write(changes_path, snapshots['changes']['text'].encode())
-            staging_context = f'\nFrozen specification delta: {delta_path}\nFrozen complete target: {target_path}\nFrozen change brief: {changes_path}\n'
+            staging_context = f'\nFrozen specification delta: {delta_path}\n'
         if operation in RUN_ACTIONS:
             empty_pending(snapshots['changes']['text'])
             batch = BATCHES / request_id
@@ -132,26 +133,29 @@ def send_to_chat(body, frozen=None):
                     atomic_write(batch / name, snapshots[key]['text'].encode())
             staging_context += f'\nActive batch brief: {batch / "CHANGES.md"}\nBatch target snapshot: {batch / "TASK.md"}\n'
         actions = {
-            'run_both': 'The user explicitly requests RUN CHANGES + TASK.md. Read both frozen snapshots below and current project instructions, AGENTS.md and GOALS.md. This action authorises implementing pending CHANGES.md requests AND unfinished requirements in the complete TASK.md target, even when there is no new specification delta. Review actual source and recorded verification first; preserve already completed features, controls, preferences and newer edits. Stage concrete unmet TASK.md requirements in CHANGES.md alongside the existing pending requests, then implement and verify them in this chat. Do not rebuild working code merely because TASK.md describes a clean rebuild. Do not treat obsolete wording or missing evidence alone as proof that working features are absent; record verification-only gaps separately and pursue them as appropriate. Resolve genuine conflicts without silently discarding either file. Preserve the intended full target, reconcile only approved completed changes and record actual evidence in CHANGE-LOG.md. Keep unfinished or unverified requests pending. If both files have no actionable unfinished work, report that and stop. Do not message another chat or revive the archived broken coding chat.',
-            'related': 'Carry out only the related Stratus shader work explicitly described by the user below, in this chat. Read the project instructions and relevant TASK.md, CHANGES.md and CHANGE-LOG.md context. Saving or attaching these files does not authorise implementing their entire contents or other pending work. Preserve newer user edits and unrelated shader settings. If the requested work changes shader code, follow the project verification, specification reconciliation and completed-change recording rules. Do not send a handoff to another chat.',
-            'stage_run': 'The user explicitly requests STAGE AND RUN. Read the frozen specification delta and snapshots below. Stage meaningful added, changed and removed TASK.md requirements as pending items in CHANGES.md, preserving existing pending requests. A removed requirement is a request to remove the corresponding shader behaviour; preserve unrelated controls and clarify high-impact removals as required by project instructions. Ignore formatting-only differences. TASK.md remains the complete absolute target, not an instruction to rebuild everything. Then apply the staged pending requests in this chat, following AGENTS.md and GOALS.md. If the delta is empty, use only existing pending changes and explicit user instructions; do not invent work by comparing the whole target with shader source. If both are empty, report no new work and stop. Reconcile approved completed changes into TASK.md, record actual evidence in CHANGE-LOG.md and leave incomplete or unverified items pending. Preserve newer edits and report conflicts against the frozen snapshots. Do not message another chat or revive the archived broken coding chat.',
-            'stage': 'Review the saved CHANGES.md against TASK.md and the project instructions. Refine and stage only the pending change brief in CHANGES.md, preserving user intent. Do not implement shader code or start a coding handoff. Report the staged brief and any unresolved questions.',
-            'run': 'The user explicitly requests execution of the saved pending changes in CHANGES.md. Read TASK.md and follow the project AGENTS.md and GOALS.md. Implement only pending requests; preserve unchanged visuals, controls and preferences. If no requests are pending, report that and stop. Record actual verification evidence in CHANGE-LOG.md, reconcile TASK.md only for approved completed changes, and keep incomplete or unverified items pending. Work in this chat; do not message another chat or revive the archived broken coding chat.',
-            'spec': 'Modify work/Custom instructions/TASK.md using the user instructions below. TASK.md is the complete absolute shader target and clean-rebuild specification, covering intended look, behaviour, construction and verification, with a quick-edit section for major design choices. It is not an incremental work queue or an inventory of in-game setting defaults. Preserve unrelated requirements and user intent. Follow the latest workflow established in this chat and the project instructions. This action edits the specification only: do not implement shader code or launch a coding handoff. Report exactly what changed.'
+            'run': 'Implement only pending requests in the active batch brief. If empty, stop.',
+            'stage_run': 'Stage meaningful TASK additions, modifications and removals from the frozen delta into the active batch, then implement it. Ignore formatting-only edits. With no delta, use only existing pending requests and explicit instructions; do not audit the whole target for new work.',
+            'run_both': 'Implement the active batch AND unfinished requirements in the complete TASK target. Review source/evidence first, stage concrete gaps in this batch, and keep verification gaps distinct from defects. Preserve working code; a clean-rebuild specification does not require rebuilding it.',
+            'stage': 'Refine only the shared pending CHANGES brief against TASK. Do not implement code or send another handoff.',
+            'spec': 'Modify only the shared TASK.md as instructed; preserve unrelated requirements. No shader implementation.',
+            'related': 'Carry out only the explicit related work below; other pending requests are not authorised.'
         }
-        if operation in ('run', 'stage_run', 'run_both'):
-            actions[operation] += (' After the required verification, move completed requests out of CHANGES.md Pending changes into the separate work/Custom instructions/COMPLETED-CHANGES.md archive with the release and CHANGE-LOG.md reference. Keep CHANGES.md pending-only; never append completed history to it. Do not leave checked-off completed items under Pending changes. Preserve partial, failed, unverified and newly added user requests. When none remain, leave only "No pending changes." under the heading. Queue delivery or a finished chat turn is never proof that requests are complete.')
-            actions[operation] = re.sub(r'(?<![-\w])CHANGES\.md', 'the active batch CHANGES.md', actions[operation])
-            staging_context += ('\nBATCH WORKFLOW: Process this saved batch before any later queued batch. '
-                'All change staging, implementation and pending-item reconciliation in this request refer to the active batch brief above. '
-                'The shared work/Custom instructions/CHANGES.md is now the user\'s NEXT unsent batch: never clear it, replace it, stage into it, or implement new requests from it during this run. '
-                'Keep unfinished/unverified items in the active batch brief; move verified items to COMPLETED-CHANGES.md with evidence. '
-                'Reconcile the current shared TASK.md carefully, preserving later edits. Frozen .bridge snapshots are immutable delivery evidence. '
-                'Report the batch path and remaining work. A queued batch is not completed work.\n')
-        prompt = (f'Stratus Studio request {request_id}\nAction: {operation}\nProject: {PROJECT}\n'
-                  f'Documents: {DOCS / "CHANGES.md"} and {DOCS / "TASK.md"}\n'
-                  f'{actions[operation]}{staging_context}\n\nUser instructions:\n{instructions.strip() or "Use the saved project files."}\n'
-                  'Read the current files before editing. If they have changed since this request was queued, preserve later edits and report conflicts. Saving alone is never an execution trigger.')
+        if operation in RUN_ACTIONS:
+            helper_spec = importlib.util.spec_from_file_location('stratus_workflow', HERE / 'workflow.py')
+            helper = importlib.util.module_from_spec(helper_spec)
+            helper_spec.loader.exec_module(helper)
+            context_path = helper.prepare_context(PROJECT, batch)
+            staging_context += (f'\nStart with: {context_path}\nResume checkpoint: {batch / "PROGRESS.md"}\n'
+                'Process this batch before later queued batches. Stage/reconcile only its CHANGES.md; '
+                'the shared CHANGES.md holds the next unsent batch and must not be consumed or overwritten. '
+                'Keep incomplete/unverified items in this batch; archive verified items with evidence. '
+                'Preserve later TASK edits. Frozen .bridge snapshots are immutable.\n')
+        prompt = (f'Stratus Studio {request_id} | {operation}\nProject: {PROJECT}\n'
+                  f'Follow {DOCS / "AGENTS.md"}, GOALS.md and WORKFLOW.md.\n'
+                  f'{actions[operation]}{staging_context}\n'
+                  f'User instructions: {instructions.strip() or "Use the saved brief."}\n'
+                  'Read current applicable files before editing; preserve newer edits and report conflicts. '
+                  'Work in this chat; no extra handoff. Saving or queueing is not implementation evidence.')
         receipt = {'id': request_id, 'operation': operation, 'status': 'sending',
                    'created': datetime.now(timezone.utc).isoformat(), 'chat': CHAT_NAME}
         atomic_write(receipt_path, json.dumps(receipt).encode())

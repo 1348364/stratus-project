@@ -1,6 +1,6 @@
 # Stratus project instructions
 
-For shader work in this project, follow `work/Custom instructions/AGENTS.md` and the standing priorities in `work/Custom instructions/GOALS.md`.
+For shader work in this project, follow `work/Custom instructions/AGENTS.md` the standing priorities in `work/Custom instructions/GOALS.md`, and the efficient execution rules in `work/Custom instructions/WORKFLOW.md`.
 
 `work/Custom instructions/TASK.md` is the complete long-term shader target and clean-rebuild specification, not the next coding pass. `work/Custom instructions/CHANGES.md` contains the pending incremental work. When the user says “Apply the pending changes” or otherwise asks to implement the current change brief, read both files and implement only pending requests in `CHANGES.md` while preserving the rest of `TASK.md`. If no pending request is filled in, report that there is no new work. `CHANGE-LOG.md` records finished implementation. `SPEC-BASELINE.md` is a legacy comparison snapshot, not a task trigger. In-game setting defaults and choice lists live in shader source. Saving a file alone does not trigger work.
 

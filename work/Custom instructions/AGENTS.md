@@ -2,6 +2,8 @@
 
 This folder contains reusable prompts for Minecraft Iris shader development, particularly Stratus. Read `README.md` for usage. The current editable pack is under `outputs/Stratus`; confirm its state and whether the task calls for work in that pack or a work branch before editing.
 
+Follow `WORKFLOW.md` for bounded context preparation, progress checkpoints and avoiding repeated discovery. It does not relax the requirements below.
+
 ## Working rules
 
 - Use Australian English. Implement requested changes and verify them to the extent tools allow.
