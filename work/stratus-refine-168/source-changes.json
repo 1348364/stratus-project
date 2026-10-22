@@ -1,0 +1,13 @@
+{
+  "changed_runtime_assets": [
+    "shaders/core/ceiling.glsl",
+    "shaders/core/diffuse.glsl",
+    "shaders/core/moisture.glsl",
+    "shaders/core/options.glsl",
+    "shaders/core/output.frag.glsl",
+    "shaders/core/solar-warmth.glsl",
+    "shaders/core/volume.glsl",
+    "shaders/lang/en_us.lang",
+    "shaders/shaders.properties"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "runtime_build": "Stratus-1.6.7-QA-v2.zip",
+  "final_source_shader_count": 235,
+  "all_tokens_identical": true,
+  "comment_only_differences": [
+    "shaders/core/moisture.glsl",
+    "shaders/core/raster.frag.glsl"
+  ]
+}

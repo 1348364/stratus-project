@@ -1,0 +1,18 @@
+{
+  "all_final_checks_passed": true,
+  "release_sha256": "6f33f582371c329fd65f9a5ada06fad317dceb1ecf08589e33b88e321d038387",
+  "entries": 245,
+  "runtime_assets": 235,
+  "controls": 62,
+  "native_program_pairs": 768,
+  "focused_samples": 6,
+  "visual_captures": 41,
+  "all_generated_Main_QA_files_removed_with_evidence_preserved": true,
+  "old_release_and_preferences_preserved": true,
+  "saved_options_and_DynamicFPS_configuration_unchanged": true,
+  "all_helpers_stopped_and_fixture_restored": true,
+  "completed_requests_outside_pending": true,
+  "approximately60FPS_still_pending": true,
+  "pending_cloud_and_historical_scenes_preserved": true,
+  "local_document_links_checked": 37
+}

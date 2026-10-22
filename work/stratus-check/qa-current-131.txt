@@ -1,0 +1,100 @@
+PACK Stratus-1.3.1.zip
+RESUME
+STATE
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 25
+BENCH settings131-balanced-landscape 20
+SHOT s131-balanced-landscape
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 15
+BENCH settings131-balanced-water 20
+SHOT s131-balanced-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 15
+BENCH settings131-balanced-clouds 20
+SHOT s131-balanced-clouds
+PACK Stratus-1.3.0.zip
+RESUME
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 25
+BENCH settings130-repeat-landscape 20
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 15
+BENCH settings130-repeat-water 20
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 15
+BENCH settings130-repeat-clouds 20
+PACK Stratus-1.3.1.zip
+RESUME
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 5
+SHOT v131-landscape
+CMD tp ShaderCheck -8 100 2 0 12
+WAIT 3
+SHOT v131-entities
+CMD tp ShaderCheck 13 97 -4 0 17
+WAIT 3
+SHOT v131-water-edge
+CMD tp ShaderCheck 13 90 -3 0 0
+WAIT 3
+SHOT v131-underwater
+CMD tp ShaderCheck 13 91.9 -3 0 -20
+WAIT 3
+SHOT v131-interface
+CMD tp ShaderCheck 88 106 32 0 55
+WAIT 4
+SHOT v131-refraction
+CMD tp ShaderCheck 0 97 5 0 5
+RESUME
+CMD setblock 0 97 9 minecraft:stone
+CMD setblock 0 97 9 minecraft:air destroy
+SHOT v131-particles
+CMD weather rain
+CMD tp ShaderCheck 13 97 -4 0 17
+WAIT 4
+SHOT v131-rain-transparency
+CMD weather clear
+CMD time set 18000
+CMD tp ShaderCheck 0 96 5 0 10
+WAIT 4
+SHOT v131-bloom-night
+CMD time set 3000
+CMD tp ShaderCheck -45 86 -40 20 0
+WAIT 5
+SHOT v131-lowland-mist
+CMD tp ShaderCheck 200 192 200 0 0
+WAIT 5
+SHOT v131-cloud-inside
+CMD tp ShaderCheck 200 285 200 0 35
+WAIT 5
+SHOT v131-cloud-above
+CMD tp ShaderCheck 200 360 200 0 0
+WAIT 5
+SHOT v131-cirrus
+PACK Stratus-1.3.1-low-clouds.zip
+CMD tp ShaderCheck 104 184 96 0 90
+WAIT 5
+RESUME
+SHOT v131-water-through-cloud
+PACK Stratus-1.3.1-fast.zip
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 5
+RESUME
+SHOT v131-fast-water
+PACK Stratus-1.3.1.zip
+CMD execute in minecraft:the_nether run tp ShaderCheck 0 103 -5 0 18
+WAIT 15
+RESUME
+WAIT 3
+SHOT v131-nether
+CMD execute in minecraft:the_end run tp ShaderCheck 0 123 -5 0 18
+WAIT 15
+RESUME
+WAIT 3
+SHOT v131-end
+CMD execute in minecraft:overworld run tp ShaderCheck 0 110 -32 0 20
+WAIT 12
+RESUME
+SHOT v131-return
+STATE
+DONE v131-complete

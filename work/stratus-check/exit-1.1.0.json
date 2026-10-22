@@ -1,0 +1,6 @@
+{
+  "exit_code": 143,
+  "signal": "SIGTERM",
+  "scope": "Only isolated workspace QA client",
+  "session": 42273
+}

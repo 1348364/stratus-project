@@ -1,0 +1,66 @@
+{
+  "scope": "Native 128x128 actual full atmosphere GPU microbenchmark on Apple M1; not Minecraft FPS",
+  "sampling_quality_unchanged": true,
+  "query": "GL_TIME_ELAPSED over 32 consecutive draws; six rounds, first discarded; variant order rotated",
+  "scenes": [
+    {
+      "scene": 0,
+      "median_gpu_ms_per_draw": {
+        "before": 0.088434,
+        "after": 0.083672,
+        "hoist": 0.083427,
+        "bounds": 0.077466
+      },
+      "selected_after_time_reduction_percent": 5.384806748535631,
+      "max_linear_RGBA_error": 7.921457290649414e-05,
+      "max_sRGB_code_value_error": 0.01732118440834096,
+      "max_alpha_error": 7.921457290649414e-05
+    },
+    {
+      "scene": 1,
+      "median_gpu_ms_per_draw": {
+        "before": 0.016148,
+        "after": 0.01521,
+        "hoist": 0.015922,
+        "bounds": 0.0154
+      },
+      "selected_after_time_reduction_percent": 5.808768887787963,
+      "max_linear_RGBA_error": 4.5418739318847656e-05,
+      "max_sRGB_code_value_error": 0.012392875064642928,
+      "max_alpha_error": 4.5418739318847656e-05
+    },
+    {
+      "scene": 2,
+      "median_gpu_ms_per_draw": {
+        "before": 0.008309,
+        "after": 0.007962,
+        "hoist": 0.008315,
+        "bounds": 0.007773
+      },
+      "selected_after_time_reduction_percent": 4.176194487904683,
+      "max_linear_RGBA_error": 2.562999725341797e-06,
+      "max_sRGB_code_value_error": 0.0002800615156350883,
+      "max_alpha_error": 2.562999725341797e-06
+    },
+    {
+      "scene": 3,
+      "median_gpu_ms_per_draw": {
+        "before": 0.031133,
+        "after": 0.029298,
+        "hoist": 0.02975,
+        "bounds": 0.032199
+      },
+      "selected_after_time_reduction_percent": 5.894067388301805,
+      "max_linear_RGBA_error": 8.940696716308594e-08,
+      "max_sRGB_code_value_error": 2.419112232199261e-05,
+      "max_alpha_error": 0.0
+    }
+  ],
+  "opengl_errors": 0,
+  "focused_Minecraft_performance": "User asked to skip until tomorrow morning",
+  "limits": [
+    "Queries measure isolated repeated draw workload and can amortise driver costs differently from gameplay.",
+    "Initial shorter batches produced mixed timings; longer isolated test is narrower evidence, not a general speedup.",
+    "Finite images do not certify every scene, motion, preset or hardware."
+  ]
+}

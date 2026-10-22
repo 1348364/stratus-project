@@ -1,0 +1,72 @@
+{
+  "default": {},
+  "profile-FAST": {
+    "CLOUD_QUALITY": "1",
+    "FOG_QUALITY": "1",
+    "REFLECTION_QUALITY": "0"
+  },
+  "profile-REFERENCE": {
+    "CLOUD_QUALITY": "2",
+    "FOG_QUALITY": "2",
+    "REFLECTION_QUALITY": "1"
+  },
+  "profile-HIGH": {
+    "CLOUD_QUALITY": "3",
+    "FOG_QUALITY": "3",
+    "REFLECTION_QUALITY": "2"
+  },
+  "options-minimum": {
+    "AMBIENT_BRIGHTNESS": "0.85",
+    "COLOUR_TEMPERATURE": "-0.10",
+    "SATURATION": "0.85",
+    "CLOUD_COVERAGE": "0.70",
+    "CLOUD_SCALE": "350.0",
+    "CLOUD_IRREGULARITY": "0.25",
+    "CLOUD_SHADING": "0.25",
+    "CLOUD_SPEED": "0.00",
+    "CLOUD_QUALITY": "1",
+    "FOG_DENSITY": "0.00",
+    "FOG_HEIGHT": "48.0",
+    "FOG_FALLOFF": "16.0",
+    "FOG_START": "12.0",
+    "FOG_QUALITY": "1",
+    "WATER_REFLECTION": "0.40",
+    "REFLECTION_QUALITY": "0",
+    "REFLECTION_DISTANCE": "48.0",
+    "WATER_TRANSPARENCY": "0.60",
+    "WATER_ABSORPTION": "0.40",
+    "RIPPLE_STRENGTH": "0.00",
+    "RIPPLE_SCALE": "0.60",
+    "RIPPLE_SPEED": "0.00",
+    "BLOCKLIGHT_BRIGHTNESS": "0.70",
+    "BLOCKLIGHT_WARMTH": "0.00",
+    "ambientOcclusionLevel": "0.00"
+  },
+  "options-maximum": {
+    "AMBIENT_BRIGHTNESS": "1.25",
+    "COLOUR_TEMPERATURE": "0.10",
+    "SATURATION": "1.12",
+    "CLOUD_COVERAGE": "1.00",
+    "CLOUD_SCALE": "1000.0",
+    "CLOUD_IRREGULARITY": "1.00",
+    "CLOUD_SHADING": "0.70",
+    "CLOUD_SPEED": "1.00",
+    "CLOUD_QUALITY": "3",
+    "FOG_DENSITY": "1.35",
+    "FOG_HEIGHT": "160.0",
+    "FOG_FALLOFF": "56.0",
+    "FOG_START": "56.0",
+    "FOG_QUALITY": "3",
+    "WATER_REFLECTION": "1.00",
+    "REFLECTION_QUALITY": "2",
+    "REFLECTION_DISTANCE": "128.0",
+    "WATER_TRANSPARENCY": "1.00",
+    "WATER_ABSORPTION": "1.25",
+    "RIPPLE_STRENGTH": "1.00",
+    "RIPPLE_SCALE": "1.60",
+    "RIPPLE_SPEED": "1.00",
+    "BLOCKLIGHT_BRIGHTNESS": "1.30",
+    "BLOCKLIGHT_WARMTH": "0.70",
+    "ambientOcclusionLevel": "0.70"
+  }
+}

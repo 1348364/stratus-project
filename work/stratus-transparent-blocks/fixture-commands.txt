@@ -1,0 +1,11 @@
+CMD forceload add 4112 4080 4143 4127
+CMD fill 4120 95 4106 4122 100 4106 minecraft:glass
+CMD fill 4120 90 4096 4122 93 4096 minecraft:glass
+CMD fill 4124 95 4106 4126 100 4106 minecraft:red_stained_glass
+CMD fill 4124 90 4096 4126 93 4096 minecraft:red_stained_glass
+CMD fill 4128 95 4106 4130 100 4106 minecraft:blue_stained_glass
+CMD fill 4128 90 4096 4130 93 4096 minecraft:blue_stained_glass
+CMD fill 4132 95 4106 4134 100 4106 minecraft:lime_stained_glass
+CMD fill 4132 90 4096 4134 93 4096 minecraft:lime_stained_glass
+CMD fill 4119 89 4093 4136 94 4093 minecraft:white_concrete
+CMD fill 4126 90 4098 4127 93 4098 minecraft:glass

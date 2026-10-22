@@ -1,0 +1,33 @@
+STRATUS 1.3.1 - VERIFIED OPTIMIZATION
+17 October 2026
+
+Target: user's current video settings, read from Modrinth Main: 12 render chunks,
+8 simulation chunks, VSync on, cap 70, launcher window 854x480 (1708x960 actual).
+Mac unlocked; bounded awake assertion during the run. No other Minecraft process
+was detected before launch. Normal profile settings and selection were preserved.
+
+630 native compile/link checks: PASS, zero failures. 90 program pairs across
+three dimensions and seven variants. Offline compatibility shims, separately
+from actual Iris. All 206 shader/config files match the tested archive.
+
+Actual Minecraft 1.21.11 / Iris1.10.8 / Sodium0.8.14, Apple M1 OpenGL4.1:
+18 optimization-regression views inspected; zero shader errors.
+Geometry, entities, water edges/refraction/underwater/interfaces, particles, rain,
+bloom, mist, clouds/cirrus, water/cloud order, Fast reflections and Nether/End.
+The 1.3.0 optical libraries and bloom sources are byte-identical; its 34 focused
+GPU optical cases remain applicable. The previous release's 50-scene report is
+retained separately; those are not counted as new 1.3.1 captures.
+
+Changed: cached neighbour radial depth for atmosphere upsampling; skipped water
+work on non-water pixels; skipped unused reflection reconstruction in Fast.
+Visual controls, shading and cloud/mist/reflection sampling counts are retained.
+
+20-second frame wall-time samples (including stalls), Balanced:
+landscape: 55.6 fps average, 25.0 fps 1% low
+water: 54.3 fps average, 20.8 fps 1% low
+clouds: 63.8 fps average, 26.0 fps 1% low
+
+Before/after measurements and a repeated 1.3.0 control are in CHECKS.json and the
+visual report. Real-time approximations and half-resolution edge limitations
+remain documented in README.txt. Full normal-profile mods were not reproduced.
+Test process stopped with SIGTERM, exit143. Original world untouched.

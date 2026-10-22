@@ -1,0 +1,17 @@
+{
+  "original_camera_restored_max_position_error_blocks": 4.978879234229794e-05,
+  "yaw_modulo_360_error_degrees": 0.0,
+  "original_HUD_pause_flight_restored": true,
+  "original_screen_restored": "null",
+  "world_time": 6000,
+  "rain_gradient": 0,
+  "weather_timers_and_flags_restored_verified": true,
+  "temporary_four_glass_blocks_restored_to_exact_water_states": true,
+  "driver_stopped": true,
+  "activity_helper_stopped": true,
+  "fixture_helper_stopped": true,
+  "focused_benchmark_driver_stopped": true,
+  "focused_activity_helper_stopped": true,
+  "profiler_bytecode_restored": "Original bytecode restored for three Iris diagnostic targets; no game class or file changed.\n",
+  "recovery_note": "Initial fixture restore used an unavailable mapped method and stopped before modifying blocks. Guarded recovery restored exact saved states via Minecraft commands and verified them. Original failure evidence retained."
+}

@@ -1,0 +1,1967 @@
+Compiled from "ShaderPackScreen.java"
+public class net.irisshaders.iris.gui.screen.ShaderPackScreen extends net.minecraft.class_437 implements net.irisshaders.iris.gui.screen.HudHideable {
+  public static final java.util.Set<java.lang.Runnable> TOP_LAYER_RENDER_QUEUE;
+
+  private static final net.minecraft.class_2561 SELECT_TITLE;
+
+  private static final net.minecraft.class_2561 CONFIGURE_TITLE;
+
+  private static final int COMMENT_PANEL_WIDTH;
+
+  private static final java.lang.String development;
+
+  private final net.minecraft.class_437 parent;
+
+  private final net.minecraft.class_5250 irisTextComponent;
+
+  private final net.irisshaders.iris.uniforms.FrameUpdateNotifier notifier;
+
+  private net.irisshaders.iris.gui.element.ShaderPackSelectionList shaderPackList;
+
+  private net.irisshaders.iris.gui.element.ShaderPackOptionList shaderOptionList;
+
+  private net.irisshaders.iris.gui.NavigationController navigation;
+
+  private net.minecraft.class_4185 screenSwitchButton;
+
+  private net.minecraft.class_2561 notificationDialog;
+
+  private int notificationDialogTimer;
+
+  private net.irisshaders.iris.gui.element.widget.AbstractElementWidget<?> hoveredElement;
+
+  private java.util.Optional<net.minecraft.class_2561> hoveredElementCommentTitle;
+
+  private java.util.List<net.minecraft.class_5481> hoveredElementCommentBody;
+
+  private int hoveredElementCommentTimer;
+
+  private boolean optionMenuOpen;
+
+  private boolean dropChanges;
+
+  private net.minecraft.class_5250 developmentComponent;
+
+  private net.minecraft.class_5250 updateComponent;
+
+  private boolean guiHidden;
+
+  public final net.irisshaders.iris.uniforms.transforms.SmoothedFloat blurTransition;
+
+  private float guiButtonHoverTimer;
+
+  private net.minecraft.class_4185 openFolderButton;
+
+  private float backgroundInit;
+
+  public final net.irisshaders.iris.uniforms.transforms.SmoothedFloat listTransition;
+
+  public final net.irisshaders.iris.uniforms.transforms.SmoothedFloat buttonTransition;
+
+  private net.irisshaders.iris.gui.OldImageButton showHideButton;
+
+  private static final net.minecraft.class_2960 BLUR_POST_CHAIN_ID;
+
+  public net.irisshaders.iris.gui.screen.ShaderPackScreen(net.minecraft.class_437);
+    Code:
+         0: aload_0
+         1: ldc           #105                // String options.iris.shaderPackSelection.title
+         3: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+         6: invokespecial #114                // Method net/minecraft/class_437."<init>":(Lnet/minecraft/class_2561;)V
+         9: aload_0
+        10: new           #116                // class net/irisshaders/iris/uniforms/FrameUpdateNotifier
+        13: dup
+        14: invokespecial #119                // Method net/irisshaders/iris/uniforms/FrameUpdateNotifier."<init>":()V
+        17: putfield      #121                // Field notifier:Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;
+        20: aload_0
+        21: aconst_null
+        22: putfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+        25: aload_0
+        26: aconst_null
+        27: putfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        30: aload_0
+        31: aconst_null
+        32: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+        35: aload_0
+        36: iconst_0
+        37: putfield      #129                // Field notificationDialogTimer:I
+        40: aload_0
+        41: aconst_null
+        42: putfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+        45: aload_0
+        46: invokestatic  #137                // Method java/util/Optional.empty:()Ljava/util/Optional;
+        49: putfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+        52: aload_0
+        53: new           #141                // class java/util/ArrayList
+        56: dup
+        57: invokespecial #142                // Method java/util/ArrayList."<init>":()V
+        60: putfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+        63: aload_0
+        64: iconst_0
+        65: putfield      #146                // Field hoveredElementCommentTimer:I
+        68: aload_0
+        69: iconst_0
+        70: putfield      #148                // Field optionMenuOpen:Z
+        73: aload_0
+        74: iconst_0
+        75: putfield      #150                // Field dropChanges:Z
+        78: aload_0
+        79: iconst_0
+        80: putfield      #152                // Field guiHidden:Z
+        83: aload_0
+        84: new           #154                // class net/irisshaders/iris/uniforms/transforms/SmoothedFloat
+        87: dup
+        88: fconst_2
+        89: fconst_2
+        90: aload_0
+        91: invokedynamic #171,  0            // InvokeDynamic #0:getAsFloat:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/irisshaders/iris/gl/uniform/FloatSupplier;
+        96: aload_0
+        97: getfield      #121                // Field notifier:Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;
+       100: invokespecial #174                // Method net/irisshaders/iris/uniforms/transforms/SmoothedFloat."<init>":(FFLnet/irisshaders/iris/gl/uniform/FloatSupplier;Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;)V
+       103: putfield      #176                // Field blurTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       106: aload_0
+       107: fconst_0
+       108: putfield      #178                // Field guiButtonHoverTimer:F
+       111: aload_0
+       112: fconst_0
+       113: putfield      #180                // Field backgroundInit:F
+       116: aload_0
+       117: new           #154                // class net/irisshaders/iris/uniforms/transforms/SmoothedFloat
+       120: dup
+       121: fconst_1
+       122: fconst_1
+       123: aload_0
+       124: invokedynamic #185,  0            // InvokeDynamic #1:getAsFloat:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/irisshaders/iris/gl/uniform/FloatSupplier;
+       129: aload_0
+       130: getfield      #121                // Field notifier:Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;
+       133: invokespecial #174                // Method net/irisshaders/iris/uniforms/transforms/SmoothedFloat."<init>":(FFLnet/irisshaders/iris/gl/uniform/FloatSupplier;Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;)V
+       136: putfield      #187                // Field listTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       139: aload_0
+       140: new           #154                // class net/irisshaders/iris/uniforms/transforms/SmoothedFloat
+       143: dup
+       144: fconst_1
+       145: fconst_1
+       146: aload_0
+       147: invokedynamic #192,  0            // InvokeDynamic #2:getAsFloat:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/irisshaders/iris/gl/uniform/FloatSupplier;
+       152: aload_0
+       153: getfield      #121                // Field notifier:Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;
+       156: invokespecial #174                // Method net/irisshaders/iris/uniforms/transforms/SmoothedFloat."<init>":(FFLnet/irisshaders/iris/gl/uniform/FloatSupplier;Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;)V
+       159: putfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       162: aload_0
+       163: aload_1
+       164: putfield      #196                // Field parent:Lnet/minecraft/class_437;
+       167: invokestatic  #202                // Method net/irisshaders/iris/Iris.getVersion:()Ljava/lang/String;
+       170: invokedynamic #214,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       175: astore_2
+       176: invokestatic  #220                // InterfaceMethod net/irisshaders/iris/platform/IrisPlatformHelpers.getInstance:()Lnet/irisshaders/iris/platform/IrisPlatformHelpers;
+       179: invokeinterface #224,  1          // InterfaceMethod net/irisshaders/iris/platform/IrisPlatformHelpers.isDevelopmentEnvironment:()Z
+       184: ifeq          202
+       187: aload_0
+       188: ldc           #56                 // String Development Environment
+       190: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       193: getstatic     #233                // Field net/minecraft/class_124.field_1065:Lnet/minecraft/class_124;
+       196: invokevirtual #239                // Method net/minecraft/class_5250.method_27692:(Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       199: putfield      #241                // Field developmentComponent:Lnet/minecraft/class_5250;
+       202: aload_0
+       203: aload_2
+       204: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       207: getstatic     #246                // Field net/minecraft/class_124.field_1080:Lnet/minecraft/class_124;
+       210: invokevirtual #239                // Method net/minecraft/class_5250.method_27692:(Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       213: putfield      #248                // Field irisTextComponent:Lnet/minecraft/class_5250;
+       216: invokestatic  #252                // Method net/irisshaders/iris/Iris.getUpdateChecker:()Lnet/irisshaders/iris/UpdateChecker;
+       219: invokevirtual #257                // Method net/irisshaders/iris/UpdateChecker.getUpdateMessage:()Ljava/util/Optional;
+       222: invokevirtual #260                // Method java/util/Optional.isPresent:()Z
+       225: ifeq          270
+       228: aload_0
+       229: ldc_w         #262                // String New update available!
+       232: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       235: getstatic     #265                // Field net/minecraft/class_124.field_1060:Lnet/minecraft/class_124;
+       238: invokevirtual #239                // Method net/minecraft/class_5250.method_27692:(Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       241: getstatic     #268                // Field net/minecraft/class_124.field_1073:Lnet/minecraft/class_124;
+       244: invokevirtual #239                // Method net/minecraft/class_5250.method_27692:(Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       247: putfield      #270                // Field updateComponent:Lnet/minecraft/class_5250;
+       250: aload_0
+       251: getfield      #248                // Field irisTextComponent:Lnet/minecraft/class_5250;
+       254: ldc_w         #272                // String  (outdated)
+       257: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       260: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       263: invokevirtual #239                // Method net/minecraft/class_5250.method_27692:(Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       266: invokevirtual #279                // Method net/minecraft/class_5250.method_10852:(Lnet/minecraft/class_2561;)Lnet/minecraft/class_5250;
+       269: pop
+       270: aload_0
+       271: invokevirtual #282                // Method refreshForChangedPack:()V
+       274: return
+
+  public void method_25394(net.minecraft.class_332, int, int, float);
+    Code:
+         0: aload_0
+         1: getfield      #121                // Field notifier:Lnet/irisshaders/iris/uniforms/FrameUpdateNotifier;
+         4: invokevirtual #294                // Method net/irisshaders/iris/uniforms/FrameUpdateNotifier.onNewFrame:()V
+         7: aload_0
+         8: fconst_1
+         9: putfield      #180                // Field backgroundInit:F
+        12: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        15: invokevirtual #303                // Method net/minecraft/class_310.method_74188:()Z
+        18: ifeq          78
+        21: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        24: invokevirtual #307                // Method net/minecraft/class_310.method_22683:()Lnet/minecraft/class_1041;
+        27: bipush        68
+        29: invokestatic  #313                // Method net/minecraft/class_3675.method_15987:(Lnet/minecraft/class_1041;I)Z
+        32: ifeq          78
+        35: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        38: new           #315                // class net/minecraft/class_410
+        41: dup
+        42: aload_0
+        43: invokedynamic #325,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        48: ldc_w         #327                // String Shader debug mode toggle
+        51: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        54: ldc_w         #329                // String Debug mode helps investigate problems and shows shader errors. Would you like to enable it?
+        57: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        60: ldc_w         #331                // String Yes
+        63: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        66: ldc_w         #333                // String No
+        69: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        72: invokespecial #336                // Method net/minecraft/class_410."<init>":(Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;)V
+        75: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+        78: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        81: invokevirtual #303                // Method net/minecraft/class_310.method_74188:()Z
+        84: ifeq          144
+        87: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        90: invokevirtual #307                // Method net/minecraft/class_310.method_22683:()Lnet/minecraft/class_1041;
+        93: bipush        71
+        95: invokestatic  #313                // Method net/minecraft/class_3675.method_15987:(Lnet/minecraft/class_1041;I)Z
+        98: ifeq          144
+       101: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       104: new           #315                // class net/minecraft/class_410
+       107: dup
+       108: aload_0
+       109: invokedynamic #344,  0            // InvokeDynamic #5:accept:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+       114: ldc_w         #346                // String Unknown shader toggle
+       117: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       120: ldc_w         #348                // String This allows unknown shaders to load in.
+       123: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       126: ldc_w         #350                // String Enable
+       129: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       132: ldc_w         #352                // String Disable
+       135: invokestatic  #227                // InterfaceMethod net/minecraft/class_2561.method_43470:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       138: invokespecial #336                // Method net/minecraft/class_410."<init>":(Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;Lnet/minecraft/class_2561;)V
+       141: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+       144: aload_0
+       145: getfield      #152                // Field guiHidden:Z
+       148: ifne          204
+       151: aload_0
+       152: aload_1
+       153: iload_2
+       154: iload_3
+       155: fload         4
+       157: invokespecial #354                // Method net/minecraft/class_437.method_25394:(Lnet/minecraft/class_332;IIF)V
+       160: aload_0
+       161: getfield      #148                // Field optionMenuOpen:Z
+       164: ifeq          189
+       167: aload_0
+       168: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       171: ifnull        189
+       174: aload_0
+       175: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       178: aload_1
+       179: iload_2
+       180: iload_3
+       181: fload         4
+       183: invokevirtual #357                // Method net/irisshaders/iris/gui/element/ShaderPackOptionList.method_25394:(Lnet/minecraft/class_332;IIF)V
+       186: goto          216
+       189: aload_0
+       190: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       193: aload_1
+       194: iload_2
+       195: iload_3
+       196: fload         4
+       198: invokevirtual #360                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.method_25394:(Lnet/minecraft/class_332;IIF)V
+       201: goto          216
+       204: aload_0
+       205: getfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       208: aload_1
+       209: iload_2
+       210: iload_3
+       211: fload         4
+       213: invokevirtual #365                // Method net/irisshaders/iris/gui/OldImageButton.method_25394:(Lnet/minecraft/class_332;IIF)V
+       216: aload_0
+       217: getfield      #178                // Field guiButtonHoverTimer:F
+       220: fstore        5
+       222: fload         5
+       224: aload_0
+       225: getfield      #178                // Field guiButtonHoverTimer:F
+       228: fcmpl
+       229: ifne          237
+       232: aload_0
+       233: fconst_0
+       234: putfield      #178                // Field guiButtonHoverTimer:F
+       237: aload_0
+       238: getfield      #152                // Field guiHidden:Z
+       241: ifne          529
+       244: aload_1
+       245: aload_0
+       246: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       249: aload_0
+       250: getfield      #372                // Field field_22785:Lnet/minecraft/class_2561;
+       253: aload_0
+       254: getfield      #375                // Field field_22789:I
+       257: i2d
+       258: ldc2_w        #376                // double 0.5d
+       261: dmul
+       262: d2i
+       263: bipush        8
+       265: iconst_m1
+       266: invokevirtual #383                // Method net/minecraft/class_332.method_27534:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       269: aload_0
+       270: getfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       273: ifnull        311
+       276: aload_0
+       277: getfield      #129                // Field notificationDialogTimer:I
+       280: ifle          311
+       283: aload_1
+       284: aload_0
+       285: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       288: aload_0
+       289: getfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       292: aload_0
+       293: getfield      #375                // Field field_22789:I
+       296: i2d
+       297: ldc2_w        #376                // double 0.5d
+       300: dmul
+       301: d2i
+       302: bipush        21
+       304: iconst_m1
+       305: invokevirtual #383                // Method net/minecraft/class_332.method_27534:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       308: goto          369
+       311: aload_0
+       312: getfield      #148                // Field optionMenuOpen:Z
+       315: ifeq          345
+       318: aload_1
+       319: aload_0
+       320: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       323: getstatic     #385                // Field CONFIGURE_TITLE:Lnet/minecraft/class_2561;
+       326: aload_0
+       327: getfield      #375                // Field field_22789:I
+       330: i2d
+       331: ldc2_w        #376                // double 0.5d
+       334: dmul
+       335: d2i
+       336: bipush        21
+       338: iconst_m1
+       339: invokevirtual #383                // Method net/minecraft/class_332.method_27534:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       342: goto          369
+       345: aload_1
+       346: aload_0
+       347: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       350: getstatic     #387                // Field SELECT_TITLE:Lnet/minecraft/class_2561;
+       353: aload_0
+       354: getfield      #375                // Field field_22789:I
+       357: i2d
+       358: ldc2_w        #376                // double 0.5d
+       361: dmul
+       362: d2i
+       363: bipush        21
+       365: iconst_m1
+       366: invokevirtual #383                // Method net/minecraft/class_332.method_27534:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       369: aload_0
+       370: invokevirtual #390                // Method isDisplayingComment:()Z
+       373: ifeq          529
+       376: bipush        50
+       378: bipush        18
+       380: aload_0
+       381: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       384: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+       389: bipush        10
+       391: imul
+       392: iadd
+       393: invokestatic  #402                // Method java/lang/Math.max:(II)I
+       396: istore        6
+       398: ldc2_w        #376                // double 0.5d
+       401: aload_0
+       402: getfield      #375                // Field field_22789:I
+       405: i2d
+       406: dmul
+       407: d2i
+       408: sipush        157
+       411: isub
+       412: istore        7
+       414: aload_0
+       415: getfield      #405                // Field field_22790:I
+       418: iload         6
+       420: iconst_4
+       421: iadd
+       422: isub
+       423: istore        8
+       425: aload_1
+       426: iload         7
+       428: iload         8
+       430: sipush        314
+       433: iload         6
+       435: invokestatic  #411                // Method net/irisshaders/iris/gui/GuiUtil.drawPanel:(Lnet/minecraft/class_332;IIII)V
+       438: aload_1
+       439: aload_0
+       440: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       443: aload_0
+       444: getfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+       447: invokestatic  #415                // InterfaceMethod net/minecraft/class_2561.method_43473:()Lnet/minecraft/class_5250;
+       450: invokevirtual #419                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+       453: checkcast     #107                // class net/minecraft/class_2561
+       456: iload         7
+       458: iconst_4
+       459: iadd
+       460: iload         8
+       462: iconst_4
+       463: iadd
+       464: iconst_m1
+       465: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       468: iconst_0
+       469: istore        9
+       471: iload         9
+       473: aload_0
+       474: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       477: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+       482: if_icmpge     529
+       485: aload_1
+       486: aload_0
+       487: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       490: aload_0
+       491: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       494: iload         9
+       496: invokeinterface #426,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       501: checkcast     #428                // class net/minecraft/class_5481
+       504: iload         7
+       506: iconst_4
+       507: iadd
+       508: iload         8
+       510: bipush        16
+       512: iadd
+       513: iload         9
+       515: bipush        10
+       517: imul
+       518: iadd
+       519: iconst_m1
+       520: invokevirtual #432                // Method net/minecraft/class_332.method_35720:(Lnet/minecraft/class_327;Lnet/minecraft/class_5481;III)V
+       523: iinc          9, 1
+       526: goto          471
+       529: getstatic     #434                // Field TOP_LAYER_RENDER_QUEUE:Ljava/util/Set;
+       532: invokeinterface #440,  1          // InterfaceMethod java/util/Set.iterator:()Ljava/util/Iterator;
+       537: astore        6
+       539: aload         6
+       541: invokeinterface #445,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       546: ifeq          571
+       549: aload         6
+       551: invokeinterface #449,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       556: checkcast     #451                // class java/lang/Runnable
+       559: astore        7
+       561: aload         7
+       563: invokeinterface #454,  1          // InterfaceMethod java/lang/Runnable.run:()V
+       568: goto          539
+       571: getstatic     #434                // Field TOP_LAYER_RENDER_QUEUE:Ljava/util/Set;
+       574: invokeinterface #457,  1          // InterfaceMethod java/util/Set.clear:()V
+       579: aload_0
+       580: getfield      #241                // Field developmentComponent:Lnet/minecraft/class_5250;
+       583: ifnull        631
+       586: aload_1
+       587: aload_0
+       588: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       591: aload_0
+       592: getfield      #241                // Field developmentComponent:Lnet/minecraft/class_5250;
+       595: iconst_2
+       596: aload_0
+       597: getfield      #405                // Field field_22790:I
+       600: bipush        10
+       602: isub
+       603: iconst_m1
+       604: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       607: aload_1
+       608: aload_0
+       609: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       612: aload_0
+       613: getfield      #248                // Field irisTextComponent:Lnet/minecraft/class_5250;
+       616: iconst_2
+       617: aload_0
+       618: getfield      #405                // Field field_22790:I
+       621: bipush        20
+       623: isub
+       624: iconst_m1
+       625: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       628: goto          704
+       631: aload_0
+       632: getfield      #270                // Field updateComponent:Lnet/minecraft/class_5250;
+       635: ifnull        683
+       638: aload_1
+       639: aload_0
+       640: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       643: aload_0
+       644: getfield      #270                // Field updateComponent:Lnet/minecraft/class_5250;
+       647: iconst_2
+       648: aload_0
+       649: getfield      #405                // Field field_22790:I
+       652: bipush        10
+       654: isub
+       655: iconst_m1
+       656: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       659: aload_1
+       660: aload_0
+       661: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       664: aload_0
+       665: getfield      #248                // Field irisTextComponent:Lnet/minecraft/class_5250;
+       668: iconst_2
+       669: aload_0
+       670: getfield      #405                // Field field_22790:I
+       673: bipush        20
+       675: isub
+       676: iconst_m1
+       677: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       680: goto          704
+       683: aload_1
+       684: aload_0
+       685: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       688: aload_0
+       689: getfield      #248                // Field irisTextComponent:Lnet/minecraft/class_5250;
+       692: iconst_2
+       693: aload_0
+       694: getfield      #405                // Field field_22790:I
+       697: bipush        10
+       699: isub
+       700: iconst_m1
+       701: invokevirtual #422                // Method net/minecraft/class_332.method_27535:(Lnet/minecraft/class_327;Lnet/minecraft/class_2561;III)V
+       704: return
+
+  public boolean method_25402(net.minecraft.class_11909, boolean);
+    Code:
+         0: aload_0
+         1: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+         4: ldc_w         #262                // String New update available!
+         7: invokevirtual #475                // Method net/minecraft/class_327.method_1727:(Ljava/lang/String;)I
+        10: istore_3
+        11: aload_1
+        12: invokevirtual #481                // Method net/minecraft/class_11909.comp_4798:()D
+        15: dstore        4
+        17: aload_1
+        18: invokevirtual #484                // Method net/minecraft/class_11909.comp_4799:()D
+        21: dstore        6
+        23: aload_0
+        24: getfield      #270                // Field updateComponent:Lnet/minecraft/class_5250;
+        27: ifnull        107
+        30: dload         4
+        32: iload_3
+        33: i2d
+        34: dcmpg
+        35: ifge          107
+        38: dload         6
+        40: aload_0
+        41: getfield      #405                // Field field_22790:I
+        44: bipush        10
+        46: isub
+        47: i2d
+        48: dcmpl
+        49: ifle          107
+        52: dload         6
+        54: aload_0
+        55: getfield      #405                // Field field_22790:I
+        58: i2d
+        59: dcmpg
+        60: ifge          107
+        63: aload_0
+        64: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        67: new           #490                // class net/minecraft/class_407
+        70: dup
+        71: aload_0
+        72: invokedynamic #495,  0            // InvokeDynamic #6:accept:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        77: invokestatic  #252                // Method net/irisshaders/iris/Iris.getUpdateChecker:()Lnet/irisshaders/iris/UpdateChecker;
+        80: invokevirtual #498                // Method net/irisshaders/iris/UpdateChecker.getUpdateLink:()Ljava/util/Optional;
+        83: invokedynamic #511,  0            // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+        88: invokevirtual #515                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+        91: ldc_w         #517                // String
+        94: invokevirtual #419                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+        97: checkcast     #243                // class java/lang/String
+       100: iconst_1
+       101: invokespecial #520                // Method net/minecraft/class_407."<init>":(Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;Ljava/lang/String;Z)V
+       104: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+       107: aload_0
+       108: aload_1
+       109: iload_2
+       110: invokespecial #522                // Method net/minecraft/class_437.method_25402:(Lnet/minecraft/class_11909;Z)Z
+       113: ireturn
+
+  protected void method_25426();
+    Code:
+         0: aload_0
+         1: invokespecial #528                // Method net/minecraft/class_437.method_25426:()V
+         4: aload_0
+         5: getfield      #375                // Field field_22789:I
+         8: iconst_2
+         9: idiv
+        10: bipush        50
+        12: isub
+        13: istore_1
+        14: aload_0
+        15: getfield      #375                // Field field_22789:I
+        18: iconst_2
+        19: idiv
+        20: bipush        76
+        22: isub
+        23: istore_2
+        24: aload_0
+        25: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        28: getfield      #532                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+        31: ifnull        38
+        34: iconst_1
+        35: goto          39
+        38: iconst_0
+        39: istore_3
+        40: aload_0
+        41: aload_0
+        42: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        45: invokevirtual #536                // Method method_37066:(Lnet/minecraft/class_364;)V
+        48: aload_0
+        49: aload_0
+        50: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+        53: invokevirtual #536                // Method method_37066:(Lnet/minecraft/class_364;)V
+        56: aload_0
+        57: new           #21                 // class net/irisshaders/iris/gui/element/ShaderPackSelectionList
+        60: dup
+        61: aload_0
+        62: aload_0
+        63: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        66: aload_0
+        67: getfield      #375                // Field field_22789:I
+        70: aload_0
+        71: getfield      #405                // Field field_22790:I
+        74: bipush        32
+        76: aload_0
+        77: getfield      #405                // Field field_22790:I
+        80: bipush        58
+        82: isub
+        83: bipush        36
+        85: isub
+        86: iconst_0
+        87: aload_0
+        88: getfield      #375                // Field field_22789:I
+        91: invokespecial #539                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList."<init>":(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;Lnet/minecraft/class_310;IIIIII)V
+        94: putfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        97: invokestatic  #542                // Method net/irisshaders/iris/Iris.getCurrentPack:()Ljava/util/Optional;
+       100: invokevirtual #260                // Method java/util/Optional.isPresent:()Z
+       103: ifeq          192
+       106: aload_0
+       107: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+       110: ifnull        192
+       113: invokestatic  #542                // Method net/irisshaders/iris/Iris.getCurrentPack:()Ljava/util/Optional;
+       116: invokevirtual #544                // Method java/util/Optional.get:()Ljava/lang/Object;
+       119: checkcast     #546                // class net/irisshaders/iris/shaderpack/ShaderPack
+       122: astore        4
+       124: aload_0
+       125: new           #356                // class net/irisshaders/iris/gui/element/ShaderPackOptionList
+       128: dup
+       129: aload_0
+       130: aload_0
+       131: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+       134: aload         4
+       136: aload_0
+       137: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+       140: aload_0
+       141: getfield      #375                // Field field_22789:I
+       144: aload_0
+       145: getfield      #405                // Field field_22790:I
+       148: bipush        32
+       150: aload_0
+       151: getfield      #405                // Field field_22790:I
+       154: bipush        58
+       156: isub
+       157: bipush        36
+       159: isub
+       160: iconst_0
+       161: aload_0
+       162: getfield      #375                // Field field_22789:I
+       165: invokespecial #549                // Method net/irisshaders/iris/gui/element/ShaderPackOptionList."<init>":(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;Lnet/irisshaders/iris/gui/NavigationController;Lnet/irisshaders/iris/shaderpack/ShaderPack;Lnet/minecraft/class_310;IIIIII)V
+       168: putfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       171: aload_0
+       172: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+       175: aload_0
+       176: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       179: invokevirtual #555                // Method net/irisshaders/iris/gui/NavigationController.setActiveOptionList:(Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;)V
+       182: aload_0
+       183: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       186: invokevirtual #558                // Method net/irisshaders/iris/gui/element/ShaderPackOptionList.rebuild:()V
+       189: goto          202
+       192: aload_0
+       193: iconst_0
+       194: putfield      #148                // Field optionMenuOpen:Z
+       197: aload_0
+       198: aconst_null
+       199: putfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       202: aload_0
+       203: invokevirtual #561                // Method method_37067:()V
+       206: aload_0
+       207: getfield      #152                // Field guiHidden:Z
+       210: ifne          484
+       213: aload_0
+       214: getfield      #148                // Field optionMenuOpen:Z
+       217: ifeq          239
+       220: aload_0
+       221: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       224: ifnull        239
+       227: aload_0
+       228: aload_0
+       229: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+       232: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       235: pop
+       236: goto          248
+       239: aload_0
+       240: aload_0
+       241: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       244: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       247: pop
+       248: aload_0
+       249: getstatic     #570                // Field net/minecraft/class_5244.field_24334:Lnet/minecraft/class_2561;
+       252: aload_0
+       253: invokedynamic #580,  0            // InvokeDynamic #8:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       258: aload_0
+       259: getfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       262: invokestatic  #584                // Method net/irisshaders/iris/gui/element/screen/IrisButton.iris$builder:(Lnet/minecraft/class_2561;Lnet/minecraft/class_4185$class_4241;Lnet/irisshaders/iris/gl/uniform/FloatSupplier;)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       265: iload_1
+       266: bipush        104
+       268: iadd
+       269: aload_0
+       270: getfield      #405                // Field field_22790:I
+       273: bipush        27
+       275: isub
+       276: bipush        100
+       278: bipush        20
+       280: invokevirtual #588                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.bounds:(IIII)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       283: invokevirtual #592                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.build:()Lnet/irisshaders/iris/gui/element/screen/IrisButton;
+       286: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       289: pop
+       290: aload_0
+       291: ldc_w         #594                // String options.iris.apply
+       294: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       297: aload_0
+       298: invokedynamic #599,  0            // InvokeDynamic #9:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       303: aload_0
+       304: getfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       307: invokestatic  #584                // Method net/irisshaders/iris/gui/element/screen/IrisButton.iris$builder:(Lnet/minecraft/class_2561;Lnet/minecraft/class_4185$class_4241;Lnet/irisshaders/iris/gl/uniform/FloatSupplier;)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       310: iload_1
+       311: aload_0
+       312: getfield      #405                // Field field_22790:I
+       315: bipush        27
+       317: isub
+       318: bipush        100
+       320: bipush        20
+       322: invokevirtual #588                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.bounds:(IIII)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       325: invokevirtual #592                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.build:()Lnet/irisshaders/iris/gui/element/screen/IrisButton;
+       328: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       331: pop
+       332: aload_0
+       333: getstatic     #602                // Field net/minecraft/class_5244.field_24335:Lnet/minecraft/class_2561;
+       336: aload_0
+       337: invokedynamic #607,  0            // InvokeDynamic #10:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       342: aload_0
+       343: getfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       346: invokestatic  #584                // Method net/irisshaders/iris/gui/element/screen/IrisButton.iris$builder:(Lnet/minecraft/class_2561;Lnet/minecraft/class_4185$class_4241;Lnet/irisshaders/iris/gl/uniform/FloatSupplier;)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       349: iload_1
+       350: bipush        104
+       352: isub
+       353: aload_0
+       354: getfield      #405                // Field field_22790:I
+       357: bipush        27
+       359: isub
+       360: bipush        100
+       362: bipush        20
+       364: invokevirtual #588                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.bounds:(IIII)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       367: invokevirtual #592                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.build:()Lnet/irisshaders/iris/gui/element/screen/IrisButton;
+       370: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       373: pop
+       374: aload_0
+       375: ldc_w         #609                // String options.iris.openShaderPackFolder
+       378: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       381: aload_0
+       382: invokedynamic #614,  0            // InvokeDynamic #11:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       387: aload_0
+       388: getfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       391: invokestatic  #584                // Method net/irisshaders/iris/gui/element/screen/IrisButton.iris$builder:(Lnet/minecraft/class_2561;Lnet/minecraft/class_4185$class_4241;Lnet/irisshaders/iris/gl/uniform/FloatSupplier;)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       394: iload_2
+       395: bipush        78
+       397: isub
+       398: aload_0
+       399: getfield      #405                // Field field_22790:I
+       402: bipush        51
+       404: isub
+       405: sipush        152
+       408: bipush        20
+       410: invokevirtual #588                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.bounds:(IIII)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       413: invokevirtual #592                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.build:()Lnet/irisshaders/iris/gui/element/screen/IrisButton;
+       416: putfield      #616                // Field openFolderButton:Lnet/minecraft/class_4185;
+       419: aload_0
+       420: aload_0
+       421: getfield      #616                // Field openFolderButton:Lnet/minecraft/class_4185;
+       424: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       427: pop
+       428: aload_0
+       429: aload_0
+       430: ldc_w         #618                // String options.iris.shaderPackList
+       433: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       436: aload_0
+       437: invokedynamic #623,  0            // InvokeDynamic #12:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       442: aload_0
+       443: getfield      #194                // Field buttonTransition:Lnet/irisshaders/iris/uniforms/transforms/SmoothedFloat;
+       446: invokestatic  #584                // Method net/irisshaders/iris/gui/element/screen/IrisButton.iris$builder:(Lnet/minecraft/class_2561;Lnet/minecraft/class_4185$class_4241;Lnet/irisshaders/iris/gl/uniform/FloatSupplier;)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       449: iload_2
+       450: bipush        78
+       452: iadd
+       453: aload_0
+       454: getfield      #405                // Field field_22790:I
+       457: bipush        51
+       459: isub
+       460: sipush        152
+       463: bipush        20
+       465: invokevirtual #588                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.bounds:(IIII)Lnet/irisshaders/iris/gui/element/screen/IrisButton$Builder;
+       468: invokevirtual #592                // Method net/irisshaders/iris/gui/element/screen/IrisButton$Builder.build:()Lnet/irisshaders/iris/gui/element/screen/IrisButton;
+       471: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       474: checkcast     #11                 // class net/minecraft/class_4185
+       477: putfield      #625                // Field screenSwitchButton:Lnet/minecraft/class_4185;
+       480: aload_0
+       481: invokevirtual #628                // Method refreshScreenSwitchButton:()V
+       484: iload_3
+       485: ifeq          683
+       488: aload_0
+       489: getfield      #152                // Field guiHidden:Z
+       492: ifeq          504
+       495: ldc_w         #630                // String options.iris.gui.show
+       498: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       501: goto          510
+       504: ldc_w         #632                // String options.iris.gui.hide
+       507: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       510: astore        4
+       512: aload_0
+       513: getfield      #375                // Field field_22789:I
+       516: i2f
+       517: fconst_2
+       518: fdiv
+       519: ldc_w         #633                // float 154.0f
+       522: fadd
+       523: fstore        5
+       525: aload_0
+       526: getfield      #375                // Field field_22789:I
+       529: i2f
+       530: fload         5
+       532: fsub
+       533: fstore        6
+       535: fload         6
+       537: ldc_w         #634                // float 100.0f
+       540: fcmpl
+       541: ifle          556
+       544: aload_0
+       545: getfield      #375                // Field field_22789:I
+       548: bipush        50
+       550: isub
+       551: istore        7
+       553: goto          590
+       556: fload         6
+       558: ldc_w         #635                // float 20.0f
+       561: fcmpg
+       562: ifge          577
+       565: aload_0
+       566: getfield      #375                // Field field_22789:I
+       569: bipush        20
+       571: isub
+       572: istore        7
+       574: goto          590
+       577: fload         5
+       579: fload         6
+       581: fconst_2
+       582: fdiv
+       583: fadd
+       584: f2i
+       585: bipush        10
+       587: isub
+       588: istore        7
+       590: aload_0
+       591: new           #364                // class net/irisshaders/iris/gui/OldImageButton
+       594: dup
+       595: iload         7
+       597: aload_0
+       598: getfield      #405                // Field field_22790:I
+       601: bipush        39
+       603: isub
+       604: bipush        20
+       606: bipush        20
+       608: aload_0
+       609: getfield      #152                // Field guiHidden:Z
+       612: ifeq          620
+       615: bipush        20
+       617: goto          621
+       620: iconst_0
+       621: sipush        146
+       624: bipush        20
+       626: getstatic     #638                // Field net/irisshaders/iris/gui/GuiUtil.IRIS_WIDGETS_TEX:Lnet/minecraft/class_2960;
+       629: sipush        256
+       632: sipush        256
+       635: aload_0
+       636: invokedynamic #643,  0            // InvokeDynamic #13:onPress:(Lnet/irisshaders/iris/gui/screen/ShaderPackScreen;)Lnet/minecraft/class_4185$class_4241;
+       641: aload         4
+       643: invokespecial #646                // Method net/irisshaders/iris/gui/OldImageButton."<init>":(IIIIIIILnet/minecraft/class_2960;IILnet/minecraft/class_4185$class_4241;Lnet/minecraft/class_2561;)V
+       646: putfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       649: aload_0
+       650: getfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       653: aload         4
+       655: invokestatic  #652                // Method net/minecraft/class_7919.method_47407:(Lnet/minecraft/class_2561;)Lnet/minecraft/class_7919;
+       658: invokevirtual #656                // Method net/irisshaders/iris/gui/OldImageButton.method_47400:(Lnet/minecraft/class_7919;)V
+       661: aload_0
+       662: getfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       665: ldc2_w        #657                // long 10l
+       668: invokestatic  #664                // Method java/time/Duration.ofSeconds:(J)Ljava/time/Duration;
+       671: invokevirtual #668                // Method net/irisshaders/iris/gui/OldImageButton.method_47402:(Ljava/time/Duration;)V
+       674: aload_0
+       675: aload_0
+       676: getfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       679: invokevirtual #565                // Method method_37063:(Lnet/minecraft/class_364;)Lnet/minecraft/class_364;
+       682: pop
+       683: aload_0
+       684: aconst_null
+       685: putfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+       688: aload_0
+       689: iconst_0
+       690: putfield      #146                // Field hoveredElementCommentTimer:I
+       693: return
+
+  public void refreshForChangedPack();
+    Code:
+         0: invokestatic  #542                // Method net/irisshaders/iris/Iris.getCurrentPack:()Ljava/util/Optional;
+         3: invokevirtual #260                // Method java/util/Optional.isPresent:()Z
+         6: ifeq          59
+         9: invokestatic  #542                // Method net/irisshaders/iris/Iris.getCurrentPack:()Ljava/util/Optional;
+        12: invokevirtual #544                // Method java/util/Optional.get:()Ljava/lang/Object;
+        15: checkcast     #546                // class net/irisshaders/iris/shaderpack/ShaderPack
+        18: astore_1
+        19: aload_0
+        20: new           #551                // class net/irisshaders/iris/gui/NavigationController
+        23: dup
+        24: aload_1
+        25: invokevirtual #680                // Method net/irisshaders/iris/shaderpack/ShaderPack.getMenuContainer:()Lnet/irisshaders/iris/shaderpack/option/menu/OptionMenuContainer;
+        28: invokespecial #683                // Method net/irisshaders/iris/gui/NavigationController."<init>":(Lnet/irisshaders/iris/shaderpack/option/menu/OptionMenuContainer;)V
+        31: putfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        34: aload_0
+        35: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+        38: ifnull        56
+        41: aload_0
+        42: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+        45: aload_1
+        46: invokevirtual #687                // Method net/irisshaders/iris/gui/element/ShaderPackOptionList.applyShaderPack:(Lnet/irisshaders/iris/shaderpack/ShaderPack;)V
+        49: aload_0
+        50: getfield      #123                // Field shaderOptionList:Lnet/irisshaders/iris/gui/element/ShaderPackOptionList;
+        53: invokevirtual #558                // Method net/irisshaders/iris/gui/element/ShaderPackOptionList.rebuild:()V
+        56: goto          64
+        59: aload_0
+        60: aconst_null
+        61: putfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        64: aload_0
+        65: invokevirtual #628                // Method refreshScreenSwitchButton:()V
+        68: return
+
+  public void refreshScreenSwitchButton();
+    Code:
+         0: aload_0
+         1: getfield      #625                // Field screenSwitchButton:Lnet/minecraft/class_4185;
+         4: ifnull        95
+         7: aload_0
+         8: getfield      #625                // Field screenSwitchButton:Lnet/minecraft/class_4185;
+        11: aload_0
+        12: getfield      #148                // Field optionMenuOpen:Z
+        15: ifeq          27
+        18: ldc_w         #618                // String options.iris.shaderPackList
+        21: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        24: goto          33
+        27: ldc_w         #689                // String options.iris.shaderPackSettings
+        30: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        33: invokevirtual #692                // Method net/minecraft/class_4185.method_25355:(Lnet/minecraft/class_2561;)V
+        36: aload_0
+        37: getfield      #625                // Field screenSwitchButton:Lnet/minecraft/class_4185;
+        40: aload_0
+        41: getfield      #148                // Field optionMenuOpen:Z
+        44: ifne          87
+        47: aload_0
+        48: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        51: invokevirtual #696                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.getTopButtonRow:()Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList$TopButtonRowEntry;
+        54: getfield      #699                // Field net/irisshaders/iris/gui/element/ShaderPackSelectionList$TopButtonRowEntry.shadersEnabled:Z
+        57: ifeq          91
+        60: invokestatic  #542                // Method net/irisshaders/iris/Iris.getCurrentPack:()Ljava/util/Optional;
+        63: invokedynamic #706,  0            // InvokeDynamic #14:apply:()Ljava/util/function/Function;
+        68: invokevirtual #515                // Method java/util/Optional.map:(Ljava/util/function/Function;)Ljava/util/Optional;
+        71: iconst_1
+        72: invokestatic  #712                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        75: invokevirtual #419                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+        78: checkcast     #708                // class java/lang/Boolean
+        81: invokevirtual #715                // Method java/lang/Boolean.booleanValue:()Z
+        84: ifeq          91
+        87: iconst_1
+        88: goto          92
+        91: iconst_0
+        92: putfield      #718                // Field net/minecraft/class_4185.field_22763:Z
+        95: return
+
+  public void method_25393();
+    Code:
+         0: aload_0
+         1: invokespecial #721                // Method net/minecraft/class_437.method_25393:()V
+         4: aload_0
+         5: getfield      #129                // Field notificationDialogTimer:I
+         8: ifle          21
+        11: aload_0
+        12: dup
+        13: getfield      #129                // Field notificationDialogTimer:I
+        16: iconst_1
+        17: isub
+        18: putfield      #129                // Field notificationDialogTimer:I
+        21: aload_0
+        22: getfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+        25: ifnull        41
+        28: aload_0
+        29: dup
+        30: getfield      #146                // Field hoveredElementCommentTimer:I
+        33: iconst_1
+        34: iadd
+        35: putfield      #146                // Field hoveredElementCommentTimer:I
+        38: goto          46
+        41: aload_0
+        42: iconst_0
+        43: putfield      #146                // Field hoveredElementCommentTimer:I
+        46: return
+
+  public boolean method_25404(net.minecraft.class_11908);
+    Code:
+         0: aload_1
+         1: invokevirtual #728                // Method net/minecraft/class_11908.method_74231:()Z
+         4: ifeq          69
+         7: aload_0
+         8: getfield      #152                // Field guiHidden:Z
+        11: ifeq          25
+        14: aload_0
+        15: iconst_0
+        16: putfield      #152                // Field guiHidden:Z
+        19: aload_0
+        20: invokevirtual #729                // Method method_25426:()V
+        23: iconst_1
+        24: ireturn
+        25: aload_0
+        26: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        29: ifnull        51
+        32: aload_0
+        33: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        36: invokevirtual #732                // Method net/irisshaders/iris/gui/NavigationController.hasHistory:()Z
+        39: ifeq          51
+        42: aload_0
+        43: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        46: invokevirtual #735                // Method net/irisshaders/iris/gui/NavigationController.back:()V
+        49: iconst_1
+        50: ireturn
+        51: aload_0
+        52: getfield      #148                // Field optionMenuOpen:Z
+        55: ifeq          172
+        58: aload_0
+        59: iconst_0
+        60: putfield      #148                // Field optionMenuOpen:Z
+        63: aload_0
+        64: invokevirtual #729                // Method method_25426:()V
+        67: iconst_1
+        68: ireturn
+        69: aload_1
+        70: invokevirtual #738                // Method net/minecraft/class_11908.method_74236:()Z
+        73: ifeq          135
+        76: aload_0
+        77: getfield      #148                // Field optionMenuOpen:Z
+        80: ifne          103
+        83: aload_0
+        84: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        87: new           #725                // class net/minecraft/class_11908
+        90: dup
+        91: sipush        257
+        94: iconst_0
+        95: iconst_0
+        96: invokespecial #741                // Method net/minecraft/class_11908."<init>":(III)V
+        99: invokevirtual #743                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.method_25404:(Lnet/minecraft/class_11908;)Z
+       102: pop
+       103: aload_0
+       104: aload_0
+       105: getfield      #148                // Field optionMenuOpen:Z
+       108: ifne          115
+       111: iconst_1
+       112: goto          116
+       115: iconst_0
+       116: putfield      #148                // Field optionMenuOpen:Z
+       119: aload_0
+       120: invokevirtual #746                // Method applyChanges:()V
+       123: aload_0
+       124: invokevirtual #729                // Method method_25426:()V
+       127: aload_0
+       128: aconst_null
+       129: invokevirtual #749                // Method method_25395:(Lnet/minecraft/class_364;)V
+       132: goto          172
+       135: aload_1
+       136: invokevirtual #752                // Method net/minecraft/class_11908.comp_4795:()I
+       139: sipush        290
+       142: if_icmpne     172
+       145: aload_0
+       146: getfield      #362                // Field showHideButton:Lnet/irisshaders/iris/gui/OldImageButton;
+       149: ifnull        172
+       152: aload_0
+       153: aload_0
+       154: getfield      #152                // Field guiHidden:Z
+       157: ifne          164
+       160: iconst_1
+       161: goto          165
+       164: iconst_0
+       165: putfield      #152                // Field guiHidden:Z
+       168: aload_0
+       169: invokevirtual #729                // Method method_25426:()V
+       172: aload_0
+       173: getfield      #152                // Field guiHidden:Z
+       176: ifne          187
+       179: aload_0
+       180: aload_1
+       181: invokespecial #753                // Method net/minecraft/class_437.method_25404:(Lnet/minecraft/class_11908;)Z
+       184: ifeq          191
+       187: iconst_1
+       188: goto          192
+       191: iconst_0
+       192: ireturn
+
+  public void method_29638(java.util.List<java.nio.file.Path>);
+    Code:
+         0: aload_0
+         1: getfield      #148                // Field optionMenuOpen:Z
+         4: ifeq          15
+         7: aload_0
+         8: aload_1
+         9: invokevirtual #761                // Method onOptionMenuFilesDrop:(Ljava/util/List;)V
+        12: goto          20
+        15: aload_0
+        16: aload_1
+        17: invokevirtual #764                // Method onPackListFilesDrop:(Ljava/util/List;)V
+        20: return
+
+  public void onPackListFilesDrop(java.util.List<java.nio.file.Path>);
+    Code:
+         0: aload_1
+         1: invokeinterface #773,  1          // InterfaceMethod java/util/List.stream:()Ljava/util/stream/Stream;
+         6: invokedynamic #785,  0            // InvokeDynamic #15:test:()Ljava/util/function/Predicate;
+        11: invokeinterface #791,  2          // InterfaceMethod java/util/stream/Stream.filter:(Ljava/util/function/Predicate;)Ljava/util/stream/Stream;
+        16: invokeinterface #795,  1          // InterfaceMethod java/util/stream/Stream.toList:()Ljava/util/List;
+        21: astore_2
+        22: aload_2
+        23: invokeinterface #796,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        28: astore_3
+        29: aload_3
+        30: invokeinterface #445,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        35: ifeq          198
+        38: aload_3
+        39: invokeinterface #449,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        44: checkcast     #798                // class java/nio/file/Path
+        47: astore        4
+        49: aload         4
+        51: invokeinterface #802,  1          // InterfaceMethod java/nio/file/Path.getFileName:()Ljava/nio/file/Path;
+        56: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+        61: astore        5
+        63: invokestatic  #807                // Method net/irisshaders/iris/Iris.getShaderpacksDirectoryManager:()Lnet/irisshaders/iris/shaderpack/discovery/ShaderpackDirectoryManager;
+        66: aload         5
+        68: aload         4
+        70: invokevirtual #813                // Method net/irisshaders/iris/shaderpack/discovery/ShaderpackDirectoryManager.copyPackIntoDirectory:(Ljava/lang/String;Ljava/nio/file/Path;)V
+        73: goto          195
+        76: astore        6
+        78: aload_0
+        79: ldc_w         #815                // String options.iris.shaderPackSelection.copyErrorAlreadyExists
+        82: iconst_1
+        83: anewarray     #817                // class java/lang/Object
+        86: dup
+        87: iconst_0
+        88: aload         5
+        90: aastore
+        91: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+        94: iconst_2
+        95: anewarray     #229                // class net/minecraft/class_124
+        98: dup
+        99: iconst_0
+       100: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       103: aastore
+       104: dup
+       105: iconst_1
+       106: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       109: aastore
+       110: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       113: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       116: aload_0
+       117: bipush        100
+       119: putfield      #129                // Field notificationDialogTimer:I
+       122: aload_0
+       123: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       126: invokevirtual #831                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.refresh:()V
+       129: return
+       130: astore        6
+       132: getstatic     #835                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       135: ldc_w         #837                // String Error copying dragged shader pack
+       138: aload         6
+       140: invokevirtual #843                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       143: aload_0
+       144: ldc_w         #845                // String options.iris.shaderPackSelection.copyError
+       147: iconst_1
+       148: anewarray     #817                // class java/lang/Object
+       151: dup
+       152: iconst_0
+       153: aload         5
+       155: aastore
+       156: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+       159: iconst_2
+       160: anewarray     #229                // class net/minecraft/class_124
+       163: dup
+       164: iconst_0
+       165: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       168: aastore
+       169: dup
+       170: iconst_1
+       171: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       174: aastore
+       175: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       178: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       181: aload_0
+       182: bipush        100
+       184: putfield      #129                // Field notificationDialogTimer:I
+       187: aload_0
+       188: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       191: invokevirtual #831                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.refresh:()V
+       194: return
+       195: goto          29
+       198: aload_0
+       199: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       202: invokevirtual #831                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.refresh:()V
+       205: aload_2
+       206: invokeinterface #848,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       211: ifeq          316
+       214: aload_1
+       215: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+       220: iconst_1
+       221: if_icmpne     284
+       224: aload_1
+       225: invokeinterface #851,  1          // InterfaceMethod java/util/List.getFirst:()Ljava/lang/Object;
+       230: checkcast     #798                // class java/nio/file/Path
+       233: invokeinterface #802,  1          // InterfaceMethod java/nio/file/Path.getFileName:()Ljava/nio/file/Path;
+       238: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+       243: astore_3
+       244: aload_0
+       245: ldc_w         #853                // String options.iris.shaderPackSelection.failedAddSingle
+       248: iconst_1
+       249: anewarray     #817                // class java/lang/Object
+       252: dup
+       253: iconst_0
+       254: aload_3
+       255: aastore
+       256: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+       259: iconst_2
+       260: anewarray     #229                // class net/minecraft/class_124
+       263: dup
+       264: iconst_0
+       265: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       268: aastore
+       269: dup
+       270: iconst_1
+       271: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       274: aastore
+       275: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       278: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       281: goto          439
+       284: aload_0
+       285: ldc_w         #855                // String options.iris.shaderPackSelection.failedAdd
+       288: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+       291: iconst_2
+       292: anewarray     #229                // class net/minecraft/class_124
+       295: dup
+       296: iconst_0
+       297: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       300: aastore
+       301: dup
+       302: iconst_1
+       303: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       306: aastore
+       307: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       310: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       313: goto          439
+       316: aload_2
+       317: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+       322: iconst_1
+       323: if_icmpne     394
+       326: aload_2
+       327: invokeinterface #851,  1          // InterfaceMethod java/util/List.getFirst:()Ljava/lang/Object;
+       332: checkcast     #798                // class java/nio/file/Path
+       335: invokeinterface #802,  1          // InterfaceMethod java/nio/file/Path.getFileName:()Ljava/nio/file/Path;
+       340: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+       345: astore_3
+       346: aload_0
+       347: ldc_w         #857                // String options.iris.shaderPackSelection.addedPack
+       350: iconst_1
+       351: anewarray     #817                // class java/lang/Object
+       354: dup
+       355: iconst_0
+       356: aload_3
+       357: aastore
+       358: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+       361: iconst_2
+       362: anewarray     #229                // class net/minecraft/class_124
+       365: dup
+       366: iconst_0
+       367: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       370: aastore
+       371: dup
+       372: iconst_1
+       373: getstatic     #860                // Field net/minecraft/class_124.field_1054:Lnet/minecraft/class_124;
+       376: aastore
+       377: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       380: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       383: aload_0
+       384: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+       387: aload_3
+       388: invokevirtual #864                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.select:(Ljava/lang/String;)V
+       391: goto          439
+       394: aload_0
+       395: ldc_w         #866                // String options.iris.shaderPackSelection.addedPacks
+       398: iconst_1
+       399: anewarray     #817                // class java/lang/Object
+       402: dup
+       403: iconst_0
+       404: aload_2
+       405: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+       410: invokestatic  #871                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       413: aastore
+       414: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+       417: iconst_2
+       418: anewarray     #229                // class net/minecraft/class_124
+       421: dup
+       422: iconst_0
+       423: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       426: aastore
+       427: dup
+       428: iconst_1
+       429: getstatic     #860                // Field net/minecraft/class_124.field_1054:Lnet/minecraft/class_124;
+       432: aastore
+       433: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       436: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       439: aload_0
+       440: bipush        100
+       442: putfield      #129                // Field notificationDialogTimer:I
+       445: return
+      Exception table:
+         from    to  target type
+            63    73    76   Class java/nio/file/FileAlreadyExistsException
+            63    73   130   Class java/io/IOException
+
+  public void displayNotification(net.minecraft.class_2561);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+         5: aload_0
+         6: bipush        100
+         8: putfield      #129                // Field notificationDialogTimer:I
+        11: return
+
+  public void onOptionMenuFilesDrop(java.util.List<java.nio.file.Path>);
+    Code:
+         0: aload_1
+         1: invokeinterface #396,  1          // InterfaceMethod java/util/List.size:()I
+         6: iconst_1
+         7: if_icmpeq     46
+        10: aload_0
+        11: ldc_w         #883                // String options.iris.shaderPackOptions.tooManyFiles
+        14: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        17: iconst_2
+        18: anewarray     #229                // class net/minecraft/class_124
+        21: dup
+        22: iconst_0
+        23: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+        26: aastore
+        27: dup
+        28: iconst_1
+        29: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+        32: aastore
+        33: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+        36: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+        39: aload_0
+        40: bipush        100
+        42: putfield      #129                // Field notificationDialogTimer:I
+        45: return
+        46: aload_0
+        47: aload_1
+        48: invokeinterface #851,  1          // InterfaceMethod java/util/List.getFirst:()Ljava/lang/Object;
+        53: checkcast     #798                // class java/nio/file/Path
+        56: invokevirtual #887                // Method importPackOptions:(Ljava/nio/file/Path;)V
+        59: return
+
+  public void importPackOptions(java.nio.file.Path);
+    Code:
+         0: aload_1
+         1: iconst_0
+         2: anewarray     #894                // class java/nio/file/OpenOption
+         5: invokestatic  #900                // Method java/nio/file/Files.newInputStream:(Ljava/nio/file/Path;[Ljava/nio/file/OpenOption;)Ljava/io/InputStream;
+         8: astore_2
+         9: new           #902                // class java/util/Properties
+        12: dup
+        13: invokespecial #903                // Method java/util/Properties."<init>":()V
+        16: astore_3
+        17: aload_3
+        18: aload_2
+        19: invokevirtual #907                // Method java/util/Properties.load:(Ljava/io/InputStream;)V
+        22: aload_3
+        23: invokestatic  #911                // Method net/irisshaders/iris/Iris.queueShaderPackOptionsFromProperties:(Ljava/util/Properties;)V
+        26: aload_0
+        27: ldc_w         #913                // String options.iris.shaderPackOptions.importedSettings
+        30: iconst_1
+        31: anewarray     #817                // class java/lang/Object
+        34: dup
+        35: iconst_0
+        36: aload_1
+        37: invokeinterface #802,  1          // InterfaceMethod java/nio/file/Path.getFileName:()Ljava/nio/file/Path;
+        42: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+        47: aastore
+        48: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+        51: iconst_2
+        52: anewarray     #229                // class net/minecraft/class_124
+        55: dup
+        56: iconst_0
+        57: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+        60: aastore
+        61: dup
+        62: iconst_1
+        63: getstatic     #860                // Field net/minecraft/class_124.field_1054:Lnet/minecraft/class_124;
+        66: aastore
+        67: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+        70: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+        73: aload_0
+        74: bipush        100
+        76: putfield      #129                // Field notificationDialogTimer:I
+        79: aload_0
+        80: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        83: ifnull        93
+        86: aload_0
+        87: getfield      #125                // Field navigation:Lnet/irisshaders/iris/gui/NavigationController;
+        90: invokevirtual #914                // Method net/irisshaders/iris/gui/NavigationController.refresh:()V
+        93: aload_2
+        94: ifnull        126
+        97: aload_2
+        98: invokevirtual #919                // Method java/io/InputStream.close:()V
+       101: goto          126
+       104: astore_3
+       105: aload_2
+       106: ifnull        124
+       109: aload_2
+       110: invokevirtual #919                // Method java/io/InputStream.close:()V
+       113: goto          124
+       116: astore        4
+       118: aload_3
+       119: aload         4
+       121: invokevirtual #923                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       124: aload_3
+       125: athrow
+       126: goto          201
+       129: astore_2
+       130: getstatic     #835                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       133: aload_1
+       134: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+       139: invokedynamic #926,  0            // InvokeDynamic #16:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       144: aload_2
+       145: invokevirtual #929                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       148: aload_0
+       149: ldc_w         #931                // String options.iris.shaderPackOptions.failedImport
+       152: iconst_1
+       153: anewarray     #817                // class java/lang/Object
+       156: dup
+       157: iconst_0
+       158: aload_1
+       159: invokeinterface #802,  1          // InterfaceMethod java/nio/file/Path.getFileName:()Ljava/nio/file/Path;
+       164: invokeinterface #803,  1          // InterfaceMethod java/nio/file/Path.toString:()Ljava/lang/String;
+       169: aastore
+       170: invokestatic  #821                // InterfaceMethod net/minecraft/class_2561.method_43469:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+       173: iconst_2
+       174: anewarray     #229                // class net/minecraft/class_124
+       177: dup
+       178: iconst_0
+       179: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+       182: aastore
+       183: dup
+       184: iconst_1
+       185: getstatic     #275                // Field net/minecraft/class_124.field_1061:Lnet/minecraft/class_124;
+       188: aastore
+       189: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+       192: putfield      #127                // Field notificationDialog:Lnet/minecraft/class_2561;
+       195: aload_0
+       196: bipush        100
+       198: putfield      #129                // Field notificationDialogTimer:I
+       201: return
+      Exception table:
+         from    to  target type
+             9    93   104   Class java/lang/Throwable
+           109   113   116   Class java/lang/Throwable
+             0   126   129   Class java/lang/Exception
+
+  public void method_25419();
+    Code:
+         0: aload_0
+         1: getfield      #150                // Field dropChanges:Z
+         4: ifne          14
+         7: aload_0
+         8: invokevirtual #746                // Method applyChanges:()V
+        11: goto          18
+        14: aload_0
+        15: invokevirtual #940                // Method discardChanges:()V
+        18: aload_0
+        19: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        22: invokevirtual #941                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.close:()V
+        25: goto          39
+        28: astore_1
+        29: getstatic     #835                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+        32: ldc_w         #943                // String Failed to safely close shaderpack selection!
+        35: aload_1
+        36: invokevirtual #929                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+        39: aload_0
+        40: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        43: aload_0
+        44: getfield      #196                // Field parent:Lnet/minecraft/class_437;
+        47: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+        50: return
+      Exception table:
+         from    to  target type
+            18    25    28   Class java/io/IOException
+
+  private void dropChangesAndClose();
+    Code:
+         0: aload_0
+         1: iconst_1
+         2: putfield      #150                // Field dropChanges:Z
+         5: aload_0
+         6: invokevirtual #946                // Method method_25419:()V
+         9: return
+
+  public void applyChanges();
+    Code:
+         0: aload_0
+         1: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+         4: invokevirtual #950                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.method_25334:()Lnet/minecraft/class_350$class_351;
+         7: checkcast     #29                 // class net/irisshaders/iris/gui/element/ShaderPackSelectionList$BaseEntry
+        10: astore_1
+        11: aload_0
+        12: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        15: invokevirtual #696                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.getTopButtonRow:()Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList$TopButtonRowEntry;
+        18: getfield      #699                // Field net/irisshaders/iris/gui/element/ShaderPackSelectionList$TopButtonRowEntry.shadersEnabled:Z
+        21: istore_2
+        22: invokestatic  #954                // Method net/irisshaders/iris/Iris.getIrisConfig:()Lnet/irisshaders/iris/config/IrisConfig;
+        25: invokevirtual #959                // Method net/irisshaders/iris/config/IrisConfig.areShadersEnabled:()Z
+        28: istore_3
+        29: iload_2
+        30: iload_3
+        31: if_icmpeq     48
+        34: invokestatic  #964                // InterfaceMethod net/irisshaders/iris/api/v0/IrisApi.getInstance:()Lnet/irisshaders/iris/api/v0/IrisApi;
+        37: invokeinterface #968,  1          // InterfaceMethod net/irisshaders/iris/api/v0/IrisApi.getConfig:()Lnet/irisshaders/iris/api/v0/IrisApiConfig;
+        42: iload_2
+        43: invokeinterface #973,  2          // InterfaceMethod net/irisshaders/iris/api/v0/IrisApiConfig.setShadersEnabledAndApply:(Z)V
+        48: aload_1
+        49: instanceof    #32                 // class net/irisshaders/iris/gui/element/ShaderPackSelectionList$ShaderPackEntry
+        52: ifeq          64
+        55: aload_1
+        56: checkcast     #32                 // class net/irisshaders/iris/gui/element/ShaderPackSelectionList$ShaderPackEntry
+        59: astore        4
+        61: goto          65
+        64: return
+        65: aload_0
+        66: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        69: aload         4
+        71: invokevirtual #977                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.setApplied:(Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList$ShaderPackEntry;)V
+        74: aload         4
+        76: invokevirtual #980                // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList$ShaderPackEntry.getPackName:()Ljava/lang/String;
+        79: astore        5
+        81: aload         5
+        83: invokestatic  #983                // Method net/irisshaders/iris/Iris.getCurrentPackName:()Ljava/lang/String;
+        86: invokevirtual #986                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        89: ifne          95
+        92: invokestatic  #989                // Method net/irisshaders/iris/Iris.clearShaderPackOptionQueue:()V
+        95: invokestatic  #954                // Method net/irisshaders/iris/Iris.getIrisConfig:()Lnet/irisshaders/iris/config/IrisConfig;
+        98: invokevirtual #992                // Method net/irisshaders/iris/config/IrisConfig.getShaderPackName:()Ljava/util/Optional;
+       101: aconst_null
+       102: invokevirtual #419                // Method java/util/Optional.orElse:(Ljava/lang/Object;)Ljava/lang/Object;
+       105: checkcast     #243                // class java/lang/String
+       108: astore        6
+       110: aload         5
+       112: aload         6
+       114: invokevirtual #986                // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+       117: ifeq          137
+       120: invokestatic  #996                // Method net/irisshaders/iris/Iris.getShaderPackOptionQueue:()Ljava/util/Map;
+       123: invokeinterface #999,  1          // InterfaceMethod java/util/Map.isEmpty:()Z
+       128: ifeq          137
+       131: invokestatic  #1002               // Method net/irisshaders/iris/Iris.shouldResetShaderPackOptionsOnNextReload:()Z
+       134: ifeq          159
+       137: invokestatic  #954                // Method net/irisshaders/iris/Iris.getIrisConfig:()Lnet/irisshaders/iris/config/IrisConfig;
+       140: aload         5
+       142: invokevirtual #1005               // Method net/irisshaders/iris/config/IrisConfig.setShaderPackName:(Ljava/lang/String;)V
+       145: invokestatic  #964                // InterfaceMethod net/irisshaders/iris/api/v0/IrisApi.getInstance:()Lnet/irisshaders/iris/api/v0/IrisApi;
+       148: invokeinterface #968,  1          // InterfaceMethod net/irisshaders/iris/api/v0/IrisApi.getConfig:()Lnet/irisshaders/iris/api/v0/IrisApiConfig;
+       153: iload_2
+       154: invokeinterface #973,  2          // InterfaceMethod net/irisshaders/iris/api/v0/IrisApiConfig.setShadersEnabledAndApply:(Z)V
+       159: aload_0
+       160: invokevirtual #282                // Method refreshForChangedPack:()V
+       163: return
+
+  private void discardChanges();
+    Code:
+         0: invokestatic  #989                // Method net/irisshaders/iris/Iris.clearShaderPackOptionQueue:()V
+         3: return
+
+  private void openShaderPackFolder();
+    Code:
+         0: invokedynamic #1022,  0           // InvokeDynamic #17:run:()Ljava/lang/Runnable;
+         5: invokestatic  #1028               // Method java/util/concurrent/CompletableFuture.runAsync:(Ljava/lang/Runnable;)Ljava/util/concurrent/CompletableFuture;
+         8: pop
+         9: return
+
+  public void setElementHoveredStatus(net.irisshaders.iris.gui.element.widget.AbstractElementWidget<?>, boolean);
+    Code:
+         0: iload_2
+         1: ifeq          224
+         4: aload_1
+         5: aload_0
+         6: getfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+         9: if_acmpeq     224
+        12: aload_0
+        13: aload_1
+        14: putfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+        17: aload_1
+        18: instanceof    #1035               // class net/irisshaders/iris/gui/element/widget/CommentedElementWidget
+        21: ifeq          200
+        24: aload_0
+        25: aload_1
+        26: checkcast     #1035               // class net/irisshaders/iris/gui/element/widget/CommentedElementWidget
+        29: invokevirtual #1038               // Method net/irisshaders/iris/gui/element/widget/CommentedElementWidget.getCommentTitle:()Ljava/util/Optional;
+        32: putfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+        35: aload_1
+        36: checkcast     #1035               // class net/irisshaders/iris/gui/element/widget/CommentedElementWidget
+        39: invokevirtual #1041               // Method net/irisshaders/iris/gui/element/widget/CommentedElementWidget.getCommentBody:()Ljava/util/Optional;
+        42: astore_3
+        43: aload_3
+        44: invokevirtual #1042               // Method java/util/Optional.isEmpty:()Z
+        47: ifeq          62
+        50: aload_0
+        51: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+        54: invokeinterface #1043,  1         // InterfaceMethod java/util/List.clear:()V
+        59: goto          197
+        62: aload_3
+        63: invokevirtual #544                // Method java/util/Optional.get:()Ljava/lang/Object;
+        66: checkcast     #107                // class net/minecraft/class_2561
+        69: invokeinterface #1046,  1         // InterfaceMethod net/minecraft/class_2561.getString:()Ljava/lang/String;
+        74: astore        4
+        76: aload         4
+        78: ldc_w         #1048               // String .
+        81: invokevirtual #1052               // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+        84: ifeq          102
+        87: aload         4
+        89: iconst_0
+        90: aload         4
+        92: invokevirtual #1055               // Method java/lang/String.length:()I
+        95: iconst_1
+        96: isub
+        97: invokevirtual #1059               // Method java/lang/String.substring:(II)Ljava/lang/String;
+       100: astore        4
+       102: aload         4
+       104: ldc_w         #1061               // String \\. [ ]*
+       107: invokevirtual #1065               // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       110: invokestatic  #1070               // Method java/util/Arrays.stream:([Ljava/lang/Object;)Ljava/util/stream/Stream;
+       113: invokedynamic #1073,  0           // InvokeDynamic #18:apply:()Ljava/util/function/Function;
+       118: invokeinterface #1076,  2         // InterfaceMethod java/util/stream/Stream.map:(Ljava/util/function/Function;)Ljava/util/stream/Stream;
+       123: invokeinterface #795,  1          // InterfaceMethod java/util/stream/Stream.toList:()Ljava/util/List;
+       128: astore        5
+       130: aload_0
+       131: new           #141                // class java/util/ArrayList
+       134: dup
+       135: invokespecial #142                // Method java/util/ArrayList."<init>":()V
+       138: putfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       141: aload         5
+       143: invokeinterface #796,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+       148: astore        6
+       150: aload         6
+       152: invokeinterface #445,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       157: ifeq          197
+       160: aload         6
+       162: invokeinterface #449,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       167: checkcast     #235                // class net/minecraft/class_5250
+       170: astore        7
+       172: aload_0
+       173: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       176: aload_0
+       177: getfield      #369                // Field field_22793:Lnet/minecraft/class_327;
+       180: aload         7
+       182: sipush        306
+       185: invokevirtual #1080               // Method net/minecraft/class_327.method_1728:(Lnet/minecraft/class_5348;I)Ljava/util/List;
+       188: invokeinterface #1084,  2         // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+       193: pop
+       194: goto          150
+       197: goto          216
+       200: aload_0
+       201: invokestatic  #137                // Method java/util/Optional.empty:()Ljava/util/Optional;
+       204: putfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+       207: aload_0
+       208: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       211: invokeinterface #1043,  1         // InterfaceMethod java/util/List.clear:()V
+       216: aload_0
+       217: iconst_0
+       218: putfield      #146                // Field hoveredElementCommentTimer:I
+       221: goto          262
+       224: iload_2
+       225: ifne          262
+       228: aload_1
+       229: aload_0
+       230: getfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+       233: if_acmpne     262
+       236: aload_0
+       237: aconst_null
+       238: putfield      #131                // Field hoveredElement:Lnet/irisshaders/iris/gui/element/widget/AbstractElementWidget;
+       241: aload_0
+       242: invokestatic  #137                // Method java/util/Optional.empty:()Ljava/util/Optional;
+       245: putfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+       248: aload_0
+       249: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+       252: invokeinterface #1043,  1         // InterfaceMethod java/util/List.clear:()V
+       257: aload_0
+       258: iconst_0
+       259: putfield      #146                // Field hoveredElementCommentTimer:I
+       262: return
+
+  public boolean isDisplayingComment();
+    Code:
+         0: aload_0
+         1: getfield      #146                // Field hoveredElementCommentTimer:I
+         4: bipush        10
+         6: if_icmple     35
+         9: aload_0
+        10: getfield      #139                // Field hoveredElementCommentTitle:Ljava/util/Optional;
+        13: invokevirtual #260                // Method java/util/Optional.isPresent:()Z
+        16: ifeq          35
+        19: aload_0
+        20: getfield      #144                // Field hoveredElementCommentBody:Ljava/util/List;
+        23: invokeinterface #848,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        28: ifne          35
+        31: iconst_1
+        32: goto          36
+        35: iconst_0
+        36: ireturn
+
+  public net.minecraft.class_4185 getBottomRowOption();
+    Code:
+         0: aload_0
+         1: getfield      #616                // Field openFolderButton:Lnet/minecraft/class_4185;
+         4: areturn
+
+  private static void lambda$openShaderPackFolder$13();
+    Code:
+         0: invokestatic  #1097               // Method net/minecraft/class_156.method_668:()Lnet/minecraft/class_156$class_158;
+         3: invokestatic  #807                // Method net/irisshaders/iris/Iris.getShaderpacksDirectoryManager:()Lnet/irisshaders/iris/shaderpack/discovery/ShaderpackDirectoryManager;
+         6: invokevirtual #1101               // Method net/irisshaders/iris/shaderpack/discovery/ShaderpackDirectoryManager.getDirectoryUri:()Ljava/net/URI;
+         9: invokevirtual #1105               // Method net/minecraft/class_156$class_158.method_673:(Ljava/net/URI;)V
+        12: return
+
+  private static java.lang.Boolean lambda$refreshScreenSwitchButton$12(net.irisshaders.iris.shaderpack.ShaderPack);
+    Code:
+         0: aload_0
+         1: invokevirtual #680                // Method net/irisshaders/iris/shaderpack/ShaderPack.getMenuContainer:()Lnet/irisshaders/iris/shaderpack/option/menu/OptionMenuContainer;
+         4: getfield      #1112               // Field net/irisshaders/iris/shaderpack/option/menu/OptionMenuContainer.mainScreen:Lnet/irisshaders/iris/shaderpack/option/menu/OptionMenuElementScreen;
+         7: getfield      #1117               // Field net/irisshaders/iris/shaderpack/option/menu/OptionMenuElementScreen.elements:Ljava/util/List;
+        10: invokeinterface #848,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+        15: ifne          22
+        18: iconst_1
+        19: goto          23
+        22: iconst_0
+        23: invokestatic  #712                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        26: areturn
+
+  private void lambda$init$11(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: aload_0
+         2: getfield      #152                // Field guiHidden:Z
+         5: ifne          12
+         8: iconst_1
+         9: goto          13
+        12: iconst_0
+        13: putfield      #152                // Field guiHidden:Z
+        16: aload_0
+        17: invokevirtual #729                // Method method_25426:()V
+        20: return
+
+  private void lambda$init$10(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: aload_0
+         2: getfield      #148                // Field optionMenuOpen:Z
+         5: ifne          12
+         8: iconst_1
+         9: goto          13
+        12: iconst_0
+        13: putfield      #148                // Field optionMenuOpen:Z
+        16: aload_0
+        17: invokevirtual #746                // Method applyChanges:()V
+        20: aload_0
+        21: aload_0
+        22: getfield      #359                // Field shaderPackList:Lnet/irisshaders/iris/gui/element/ShaderPackSelectionList;
+        25: invokevirtual #1121               // Method net/irisshaders/iris/gui/element/ShaderPackSelectionList.method_25336:()Lnet/minecraft/class_350$class_351;
+        28: invokevirtual #749                // Method method_25395:(Lnet/minecraft/class_364;)V
+        31: aload_0
+        32: invokevirtual #729                // Method method_25426:()V
+        35: return
+
+  private void lambda$init$9(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: invokevirtual #1123               // Method openShaderPackFolder:()V
+         4: return
+
+  private void lambda$init$8(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: invokevirtual #1125               // Method dropChangesAndClose:()V
+         4: return
+
+  private void lambda$init$7(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: invokevirtual #746                // Method applyChanges:()V
+         4: return
+
+  private void lambda$init$6(net.minecraft.class_4185);
+    Code:
+         0: aload_0
+         1: invokevirtual #946                // Method method_25419:()V
+         4: return
+
+  private void lambda$mouseClicked$5(boolean);
+    Code:
+         0: iload_1
+         1: ifeq          26
+         4: invokestatic  #252                // Method net/irisshaders/iris/Iris.getUpdateChecker:()Lnet/irisshaders/iris/UpdateChecker;
+         7: invokevirtual #498                // Method net/irisshaders/iris/UpdateChecker.getUpdateLink:()Ljava/util/Optional;
+        10: invokestatic  #1097               // Method net/minecraft/class_156.method_668:()Lnet/minecraft/class_156$class_158;
+        13: dup
+        14: invokestatic  #1131               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        17: pop
+        18: invokedynamic #1138,  0           // InvokeDynamic #19:accept:(Lnet/minecraft/class_156$class_158;)Ljava/util/function/Consumer;
+        23: invokevirtual #1142               // Method java/util/Optional.ifPresent:(Ljava/util/function/Consumer;)V
+        26: aload_0
+        27: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        30: aload_0
+        31: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+        34: return
+
+  private void lambda$render$4(boolean);
+    Code:
+         0: invokestatic  #954                // Method net/irisshaders/iris/Iris.getIrisConfig:()Lnet/irisshaders/iris/config/IrisConfig;
+         3: iload_1
+         4: invokevirtual #1146               // Method net/irisshaders/iris/config/IrisConfig.setUnknown:(Z)V
+         7: goto          20
+        10: astore_2
+        11: new           #1148               // class java/lang/RuntimeException
+        14: dup
+        15: aload_2
+        16: invokespecial #1150               // Method java/lang/RuntimeException."<init>":(Ljava/lang/Throwable;)V
+        19: athrow
+        20: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        23: aload_0
+        24: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+        27: return
+      Exception table:
+         from    to  target type
+             0     7    10   Class java/io/IOException
+
+  private void lambda$render$3(boolean);
+    Code:
+         0: iload_1
+         1: invokestatic  #1153               // Method net/irisshaders/iris/Iris.setDebug:(Z)V
+         4: invokestatic  #300                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+         7: aload_0
+         8: invokevirtual #339                // Method net/minecraft/class_310.method_1507:(Lnet/minecraft/class_437;)V
+        11: return
+
+  private float lambda$new$2();
+    Code:
+         0: aload_0
+         1: getfield      #152                // Field guiHidden:Z
+         4: ifeq          9
+         7: fconst_0
+         8: freturn
+         9: aload_0
+        10: getfield      #180                // Field backgroundInit:F
+        13: freturn
+
+  private float lambda$new$1();
+    Code:
+         0: aload_0
+         1: getfield      #152                // Field guiHidden:Z
+         4: ifne          14
+         7: aload_0
+         8: getfield      #148                // Field optionMenuOpen:Z
+        11: ifeq          16
+        14: fconst_0
+        15: freturn
+        16: aload_0
+        17: getfield      #180                // Field backgroundInit:F
+        20: freturn
+
+  private float lambda$new$0();
+    Code:
+         0: aload_0
+         1: getfield      #152                // Field guiHidden:Z
+         4: ifeq          9
+         7: fconst_0
+         8: freturn
+         9: aload_0
+        10: getfield      #148                // Field optionMenuOpen:Z
+        13: ifeq          20
+        16: ldc_w         #1154               // float 0.1f
+        19: freturn
+        20: aload_0
+        21: getfield      #488                // Field field_22787:Lnet/minecraft/class_310;
+        24: getfield      #1158               // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        27: invokevirtual #1163               // Method net/minecraft/class_315.method_57703:()I
+        30: i2f
+        31: freturn
+
+  static {};
+    Code:
+         0: new           #1166               // class java/util/HashSet
+         3: dup
+         4: invokespecial #1167               // Method java/util/HashSet."<init>":()V
+         7: putstatic     #434                // Field TOP_LAYER_RENDER_QUEUE:Ljava/util/Set;
+        10: ldc_w         #1169               // String pack.iris.select.title
+        13: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        16: iconst_2
+        17: anewarray     #229                // class net/minecraft/class_124
+        20: dup
+        21: iconst_0
+        22: getstatic     #246                // Field net/minecraft/class_124.field_1080:Lnet/minecraft/class_124;
+        25: aastore
+        26: dup
+        27: iconst_1
+        28: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+        31: aastore
+        32: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+        35: putstatic     #387                // Field SELECT_TITLE:Lnet/minecraft/class_2561;
+        38: ldc_w         #1171               // String pack.iris.configure.title
+        41: invokestatic  #111                // InterfaceMethod net/minecraft/class_2561.method_43471:(Ljava/lang/String;)Lnet/minecraft/class_5250;
+        44: iconst_2
+        45: anewarray     #229                // class net/minecraft/class_124
+        48: dup
+        49: iconst_0
+        50: getstatic     #246                // Field net/minecraft/class_124.field_1080:Lnet/minecraft/class_124;
+        53: aastore
+        54: dup
+        55: iconst_1
+        56: getstatic     #824                // Field net/minecraft/class_124.field_1056:Lnet/minecraft/class_124;
+        59: aastore
+        60: invokevirtual #828                // Method net/minecraft/class_5250.method_27695:([Lnet/minecraft/class_124;)Lnet/minecraft/class_5250;
+        63: putstatic     #385                // Field CONFIGURE_TITLE:Lnet/minecraft/class_2561;
+        66: ldc_w         #1173               // String blur
+        69: invokestatic  #1179               // Method net/minecraft/class_2960.method_60656:(Ljava/lang/String;)Lnet/minecraft/class_2960;
+        72: putstatic     #1181               // Field BLUR_POST_CHAIN_ID:Lnet/minecraft/class_2960;
+        75: return
+}

@@ -1,0 +1,72 @@
+{
+  "reflections vs reflections-off": {
+    "mean_absolute_RGB_difference": 6.927321419321419,
+    "RMS_RGB_difference": 11.481177235694549,
+    "first_mean_RGB": [
+      94.58686247086247,
+      95.93811655011655,
+      93.70329448329448
+    ],
+    "second_mean_RGB": [
+      85.57208547008547,
+      91.57213364413364,
+      88.87448484848485
+    ]
+  },
+  "refraction vs refraction-off": {
+    "mean_absolute_RGB_difference": 96.91111525511525,
+    "RMS_RGB_difference": 113.21601648626572,
+    "first_mean_RGB": [
+      161.79314685314685,
+      200.39586013986013,
+      232.89282051282052
+    ],
+    "second_mean_RGB": [
+      101.10020979020979,
+      112.50181196581197,
+      109.75654545454546
+    ]
+  },
+  "damp-corners vs damp-off": {
+    "mean_absolute_RGB_difference": 4.2597150997151,
+    "RMS_RGB_difference": 4.973460047422201,
+    "first_mean_RGB": [
+      142.52251126651126,
+      136.78788655788657,
+      125.75542968142967
+    ],
+    "second_mean_RGB": [
+      146.84275524475524,
+      141.11735664335663,
+      129.4620543900544
+    ]
+  },
+  "swamp vs warm-ocean": {
+    "mean_absolute_RGB_difference": 21.149078477078476,
+    "RMS_RGB_difference": 22.60000252124132,
+    "first_mean_RGB": [
+      107.03237140637141,
+      112.70026728826728,
+      100.9194731934732
+    ],
+    "second_mean_RGB": [
+      103.05906604506605,
+      117.72031390831391,
+      108.94117637917638
+    ]
+  },
+  "frozen-ocean vs warm-ocean": {
+    "mean_absolute_RGB_difference": 4.367970473970474,
+    "RMS_RGB_difference": 8.840798944536969,
+    "first_mean_RGB": [
+      102.41913752913753,
+      109.69179953379954,
+      109.18801398601398
+    ],
+    "second_mean_RGB": [
+      103.05906604506605,
+      117.72031390831391,
+      108.94117637917638
+    ]
+  }
+}

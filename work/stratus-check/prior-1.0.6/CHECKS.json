@@ -1,0 +1,360 @@
+{
+  "pack": "Stratus 1.0.6",
+  "date": "2026-10-16",
+  "basis": "User-supplied reference images and visual brief; shader implementation authored anew.",
+  "independence_audit": {
+    "shader_and_configuration_files": 161,
+    "identical_files_to_prior_packs": 0,
+    "shared_100_token_shader_blocks": 0,
+    "external_shader_includes": 0,
+    "source_root": "Stratus/shaders"
+  },
+  "native_compile_link": {
+    "passed": 432,
+    "failed": 0,
+    "program_pairs": 72,
+    "configurations": 6,
+    "renderer": "Apple M1 OpenGL 4.1",
+    "method": "Offline compatibility-to-core declarations, not the actual Iris transformer"
+  },
+  "standalone_gpu_diagnostic": {
+    "presets": [
+      "Fast",
+      "Reference",
+      "High"
+    ],
+    "opengl_errors": 0,
+    "water_region_mean_byte_difference_reference_fast": 2.185,
+    "reference_visual_inspection": true,
+    "minecraft_render": false
+  },
+  "static_checks": {
+    "controls": 26,
+    "profile_art_controls_unchanged": true,
+    "include_resolution": true,
+    "source_matches_compiled_variants": true
+  },
+  "iris_directive_parser_regression": {
+    "installed_version": "1.10.8",
+    "original_failure_reproduced": true,
+    "corrected_clear_colours_accepted": 3,
+    "parser_bytecode_unmodified": true,
+    "isolated_logging_stubs": true
+  },
+  "texture_format_regression": {
+    "pack_declares_format_constants": true,
+    "test_injects_format_constants": false,
+    "negative_fixture_reproduces_identical_error": true,
+    "installed_iris_accepts_symbolic_formats": 5
+  },
+  "dampness_gpu_comparison": {
+    "default_strength": 1.0,
+    "maximum_strength": 2.0,
+    "falling_rain_required": false,
+    "scene_regions": {
+      "dock": {
+        "mean_byte_darkening": 38.6571,
+        "absolute_difference": 1217699
+      },
+      "soil_bank": {
+        "mean_byte_darkening": 41.0505,
+        "absolute_difference": 689648
+      },
+      "foliage": {
+        "mean_byte_darkening": 6.0425,
+        "absolute_difference": 36255
+      },
+      "sky": {
+        "mean_byte_darkening": 0.0,
+        "absolute_difference": 0
+      },
+      "lantern": {
+        "mean_byte_darkening": 0.0,
+        "absolute_difference": 0
+      }
+    },
+    "function_unchanged_from_1_0_4": true,
+    "minecraft_visual_comparison": false
+  },
+  "atmosphere_and_light_gpu_probe": {
+    "cases": {
+      "near_16": {
+        "previous": [
+          0.20504157,
+          0.3041437,
+          0.40343061,
+          0.0
+        ],
+        "current": [
+          0.2,
+          0.30000001,
+          0.40000001,
+          0.0
+        ]
+      },
+      "near_32": {
+        "previous": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ],
+        "current": [
+          0.2,
+          0.30000001,
+          0.40000001,
+          0.0
+        ]
+      },
+      "near_64": {
+        "previous": [
+          0.28650153,
+          0.37292895,
+          0.46251494,
+          0.13232714
+        ],
+        "current": [
+          0.2,
+          0.30000001,
+          0.40000001,
+          0.0
+        ]
+      },
+      "near_80": {
+        "previous": [
+          0.31599116,
+          0.3973918,
+          0.48303056,
+          0.19257039
+        ],
+        "current": [
+          0.2,
+          0.30000001,
+          0.40000001,
+          0.0
+        ]
+      },
+      "background_128": {
+        "previous": [
+          0.37128186,
+          0.44156569,
+          0.51812351,
+          0.35485905
+        ],
+        "current": [
+          0.34074739,
+          0.41678402,
+          0.49797302,
+          0.17462015
+        ]
+      },
+      "background_192": {
+        "previous": [
+          0.38005629,
+          0.44798839,
+          0.52252156,
+          0.53645831
+        ],
+        "current": [
+          0.38005629,
+          0.44798839,
+          0.52252156,
+          0.42950815
+        ]
+      },
+      "cave_32": {
+        "previous": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ],
+        "current": [
+          0.2,
+          0.30000001,
+          0.40000001,
+          0.0
+        ]
+      },
+      "underwater_32": {
+        "previous": [
+          0.05847872,
+          0.1471189,
+          0.24576116,
+          0.0
+        ],
+        "current": [
+          0.05847872,
+          0.1471189,
+          0.24576116,
+          0.0
+        ]
+      },
+      "lava_32": {
+        "previous": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ],
+        "current": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ]
+      },
+      "snow_32": {
+        "previous": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ],
+        "current": [
+          0.21872586,
+          0.31539083,
+          0.41274226,
+          0.0
+        ]
+      },
+      "blindness_32": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      },
+      "light_sky": {
+        "previous": [
+          0.15509269,
+          0.15509269,
+          0.15509269,
+          0.0
+        ],
+        "current": [
+          0.18094145,
+          0.18094145,
+          0.18094145,
+          0.0
+        ]
+      },
+      "light_cave": {
+        "previous": [
+          0.12972856,
+          0.12875924,
+          0.12504347,
+          0.0
+        ],
+        "current": [
+          0.12972856,
+          0.12875924,
+          0.12504347,
+          0.0
+        ]
+      }
+    },
+    "opengl_errors": 0,
+    "checks": {
+      "clear_through_80_blocks": true,
+      "distant_mist_at_128_and_192": true,
+      "fluid_status_fog_unchanged": true,
+      "skylight_ratio_from_user_setting": 1.1666665269652619,
+      "cave_lighting_unchanged": true,
+      "ao_default": 0.3
+    }
+  },
+  "actual_iris_compilation": true,
+  "in_game_visual_test": true,
+  "game_fps_measured": false,
+  "minecraft_iris_smoke_test": {
+    "passed": true,
+    "date": "2026-10-16",
+    "pack": "Stratus-1.0.6.zip",
+    "minecraft": "1.21.11",
+    "iris": "1.10.8",
+    "sodium": "0.8.14",
+    "fabric_loader": "0.19.5",
+    "java": 21,
+    "gpu": "Apple M1",
+    "preset": "Reference",
+    "dimension": "Overworld",
+    "world": "Isolated client with copied local singleplayer world",
+    "shader_errors": 0,
+    "in_game_visual_test": true,
+    "visual_inspection": {
+      "inspected_screenshots": [
+        "qa-firefly-day",
+        "qa-firefly-night",
+        "qa-firefly-animation-1",
+        "qa-firefly-animation-2",
+        "qa-firefly-animation-3",
+        "qa-ore-pairs",
+        "qa-entity-shadows",
+        "qa-water-glass-slime",
+        "qa-rain",
+        "qa-underwater",
+        "qa-forest-scenery"
+      ],
+      "reported_defects_resolved": true,
+      "findings": {
+        "entity_shadows": "No circular shadow under cow, slime or dropped item, with entityShadows enabled.",
+        "ore_dampness": "Ore backing matches adjoining stone/deepslate dampness; colored mineral pixels remain visible.",
+        "firefly_bush": "Black crossed planes resolved with format-75 model-selection patch above the incompatible VanillaTweaks pack. Plant cutouts and moving firefly particles visible by day/night.",
+        "other_visual_checks": "No additional black rectangles or opaque transparency planes observed in the tested glass/slime/water/rain/underwater scenes. Nearby forest remains colored with distant fade.",
+        "held_item": "Capture attempted but HUD-hidden also hid the hand, so held-item visibility is not claimed."
+      }
+    },
+    "screenshots_sha256": {
+      "qa-firefly-day.png": "6ca7c1562af8d80fa34a7e1f812fe8803f5716c8eaceb15ad29ff2c011ebefe4",
+      "qa-firefly-night.png": "b700a22d268f4b43a976a515f57b827cc2387d023993e242a1add4d042215263",
+      "qa-firefly-animation-1.png": "dfa8b1d3c3210309b49c7d25d321da0f9ce6168932bb51057c5f0baf59315cd4",
+      "qa-firefly-animation-2.png": "1d8133e00734f6f176d44dc8f33f7460246108229440dd1691180171429800d2",
+      "qa-firefly-animation-3.png": "6acd8142e7254a939ac14246d4f95654dee138f88f90e9ada0bf2853e2c991c2",
+      "qa-ore-pairs.png": "52d61e3a01c5a6f94e8b1744a0634acc8c5a598e634495b55abf033723e220d9",
+      "qa-entity-shadows.png": "2a22d6c384f323b8801579fca13bea463a857ca1def0b1c2b443a58a5dcff66a",
+      "qa-water-glass-slime.png": "fd11b93bc3cce12fcc20067f865395e1df8e9c0dfa8710a77e9e4664e6d89179",
+      "qa-rain.png": "fc10244cdfb852fd4b0eb4772b1c506f65d229062526f2bb9b7e62e06b8ba7f8",
+      "qa-underwater.png": "379ebcff0df80a4501133a4c04225f2c4027def97109d53867428e01c4cf5376",
+      "qa-forest-scenery.png": "f59de52fbfded0b256be6ba04379e5fabb41f18f7e0c268082c17f682333eadc"
+    },
+    "resource_pack_test": {
+      "base": "VanillaTweaks_r924703_MC26.3.x.zip",
+      "base_formats": [
+        84,
+        97
+      ],
+      "game_format": 75,
+      "black_bush_reproduced_with_shaders_disabled": true,
+      "compatibility_patch": "Stratus-Firefly-Compatibility-1.21.11.zip",
+      "patch_sha256": "c80ad7585fddc04d1f3ef41c3325ed918f6088ec90f6e2f05632c7ec3ab005b0",
+      "patch_contains": "One blockstate override, metadata and readme; no textures"
+    },
+    "test_process_exit": {
+      "exit_code": 143,
+      "signal": "SIGTERM",
+      "scope": "Only isolated QA Java process",
+      "session": 79135
+    },
+    "warnings": [
+      "Unused shader interface warnings",
+      "Offline dummy identity authentication failures before world load",
+      "Native gldCopyBufferSubData NEEDS IMPLEMENTATION diagnostic"
+    ],
+    "server_tick_lag_warning": false,
+    "limits": [
+      "No FPS benchmark",
+      "Held-item visibility was not verified because the HUD was hidden",
+      "Reference preset and Overworld visually tested; other presets/dimensions compiled offline only",
+      "Vanilla assets and VanillaTweaks plus compatibility patch tested; full normal-profile mod combination not tested",
+      "Finite visual scenarios, not a claim of no possible visual defects"
+    ]
+  }
+}

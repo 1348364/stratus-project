@@ -1,0 +1,237 @@
+[
+  {
+    "name": "material-wet-verified",
+    "group": "Materials",
+    "note": "Broad film and material absorption on whole faces; dirt, timber, stone/ore, polished stone, iron, glazed ceramic, sandstone."
+  },
+  {
+    "name": "material-absorption-only-verified",
+    "group": "Materials",
+    "note": "Wet sheen disabled: absorbent substrate darkening, with nonabsorbing iron/glazed ceramic unchanged."
+  },
+  {
+    "name": "material-dry-verified",
+    "group": "Materials",
+    "note": "Master dampness disabled, same geometry and lighting."
+  },
+  {
+    "name": "material-grazing-verified",
+    "group": "Materials",
+    "note": "Grazing view shows a broad film over full outdoor faces, including smooth nonabsorbing material."
+  },
+  {
+    "name": "material-rain-verified",
+    "group": "Materials",
+    "note": "Rain strengthens wetting without a corner-retention mask."
+  },
+  {
+    "name": "wood-above",
+    "group": "Water",
+    "note": "Reference-quality refraction through submerged logs, beam, stairs, slabs, fence gaps and glass."
+  },
+  {
+    "name": "wood-unbent",
+    "group": "Water",
+    "note": "Unbent control of the identical three-dimensional wooden fixture."
+  },
+  {
+    "name": "wood-underwater",
+    "group": "Water",
+    "note": "Submerged geometry, water/air interface and underwater reflection."
+  },
+  {
+    "name": "wood-grazing",
+    "group": "Water",
+    "note": "Grazing transmission over varied receiver depths and normals."
+  },
+  {
+    "name": "waterline-below",
+    "group": "Water",
+    "note": "Eye just below the waterline: Snell window and TIR outside its critical angle."
+  },
+  {
+    "name": "waterline-above",
+    "group": "Water",
+    "note": "Eye just above the interface, using the opposite air/water IOR direction."
+  },
+  {
+    "name": "water-shore-corner",
+    "group": "Water",
+    "note": "Water silhouette and receiver transitions at a nearby bank/corner."
+  },
+  {
+    "name": "wood-reverse-angle",
+    "group": "Water",
+    "note": "Opposite-angle view of submerged steps, logs and fence gaps."
+  },
+  {
+    "name": "water-clarity-max",
+    "group": "Settings",
+    "note": "Expanded water-clarity maximum16.00, compared with the default1.70."
+  },
+  {
+    "name": "water-artistic-range",
+    "group": "Settings",
+    "note": "Deliberately exaggerated refraction/ripples; physical ray bending remains the1.00 default."
+  },
+  {
+    "name": "water-swamp",
+    "group": "Water",
+    "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+  },
+  {
+    "name": "water-warm-ocean",
+    "group": "Water",
+    "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+  },
+  {
+    "name": "water-frozen-ocean",
+    "group": "Water",
+    "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+  },
+  {
+    "name": "water-river",
+    "group": "Water",
+    "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+  },
+  {
+    "name": "water-rain",
+    "group": "Water",
+    "note": "Rain runoff/turbidity and ripple response in exposed river water."
+  },
+  {
+    "name": "reflection-lake",
+    "group": "Water",
+    "note": "Opaque terrain, colored columns and cow reflected across water."
+  },
+  {
+    "name": "reflection-control",
+    "group": "Water",
+    "note": "Reflection-disabled control; total internal reflection remains physical underwater."
+  },
+  {
+    "name": "deep-underwater",
+    "group": "Water",
+    "note": "Deep water optical path, interface and distant wall reflection precision."
+  },
+  {
+    "name": "shallow-underwater",
+    "group": "Water",
+    "note": "Shallow basin sides/floor and consistent attenuation."
+  },
+  {
+    "name": "waterfall-sides",
+    "group": "Water",
+    "note": "Flowing levels and a thin falling sheet against terrain and sky."
+  },
+  {
+    "name": "waterfall-top",
+    "group": "Water",
+    "note": "Source and flowing transition over the waterfall lip."
+  },
+  {
+    "name": "cave-water",
+    "group": "Water",
+    "note": "Sheltered dark water; no outdoor rain-runoff or fog veil."
+  },
+  {
+    "name": "cave-lit",
+    "group": "Water",
+    "note": "Local block light and Snell transmission onto a striped floor."
+  },
+  {
+    "name": "striped-floor",
+    "group": "Water",
+    "note": "Straight floor stripes reveal refraction folding or screen-edge discontinuities."
+  },
+  {
+    "name": "water-night",
+    "group": "Water",
+    "note": "Night water lighting and reflection fallback."
+  },
+  {
+    "name": "water-above-cloud",
+    "group": "Water",
+    "note": "Low cloud volume stays below the elevated lake; view down through the water/cloud overlap."
+  },
+  {
+    "name": "cloud-below",
+    "group": "Sky",
+    "note": "High-resolution rounded cloud structure from beneath, separated from low fog."
+  },
+  {
+    "name": "cloud-inside",
+    "group": "Sky",
+    "note": "Camera within the continuous three-dimensional cloud volume."
+  },
+  {
+    "name": "cloud-above",
+    "group": "Sky",
+    "note": "Rounded main cloud tops and separate high-altitude cirrus."
+  },
+  {
+    "name": "cirrus-above",
+    "group": "Sky",
+    "note": "View down across the high cloud layer."
+  },
+  {
+    "name": "cloud-detail-range",
+    "group": "Settings",
+    "note": "Higher cloud density2.20 and detail1.70 demonstrate independent tuning."
+  },
+  {
+    "name": "fog-landscape",
+    "group": "Atmosphere",
+    "note": "Default valley fog, with nearer pockets and preserved foreground clarity."
+  },
+  {
+    "name": "fog-near",
+    "group": "Atmosphere",
+    "note": "Fog between nearby and deeper tree layers, anchored in world space."
+  },
+  {
+    "name": "fog-controls",
+    "group": "Settings",
+    "note": "Fog altitude96, near range8 and density1.50 as an explicit stronger artistic setting."
+  },
+  {
+    "name": "vanilla-sky",
+    "group": "Sky",
+    "note": "Actual vanilla clouds and textured sun remain independent options."
+  },
+  {
+    "name": "vanilla-moon",
+    "group": "Sky",
+    "note": "Actual textured moon, without a black rectangular background."
+  },
+  {
+    "name": "nether",
+    "group": "Regression",
+    "note": "Nether pipeline and dimension-specific atmosphere after the shared-library changes."
+  },
+  {
+    "name": "end",
+    "group": "Regression",
+    "note": "End pipeline and fallback lighting."
+  },
+  {
+    "name": "entities",
+    "group": "Regression",
+    "note": "Entities retain form lighting and stay outside material pore-darkening."
+  },
+  {
+    "name": "breaking-particles",
+    "group": "Regression",
+    "note": "Breaking particles after the material/refraction updates."
+  },
+  {
+    "name": "projectiles-verified",
+    "group": "Regression",
+    "note": "Stationary snowball, egg and pearl, recaptured after explicit server settling; checks ordinary sprite shading."
+  },
+  {
+    "name": "bloom-fireflies",
+    "group": "Regression",
+    "note": "Emissive/firefly-bush and restrained factory bloom."
+  }
+]

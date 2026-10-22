@@ -1,0 +1,236 @@
+[
+  {
+    "name": "Stratus-1.6.7-QA-v2.zip",
+    "sha256": "95f57fef524c70f85887b420a1d5713f95ce41b7e7697dc3c9ce413a748d6cc0",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-CirrusOnly.zip",
+    "sha256": "6407a8207b5eff6a143b6a95b0e7ec7fad8f6b900cdbed148dfe271052f8bea4",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "CLOUD_AMOUNT": "0.00",
+      "MIST_AMOUNT": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-CirrusOff.zip",
+    "sha256": "855c3b48393541c5456e205a52804a1cfe988a5a0f2e260f61df5b6e13ba2c61",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "CLOUD_AMOUNT": "0.00",
+      "CIRRUS_AMOUNT": "0.00",
+      "MIST_AMOUNT": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-Baseline-v2-CirrusOnly.zip",
+    "sha256": "eaec258e533a81cc33e37f61874affeb7020c4cadb6ef48c92a5b54a3ad88556",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "CLOUD_AMOUNT": "0.00",
+      "MIST_AMOUNT": "0.00"
+    },
+    "baseline_source": true
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-HaloOff.zip",
+    "sha256": "50e51584c446ecbd222b471ec58f81e9fae06e46dba9eb629b3cdb3892e64a07",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "SUN_HALO_STRENGTH": "0.00",
+      "SUN_CORE_BRIGHTNESS": "2.80"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-VanillaSun.zip",
+    "sha256": "683752f1d0e90767bc8ac5d132538daf06614730e8b956f288c79bee3f39d1f2",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "SUN_STYLE": "1"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-NoVanillaFace.zip",
+    "sha256": "0f0d8be3618f808f7f8a6a80836f955f32361a39068bc1e787e1ef5455cdb0d6",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "VANILLA_FACE_CONTRAST": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-NoRealisticFace.zip",
+    "sha256": "cf11f31789d11d6d8798408b4392f38f627629d3fe70399fa8620e5b19becbc3",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "REALISTIC_FACE_CONTRAST": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-NoFaces.zip",
+    "sha256": "4e992e662eb0f06e6757624d4588d777e9c826383d63545107155fb568be3c86",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "VANILLA_FACE_CONTRAST": "0.00",
+      "REALISTIC_FACE_CONTRAST": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-WetOff.zip",
+    "sha256": "de6963ce14acf3194c996751f9ffc9d43fb68f2c247e494b0485dd3f42ed79a6",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "WET_SHEEN": "0.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-WetMax.zip",
+    "sha256": "721d7d97bee1202cce5d91f667fc67401327a8e5bee44d4b9f5dc124ae44878d",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "WET_SHEEN": "2.00"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-FAST.zip",
+    "sha256": "6bfcaeee855f7723667e88c6281ac4e4b6199b3c2d504b63ce9aa7b0b6b91a88",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "1",
+      "REFLECTION_MODE": "0",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "0",
+      "WATER_TURBIDITY": "6.00",
+      "ATMOSPHERE_QUALITY": "0",
+      "REFRACTION_QUALITY": "0"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-BALANCED.zip",
+    "sha256": "c4299b0054b1a96ed0000f98bc2e550f5145c2a4382475a0f3e36c98ead783af",
+    "settings": {
+      "CLOUD_LAYERS": "1",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "1",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "1",
+      "WATER_TURBIDITY": "6.00",
+      "ATMOSPHERE_QUALITY": "1",
+      "REFRACTION_QUALITY": "0"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-REFERENCE.zip",
+    "sha256": "4bd1c9c33568bb747d5d2bae5a30e2bd528d31207ee6aa402a0cd6ecc09128da",
+    "settings": {
+      "CLOUD_LAYERS": "2",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "3",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "ATMOSPHERE_QUALITY": "2",
+      "REFRACTION_QUALITY": "2"
+    },
+    "baseline_source": false
+  },
+  {
+    "name": "Stratus-1.6.7-QA-v2-HIGH.zip",
+    "sha256": "00cdda78547a8d0e067ed31a7f529aa7f18485cd3883272c33c32bd659ae7a62",
+    "settings": {
+      "CLOUD_LAYERS": "3",
+      "GROUND_WARMTH": "0.00",
+      "MIST_DETAIL": "3",
+      "REFLECTION_MODE": "2",
+      "WATER_EXTINCTION": "3.00",
+      "WATER_RENDER_QUALITY": "2",
+      "WATER_TURBIDITY": "6.00",
+      "ATMOSPHERE_QUALITY": "2",
+      "REFRACTION_QUALITY": "2"
+    },
+    "baseline_source": false
+  }
+]

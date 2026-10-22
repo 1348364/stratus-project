@@ -1,0 +1,13 @@
+{
+  "native_compile_pairs": 768,
+  "native_variants": 8,
+  "gpu_cases": 65,
+  "gpu_errors": 0,
+  "previous_58_outputs_unchanged": true,
+  "gpu_alpha_layers_verified": 3,
+  "glass_fix_files": [
+    "shaders/shaders.properties",
+    "shaders/core/water-resolve.frag.glsl",
+    "shaders/core/forward.glsl"
+  ]
+}

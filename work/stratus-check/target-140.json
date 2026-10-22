@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-17",
+  "settings": {
+    "biomeBlendRadius": {
+      "normal": "2",
+      "test": "2"
+    },
+    "enableVsync": {
+      "normal": "true",
+      "test": "true"
+    },
+    "entityDistanceScaling": {
+      "normal": "1.0",
+      "test": "1.0"
+    },
+    "fullscreen": {
+      "normal": "false",
+      "test": "false"
+    },
+    "guiScale": {
+      "normal": "2",
+      "test": "2"
+    },
+    "maxFps": {
+      "normal": "70",
+      "test": "70"
+    },
+    "mipmapLevels": {
+      "normal": "4",
+      "test": "4"
+    },
+    "particles": {
+      "normal": "0",
+      "test": "0"
+    },
+    "renderDistance": {
+      "normal": "12",
+      "test": "12"
+    },
+    "simulationDistance": {
+      "normal": "8",
+      "test": "8"
+    },
+    "prioritizeChunkUpdates": {
+      "normal": "0",
+      "test": "0"
+    },
+    "bobView": {
+      "normal": "true",
+      "test": "true"
+    }
+  },
+  "framebuffer": [
+    1708,
+    960
+  ],
+  "mods": [
+    {
+      "id": "fabric-api",
+      "version": "0.141.6+1.21.11",
+      "file": "fabric-api-0.141.6+1.21.11.jar",
+      "sha256": "bdff7fd7e220085cfad2ff9b1f40dde6534ae0b96cf378f97a374bc54cb9ed0f"
+    },
+    {
+      "id": "lithium",
+      "version": "0.21.4+mc1.21.11",
+      "file": "lithium-fabric-0.21.4+mc1.21.11.jar",
+      "sha256": "5135c41da5b43cbdcb29424bde65195143ac4084e23834c8eac065942201c78b"
+    },
+    {
+      "id": "sodium-extra",
+      "version": "0.9.4+mc1.21.11",
+      "file": "sodium-extra-fabric-0.9.4+mc1.21.11.jar",
+      "sha256": "ff6ef489193a960c1abf9ac28416f11277db5650a40493bf11d1ec7d96737f4d"
+    },
+    {
+      "id": "ferritecore",
+      "version": "8.2.0",
+      "file": "ferritecore-8.2.0-fabric.jar",
+      "sha256": "f76bd760cbf48280cc7c43180f5089a46235fa24d934a8acf3da04a664c2c715"
+    },
+    {
+      "id": "dynamic_fps",
+      "version": "3.11.6",
+      "file": "dynamic-fps-3.11.6+minecraft-1.21.11-fabric.jar",
+      "sha256": "42c6f5526acb29713969156018ab08ac921a0a0f37c2a79a39e3783792caa04f"
+    },
+    {
+      "id": "sodium",
+      "version": "0.8.14+mc1.21.11",
+      "file": "sodium-fabric-0.8.14+mc1.21.11.jar",
+      "sha256": "fd2619eff5da6b9ba6304b8b72ac3fe132c30e0bd5d675e4581eda417a272f5d"
+    },
+    {
+      "id": "entityculling",
+      "version": "1.11.3",
+      "file": "entityculling-fabric-1.11.3-mc1.21.11.jar",
+      "sha256": "79294b608e1edc8dd4746dbbeeef1ba157fc27a361a3f31d155594dc7f30ea85"
+    },
+    {
+      "id": "iris",
+      "version": "1.10.8+mc1.21.11",
+      "file": "iris-fabric-1.10.8+mc1.21.11.jar",
+      "sha256": "5b6b5124c74407ffe4945f8da61491731cbf697f0bba4b14257e0ff977dac087"
+    }
+  ],
+  "other_minecraft_instances": 1,
+  "source_profile": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)",
+  "normal_settings_untouched": true
+}

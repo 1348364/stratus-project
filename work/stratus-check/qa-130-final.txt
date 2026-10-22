@@ -1,0 +1,178 @@
+PACK Stratus-1.3.0-candidate.zip
+RESUME
+STATE
+CMD gamemode spectator ShaderCheck
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 3000
+CMD tp ShaderCheck 36 120 -9 -50 25
+WAIT 3
+SHOT f130-form-top-sides
+CMD tp ShaderCheck 36 110 -9 -50 -20
+WAIT 2
+SHOT f130-form-undersides
+CMD tp ShaderCheck 30 103 26 0 18
+WAIT 3
+SHOT f130-warm-ground
+PACK Stratus-1.3.0-no-warmth.zip
+RESUME
+SHOT f130-ground-warmth-off
+PACK Stratus-1.3.0-candidate.zip
+CMD tp ShaderCheck -8 100 2 0 12
+WAIT 3
+SHOT f130-entities-day
+CMD tp ShaderCheck 0 98 -7 180 22
+WAIT 2
+SHOT f130-stone-ores
+CMD time set 18000
+CMD tp ShaderCheck 76 102 3 0 8
+WAIT 5
+CMD setblock 76 103 7 minecraft:air
+WAIT 2
+SHOT f130-entities-dark
+CMD setblock 76 103 7 minecraft:lantern
+WAIT 2
+SHOT f130-entities-lit
+CMD tp ShaderCheck 0 96 5 0 10
+WAIT 2
+SHOT f130-bloom-default
+PACK Stratus-1.3.0-no-bloom.zip
+RESUME
+SHOT f130-bloom-off
+PACK Stratus-1.3.0-small-radius.zip
+RESUME
+SHOT f130-bloom-small-radius
+PACK Stratus-1.3.0-candidate.zip
+RESUME
+SHOT f130-fireflies
+CMD time set 3000
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 5
+SHOT f130-water-body
+CMD tp ShaderCheck -18 108 -4 -35 35
+WAIT 3
+SHOT f130-shallow-water
+PACK Stratus-1.3.0-no-distortion.zip
+RESUME
+SHOT f130-water-distortion-off
+PACK Stratus-1.3.0-clearwater.zip
+RESUME
+SHOT f130-water-clarity4
+PACK Stratus-1.3.0-candidate.zip
+CMD tp ShaderCheck -18 100 -4 -35 8
+WAIT 3
+SHOT f130-water-sides
+CMD tp ShaderCheck 13 90 -3 0 0
+WAIT 3
+SHOT f130-underwater
+CMD tp ShaderCheck 13 91.9 -3 0 -20
+WAIT 2
+SHOT f130-underwater-interface
+CMD tp ShaderCheck 104 286 96 0 90
+WAIT 6
+SHOT f130-water-below-clouds
+PACK Stratus-1.3.0-no-clouds.zip
+RESUME
+SHOT f130-water-clouds-off
+PACK Stratus-1.3.0-candidate.zip
+CMD tp ShaderCheck 0 97 5 0 5
+CMD kill @e[tag=stratus_qa_projectile]
+CMD summon minecraft:snowball -1 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+CMD summon minecraft:egg 0 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+CMD summon minecraft:ender_pearl 1 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+WAIT 1
+SHOT f130-thrown-items
+RESUME
+CMD setblock 0 97 9 minecraft:stone
+CMD setblock 0 97 9 minecraft:air destroy
+SHOT f130-breaking-particles
+CMD particle minecraft:smoke 0 98 9 0.5 0.5 0.5 0.01 180 force ShaderCheck
+SHOT f130-smoke
+CMD kill @e[tag=stratus_qa_projectile]
+CMD tp ShaderCheck 13 97 -4 0 17
+CMD weather rain
+WAIT 3
+SHOT f130-rain-transparency
+CMD weather clear
+CMD tp ShaderCheck -45 86 -40 20 0
+WAIT 6
+SHOT f130-lowland-mist
+PACK Stratus-1.3.0-no-mist.zip
+RESUME
+SHOT f130-mist-off
+PACK Stratus-1.3.0-candidate.zip
+CMD tp ShaderCheck -45 100 -40 20 10
+WAIT 4
+SHOT f130-mist-high-view
+CMD tp ShaderCheck 0 100 0 -90 -45
+WAIT 3
+SHOT f130-ground-sun
+CMD time set 6000
+CMD tp ShaderCheck 0 100 0 0 -85
+WAIT 3
+SHOT f130-ground-noon-sun
+CMD time set 11800
+CMD tp ShaderCheck 0 100 0 90 -3
+WAIT 3
+SHOT f130-sunset
+CMD time set 18000
+CMD tp ShaderCheck 200 140 200 0 -25
+WAIT 5
+SHOT f130-clouds-night
+CMD time set 3000
+WAIT 2
+SHOT f130-clouds-below
+CMD tp ShaderCheck 200 192 200 0 0
+WAIT 3
+SHOT f130-clouds-inside
+CMD tp ShaderCheck 200 285 200 0 35
+WAIT 3
+SHOT f130-clouds-above
+CMD tp ShaderCheck 225 285 200 0 35
+WAIT 3
+SHOT f130-clouds-parallax
+CMD tp ShaderCheck 200 300 200 0 -30
+WAIT 3
+SHOT f130-cirrus-below
+CMD tp ShaderCheck 200 360 200 0 0
+WAIT 3
+SHOT f130-cirrus-inside
+CMD tp ShaderCheck 200 430 200 0 45
+WAIT 3
+SHOT f130-cirrus-above
+PACK Stratus-1.3.0-fast-final.zip
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 3
+SHOT f130-fast-clouds
+PACK Stratus-1.3.0-high-final.zip
+WAIT 3
+SHOT f130-high-clouds
+PACK Stratus-1.3.0-candidate.zip
+CMD tp ShaderCheck 0 97 5 0 20
+CMD gamemode creative ShaderCheck
+CMD item replace entity ShaderCheck weapon.mainhand with minecraft:iron_pickaxe
+HUD show
+WAIT 3
+SHOT f130-held-item
+HUD hide
+CMD gamemode spectator ShaderCheck
+CMD effect give ShaderCheck minecraft:blindness 15 0 true
+WAIT 3
+SHOT f130-blindness
+CMD effect clear ShaderCheck
+CMD execute in minecraft:the_nether run tp ShaderCheck 0 103 -5 0 18
+WAIT 6
+SHOT f130-nether
+CMD gamemode creative ShaderCheck
+CMD execute in minecraft:the_nether run tp ShaderCheck 4 101 2 0 0
+WAIT 3
+SHOT f130-lava
+CMD gamemode spectator ShaderCheck
+CMD execute in minecraft:the_end run tp ShaderCheck 0 123 -5 0 18
+WAIT 6
+SHOT f130-end
+CMD execute in minecraft:overworld run tp ShaderCheck 0 110 -32 0 20
+WAIT 5
+SHOT f130-return
+STATE
+DONE f130-final-complete

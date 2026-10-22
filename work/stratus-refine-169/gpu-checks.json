@@ -1,0 +1,52 @@
+{
+  "scope": "Actual GLSL native component/output checks; film reflection may darken a white block at grazing angles, but no absorption darkening remains",
+  "component_samples": 795,
+  "output_samples": 12,
+  "checks": [
+    {
+      "check": "All GPU samples finite",
+      "passed": true
+    },
+    {
+      "check": "Absorption response no longer changes film at matched roughness",
+      "passed": true
+    },
+    {
+      "check": "Vanilla lighting permits independent film",
+      "passed": true
+    },
+    {
+      "check": "Sealed cave remains dry",
+      "passed": true
+    },
+    {
+      "check": "Zero sheen and zero film return exact dry colour",
+      "passed": true
+    },
+    {
+      "check": "Rain-only clear weather returns dry colour",
+      "passed": true
+    },
+    {
+      "check": "Vanilla diffuse ignores enhanced artistic multipliers",
+      "passed": true
+    },
+    {
+      "check": "No OpenGL errors",
+      "passed": true
+    },
+    {
+      "check": "Actual output ignores artistic settings in vanilla mode",
+      "passed": true
+    },
+    {
+      "check": "Actual output has no OpenGL errors",
+      "passed": true
+    },
+    {
+      "check": "Vanilla output preserves display brightness to less than one millionth",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

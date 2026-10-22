@@ -1,0 +1,49 @@
+{
+  "scope": "Actual Iris composite GPU timestamp intervals; diagnostic instrumentation overhead, not gameplay FPS",
+  "conditions": "Baseline full Reference at river camera; unfocused/throttled, useful pass-cost diagnostic only, not focused FPS",
+  "per_pass": {
+    "deferred": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "deferred1": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "composite": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "composite1": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "composite2": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "composite3": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "composite4": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    },
+    "final": {
+      "samples": 12,
+      "median_gpu_ms": 0.0,
+      "p95_gpu_ms": 0.0
+    }
+  },
+  "Iris_bytecode_restored": true,
+  "valid_timing": false,
+  "reason": "All GL_TIMESTAMP differences returned zero on this context; discarded, retry with GL_TIME_ELAPSED."
+}

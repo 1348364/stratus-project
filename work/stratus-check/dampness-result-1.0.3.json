@@ -1,0 +1,22 @@
+{
+  "dock": {
+    "mean_byte_darkening": 9.4022,
+    "absolute_difference": 296168
+  },
+  "soil_bank": {
+    "mean_byte_darkening": 8.1144,
+    "absolute_difference": 136322
+  },
+  "foliage": {
+    "mean_byte_darkening": 0.964,
+    "absolute_difference": 5784
+  },
+  "sky": {
+    "mean_byte_darkening": 0.0,
+    "absolute_difference": 0
+  },
+  "lantern": {
+    "mean_byte_darkening": 0.0,
+    "absolute_difference": 0
+  }
+}

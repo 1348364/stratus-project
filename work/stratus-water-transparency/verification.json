@@ -1,0 +1,79 @@
+{
+  "gpu_cases": 58,
+  "gpu_errors": 0,
+  "new_cases": {
+    "falling_sheet_far_receiver": [
+      0.95,
+      0.95,
+      0.95
+    ],
+    "falling_sheet_near_receiver": [
+      0.2,
+      0.2,
+      0.2
+    ],
+    "background_ocean_accepted": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "same_surface_not_doubled": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "water_behind_solid_rejected": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "empty_secondary_rejected": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "air_zero_segment": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "air_near_segment": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "air_far_border_error": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "air_cave_no_fog": [
+      0.1,
+      0.2,
+      0.3
+    ],
+    "water_join_confirmed": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "water_join_solid_before_plane": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "water_join_upward_rejected": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "water_join_missing_neighbours": [
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "prior_44_unchanged": true,
+  "iris_clear_colour_explicit_four_components": true,
+  "native_pairs": 768
+}

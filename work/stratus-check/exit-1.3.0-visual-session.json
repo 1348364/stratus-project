@@ -1,0 +1,1 @@
+{"exit_code": 143, "signal": "SIGTERM", "process": "isolated shader visual-test Java only", "reason": "Fresh session after extended shader reload QA"}

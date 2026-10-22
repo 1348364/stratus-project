@@ -1,0 +1,117 @@
+{
+  "scope": "Actual expanded GLSL in native OpenGL. Offline, not Minecraft visual acceptance or FPS.",
+  "sun_renders": 5,
+  "fog_renders": 22,
+  "face_samples": 288,
+  "checks": [
+    {
+      "check": "Every sampled sun texel matches current vanilla RGB/alpha and documented HDR tint",
+      "passed": true
+    },
+    {
+      "check": "Sun contains HDR core for existing highlight/bloom pipeline",
+      "passed": true
+    },
+    {
+      "check": "Sun visibility zero removes exactly the texture contribution",
+      "passed": true
+    },
+    {
+      "check": "Native vanilla mode has no duplicate procedural disk",
+      "passed": true
+    },
+    {
+      "check": "Sun renders finite and nonnegative",
+      "passed": true
+    },
+    {
+      "check": "Default face result is 65% vanilla plus 35% previous physical result",
+      "passed": true
+    },
+    {
+      "check": "Camera rotation leaves mixture fixed in world space",
+      "passed": true
+    },
+    {
+      "check": "face sun reversal changes the facing side",
+      "passed": true
+    },
+    {
+      "check": "face rain softens directional contribution",
+      "passed": true
+    },
+    {
+      "check": "face night and sealed cave disable solar side bias",
+      "passed": true
+    },
+    {
+      "check": "face-strong sun reversal changes the facing side",
+      "passed": true
+    },
+    {
+      "check": "face-strong rain softens directional contribution",
+      "passed": true
+    },
+    {
+      "check": "face-strong night and sealed cave disable solar side bias",
+      "passed": true
+    },
+    {
+      "check": "face-off is exact bypass",
+      "passed": true
+    },
+    {
+      "check": "face-blend-off is exact bypass",
+      "passed": true
+    },
+    {
+      "check": "face-nether preserves other-dimension response",
+      "passed": true
+    },
+    {
+      "check": "face-end preserves other-dimension response",
+      "passed": true
+    },
+    {
+      "check": "All face samples finite and bounded",
+      "passed": true
+    },
+    {
+      "check": "Reproduced original dark unfogged leaf when all depth samples miss",
+      "passed": true
+    },
+    {
+      "check": "Rejected-depth leaf now receives atmospheric scattering",
+      "passed": true
+    },
+    {
+      "check": "Valid cached depth is unchanged",
+      "passed": true
+    },
+    {
+      "check": "Near foreground remains clear",
+      "passed": true
+    },
+    {
+      "check": "Underwater fallback remains disabled",
+      "passed": true
+    },
+    {
+      "check": "Far boundary receives opaque atmospheric colour",
+      "passed": true
+    },
+    {
+      "check": "Confidence transition never drops to unfogged black",
+      "passed": true
+    },
+    {
+      "check": "All fog results finite",
+      "passed": true
+    },
+    {
+      "check": "GPU API reports zero errors",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

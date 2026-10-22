@@ -1,0 +1,1 @@
+Focused samples complete; stop temporary activity resets.

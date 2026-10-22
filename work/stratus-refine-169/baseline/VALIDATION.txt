@@ -1,0 +1,37 @@
+STRATUS 1.6.9 WATER-POLE TEST — VALIDATION / 22 OCTOBER 2026
+
+Candidate water-reflection pole filter: 768 native OpenGL compatibility-shim
+program pairs compiled/linked with zero failures on Apple M1. This is not
+proof that the four bright wedges are gone in Minecraft. In-game before/after
+visual review of the reported downward water view remains required. The
+historical 1.6.8 checks below are baseline evidence, not new candidate tests.
+
+768 native macOS OpenGL compile/link pairs / eight variants: zero failures.
+Native compatibility shims are separate from actual Iris loading proof.
+795 actual GLSL component samples, 12 actual output samples, 20 relationships,
+10 water-resolve cases and 65,536 matched full-atmosphere pixels pass.
+59 old controls/defaults/ranges retained, 61 total, all reachable and labelled;
+all four preset definitions and old slider membership remain unchanged.
+
+Actual Main API captures compare baseline, Rain only, All weather and sheen Off
+in clear weather; the new vanilla mode against shaders-disabled Minecraft;
+enhanced lighting; and the new settings pages. Final-code river/underwater and
+menu captures are preserved in the project evidence. Final released-ZIP state
+is documented in the external install receipt and change log.
+
+PERFORMANCE LIMIT
+Four matched 128x128 full-atmosphere GPU microbenchmarks, using rotated variant
+order, 32 draws per query and five measured rounds after warm-up, showed about
+4-6% lower draw time. Initial shorter batches were mixed; all raw experiments
+are retained. Max tested atmosphere RGB difference is below 0.018 of an 8-bit
+sRGB code value; alpha error below 0.0001. These finite tests do not establish
+universal 99% appearance equivalence or a whole-game FPS improvement.
+The user explicitly deferred focused Minecraft FPS/frame times until tomorrow
+morning. No valid gameplay performance result is claimed. No sample, draw
+distance, effect resolution, quality preset or intended feature was reduced.
+
+FULL LIMITS
+Vanilla mode restores original material lighting and colour while keeping
+Stratus water/cloud/atmosphere effects. All-weather sheen remains limited to
+exposed absorbent materials. Existing reflection/volume/fog approximations and
+incomplete original-leaf, all-night, all-preset and mod coverage remain.

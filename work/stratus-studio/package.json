@@ -1,0 +1,12 @@
+{
+  "name": "stratus-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Local Stratus specification and change editor",
+  "scripts": {
+    "start": "python3 server.py"
+  },
+  "dependencies": {
+    "monaco-editor": "0.57.0"
+  }
+}

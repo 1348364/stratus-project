@@ -1,0 +1,242 @@
+{
+  "scope": "Finite actual Minecraft fixed-camera benchmark; not exhaustive gameplay guarantee",
+  "hardware": "Apple M1 / macOS / OpenGL4.1",
+  "client": "Minecraft1.21.11 / Iris1.10.8 / Sodium0.8.14 / Main",
+  "world": "Stratus Terrain Lab normal world",
+  "baseline": "Stratus-1.6.9-water-pole-test.zip, pre-existing editable baseline",
+  "after": "Stratus-1.6.9-QA-v2-Candidate.zip, same runtime source as released 1.6.9",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "render_distance_chunks": 12,
+  "simulation_distance_chunks": 8,
+  "saved_vsync": true,
+  "saved_max_fps": 70,
+  "saved_inactivity_fps_limit": "afk",
+  "DynamicFPS_enabled": true,
+  "DynamicFPS_diagnostic": {
+    "powerState": "FOCUSED",
+    "targetFrameRate": 260,
+    "enableVsync_method": false,
+    "isForcingLowFPS": false,
+    "graphicsState": "DEFAULT",
+    "idle": false
+  },
+  "activity_timer": "Minecraft method_61939 reset and Dynamic FPS onActivity every 5s only while window focus=1; no saved config modification. Monitor records actual limiter NONE/cap70, camera/time/weather. First diagnostic explicitly observed SHORT_AFK/cap30 before reset.",
+  "conditions": {
+    "world_time": 6000,
+    "rain_gradient": 0,
+    "shader_options": "Latest saved pole-test Main settings preserved; current Realistic lighting0, film amount.15, Fast-related water/atmosphere/reflection choices. New texture strength.15. Intentional material/water changes add visible effects; this is whole-build timing, not isolated optimisation cost."
+  },
+  "samples": [
+    {
+      "valid_focused_sample": true,
+      "frames": 1804,
+      "average_fps": 60.0723,
+      "median_frame_ms": 16.1523,
+      "p95_frame_ms": 20.7933,
+      "p99_frame_ms": 27.2975,
+      "focused_polls": 558,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "active-forest-after-repeat.json",
+      "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+    },
+    {
+      "valid_focused_sample": false,
+      "frames": 1339,
+      "average_fps": 44.5631,
+      "median_frame_ms": 16.6725,
+      "p95_frame_ms": 67.829,
+      "p99_frame_ms": 74.5929,
+      "focused_polls": 381,
+      "unfocused_polls": 128,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "active-forest-after.json",
+      "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 1775,
+      "average_fps": 59.1302,
+      "median_frame_ms": 16.3714,
+      "p95_frame_ms": 21.8781,
+      "p99_frame_ms": 27.6318,
+      "focused_polls": 558,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "active-forest-before-repeat.json",
+      "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+    },
+    {
+      "valid_focused_sample": false,
+      "reason": "Minecraft unfocused; no FPS accepted",
+      "file": "active-forest-before.json",
+      "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 1687,
+      "average_fps": 56.1894,
+      "median_frame_ms": 16.7813,
+      "p95_frame_ms": 24.6077,
+      "p99_frame_ms": 33.6671,
+      "focused_polls": 526,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "active-river-after.json",
+      "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 1731,
+      "average_fps": 57.6906,
+      "median_frame_ms": 16.6385,
+      "p95_frame_ms": 22.827,
+      "p99_frame_ms": 27.7428,
+      "focused_polls": 529,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "active-river-before.json",
+      "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+    },
+    {
+      "valid_focused_sample": false,
+      "reason": "Minecraft unfocused; no FPS accepted",
+      "file": "baseline-original.json",
+      "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+    },
+    {
+      "valid_focused_sample": false,
+      "reason": "Minecraft unfocused; no FPS accepted",
+      "file": "candidate-original.json",
+      "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 863,
+      "average_fps": 28.7416,
+      "median_frame_ms": 35.0155,
+      "p95_frame_ms": 35.5065,
+      "p99_frame_ms": 36.2486,
+      "focused_polls": 531,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-forest-after.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 864,
+      "average_fps": 28.7431,
+      "median_frame_ms": 34.9871,
+      "p95_frame_ms": 35.5198,
+      "p99_frame_ms": 35.9246,
+      "focused_polls": 532,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-forest-before.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 877,
+      "average_fps": 29.1977,
+      "median_frame_ms": 34.4339,
+      "p95_frame_ms": 34.5348,
+      "p99_frame_ms": 34.6275,
+      "focused_polls": 557,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-river-after-1.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 866,
+      "average_fps": 28.8271,
+      "median_frame_ms": 34.5377,
+      "p95_frame_ms": 35.5102,
+      "p99_frame_ms": 35.6855,
+      "focused_polls": 537,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-river-after-2.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 877,
+      "average_fps": 29.1861,
+      "median_frame_ms": 34.4203,
+      "p95_frame_ms": 34.5175,
+      "p99_frame_ms": 34.6035,
+      "focused_polls": 559,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-river-before-1.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    },
+    {
+      "valid_focused_sample": true,
+      "frames": 877,
+      "average_fps": 29.2248,
+      "median_frame_ms": 34.4139,
+      "p95_frame_ms": 34.5097,
+      "p99_frame_ms": 34.5455,
+      "focused_polls": 557,
+      "unfocused_polls": 0,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+      "file": "focused-river-before-2.json",
+      "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+    }
+  ],
+  "target_60_FPS_verified": false,
+  "whole_game_speedup_verified": false,
+  "remaining": "Performance request remains pending. River valid active comparison ~57.7 before /56.2 after does not establish speedup or 60 FPS; review all forest samples with focus validity. Do not lower resolution/quality to satisfy the target."
+}

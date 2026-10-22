@@ -1,0 +1,17 @@
+Compiled from "class_318.java"
+public class net.minecraft.class_318 {
+  private static final org.slf4j.Logger field_1974;
+  public static final java.lang.String field_41337;
+  public net.minecraft.class_318();
+  public static void method_1659(java.io.File, net.minecraft.class_276, java.util.function.Consumer<net.minecraft.class_2561>);
+  public static void method_22690(java.io.File, java.lang.String, net.minecraft.class_276, int, java.util.function.Consumer<net.minecraft.class_2561>);
+  public static void method_1663(net.minecraft.class_276, java.util.function.Consumer<net.minecraft.class_1011>);
+  public static void method_71641(net.minecraft.class_276, int, java.util.function.Consumer<net.minecraft.class_1011>);
+  private static java.io.File method_1660(java.io.File);
+  private static void method_68156(com.mojang.blaze3d.systems.CommandEncoder, com.mojang.blaze3d.buffers.GpuBuffer, int, int, int, com.mojang.blaze3d.textures.GpuTexture, java.util.function.Consumer);
+  private static java.lang.String method_68469();
+  private static void method_68157(java.io.File, java.lang.String, java.util.function.Consumer, net.minecraft.class_1011);
+  private static void method_22691(net.minecraft.class_1011, java.io.File, java.util.function.Consumer);
+  private static net.minecraft.class_2583 method_67805(java.io.File, net.minecraft.class_2583);
+  static {};
+}

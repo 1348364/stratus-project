@@ -1,0 +1,1 @@
+{"scope":"synthetic actual water-resolve pass, not Minecraft FPS","size":[1280,720],"cases":[{"underwater":0,"max_rgb_error":0.000000060,"previous_pass_ms":0.152256,"current_pass_ms":0.169664},{"underwater":1,"max_rgb_error":0.000000045,"previous_pass_ms":0.142255,"current_pass_ms":0.185440}],"failures":0,"opengl_errors":0}

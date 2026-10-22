@@ -1,0 +1,35 @@
+{
+  "generated_Main_QA_copies_removed": [
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-BaselineReference.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CloudsNative.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-NoReflectionFog.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-Enhanced.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CandidateReference.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-Clouds.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-Enhanced.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-StaticAfter.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-StaticBefore.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-PlaneCache.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CirrusOnly.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-SmallClouds.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-RainOnly.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-NativeSun.zip",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-RainOnly.zip"
+  ],
+  "unexpected_differences_preserved": [],
+  "workspace_QA_evidence_preserved": true,
+  "released1_6_10_and_older_packs_untouched": true,
+  "Iris_default_omission_equivalent_preferences_removed_after_backup": [
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-StaticBefore.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-SmallClouds.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-PlaneCache.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CirrusOnly.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CandidateReference.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-BaselineReference.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-Clouds.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-NativeSun.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-StaticAfter.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-CloudsNative.zip.txt",
+    "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.10-QA-NoReflectionFog.zip.txt"
+  ]
+}

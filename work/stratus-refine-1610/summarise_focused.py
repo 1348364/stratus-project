@@ -1,0 +1,15 @@
+from pathlib import Path
+import json,statistics,shutil
+w=Path('work/stratus-refine-1610');p=w/'performance-summary.json'
+if not (w/'performance-summary-before-focus.json').exists():shutil.copy2(p,w/'performance-summary-before-focus.json')
+conditions=json.loads((w/'benchmark-conditions.json').read_text());samples=[]
+for name in ['reference-river-before-1','reference-river-after-1','reference-river-after-2','reference-river-before-2','reference-forest-before','reference-forest-after']:
+ d=json.loads((w/'benchmarks'/(name+'.json')).read_text());assert d['valid_focused_sample'] and d['unfocused_polls']==0 and d['framebuffer']==[1440,842];d['duration_from_frame_ring_seconds']=sum(d['raw_frame_ns'])/1e9;d.pop('raw_frame_ns');d['file']='benchmarks/'+name+'.json';samples.append(d)
+monitor=(w/'final-activity-monitor.txt').read_text().splitlines();assert all('focus=1' in row and 'limiter_after=NONE' in row and 'cap_after=70' in row and 'dynamic=FOCUSED' in row and 'rain=0.0' in row and 'worldTime=6000' in row for row in monitor)
+def pooled(scene,phase):
+ ss=[x for x in samples if scene+'-'+phase in x['file']];return sum(x['frames'] for x in ss)/sum(x['duration_from_frame_ring_seconds'] for x in ss)
+comparison=[]
+for scene in ['river','forest']:
+ before=pooled(scene,'before');after=pooled(scene,'after');comparison.append({'scene':scene,'baseline_fps':before,'candidate_fps':after,'finite_mean_change_percent':(after/before-1)*100,'target_60_FPS_met':False})
+result={'version':'1.6.10','status':'Matched focused full-Reference testing completed; approximately60 FPS target remains unmet. Small finite scene gains do not certify general gameplay improvement.','target_preset':'REFERENCE','focused_comparison_verified':True,'target_60_FPS_verified':False,'quality_reduction':False,'conditions':conditions,'activity_monitor':'final-activity-monitor.txt','process_snapshot':'benchmark-process-snapshot.txt (near end of run; not a continuous process trace)','samples':samples,'comparison':comparison,'river_summary_method':'Pooled frame counts / pooled Minecraft frame-duration sums across two30-second samples per build, order before/after/after/before','forest_summary_method':'One30-second sample per build','limits':['Only two fixed normal-world views; not a moving gameplay or universal performance guarantee','Earlier1.6.9 ~56FPS samples used different saved quality choices, so cannot certify full Reference','No native GPU probe/profiler ran during accepted FPS samples','Small gains may include normal run/thermal variation; target remains far from60'],'diagnostics':json.loads((w/'performance-summary-before-focus.json').read_text()),'next_step':'Continue measuring the full-resolution scenery-reflection and foliage/atmosphere bottlenecks; retain all quality, ranges, controls and intended visuals. Do not close the60FPS request.'}
+p.write_text(json.dumps(result,indent=2)+'\n');Path('outputs/Stratus-1.6.10-performance.json').write_text(json.dumps(result,indent=2)+'\n');(w/'final-activity-stop.txt').write_text('Focused benchmarks finished; stop temporary timer helper.\n');print(json.dumps(comparison,indent=2))

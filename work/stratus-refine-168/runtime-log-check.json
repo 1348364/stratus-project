@@ -1,0 +1,9 @@
+{
+  "combined_midnight_rotation": true,
+  "sources": [
+    "2026-10-21-1.log.gz",
+    "latest.log"
+  ],
+  "shader_driver_exceptions": [],
+  "warnings": "Unused shader attributes and the shaders-disabled Sodium link warning remain distinct from compile/runtime errors."
+}

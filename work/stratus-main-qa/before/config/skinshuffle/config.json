@@ -1,0 +1,21 @@
+{
+	"enableMultiAccountSupport": false,
+	"disableReconnectToast": false,
+	"disableOfflineToast": false,
+	"disableAPIUpload": false,
+	"displayInPauseMenu": false,
+	"displayInTitleScreen": true,
+	"carouselScrollSensitivity": 1.0,
+	"invertCarouselScroll": false,
+	"invertCarouselHorizontalScroll": false,
+	"widgetSkinRenderStyle": "CURSOR",
+	"carouselSkinRenderStyle": "ROTATION",
+	"presetEditScreenRenderStyle": "ROTATION",
+	"rotationMultiplier": 1.0,
+	"showCapeInPreview": true,
+	"carouselView": "LARGE",
+	"welcomeGuideShown": true,
+	"mineskinProxyDomain": "skinshuffle.imb11.dev",
+	"playKeybindSoundEffect": true,
+	"naturalScrolling": true
+}

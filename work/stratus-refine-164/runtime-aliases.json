@@ -1,0 +1,72 @@
+{
+  "FAST": {
+    "CLOUD_LAYERS": "1",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "1",
+    "REFLECTION_MODE": "0",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "0",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60",
+    "ATMOSPHERE_QUALITY": "0",
+    "REFRACTION_QUALITY": "0"
+  },
+  "BALANCED": {
+    "CLOUD_LAYERS": "1",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "2",
+    "REFLECTION_MODE": "1",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "1",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60",
+    "ATMOSPHERE_QUALITY": "1",
+    "REFRACTION_QUALITY": "0"
+  },
+  "REFERENCE": {
+    "CLOUD_LAYERS": "2",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "3",
+    "REFLECTION_MODE": "2",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "2",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60",
+    "ATMOSPHERE_QUALITY": "2",
+    "REFRACTION_QUALITY": "2"
+  },
+  "HIGH": {
+    "CLOUD_LAYERS": "3",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "3",
+    "REFLECTION_MODE": "2",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "2",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60",
+    "ATMOSPHERE_QUALITY": "2",
+    "REFRACTION_QUALITY": "2"
+  },
+  "VANILLA": {
+    "CLOUD_LAYERS": "1",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "2",
+    "REFLECTION_MODE": "2",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "2",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60",
+    "CLOUD_STYLE": "1",
+    "SUN_STYLE": "1"
+  }
+}

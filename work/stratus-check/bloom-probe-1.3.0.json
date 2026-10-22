@@ -1,0 +1,3 @@
+{"cases":{
+"small":{"energy":30.239998,"rms_radius_quarterres_pixels":0.977578,"nonzero_support_radius":2.000},
+"normal":{"energy":30.116324,"rms_radius_quarterres_pixels":3.438915,"nonzero_support_radius":7.746}},"opengl_errors":0,"larger_radius_spreads_further":true}

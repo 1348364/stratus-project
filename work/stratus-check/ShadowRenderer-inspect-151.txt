@@ -1,0 +1,1906 @@
+Compiled from "ShadowRenderer.java"
+public class net.irisshaders.iris.shadows.ShadowRenderer {
+  public static boolean ACTIVE;
+
+  public static java.util.List<net.minecraft.class_2586> visibleBlockEntities;
+
+  public static int renderDistance;
+
+  public static org.joml.Matrix4f MODELVIEW;
+
+  public static org.joml.Matrix4f PROJECTION;
+
+  public static net.minecraft.class_4604 FRUSTUM;
+
+  private final float halfPlaneLength;
+
+  private final float nearPlane;
+
+  private final float farPlane;
+
+  private final float voxelDistance;
+
+  private final float renderDistanceMultiplier;
+
+  private final float entityShadowDistanceMultiplier;
+
+  private final int resolution;
+
+  private final float intervalSize;
+
+  private final java.lang.Float fov;
+
+  private final net.irisshaders.iris.shadows.ShadowRenderTargets targets;
+
+  private final net.irisshaders.iris.shaderpack.properties.ShadowCullState packCullingState;
+
+  private final net.irisshaders.iris.shadows.ShadowCompositeRenderer compositeRenderer;
+
+  private final boolean shouldRenderTerrain;
+
+  private final boolean shouldRenderTranslucent;
+
+  private final boolean shouldRenderEntities;
+
+  private final boolean shouldRenderPlayer;
+
+  private final boolean shouldRenderBlockEntities;
+
+  private final boolean shouldRenderDH;
+
+  private final float sunPathRotation;
+
+  private final net.minecraft.class_4599 buffers;
+
+  private final java.util.List<net.irisshaders.iris.shadows.ShadowRenderer$MipmapPass> mipmapPasses;
+
+  private final java.lang.String debugStringOverall;
+
+  private final boolean separateHardwareSamplers;
+
+  private final boolean shouldRenderLightBlockEntities;
+
+  private final net.irisshaders.iris.pipeline.IrisRenderingPipeline pipeline;
+
+  private final net.minecraft.class_4618 outlineBuffers;
+
+  private boolean packHasVoxelization;
+
+  private net.irisshaders.iris.shadows.frustum.FrustumHolder terrainFrustumHolder;
+
+  private net.irisshaders.iris.shadows.frustum.FrustumHolder entityFrustumHolder;
+
+  private java.lang.String debugStringTerrain;
+
+  private int renderedShadowEntities;
+
+  private int renderedShadowBlockEntities;
+
+  private final net.minecraft.class_11658 levelRenderState;
+
+  private final net.minecraft.class_11661 submitNodeStorage;
+
+  private final net.minecraft.class_11684 featureRenderDispatcher;
+
+  public net.irisshaders.iris.shadows.ShadowRenderer(net.irisshaders.iris.pipeline.IrisRenderingPipeline, net.irisshaders.iris.shaderpack.programs.ProgramSource, net.irisshaders.iris.shaderpack.properties.PackDirectives, net.irisshaders.iris.shadows.ShadowRenderTargets, net.irisshaders.iris.shadows.ShadowCompositeRenderer, net.irisshaders.iris.uniforms.custom.CustomUniforms, boolean);
+    Code:
+         0: aload_0
+         1: invokespecial #101                // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #103                // class java/util/ArrayList
+         8: dup
+         9: invokespecial #104                // Method java/util/ArrayList."<init>":()V
+        12: putfield      #106                // Field mipmapPasses:Ljava/util/List;
+        15: aload_0
+        16: ldc           #108                // String (unavailable)
+        18: putfield      #110                // Field debugStringTerrain:Ljava/lang/String;
+        21: aload_0
+        22: iconst_0
+        23: putfield      #112                // Field renderedShadowEntities:I
+        26: aload_0
+        27: iconst_0
+        28: putfield      #114                // Field renderedShadowBlockEntities:I
+        31: aload_0
+        32: aload_1
+        33: putfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+        36: aload_0
+        37: iload         7
+        39: putfield      #118                // Field separateHardwareSamplers:Z
+        42: aload_3
+        43: invokevirtual #124                // Method net/irisshaders/iris/shaderpack/properties/PackDirectives.getShadowDirectives:()Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;
+        46: astore        8
+        48: aload_0
+        49: aload         8
+        51: invokevirtual #128                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getDistance:()F
+        54: putfield      #130                // Field halfPlaneLength:F
+        57: aload_0
+        58: aload         8
+        60: invokevirtual #133                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getNearPlane:()F
+        63: putfield      #135                // Field nearPlane:F
+        66: aload_0
+        67: aload         8
+        69: invokevirtual #138                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getFarPlane:()F
+        72: putfield      #140                // Field farPlane:F
+        75: aload_0
+        76: aload         8
+        78: invokevirtual #143                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getVoxelDistance:()F
+        81: putfield      #145                // Field voxelDistance:F
+        84: aload_0
+        85: aload         8
+        87: invokevirtual #148                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getDistanceRenderMul:()F
+        90: putfield      #150                // Field renderDistanceMultiplier:F
+        93: aload_0
+        94: aload         8
+        96: invokevirtual #153                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getEntityShadowDistanceMul:()F
+        99: putfield      #155                // Field entityShadowDistanceMultiplier:F
+       102: aload_0
+       103: aload         8
+       105: invokevirtual #159                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getResolution:()I
+       108: putfield      #161                // Field resolution:I
+       111: aload_0
+       112: aload         8
+       114: invokevirtual #164                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getIntervalSize:()F
+       117: putfield      #166                // Field intervalSize:F
+       120: aload_0
+       121: aload         8
+       123: invokevirtual #169                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderTerrain:()Z
+       126: putfield      #171                // Field shouldRenderTerrain:Z
+       129: aload_0
+       130: aload         8
+       132: invokevirtual #173                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderTranslucent:()Z
+       135: putfield      #175                // Field shouldRenderTranslucent:Z
+       138: aload_0
+       139: aload         8
+       141: invokevirtual #177                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderEntities:()Z
+       144: putfield      #179                // Field shouldRenderEntities:Z
+       147: aload_0
+       148: aload         8
+       150: invokevirtual #181                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderPlayer:()Z
+       153: putfield      #183                // Field shouldRenderPlayer:Z
+       156: aload_0
+       157: aload         8
+       159: invokevirtual #185                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderBlockEntities:()Z
+       162: putfield      #187                // Field shouldRenderBlockEntities:Z
+       165: aload_0
+       166: aload         8
+       168: invokevirtual #189                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.shouldRenderLightBlockEntities:()Z
+       171: putfield      #191                // Field shouldRenderLightBlockEntities:Z
+       174: aload_0
+       175: aload         8
+       177: invokevirtual #195                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.isDhShadowEnabled:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       180: iconst_0
+       181: invokevirtual #201                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       184: putfield      #203                // Field shouldRenderDH:Z
+       187: aload_0
+       188: aload         5
+       190: putfield      #205                // Field compositeRenderer:Lnet/irisshaders/iris/shadows/ShadowCompositeRenderer;
+       193: aload_0
+       194: aload_0
+       195: getfield      #130                // Field halfPlaneLength:F
+       198: aload_0
+       199: getfield      #161                // Field resolution:I
+       202: aload_0
+       203: getfield      #161                // Field resolution:I
+       206: invokedynamic #217,  0            // InvokeDynamic #0:makeConcatWithConstants:(FII)Ljava/lang/String;
+       211: putfield      #219                // Field debugStringOverall:Ljava/lang/String;
+       214: aload_0
+       215: new           #221                // class net/irisshaders/iris/shadows/frustum/FrustumHolder
+       218: dup
+       219: invokespecial #222                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder."<init>":()V
+       222: putfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       225: aload_0
+       226: new           #221                // class net/irisshaders/iris/shadows/frustum/FrustumHolder
+       229: dup
+       230: invokespecial #222                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder."<init>":()V
+       233: putfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       236: aload_0
+       237: aload         8
+       239: invokevirtual #230                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getFov:()Ljava/lang/Float;
+       242: putfield      #232                // Field fov:Ljava/lang/Float;
+       245: aload_0
+       246: aload         4
+       248: putfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+       251: aload_2
+       252: ifnull        278
+       255: aload_0
+       256: aload_2
+       257: invokevirtual #240                // Method net/irisshaders/iris/shaderpack/programs/ProgramSource.getGeometrySource:()Ljava/util/Optional;
+       260: invokevirtual #245                // Method java/util/Optional.isPresent:()Z
+       263: putfield      #247                // Field packHasVoxelization:Z
+       266: aload_0
+       267: aload         8
+       269: invokevirtual #251                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getCullingState:()Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       272: putfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       275: goto          290
+       278: aload_0
+       279: iconst_0
+       280: putfield      #247                // Field packHasVoxelization:Z
+       283: aload_0
+       284: getstatic     #266                // Field net/irisshaders/iris/shaderpack/properties/ShadowCullState.DEFAULT:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       287: putfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       290: aload_0
+       291: aload_3
+       292: invokevirtual #269                // Method net/irisshaders/iris/shaderpack/properties/PackDirectives.getSunPathRotation:()F
+       295: putfield      #271                // Field sunPathRotation:F
+       298: invokestatic  #277                // Method java/lang/Runtime.getRuntime:()Ljava/lang/Runtime;
+       301: invokevirtual #280                // Method java/lang/Runtime.availableProcessors:()I
+       304: istore        9
+       306: aload_0
+       307: new           #282                // class net/minecraft/class_4599
+       310: dup
+       311: iload         9
+       313: invokespecial #285                // Method net/minecraft/class_4599."<init>":(I)V
+       316: putfield      #287                // Field buffers:Lnet/minecraft/class_4599;
+       319: aload_0
+       320: new           #289                // class net/minecraft/class_4618
+       323: dup
+       324: invokespecial #290                // Method net/minecraft/class_4618."<init>":()V
+       327: putfield      #292                // Field outlineBuffers:Lnet/minecraft/class_4618;
+       330: aload_0
+       331: aload         8
+       333: invokevirtual #296                // Method configureSamplingSettings:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)V
+       336: aload_0
+       337: new           #298                // class net/minecraft/class_11658
+       340: dup
+       341: invokespecial #299                // Method net/minecraft/class_11658."<init>":()V
+       344: putfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       347: aload_0
+       348: new           #303                // class net/minecraft/class_11661
+       351: dup
+       352: invokespecial #304                // Method net/minecraft/class_11661."<init>":()V
+       355: putfield      #306                // Field submitNodeStorage:Lnet/minecraft/class_11661;
+       358: aload_0
+       359: new           #308                // class net/minecraft/class_11684
+       362: dup
+       363: aload_0
+       364: getfield      #306                // Field submitNodeStorage:Lnet/minecraft/class_11661;
+       367: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       370: invokevirtual #318                // Method net/minecraft/class_310.method_1541:()Lnet/minecraft/class_776;
+       373: aload_0
+       374: getfield      #287                // Field buffers:Lnet/minecraft/class_4599;
+       377: invokevirtual #322                // Method net/minecraft/class_4599.method_23000:()Lnet/minecraft/class_4597$class_4598;
+       380: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       383: invokevirtual #326                // Method net/minecraft/class_310.method_72703:()Lnet/minecraft/class_11697;
+       386: aload_0
+       387: getfield      #292                // Field outlineBuffers:Lnet/minecraft/class_4618;
+       390: aload_0
+       391: getfield      #287                // Field buffers:Lnet/minecraft/class_4599;
+       394: invokevirtual #329                // Method net/minecraft/class_4599.method_23001:()Lnet/minecraft/class_4597$class_4598;
+       397: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       400: getfield      #333                // Field net/minecraft/class_310.field_1772:Lnet/minecraft/class_327;
+       403: invokespecial #336                // Method net/minecraft/class_11684."<init>":(Lnet/minecraft/class_11661;Lnet/minecraft/class_776;Lnet/minecraft/class_4597$class_4598;Lnet/minecraft/class_11697;Lnet/minecraft/class_4618;Lnet/minecraft/class_4597$class_4598;Lnet/minecraft/class_327;)V
+       406: putfield      #338                // Field featureRenderDispatcher:Lnet/minecraft/class_11684;
+       409: return
+
+  public static net.minecraft.class_4587 createShadowModelView(float, float, float, float);
+    Code:
+         0: invokestatic  #354                // Method net/irisshaders/iris/uniforms/CameraUniforms.getUnshiftedCameraPosition:()Lorg/joml/Vector3d;
+         3: astore        4
+         5: aload         4
+         7: getfield      #360                // Field org/joml/Vector3d.x:D
+        10: dstore        5
+        12: aload         4
+        14: getfield      #363                // Field org/joml/Vector3d.y:D
+        17: dstore        7
+        19: aload         4
+        21: getfield      #366                // Field org/joml/Vector3d.z:D
+        24: dstore        9
+        26: new           #25                 // class net/minecraft/class_4587
+        29: dup
+        30: invokespecial #367                // Method net/minecraft/class_4587."<init>":()V
+        33: astore        11
+        35: aload         11
+        37: invokestatic  #370                // Method getShadowAngle:()F
+        40: fload_1
+        41: fload_0
+        42: dload         5
+        44: dload         7
+        46: dload         9
+        48: fload_2
+        49: fload_3
+        50: invokestatic  #376                // Method net/irisshaders/iris/shadows/ShadowMatrices.createModelViewMatrix:(Lnet/minecraft/class_4587;FFFDDDFF)V
+        53: aload         11
+        55: areturn
+
+  private static net.minecraft.class_638 getLevel();
+    Code:
+         0: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+         3: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+         6: invokestatic  #395                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+         9: checkcast     #397                // class net/minecraft/class_638
+        12: areturn
+
+  public static float getSunAngle(boolean);
+    Code:
+         0: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+         3: getfield      #404                // Field net/minecraft/class_310.field_1773:Lnet/minecraft/class_757;
+         6: invokevirtual #410                // Method net/minecraft/class_757.method_19418:()Lnet/minecraft/class_4184;
+         9: invokevirtual #416                // Method net/minecraft/class_4184.method_75756:()Lnet/minecraft/class_12202;
+        12: iload_0
+        13: ifeq          22
+        16: getstatic     #422                // Field net/minecraft/class_12206.field_64340:Lnet/minecraft/class_12197;
+        19: goto          25
+        22: getstatic     #427                // Field net/minecraft/class_12206.field_64341:Lnet/minecraft/class_12197;
+        25: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+        28: invokevirtual #438                // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getTickDelta:()F
+        31: invokevirtual #442                // Method net/minecraft/class_12202.method_75689:(Lnet/minecraft/class_12197;F)Ljava/lang/Object;
+        34: checkcast     #444                // class java/lang/Float
+        37: invokevirtual #447                // Method java/lang/Float.floatValue:()F
+        40: fstore_1
+        41: fload_1
+        42: ldc_w         #448                // float 90.0f
+        45: fadd
+        46: fstore_2
+        47: fload_2
+        48: fconst_0
+        49: fcmpg
+        50: ifge          62
+        53: fload_2
+        54: ldc_w         #449                // float 360.0f
+        57: fadd
+        58: fstore_2
+        59: goto          76
+        62: fload_2
+        63: ldc_w         #449                // float 360.0f
+        66: fcmpl
+        67: ifle          76
+        70: fload_2
+        71: ldc_w         #449                // float 360.0f
+        74: fsub
+        75: fstore_2
+        76: fload_2
+        77: freturn
+
+  private static float getShadowAngle();
+    Code:
+         0: invokestatic  #456                // Method net/irisshaders/iris/uniforms/CelestialUniforms.isDay:()Z
+         3: invokestatic  #458                // Method getSunAngle:(Z)F
+         6: fstore_0
+         7: fload_0
+         8: ldc_w         #449                // float 360.0f
+        11: fdiv
+        12: freturn
+
+  public void setUsesImages(boolean);
+    Code:
+         0: aload_0
+         1: aload_0
+         2: getfield      #247                // Field packHasVoxelization:Z
+         5: ifne          12
+         8: iload_1
+         9: ifeq          16
+        12: iconst_1
+        13: goto          17
+        16: iconst_0
+        17: putfield      #247                // Field packHasVoxelization:Z
+        20: return
+
+  private void configureSamplingSettings(net.irisshaders.iris.shaderpack.properties.PackShadowDirectives);
+    Code:
+         0: aload_1
+         1: invokevirtual #466                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getDepthSamplingSettings:()Lcom/google/common/collect/ImmutableList;
+         4: astore_2
+         5: aload_1
+         6: invokevirtual #470                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.getColorSamplingSettings:()Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+         9: astore_3
+        10: ldc_w         #471                // int 33988
+        13: invokestatic  #476                // Method com/mojang/blaze3d/opengl/GlStateManager._activeTexture:(I)V
+        16: aload_0
+        17: aload_0
+        18: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        21: invokevirtual #480                // Method net/irisshaders/iris/shadows/ShadowRenderTargets.getDepthTexture:()Lcom/mojang/blaze3d/textures/GpuTexture;
+        24: invokevirtual #485                // Method com/mojang/blaze3d/textures/GpuTexture.iris$getGlId:()I
+        27: aload_2
+        28: iconst_0
+        29: invokevirtual #491                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        32: checkcast     #14                 // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        35: invokevirtual #495                // Method configureDepthSampler:(ILnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)V
+        38: aload_0
+        39: aload_0
+        40: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        43: invokevirtual #498                // Method net/irisshaders/iris/shadows/ShadowRenderTargets.getDepthTextureNoTranslucents:()Lcom/mojang/blaze3d/textures/GpuTexture;
+        46: invokevirtual #485                // Method com/mojang/blaze3d/textures/GpuTexture.iris$getGlId:()I
+        49: aload_2
+        50: iconst_1
+        51: invokevirtual #491                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        54: checkcast     #14                 // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        57: invokevirtual #495                // Method configureDepthSampler:(ILnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)V
+        60: iconst_0
+        61: istore        4
+        63: iload         4
+        65: aload_0
+        66: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        69: invokevirtual #503                // Method net/irisshaders/iris/shadows/ShadowRenderTargets.getNumColorTextures:()I
+        72: if_icmpge     129
+        75: aload_0
+        76: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        79: iload         4
+        81: invokevirtual #506                // Method net/irisshaders/iris/shadows/ShadowRenderTargets.get:(I)Lnet/irisshaders/iris/targets/RenderTarget;
+        84: ifnull        123
+        87: aload_0
+        88: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        91: iload         4
+        93: invokevirtual #506                // Method net/irisshaders/iris/shadows/ShadowRenderTargets.get:(I)Lnet/irisshaders/iris/targets/RenderTarget;
+        96: invokevirtual #511                // Method net/irisshaders/iris/targets/RenderTarget.getMainTexture:()I
+        99: istore        5
+       101: aload_0
+       102: iload         5
+       104: aload_3
+       105: iload         4
+       107: invokedynamic #528,  0            // InvokeDynamic #1:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+       112: invokeinterface #532,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+       117: checkcast     #19                 // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+       120: invokevirtual #536                // Method configureSampler:(ILnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)V
+       123: iinc          4, 1
+       126: goto          63
+       129: ldc_w         #537                // int 33984
+       132: invokestatic  #476                // Method com/mojang/blaze3d/opengl/GlStateManager._activeTexture:(I)V
+       135: return
+
+  private void configureDepthSampler(int, net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings);
+    Code:
+         0: aload_2
+         1: invokevirtual #549                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings.getHardwareFiltering:()Z
+         4: ifeq          27
+         7: aload_0
+         8: getfield      #118                // Field separateHardwareSamplers:Z
+        11: ifne          27
+        14: iload_1
+        15: sipush        3553
+        18: ldc_w         #550                // int 34892
+        21: ldc_w         #551                // int 34894
+        24: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+        27: iload_1
+        28: sipush        3553
+        31: ldc_w         #558                // int 36422
+        34: iconst_4
+        35: newarray       int
+        37: dup
+        38: iconst_0
+        39: sipush        6403
+        42: iastore
+        43: dup
+        44: iconst_1
+        45: sipush        6403
+        48: iastore
+        49: dup
+        50: iconst_2
+        51: sipush        6403
+        54: iastore
+        55: dup
+        56: iconst_3
+        57: iconst_1
+        58: iastore
+        59: invokestatic  #562                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteriv:(III[I)V
+        62: aload_0
+        63: iload_1
+        64: aload_2
+        65: invokevirtual #536                // Method configureSampler:(ILnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)V
+        68: return
+
+  private void configureSampler(int, net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings);
+    Code:
+         0: aload_2
+         1: invokevirtual #566                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.getMipmap:()Z
+         4: ifeq          43
+         7: aload_2
+         8: invokevirtual #569                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.getNearest:()Z
+        11: ifeq          20
+        14: sipush        9984
+        17: goto          23
+        20: sipush        9987
+        23: istore_3
+        24: aload_0
+        25: getfield      #106                // Field mipmapPasses:Ljava/util/List;
+        28: new           #7                  // class net/irisshaders/iris/shadows/ShadowRenderer$MipmapPass
+        31: dup
+        32: iload_1
+        33: iload_3
+        34: invokespecial #572                // Method net/irisshaders/iris/shadows/ShadowRenderer$MipmapPass."<init>":(II)V
+        37: invokeinterface #578,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+        42: pop
+        43: aload_2
+        44: invokevirtual #569                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.getNearest:()Z
+        47: ifne          79
+        50: iload_1
+        51: sipush        3553
+        54: sipush        10241
+        57: sipush        9729
+        60: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+        63: iload_1
+        64: sipush        3553
+        67: sipush        10240
+        70: sipush        9729
+        73: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+        76: goto          105
+        79: iload_1
+        80: sipush        3553
+        83: sipush        10241
+        86: sipush        9728
+        89: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+        92: iload_1
+        93: sipush        3553
+        96: sipush        10240
+        99: sipush        9728
+       102: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+       105: return
+
+  private void generateMipmaps();
+    Code:
+         0: ldc_w         #471                // int 33988
+         3: invokestatic  #476                // Method com/mojang/blaze3d/opengl/GlStateManager._activeTexture:(I)V
+         6: aload_0
+         7: getfield      #106                // Field mipmapPasses:Ljava/util/List;
+        10: invokeinterface #585,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        15: astore_1
+        16: aload_1
+        17: invokeinterface #590,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        22: ifeq          50
+        25: aload_1
+        26: invokeinterface #594,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        31: checkcast     #7                  // class net/irisshaders/iris/shadows/ShadowRenderer$MipmapPass
+        34: astore_2
+        35: aload_0
+        36: aload_2
+        37: invokevirtual #597                // Method net/irisshaders/iris/shadows/ShadowRenderer$MipmapPass.texture:()I
+        40: aload_2
+        41: invokevirtual #600                // Method net/irisshaders/iris/shadows/ShadowRenderer$MipmapPass.targetFilteringMode:()I
+        44: invokevirtual #603                // Method setupMipmappingForTexture:(II)V
+        47: goto          16
+        50: ldc_w         #537                // int 33984
+        53: invokestatic  #476                // Method com/mojang/blaze3d/opengl/GlStateManager._activeTexture:(I)V
+        56: return
+
+  private void setupMipmappingForTexture(int, int);
+    Code:
+         0: iload_1
+         1: sipush        3553
+         4: invokestatic  #607                // Method net/irisshaders/iris/gl/IrisRenderSystem.generateMipmaps:(II)V
+         7: iload_1
+         8: sipush        3553
+        11: sipush        10241
+        14: iload_2
+        15: invokestatic  #557                // Method net/irisshaders/iris/gl/IrisRenderSystem.texParameteri:(IIII)V
+        18: return
+
+  private net.irisshaders.iris.shadows.frustum.FrustumHolder createShadowFrustum(float, net.irisshaders.iris.shadows.frustum.FrustumHolder);
+    Code:
+         0: aload_0
+         1: getfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+         4: getstatic     #266                // Field net/irisshaders/iris/shaderpack/properties/ShadowCullState.DEFAULT:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+         7: if_acmpne     17
+        10: aload_0
+        11: getfield      #247                // Field packHasVoxelization:Z
+        14: ifne          27
+        17: aload_0
+        18: getfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+        21: getstatic     #614                // Field net/irisshaders/iris/shaderpack/properties/ShadowCullState.DISTANCE:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+        24: if_acmpne     200
+        27: aload_0
+        28: getfield      #130                // Field halfPlaneLength:F
+        31: fload_1
+        32: fmul
+        33: f2d
+        34: dstore        5
+        36: aload_0
+        37: getfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+        40: getstatic     #614                // Field net/irisshaders/iris/shaderpack/properties/ShadowCullState.DISTANCE:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+        43: if_acmpne     54
+        46: ldc_w         #616                // String (set by shader pack)
+        49: astore        7
+        51: goto          59
+        54: ldc_w         #618                // String (voxelization detected)
+        57: astore        7
+        59: dload         5
+        61: dconst_0
+        62: dcmpg
+        63: ifle          85
+        66: dload         5
+        68: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        71: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        74: invokevirtual #629                // Method net/minecraft/class_315.method_38521:()I
+        77: bipush        16
+        79: imul
+        80: i2d
+        81: dcmpl
+        82: ifle          152
+        85: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        88: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        91: invokevirtual #629                // Method net/minecraft/class_315.method_38521:()I
+        94: bipush        16
+        96: imul
+        97: invokedynamic #634,  0            // InvokeDynamic #2:makeConcatWithConstants:(I)Ljava/lang/String;
+       102: astore_3
+       103: aload_3
+       104: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       107: invokevirtual #637                // Method net/minecraft/class_310.method_1542:()Z
+       110: ifeq          119
+       113: ldc_w         #639                // String (capped by normal render distance)
+       116: goto          122
+       119: ldc_w         #641                // String (capped by normal/server render distance)
+       122: invokedynamic #646,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       127: astore_3
+       128: aload         7
+       130: invokedynamic #651,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       135: astore        4
+       137: aload_2
+       138: new           #653                // class net/irisshaders/iris/shadows/frustum/fallback/NonCullingFrustum
+       141: dup
+       142: invokespecial #654                // Method net/irisshaders/iris/shadows/frustum/fallback/NonCullingFrustum."<init>":()V
+       145: aload_3
+       146: aload         4
+       148: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       151: areturn
+       152: dload         5
+       154: invokedynamic #663,  0            // InvokeDynamic #5:makeConcatWithConstants:(D)Ljava/lang/String;
+       159: astore_3
+       160: aload         7
+       162: invokedynamic #666,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       167: astore        4
+       169: new           #668                // class net/irisshaders/iris/shadows/frustum/BoxCuller
+       172: dup
+       173: dload         5
+       175: invokespecial #671                // Method net/irisshaders/iris/shadows/frustum/BoxCuller."<init>":(D)V
+       178: astore        8
+       180: aload_2
+       181: new           #673                // class net/irisshaders/iris/shadows/frustum/fallback/BoxCullingFrustum
+       184: dup
+       185: aload         8
+       187: invokespecial #676                // Method net/irisshaders/iris/shadows/frustum/fallback/BoxCullingFrustum."<init>":(Lnet/irisshaders/iris/shadows/frustum/BoxCuller;)V
+       190: aload_3
+       191: aload         4
+       193: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       196: pop
+       197: goto          581
+       200: aload_0
+       201: getfield      #253                // Field packCullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       204: getstatic     #679                // Field net/irisshaders/iris/shaderpack/properties/ShadowCullState.SAFE_ZONE:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       207: if_acmpne     214
+       210: iconst_1
+       211: goto          215
+       214: iconst_0
+       215: istore        6
+       217: iload         6
+       219: ifeq          230
+       222: fload_1
+       223: fconst_0
+       224: fcmpg
+       225: ifge          230
+       228: fconst_1
+       229: fstore_1
+       230: iload         6
+       232: ifeq          242
+       235: aload_0
+       236: getfield      #145                // Field voxelDistance:F
+       239: goto          246
+       242: aload_0
+       243: getfield      #130                // Field halfPlaneLength:F
+       246: fload_1
+       247: fmul
+       248: f2d
+       249: dstore        7
+       251: ldc_w         #616                // String (set by shader pack)
+       254: astore        9
+       256: fload_1
+       257: fconst_0
+       258: fcmpg
+       259: ifge          276
+       262: getstatic     #684                // Field net/irisshaders/iris/gui/option/IrisVideoSettings.shadowDistance:I
+       265: bipush        16
+       267: imul
+       268: i2d
+       269: dstore        7
+       271: ldc_w         #686                // String (set by user)
+       274: astore        9
+       276: dload         7
+       278: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       281: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+       284: invokevirtual #629                // Method net/minecraft/class_315.method_38521:()I
+       287: bipush        16
+       289: imul
+       290: i2d
+       291: dcmpl
+       292: iflt          349
+       295: iload         6
+       297: ifne          349
+       300: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       303: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+       306: invokevirtual #629                // Method net/minecraft/class_315.method_38521:()I
+       309: bipush        16
+       311: imul
+       312: invokedynamic #634,  0            // InvokeDynamic #2:makeConcatWithConstants:(I)Ljava/lang/String;
+       317: astore_3
+       318: aload_3
+       319: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       322: invokevirtual #637                // Method net/minecraft/class_310.method_1542:()Z
+       325: ifeq          334
+       328: ldc_w         #639                // String (capped by normal render distance)
+       331: goto          337
+       334: ldc_w         #641                // String (capped by normal/server render distance)
+       337: invokedynamic #646,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       342: astore_3
+       343: aconst_null
+       344: astore        5
+       346: goto          402
+       349: dload         7
+       351: aload         9
+       353: invokedynamic #691,  0            // InvokeDynamic #7:makeConcatWithConstants:(DLjava/lang/String;)Ljava/lang/String;
+       358: astore_3
+       359: dload         7
+       361: dconst_0
+       362: dcmpl
+       363: ifne          391
+       366: iload         6
+       368: ifne          391
+       371: ldc_w         #693                // String no shadows rendered
+       374: astore        4
+       376: aload_2
+       377: new           #695                // class net/irisshaders/iris/shadows/frustum/CullEverythingFrustum
+       380: dup
+       381: invokespecial #696                // Method net/irisshaders/iris/shadows/frustum/CullEverythingFrustum."<init>":()V
+       384: aload_3
+       385: aload         4
+       387: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       390: pop
+       391: new           #668                // class net/irisshaders/iris/shadows/frustum/BoxCuller
+       394: dup
+       395: dload         7
+       397: invokespecial #671                // Method net/irisshaders/iris/shadows/frustum/BoxCuller."<init>":(D)V
+       400: astore        5
+       402: iload         6
+       404: ifeq          413
+       407: ldc_w         #698                // String Safe Zone
+       410: goto          416
+       413: ldc_w         #700                // String Advanced
+       416: invokedynamic #703,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       421: astore        4
+       423: new           #453                // class net/irisshaders/iris/uniforms/CelestialUniforms
+       426: dup
+       427: aload_0
+       428: getfield      #271                // Field sunPathRotation:F
+       431: invokespecial #706                // Method net/irisshaders/iris/uniforms/CelestialUniforms."<init>":(F)V
+       434: invokevirtual #710                // Method net/irisshaders/iris/uniforms/CelestialUniforms.getShadowLightPositionInWorldSpace:()Lorg/joml/Vector4f;
+       437: astore        10
+       439: new           #712                // class org/joml/Vector3f
+       442: dup
+       443: aload         10
+       445: invokevirtual #716                // Method org/joml/Vector4f.x:()F
+       448: aload         10
+       450: invokevirtual #718                // Method org/joml/Vector4f.y:()F
+       453: aload         10
+       455: invokevirtual #720                // Method org/joml/Vector4f.z:()F
+       458: invokespecial #723                // Method org/joml/Vector3f."<init>":(FFF)V
+       461: astore        11
+       463: aload         11
+       465: invokevirtual #727                // Method org/joml/Vector3f.normalize:()Lorg/joml/Vector3f;
+       468: pop
+       469: aload_0
+       470: getfield      #203                // Field shouldRenderDH:Z
+       473: ifeq          488
+       476: invokestatic  #732                // Method net/irisshaders/iris/compat/dh/DHCompat.hasRenderingEnabled:()Z
+       479: ifeq          488
+       482: invokestatic  #736                // Method net/irisshaders/iris/compat/dh/DHCompat.getProjection:()Lorg/joml/Matrix4f;
+       485: goto          494
+       488: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       491: invokevirtual #740                // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getGbufferProjection:()Lorg/joml/Matrix4fc;
+       494: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       497: invokevirtual #745                // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getGbufferModelView:()Lorg/joml/Matrix4fc;
+       500: new           #747                // class org/joml/Matrix4f
+       503: dup
+       504: invokespecial #748                // Method org/joml/Matrix4f."<init>":()V
+       507: invokeinterface #752,  3          // InterfaceMethod org/joml/Matrix4fc.mul:(Lorg/joml/Matrix4fc;Lorg/joml/Matrix4f;)Lorg/joml/Matrix4f;
+       512: astore        12
+       514: iload         6
+       516: ifeq          557
+       519: aload_2
+       520: new           #754                // class net/irisshaders/iris/shadows/frustum/advanced/SafeZoneCullingFrustum
+       523: dup
+       524: aload         12
+       526: getstatic     #756                // Field PROJECTION:Lorg/joml/Matrix4f;
+       529: aload         11
+       531: aload         5
+       533: new           #668                // class net/irisshaders/iris/shadows/frustum/BoxCuller
+       536: dup
+       537: aload_0
+       538: getfield      #130                // Field halfPlaneLength:F
+       541: fload_1
+       542: fmul
+       543: f2d
+       544: invokespecial #671                // Method net/irisshaders/iris/shadows/frustum/BoxCuller."<init>":(D)V
+       547: invokespecial #759                // Method net/irisshaders/iris/shadows/frustum/advanced/SafeZoneCullingFrustum."<init>":(Lorg/joml/Matrix4fc;Lorg/joml/Matrix4fc;Lorg/joml/Vector3f;Lnet/irisshaders/iris/shadows/frustum/BoxCuller;Lnet/irisshaders/iris/shadows/frustum/BoxCuller;)V
+       550: aload_3
+       551: aload         4
+       553: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       556: areturn
+       557: aload_2
+       558: new           #761                // class net/irisshaders/iris/shadows/frustum/advanced/AdvancedShadowCullingFrustum
+       561: dup
+       562: aload         12
+       564: getstatic     #756                // Field PROJECTION:Lorg/joml/Matrix4f;
+       567: aload         11
+       569: aload         5
+       571: invokespecial #764                // Method net/irisshaders/iris/shadows/frustum/advanced/AdvancedShadowCullingFrustum."<init>":(Lorg/joml/Matrix4fc;Lorg/joml/Matrix4fc;Lorg/joml/Vector3f;Lnet/irisshaders/iris/shadows/frustum/BoxCuller;)V
+       574: aload_3
+       575: aload         4
+       577: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       580: areturn
+       581: aload_2
+       582: areturn
+
+  public void setupShadowViewport();
+    Code:
+         0: iconst_0
+         1: iconst_0
+         2: aload_0
+         3: getfield      #161                // Field resolution:I
+         6: aload_0
+         7: getfield      #161                // Field resolution:I
+        10: invokestatic  #781                // Method com/mojang/blaze3d/opengl/GlStateManager._viewport:(IIII)V
+        13: return
+
+  public void renderShadows(net.irisshaders.iris.mixin.LevelRendererAccessor, net.minecraft.class_4184, net.minecraft.class_12075);
+    Code:
+         0: getstatic     #684                // Field net/irisshaders/iris/gui/option/IrisVideoSettings.shadowDistance:I
+         3: invokestatic  #790                // Method net/irisshaders/iris/gui/option/IrisVideoSettings.getOverriddenShadowDistance:(I)I
+         6: ifne          10
+         9: return
+        10: invokestatic  #796                // Method com/mojang/blaze3d/systems/RenderSystem.getSamplerCache:()Lnet/minecraft/class_12136;
+        13: getstatic     #802                // Field com/mojang/blaze3d/textures/AddressMode.CLAMP_TO_EDGE:Lcom/mojang/blaze3d/textures/AddressMode;
+        16: getstatic     #802                // Field com/mojang/blaze3d/textures/AddressMode.CLAMP_TO_EDGE:Lcom/mojang/blaze3d/textures/AddressMode;
+        19: getstatic     #808                // Field com/mojang/blaze3d/textures/FilterMode.NEAREST:Lcom/mojang/blaze3d/textures/FilterMode;
+        22: getstatic     #808                // Field com/mojang/blaze3d/textures/FilterMode.NEAREST:Lcom/mojang/blaze3d/textures/FilterMode;
+        25: iconst_1
+        26: invokevirtual #814                // Method net/minecraft/class_12136.method_75293:(Lcom/mojang/blaze3d/textures/AddressMode;Lcom/mojang/blaze3d/textures/AddressMode;Lcom/mojang/blaze3d/textures/FilterMode;Lcom/mojang/blaze3d/textures/FilterMode;Z)Lnet/minecraft/class_12137;
+        29: astore        4
+        31: aload_0
+        32: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        35: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        38: aload_3
+        39: getfield      #824                // Field net/minecraft/class_12075.field_63077:Lnet/minecraft/class_2338;
+        42: putfield      #824                // Field net/minecraft/class_12075.field_63077:Lnet/minecraft/class_2338;
+        45: aload_0
+        46: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        49: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        52: aload_3
+        53: getfield      #828                // Field net/minecraft/class_12075.field_63078:Lnet/minecraft/class_243;
+        56: putfield      #828                // Field net/minecraft/class_12075.field_63078:Lnet/minecraft/class_243;
+        59: aload_0
+        60: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        63: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        66: aload_3
+        67: getfield      #832                // Field net/minecraft/class_12075.field_63081:Lorg/joml/Quaternionf;
+        70: putfield      #832                // Field net/minecraft/class_12075.field_63081:Lorg/joml/Quaternionf;
+        73: aload_0
+        74: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        77: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        80: aload_3
+        81: getfield      #835                // Field net/minecraft/class_12075.field_63080:Lnet/minecraft/class_243;
+        84: putfield      #835                // Field net/minecraft/class_12075.field_63080:Lnet/minecraft/class_243;
+        87: aload_0
+        88: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        91: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        94: aload_3
+        95: getfield      #838                // Field net/minecraft/class_12075.field_63079:Z
+        98: putfield      #838                // Field net/minecraft/class_12075.field_63079:Z
+       101: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       104: astore        5
+       106: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+       109: astore        6
+       111: aload         6
+       113: ldc_w         #846                // String shadows
+       116: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       121: iconst_1
+       122: putstatic     #854                // Field ACTIVE:Z
+       125: aload_0
+       126: getfield      #130                // Field halfPlaneLength:F
+       129: aload_0
+       130: getfield      #150                // Field renderDistanceMultiplier:F
+       133: fmul
+       134: ldc_w         #855                // float 16.0f
+       137: fdiv
+       138: f2i
+       139: putstatic     #857                // Field renderDistance:I
+       142: aload_0
+       143: getfield      #150                // Field renderDistanceMultiplier:F
+       146: fconst_0
+       147: fcmpg
+       148: ifge          157
+       151: getstatic     #684                // Field net/irisshaders/iris/gui/option/IrisVideoSettings.shadowDistance:I
+       154: putstatic     #857                // Field renderDistance:I
+       157: new           #103                // class java/util/ArrayList
+       160: dup
+       161: invokespecial #104                // Method java/util/ArrayList."<init>":()V
+       164: putstatic     #861                // Field visibleBlockEntities:Ljava/util/List;
+       167: aload_1
+       168: invokeinterface #867,  1          // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.getRenderBuffers:()Lnet/minecraft/class_4599;
+       173: astore        7
+       175: aload_1
+       176: aload_0
+       177: getfield      #287                // Field buffers:Lnet/minecraft/class_4599;
+       180: invokeinterface #871,  2          // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.setRenderBuffers:(Lnet/minecraft/class_4599;)V
+       185: new           #103                // class java/util/ArrayList
+       188: dup
+       189: invokespecial #104                // Method java/util/ArrayList."<init>":()V
+       192: putstatic     #861                // Field visibleBlockEntities:Ljava/util/List;
+       195: aload_0
+       196: invokevirtual #873                // Method setupShadowViewport:()V
+       199: aload_0
+       200: getfield      #271                // Field sunPathRotation:F
+       203: aload_0
+       204: getfield      #166                // Field intervalSize:F
+       207: aload_0
+       208: getfield      #135                // Field nearPlane:F
+       211: aload_0
+       212: getfield      #140                // Field farPlane:F
+       215: invokestatic  #875                // Method createShadowModelView:(FFFF)Lnet/minecraft/class_4587;
+       218: astore        8
+       220: new           #747                // class org/joml/Matrix4f
+       223: dup
+       224: aload         8
+       226: invokevirtual #879                // Method net/minecraft/class_4587.method_23760:()Lnet/minecraft/class_4587$class_4665;
+       229: invokevirtual #882                // Method net/minecraft/class_4587$class_4665.method_23761:()Lorg/joml/Matrix4f;
+       232: invokespecial #885                // Method org/joml/Matrix4f."<init>":(Lorg/joml/Matrix4fc;)V
+       235: putstatic     #887                // Field MODELVIEW:Lorg/joml/Matrix4f;
+       238: invokestatic  #891                // Method com/mojang/blaze3d/systems/RenderSystem.getModelViewStack:()Lorg/joml/Matrix4fStack;
+       241: invokevirtual #896                // Method org/joml/Matrix4fStack.pushMatrix:()Lorg/joml/Matrix4fStack;
+       244: pop
+       245: invokestatic  #891                // Method com/mojang/blaze3d/systems/RenderSystem.getModelViewStack:()Lorg/joml/Matrix4fStack;
+       248: getstatic     #887                // Field MODELVIEW:Lorg/joml/Matrix4f;
+       251: invokevirtual #900                // Method org/joml/Matrix4fStack.set:(Lorg/joml/Matrix4fc;)Lorg/joml/Matrix4f;
+       254: pop
+       255: aload_0
+       256: getfield      #232                // Field fov:Ljava/lang/Float;
+       259: ifnull        277
+       262: aload_0
+       263: getfield      #232                // Field fov:Ljava/lang/Float;
+       266: invokevirtual #447                // Method java/lang/Float.floatValue:()F
+       269: invokestatic  #904                // Method net/irisshaders/iris/shadows/ShadowMatrices.createPerspectiveMatrix:(F)Lorg/joml/Matrix4f;
+       272: astore        9
+       274: goto          341
+       277: aload_0
+       278: getfield      #130                // Field halfPlaneLength:F
+       281: aload_0
+       282: getfield      #135                // Field nearPlane:F
+       285: ldc_w         #905                // float -1.0f
+       288: invokestatic  #911                // Method net/minecraft/class_3532.method_15347:(FF)Z
+       291: ifeq          305
+       294: invokestatic  #914                // Method net/irisshaders/iris/compat/dh/DHCompat.getRenderDistance:()I
+       297: ineg
+       298: bipush        16
+       300: imul
+       301: i2f
+       302: goto          309
+       305: aload_0
+       306: getfield      #135                // Field nearPlane:F
+       309: aload_0
+       310: getfield      #140                // Field farPlane:F
+       313: ldc_w         #905                // float -1.0f
+       316: invokestatic  #911                // Method net/minecraft/class_3532.method_15347:(FF)Z
+       319: ifeq          332
+       322: invokestatic  #914                // Method net/irisshaders/iris/compat/dh/DHCompat.getRenderDistance:()I
+       325: bipush        16
+       327: imul
+       328: i2f
+       329: goto          336
+       332: aload_0
+       333: getfield      #140                // Field farPlane:F
+       336: invokestatic  #918                // Method net/irisshaders/iris/shadows/ShadowMatrices.createOrthoMatrix:(FFF)Lorg/joml/Matrix4f;
+       339: astore        9
+       341: aload         9
+       343: invokestatic  #922                // Method net/irisshaders/iris/gl/IrisRenderSystem.setShadowProjection:(Lorg/joml/Matrix4f;)V
+       346: aload         9
+       348: putstatic     #756                // Field PROJECTION:Lorg/joml/Matrix4f;
+       351: aload         6
+       353: ldc_w         #924                // String terrain_setup
+       356: invokeinterface #927,  2          // InterfaceMethod net/minecraft/class_3695.method_15396:(Ljava/lang/String;)V
+       361: aload_1
+       362: instanceof    #929                // class net/irisshaders/iris/shadows/CullingDataCache
+       365: ifeq          377
+       368: aload_1
+       369: checkcast     #929                // class net/irisshaders/iris/shadows/CullingDataCache
+       372: invokeinterface #932,  1          // InterfaceMethod net/irisshaders/iris/shadows/CullingDataCache.saveState:()V
+       377: aload         6
+       379: ldc_w         #934                // String initialize frustum
+       382: invokeinterface #927,  2          // InterfaceMethod net/minecraft/class_3695.method_15396:(Ljava/lang/String;)V
+       387: aload_0
+       388: aload_0
+       389: aload_0
+       390: getfield      #150                // Field renderDistanceMultiplier:F
+       393: aload_0
+       394: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       397: invokevirtual #936                // Method createShadowFrustum:(FLnet/irisshaders/iris/shadows/frustum/FrustumHolder;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       400: putfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       403: aload_0
+       404: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       407: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       410: putstatic     #942                // Field FRUSTUM:Lnet/minecraft/class_4604;
+       413: invokestatic  #354                // Method net/irisshaders/iris/uniforms/CameraUniforms.getUnshiftedCameraPosition:()Lorg/joml/Vector3d;
+       416: astore        10
+       418: aload         10
+       420: invokevirtual #945                // Method org/joml/Vector3d.x:()D
+       423: dstore        11
+       425: aload         10
+       427: invokevirtual #947                // Method org/joml/Vector3d.y:()D
+       430: dstore        13
+       432: aload         10
+       434: invokevirtual #949                // Method org/joml/Vector3d.z:()D
+       437: dstore        15
+       439: aload_0
+       440: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       443: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       446: dload         11
+       448: dload         13
+       450: dload         15
+       452: invokevirtual #955                // Method net/minecraft/class_4604.method_23088:(DDD)V
+       455: aload         6
+       457: invokeinterface #958,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+       462: aload         5
+       464: getfield      #961                // Field net/minecraft/class_310.field_1730:Z
+       467: istore        17
+       469: aload         5
+       471: iconst_0
+       472: putfield      #961                // Field net/minecraft/class_310.field_1730:Z
+       475: aload_1
+       476: checkcast     #963                // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+       479: invokeinterface #967,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$getMatrices:()Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;
+       484: astore        18
+       486: aload_1
+       487: checkcast     #963                // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+       490: new           #969                // class net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices
+       493: dup
+       494: aload         9
+       496: getstatic     #887                // Field MODELVIEW:Lorg/joml/Matrix4f;
+       499: invokespecial #972                // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices."<init>":(Lorg/joml/Matrix4fc;Lorg/joml/Matrix4fc;)V
+       502: invokeinterface #976,  2          // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$setMatrices:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;)V
+       507: aload_1
+       508: checkcast     #978                // class net/minecraft/class_761
+       511: invokevirtual #981                // Method net/minecraft/class_761.method_3292:()V
+       514: aload_1
+       515: aload_2
+       516: aload_0
+       517: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       520: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       523: iconst_0
+       524: invokeinterface #985,  4          // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.invokeCullTerrain:(Lnet/minecraft/class_4184;Lnet/minecraft/class_4604;Z)V
+       529: aload         5
+       531: iload         17
+       533: putfield      #961                // Field net/minecraft/class_310.field_1730:Z
+       536: aload         6
+       538: ldc_w         #987                // String terrain
+       541: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       546: invokestatic  #990                // Method com/mojang/blaze3d/opengl/GlStateManager._disableCull:()V
+       549: new           #992                // class net/minecraft/class_11532
+       552: dup
+       553: aconst_null
+       554: aconst_null
+       555: iconst_0
+       556: aconst_null
+       557: invokespecial #995                // Method net/minecraft/class_11532."<init>":(Lcom/mojang/blaze3d/textures/GpuTextureView;Ljava/util/EnumMap;I[Lcom/mojang/blaze3d/buffers/GpuBufferSlice;)V
+       560: astore        19
+       562: aload         19
+       564: checkcast     #997                // class net/caffeinemc/mods/sodium/client/util/SodiumChunkSection
+       567: aload_1
+       568: checkcast     #963                // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+       571: invokeinterface #1001,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$getWorldRenderer:()Lnet/caffeinemc/mods/sodium/client/render/SodiumWorldRenderer;
+       576: aload_1
+       577: checkcast     #963                // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+       580: invokeinterface #967,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$getMatrices:()Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;
+       585: dload         11
+       587: dload         13
+       589: dload         15
+       591: invokeinterface #1005,  9         // InterfaceMethod net/caffeinemc/mods/sodium/client/util/SodiumChunkSection.sodium$setRendering:(Lnet/caffeinemc/mods/sodium/client/render/SodiumWorldRenderer;Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;DDD)V
+       596: aload_0
+       597: getfield      #171                // Field shouldRenderTerrain:Z
+       600: ifeq          633
+       603: aload_0
+       604: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+       607: getstatic     #1011               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.TERRAIN_SOLID:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+       610: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+       613: aload         19
+       615: getstatic     #1021               // Field net/minecraft/class_11531.field_61022:Lnet/minecraft/class_11531;
+       618: aload         4
+       620: invokevirtual #1025               // Method net/minecraft/class_11532.method_72170:(Lnet/minecraft/class_11531;Lnet/minecraft/class_12137;)V
+       623: aload_0
+       624: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+       627: getstatic     #1028               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.NONE:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+       630: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+       633: aload_0
+       634: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+       637: getstatic     #1031               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.ENTITIES:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+       640: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+       643: iconst_0
+       644: iconst_0
+       645: aload_0
+       646: getfield      #161                // Field resolution:I
+       649: aload_0
+       650: getfield      #161                // Field resolution:I
+       653: invokestatic  #781                // Method com/mojang/blaze3d/opengl/GlStateManager._viewport:(IIII)V
+       656: aload         6
+       658: ldc_w         #1033               // String entities
+       661: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       666: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       669: invokevirtual #438                // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getTickDelta:()F
+       672: fstore        20
+       674: iconst_0
+       675: istore        21
+       677: aload_0
+       678: getfield      #155                // Field entityShadowDistanceMultiplier:F
+       681: fconst_1
+       682: fcmpl
+       683: ifeq          695
+       686: aload_0
+       687: getfield      #155                // Field entityShadowDistanceMultiplier:F
+       690: fconst_0
+       691: fcmpg
+       692: ifge          727
+       695: aload_0
+       696: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       699: aload_0
+       700: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       703: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       706: aload_0
+       707: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       710: invokevirtual #1037               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getDistanceInfo:()Ljava/lang/String;
+       713: aload_0
+       714: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       717: invokevirtual #1040               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getCullingInfo:()Ljava/lang/String;
+       720: invokevirtual #658                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.setInfo:(Lnet/minecraft/class_4604;Ljava/lang/String;Ljava/lang/String;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       723: pop
+       724: goto          751
+       727: iconst_1
+       728: istore        21
+       730: aload_0
+       731: aload_0
+       732: aload_0
+       733: getfield      #150                // Field renderDistanceMultiplier:F
+       736: aload_0
+       737: getfield      #155                // Field entityShadowDistanceMultiplier:F
+       740: fmul
+       741: aload_0
+       742: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       745: invokevirtual #936                // Method createShadowFrustum:(FLnet/irisshaders/iris/shadows/frustum/FrustumHolder;)Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       748: putfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       751: aload_0
+       752: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       755: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       758: astore        22
+       760: aload         22
+       762: dload         11
+       764: dload         13
+       766: dload         15
+       768: invokevirtual #955                // Method net/minecraft/class_4604.method_23088:(DDD)V
+       771: aload_0
+       772: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       775: invokevirtual #1043               // Method net/minecraft/class_11658.method_72913:()V
+       778: aload_0
+       779: getfield      #179                // Field shouldRenderEntities:Z
+       782: ifeq          810
+       785: aload_0
+       786: aload_2
+       787: aload_0
+       788: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+       791: invokevirtual #940                // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getFrustum:()Lnet/minecraft/class_4604;
+       794: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       797: invokevirtual #1047               // Method net/minecraft/class_310.method_61966:()Lnet/minecraft/class_9779;
+       800: aload_0
+       801: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       804: invokevirtual #1051               // Method extractVisibleEntities:(Lnet/minecraft/class_4184;Lnet/minecraft/class_4604;Lnet/minecraft/class_9779;Lnet/minecraft/class_11658;)V
+       807: goto          918
+       810: aload_0
+       811: getfield      #183                // Field shouldRenderPlayer:Z
+       814: ifeq          918
+       817: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       820: getfield      #1055               // Field net/minecraft/class_310.field_1724:Lnet/minecraft/class_746;
+       823: astore        23
+       825: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       828: invokevirtual #1047               // Method net/minecraft/class_310.method_61966:()Lnet/minecraft/class_9779;
+       831: iconst_0
+       832: invokeinterface #1060,  2         // InterfaceMethod net/minecraft/class_9779.method_60637:(Z)F
+       837: fstore        24
+       839: aload         23
+       841: invokevirtual #1065               // Method net/minecraft/class_1657.method_7325:()Z
+       844: ifne          881
+       847: aload         23
+       849: invokevirtual #1068               // Method net/minecraft/class_1657.method_5767:()Z
+       852: ifne          881
+       855: aload_0
+       856: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       859: getfield      #1071               // Field net/minecraft/class_11658.field_61735:Ljava/util/List;
+       862: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       865: invokevirtual #1075               // Method net/minecraft/class_310.method_1561:()Lnet/minecraft/class_898;
+       868: aload         23
+       870: fload         24
+       872: invokevirtual #1081               // Method net/minecraft/class_898.method_72977:(Lnet/minecraft/class_1297;F)Lnet/minecraft/class_10017;
+       875: invokeinterface #578,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       880: pop
+       881: aload         23
+       883: invokevirtual #1085               // Method net/minecraft/class_1657.method_5854:()Lnet/minecraft/class_1297;
+       886: ifnull        918
+       889: aload_0
+       890: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       893: getfield      #1071               // Field net/minecraft/class_11658.field_61735:Ljava/util/List;
+       896: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       899: invokevirtual #1075               // Method net/minecraft/class_310.method_1561:()Lnet/minecraft/class_898;
+       902: aload         23
+       904: invokevirtual #1085               // Method net/minecraft/class_1657.method_5854:()Lnet/minecraft/class_1297;
+       907: fload         24
+       909: invokevirtual #1081               // Method net/minecraft/class_898.method_72977:(Lnet/minecraft/class_1297;F)Lnet/minecraft/class_10017;
+       912: invokeinterface #578,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       917: pop
+       918: aload_0
+       919: getfield      #287                // Field buffers:Lnet/minecraft/class_4599;
+       922: invokevirtual #322                // Method net/minecraft/class_4599.method_23000:()Lnet/minecraft/class_4597$class_4598;
+       925: astore        23
+       927: aload_1
+       928: invokeinterface #1088,  1         // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.getEntityRenderDispatcher:()Lnet/minecraft/class_898;
+       933: astore        24
+       935: invokestatic  #891                // Method com/mojang/blaze3d/systems/RenderSystem.getModelViewStack:()Lorg/joml/Matrix4fStack;
+       938: invokevirtual #1091               // Method org/joml/Matrix4fStack.identity:()Lorg/joml/Matrix4f;
+       941: pop
+       942: aload_0
+       943: aload_0
+       944: aload_1
+       945: aload         24
+       947: aload         23
+       949: aload         8
+       951: fload         20
+       953: aload         22
+       955: dload         11
+       957: dload         13
+       959: dload         15
+       961: invokevirtual #1095               // Method renderEntities:(Lnet/irisshaders/iris/mixin/LevelRendererAccessor;Lnet/minecraft/class_898;Lnet/minecraft/class_4597$class_4598;Lnet/minecraft/class_4587;FLnet/minecraft/class_4604;DDD)I
+       964: putfield      #112                // Field renderedShadowEntities:I
+       967: aload         6
+       969: ldc_w         #1097               // String build blockentities
+       972: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       977: aload_0
+       978: getfield      #187                // Field shouldRenderBlockEntities:Z
+       981: ifne          991
+       984: aload_0
+       985: getfield      #191                // Field shouldRenderLightBlockEntities:Z
+       988: ifeq          1026
+       991: aload_0
+       992: aload_1
+       993: aload         23
+       995: aload         8
+       997: fload         20
+       999: aload_2
+      1000: aload_0
+      1001: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+      1004: aload_0
+      1005: getfield      #187                // Field shouldRenderBlockEntities:Z
+      1008: ifne          1022
+      1011: aload_0
+      1012: getfield      #191                // Field shouldRenderLightBlockEntities:Z
+      1015: ifeq          1022
+      1018: iconst_1
+      1019: goto          1023
+      1022: iconst_0
+      1023: invokevirtual #1101               // Method extractVisibleBlockEntities:(Lnet/irisshaders/iris/mixin/LevelRendererAccessor;Lnet/minecraft/class_4597$class_4598;Lnet/minecraft/class_4587;FLnet/minecraft/class_4184;Lnet/minecraft/class_11658;Z)V
+      1026: aload_0
+      1027: aload_0
+      1028: aload_1
+      1029: aload         8
+      1031: aload_0
+      1032: getfield      #306                // Field submitNodeStorage:Lnet/minecraft/class_11661;
+      1035: aload_0
+      1036: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+      1039: aload_2
+      1040: invokevirtual #1105               // Method renderBlockEntities:(Lnet/irisshaders/iris/mixin/LevelRendererAccessor;Lnet/minecraft/class_4587;Lnet/minecraft/class_11661;Lnet/minecraft/class_11658;Lnet/minecraft/class_4184;)I
+      1043: putfield      #114                // Field renderedShadowBlockEntities:I
+      1046: aload         6
+      1048: ldc_w         #1107               // String draw entities
+      1051: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+      1056: aload_0
+      1057: getfield      #338                // Field featureRenderDispatcher:Lnet/minecraft/class_11684;
+      1060: invokevirtual #1110               // Method net/minecraft/class_11684.method_73002:()V
+      1063: aload         23
+      1065: invokevirtual #1113               // Method net/minecraft/class_4597$class_4598.method_22993:()V
+      1068: aload_0
+      1069: aload_1
+      1070: invokevirtual #1117               // Method copyPreTranslucentDepth:(Lnet/irisshaders/iris/mixin/LevelRendererAccessor;)V
+      1073: invokestatic  #891                // Method com/mojang/blaze3d/systems/RenderSystem.getModelViewStack:()Lorg/joml/Matrix4fStack;
+      1076: getstatic     #887                // Field MODELVIEW:Lorg/joml/Matrix4f;
+      1079: invokevirtual #900                // Method org/joml/Matrix4fStack.set:(Lorg/joml/Matrix4fc;)Lorg/joml/Matrix4f;
+      1082: pop
+      1083: aload         6
+      1085: ldc_w         #1119               // String translucent terrain
+      1088: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+      1093: aload_0
+      1094: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+      1097: getstatic     #1028               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.NONE:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+      1100: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+      1103: aload_0
+      1104: getfield      #175                // Field shouldRenderTranslucent:Z
+      1107: ifeq          1140
+      1110: aload_0
+      1111: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+      1114: getstatic     #1122               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.TERRAIN_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+      1117: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+      1120: aload         19
+      1122: getstatic     #1125               // Field net/minecraft/class_11531.field_61023:Lnet/minecraft/class_11531;
+      1125: aload         4
+      1127: invokevirtual #1025               // Method net/minecraft/class_11532.method_72170:(Lnet/minecraft/class_11531;Lnet/minecraft/class_12137;)V
+      1130: aload_0
+      1131: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+      1134: getstatic     #1028               // Field net/irisshaders/iris/pipeline/WorldRenderingPhase.NONE:Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;
+      1137: invokevirtual #1015               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.setPhase:(Lnet/irisshaders/iris/pipeline/WorldRenderingPhase;)V
+      1140: invokestatic  #1128               // Method net/irisshaders/iris/gl/IrisRenderSystem.restorePlayerProjection:()V
+      1143: aload_0
+      1144: aload_1
+      1145: checkcast     #978                // class net/minecraft/class_761
+      1148: invokevirtual #1131               // Method net/minecraft/class_761.method_3289:()Ljava/lang/String;
+      1151: putfield      #110                // Field debugStringTerrain:Ljava/lang/String;
+      1154: aload         6
+      1156: ldc_w         #1133               // String generate mipmaps
+      1159: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+      1164: aload_0
+      1165: invokevirtual #1135               // Method generateMipmaps:()V
+      1168: aload         6
+      1170: ldc_w         #1137               // String restore gl state
+      1173: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+      1178: invokestatic  #1140               // Method com/mojang/blaze3d/opengl/GlStateManager._enableCull:()V
+      1181: aload_1
+      1182: checkcast     #963                // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+      1185: aload         18
+      1187: invokeinterface #976,  2          // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$setMatrices:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;)V
+      1192: iconst_0
+      1193: iconst_0
+      1194: aload         5
+      1196: invokevirtual #1144               // Method net/minecraft/class_310.method_1522:()Lnet/minecraft/class_276;
+      1199: getfield      #1149               // Field net/minecraft/class_276.field_1482:I
+      1202: aload         5
+      1204: invokevirtual #1144               // Method net/minecraft/class_310.method_1522:()Lnet/minecraft/class_276;
+      1207: getfield      #1152               // Field net/minecraft/class_276.field_1481:I
+      1210: invokestatic  #781                // Method com/mojang/blaze3d/opengl/GlStateManager._viewport:(IIII)V
+      1213: aload_1
+      1214: instanceof    #929                // class net/irisshaders/iris/shadows/CullingDataCache
+      1217: ifeq          1229
+      1220: aload_1
+      1221: checkcast     #929                // class net/irisshaders/iris/shadows/CullingDataCache
+      1224: invokeinterface #1155,  1         // InterfaceMethod net/irisshaders/iris/shadows/CullingDataCache.restoreState:()V
+      1229: aload_0
+      1230: getfield      #116                // Field pipeline:Lnet/irisshaders/iris/pipeline/IrisRenderingPipeline;
+      1233: invokevirtual #1158               // Method net/irisshaders/iris/pipeline/IrisRenderingPipeline.removePhaseIfNeeded:()V
+      1236: sipush        901
+      1239: ldc_w         #1160               // String shadowcomp
+      1242: invokestatic  #1166               // Method net/irisshaders/iris/gl/GLDebug.pushGroup:(ILjava/lang/String;)V
+      1245: aload_0
+      1246: getfield      #205                // Field compositeRenderer:Lnet/irisshaders/iris/shadows/ShadowCompositeRenderer;
+      1249: invokevirtual #1169               // Method net/irisshaders/iris/shadows/ShadowCompositeRenderer.renderAll:()V
+      1252: invokestatic  #1172               // Method net/irisshaders/iris/gl/GLDebug.popGroup:()V
+      1255: aload_1
+      1256: aload         7
+      1258: invokeinterface #871,  2          // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.setRenderBuffers:(Lnet/minecraft/class_4599;)V
+      1263: aconst_null
+      1264: putstatic     #861                // Field visibleBlockEntities:Ljava/util/List;
+      1267: iconst_0
+      1268: putstatic     #854                // Field ACTIVE:Z
+      1271: invokestatic  #891                // Method com/mojang/blaze3d/systems/RenderSystem.getModelViewStack:()Lorg/joml/Matrix4fStack;
+      1274: invokevirtual #1175               // Method org/joml/Matrix4fStack.popMatrix:()Lorg/joml/Matrix4fStack;
+      1277: pop
+      1278: aload         6
+      1280: invokeinterface #958,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+      1285: aload         6
+      1287: ldc_w         #1177               // String updatechunks
+      1290: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+      1295: return
+
+  private int renderBlockEntities(net.irisshaders.iris.mixin.LevelRendererAccessor, net.minecraft.class_4587, net.minecraft.class_11661, net.minecraft.class_11658, net.minecraft.class_4184);
+    Code:
+         0: aload         5
+         2: invokevirtual #1207               // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+         5: astore        6
+         7: aload_2
+         8: astore        7
+        10: aload         6
+        12: invokevirtual #1212               // Method net/minecraft/class_243.method_10216:()D
+        15: dstore        8
+        17: aload         6
+        19: invokevirtual #1215               // Method net/minecraft/class_243.method_10214:()D
+        22: dstore        10
+        24: aload         6
+        26: invokevirtual #1218               // Method net/minecraft/class_243.method_10215:()D
+        29: dstore        12
+        31: iconst_0
+        32: istore        14
+        34: aload         4
+        36: getfield      #1221               // Field net/minecraft/class_11658.field_62646:Ljava/util/List;
+        39: invokeinterface #585,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        44: astore        15
+        46: aload         15
+        48: invokeinterface #590,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        53: ifeq          142
+        56: aload         15
+        58: invokeinterface #594,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        63: checkcast     #1223               // class net/minecraft/class_11954
+        66: astore        16
+        68: aload         16
+        70: getfield      #1226               // Field net/minecraft/class_11954.field_62673:Lnet/minecraft/class_2338;
+        73: astore        17
+        75: aload         7
+        77: invokevirtual #1229               // Method net/minecraft/class_4587.method_22903:()V
+        80: aload         7
+        82: aload         17
+        84: invokevirtual #1234               // Method net/minecraft/class_2338.method_10263:()I
+        87: i2d
+        88: dload         8
+        90: dsub
+        91: aload         17
+        93: invokevirtual #1237               // Method net/minecraft/class_2338.method_10264:()I
+        96: i2d
+        97: dload         10
+        99: dsub
+       100: aload         17
+       102: invokevirtual #1240               // Method net/minecraft/class_2338.method_10260:()I
+       105: i2d
+       106: dload         12
+       108: dsub
+       109: invokevirtual #1243               // Method net/minecraft/class_4587.method_22904:(DDD)V
+       112: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       115: invokevirtual #1247               // Method net/minecraft/class_310.method_31975:()Lnet/minecraft/class_824;
+       118: aload         16
+       120: aload         7
+       122: aload_3
+       123: aload         4
+       125: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+       128: invokevirtual #1253               // Method net/minecraft/class_824.method_3555:(Lnet/minecraft/class_11954;Lnet/minecraft/class_4587;Lnet/minecraft/class_11659;Lnet/minecraft/class_12075;)V
+       131: aload         7
+       133: invokevirtual #1256               // Method net/minecraft/class_4587.method_22909:()V
+       136: iinc          14, 1
+       139: goto          46
+       142: iload         14
+       144: ireturn
+
+  private void extractVisibleBlockEntities(net.irisshaders.iris.mixin.LevelRendererAccessor, net.minecraft.class_4597$class_4598, net.minecraft.class_4587, float, net.minecraft.class_4184, net.minecraft.class_11658, boolean);
+    Code:
+         0: aload_1
+         1: aload         5
+         3: fload         4
+         5: aload         6
+         7: invokeinterface #1270,  4         // InterfaceMethod net/irisshaders/iris/mixin/LevelRendererAccessor.invokeExtractBlockEntities:(Lnet/minecraft/class_4184;FLnet/minecraft/class_11658;)V
+        12: iload         7
+        14: ifeq          72
+        17: aload         6
+        19: getfield      #1221               // Field net/minecraft/class_11658.field_62646:Ljava/util/List;
+        22: invokeinterface #585,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        27: astore        8
+        29: aload         8
+        31: invokeinterface #590,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        36: ifeq          72
+        39: aload         8
+        41: invokeinterface #594,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        46: checkcast     #1223               // class net/minecraft/class_11954
+        49: astore        9
+        51: aload         9
+        53: getfield      #1274               // Field net/minecraft/class_11954.field_62674:Lnet/minecraft/class_2680;
+        56: invokevirtual #1279               // Method net/minecraft/class_2680.method_26213:()I
+        59: ifne          69
+        62: aload         8
+        64: invokeinterface #1282,  1         // InterfaceMethod java/util/Iterator.remove:()V
+        69: goto          29
+        72: return
+
+  private int renderEntities(net.irisshaders.iris.mixin.LevelRendererAccessor, net.minecraft.class_898, net.minecraft.class_4597$class_4598, net.minecraft.class_4587, float, net.minecraft.class_4604, double, double, double);
+    Code:
+         0: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+         3: ldc_w         #1288               // String cull
+         6: invokeinterface #927,  2          // InterfaceMethod net/minecraft/class_3695.method_15396:(Ljava/lang/String;)V
+        11: aload_0
+        12: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        15: getfield      #1071               // Field net/minecraft/class_11658.field_61735:Ljava/util/List;
+        18: invokeinterface #585,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        23: astore        13
+        25: aload         13
+        27: invokeinterface #590,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        32: ifeq          98
+        35: aload         13
+        37: invokeinterface #594,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        42: checkcast     #1290               // class net/minecraft/class_10017
+        45: astore        14
+        47: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        50: invokevirtual #1075               // Method net/minecraft/class_310.method_1561:()Lnet/minecraft/class_898;
+        53: aload         14
+        55: aload_0
+        56: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+        59: getfield      #818                // Field net/minecraft/class_11658.field_63082:Lnet/minecraft/class_12075;
+        62: aload         14
+        64: getfield      #1293               // Field net/minecraft/class_10017.field_53325:D
+        67: dload         7
+        69: dsub
+        70: aload         14
+        72: getfield      #1296               // Field net/minecraft/class_10017.field_53326:D
+        75: dload         9
+        77: dsub
+        78: aload         14
+        80: getfield      #1299               // Field net/minecraft/class_10017.field_53327:D
+        83: dload         11
+        85: dsub
+        86: aload         4
+        88: aload_0
+        89: getfield      #306                // Field submitNodeStorage:Lnet/minecraft/class_11661;
+        92: invokevirtual #1303               // Method net/minecraft/class_898.method_72976:(Lnet/minecraft/class_10017;Lnet/minecraft/class_12075;DDDLnet/minecraft/class_4587;Lnet/minecraft/class_11659;)V
+        95: goto          25
+        98: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+       101: invokeinterface #958,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+       106: aload_0
+       107: getfield      #301                // Field levelRenderState:Lnet/minecraft/class_11658;
+       110: getfield      #1071               // Field net/minecraft/class_11658.field_61735:Ljava/util/List;
+       113: invokeinterface #1306,  1         // InterfaceMethod java/util/List.size:()I
+       118: ireturn
+
+  private void extractVisibleEntities(net.minecraft.class_4184, net.minecraft.class_4604, net.minecraft.class_9779, net.minecraft.class_11658);
+    Code:
+         0: aload_1
+         1: invokevirtual #1207               // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+         4: astore        5
+         6: aload         5
+         8: invokevirtual #1212               // Method net/minecraft/class_243.method_10216:()D
+        11: dstore        6
+        13: aload         5
+        15: invokevirtual #1215               // Method net/minecraft/class_243.method_10214:()D
+        18: dstore        8
+        20: aload         5
+        22: invokevirtual #1218               // Method net/minecraft/class_243.method_10215:()D
+        25: dstore        10
+        27: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        30: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+        33: invokevirtual #1313               // Method net/minecraft/class_638.method_54719:()Lnet/minecraft/class_8921;
+        36: astore        12
+        38: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        41: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        44: invokevirtual #629                // Method net/minecraft/class_315.method_38521:()I
+        47: i2d
+        48: ldc2_w        #1314               // double 8.0d
+        51: ddiv
+        52: dconst_1
+        53: ldc2_w        #1316               // double 2.5d
+        56: invokestatic  #1321               // Method net/minecraft/class_3532.method_15350:(DDD)D
+        59: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        62: getfield      #624                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        65: invokevirtual #1325               // Method net/minecraft/class_315.method_42517:()Lnet/minecraft/class_7172;
+        68: invokevirtual #1330               // Method net/minecraft/class_7172.method_41753:()Ljava/lang/Object;
+        71: checkcast     #1332               // class java/lang/Double
+        74: invokevirtual #1335               // Method java/lang/Double.doubleValue:()D
+        77: dmul
+        78: invokestatic  #1340               // Method net/minecraft/class_1297.method_5840:(D)V
+        81: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        84: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+        87: invokevirtual #1344               // Method net/minecraft/class_638.method_18112:()Ljava/lang/Iterable;
+        90: invokeinterface #1347,  1         // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+        95: astore        13
+        97: aload         13
+        99: invokeinterface #590,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       104: ifeq          310
+       107: aload         13
+       109: invokeinterface #594,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       114: checkcast     #1337               // class net/minecraft/class_1297
+       117: astore        14
+       119: aload         14
+       121: instanceof    #1351               // class net/minecraft/class_742
+       124: ifeq          145
+       127: aload         14
+       129: checkcast     #1351               // class net/minecraft/class_742
+       132: astore        15
+       134: aload         15
+       136: invokevirtual #1352               // Method net/minecraft/class_742.method_7325:()Z
+       139: ifeq          145
+       142: goto          97
+       145: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       148: invokevirtual #1075               // Method net/minecraft/class_310.method_1561:()Lnet/minecraft/class_898;
+       151: aload         14
+       153: aload_2
+       154: dload         6
+       156: dload         8
+       158: dload         10
+       160: invokevirtual #1356               // Method net/minecraft/class_898.method_3950:(Lnet/minecraft/class_1297;Lnet/minecraft/class_4604;DDD)Z
+       163: ifne          180
+       166: aload         14
+       168: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       171: getfield      #1055               // Field net/minecraft/class_310.field_1724:Lnet/minecraft/class_746;
+       174: invokevirtual #1360               // Method net/minecraft/class_1297.method_5821:(Lnet/minecraft/class_1297;)Z
+       177: ifeq          307
+       180: aload         14
+       182: invokevirtual #1364               // Method net/minecraft/class_1297.method_24515:()Lnet/minecraft/class_2338;
+       185: astore        15
+       187: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       190: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+       193: aload         15
+       195: invokevirtual #1237               // Method net/minecraft/class_2338.method_10264:()I
+       198: invokevirtual #1368               // Method net/minecraft/class_638.method_31601:(I)Z
+       201: ifne          218
+       204: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       207: getfield      #1372               // Field net/minecraft/class_310.field_1769:Lnet/minecraft/class_761;
+       210: aload         15
+       212: invokevirtual #1376               // Method net/minecraft/class_761.method_40050:(Lnet/minecraft/class_2338;)Z
+       215: ifeq          307
+       218: aload         14
+       220: getfield      #1379               // Field net/minecraft/class_1297.field_6012:I
+       223: ifne          256
+       226: aload         14
+       228: aload         14
+       230: invokevirtual #1382               // Method net/minecraft/class_1297.method_23317:()D
+       233: putfield      #1385               // Field net/minecraft/class_1297.field_6038:D
+       236: aload         14
+       238: aload         14
+       240: invokevirtual #1388               // Method net/minecraft/class_1297.method_23318:()D
+       243: putfield      #1391               // Field net/minecraft/class_1297.field_5971:D
+       246: aload         14
+       248: aload         14
+       250: invokevirtual #1394               // Method net/minecraft/class_1297.method_23321:()D
+       253: putfield      #1397               // Field net/minecraft/class_1297.field_5989:D
+       256: aload_3
+       257: aload         12
+       259: aload         14
+       261: invokevirtual #1400               // Method net/minecraft/class_8921.method_54746:(Lnet/minecraft/class_1297;)Z
+       264: ifne          271
+       267: iconst_1
+       268: goto          272
+       271: iconst_0
+       272: invokeinterface #1060,  2         // InterfaceMethod net/minecraft/class_9779.method_60637:(Z)F
+       277: fstore        16
+       279: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       282: invokevirtual #1075               // Method net/minecraft/class_310.method_1561:()Lnet/minecraft/class_898;
+       285: aload         14
+       287: fload         16
+       289: invokevirtual #1081               // Method net/minecraft/class_898.method_72977:(Lnet/minecraft/class_1297;F)Lnet/minecraft/class_10017;
+       292: astore        17
+       294: aload         4
+       296: getfield      #1071               // Field net/minecraft/class_11658.field_61735:Ljava/util/List;
+       299: aload         17
+       301: invokeinterface #578,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       306: pop
+       307: goto          97
+       310: return
+
+  private int renderPlayerEntity(net.irisshaders.iris.mixin.LevelRendererAccessor, net.minecraft.class_898, net.minecraft.class_4597$class_4598, net.minecraft.class_4587, float, net.minecraft.class_4604, double, double, double);
+    Code:
+         0: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+         3: ldc_w         #1288               // String cull
+         6: invokeinterface #927,  2          // InterfaceMethod net/minecraft/class_3695.method_15396:(Ljava/lang/String;)V
+        11: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        14: getfield      #1055               // Field net/minecraft/class_310.field_1724:Lnet/minecraft/class_746;
+        17: astore        13
+        19: iconst_0
+        20: istore        14
+        22: aload_2
+        23: aload         13
+        25: aload         6
+        27: dload         7
+        29: dload         9
+        31: dload         11
+        33: invokevirtual #1356               // Method net/minecraft/class_898.method_3950:(Lnet/minecraft/class_1297;Lnet/minecraft/class_4604;DDD)Z
+        36: ifeq          47
+        39: aload         13
+        41: invokevirtual #1409               // Method net/minecraft/class_1297.method_7325:()Z
+        44: ifeq          57
+        47: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+        50: invokeinterface #958,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+        55: iconst_0
+        56: ireturn
+        57: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+        60: ldc_w         #1411               // String build geometry
+        63: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+        68: aload         13
+        70: invokevirtual #1415               // Method net/minecraft/class_1297.method_5685:()Ljava/util/List;
+        73: invokeinterface #1418,  1         // InterfaceMethod java/util/List.isEmpty:()Z
+        78: ifne          151
+        81: iconst_0
+        82: istore        15
+        84: iload         15
+        86: aload         13
+        88: invokevirtual #1415               // Method net/minecraft/class_1297.method_5685:()Ljava/util/List;
+        91: invokeinterface #1306,  1         // InterfaceMethod java/util/List.size:()I
+        96: if_icmpge     151
+        99: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       102: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+       105: invokevirtual #1313               // Method net/minecraft/class_638.method_54719:()Lnet/minecraft/class_8921;
+       108: aload         13
+       110: invokevirtual #1415               // Method net/minecraft/class_1297.method_5685:()Ljava/util/List;
+       113: iload         15
+       115: invokeinterface #1419,  2         // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+       120: checkcast     #1337               // class net/minecraft/class_1297
+       123: invokevirtual #1400               // Method net/minecraft/class_8921.method_54746:(Lnet/minecraft/class_1297;)Z
+       126: ifeq          134
+       129: fload         5
+       131: goto          140
+       134: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       137: invokevirtual #1422               // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getRealTickDelta:()F
+       140: fstore        16
+       142: iinc          14, 1
+       145: iinc          15, 1
+       148: goto          84
+       151: aload         13
+       153: invokevirtual #1423               // Method net/minecraft/class_1297.method_5854:()Lnet/minecraft/class_1297;
+       156: ifnull        195
+       159: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       162: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+       165: invokevirtual #1313               // Method net/minecraft/class_638.method_54719:()Lnet/minecraft/class_8921;
+       168: aload         13
+       170: invokevirtual #1423               // Method net/minecraft/class_1297.method_5854:()Lnet/minecraft/class_1297;
+       173: invokevirtual #1400               // Method net/minecraft/class_8921.method_54746:(Lnet/minecraft/class_1297;)Z
+       176: ifeq          184
+       179: fload         5
+       181: goto          190
+       184: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       187: invokevirtual #1422               // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getRealTickDelta:()F
+       190: fstore        15
+       192: iinc          14, 1
+       195: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       198: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+       201: invokevirtual #1313               // Method net/minecraft/class_638.method_54719:()Lnet/minecraft/class_8921;
+       204: aload         13
+       206: invokevirtual #1400               // Method net/minecraft/class_8921.method_54746:(Lnet/minecraft/class_1297;)Z
+       209: ifeq          217
+       212: fload         5
+       214: goto          223
+       217: getstatic     #435                // Field net/irisshaders/iris/uniforms/CapturedRenderingState.INSTANCE:Lnet/irisshaders/iris/uniforms/CapturedRenderingState;
+       220: invokevirtual #1422               // Method net/irisshaders/iris/uniforms/CapturedRenderingState.getRealTickDelta:()F
+       223: fstore        15
+       225: iinc          14, 1
+       228: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+       231: invokeinterface #958,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+       236: iload         14
+       238: ireturn
+
+  private void copyPreTranslucentDepth(net.irisshaders.iris.mixin.LevelRendererAccessor);
+    Code:
+         0: invokestatic  #844                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+         3: ldc_w         #1427               // String translucent depth copy
+         6: invokeinterface #852,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+        11: aload_0
+        12: getfield      #234                // Field targets:Lnet/irisshaders/iris/shadows/ShadowRenderTargets;
+        15: invokevirtual #1429               // Method net/irisshaders/iris/shadows/ShadowRenderTargets.copyPreTranslucentDepth:()V
+        18: return
+
+  public void addDebugText(net.minecraft.class_11630);
+    Code:
+         0: getstatic     #684                // Field net/irisshaders/iris/gui/option/IrisVideoSettings.shadowDistance:I
+         3: invokestatic  #790                // Method net/irisshaders/iris/gui/option/IrisVideoSettings.getOverriddenShadowDistance:(I)I
+         6: ifne          19
+         9: aload_1
+        10: ldc_w         #1434               // String [Iris] Shadow Maps: off, shadow distance 0
+        13: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+        18: return
+        19: invokestatic  #1445               // Method net/irisshaders/iris/Iris.getIrisConfig:()Lnet/irisshaders/iris/config/IrisConfig;
+        22: invokevirtual #1450               // Method net/irisshaders/iris/config/IrisConfig.areDebugOptionsEnabled:()Z
+        25: ifeq          188
+        28: aload_1
+        29: aload_0
+        30: getfield      #219                // Field debugStringOverall:Ljava/lang/String;
+        33: invokedynamic #1453,  0           // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        38: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+        43: aload_1
+        44: aload_0
+        45: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+        48: invokevirtual #1037               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getDistanceInfo:()Ljava/lang/String;
+        51: aload_0
+        52: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+        55: invokevirtual #1037               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getDistanceInfo:()Ljava/lang/String;
+        58: invokedynamic #1456,  0           // InvokeDynamic #10:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        63: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+        68: aload_1
+        69: aload_0
+        70: getfield      #224                // Field terrainFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+        73: invokevirtual #1040               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getCullingInfo:()Ljava/lang/String;
+        76: aload_0
+        77: getfield      #226                // Field entityFrustumHolder:Lnet/irisshaders/iris/shadows/frustum/FrustumHolder;
+        80: invokevirtual #1040               // Method net/irisshaders/iris/shadows/frustum/FrustumHolder.getCullingInfo:()Ljava/lang/String;
+        83: invokedynamic #1459,  0           // InvokeDynamic #11:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        88: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+        93: aload_1
+        94: aload_0
+        95: invokevirtual #1462               // Method getProjectionInfo:()Ljava/lang/String;
+        98: invokedynamic #1465,  0           // InvokeDynamic #12:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       103: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       108: aload_1
+       109: aload_0
+       110: getfield      #110                // Field debugStringTerrain:Ljava/lang/String;
+       113: aload_0
+       114: getfield      #171                // Field shouldRenderTerrain:Z
+       117: ifeq          126
+       120: ldc_w         #1467               // String
+       123: goto          129
+       126: ldc_w         #1469               // String  (no terrain)
+       129: aload_0
+       130: getfield      #175                // Field shouldRenderTranslucent:Z
+       133: ifeq          142
+       136: ldc_w         #1467               // String
+       139: goto          145
+       142: ldc_w         #1471               // String (no translucent)
+       145: invokedynamic #1476,  0           // InvokeDynamic #13:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       150: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       155: aload_1
+       156: aload_0
+       157: invokevirtual #1479               // Method getEntitiesDebugString:()Ljava/lang/String;
+       160: invokedynamic #1482,  0           // InvokeDynamic #14:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       165: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       170: aload_1
+       171: aload_0
+       172: invokevirtual #1485               // Method getBlockEntitiesDebugString:()Ljava/lang/String;
+       175: invokedynamic #1488,  0           // InvokeDynamic #15:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       180: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       185: goto          233
+       188: aload_1
+       189: aload_0
+       190: getfield      #110                // Field debugStringTerrain:Ljava/lang/String;
+       193: invokedynamic #1491,  0           // InvokeDynamic #16:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       198: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       203: aload_1
+       204: aload_0
+       205: getfield      #112                // Field renderedShadowEntities:I
+       208: invokedynamic #1494,  0           // InvokeDynamic #17:makeConcatWithConstants:(I)Ljava/lang/String;
+       213: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       218: aload_1
+       219: aload_0
+       220: getfield      #114                // Field renderedShadowBlockEntities:I
+       223: invokedynamic #1497,  0           // InvokeDynamic #18:makeConcatWithConstants:(I)Ljava/lang/String;
+       228: invokeinterface #1439,  2         // InterfaceMethod net/minecraft/class_11630.method_72747:(Ljava/lang/String;)V
+       233: return
+
+  private java.lang.String getProjectionInfo();
+    Code:
+         0: aload_0
+         1: getfield      #135                // Field nearPlane:F
+         4: aload_0
+         5: getfield      #140                // Field farPlane:F
+         8: aload_0
+         9: getfield      #130                // Field halfPlaneLength:F
+        12: invokedynamic #1503,  0           // InvokeDynamic #19:makeConcatWithConstants:(FFF)Ljava/lang/String;
+        17: areturn
+
+  private java.lang.String getEntitiesDebugString();
+    Code:
+         0: aload_0
+         1: getfield      #179                // Field shouldRenderEntities:Z
+         4: ifne          14
+         7: aload_0
+         8: getfield      #183                // Field shouldRenderPlayer:Z
+        11: ifeq          48
+        14: aload_0
+        15: getfield      #112                // Field renderedShadowEntities:I
+        18: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        21: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+        24: ifnonnull     31
+        27: iconst_0
+        28: goto          40
+        31: invokestatic  #314                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        34: getfield      #389                // Field net/minecraft/class_310.field_1687:Lnet/minecraft/class_638;
+        37: invokevirtual #1506               // Method net/minecraft/class_638.method_18120:()I
+        40: invokedynamic #1511,  0           // InvokeDynamic #20:makeConcatWithConstants:(II)Ljava/lang/String;
+        45: goto          51
+        48: ldc_w         #1513               // String disabled by pack
+        51: areturn
+
+  private java.lang.String getBlockEntitiesDebugString();
+    Code:
+         0: aload_0
+         1: getfield      #187                // Field shouldRenderBlockEntities:Z
+         4: ifne          14
+         7: aload_0
+         8: getfield      #191                // Field shouldRenderLightBlockEntities:Z
+        11: ifeq          26
+        14: aload_0
+        15: getfield      #114                // Field renderedShadowBlockEntities:I
+        18: invokedynamic #1516,  0           // InvokeDynamic #21:makeConcatWithConstants:(I)Ljava/lang/String;
+        23: goto          29
+        26: ldc_w         #1513               // String disabled by pack
+        29: areturn
+
+  public void destroy();
+    Code:
+         0: return
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$configureSamplingSettings$0(int);
+    Code:
+         0: new           #19                 // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #1519               // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  static {};
+    Code:
+         0: iconst_0
+         1: putstatic     #854                // Field ACTIVE:Z
+         4: return
+}

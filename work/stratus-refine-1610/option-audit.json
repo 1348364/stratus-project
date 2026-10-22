@@ -1,0 +1,21 @@
+{
+  "controls_total": 62,
+  "all_prior_ids_defaults_ranges_menus_preserved": true,
+  "all_prior_quality_profile_assignments_preserved": true,
+  "nine_related_visual_defaults_explicit_in_all_four_profiles": true,
+  "reference_identifier_preserved_and_recommended_label_added": true,
+  "all_controls_reachable": true,
+  "related_reset_keys": [
+    "REALISTIC_LIGHTING",
+    "EXPOSURE",
+    "WHITE_BALANCE",
+    "SURFACE_SATURATION",
+    "SURFACE_DAMPNESS",
+    "WET_SHEEN",
+    "WET_DARKENING",
+    "WET_WEATHER_MODE",
+    "WATER_TEXTURE"
+  ],
+  "new_version_file_overwrite_policy": "Never overwrite; old releases/settings preserved",
+  "mixed_visual_performance_default_policy": "Reference unless explicitly approved otherwise"
+}

@@ -1,0 +1,6 @@
+CMD fill 4118 87 4057 4138 87 4075 minecraft:stone
+CMD fill 4118 88 4057 4138 88 4075 minecraft:sand
+CMD fill 4118 87 4087 4138 87 4105 minecraft:stone
+CMD fill 4118 88 4087 4138 88 4105 minecraft:sand
+CMD fill 4118 87 4117 4138 87 4135 minecraft:stone
+CMD fill 4118 88 4117 4138 88 4135 minecraft:sand

@@ -1,0 +1,23 @@
+STRATUS 1.6.6 — PENDING LIVE REVIEW / PERFORMANCE
+
+1. Select Stratus-1.6.6.zip in Main/Iris and confirm its loaded name in latest.log
+   without shader or custom-texture errors. Preserve prior .zip.txt preferences.
+2. Match normal-world camera, time/weather, resolution, render distance and
+   shader controls against 1.6.5. Compare both bright/dark block faces, camera
+   turns, morning/evening sun, rain and torch-lit caves. Vanilla contrast should
+   remain dominant; FACE_BLEND or FACE_SHADING zero must bypass face contrast.
+3. View the square sun at noon/sunset through clouds. Check native sun/moon mode,
+   SUN_VISIBILITY zero, bloom and water reflection. The default polished sun
+   should retain the active Minecraft texture's square silhouette.
+4. Return to the actual distant-leaf black-dot scene. Move/turn slowly through
+   fog; inspect tiny leaves, sky gaps, fences, near foliage and the chunk edge.
+   Compare matched captures and reject unloaded-terrain/camera collision frames.
+5. Check waterline, underwater/glass/particles and cloud traversal for regressions.
+6. Benchmark matched representative terrain, dense forest/fog and river/cloud
+   scenes before/after, focused, with Dynamic FPS state recorded. Include the
+   fallback-heavy view. Record frame times/FPS, hardware, resolution, distances,
+   VSync/cap and competing processes. Do not reduce samples/resolution/effects
+   to claim a speed gain. GPU-only previews are not a gameplay benchmark.
+
+These checks are pending for 1.6.6. Preserve original screenshots and log paths;
+update TASK.md, CHANGE-LOG.md and SHADER-SPEC.md with evidence when completed.

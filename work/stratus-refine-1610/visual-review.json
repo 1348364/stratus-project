@@ -1,0 +1,405 @@
+{
+  "version": "1.6.10",
+  "profile": "Main / Minecraft (1)",
+  "world": "Stratus Terrain Lab normal world",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "performance": "Focused full-Reference river19.6154\u219220.1645FPS, forest17.7699\u219218.0673FPS. Small finite gains;60FPS remains unmet.",
+  "captures": [
+    {
+      "file": "captures/s1610-baseline-reference-river.png",
+      "sha256": "a77bcc0ea05e63675ed0f9c015c2c4e3ef9144563be26e6335b162f2bc82eff2",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-BaselineReference.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[16:21:48]"
+    },
+    {
+      "file": "captures/s1610-candidate-reference-river.png",
+      "sha256": "73ecebe593edf347ef9941de090868a307e51fb7bfc8264951d8e4f80482409f",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:16:03]"
+    },
+    {
+      "file": "captures/s1610-cave-lamp-above-water-night.png",
+      "sha256": "42843357486e3217cd067101156ab9b7fc969dacd754c2b9237a1915bd2d4608",
+      "status": "reviewed",
+      "note": "Matched sealed cave tank at night; local light retained.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4062.0000 97.0000 4135.0000 0 5 creative-flight server confirmed",
+      "log_time": "[17:38:41]"
+    },
+    {
+      "file": "captures/s1610-cave-lamp-above-water.png",
+      "sha256": "26e84ecd16d23f631e69b607ef0d6c446f0cdb4505c799309797878934f12c09",
+      "status": "reviewed",
+      "note": "Sealed cave tank with water below, stone receiver and local lamp light; day scene.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4062.0000 97.0000 4135.0000 0 5 creative-flight server confirmed",
+      "log_time": "[17:38:27]"
+    },
+    {
+      "file": "captures/s1610-cave-lamp-night.png",
+      "sha256": "f18edf23701b061b4e0637b1e96d0245415f40731b435e157bf3ff1da7c1ae86",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4062.0000 94.0000 4135.0000 0 0 creative-flight server confirmed",
+      "log_time": "[17:32:58]"
+    },
+    {
+      "file": "captures/s1610-cave-lamp-water.png",
+      "sha256": "8b10a9c1af882d66fc4965b1c1c38b2cebf4d4290a40c1619df50ea05f60b321",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4062.0000 94.0000 4135.0000 0 0 creative-flight server confirmed",
+      "log_time": "[17:32:21]"
+    },
+    {
+      "file": "captures/s1610-cirrus-independent.png",
+      "sha256": "b4ce479955a51e50d14742c39e39b22af95650070ee31e16abb85c6edf8324ba",
+      "status": "limited",
+      "note": "Lower clouds isolated off, but wisps are too subtle in this framing for firm independent-cirrus visual acceptance.",
+      "pack": "Stratus-1.6.10-QA-CirrusOnly.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:34:53]"
+    },
+    {
+      "file": "captures/s1610-cirrus-sunset.png",
+      "sha256": "bc5d89731d046f80f6419c2f272f5e46af3ae8d800f7d4c3ddf638a056ff54f0",
+      "status": "limited",
+      "note": "Time12000 sky capture; cirrus too subtle and framing lacks sunset horizon. Keep clearer review pending.",
+      "pack": "Stratus-1.6.10-QA-CirrusOnly.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:35:05]"
+    },
+    {
+      "file": "captures/s1610-clouds-above.png",
+      "sha256": "01b2baa3895bba21cd7d61a3d86290995f2d50153b441fa9db92f0b4f3a7e8e0",
+      "status": "limited",
+      "note": "Accepted cloud-only review. Terrain below is partly unloaded; reject terrain acceptance from this frame.",
+      "pack": "Stratus-1.6.10-QA-Clouds.zip",
+      "camera": "164.5000 280.0000 40.5000 90 25 creative-flight server confirmed",
+      "log_time": "[17:34:13]"
+    },
+    {
+      "file": "captures/s1610-clouds-below.png",
+      "sha256": "d2f9356ae873e2e5e6de7e6f8155863888eb58781fed4ba08e050ac2ca3064f5",
+      "status": "reviewed",
+      "note": "Connected physical lower cloud forms from below; mist off to isolate clouds.",
+      "pack": "Stratus-1.6.10-QA-Clouds.zip",
+      "camera": "164.5000 230.0000 40.5000 90 -25 creative-flight server confirmed",
+      "log_time": "[17:33:44]"
+    },
+    {
+      "file": "captures/s1610-clouds-inside-a.png",
+      "sha256": "b85cc6a64220a666ef5d394907e6c1e05157c4145dbce5f4e872cde2a6dbaa91",
+      "status": "limited",
+      "note": "Layer-height grazing view through a footprint hole. Does not prove camera inside occupied cloud.",
+      "pack": "Stratus-1.6.10-QA-Clouds.zip",
+      "camera": "164.5000 255.0000 40.5000 90 0 creative-flight server confirmed",
+      "log_time": "[17:33:56]"
+    },
+    {
+      "file": "captures/s1610-clouds-motion-b.png",
+      "sha256": "402de1a7ce20241fb6473efa4c4356c0b84cba4e1f53bb1399b041d401aba70a",
+      "status": "limited",
+      "note": "Second grazing frame; finite animation pair only. No moving-camera or occupied-cloud interior certification.",
+      "pack": "Stratus-1.6.10-QA-Clouds.zip",
+      "camera": "164.5000 255.0000 40.5000 90 0 creative-flight server confirmed",
+      "log_time": "[17:34:01]"
+    },
+    {
+      "file": "captures/s1610-clouds-native.png",
+      "sha256": "ce03a1768be322247005d8a0c4b8072892b6ef3f7bfd0abba8411d7e460c920a",
+      "status": "reviewed",
+      "note": "Native cloud geometry mode remains available.",
+      "pack": "Stratus-1.6.10-QA-CloudsNative.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:35:25]"
+    },
+    {
+      "file": "captures/s1610-clouds-small-span-grazing.png",
+      "sha256": "cd2e8f572b9e60aee6adc781c9db6288ee657aab6b379e47301389f27045c80d",
+      "status": "reviewed",
+      "note": "Small span64 grazing safety view; finite check, not arbitrary-span certification.",
+      "pack": "Stratus-1.6.10-QA-SmallClouds.zip",
+      "camera": "164.5000 255.0000 40.5000 90 0 creative-flight server confirmed",
+      "log_time": "[17:34:33]"
+    },
+    {
+      "file": "captures/s1610-fixture-glass-underwater.png",
+      "sha256": "3fe2a27752714aed69a21bacbf6d5a569564231a50798cb0004d8320cc7eba13",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "log_time": "[17:26:10]"
+    },
+    {
+      "file": "captures/s1610-fixture-particles-glass-underwater.png",
+      "sha256": "57f1450ac37e8fb45b14a52248c6edd8d6361345b5668737daa3510d254e0a6e",
+      "status": "limited",
+      "note": "First particle attempt did not show emitted end rods. Glass view only; superseded by visible-particle retry.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "log_time": "[17:26:12]"
+    },
+    {
+      "file": "captures/s1610-fixture-submerged-wood-above.png",
+      "sha256": "aca3830ddacceff362794748f4868718bcf160a0350f9976a878bab68bd071cf",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4096.0000 97.0000 4101.0000 0 25 creative-flight server confirmed",
+      "log_time": "[17:25:50]"
+    },
+    {
+      "file": "captures/s1610-fixture-submerged-wood.png",
+      "sha256": "82af8b1b57d8bb89fae21cfcccfd6ea1f73e50708e919229215432cd519e8b7f",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4096.0000 92.8000 4101.0000 0 4 creative-flight server confirmed",
+      "log_time": "[17:26:00]"
+    },
+    {
+      "file": "captures/s1610-fixture-waterfall-background.png",
+      "sha256": "fa0697f84d9a8cbfd902ba1f2da17f92865207d1c804e331eebbc3f19357e6af",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4097.0000 98.0000 4119.0000 -70 0 creative-flight server confirmed",
+      "log_time": "[17:26:24]"
+    },
+    {
+      "file": "captures/s1610-materials-clear.png",
+      "sha256": "d7849c00c49985036c56be9243619caa9618560bfa8442c2082a502fe9b9c069",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4064.0000 103.0000 4080.0000 0 30 creative-flight server confirmed",
+      "log_time": "[17:26:36]"
+    },
+    {
+      "file": "captures/s1610-materials-night.png",
+      "sha256": "b9977b94872b88a4a68b0252e63c41e094dbe240970e5a259408628c21538f87",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4064.0000 103.0000 4080.0000 0 30 creative-flight server confirmed",
+      "log_time": "[17:33:10]"
+    },
+    {
+      "file": "captures/s1610-materials-rain.png",
+      "sha256": "e95a7dea0d0baeed04052f0abce871ea4a0c6c95352d1ccdfc1135f8ef0c9fc3",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4064.0000 103.0000 4080.0000 0 30 creative-flight server confirmed",
+      "log_time": "[17:27:13]"
+    },
+    {
+      "file": "captures/s1610-menu-materials.png",
+      "sha256": "59dcb21da88ee1e7d629af5162d2176c0c1710d275ab3649c178f06e6b05aae7",
+      "status": "reviewed",
+      "note": "Full Reference QA Materials page; approved visual defaults present.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:35:57]"
+    },
+    {
+      "file": "captures/s1610-menu-root-reference.png",
+      "sha256": "97c53abf148d23d62ca247be4022160258fca940bf5aec1d01c7506078859a4d",
+      "status": "reviewed",
+      "note": "Actual Iris labels full Reference (Recommended); original identifier/quality retained.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:35:51]"
+    },
+    {
+      "file": "captures/s1610-native-sun.png",
+      "sha256": "1961b43c34849c2c06f210625dbc67ef9487a3fa9027d3a0d859535a586382d1",
+      "status": "reviewed",
+      "note": "Matched camera/time with native celestial texture, preserving selectable native mode.",
+      "pack": "Stratus-1.6.10-QA-NativeSun.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:38:04]"
+    },
+    {
+      "file": "captures/s1610-particles-glass-retry.png",
+      "sha256": "6bf7492eaabdcf3a7565e659a1647715b455d16d80074519ba23cedb0ac1fc1c",
+      "status": "reviewed",
+      "note": "Visible end-rod particles, transparent blue glass and submerged wood together. Synthetic particle burst deliberately dense; finite ordering check.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "log_time": "[17:38:52]"
+    },
+    {
+      "file": "captures/s1610-plane-cache-reference-river.png",
+      "sha256": "5c52753f2e7813580c2e8a9507d1c575715a985c6c736bdaf732437f5d91c534",
+      "status": "rejected experiment",
+      "note": "Rejected optimisation experiment. Slower/inconsistent pass timing; plane cache is absent from release.",
+      "pack": "Stratus-1.6.10-QA-PlaneCache.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:05:11]"
+    },
+    {
+      "file": "captures/s1610-polished-sun.png",
+      "sha256": "f4202e792fd0d6efdf1385d98d375718c190a518e74aa30e4d9a1a09af671689",
+      "status": "reviewed",
+      "note": "Polished square sun with local halo, normal physical clouds.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed",
+      "log_time": "[17:35:45]"
+    },
+    {
+      "file": "captures/s1610-reference-underwater-air-exit.png",
+      "sha256": "88205e1d2e70f33c2084654f9f3654d863a36af3d6048a3947f79948595e4d0c",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "log_time": "[17:25:23]"
+    },
+    {
+      "file": "captures/s1610-reference-waterline.png",
+      "sha256": "b37e2b2b148aeaf348ef1006a84faa772bd3e02749d73eda0d6530ee4e2d56ae",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer inspected for finite regression coverage.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 64.5000 32.5000 0 18 creative-flight server confirmed",
+      "log_time": "[17:25:12]"
+    },
+    {
+      "file": "captures/s1610-release-menu-materials.png",
+      "sha256": "7dc33137b045255c1e5a3d00f7d7aa56222270a3e04bcd4c3bdaa5addf6da732",
+      "status": "reviewed",
+      "note": "Final released ZIP shows film amount Normal(default), sheen0.85 and all-weather; related old amount0.15 reset.",
+      "pack": "Stratus-1.6.10.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "log_time": "[17:40:12]"
+    },
+    {
+      "file": "captures/s1610-release-menu-root.png",
+      "sha256": "72c34898166569df23df3da01cc61250cc85c9c1325353f70c8e0f621dd58cd3",
+      "status": "reviewed",
+      "note": "Final released ZIP and Custom profile correctly retain eight unrelated Main overrides.",
+      "pack": "Stratus-1.6.10.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "log_time": "[17:40:06]"
+    },
+    {
+      "file": "captures/s1610-release-river.png",
+      "sha256": "5c5be803b34ebc26958d65246dfb2b2763fa1a7e2270b961ae5c6041952f07e2",
+      "status": "reviewed",
+      "note": "Final released ZIP loaded with selectively migrated normal Main tuning. Sky-only reflection preference retained; this is not full Reference performance evidence.",
+      "pack": "Stratus-1.6.10.zip",
+      "camera": "148.8967 63.9424 23.7156 694.79834 18.562706 creative-flight server confirmed",
+      "log_time": "[17:39:50]"
+    },
+    {
+      "file": "captures/s1610-release-underwater.png",
+      "sha256": "d3e9a38fc3325e9155d078765ea33850c02eb0bdb1741a25d6db2f33396abf71",
+      "status": "reviewed",
+      "note": "Final released ZIP underwater, looking toward air exit and forest. Finite view; no exact historical scene certification.",
+      "pack": "Stratus-1.6.10.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "log_time": "[17:40:00]"
+    },
+    {
+      "file": "captures/s1610-river-downward.png",
+      "sha256": "fa2f6214c51211d7d2fce2ba025a2becbba915b033136742c2b709dd932347ca",
+      "status": "reviewed",
+      "note": "Finite pitch90 river view is coherent. Exact original reported pole camera/context was not recovered.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 65.0000 40.5000 0 90 creative-flight server confirmed",
+      "log_time": "[17:39:14]"
+    },
+    {
+      "file": "captures/s1610-river-screen-edge.png",
+      "sha256": "6625ead85183f9980204163e1d7e486d268e604b95297134548064a9a631fd97",
+      "status": "reviewed",
+      "note": "Full Reference shoreline/scenery reflection extends to viewport edges without a severe rectangle in this finite view.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "164.5000 65.0000 40.5000 45 18 creative-flight server confirmed",
+      "log_time": "[17:39:22]"
+    },
+    {
+      "file": "captures/s1610-shelter-rain.png",
+      "sha256": "e582d2ef2142fa2406938332f5cba121556b5bf6a6b45bae2fe88705610b76e9",
+      "status": "limited",
+      "note": "Outside wall close-up; insufficient evidence for sealed shelter film. Use the sealed cave views instead.",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "camera": "4062.0000 100.0000 4128.0000 0 10 creative-flight server confirmed",
+      "log_time": "[17:27:22]"
+    },
+    {
+      "file": "captures/s1610-static-after-repeat.png",
+      "sha256": "26519ed55169a44d6166f4c04dfaa818bb6482910e5cb4d90fd92d749f7f970f",
+      "status": "comparison only",
+      "note": "Fixed shader-time comparison. Reflected foliage varies on repeated same-pack captures; do not infer pixel equivalence.",
+      "pack": "Stratus-1.6.10-QA-StaticAfter.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:18:40]"
+    },
+    {
+      "file": "captures/s1610-static-after.png",
+      "sha256": "2daa050dd5fed0622955a0b0a53a8a7a9c3fb1625c0164df98343de3244f8a88",
+      "status": "comparison only",
+      "note": "Fixed shader-time comparison. Reflected foliage varies on repeated same-pack captures; do not infer pixel equivalence.",
+      "pack": "Stratus-1.6.10-QA-StaticAfter.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:15:43]"
+    },
+    {
+      "file": "captures/s1610-static-before-repeat.png",
+      "sha256": "ad79efe59e3414a2b50bd81b6f016dbab09f4e3c14a6de35bf8ba9a50b46d189",
+      "status": "comparison only",
+      "note": "Fixed shader-time comparison. Reflected foliage varies on repeated same-pack captures; do not infer pixel equivalence.",
+      "pack": "Stratus-1.6.10-QA-StaticBefore.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:18:20]"
+    },
+    {
+      "file": "captures/s1610-static-before.png",
+      "sha256": "d1970e6d19d6bc6770b063e8d0d3b89cdfc661519504de364ac873e5bd5d65f0",
+      "status": "comparison only",
+      "note": "Fixed shader-time comparison. Reflected foliage varies on repeated same-pack captures; do not infer pixel equivalence.",
+      "pack": "Stratus-1.6.10-QA-StaticBefore.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "log_time": "[17:15:23]"
+    }
+  ],
+  "restoration": {
+    "original_camera_restored_max_position_error_blocks": 4.978879234229794e-05,
+    "yaw_modulo_360_error_degrees": 0.0,
+    "original_HUD_pause_flight_restored": true,
+    "original_screen_restored": "null",
+    "world_time": 6000,
+    "rain_gradient": 0,
+    "weather_timers_and_flags_restored_verified": true,
+    "temporary_four_glass_blocks_restored_to_exact_water_states": true,
+    "driver_stopped": true,
+    "activity_helper_stopped": true,
+    "fixture_helper_stopped": true,
+    "focused_benchmark_driver_stopped": true,
+    "focused_activity_helper_stopped": true,
+    "profiler_bytecode_restored": "Original bytecode restored for three Iris diagnostic targets; no game class or file changed.\n",
+    "recovery_note": "Initial fixture restore used an unavailable mapped method and stopped before modifying blocks. Guarded recovery restored exact saved states via Minecraft commands and verified them. Original failure evidence retained."
+  },
+  "unverified": [
+    "Occupied cloud interior",
+    "Clearer independent high-cirrus and sunset framing",
+    "Exact-depth distant foliage fog fallback in original scene",
+    "Exact historical water-pole camera",
+    "Exhaustive preset/mod/motion coverage"
+  ]
+}

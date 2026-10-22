@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101716">
+  <meta name="description" content="Private Stratus document editor and coding workspace.">
+  <title>Stratus Studio</title>
+  <link rel="icon" type="image/svg+xml" href="/assets/icon.svg">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/vendor/vs/editor/editor.main.css">
+  <script src="/vendor/vs/loader.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="Stratus Studio home"><img src="/assets/icon.svg" alt=""><span>STRATUS<span class="brand-sub">STUDIO</span></span></a>
+    <nav aria-label="Main navigation"><a href="#home" data-nav="home">Overview</a><a href="#changes" data-nav="changes">Changes <span id="nav-count" class="nav-count">0</span></a><a href="#spec" data-nav="spec">Specification</a><a href="#activity" data-nav="activity">Activity</a><a href="https://stratus-shader.chuyang-lei-2557.chatgpt.site">Public showcase ↗</a></nav>
+    <span id="connection" class="connection"><i></i><span>Connecting</span></span>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="home-view" class="view home-view">
+      <div class="page-eyebrow"><span>DEVELOPER WORKSPACE</span><span id="home-release" class="mono">Stratus</span></div>
+      <div class="home-heading"><div><h1>Stratus Studio</h1><p>Edit project documents and send work to Coding Stratus (2).</p></div></div>
+      <div class="workspace-cards">
+        <a class="workspace-card" href="#changes"><h2>CHANGES.md</h2><p>Pending incremental shader requests.</p><span id="pending-label">Loading changes</span></a>
+        <a class="workspace-card" href="#spec"><h2>TASK.md</h2><p>Complete long-term shader specification.</p><span id="section-label">Loading sections</span></a>
+        <a class="workspace-card" href="#activity"><h2>CHANGE-LOG.md</h2><p>Completed work and verification evidence.</p><span>Read activity →</span></a>
+      </div>
+      <div class="workflow-note"><div><b>Save, stage and send</b><p>Stage &amp; send saves both editors before submitting. Saving alone does not start coding.</p><p>Release images update from the release workflow. This page requires no per-release edits.</p></div><button class="button primary" id="home-copy">Send work to coding chat</button></div>
+      <footer class="home-footer"><span>Private developer workspace</span><a href="https://stratus-shader.chuyang-lei-2557.chatgpt.site">Public showcase ↗</a></footer>
+    </section>
+
+    <section id="editor-view" class="view editor-view" hidden>
+      <div class="editor-heading"><div><p class="eyebrow" id="editor-eyebrow">NEXT CODING PASS</p><h1 id="editor-title">Changes</h1><p id="editor-description">The next improvements, in your own words.</p></div><div class="editor-heading-actions"><button class="button subtle" id="copy-brief">Copy coding brief ↗</button><button class="button primary save-button" id="save"><span>Save to project</span><kbd>⌘ S</kbd></button></div></div>
+      <div id="recovery-banner" class="notice recovery" hidden><span>A local draft is available. Your saved project file is unchanged.</span><div><button id="recover-draft">Recover draft</button><button id="dismiss-draft">Dismiss</button></div></div>
+      <div id="external-banner" class="notice warning" hidden><span>The project file changed elsewhere. Your edits are preserved.</span><button id="review-external">Compare versions</button></div>
+      <div class="editor-shell">
+        <aside class="editor-sidebar"><div class="document-label">EXPLORER</div><div class="explorer-folder">⌄ &nbsp; CUSTOM INSTRUCTIONS</div><nav class="explorer-files" aria-label="Project documents"><button data-file="changes"><span class="md-icon">MD</span> CHANGES.md <span class="file-role">Changes</span></button><button data-file="spec"><span class="md-icon">MD</span> TASK.md <span class="file-role">Specs</span></button></nav><div class="document-chip"><span class="file-icon">≡</span><span id="filename">CHANGES.md</span><span id="file-dirty" class="dirty-dot" hidden></span></div><div class="document-label outline-label">OUTLINE <span id="outline-count"></span></div><nav id="outline" aria-label="Document sections"></nav><div class="sidebar-help" id="sidebar-help"></div><button class="history-button" id="history">◷ <span>Revision history</span><span>↗</span></button></aside>
+        <div class="editor-workspace">
+          <div class="editor-file-tabs" role="group" aria-label="Open files"><a class="editor-home" href="#home" aria-label="Back to overview">← Home</a><button data-file="changes"><span class="md-icon">MD</span> CHANGES.md <span class="tab-unsaved" data-dirty-for="changes"></span></button><button data-file="spec"><span class="md-icon">MD</span> TASK.md <span class="tab-unsaved" data-dirty-for="spec"></span></button><span class="editor-engine" id="editor-engine">MARKDOWN</span><button id="focus-save" aria-label="Save document">Save <kbd>⌘S</kbd></button></div>
+          <div class="workspace-toolbar"><div class="view-tabs" role="group" aria-label="Editor view"><button data-mode="write">Code</button><button data-mode="split" class="selected">Split preview</button><button data-mode="preview">Preview</button></div><div class="toolbar-tools"><button id="command-palette" title="Command palette (F1)" aria-label="Command palette">⌘</button><button id="search-toggle" title="Find and replace (Command F)" aria-label="Find and replace">⌕</button><button id="focus-history" title="Revision history" aria-label="Revision history">◷</button><button id="stage-send" title="Stage specification changes and send to Coding Stratus (2) for running">Stage &amp; send</button><button id="chat-connect" title="Coding Stratus (2)" aria-label="Connect to Coding Stratus (2)">Chat</button><button id="focus-copy" title="Copy coding brief" aria-label="Copy coding brief">↗</button><button id="export" title="Download Markdown" aria-label="Download Markdown">↓</button><button id="import" title="Import Markdown as a draft" aria-label="Import Markdown">↑</button><button id="focus-toggle" title="Focus mode" aria-label="Toggle focus mode" hidden>⛶</button><button id="editor-options" title="Editor preferences" aria-label="Editor preferences">⚙</button></div></div>
+          <div class="format-toolbar" role="toolbar" aria-label="Markdown formatting"><button data-format="heading" title="Heading">H<span>2</span></button><button data-format="bold" title="Bold (Command B)"><b>B</b></button><button data-format="italic" title="Italic (Command I)"><i>I</i></button><span class="toolbar-divider"></span><button data-format="bullet" title="Bullet list">☷</button><button data-format="check" title="Task list">☑</button><button data-format="quote" title="Quote">❞</button><button data-format="code" title="Inline code">&lt;/&gt;</button><button data-format="link" title="Link">↗</button><button data-format="table" title="Table">▦</button><span class="format-spacer"></span><button id="undo" title="Undo">↶</button><button id="redo" title="Redo">↷</button></div>
+          <div id="search-panel" class="search-panel" hidden><div><label class="sr-only" for="find">Find text</label><input id="find" placeholder="Find in document…"><span id="match-count">0 matches</span><button id="find-next" title="Next match">↓</button><button id="search-close" aria-label="Close search">×</button></div><div><label class="sr-only" for="replace">Replace with</label><input id="replace" placeholder="Replace with…"><button id="replace-one">Replace</button><button id="replace-all">Replace all</button></div></div>
+          <div id="preferences" class="preferences" hidden><label>Text size <select id="font-size"><option value="13">13 px</option><option value="14" selected>14 px</option><option value="16">16 px</option><option value="18">18 px</option></select></label><label><input id="wrap" type="checkbox" checked> Wrap long lines</label><label><input id="autosave" type="checkbox"> Auto-save to project</label><p>Manual saving is the default. Drafts are kept in this browser.</p></div>
+          <div class="pane-labels"><span id="file-breadcrumb">work › Custom instructions › CHANGES.md</span><span>LIVE PREVIEW <span>AS YOU WRITE</span></span></div>
+          <div id="editor-panes" class="editor-panes mode-split"><div class="source-pane"><div id="monaco-host" aria-label="Code editor"></div><div id="line-numbers" class="line-numbers" aria-hidden="true"></div><label class="sr-only" for="source">Markdown document</label><textarea id="source" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off" aria-describedby="editor-description" data-gramm="false" data-gramm_editor="false" data-enable-grammarly="false"></textarea></div><div id="preview" class="markdown preview-pane" aria-label="Live Markdown preview" tabindex="0"></div></div>
+          <div class="editor-status"><span id="save-state"><i></i>Saved to project</span><span id="doc-stats">0 words · 0 lines</span><span id="cursor-position">Ln 1, Col 1</span><span class="status-markdown">Markdown <span>UTF-8</span></span></div>
+        </div>
+      </div>
+      <div class="editor-footer"><span id="document-path"></span><span>Saving updates the brief. It doesn’t start shader work.</span></div>
+    </section>
+
+    <section id="activity-view" class="view activity-view" hidden><div class="editor-heading"><div><p class="eyebrow">THE JOURNEY SO FAR</p><h1>Build notes</h1><p>The project’s release history and verification evidence.</p></div><span class="readonly-badge">READ ONLY · CHANGE-LOG.md</span></div><div class="activity-shell"><nav id="activity-outline" aria-label="Release entries"></nav><article id="activity-content" class="markdown"></article></div></section>
+  </main>
+  <div id="toast" role="status" aria-live="polite" hidden></div>
+  <dialog id="modal"><div class="modal-header"><div><p class="eyebrow" id="modal-eyebrow">STRATUS STUDIO</p><h2 id="modal-title"></h2></div><button id="modal-close" aria-label="Close dialog">×</button></div><div id="modal-content"></div><div id="modal-actions"></div></dialog>
+  <input type="file" id="file-input" accept=".md,.markdown,.txt,text/plain,text/markdown" hidden>
+</body>
+</html>

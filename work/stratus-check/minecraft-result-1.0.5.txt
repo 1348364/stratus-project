@@ -1,0 +1,39 @@
+STRATUS 1.0.5 - REAL MINECRAFT / IRIS SMOKE TEST
+16 October 2026
+
+PASS: default Reference preset loaded in a real Minecraft 1.21.11 Overworld.
+Iris 1.10.8 / Sodium 0.8.14 / Java 21 / Apple M1 / OpenGL 4.1.
+Shader compile/runtime errors from pipeline creation to test end: 0.
+All 136 tested shader/config files match the delivered source byte for byte.
+Test client used a separate gameDir and copied local world, then was shut down.
+No online account credentials were used.
+
+Warnings remain: unused shader inputs/varyings from Iris/Apple linking.
+Unrelated startup messages: Offline test identity authentication failures.
+These did not prevent rendering. FPS was not measured.
+Server tick-lag warnings were logged.
+Native driver diagnostics: UNSUPPORTED (log once): gldCopyBufferSubData: NEEDS IMPLEMENTATION
+
+Limits: this verifies real Iris loading and a rendered-world smoke test.
+It does not verify reference-image appearance, every setting, night, weather,
+underwater, other dimensions, other presets or FPS. Timestamps do not
+establish uninterrupted rendering duration.
+
+EXTRACTED REAL GAME LOG
+[16:17:22] [main/INFO]: Loading Minecraft 1.21.11 with Fabric Loader 0.19.5
+[16:17:40] [Render thread/INFO]: Profile: REFERENCE (+0 options changed by user)
+[16:17:40] [Render thread/INFO]: Using shaderpack: Stratus-1.0.5.zip
+[16:17:40] [Render thread/INFO]: OpenGL Vendor: Apple
+[16:17:40] [Render thread/INFO]: OpenGL Renderer: Apple M1
+[16:17:40] [Render thread/INFO]: OpenGL Version: 4.1 Metal - 91.7
+[16:18:03] [Server thread/INFO]: ShaderCheck joined the game
+[16:18:03] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[16:18:04] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:04] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:04] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:05] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:05] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:05] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+[16:18:07] [Render thread/INFO]: Resizing Dynamic Transforms UBO, capacity limit of 2 reached during a single frame. New capacity will be 4.
+[16:18:08] [Render thread/INFO]: Resizing Dynamic Transforms UBO, capacity limit of 4 reached during a single frame. New capacity will be 8.
+

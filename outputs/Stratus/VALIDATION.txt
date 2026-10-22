@@ -1,0 +1,41 @@
+STRATUS 1.6.10 — VALIDATION / 22 OCTOBER 2026
+
+Native compatibility-shim compile/link: 768 program pairs, eight variants,
+three dimensions, zero failures. This is separate from actual Iris loading.
+Actual projected-tracer GLSL: seven synthetic scenes at three quality levels,
+344,064 pixels per variant, zero hit mismatches, zero errors over0.001 and
+zero OpenGL errors. Same interval budgets, ranges and occlusion logic remain.
+Actual full atmosphere GLSL: eight day/night/height/range cases,131,072 matched
+pixels, max linear RGBA error0.0000621081 (<0.0001), zero OpenGL errors.
+Ten current-source underwater resolve cases pass, including air exits, glass,
+additive particles and vertical exits. Nine temporary-profile installer checks
+pass, including concurrent conflicting archive refusal and no overwrites.
+
+All62 prior IDs/defaults/ranges/menu access and four profiles retained.
+Nine visual defaults explicitly apply in each profile; original six quality
+assignments remain unchanged. Reference label updated; identifier retained.
+Related saved overrides reset only via the approved migration policy. Existing
+new-version preferences and all old versions remain untouched.
+
+Actual Main QA uses final runtime source in immutable named test packs. Normal
+river, underwater, waterline and controlled fixture/cloud/material scenes were
+captured; accepted, limited and rejected frames are labelled in the report.
+Repeated captures show reflected-foliage variation even on the same baseline;
+no screenshot pixel-equivalence claim is made. Native matched probes establish
+finite component equivalence within the tolerances above, not universal visuals.
+Final release archive/source/installed equivalence and loaded pack are recorded
+separately in outputs/Stratus-1.6.10-install.json.
+
+Focused full-Reference performance was subsequently tested after the user
+foregrounded Main. Six30-second samples, zero focus-loss polls,1440x842,
+render12/simulation8, matched Reference settings/cameras/weather clear/time6000.
+Dynamic FPS remained FOCUSED, vanilla limiter NONE/cap70; temporary activity
+resets every5seconds changed no saved setting. River pooled two samples/build:
+19.6154 before /20.1645 after FPS. Forest one/build:17.7699 /18.0673 FPS.
+The small finite improvements do not establish a general speedup or60FPS.
+The target stays pending. Raw samples and conditions are in the external
+versioned performance summary and work/stratus-refine-1610. No quality cuts or
+concurrent native GPU probes/profiler. Prior unfocused diagnostics remain
+separately labelled. Original client state restored and both helpers stopped.
+Exact historical pole/leaf scenes, clearer cloud acceptance and exhaustive
+presets/mods/moving-camera coverage remain pending in the project queue.

@@ -1,0 +1,28 @@
+STRATUS 1.6.3 — VALIDATION
+20 October 2026
+
+Native OpenGL: 768 compile/link pairs passed across eight variants. These use
+compatibility shims; they do not emulate Iris transformations.
+
+Focused GPU test: 10 water-resolve cases plus 3 water-raster cases, zero failures,
+zero OpenGL errors. Expected output uses independent Beer-Lambert reference
+values. An above-water receiver 5 and 50 blocks away has identical attenuation
+when the water exit is 2 blocks away. A receiver before that exit uses its own
+shorter path. Covered cases also include deep water, sky, glass before/after
+an exit, additive particles, and vertical water exits. The actual water raster
+also preserves scene colour, captures both still/flowing exits, and retains
+the exit depth when transparent blocks draw over it.
+
+Main in-game visual verification completed with Stratus-1.6.3.zip selected:
+Minecraft 1.21.11 / Iris 1.10.8 / Sodium 0.8.14 / Apple M1 OpenGL 4.1.
+Stratus Terrain Lab: normal generated world, Creative. Matched 1.6.2/1.6.3
+waterline views restore above-water tree and bank detail; upward views restore
+tower/bridge detail without a circular water window. Close submerged wood,
+deeper river and above-water river views were also visually inspected.
+Saved water settings were unchanged. No shader compilation errors appeared
+in the candidate run. Startup resource-pack/authentication warnings are
+separate from shader compilation and are not counted as shader failures.
+
+Limits: only the nearest visible water exit is captured. Disconnected bodies
+of water further along a ray are not accumulated here. Missing sky-exit pixels
+retain the clear-sky fallback. A clean foreground FPS benchmark is unverified.

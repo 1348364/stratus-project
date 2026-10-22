@@ -1,0 +1,29 @@
+{
+  "prior_controls": 61,
+  "total_controls": 62,
+  "all_prior_identifiers_and_choices_retained": true,
+  "all_reachable_labelled_with_tooltips": true,
+  "four_presets_unchanged": true,
+  "deliberate_migrations": {
+    "REALISTIC_LIGHTING": "Default 1 -> 0 for requested vanilla block colours; existing 1 overrides still select enhanced lighting",
+    "SURFACE_DAMPNESS": "Same ID/range and film amount; absorption and sheltered retention explicitly removed",
+    "WET_DARKENING": "Same ID/range/menu, labelled retired; intentional no-op because user explicitly removed dampness"
+  },
+  "new_controls": {
+    "WATER_TEXTURE": [
+      "0.15",
+      [
+        "0.00",
+        "0.05",
+        "0.10",
+        "0.15",
+        "0.25",
+        "0.35",
+        "0.50",
+        "0.75",
+        "1.00"
+      ]
+    ]
+  },
+  "preexisting_pole_fix_unchanged": true
+}

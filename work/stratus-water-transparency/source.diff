@@ -1,0 +1,190 @@
+--- before/shaders/core/lake.frag.glsl
++++ after/shaders/core/lake.frag.glsl
+@@ -5,6 +5,9 @@
+ #include "/core/medium.glsl"
+ #include "/core/lake-normal.glsl"
+ #include "/core/environment.glsl"
++#include "/core/volume.glsl"
++#include "/core/water-path.glsl"
++uniform sampler2D colortex13;
+ uniform sampler2D colortex8;
+ uniform sampler2D colortex4;
+ uniform sampler2D depthtex1;
+@@ -69,8 +72,6 @@
+         traced.rgb/=max(traced.a,0.0001);
+ #endif
+         vec3 reflected=mix(fallback,traced.rgb,traced.a);
+-        vec3 originalOpaque=texture(colortex4,rasterUV).rgb;
+-        
+         float thickness=opaqueDepth<0.999999?length(opaqueView-waterView):24.0;
+         // v1.3.1 screen-space water refraction, with the original shoreline guard.
+         vec2 shifted=legacyWaterRefractionUV(rasterUV,nView,faceView,thickness,markedDepth.x);
+@@ -78,30 +79,43 @@
+         vec3 transmitted=texture(colortex4,shifted).rgb;
+         vec3 backRay=unitVector(mat3(gbufferModelViewInverse)*positionFromDepth(shifted,0.5));
+         if(shiftedDepth>=0.999999)transmitted=reflectedEnvironment(backRay);
+-        // Rare elevated-water view: integrate only the cloud segment behind it.
+-        // Ordinary ground-level water does not march clouds per surface pixel.
+-        if((cameraPosition+point).y>CLOUD_ALTITUDE-CLOUD_THICKNESS&&backRay.y<0.0){
+-            vec4 behind=marchCloudLayer(cameraPosition+point+backRay*0.05,backRay,max(thickness,0.0),6,false);
+-            transmitted=mix(transmitted,behind.rgb,behind.a);
+-        }
+-        float opticalPath=thickness;
++        bool backgroundGeometry=shiftedDepth<0.999999;
++        vec3 receiver=backgroundGeometry?positionFromDepth(shifted,shiftedDepth):waterView+unitVector(waterView)*7000.0;
++        float receiverDistance=length(receiver-waterView);
++        float opticalPath=backgroundGeometry?receiverDistance:24.0;
+         float cosine=clamp(dot(nView,unitVector(-waterView)),0.0,1.0);
+         float fresnel=dielectricWaterFresnel(cosine,isEyeInWater==1?1.333:1.0,isEyeInWater==1?1.0:1.333);
+         bool totalReflection=isEyeInWater==1&&fresnel>=0.99999;
+-        vec3 refracted=unitVector(waterView);
+         if(isEyeInWater==0){
+-            // A single path length is shared by top, waterfall sides and underside.
+-            // No artificial 1.8-block side cap.
+-            // Flowing water has a finite sheet/slab thickness. A distant sky or
+-            // land sample is not evidence that the entire ray lies inside water.
+             if(markedColour.b>0.5){
+-                float vertical=abs(markedNormal.y);
+-                float height=clamp(fract((point+cameraPosition).y+0.02),0.08,0.90);
+-                float slab=mix(0.95,height,vertical);
+-                opticalPath=min(opticalPath,slab/max(abs(dot(refracted,faceView)),0.15));
++                vec3 worldViewRay=unitVector(mat3(gbufferModelViewInverse)*waterView);
++                opticalPath=fallingWaterThickness(point+cameraPosition,markedNormal.xyz,worldViewRay,receiverDistance);
++                float airDistance=max(receiverDistance-opticalPath,0.0);
++                // depthtex1 omits ALL water. Keep a second horizontal entry so
++                // an ocean behind a waterfall retains its own water depth.
++                vec4 background=texture(colortex13,shifted);
++                if(hasBackgroundWater(background,markedDepth.x,-receiver.z)){
++                    vec3 r=positionFromDepth(shifted,0.5);
++                    vec3 backgroundView=r*(background.x/max(-r.z,0.00001));
++                    transmitted=travelThroughWater(transmitted,min(length(receiver-backgroundView),96.0),biomeWaterTint,background.y,background.z);
++                    vec3 backgroundNormal=lakeNormal(playerFromView(backgroundView),vec3(0,1,0),background.x,background.y);
++                    vec3 reflectedBackground=reflect(unitVector(mat3(gbufferModelViewInverse)*backgroundView),backgroundNormal);
++                    float backgroundFresnel=dielectricWaterFresnel(clamp(dot(backgroundNormal,-backRay),0.0,1.0),1.0,1.333);
++                    transmitted=mix(transmitted,reflectedEnvironment(reflectedBackground)*mix(0.03,1.0,smoothstep(0.04,0.8,background.y)),clamp(REFLECT_LEVEL*backgroundFresnel,0.0,1.0));
++                    airDistance=max(length(backgroundView-waterView)-opticalPath,0.0);
++                }else if(backgroundGeometry&&joinsSurroundingWater(colortex13,shifted,cameraPosition+point,backRay,receiverDistance)){
++                    // The falling volume joins the ocean without an air/water
++                    // face. Attenuate the continuous water path to its floor.
++                    opticalPath=receiverDistance;airDistance=0.0;
++                }
++                transmitted=airBehindWater(transmitted,cameraPosition+point+backRay*opticalPath,backRay,airDistance,waterSky,backgroundGeometry);
+             }
+             transmitted=travelThroughWater(transmitted,min(opticalPath,96.0),waterTint,waterSky,waterLamp);
+-        }else cameraWaterPath=length(waterView);
++        }else{
++            // Looking out from underwater also crosses air beyond the surface.
++            if(!totalReflection)transmitted=airBehindWater(transmitted,cameraPosition+point,backRay,receiverDistance,waterSky,backgroundGeometry);
++            cameraWaterPath=length(waterView);
++        }
+         // Fresnel conserves reflected/transmitted energy; TIR remains complete
+         // even if the artistic reflection-strength control is reduced.
+         float weight=totalReflection?1.0:clamp(REFLECT_LEVEL*fresnel,0.0,1.0);
+--- before/shaders/core/raster.frag.glsl
++++ after/shaders/core/raster.frag.glsl
+@@ -21,7 +21,11 @@
+ #if PASS_KIND == 4 || PASS_KIND == 5
+ uniform vec4 entityColor;
+ #endif
++#if PASS_KIND == 6
++/* RENDERTARGETS: 3,0,1,2,8,13 */
++#else
+ /* RENDERTARGETS: 3,0,1,2,8 */
++#endif
+ void main() {
+ #if PASS_KIND == 8 || (PASS_KIND == 12 && SUN_STYLE == 0) || (PASS_KIND == 13 && CLOUD_STYLE != 1)
+     discard;
+@@ -110,6 +114,10 @@
+     gl_FragData[4] = vec4(0.0);
+ #if PASS_KIND == 6
+     if(mark>0.5)gl_FragData[4]=vec4(tintAndOpacity.rgb,clamp((illuminationCoordinate.s*32.0-1.0)/30.0,0.0,1.0));
++    // Preserve a horizontal water entry behind a falling curtain. Vertical
++    // fragments have zero coverage in this attachment and cannot erase it.
++    float horizontalEntry=mark*float(orientedNormal.y>0.5&&isEyeInWater==0);
++    gl_FragData[5]=vec4(depth,sky,clamp((illuminationCoordinate.s*32.0-1.0)/30.0,0.0,1.0),horizontalEntry);
+ #endif
+ #if LATE_SURFACE == 1
+     #if PASS_KIND == 6
+--- before/shaders/core/resolve.frag.glsl
++++ after/shaders/core/resolve.frag.glsl
+@@ -25,6 +25,8 @@
+ const int colortex10Format = RGBA16F;
+ const int colortex11Format = RGBA16F;
+ const int colortex12Format = RGBA16F;
++const int colortex13Format = RGBA16F;
++const vec4 colortex13ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
+ const vec4 colortex0ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
+ const vec4 colortex1ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
+ const vec4 colortex2ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
+--- before/shaders/core/water-path.glsl
++++ after/shaders/core/water-path.glsl
+@@ -0,0 +1,59 @@
++#ifndef STRATUS_WATER_PATH_INCLUDED
++#define STRATUS_WATER_PATH_INCLUDED
++// A falling sheet does not fill the entire gap to the opaque terrain. Its
++// foreground water segment and the air behind it must be transported separately.
++float fallingWaterThickness(vec3 worldPoint,vec3 faceNormal,vec3 viewRay,float receiverDistance){
++    float vertical=abs(faceNormal.y);
++    float height=clamp(fract(worldPoint.y+0.02),0.08,0.90);
++    float slab=mix(0.95,height,vertical);
++    return min(receiverDistance,slab/max(abs(dot(viewRay,faceNormal)),0.15));
++}
++bool hasBackgroundWater(vec4 background,float frontDepth,float receiverDepth){
++    float separation=max(0.12,frontDepth*0.002);
++    return background.a>0.5&&background.x>frontDepth+separation&&background.x<receiverDepth;
++}
++// At a waterfall/ocean junction Minecraft omits the internal horizontal face.
++// Confirm the surrounding water level on both sides of the pixel instead of
++// treating that missing internal face as an air gap. This is a local screen-space
++// fallback; it does not invent an ocean level from world height or biome alone.
++bool joinsSurroundingWater(sampler2D horizontalWater,vec2 uv,vec3 frontWorld,vec3 ray,float receiverDistance){
++    if(ray.y>=-0.01)return false;
++    vec2 pixel=1.0/vec2(textureSize(horizontalWater,0));
++    for(int i=0;i<4;i++){
++        float radius=i==0?8.0:(i==1?24.0:(i==2?64.0:128.0));
++        vec2 a=uv-vec2(pixel.x*radius,0.0),b=uv+vec2(pixel.x*radius,0.0);
++        if(a.x<=0.001||b.x>=0.999)continue;
++        vec4 da=texture(horizontalWater,a),db=texture(horizontalWater,b);
++        if(da.a<0.5||db.a<0.5)continue;
++        vec3 ra=positionFromDepth(a,0.5),rb=positionFromDepth(b,0.5);
++        float ya=(playerFromView(ra*(da.x/max(-ra.z,0.00001)))+cameraPosition).y;
++        float yb=(playerFromView(rb*(db.x/max(-rb.z,0.00001)))+cameraPosition).y;
++        if(abs(ya-yb)>0.20)continue;
++        float crossing=((ya+yb)*0.5-frontWorld.y)/ray.y;
++        if(crossing>0.0&&crossing<receiverDistance)return true;
++    }
++    return false;
++}
++// Transport only the air *after* a finite water sheet or an underwater exit.
++// The final atmosphere pass already handles camera-to-front-water transport.
++vec3 airBehindWater(vec3 colour,vec3 origin,vec3 direction,float distanceLimit,float skyExposure,bool geometry){
++#if DIMENSION_TYPE == 0
++    if(distanceLimit<=0.001)return colour;
++    int steps=ATMOSPHERE_QUALITY==2?12+MIST_DETAIL*16:12+MIST_DETAIL*8;
++    vec4 mist=volumetricMist(origin,direction,distanceLimit,skyExposure,steps);
++    // Opaque receivers need the cloud segment as well. Sky samples already
++    // contain clouds from the environment cache, so do not apply them twice.
++    if(geometry){
++        vec4 cloud=marchCloudLayer(origin,direction,distanceLimit,12,false);
++        mist=direction.y<0.0?overLayers(cloud,mist):overLayers(mist,cloud);
++    }
++    colour=mix(colour,mist.rgb,mist.a);
++    if(geometry){
++        float horizontal=length((origin-cameraPosition+direction*distanceLimit).xz);
++        float border=smoothstep(max(far*0.84,1.0),max(far,2.0),horizontal)*smoothstep(0.0,1.0,skyExposure);
++        colour=mix(colour,atmosphericColour(),border);
++    }
++#endif
++    return colour;
++}
++#endif
+--- before/shaders/shaders.properties
++++ after/shaders/shaders.properties
+@@ -146,6 +146,7 @@
+ blend.gbuffers_skytextured.colortex8=off
+ blend.gbuffers_clouds.colortex8=off
+ blend.gbuffers_water.colortex8=off
++blend.gbuffers_water.colortex13=SRC_ALPHA ONE_MINUS_SRC_ALPHA ONE ONE_MINUS_SRC_ALPHA
+ blend.gbuffers_textured.colortex8=ZERO ONE ZERO ONE
+ blend.gbuffers_textured_lit.colortex8=ZERO ONE ZERO ONE
+ blend.gbuffers_beaconbeam.colortex8=ZERO ONE ZERO ONE

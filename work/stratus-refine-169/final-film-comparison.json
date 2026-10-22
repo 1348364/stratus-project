@@ -1,0 +1,57 @@
+{
+  "scope": "Actual matched final-code Main images, film 1 versus 0 at grazing view; image animation continues",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "regions": [
+    {
+      "region": "iron_top",
+      "xyxy": [
+        590,
+        520,
+        760,
+        540
+      ],
+      "mean_signed_code_delta": -1.4069607843137255,
+      "mean_absolute_code_delta": 1.4069607843137255,
+      "max_absolute_code_delta": 3.0
+    },
+    {
+      "region": "iron_front",
+      "xyxy": [
+        590,
+        650,
+        760,
+        750
+      ],
+      "mean_signed_code_delta": -0.1364313725490196,
+      "mean_absolute_code_delta": 0.1364313725490196,
+      "max_absolute_code_delta": 1.0
+    },
+    {
+      "region": "glazed_side",
+      "xyxy": [
+        900,
+        495,
+        935,
+        525
+      ],
+      "mean_signed_code_delta": -0.07428571428571429,
+      "mean_absolute_code_delta": 0.16634920634920636,
+      "max_absolute_code_delta": 1.0
+    },
+    {
+      "region": "granite_top",
+      "xyxy": [
+        1110,
+        525,
+        1250,
+        545
+      ],
+      "mean_signed_code_delta": 4.039285714285715,
+      "mean_absolute_code_delta": 4.224047619047619,
+      "max_absolute_code_delta": 16.0
+    }
+  ]
+}

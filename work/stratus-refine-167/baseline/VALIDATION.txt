@@ -1,0 +1,42 @@
+STRATUS 1.6.6 — CANDIDATE VALIDATION
+20 October 2026
+
+COMPLETED FOR THIS BUILD
+- 768 native macOS OpenGL compile/link pairs, eight variants, zero failures.
+  Defaults, vanilla sky, four quality presets, option extrema, all dimensions.
+  Compatibility shims are not Iris transform/runtime emulation.
+- Actual GLSL GPU comparisons: 4 candidate sun renders + 1 baseline; 11 candidate
+  fog cases + 11 baseline; 216 candidate face samples + 72 baseline/reference.
+  27 relationships pass, zero API errors or unresolved probe binding warnings.
+- Sun texture RGB/alpha and HDR tint checked at every rendered sample against
+  the current 32x32 vanilla asset. Visibility-zero and native-mode checks pass.
+- Face mix matches 65% vanilla + 35% previous physical irradiance at default
+  strength. Direction, rain/night/caves, camera invariance, other dimensions,
+  saved strength 2 and bypass controls checked.
+- Reproduced the original rejected-depth unfogged dot. Its corrected RGB adds
+  atmospheric scattering; matched depth, near clear foreground and underwater
+  remain unchanged in controlled tests. Confidence transition and far border
+  checks pass. Does not certify the actual reported Main foliage scene.
+- 10 full water-resolve GPU regressions pass, zero failures/errors.
+- Seven runtime assets changed. Options/defaults/ranges, menus/presets and pass
+  resolutions unchanged. No lower sampling or draw distance; selective fallback
+  uses the same full atmosphere quality as the primary pass. No extra pass.
+- Offline before/after sun and fog preview sheets visually inspected. These are
+  labelled native GLSL renders, not in-game screenshots.
+- Before packaging, compared all 53 option IDs/defaults/allowed values and every
+  menu, slider, preset and language key: all retained; 10 Main saved overrides
+  remain valid. Only labels/tooltips describing the requested changes differ.
+- package.py verifies every packaged byte and ZIP integrity.
+
+PENDING
+Load 1.6.6 in Main/Iris and inspect the real distant foliage scene, sun and
+terrain under day/sunset/night/rain, motion, caves and other dimensions. Confirm
+resource binding and all presets/native sun mode. Recheck water/transparency.
+Run matched representative scenes with focused FPS/frame time and Dynamic FPS,
+resolution, distances, cap and VSync recorded. No speed or visual-equivalence
+claim: a depth-miss fallback adds work in foliage-heavy views.
+
+Main was confirmed loading 1.6.5 in its log. The desktop inventory still cannot
+select its Java window, so 1.6.6 loading/review is not claimed. Baseline and all
+current evidence are in work/stratus-refine-166 and CHECKS.json. Historical
+1.6.5 evidence does not certify these changes.

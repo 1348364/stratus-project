@@ -1,0 +1,21 @@
+STRATUS 1.6.9 — LIVE CHECKS AND FOLLOW-UP
+
+Select Stratus-1.6.9.zip in Main. Water texture strength is under Water.
+Wet sheen conditions, Surface film amount and Wet sheen strength are under
+Materials; Retired darkening explains saved-setting compatibility. Lighting >
+Realistic lighting selects vanilla (new default) or preserved enhanced lighting.
+
+Completed finite review: vanilla block palette against shaders-disabled game,
+absorption removed, porous/non-porous film, native-water texture off/strong,
+river, underwater, waterline, Materials and Water menus. See versioned visual
+report and CHANGE-LOG.md for accepted versus rejected capture labels.
+
+Focused FPS evidence is separate from visual acceptance. Preserve 1440x842,
+render distance 12, VSync/cap, actual saved shader options, time/weather and
+fixed cameras when repeating the recorded comparisons; record focus and Dynamic
+FPS. Do not infer game speed from native compilation or background captures.
+Keep all quality levels available. Any unmet 60 FPS target stays in CHANGES.md.
+
+Broaden night/rain/shelter, all presets, motion, transparent edges and the exact
+original water-pole/distant-leaf views when those scenes are available. Preserve
+older ZIPs and current saved settings. Never call finite checks exhaustive.

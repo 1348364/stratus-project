@@ -1,0 +1,6 @@
+{
+  "exit_code": 143,
+  "signal": "SIGTERM",
+  "scope": "Only isolated QA Java process",
+  "session": 79135
+}

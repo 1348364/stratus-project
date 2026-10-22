@@ -1,0 +1,144 @@
+{
+  "checks": [
+    {
+      "check": "59-setting enhanced face behaviour retained",
+      "passed": true
+    },
+    {
+      "check": "Rain-only choice reproduces prior film",
+      "passed": true
+    },
+    {
+      "check": "All-weather clear sheen exceeds rain-only clear",
+      "passed": true
+    },
+    {
+      "check": "Off removes all-weather film",
+      "passed": true
+    },
+    {
+      "check": "Maximum sheen differs at grazing angle",
+      "passed": true
+    },
+    {
+      "check": "Nonporous and glazed do not acquire film",
+      "passed": true
+    },
+    {
+      "check": "Sealed cave remains unaffected",
+      "passed": true
+    },
+    {
+      "check": "Vanilla mode skips all material recolouring",
+      "passed": true
+    },
+    {
+      "check": "Zero dampness keeps material dry",
+      "passed": true
+    },
+    {
+      "check": "Vanilla uses exact display-space texture/lightmap product",
+      "passed": true
+    },
+    {
+      "check": "Vanilla ignores all artistic lighting multipliers",
+      "passed": true
+    },
+    {
+      "check": "Cirrus optical density preserved",
+      "passed": true
+    },
+    {
+      "check": "All component samples finite",
+      "passed": true
+    },
+    {
+      "check": "Actual output shader vanilla transfer and brightness",
+      "passed": true
+    },
+    {
+      "check": "Actual output ignores extreme exposure/bloom/colour in vanilla",
+      "passed": true
+    },
+    {
+      "check": "10 water resolve checks pass",
+      "passed": true
+    },
+    {
+      "check": "Actual full-atmosphere scene 0: below half an 8-bit sRGB code and 0.0001 alpha",
+      "passed": true
+    },
+    {
+      "check": "Actual full-atmosphere scene 1: below half an 8-bit sRGB code and 0.0001 alpha",
+      "passed": true
+    },
+    {
+      "check": "Actual full-atmosphere scene 2: below half an 8-bit sRGB code and 0.0001 alpha",
+      "passed": true
+    },
+    {
+      "check": "Actual full-atmosphere scene 3: below half an 8-bit sRGB code and 0.0001 alpha",
+      "passed": true
+    }
+  ],
+  "component_samples": 795,
+  "output_samples": 12,
+  "atmosphere_pixels_compared": 65536,
+  "atmosphere_error": [
+    {
+      "scene": 0,
+      "median_gpu_ms_per_draw": {
+        "before": 0.088434,
+        "after": 0.083672,
+        "hoist": 0.083427,
+        "bounds": 0.077466
+      },
+      "selected_after_time_reduction_percent": 5.384806748535631,
+      "max_linear_RGBA_error": 7.921457290649414e-05,
+      "max_sRGB_code_value_error": 0.01732118440834096,
+      "max_alpha_error": 7.921457290649414e-05
+    },
+    {
+      "scene": 1,
+      "median_gpu_ms_per_draw": {
+        "before": 0.016148,
+        "after": 0.01521,
+        "hoist": 0.015922,
+        "bounds": 0.0154
+      },
+      "selected_after_time_reduction_percent": 5.808768887787963,
+      "max_linear_RGBA_error": 4.5418739318847656e-05,
+      "max_sRGB_code_value_error": 0.012392875064642928,
+      "max_alpha_error": 4.5418739318847656e-05
+    },
+    {
+      "scene": 2,
+      "median_gpu_ms_per_draw": {
+        "before": 0.008309,
+        "after": 0.007962,
+        "hoist": 0.008315,
+        "bounds": 0.007773
+      },
+      "selected_after_time_reduction_percent": 4.176194487904683,
+      "max_linear_RGBA_error": 2.562999725341797e-06,
+      "max_sRGB_code_value_error": 0.0002800615156350883,
+      "max_alpha_error": 2.562999725341797e-06
+    },
+    {
+      "scene": 3,
+      "median_gpu_ms_per_draw": {
+        "before": 0.031133,
+        "after": 0.029298,
+        "hoist": 0.02975,
+        "bounds": 0.032199
+      },
+      "selected_after_time_reduction_percent": 5.894067388301805,
+      "max_linear_RGBA_error": 8.940696716308594e-08,
+      "max_sRGB_code_value_error": 2.419112232199261e-05,
+      "max_alpha_error": 0.0
+    }
+  ],
+  "failures": 0,
+  "opengl_errors": 0,
+  "floating_point_tolerance_note": "Initial 0.00002 linear tolerance rejected two pixels/scene maxima. Investigated bounds/hoist separately; final acceptance uses less than half an sRGB code value and alpha 0.0001. All 65,536 tested pixels satisfy these display-oriented limits. No universal 99-percent visual-equivalence claim."
+}

@@ -1,0 +1,31 @@
+{
+  "source_files": 7992,
+  "release_assets": [
+    {
+      "file": "stratus-completed-releases.zip",
+      "bytes": 619942867,
+      "files": 739,
+      "sha256": "61f54469aa6bd3f06133f4ec533fa12afb106709ee7c98913254ae182bf618da"
+    },
+    {
+      "file": "stratus-development-evidence.zip",
+      "bytes": 1198457422,
+      "files": 627,
+      "sha256": "1fae2daa4566dc6e1e6b2231bb5e0406d2fa180adf637a149f9c47bae2000371"
+    },
+    {
+      "file": "stratus-public-pre-redesign.zip",
+      "bytes": 29916354,
+      "sha256": "4adb02c412cf6f0cc1f890bcbb03ad509e2031f86189ed84967d133bd8cb9b93"
+    }
+  ],
+  "excluded": [
+    "credentials and Keychain data",
+    "private feedback and delivery state",
+    "chat dispatch snapshots",
+    "third-party Minecraft runtime / smoke-test instance",
+    "dependencies, build caches and raw application logs",
+    "historical resourceful-config-web.json: credential field detected and excluded"
+  ],
+  "source_layout": "Original project-relative paths. Release bundles and visual evidence are GitHub Release assets."
+}

@@ -1,0 +1,40 @@
+{
+  "scope": "Actual Iris composite GL_TIME_ELAPSED intervals; diagnostic instrumentation overhead, not gameplay FPS",
+  "conditions": "Unfocused full Reference river; uncontended diagnostic only, not accepted FPS. First three intervals per pass discarded.",
+  "valid_timer": true,
+  "per_pass": {
+    "deferred": {
+      "samples": 12,
+      "median_gpu_ms": 1.865834
+    },
+    "deferred1": {
+      "samples": 12,
+      "median_gpu_ms": 0.0
+    },
+    "composite": {
+      "samples": 12,
+      "median_gpu_ms": 24.274125
+    },
+    "composite1": {
+      "samples": 12,
+      "median_gpu_ms": 1.646709
+    },
+    "composite2": {
+      "samples": 12,
+      "median_gpu_ms": 0.971125
+    },
+    "composite3": {
+      "samples": 12,
+      "median_gpu_ms": 5.46875
+    },
+    "composite4": {
+      "samples": 12,
+      "median_gpu_ms": 0.8575
+    },
+    "final": {
+      "samples": 12,
+      "median_gpu_ms": 0.104124
+    }
+  },
+  "original_bytecode_restored": true
+}

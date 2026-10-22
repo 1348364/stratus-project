@@ -1,0 +1,19 @@
+RESUME
+STATE
+CMD gamemode spectator ShaderCheck
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 3000
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 40
+BENCH settings130-balanced-landscape 20
+SHOT s130-balanced-landscape
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 15
+BENCH settings130-balanced-water 20
+SHOT s130-balanced-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 15
+BENCH settings130-balanced-clouds 20
+SHOT s130-balanced-clouds
+DONE s130-settings-complete

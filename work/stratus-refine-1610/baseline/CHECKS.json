@@ -1,0 +1,472 @@
+{
+  "version": "1.6.9",
+  "date": "2026-10-22",
+  "status": "Shader implementation with finite technical and Main visual checks. Focused performance is recorded separately; 60 FPS is not guaranteed.",
+  "request_id": "0d847664-366f-4d24-a8eb-e198c604b09c",
+  "staging": {
+    "request_id": "0d847664-366f-4d24-a8eb-e198c604b09c",
+    "action": "stage_run",
+    "spec_delta_bytes": 0,
+    "frozen_and_current_document_hashes": {
+      "TASK.md": "373f267a4af5e8187b5e2ab92601362aab9911debc4fd69df149553d4ccf2845",
+      "CHANGES.md": "5b12ce92aad452b883bff475685d9106c003f0d60bf1634745ddd1bef88ba9a2"
+    },
+    "new_target_deltas_staged": [],
+    "existing_pending_requests_preserved": 5,
+    "snapshot_conflicts": [],
+    "editable_baseline": "1.6.9-water-pole-test (newer environment.glsl fix retained)",
+    "planned_release": "1.6.9",
+    "Minecraft_initial_state": "closed; latest log records clean shutdown at 09:34:35",
+    "preserve_unverified_water_pole_candidate": true
+  },
+  "controls": {
+    "prior_controls": 61,
+    "total_controls": 62,
+    "all_prior_identifiers_and_choices_retained": true,
+    "all_reachable_labelled_with_tooltips": true,
+    "four_presets_unchanged": true,
+    "deliberate_migrations": {
+      "REALISTIC_LIGHTING": "Default 1 -> 0 for requested vanilla block colours; existing 1 overrides still select enhanced lighting",
+      "SURFACE_DAMPNESS": "Same ID/range and film amount; absorption and sheltered retention explicitly removed",
+      "WET_DARKENING": "Same ID/range/menu, labelled retired; intentional no-op because user explicitly removed dampness"
+    },
+    "new_controls": {
+      "WATER_TEXTURE": [
+        "0.15",
+        [
+          "0.00",
+          "0.05",
+          "0.10",
+          "0.15",
+          "0.25",
+          "0.35",
+          "0.50",
+          "0.75",
+          "1.00"
+        ]
+      ]
+    },
+    "preexisting_pole_fix_unchanged": true
+  },
+  "native": {
+    "program_pairs": 768,
+    "variants": 8,
+    "failures": 0,
+    "scope": "Native macOS OpenGL compatibility-shim compile/link, separate from Iris"
+  },
+  "GPU": {
+    "scope": "Actual GLSL native component/output checks; film reflection may darken a white block at grazing angles, but no absorption darkening remains",
+    "component_samples": 795,
+    "output_samples": 12,
+    "checks": [
+      {
+        "check": "All GPU samples finite",
+        "passed": true
+      },
+      {
+        "check": "Absorption response no longer changes film at matched roughness",
+        "passed": true
+      },
+      {
+        "check": "Vanilla lighting permits independent film",
+        "passed": true
+      },
+      {
+        "check": "Sealed cave remains dry",
+        "passed": true
+      },
+      {
+        "check": "Zero sheen and zero film return exact dry colour",
+        "passed": true
+      },
+      {
+        "check": "Rain-only clear weather returns dry colour",
+        "passed": true
+      },
+      {
+        "check": "Vanilla diffuse ignores enhanced artistic multipliers",
+        "passed": true
+      },
+      {
+        "check": "No OpenGL errors",
+        "passed": true
+      },
+      {
+        "check": "Actual output ignores artistic settings in vanilla mode",
+        "passed": true
+      },
+      {
+        "check": "Actual output has no OpenGL errors",
+        "passed": true
+      },
+      {
+        "check": "Vanilla output preserves display brightness to less than one millionth",
+        "passed": true
+      }
+    ],
+    "failures": 0
+  },
+  "water": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.4977731,
+          0.332056,
+          0.1906237
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.0637219,
+          0.1481078,
+          0.1588745
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.8,
+          0.4,
+          0.2
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.3963326,
+          0.1520035,
+          0.1031235
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.2820984,
+          0.167633,
+          0.1194729
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.5492423,
+          0.3675921,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.4539303,
+          0.3205609,
+          0.1889648
+        ],
+        "max_error": 3e-08
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "live": {
+    "profile": "Modrinth Main / Minecraft (1)",
+    "world": "Stratus Terrain Lab (normal world)",
+    "Minecraft": "1.21.11",
+    "Iris": "1.10.8",
+    "Sodium": "0.8.14",
+    "hardware": "Apple M1 / macOS / OpenGL 4.1",
+    "review": "Actual framebuffer captures: vanilla block reference, porous/nonporous film, native-water texture off/strong, river, underwater, waterline and materials/water menus. Final release load is recorded in install receipt.",
+    "report": "outputs/Stratus-1.6.9-visual-checks/index.html"
+  },
+  "performance": {
+    "status": "See work/stratus-refine-169/performance-summary.json for completed focused comparisons. No quality cuts; no general 60 FPS guarantee.",
+    "structural_changes": [
+      "Do not run unused scenery-reflection composite when REFLECTION_MODE=0; its consumers are already compile-time disabled.",
+      "Reject underwater and non-water pixels before interface-metadata fetches in lake compose."
+    ],
+    "preserved": "All source quality choices, profile definitions, buffer resolutions, traversal caps and sampling budgets preserved.",
+    "focused_comparison": {
+      "scope": "Finite actual Minecraft fixed-camera benchmark; not exhaustive gameplay guarantee",
+      "hardware": "Apple M1 / macOS / OpenGL4.1",
+      "client": "Minecraft1.21.11 / Iris1.10.8 / Sodium0.8.14 / Main",
+      "world": "Stratus Terrain Lab normal world",
+      "baseline": "Stratus-1.6.9-water-pole-test.zip, pre-existing editable baseline",
+      "after": "Stratus-1.6.9-QA-v2-Candidate.zip, same runtime source as released 1.6.9",
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "render_distance_chunks": 12,
+      "simulation_distance_chunks": 8,
+      "saved_vsync": true,
+      "saved_max_fps": 70,
+      "saved_inactivity_fps_limit": "afk",
+      "DynamicFPS_enabled": true,
+      "DynamicFPS_diagnostic": {
+        "powerState": "FOCUSED",
+        "targetFrameRate": 260,
+        "enableVsync_method": false,
+        "isForcingLowFPS": false,
+        "graphicsState": "DEFAULT",
+        "idle": false
+      },
+      "activity_timer": "Minecraft method_61939 reset and Dynamic FPS onActivity every 5s only while window focus=1; no saved config modification. Monitor records actual limiter NONE/cap70, camera/time/weather. First diagnostic explicitly observed SHORT_AFK/cap30 before reset.",
+      "conditions": {
+        "world_time": 6000,
+        "rain_gradient": 0,
+        "shader_options": "Latest saved pole-test Main settings preserved; current Realistic lighting0, film amount.15, Fast-related water/atmosphere/reflection choices. New texture strength.15. Intentional material/water changes add visible effects; this is whole-build timing, not isolated optimisation cost."
+      },
+      "samples": [
+        {
+          "valid_focused_sample": true,
+          "frames": 1804,
+          "average_fps": 60.0723,
+          "median_frame_ms": 16.1523,
+          "p95_frame_ms": 20.7933,
+          "p99_frame_ms": 27.2975,
+          "focused_polls": 558,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "active-forest-after-repeat.json",
+          "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+        },
+        {
+          "valid_focused_sample": false,
+          "frames": 1339,
+          "average_fps": 44.5631,
+          "median_frame_ms": 16.6725,
+          "p95_frame_ms": 67.829,
+          "p99_frame_ms": 74.5929,
+          "focused_polls": 381,
+          "unfocused_polls": 128,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "active-forest-after.json",
+          "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 1775,
+          "average_fps": 59.1302,
+          "median_frame_ms": 16.3714,
+          "p95_frame_ms": 21.8781,
+          "p99_frame_ms": 27.6318,
+          "focused_polls": 558,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "active-forest-before-repeat.json",
+          "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+        },
+        {
+          "valid_focused_sample": false,
+          "reason": "Minecraft unfocused; no FPS accepted",
+          "file": "active-forest-before.json",
+          "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 1687,
+          "average_fps": 56.1894,
+          "median_frame_ms": 16.7813,
+          "p95_frame_ms": 24.6077,
+          "p99_frame_ms": 33.6671,
+          "focused_polls": 526,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "active-river-after.json",
+          "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 1731,
+          "average_fps": 57.6906,
+          "median_frame_ms": 16.6385,
+          "p95_frame_ms": 22.827,
+          "p99_frame_ms": 27.7428,
+          "focused_polls": 529,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "active-river-before.json",
+          "acceptance": "Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged."
+        },
+        {
+          "valid_focused_sample": false,
+          "reason": "Minecraft unfocused; no FPS accepted",
+          "file": "baseline-original.json",
+          "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+        },
+        {
+          "valid_focused_sample": false,
+          "reason": "Minecraft unfocused; no FPS accepted",
+          "file": "candidate-original.json",
+          "acceptance": "Rejected: missing focus or focus loss; no FPS conclusion."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 863,
+          "average_fps": 28.7416,
+          "median_frame_ms": 35.0155,
+          "p95_frame_ms": 35.5065,
+          "p99_frame_ms": 36.2486,
+          "focused_polls": 531,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-forest-after.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 864,
+          "average_fps": 28.7431,
+          "median_frame_ms": 34.9871,
+          "p95_frame_ms": 35.5198,
+          "p99_frame_ms": 35.9246,
+          "focused_polls": 532,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-forest-before.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 877,
+          "average_fps": 29.1977,
+          "median_frame_ms": 34.4339,
+          "p95_frame_ms": 34.5348,
+          "p99_frame_ms": 34.6275,
+          "focused_polls": 557,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-river-after-1.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 866,
+          "average_fps": 28.8271,
+          "median_frame_ms": 34.5377,
+          "p95_frame_ms": 35.5102,
+          "p99_frame_ms": 35.6855,
+          "focused_polls": 537,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-river-after-2.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 877,
+          "average_fps": 29.1861,
+          "median_frame_ms": 34.4203,
+          "p95_frame_ms": 34.5175,
+          "p99_frame_ms": 34.6035,
+          "focused_polls": 559,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-river-before-1.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        },
+        {
+          "valid_focused_sample": true,
+          "frames": 877,
+          "average_fps": 29.2248,
+          "median_frame_ms": 34.4139,
+          "p95_frame_ms": 34.5097,
+          "p99_frame_ms": 34.5455,
+          "focused_polls": 557,
+          "unfocused_polls": 0,
+          "framebuffer": [
+            1440,
+            842
+          ],
+          "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+          "file": "focused-river-before-2.json",
+          "acceptance": "Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic."
+        }
+      ],
+      "target_60_FPS_verified": false,
+      "whole_game_speedup_verified": false,
+      "remaining": "Performance request remains pending. River valid active comparison ~57.7 before /56.2 after does not establish speedup or 60 FPS; review all forest samples with focus validity. Do not lower resolution/quality to satisfy the target."
+    }
+  },
+  "limits": [
+    "Finite scene coverage is not all-weather/night/preset/mod certification.",
+    "White blocks may reflect a darker sky at grazing angles; that is optional film reflection, not absorption darkening.",
+    "The carried-forward water-pole filter is preserved byte-for-byte; this pass does not independently certify the original reported view.",
+    "WET_DARKENING is an explicitly retired compatibility control, not an active effect."
+  ]
+}

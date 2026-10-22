@@ -1,0 +1,27 @@
+{
+  "dock": {
+    "prior_darkening": 9.4022,
+    "new_darkening": 33.9914,
+    "ratio": 3.615
+  },
+  "soil_bank": {
+    "prior_darkening": 8.1144,
+    "new_darkening": 27.9375,
+    "ratio": 3.443
+  },
+  "foliage": {
+    "prior_darkening": 0.964,
+    "new_darkening": 3.2078,
+    "ratio": 3.328
+  },
+  "sky": {
+    "prior_darkening": 0.0,
+    "new_darkening": 0.0,
+    "ratio": null
+  },
+  "lantern": {
+    "prior_darkening": 0.0,
+    "new_darkening": 0.0,
+    "ratio": null
+  }
+}

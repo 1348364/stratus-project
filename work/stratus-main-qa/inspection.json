@@ -1,0 +1,29 @@
+{
+  "accepted": [
+    "river-bank",
+    "river-grazing",
+    "river-underwater",
+    "wood-above",
+    "wood-underwater",
+    "materials",
+    "clouds-below",
+    "clouds-inside",
+    "clouds-above",
+    "menu-performance"
+  ],
+  "rejected": {
+    "mountain-terrain": "Cloud-obscured camera; does not establish mountain terrain appearance.",
+    "normal-coast": "Terrain chunks not fully rendered under system load.",
+    "normal-upstream": "Terrain chunks not fully rendered after returning to the river.",
+    "forest-atmosphere": "Partial chunk meshes/floating foliage; invalid terrain verification."
+  },
+  "observations": [
+    "The v1.3.1 screen offset and original foreground guard replace geometric transmission; no eight-view cache remains.",
+    "The accepted river and wooden-fixture frames do not show the geometric extra-layer distortion seen in the previous implementation.",
+    "Underwater off-screen reflection fallback is visibly plain blue; this limitation remains.",
+    "The material shot is partial and covers dirt and timber; it is not proof of the entire gallery.",
+    "Clouds were inspected below, inside and above. Strong cloud opacity can obscure high-altitude terrain.",
+    "The Performance submenu includes water and atmosphere scale controls and the v1.3.1 original edge guard.",
+    "Broad terrain and clean foreground FPS checks remain pending cleanup."
+  ]
+}

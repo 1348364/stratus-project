@@ -1,0 +1,6 @@
+STRATUS1.5.0 RELEASE VERIFIED — 18 October2026
+Final archive: outputs/Stratus-1.5.0.zip; editable source outputs/Stratus.
+Visual report: outputs/Stratus-1.5.0-visual-checks/index.html.
+744 native compile/link passes,41 actual GLSL cases,50 reachable controls,219 shader/assets match tested ZIP.63 inspected final-source captures; initial missing-board and premature-projectile frames excluded/replaced. Zero shader-specific runtime errors in minecraft-150.log and fresh minecraft-150-reopen.log. Main only received1.5ZIP+sidecar; Main options/Iris/Sodium files match task-start snapshot, old selection preserved. Installation/hash record outputs/Stratus-1.5.0-install.json.
+Material absorption darkening independent of broad exposed wet films; new screen-space Snell ray trace with real receiver normals; original128-cubed3Dweather; rounded clouds/nearer3Dfog;50 controls. User explicitly withdrew60FPSgoal; quality priority. Single-depth hidden/offscreen/multiple-transparent-layer limitations documented.
+Test client reopened and left RUNNING in isolated work/minecraft-smoke at3Dwood pool (156.5,105,43.5), selected1.5, marker v150-reopened-complete. Fresh screenshot/proof in visual report; exec session88718, pid64376 at verification. Do not stop it unless required/user asks. Main mods/world/config must not be edited. No outstanding work for this pass.

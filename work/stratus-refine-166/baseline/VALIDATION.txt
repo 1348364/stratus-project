@@ -1,0 +1,31 @@
+STRATUS 1.6.5 — CANDIDATE VALIDATION
+20 October 2026
+
+COMPLETED
+- 768 native macOS OpenGL compile/link pairs, eight variants, zero failures:
+  defaults, vanilla sky, Fast/Balanced/Reference/High, option extremes and all
+  three dimensions. Compatibility shims do not reproduce every Iris transform.
+- 17 actual cloud-shader GPU renders and 216 diffuse-face samples; 32 independent
+  relationships pass, including all 65,536 current vanilla footprint cells,
+  holes, upper-layer independence, sun reversal, rain, night, caves, contrast
+  bypass, camera invariance and other-dimension behaviour. Zero GPU API errors.
+- 10 actual water-resolve regression cases pass: submerged-segment clipping,
+  air receivers, sky after exit, glass, additive particles and vertical exits.
+- Five offline cloud previews inspected below/inside/above and at sunset/night.
+  These are native GLSL previews, NOT Minecraft screenshots or visual acceptance.
+- Only five shader/config/lang assets changed. All water, moisture, mist,
+  entry-point wrappers, pass resolutions and quality preset values are unchanged.
+- package.py verifies archive integrity and packaged bytes against source.
+
+PENDING
+- Load this candidate in Modrinth Main and verify Iris custom-texture binding.
+- Inspect actual terrain/face lighting, cloud silhouette/gradients and motion,
+  horizon aliasing, inside/outside transitions, rain/night and vanilla/off modes.
+- Check the new default 12-block thickness against the user's visual preference.
+- Measure focused FPS with matched options/camera/weather/render distance,
+  resolution, VSync/cap and Dynamic FPS state. No speedup or FPS claim.
+
+Main was observed running Stratus-1.6.4.zip. The desktop inventory cannot select
+its Java window. No candidate live loading/review is claimed. Source checks and
+an archive existing on disk do not prove it loaded. Full evidence and known
+limits are in CHECKS.json and work/Custom instructions/CHANGE-LOG.md.

@@ -1,0 +1,32 @@
+STRATUS 1.0.6 - ACTUAL MINECRAFT VISUAL QA
+16 October 2026
+
+PASS: real Minecraft 1.21.11 / Iris 1.10.8 / Sodium 0.8.14, Apple M1,
+OpenGL 4.1, Reference preset, copied local Overworld. Shader errors: 0.
+All shader/config sources and the resource compatibility ZIP match the tested
+files byte for byte. Native offline compile/link: 432 passes, zero failures.
+
+Visually inspected actual Minecraft screenshots of stone/deepslate ore rows,
+cow/slime/dropped-item shadows, firefly bushes by day and night across several
+animation frames, shallow water, glass, translucent slime, rain, underwater,
+and surrounding forest scenery.
+
+Ore host stone now shares its dampness class with neighboring stone/deepslate.
+Vanilla entity shadow discs are suppressed while the game option stays enabled.
+The black firefly model also reproduced with shaders DISABLED. The supplied
+VanillaTweaks build targets formats 84-97, while this game uses format 75.
+A separate format-75 compatibility resource pack selects the vanilla firefly
+model; it was enabled above VanillaTweaks during the final visual test.
+No textures are copied or replaced by that patch.
+
+Actual before/after PNGs and results.json are in the adjacent
+Stratus-1.0.6-visual-checks folder. Screenshots were saved by Minecraft's own
+ScreenshotRecorder API; no generated or retouched images are used as evidence.
+The test-only Fabric helper runs solely in the isolated workspace gameDir.
+It is not shipped with or installed into the normal profile. The test process
+was stopped with SIGTERM (exit 143); the original world was never modified.
+
+Limits: no FPS benchmark, held-item visibility test, full normal-profile mod stack test, exhaustive world
+condition test, or in-game checks of other presets/dimensions. Unused shader
+interface warnings, offline identity authentication failures, and the native
+gldCopyBufferSubData diagnostic remain distinct from shader errors.

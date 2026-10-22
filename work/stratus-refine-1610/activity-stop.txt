@@ -1,0 +1,1 @@
+Stop the temporary activity monitor/reset helper.

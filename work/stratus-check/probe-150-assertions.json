@@ -1,0 +1,6 @@
+{
+  "gpu_cases": 41,
+  "opengl_errors": 0,
+  "assertions_passed": true,
+  "scene_ray_test": "Physical refraction correctly hits a cube top missed by the unbent ray."
+}

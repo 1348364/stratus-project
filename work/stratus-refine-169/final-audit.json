@@ -1,0 +1,43 @@
+{
+  "version": "1.6.9",
+  "source_archive_installed_and_QA_runtime_equivalence": true,
+  "archive_entries": 243,
+  "runtime_assets": 235,
+  "sha256": "98321d67e7225a54a10f9d900ae65bf32f2a1a145559c3d2237513548ae2827d",
+  "controls": {
+    "all_61_prior_ids_ranges_and_access_retained": true,
+    "total": 62,
+    "all_four_presets_unchanged": true,
+    "deliberate_lighting_default_and_retired_dampness_migration": true
+  },
+  "latest_effective_Main_overrides_preserved": true,
+  "preexisting_pole_filter_unchanged": true,
+  "actual_release_pipeline_loaded": true,
+  "camera_HUD_pause_flight_restored": true,
+  "final_client_state": {
+    "position": "166.1907,65.9287,32.5536",
+    "yaw": "108.45755",
+    "pitch": "38.829258",
+    "hud": "false",
+    "pause": "true",
+    "flying": "true",
+    "screen": "net.minecraft.class_433",
+    "worldTime": "6000",
+    "rainGradient": "0.0"
+  },
+  "both_test_helpers_stopped": true,
+  "temporary_QA_files_removed": true,
+  "DynamicFPS_config_unchanged": true,
+  "native_pairs": 768,
+  "GPU_component_samples": 795,
+  "GPU_output_samples": 12,
+  "GPU_relationships": 11,
+  "underwater_cases": 10,
+  "original_capture_hashes_verified": 35,
+  "focused_active_samples_accepted": 4,
+  "performance_target_still_pending": true,
+  "completed_visual_requests_moved": 4,
+  "one_performance_request_pending": true,
+  "frozen_snapshot_conflicts": [],
+  "documentation_links_resolve": true
+}

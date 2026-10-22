@@ -1,0 +1,12 @@
+{
+  "target_reconciled_with_source_release_and_evidence": true,
+  "pending_focused_checks_retained": true,
+  "newer_unrelated_edits_preserved": true,
+  "historical_files_unchanged_sha256": {
+    "TASK-previous-brief.md": "ebd7c4ee3ca10277abd1fe82ec682f5562c06c8e2e1987189876304180ad9176",
+    "SHADER-SPEC-1.6.7.md": "19c2c1491ba575cbc04353d19066afc39dab361a24141c43f6fe30d4864c140d",
+    "SHADER-SPEC.md": "6f99b748d2ccceafea92ababd018c8bbb2e006125b872457122f523ca30ac801",
+    "SPEC-BASELINE.md": "31e4205f79db152adbaba9a3ff8cbf4f4650b48d9c7bea08bebdb171aadd4fa1"
+  },
+  "original_game_captures": 26
+}

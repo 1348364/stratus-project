@@ -1,0 +1,107 @@
+{
+  "checks": [
+    {
+      "check": "59-setting enhanced face behaviour retained",
+      "passed": true
+    },
+    {
+      "check": "Rain-only choice reproduces prior film",
+      "passed": true
+    },
+    {
+      "check": "All-weather clear sheen exceeds rain-only clear",
+      "passed": true
+    },
+    {
+      "check": "Off removes all-weather film",
+      "passed": true
+    },
+    {
+      "check": "Maximum sheen differs at grazing angle",
+      "passed": true
+    },
+    {
+      "check": "Nonporous and glazed do not acquire film",
+      "passed": true
+    },
+    {
+      "check": "Sealed cave remains unaffected",
+      "passed": true
+    },
+    {
+      "check": "Vanilla mode skips all material recolouring",
+      "passed": true
+    },
+    {
+      "check": "Zero dampness keeps material dry",
+      "passed": true
+    },
+    {
+      "check": "Vanilla uses exact display-space texture/lightmap product",
+      "passed": true
+    },
+    {
+      "check": "Vanilla ignores all artistic lighting multipliers",
+      "passed": true
+    },
+    {
+      "check": "Cirrus optical density preserved",
+      "passed": true
+    },
+    {
+      "check": "All component samples finite",
+      "passed": true
+    },
+    {
+      "check": "Actual output shader vanilla transfer and brightness",
+      "passed": true
+    },
+    {
+      "check": "Actual output ignores extreme exposure/bloom/colour in vanilla",
+      "passed": true
+    },
+    {
+      "check": "Atmosphere scene 0 within 0.00002",
+      "passed": false
+    },
+    {
+      "check": "Atmosphere scene 1 within 0.00002",
+      "passed": false
+    },
+    {
+      "check": "Atmosphere scene 2 within 0.00002",
+      "passed": true
+    },
+    {
+      "check": "Atmosphere scene 3 within 0.00002",
+      "passed": true
+    },
+    {
+      "check": "10 water resolve checks pass",
+      "passed": true
+    }
+  ],
+  "component_samples": 795,
+  "output_samples": 12,
+  "atmosphere_pixels_compared": 65536,
+  "atmosphere_error": [
+    {
+      "scene": 0,
+      "max_linear_RGBA_error": 7.921457290649414e-05
+    },
+    {
+      "scene": 1,
+      "max_linear_RGBA_error": 4.5418739318847656e-05
+    },
+    {
+      "scene": 2,
+      "max_linear_RGBA_error": 2.562999725341797e-06
+    },
+    {
+      "scene": 3,
+      "max_linear_RGBA_error": 8.940696716308594e-08
+    }
+  ],
+  "failures": 2,
+  "opengl_errors": 0
+}

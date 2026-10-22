@@ -1,0 +1,23 @@
+PACK Stratus-1.6.10-QA-BaselineReference.zip
+CAM 166.1907 65.9287 32.5536 108.45755 38.829258
+WAIT 20
+BENCH reference-river-before-1 30
+PACK Stratus-1.6.10-QA-CandidateReference.zip
+WAIT 15
+BENCH reference-river-after-1 30
+WAIT 5
+BENCH reference-river-after-2 30
+PACK Stratus-1.6.10-QA-BaselineReference.zip
+WAIT 15
+BENCH reference-river-before-2 30
+CAM 166.1907 65.9287 32.5536 0 4
+WAIT 15
+BENCH reference-forest-before 30
+PACK Stratus-1.6.10-QA-CandidateReference.zip
+WAIT 15
+BENCH reference-forest-after 30
+PACK Stratus-1.6.10.zip
+CAM 148.89674107447985 63.942387399745265 23.71564978879234 694.79834 18.562706
+WAIT 4
+DONE Full Reference benchmark queue finished
+STOP

@@ -1,0 +1,32 @@
+{
+  "date": "2026-10-21",
+  "shader_work_needed": false,
+  "all_five_requested_features_present": true,
+  "archive_entries": 243,
+  "sha256": "a273a3591d126f1406c9413f7e46684c095e98413998d393375925dce27f56eb",
+  "installed_bytes_match": true,
+  "original_1_6_6_settings_preserved": true,
+  "controls_retained": 53,
+  "controls_total": 59,
+  "prior_native_pairs_verified_by_unchanged_source": 768,
+  "prior_GPU_relationships": 21,
+  "prior_water_cases": 10,
+  "preserved_capture_hashes_verified": 37,
+  "latest_log_pack_event": "[11:04:08] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7.zip",
+  "new_live_visual_check": false,
+  "focused_performance_verified": false,
+  "source_hashes_verified": 236,
+  "packaged_runtime_assets": 235,
+  "fresh_live_pipeline_verified": true,
+  "fresh_runtime_pack": "Stratus-1.6.7.zip",
+  "focus": false,
+  "DynamicFPS_enabled": true,
+  "framebuffer": "1440x842",
+  "preserved_actual_game_comparison_sheets_reviewed_again": [
+    "sun-contact-v2.jpg",
+    "sky-contact-v1.jpg",
+    "faces-contact-v2.jpg",
+    "wet-contact-v2.jpg"
+  ],
+  "no_shader_or_release_mutation": true
+}

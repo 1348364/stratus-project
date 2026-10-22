@@ -1,0 +1,15 @@
+{
+  "archive_entries": 243,
+  "runtime_assets": 235,
+  "all_archive_bytes_match_source": true,
+  "installed_bytes_match": true,
+  "sha256": "a273a3591d126f1406c9413f7e46684c095e98413998d393375925dce27f56eb",
+  "spec_and_baseline_match": true,
+  "spec_options_match_source": 59,
+  "preferred_defaults_and_original_settings_preserved": true,
+  "release_selected_and_runtime_evidenced": true,
+  "driver_stopped_and_QA_packs_removed": true,
+  "original_capture_hashes_checked": 37,
+  "new_documentation_links_resolve": true,
+  "focused_FPS_verified": false
+}

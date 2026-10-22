@@ -1,0 +1,1 @@
+Temporary active-game benchmark timer stopped; saved settings were not changed.

@@ -1,0 +1,57 @@
+STRATUS1.5.0 — ACTUAL RUNTIME AND VISUAL CHECKS
+18 October2026
+
+744 native macOS OpenGL compile/link checks passed, zero failures:93 program
+pairs across eight variants and three dimensions. Offline compatibility shims
+are distinct from actual Iris runtime verification.
+41 actual GLSL GPU cases passed with zero OpenGL errors: Snell transmission
+in both directions, dielectric Fresnel/TIR, Beer-Lambert split/depth consistency,
+material absorption ranking/nonabsorbing metals/shelter, broad exposed film,
+cloud direction/depth clipping, spatial3D fog/near-clear/cave rejection, face
+lighting and dark entities. A synthetic opaque cube/floor test confirms that
+the bent ray correctly hits a cube top which the unbent camera ray misses.
+50 controls are reachable through the Iris menus and have English labels.
+All219 shader/config/data files match the actual tested archive, including
+the original128-cubed RGBA8 weather volume. Its3D sampling was also verified
+visually in the actual Iris client with a temporary diagnostic view.
+
+Minecraft1.21.11 / Iris1.10.8 / Sodium0.8.14 / Apple M1 OpenGL4.1:
+63 final-source scene/control/menu captures inspected. Zero shader-specific
+errors in this runtime log; unrelated offline Realms authentication errors are
+not shader errors. All sixteen source/flowing water levels map correctly;
+entity shadow suppression ID4200 is verified in Iris.
+
+Water: submerged3D wood block, logs, crossbeam, steps, slabs, fence gaps and
+glass from above, below, grazing and reverse angles; both sides of the waterline;
+shore corners; reflection on/off; deep/shallow water; waterfall sides/lip;
+dark/lit caves and striped receivers; river/swamp/warm/frozen biome comparisons;
+rain/night; elevated water over a lower cloud layer; clarity and exaggerated
+distortion controls. Random ticks were disabled during biome tests to prevent
+ice, then restored to3. Screen-space disocclusions/fallback limits remain.
+
+Materials: whole-face exposed wet film, separate pore darkening, dry and
+absorption-only controls, rain and grazing views. Soil, timber, stone/ore,
+polished stone, iron, glazed ceramic and sandstone were compared. Initial
+missing-board captures were discarded and replaced after loading the chunks.
+Clouds: beneath, inside and above the main volume, above cirrus, density/detail
+control, actual vanilla sun/moon/cloud options. Fog: landscape, closer forest
+pockets and stronger artistic settings. Nether/End, entities, particles,
+projectiles, fireflies/bloom and thirteen actual settings screens inspected.
+Detailed observations and unmodified captures are in the visual report.
+
+High prioritises quality:256 transmission samples,96 reflection steps,
+full-resolution reflection/atmosphere targets and512x256 sky cache. The user
+explicitly withdrew the60fps goal. No new performance claim is made.
+
+The isolated client remains OPEN at the submerged wooden test structure.
+All fixtures are in the copied StratusCheck world. Main worlds, mods and
+configuration are outside this task's writes; only a new shader ZIP/preferences
+will be installed there, with its existing selection preserved. Install record
+is provided beside the release archive.
+
+Limits: single-depth screen-space transmission/reflection cannot reconstruct
+hidden/off-screen or multiple transparent layers. Material classes, cloud
+multiple scattering, fog weather fields and biome sediment are approximations.
+Cloud-cache parallax is approximate; waves do not displace block geometry.
+No cast terrain shadow maps or fluid simulation. Finite testing cannot prove
+every world, camera, mod or resource-pack combination is free of artifacts.

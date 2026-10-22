@@ -1,0 +1,228 @@
+Create a complete, original **Iris shader pack for Minecraft Java 1.21.11 on an Apple Silicon Mac**, using the attached preview as the visual specification. You may modify the existing **Willow Lite** pack.
+
+Your goal is to reproduce the preview’s appearance as closely as possible. Do not add effects merely because they are common in shader packs. When an implementation choice changes the look, prioritise matching the reference.
+
+Preserve vanilla Minecraft textures, block geometry, models, and biome colouring. The preview contains some generated texture irregularities; these are not part of the requested shader style.
+
+## 1. Required appearance
+
+The preview depicts a **cool, overcast, damp daytime scene without falling rain or visible cast shadows**.
+
+The defining combination is:
+
+- Smooth, layered grey-blue clouds covering the sky.
+- Pale mist forming horizontal layers through the valley.
+- Clearly readable foreground blocks with gentle shading.
+- Natural green vegetation and neutral brown wood.
+- Blue water with visible, rippled landscape reflections.
+- Matte solid blocks.
+- Small, bright amber lanterns.
+
+Keep this combination as the default appearance.
+
+## 2. Lighting and ambient occlusion
+
+**Do not implement directional cast shadows for the reference appearance.** Trees, railings, terrain, and lanterns must not project shadows onto other surfaces. Disable shadow-map rendering across the supplied presets.
+
+Use diffuse daytime illumination. Surfaces should remain readable beneath the cloud cover, including the sides of wooden posts and terrain blocks.
+
+Retain gentle vanilla block-face shading so that top and side faces remain distinguishable. Use weak ambient occlusion only at nearby intersections and corners.
+
+The preview’s AO is subdued:
+
+- Railing joints have slight contact darkening.
+- Terrain steps retain depth without dark outlines.
+- Foliage does not become a mass of black creases.
+- The wooden platform remains evenly readable.
+
+Do not interpret “reduced AO” as a global exposure increase. Adjust contact shading independently.
+
+Lantern interiors should be amber-orange with pale yellow centres and recognisable pixel detail. Any illumination on nearby blocks must be diffuse. Do not add reflected lantern images, strong orange pools, cast shadows, or large glow halos.
+
+## 3. Colour and tone
+
+Match the actual surface colours in the reference:
+
+- **Sky and fog:** cool, muted blue-grey.
+- **Water:** medium blue, with lighter grey-blue sky reflections and darker tree reflections.
+- **Spruce foliage:** subdued deep green.
+- **Grass:** natural medium green, brighter than the spruce foliage.
+- **Wood:** medium neutral brown, retaining some warmth.
+- **Stone:** neutral to slightly cool grey.
+- **Lanterns:** concentrated amber and yellow.
+
+Keep the cool atmospheric tint strongest in distant terrain and fog. Do not place a strong blue filter across the foreground.
+
+Use moderate contrast with readable shadows and soft highlights. Avoid crushed blacks, vivid cyan water, fluorescent greens, excessively warm wood, cinematic colour grading, vignette, lens effects, and depth-of-field blur.
+
+Maintain stable exposure while the player moves or looks between the sky and ground.
+
+## 4. Clouds
+
+The clouds must resemble the preview’s **smooth, broad, gently undulating layers**.
+
+They should:
+
+- Cover effectively all visible sky.
+- Form elongated, softly shaded bands.
+- Have irregular widths, spacing, curvature, and continuity.
+- Merge gradually into neighbouring layers.
+- Use subdued grey-blue shading with no harsh dark edges.
+- Contain very little fine detail.
+
+Do not create detailed puffy cumulus clouds, dramatic storm towers, evenly repeated stripes, block-shaped clouds, or sharply defined blue openings.
+
+Cloud animation is not established by the image. If implemented, use slow movement that preserves the large, smooth forms.
+
+## 5. Fog and atmosphere
+
+Reproduce the visible bands of pale mist between trees, above the lake, and against the cliff bases.
+
+The foreground platform should remain clear. Midground trees should retain recognisable silhouettes through the mist. More distant terrain should become progressively paler and lower in contrast.
+
+Fog should have spatial variation and broad horizontal layering. Avoid a uniform grey overlay or a hard distance cutoff.
+
+Keep the atmosphere cool and damp without turning the scene dark or frightening.
+
+Do not add:
+
+- Falling rain in the default reference state.
+- Visible sunbeams or light shafts.
+- Strong bloom.
+- Lens flare.
+- Artificial blur over terrain.
+
+The image does not prove that the fog is volumetric. Use whichever inexpensive approach reproduces the visible layering reliably.
+
+## 6. Water
+
+Water is the reflective material in this design.
+
+Reproduce:
+
+- Clearly visible tree and landscape reflections.
+- Soft sky reflections between the darker reflected silhouettes.
+- Small, irregular ripples that distort reflections without destroying them.
+- Blue water with some visible shallow submerged terrain near the shore.
+- A continuous surface without obvious repeated tiles.
+
+Do not make the lake perfectly mirror-flat or fill it with large waves and bright sparkling highlights.
+
+Use greater transparency near shallow shores and reduced visibility through deeper water. The exact absorption depth is not measurable from the image; tune it against the reference.
+
+Keep reflected terrain recognisable but softened and broken by ripples. Reflections must not produce black holes, abrupt screen-edge cutoffs, or obvious streaks.
+
+The waterfall should retain its vanilla shape and identity.
+
+## 7. Solid materials
+
+**No environmental reflections or glossy wet highlights on solid blocks.**
+
+This applies to:
+
+- Wooden floors, fences, and posts.
+- Leaves and grass.
+- Dirt and stone.
+- Other solid terrain and building blocks.
+
+The platform should read as textured matte wood. It must not reflect clouds, lanterns, or trees.
+
+Express dampness through the surrounding atmosphere and restrained diffuse material colour, not through reflective coatings or puddles.
+
+Preserve vanilla texture patterns. Do not introduce parallax, detailed normal maps, new leaf patterns, rounded blocks, or a high-resolution resource-pack appearance.
+
+Glass is not shown. Preserve vanilla transparency and tint with a restrained non-mirror default.
+
+## 8. Implementation guidance — suggestions, not observations
+
+Inspect Willow Lite and the installed Iris environment before choosing the pipeline. Implement the visual targets above without assuming the reference used any particular technique.
+
+Suitable approaches include:
+
+- Diffuse skylight, vanilla face shading, and weak contact AO without a shadow pass.
+- A small number of low-frequency procedural noise layers for clouds.
+- Gentle domain warping and directional scaling to create irregular cloud bands.
+- Distance fog combined with height-dependent density and broad spatial variation for valley mist.
+- World-space water normals generated from a small number of wave or noise layers.
+- Fresnel-weighted water reflections with depth-dependent absorption.
+- Screen-space terrain reflections with a smooth sky/cloud fallback.
+- Consistent linear-light calculations and a restrained final tone curve.
+
+Prevent outdoor fog from leaking excessively into enclosed caves. Handle transparent materials and water depth correctly.
+
+Do not add expensive effects that are not needed to match the image.
+
+## 9. Compatibility and performance
+
+Require **GLSL compatible with Iris and macOS OpenGL 4.1**. Verify the appropriate Iris interfaces and shader language versions for the installed environment.
+
+Do not use compute shaders, shader storage buffers, image load/store, or features requiring OpenGL 4.2 or newer.
+
+Use conventional vertex and fragment passes with practical texture, render-target, and bandwidth requirements for Apple Silicon.
+
+Provide three presets:
+
+| Preset | Implementation target |
+|---|---|
+| **Fast** | Low-cost smooth clouds, analytic layered fog, weak vanilla AO, sky reflections on water. Explicitly identify missing terrain reflections as a reference compromise. |
+| **Reference — default** | Smooth clouds, layered valley mist, weak AO, and visible terrain reflections on water using a modest reflection budget. |
+| **High** | Improve reflection sampling and atmospheric smoothness while retaining the same visual style. |
+
+All presets must keep cast shadows disabled and solid blocks nonreflective.
+
+Prefer reduced-resolution or short-ray reflections over expensive full-resolution tracing. Prefer procedural cloud layers and analytic fog over costly volumetric marching.
+
+Do not promise frame rates without measurement.
+
+## 10. Adjustable settings
+
+Expose controls for:
+
+- Ambient brightness.
+- AO strength.
+- Subtle colour temperature and saturation.
+- Cloud coverage, band scale, irregularity, shading strength, and speed.
+- Fog density, layer height, height falloff, and distance.
+- Water reflection strength and quality.
+- Water transparency and absorption.
+- Ripple strength, scale, and speed.
+- Lantern/block-light brightness and warmth.
+
+Set the defaults to match the preview. Quality settings must not silently change colour grading or the artistic direction.
+
+## 11. Unshown conditions and acceptance checks
+
+The preview establishes daytime appearance only. It cannot confirm animation, nighttime visibility, cave lighting, underwater behaviour, glass rendering, or sunset transitions. Choose restrained defaults for these and identify them as extrapolations.
+
+Check the following in Minecraft where access is available:
+
+- **Reference daylight:** no cast shadows; smooth cloud ceiling; layered pale mist; natural foreground colours; weak AO; matte blocks; reflective blue water.
+- **Sunset:** gentle changes in ambient brightness and sky colour without an exaggerated orange or purple grade. No newly introduced cast shadows.
+- **Night:** darker than daytime, with readable nearby forms and local warm block light. Do not introduce an unrelated dramatic night style.
+- **Caves:** appropriate darkness and block-light response, without outdoor blue fog or daylight brightness inside enclosed areas.
+- **Water:** stable reflections during camera movement, readable shallow water, smooth shore transitions, and no reflection holes.
+- **Underwater:** restrained absorption and visibility reduction, with no invented heavy blur or strong caustics.
+- **Glass:** correct vanilla tint and transparency, including overlapping panes and views toward water or fog.
+- **Weather:** default preview state contains no falling rain. User-triggered weather must transition smoothly and must never enable solid-block reflections.
+- **Materials:** vanilla textures remain intact; the deck, foliage, and stone show no glossy reflected images.
+- **Motion:** no obvious noise tiling, flicker, swimming patterns, or distracting cloud and water movement.
+
+For visual comparison, use comparable terrain, camera angle, time, and weather where possible. Evaluate clouds, fog distribution, colour balance, AO, and water separately. Do not claim an exact match solely because the shader compiles.
+
+## 12. Deliverables
+
+Deliver:
+
+1. Complete editable shader source and all required configuration files.
+2. An installable shader-pack ZIP with the correct `shaders/` directory structure.
+3. Installation instructions, preset descriptions, and known limitations.
+4. A concise explanation of changes to Willow Lite.
+5. A validation report separating:
+   - Static or offline compiler checks.
+   - Actual compilation through Iris.
+   - Actual in-game visual testing.
+   - Measured performance on the target hardware.
+
+State clearly when any check was not performed.
+
+The attached preview is the final visual authority. Implement its smooth overcast sky, layered mist, diffuse shadowless lighting, restrained AO, natural colours, matte vanilla blocks, and reflective water without adding unrelated shader effects.

@@ -1,0 +1,29 @@
+PACK Stratus-1.3.0.zip
+RESUME
+STATE
+CMD gamemode spectator ShaderCheck
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 3000
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 12
+BENCH high130-landscape 20
+SHOT c130-high-landscape
+CMD tp ShaderCheck 104 100 66 0 10
+WAIT 12
+BENCH high130-water 20
+SHOT c130-high-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 10
+BENCH high130-clouds 20
+SHOT c130-high-clouds
+CMD tp ShaderCheck 0 100 0 -90 -45
+WAIT 5
+SHOT c130-ground-sun
+CMD tp ShaderCheck 104 286 66 0 75
+WAIT 8
+SHOT c130-water-below-clouds
+CMD tp ShaderCheck 200 300 200 0 -30
+WAIT 8
+SHOT c130-cirrus
+DONE c130-high-complete

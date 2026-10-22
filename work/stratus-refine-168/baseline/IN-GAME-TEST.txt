@@ -1,0 +1,16 @@
+STRATUS 1.6.7 — COMPLETED AND FOLLOW-UP CHECKS
+
+Actual Main comparisons were captured for preferred settings, polished/native
+sun, cirrus only/off, independent face components, rain wet strengths, nonporous
+metal and clear materials, sunset atmosphere, river/underwater and settings menus.
+See outputs/Stratus-1.6.7-visual-checks and work/stratus-refine-167.
+
+Follow up with a focused matched benchmark: normal-world terrain, dense forest/
+fog and river/cloud views. Record Dynamic FPS state, resolution, distances,
+VSync/cap, competing instances and exact settings. Do not lower quality to claim
+a speedup. Background/unfocused FPS is not an accepted gameplay measurement.
+Additional useful visual checks: night and sheltered damp materials, prolonged
+cloud motion/height transitions, all quality presets and different resource packs.
+Reference remains selectable; it does not replace the preferred source defaults.
+Preserve original screenshots and distinguish additional observations from the
+finite set already reviewed. See CHECKS.json for controls and known limits.

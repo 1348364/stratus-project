@@ -1,0 +1,25 @@
+{
+  "status": "Pending: focused active-game Reference comparison unavailable; no whole-game speedup or 60 FPS claim.",
+  "target_preset": "REFERENCE",
+  "quality_reduction": false,
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "render_distance_chunks": 12,
+  "simulation_distance_chunks": 8,
+  "saved_vsync": true,
+  "saved_max_fps": 70,
+  "saved_inactivity_fps_limit": "afk",
+  "DynamicFPS_enabled": true,
+  "observed_focus": false,
+  "observed_DynamicFPS_state": "UNFOCUSED",
+  "observed_vanilla_limiter": "LONG_AFK / cap15",
+  "scope": "Main river GPU pass diagnostics are unfocused and do not establish gameplay FPS. Native probes are isolated microbenchmarks.",
+  "reflection_pass_diagnostic_ms": {
+    "baseline": 24.274,
+    "candidate": 22.457
+  },
+  "diagnostic_limit": "Different short diagnostic sessions; not an accepted matched focused benchmark. Plane-cache and no-reflection-fog experiments were rejected and are excluded from release source.",
+  "actual_samples": "No accepted focused sample for 1.6.10 yet. Mac locked / game unfocused; retain request in CHANGES.md."
+}

@@ -1,0 +1,52 @@
+STRATUS 1.4.0 — WATER-FIRST RELEASE CHECKS
+17 October 2026
+
+744 native macOS OpenGL compile/link checks, zero failures: 93 program pairs
+across three dimensions and eight variants (four profiles, defaults, option
+extremes, vanilla sky). Offline compatibility shims are distinct from actual Iris.
+29 GPU-evaluated optical invariants passed: dielectric Fresnel, Snell refraction,
+underwater TIR, Beer-Lambert composition, depth absorption, cave/block-light
+response, moisture retention/drainage/porosity, cloud depth/direction clipping,
+face shading and dark entities. OpenGL probe errors: zero.
+43 options remain reachable through the reorganised category/subcategory menu.
+215 shader/config files match the actual tested ZIP and source manifest.
+
+Actual Minecraft1.21.11 / Iris1.10.8 / Sodium0.8.14 / AppleM1 OpenGL4.1:
+49 inspected feature/runtime/menu captures across this iteration, including
+28 final focused runtime/menu views. Zero shader errors in the final runtime.
+All sixteen water levels verified in Iris: source0=4100, flowing1..15=4103.
+Fixed during visual QA: incomplete cloud ray coverage/horizon discontinuity,
+fixed water reflection boost, crude UV-only refraction, falling-water over-
+absorption, unmatched comma-separated fluid states on this Iris version,
+blue sky cutouts through water, the vanilla sun's black additive background,
+folded floor refraction at grazing angles, and underwater hit-precision banding.
+Refraction now intersects the
+receiver tangent plane and bounds screen displacement continuously.
+Ice-contaminated biome tank captures were discarded; biome tests repeated with
+random ticks disabled, then the tick rate restored to3. Water controls, biome
+colours, rain, cave optics, sides/underwater, damp corners/ores, clouds from
+below/inside/above, vanilla sun/moon/clouds, particles, projectiles, fireflies,
+bloom, entities, all dimensions and options were inspected. Library and final
+regression scope is recorded in CHECKS.json; this is finite coverage.
+
+All optimisation mods present in Main were reproduced: Sodium, Lithium,
+FerriteCore, Entity Culling, Dynamic FPS and Sodium Extra; Fabric API dependency.
+Iris and the isolated helper complete the test stack. Main/test JAR hashes match.
+Main video settings matched: 12 render, 8 simulation, VSync on, cap70, 1708x960.
+Main was gracefully closed with user approval. The final single-instance samples
+use only the test Minecraft client, after 8 seconds of scene warmup:
+clean-water: 50.7 fps average, 25.0 fps 1% low
+clean-landscape: 26.2 fps average, 9.1 fps 1% low
+clean-clouds: 57.3 fps average, 27.2 fps 1% low
+Native compiler work had finished before these samples. Camera position and
+rotation were checked before/after each run; observations are in CHECKS.json. Five earlier concurrent-load
+samples remain in CHECKS.json; three player-interrupted samples were discarded.
+The final landscape sample contains ~67.8ms intervals consistent with Dynamic
+FPS background limiting; foreground status was not verified throughout. An
+earlier single-instance landscape sample was50.4fps before the water-only hit-
+precision change. Both are retained in CHECKS.json. A locked60fps is not verified. Screen-space reflection/refraction and sky-cache parallax
+limitations remain documented in README.txt.
+
+The isolated client remains OPEN on Stratus1.4.0 at the reflection lake, in
+spectator mode with HUD visible. Main's selected shader and original world were
+not changed by this task. Release ZIP and editable sources are provided.

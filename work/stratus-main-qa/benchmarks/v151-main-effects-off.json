@@ -1,0 +1,1 @@
+{"tag":"v151-main-effects-off","frames":172,"sampled_seconds":14.8166,"average_fps":11.6086,"median_frame_ms":77.9434,"p95_frame_ms":137.5224,"p99_frame_ms":227.1294,"one_percent_low_fps":3.3005,"method":"MinecraftClient render-head to render-head monotonic wall intervals"}

@@ -1,0 +1,62 @@
+{
+  "bloom": {
+    "mean_signed_byte_difference": -0.019432748538011697,
+    "mean_absolute_byte_difference": 1.896859649122807,
+    "max_absolute_byte_difference": 158.0,
+    "roi_yx": [
+      [
+        700,
+        890
+      ],
+      [
+        700,
+        1000
+      ]
+    ]
+  },
+  "damp": {
+    "mean_signed_byte_difference": -44.00745635056487,
+    "mean_absolute_byte_difference": 44.00745635056487,
+    "max_absolute_byte_difference": 72.0,
+    "roi_yx": [
+      [
+        390,
+        850
+      ],
+      [
+        180,
+        1450
+      ]
+    ]
+  },
+  "face": {
+    "mean_signed_byte_difference": -1.4024848796074403,
+    "mean_absolute_byte_difference": 1.8524312450074176,
+    "max_absolute_byte_difference": 5.0,
+    "roi_yx": [
+      [
+        390,
+        850
+      ],
+      [
+        180,
+        1450
+      ]
+    ]
+  },
+  "ao": {
+    "mean_signed_byte_difference": -8.6389957777017,
+    "mean_absolute_byte_difference": 8.6389957777017,
+    "max_absolute_byte_difference": 104.0,
+    "roi_yx": [
+      [
+        390,
+        850
+      ],
+      [
+        180,
+        1450
+      ]
+    ]
+  }
+}

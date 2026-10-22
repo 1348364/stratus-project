@@ -1,0 +1,15 @@
+{
+  "removed_unchanged_temporary_files": [
+    "Stratus-1.6.8-QA-WetOff.zip",
+    "Stratus-1.6.8-QA-VanillaLighting.zip",
+    "Stratus-1.6.8-QA-RainOnly.zip",
+    "Stratus-1.6.8-QA-Baseline.zip",
+    "Stratus-1.6.8-QA-AllWeather.zip",
+    "Stratus-1.6.8-QA-Final.zip",
+    "Stratus-1.6.8-QA-FinalVanilla.zip"
+  ],
+  "retained_if_modified": [],
+  "release_selected": true,
+  "original_preferences_unchanged": true,
+  "driver_stopped": true
+}

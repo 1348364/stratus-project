@@ -1,0 +1,25 @@
+CMD gamemode spectator ShaderCheck
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 3000
+CMD gamerule minecraft:advance_time false
+CMD tp ShaderCheck 104 104 80 0 12
+WAIT 10
+CMD fill 80 91 70 127 100 117 minecraft:stone outline
+CMD fill 81 92 71 126 99 116 minecraft:water
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 12
+RESUME
+BENCH baseline120-landscape 20
+SHOT b130-old-landscape
+CMD tp ShaderCheck 104 100 66 0 10
+WAIT 12
+RESUME
+BENCH baseline120-water 20
+SHOT b130-old-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 10
+RESUME
+BENCH baseline120-clouds 20
+SHOT b130-old-clouds
+DONE b130-baseline-complete

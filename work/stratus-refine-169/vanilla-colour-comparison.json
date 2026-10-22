@@ -1,0 +1,45 @@
+{
+  "scope": "Actual Minecraft matched camera dry-block crops; atmosphere differs, entire scene is not vanilla",
+  "framebuffer": [
+    854,
+    480
+  ],
+  "regions": [
+    {
+      "region": "near_sand_face",
+      "xyxy": [
+        668,
+        285,
+        760,
+        312
+      ],
+      "mean_code_difference": 4.439345142243693,
+      "max_code_difference": 75.0,
+      "p95_code_difference": 25.0
+    },
+    {
+      "region": "sand_top",
+      "xyxy": [
+        660,
+        275,
+        724,
+        284
+      ],
+      "mean_code_difference": 29.66087962962963,
+      "max_code_difference": 93.0,
+      "p95_code_difference": 74.64999999999986
+    },
+    {
+      "region": "near_bank_dirt",
+      "xyxy": [
+        794,
+        271,
+        842,
+        290
+      ],
+      "mean_code_difference": 2.6535087719298245,
+      "max_code_difference": 5.0,
+      "p95_code_difference": 4.0
+    }
+  ]
+}

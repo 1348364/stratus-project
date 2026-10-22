@@ -1,0 +1,48 @@
+STRATUS 1.3.0 - VERIFIED VALIDATION
+17 October 2026
+
+NATIVE GPU: PASS
+Apple M1 OpenGL 4.1: 630 compile/link pairs, zero failures. 90 programs routed
+across three dimensions, seven variants (default, Fast, Balanced, Reference,
+High, numeric minimum/maximum). Offline compatibility shims, separate from Iris.
+39 controls/menu entries verified. AO default and maximum remain 1.00.
+
+FOCUSED GPU: PASS
+34 cases execute delivered GLSL: denser water, consistent split paths, six
+unique cube-face irradiances, warmer daytime ground without night colour shift,
+non-glowing entities in darkness, emissive interiors, billboard stability,
+XYZ cloud density, upper wisps, depth clipping, structured mist with a clear
+foreground and covered-space suppression, warm daytime-only sun.
+Both actual quarter-resolution bloom passes execute a separate HDR impulse test:
+default radius 3.00 spreads farther than 0.50. OpenGL errors: zero.
+
+ACTUAL IRIS AND VISUAL QA: PASS
+Minecraft 1.21.11 / Iris 1.10.8 / Sodium 0.8.14 / Java 21 on Apple M1.
+50 final-source captures inspected, plus five final-source benchmark views. Tested
+normal/underside block faces, warmth comparison, daylight/dark/lit entities,
+bloom on/off/radius, fireflies, water body/clarity/refraction/sides/underwater,
+water viewed through clouds, projectiles/destruction/smoke, rain/transparency,
+lowland fog, ground-level morning/noon sun, sunset, main/upper cloud volumes,
+quality profiles, held items, blindness, Nether/lava/End and return.
+Shader errors: zero. All 206 shader/configuration files match the tested ZIP.
+Water/cloud ordering was exercised at cloud altitude 128/thickness 40, camera
+Y184, so both cloud and pool fit the 8-chunk test view; default main layer is192.
+The lower-cloud comparison avoids mistaking clipped distant chunks for a shader
+failure. Nether was recaptured after its loading screen cleared. The original world and normal-client selection were not edited.
+
+PERFORMANCE (ACTUAL FRAME INTERVALS)
+1708x960 framebuffer, 8 render chunks / 5 simulation chunks, VSync off, cap 260.
+Normal client was also running. Samples 20 seconds after 15-45 seconds warmup in a fresh client.
+fresh130-balanced-landscape: 54.4 fps average, 15.1 fps 1% low
+fresh130-balanced-water: 46.7 fps average, 8.4 fps 1% low
+fresh130-balanced-clouds: 53.3 fps average, 15.8 fps 1% low
+fresh130-fast-water: 48.9 fps average, 13.8 fps 1% low
+fresh130-fast-clouds: 56.0 fps average, 23.0 fps 1% low
+
+The approximately 60 fps target was not fully reached in this setup. Averages
+and low-percentile stutters differ. The Mac was reported locked during testing. Shared
+hardware, world complexity, mods, thermal state, render distance and resolution
+can change results. This is not a locked 60 fps or native Retina claim.
+
+See CHECKS.json and the visual report for raw results, limits and observations.
+Raw Minecraft screenshot PNGs are unretouched. Test process stopped (SIGTERM143).

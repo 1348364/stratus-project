@@ -1,0 +1,32 @@
+# Shader work instructions
+
+This folder contains reusable prompts for Minecraft Iris shader development, particularly Stratus. Read `README.md` for usage. The current editable pack is under `outputs/Stratus`; confirm its state and whether the task calls for work in that pack or a work branch before editing.
+
+## Working rules
+
+- Use Australian English. Implement requested changes and verify them to the extent tools allow.
+- Treat `TASK.md` as the complete long-term shader target and clean-rebuild specification. Treat unchecked requests under `CHANGES.md` → Pending changes as the only ordinary incremental work queue. When asked to apply the current changes, read both, implement only pending requests and preserve every unchanged `TASK.md` requirement. An empty queue means no new shader task. `SPEC-BASELINE.md` is a legacy comparison snapshot, not a task trigger. In-game setting defaults and choice lists live in shader source, not `TASK.md`. Clarify ambiguous or high-impact removals before acting.
+- Preserve existing work, pack options, and unrelated visual features. Keep changes focused and explain meaningful trade-offs.
+- Carry forward every practical user-facing shader setting in every new version, including its menu access, allowed values, presets and saved-setting compatibility. The user relies on fine tuning controls. Do not remove, hide, narrow or silently repurpose a control to simplify implementation or improve performance. If an effect is rebuilt, keep its useful control or provide an equivalent; document any unavoidable migration and preserve existing saved values where possible.
+- Discover the current source, build process, Minecraft/Iris versions, selected shader ZIP, and test profile. Do not infer the current release from historical notes or filenames alone.
+- Prioritise believable water, reflections, refraction, lighting and atmosphere while balancing performance on the actual hardware.
+- Aim for the most efficient implementation the design allows: avoid redundant passes, texture reads, ray steps, allocations and work on pixels where an effect is invisible. Preserve the full intended visual result, available controls and quality settings; do not gain speed by silently lowering resolution, sampling, draw distance or effect quality. Use measured bottlenecks to guide optimisation rather than assuming shorter code is faster.
+- Use existing project validation tools when available. Do not invent successful checks or assume a script exists.
+- Preserve original references and screenshots. Label generated concept images as concepts, not in-game evidence.
+- Get explicit authorisation before deleting worlds, replacing unrelated mods, publishing, or making purchases. Follow workspace access permissions.
+
+## Verification
+
+- Treat source changes, compilation, packaging, installation, live loading, visual review, and performance measurement as separate states.
+- For visual acceptance, inspect the actual changed scene in the user's intended profile (historically Modrinth `Main`; confirm live).
+- Match shader options, resolution, render distance, weather, time and camera before comparing builds. Confirm the intended pack actually loaded.
+- Use a normal world for terrain, river and atmosphere checks; flat worlds are suitable for controlled fixtures.
+- Measure FPS with the game focused and record Dynamic FPS/background throttling, hardware and relevant settings. Do not compare samples taken under different conditions as equivalent.
+- Compare representative scenes at matched settings before and after optimisation, including the most demanding relevant effects. Look for regressions in appearance, motion, transparency and edge cases. Claim unchanged visuals or improved performance only when the evidence supports it; otherwise mark them unverified.
+- If live Minecraft access is unavailable, finish useful source checks and explicitly mark visual/performance verification as pending.
+- Before packaging, compare the previous and new option inventories and menus. Check that controls remain reachable, values remain available, saved overrides still load appropriately, and labels describe the current behaviour. Record any deliberate migration in the change log.
+- Report the changed files, checks actually run, evidence, remaining limitations and exact next step. Leave a user-visible test instance open when requested.
+- For implementation tasks, maintain `work/Custom instructions/CHANGE-LOG.md` with a human-readable summary, output artifact path, verification evidence, pending checks and limitations. Link it in the final reply.
+- Start each version's change-log entry with a short `At a glance` bullet list covering the main changes, output build, and what is verified versus still pending. Keep the detailed evidence below it.
+- After every completed shader change, compare actual source, options, presets, packaged release and test evidence against `TASK.md`. Incorporate approved completed design changes into that absolute target, and refine stale version references, ambiguity or contradictions without overwriting newer user edits. Do not rewrite a requirement merely to excuse missing or unverified behaviour; fix the shader or leave the request pending and report the gap.
+- Update `CHANGE-LOG.md` and versioned release documentation with the exact change, evidence and limits. After implementation and the required verification, move each completed request out of `CHANGES.md` → Pending changes into `COMPLETED-CHANGES.md` with its release/change-log reference. Do not leave checked-off completed items under Pending changes. Preserve partial, failed or unverified requests and newer user edits. When no requests remain, leave only “No pending changes.” under that heading. Never clear pending requests merely because a job was queued, delivered, or a chat turn ended. If the user edits either file during implementation, merge carefully instead of replacing it. Confirm the remaining pending list is accurate. `SHADER-SPEC-1.6.7.md` retains the historical 1.6.7 reference, including setting values; `SHADER-SPEC.md` and `SPEC-BASELINE.md` are older history, not editable change queues.

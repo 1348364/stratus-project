@@ -1,0 +1,21 @@
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 12
+RESUME
+BENCH baseline120-lake 20
+SHOT c130-old-lake
+PACK Stratus-1.3.0-reference.zip
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 12
+RESUME
+BENCH reference130-lake 20
+SHOT c130-reference-lake
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 12
+BENCH reference130-landscape 20
+SHOT c130-reference-landscape
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 10
+BENCH reference130-clouds 20
+SHOT c130-reference-clouds
+DONE c130-reference-bench-complete

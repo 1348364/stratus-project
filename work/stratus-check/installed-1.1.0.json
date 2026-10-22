@@ -1,0 +1,9 @@
+{
+  "installed_path": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.1.0.zip",
+  "sha256": "5f734a1a6085fdf0f98e342e83f9f79d52ab7d355a13890a5910454c654a3c1e",
+  "settings_copied_from": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.0.6.zip.txt",
+  "settings": "#Fri Oct 16 20:49:02 AEDT 2026\nCLOUD_LAYERS=3\nMIST_DETAIL=3\nREFLECTION_MODE=2\nSKY_AMBIENT=2.00\nambientOcclusionLevel=1.00\n",
+  "existing_shader_selection": "Stratus-1.0.6.zip",
+  "shader_selection_changed": false,
+  "resource_pack_activation_changed": false
+}

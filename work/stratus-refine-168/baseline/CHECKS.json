@@ -1,0 +1,103 @@
+{
+  "version": "1.6.7",
+  "date": "2026-10-21",
+  "status": "Implemented; native/GPU checks and actual Main comparisons completed. Focused performance unverified.",
+  "settings": {
+    "before": "work/stratus-refine-167/settings-snapshot.json",
+    "applied_preferred_defaults": {
+      "CLOUD_LAYERS": {
+        "before": "3",
+        "after": "1"
+      },
+      "GROUND_WARMTH": {
+        "before": "0.45",
+        "after": "0.00"
+      },
+      "MIST_DETAIL": {
+        "before": "3",
+        "after": "2"
+      },
+      "REFLECTION_MODE": {
+        "before": "1",
+        "after": "2"
+      },
+      "WATER_EXTINCTION": {
+        "before": "0.90",
+        "after": "3.00"
+      },
+      "WATER_RENDER_QUALITY": {
+        "before": "1",
+        "after": "2"
+      },
+      "WATER_TURBIDITY": {
+        "before": "1.00",
+        "after": "6.00"
+      }
+    },
+    "preserved_options": 53,
+    "total_options": 59,
+    "new_controls": [
+      "CIRRUS_DENSITY",
+      "REALISTIC_FACE_CONTRAST",
+      "SUN_CORE_BRIGHTNESS",
+      "SUN_HALO_RADIUS",
+      "SUN_HALO_STRENGTH",
+      "VANILLA_FACE_CONTRAST"
+    ],
+    "Reference_profile_preserved": true,
+    "old_saved_file_preserved": true
+  },
+  "changes": [
+    "Captured Main 1.6.6 effective defaults and applied its seven overrides as new source defaults.",
+    "Added sun-local halo strength/radius and core-brightness controls without changing global bloom.",
+    "Added independent vanilla/realistic face-component multipliers; both 1 reproduce the previous combination.",
+    "Increased cirrus optical contrast/density and added independent cirrus-density control.",
+    "Added rain-gated, view-dependent film/highlights on exposed absorbent materials while retaining sheltered matte retention."
+  ],
+  "native": {
+    "pairs": 768,
+    "variants": 8,
+    "failures": 0,
+    "scope": "Native OpenGL compatibility-shim compile/link; not a substitute for Iris loading"
+  },
+  "GPU": {
+    "samples": 539,
+    "candidate_samples": 490,
+    "baseline_samples": 49,
+    "relationship_checks": 21,
+    "water_resolve_cases": 10,
+    "failures": 0,
+    "API_errors": 0
+  },
+  "live": {
+    "profile": "Main / Minecraft (1)",
+    "world": "Stratus Terrain Lab (normal world)",
+    "runtime_test_archive": "Stratus-1.6.7-QA-v2.zip",
+    "final_tokens_match_runtime": true,
+    "pipeline_verified": true,
+    "captures": "outputs/Stratus-1.6.7-visual-checks/index.html",
+    "reviewed": [
+      "Sun versus vanilla/halo off",
+      "Cirrus only/off and baseline",
+      "Face components separately disabled",
+      "Wet off/default/maximum in rain; nonporous metal; clear material",
+      "Sunset atmosphere (sun partly cloud-occluded)",
+      "River and underwater",
+      "Corrected Lighting/Sun/Materials menus and Cloud menu"
+    ],
+    "final_release_loading_receipt": "outputs/Stratus-1.6.7-install.json"
+  },
+  "performance": {
+    "focused_measurement": false,
+    "speedup_claim": false,
+    "resolution_or_samples_reduced": false,
+    "notes": "Main was initially unfocused; no valid focused FPS result. Preferred quality defaults match saved Main settings; all four quality presets remain unchanged. No extra render pass or scenery trace; dry/nonporous film work bypassed. No maximised-performance or full visual-equivalence claim."
+  },
+  "limits": [
+    "Wet film is an environment/solar approximation, not ray-traced coating or simulated rain accumulation; existing absorption classes are heuristic.",
+    "Bright high clouds form a broad veil rather than dense cumulonimbus; finite slab/horizon limits remain.",
+    "Rain/cloud animation means visual comparisons are controlled but not pixel-identical.",
+    "Full night/sheltered-wet and exhaustive preset/motion/mod visual coverage are not claimed.",
+    "Existing screen-space water and depth-miss fallback costs remain; actual dense-forest focused profiling still needed."
+  ]
+}

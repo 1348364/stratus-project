@@ -1,0 +1,61 @@
+CMD gamemode spectator ShaderCheck
+CMD weather clear
+CMD time set 6000
+CMD gamerule minecraft:advance_time false
+CMD kill @e[tag=stratus_120]
+CMD tp ShaderCheck 36 120 -9 -50 25
+WAIT 3
+RESUME
+SHOT r120-form-top-sides
+CMD tp ShaderCheck 36 110 -9 -50 -20
+WAIT 2
+RESUME
+SHOT r120-form-undersides
+CMD fill -12 97 5 -4 97 13 minecraft:stone
+CMD summon minecraft:cow -10 98 10 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["stratus_120"]}
+CMD summon minecraft:sheep -7 98 10 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["stratus_120"]}
+CMD summon minecraft:pig -4 98 10 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["stratus_120"]}
+CMD tp ShaderCheck -8 100 2 0 12
+WAIT 3
+RESUME
+SHOT r120-entities-day
+CMD tp ShaderCheck 0 98 -7 180 22
+WAIT 3
+RESUME
+SHOT r120-wet-materials
+CMD tp ShaderCheck 0 96 5 0 5
+WAIT 2
+RESUME
+SHOT r120-wet-grazing
+PACK Stratus-1.2.0-no-film.zip
+WAIT 2
+RESUME
+SHOT r120-no-film-grazing
+PACK Stratus-1.2.0-dry.zip
+WAIT 2
+RESUME
+SHOT r120-dry-grazing
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 200 140 200 0 -70
+WAIT 3
+RESUME
+SHOT r120-sun-noon
+PACK Stratus-1.2.0-sun-off.zip
+WAIT 2
+RESUME
+SHOT r120-sun-off
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 200 140 200 0 -25
+WAIT 3
+RESUME
+SHOT r120-clouds-below
+CMD tp ShaderCheck 200 191 200 0 0
+WAIT 3
+RESUME
+SHOT r120-clouds-inside
+CMD tp ShaderCheck 200 245 200 0 35
+WAIT 3
+RESUME
+SHOT r120-clouds-above
+STATE
+DONE r120-initial-suite

@@ -1,0 +1,39 @@
+{
+  "request_id": "dfc0d10a-85ec-429d-ab34-b70c4ce76c83",
+  "release": "1.6.10",
+  "TASK_frozen_matched_before_reconcile": true,
+  "CHANGES_newer_Reference_target_preserved": true,
+  "completed_moved_out_of_pending": [
+    "Selective settings migration and approved all-preset visual defaults",
+    "Reference Recommended label",
+    "Finite water matrix",
+    "Finite material/cave/night/sun matrix"
+  ],
+  "remaining_pending": [
+    "Approximately60 FPS full Reference active-game performance",
+    "Occupied-cloud interior, clearer independent cirrus/sunset, exact distant-foliage fog acceptance",
+    "Exact historical water-pole and distant-leaf scene acceptance"
+  ],
+  "no_intended_target_weakened_to_excuse_incomplete_code": true,
+  "hashes_after": {
+    "TASK.md": "64a235bca16e6406f48d313b095997140a35ad6a32fb5fdb0f183b5eca8f69bf",
+    "CHANGES.md": "880a005a4f8bb026e8019de519592a711e20c4cfc697ce22109581e66102e914",
+    "CHANGE-LOG.md": "ae1196609316e8d1e7bb90ad9d975163144986cb733f5416da3fb3a2dc98123c"
+  },
+  "focused_followup": {
+    "manual_foregrounding_user_confirmed": true,
+    "six_valid_samples": true,
+    "river_before_after_FPS": [
+      19.6154,
+      20.1645
+    ],
+    "forest_before_after_FPS": [
+      17.7699,
+      18.0673
+    ],
+    "approximately60FPS_unmet": true,
+    "no_quality_reduction": true,
+    "runtime_unchanged_during_documentation_refresh": true,
+    "final_release_sha256": "6f33f582371c329fd65f9a5ada06fad317dceb1ecf08589e33b88e321d038387"
+  }
+}

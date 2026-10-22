@@ -1,0 +1,19 @@
+{
+  "date": "2026-10-21",
+  "archived_five_requests_present": true,
+  "source_release_installed_bytes_independently_rechecked": true,
+  "archive_entries": 243,
+  "sha256": "a273a3591d126f1406c9413f7e46684c095e98413998d393375925dce27f56eb",
+  "new_shader_changes": false,
+  "new_release_created": false,
+  "existing_java_pid": 84250,
+  "normal_desktop_selection": "Minecraft app name rejected; Dock request timed out",
+  "fresh_runtime_probe": "Approved by user; successfully executed and confirmed unfocused 1.6.7 with newer saved preferences",
+  "focused_performance_verified": false,
+  "new_four_requests_authorised_after_archived_verification": true,
+  "research": "RESEARCH.md",
+  "user_questions_pending": [],
+  "testing_authorised": true,
+  "focused_performance_next": "Explicitly deferred by user to the morning of 22 October 2026; do not schedule or claim a result",
+  "new_four_requests_status": "Implementation and finite checks in work/stratus-refine-168; focused performance remains pending"
+}

@@ -1,0 +1,113 @@
+{
+  "started_at": "2026-10-17T22:51:41+1100",
+  "clients_before_release_samples": [
+    {
+      "pid": 25969,
+      "type": "normal"
+    },
+    {
+      "pid": 31923,
+      "type": "test"
+    }
+  ],
+  "native_compile_complete": true,
+  "settings": "Same Main settings; Balanced, 1708x960; no native compiler work during these samples.",
+  "main_graceful_shutdown_requested_at": "2026-10-17T22:52:37+1100",
+  "shutdown_signal": "SIGTERM; no forced termination",
+  "clients_after_shutdown": [
+    {
+      "pid": 31923,
+      "type": "test"
+    }
+  ],
+  "shutdown_checked_at": "2026-10-17T22:53:10+1100",
+  "camera_verification": {
+    "clean-water": {
+      "position": [
+        104.5,
+        104.0,
+        90.5
+      ],
+      "rotation_before": [
+        0.0,
+        9.0
+      ],
+      "rotation_after": [
+        0.0,
+        9.0
+      ],
+      "position_same_before_and_after": true,
+      "manual_commands_during_sample": false,
+      "rotation_delta_degrees": [
+        0.0,
+        0.0
+      ]
+    },
+    "clean-landscape": {
+      "position": [
+        0.5,
+        110.0,
+        -31.5
+      ],
+      "rotation_before": [
+        0.0,
+        20.0
+      ],
+      "rotation_after": [
+        0.0,
+        20.0
+      ],
+      "position_same_before_and_after": true,
+      "manual_commands_during_sample": false,
+      "rotation_delta_degrees": [
+        0.0,
+        0.0
+      ]
+    },
+    "clean-clouds": {
+      "position": [
+        200.5,
+        140.0,
+        200.5
+      ],
+      "rotation_before": [
+        0.0,
+        -35.0
+      ],
+      "rotation_after": [
+        0.0,
+        -35.0
+      ],
+      "position_same_before_and_after": true,
+      "manual_commands_during_sample": false,
+      "rotation_delta_degrees": [
+        0.0,
+        0.0
+      ]
+    }
+  },
+  "sample_context": "Only isolated test client; Main shutdown verified before all accepted final-source samples. Camera position and angle observations recorded per sample.",
+  "discarded_capped_water_sample": {
+    "average_fps": 15.1823,
+    "reason": "background Dynamic FPS cap; repeated after focus warmup"
+  },
+  "clients_at_finalization": [
+    {
+      "pid": 31923,
+      "type": "test"
+    }
+  ],
+  "finalization_at": "2026-10-17T23:21:01+1100",
+  "earlier_single_instance_landscape": {
+    "tag": "v140-clean-landscape",
+    "frames": 1004,
+    "sampled_seconds": 19.9057,
+    "average_fps": 50.4377,
+    "median_frame_ms": 18.792,
+    "p95_frame_ms": 29.0921,
+    "p99_frame_ms": 30.6966,
+    "one_percent_low_fps": 17.458,
+    "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+  },
+  "landscape_focus_caveat": "The final landscape run contains ~67.8ms intervals consistent with the copied Dynamic FPS background cap. Foreground control was not verified throughout. The earlier single-instance run averaged50.4fps before the final water-only SSR hit-precision increase."
+}

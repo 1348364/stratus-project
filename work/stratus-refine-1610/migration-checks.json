@@ -1,0 +1,15 @@
+{
+  "checks": [
+    "Dry run writes no archive or preferences",
+    "Related film/colour overrides reset",
+    "Unrelated optics/quality/ambient tuning preserved",
+    "Prior preferences remain byte-identical",
+    "Existing new-version tuning wins",
+    "Conflicting same-version archive is refused",
+    "Atomic creation never overwrites an existing file",
+    "Visual defaults explicitly apply to all four presets",
+    "Concurrent conflicting archive rejected before creating preferences"
+  ],
+  "failures": 0,
+  "scope": "Installer policy integration with temporary profiles; no Main data used or changed"
+}

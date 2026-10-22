@@ -1,0 +1,3 @@
+CANCEL
+DONE verification-finished
+STOP

@@ -1,0 +1,4 @@
+1.5.4 candidate checks complete before the requested underwater rewrite.
+768 native pairs passed. Synthetic actual full-resolution resolve outputs match within 6e-8; GPU pass timing did not show a speedup, so no performance claim.
+Main v154 before/after river, grazing, underwater, glass and waterfall shots inspected. No new load error or transparent colour inversion. Long-ray validation now accounts for capped step footprint; off-screen limitations remain.
+Proceeding directly to the requested underwater-only rewrite; 1.5.4 is not a separately delivered release.

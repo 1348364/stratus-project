@@ -1,0 +1,16 @@
+{
+  "shader_pairs": 57,
+  "configurations": 6,
+  "native_compile_link_checks": 342,
+  "failures": 0,
+  "controls": 25,
+  "standalone_presets_rendered": [
+    "Fast",
+    "Reference",
+    "High"
+  ],
+  "water_roi_mean_byte_change_reference_vs_fast": 1.701,
+  "actual_iris_tested": false,
+  "in_game_visual_tested": false,
+  "game_performance_measured": false
+}

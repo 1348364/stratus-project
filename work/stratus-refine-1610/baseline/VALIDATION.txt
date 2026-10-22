@@ -1,0 +1,40 @@
+STRATUS 1.6.9 — VALIDATION / 22 OCTOBER 2026
+
+Native macOS OpenGL compatibility-shim compile/link: 768 pairs, 8 variants,
+3 dimensions, zero failures. Separate from actual Iris runtime proof.
+Actual GLSL probes: 795 component and 12 output samples, 11 relationship
+checks, zero failures/API errors. Includes absorption-independent film,
+non-porous response, cave/dry/rain-only bypass, vanilla colour transfer and
+artistic-control bypass. Ten full-resolution underwater resolve regressions
+passed, including air exits, deep receivers, glass, particles and vertical exits.
+
+All 61 prior control IDs/ranges/menu access remain; 62 total and four unchanged
+quality preset definitions. Deliberate source default change: vanilla lighting.
+Explicit behaviour removal: absorption/retention; WET_DARKENING is retired.
+See CHECKS.json and the external option audit for exact scope.
+
+Actual Main normal-world captures compare dry blocks with shaders-disabled
+Minecraft, film on porous and non-porous fixtures, water texture off/strong,
+river, underwater/waterline and settings pages. One initial unloaded-fixture
+capture is rejected and preserved as evidence, not counted as visual acceptance.
+Final release load/source/archive equivalence is recorded in the install receipt.
+
+PERFORMANCE
+Focused samples use the actual Minecraft frame-end duration ring with window
+focus and framebuffer checks. Dynamic FPS remains enabled. Exact conditions,
+raw frame samples and the final summary live in work/stratus-refine-169.
+Background samples are invalid and carry no FPS claim. Quality, resolution
+choices, sample budgets, range and profiles were not reduced for this release.
+No universal appearance equivalence or general 60 FPS guarantee is claimed.
+
+Coverage remains finite. The pre-existing pole-filter code is unchanged;
+original reported-view acceptance, exhaustive cave/night/weather/preset/mod
+and moving camera coverage require further targeted review as relevant.
+
+FOCUSED ACTIVE-GAME RESULTS
+1440x842, render distance12, unchanged quality and saved options, Dynamic FPS
+enabled, vanilla limiter held at NONE/cap70 by temporary activity resets:
+river baseline57.6906 / new56.1894 FPS; forest baseline59.1302 / new60.0723 FPS.
+Each sample30 seconds, zero focus-loss polls. River p95 frame24.6077ms; forest
+p95 20.7933ms in the new build. No general speedup or sustained60 FPS claim.
+The performance request stays pending. Initial AFK/unfocused runs are excluded.

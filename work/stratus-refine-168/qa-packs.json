@@ -1,0 +1,45 @@
+[
+  {
+    "file": "Stratus-1.6.8-QA-Baseline.zip",
+    "source": "1.6.7",
+    "baked_overrides": {
+      "SKY_AMBIENT": "1.00",
+      "WATER_TURBIDITY": "3.00"
+    }
+  },
+  {
+    "file": "Stratus-1.6.8-QA-RainOnly.zip",
+    "source": "1.6.8 candidate",
+    "baked_overrides": {
+      "SKY_AMBIENT": "1.00",
+      "WATER_TURBIDITY": "3.00",
+      "WET_WEATHER_MODE": "1"
+    }
+  },
+  {
+    "file": "Stratus-1.6.8-QA-AllWeather.zip",
+    "source": "1.6.8 candidate",
+    "baked_overrides": {
+      "SKY_AMBIENT": "1.00",
+      "WATER_TURBIDITY": "3.00"
+    }
+  },
+  {
+    "file": "Stratus-1.6.8-QA-VanillaLighting.zip",
+    "source": "1.6.8 candidate",
+    "baked_overrides": {
+      "SKY_AMBIENT": "1.00",
+      "WATER_TURBIDITY": "3.00",
+      "REALISTIC_LIGHTING": "0"
+    }
+  },
+  {
+    "file": "Stratus-1.6.8-QA-WetOff.zip",
+    "source": "1.6.8 candidate",
+    "baked_overrides": {
+      "SKY_AMBIENT": "1.00",
+      "WATER_TURBIDITY": "3.00",
+      "WET_SHEEN": "0.00"
+    }
+  }
+]

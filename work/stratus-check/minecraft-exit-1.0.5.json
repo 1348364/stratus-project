@@ -1,0 +1,5 @@
+{
+  "signal": "SIGTERM",
+  "exit_code": 143,
+  "scope": "Isolated Minecraft test client only"
+}

@@ -1,0 +1,25 @@
+STRATUS 1.6.9 WATER-POLE TEST — LIVE CHECKS AND FOLLOW-UP
+
+Select the test ZIP in Iris at the location of the user's 22 October 08:35:25
+screenshot. Look straight down at the water, then tilt slightly in four
+directions. Compare against 1.6.8 at matched position, time, weather and
+saved options. The four bright wedges should disappear without losing sky
+reflection, ripples, fog, refraction or water tint. Also inspect a normal
+river view and underwater exit. Record loaded-pack/log and screenshot proof;
+do not mark the change complete from this candidate ZIP alone.
+
+Completed: matched clear-weather film sources/strength; vanilla lighting versus
+Minecraft shaders disabled; enhanced lighting; settings groups; finite water
+and atmosphere views. See project work/stratus-refine-168 and visual report.
+
+Controls: Lighting > Realistic lighting for the complete lighting bypass;
+Materials > Wet sheen conditions for All weather / Rain only. The realistic
+face component slider remains a component control, not the main mode switch.
+
+Pending by user request until tomorrow morning: focused FPS/frame-time samples
+for 1.6.7 and matched 1.6.8 terrain, forest/fog and river/cloud scenes. Record
+Dynamic FPS, framebuffer, distances, VSync/cap, current saved shader options
+and competing instances. Do not infer game speed from native microbenchmarks.
+Also broaden cave/night, presets, motion, underwater/glass/particle edges and
+the original distant-leaf artifact as relevant; keep finite evidence separate
+from exhaustive visual claims. Preserve all quality levels during profiling.

@@ -1,0 +1,862 @@
+Compiled from "PackDirectives.java"
+public class net.irisshaders.iris.shaderpack.properties.PackDirectives {
+  private final net.irisshaders.iris.shaderpack.properties.PackRenderTargetDirectives renderTargetDirectives;
+
+  private final net.irisshaders.iris.shaderpack.properties.PackShadowDirectives shadowDirectives;
+
+  private final float drynessHalfLife;
+
+  private int fallbackTex;
+
+  private boolean supportsColorCorrection;
+
+  private int noiseTextureResolution;
+
+  private float sunPathRotation;
+
+  private float ambientOcclusionLevel;
+
+  private float wetnessHalfLife;
+
+  private float eyeBrightnessHalfLife;
+
+  private float centerDepthHalfLife;
+
+  private net.irisshaders.iris.shaderpack.properties.CloudSetting cloudSetting;
+
+  private net.irisshaders.iris.shaderpack.properties.CloudSetting dhCloudSetting;
+
+  private boolean underwaterOverlay;
+
+  private boolean vignette;
+
+  private boolean sun;
+
+  private boolean weather;
+
+  private boolean weatherParticles;
+
+  private boolean moon;
+
+  private boolean stars;
+
+  private boolean sky;
+
+  private boolean rainDepth;
+
+  private boolean separateAo;
+
+  private boolean breaksAnisotropy;
+
+  private boolean voxelizeLightBlocks;
+
+  private boolean separateEntityDraws;
+
+  private boolean skipAllRendering;
+
+  private boolean frustumCulling;
+
+  private boolean supportsEndFlash;
+
+  private boolean occlusionCulling;
+
+  private boolean oldLighting;
+
+  private boolean concurrentCompute;
+
+  private boolean oldHandLight;
+
+  private boolean prepareBeforeShadow;
+
+  private it.unimi.dsi.fastutil.objects.Object2ObjectMap<java.lang.String, it.unimi.dsi.fastutil.objects.Object2BooleanMap<java.lang.String>> explicitFlips;
+
+  private it.unimi.dsi.fastutil.objects.Object2ObjectMap<java.lang.String, net.irisshaders.iris.gl.texture.TextureScaleOverride> scaleOverrides;
+
+  private it.unimi.dsi.fastutil.objects.Object2ObjectMap<net.irisshaders.iris.helpers.Tri<java.lang.String, net.irisshaders.iris.gl.texture.TextureType, net.irisshaders.iris.shaderpack.texture.TextureStage>, java.lang.String> textureMap;
+
+  private net.irisshaders.iris.shaderpack.properties.ParticleRenderingSettings particleRenderingSettings;
+
+  private net.irisshaders.iris.shaderpack.properties.PackDirectives(java.util.Set<java.lang.Integer>, net.irisshaders.iris.shaderpack.properties.PackShadowDirectives);
+    Code:
+         0: aload_0
+         1: invokespecial #72                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #74                 // class it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+         8: dup
+         9: invokespecial #75                 // Method it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+        12: putfield      #77                 // Field explicitFlips:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        15: aload_0
+        16: new           #74                 // class it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap
+        19: dup
+        20: invokespecial #75                 // Method it/unimi/dsi/fastutil/objects/Object2ObjectOpenHashMap."<init>":()V
+        23: putfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        26: aload_0
+        27: sipush        256
+        30: putfield      #81                 // Field noiseTextureResolution:I
+        33: aload_0
+        34: fconst_0
+        35: putfield      #83                 // Field sunPathRotation:F
+        38: aload_0
+        39: iconst_0
+        40: putfield      #85                 // Field supportsColorCorrection:Z
+        43: aload_0
+        44: fconst_1
+        45: putfield      #87                 // Field ambientOcclusionLevel:F
+        48: aload_0
+        49: ldc           #88                 // float 600.0f
+        51: putfield      #90                 // Field wetnessHalfLife:F
+        54: aload_0
+        55: ldc           #91                 // float 200.0f
+        57: putfield      #93                 // Field drynessHalfLife:F
+        60: aload_0
+        61: ldc           #94                 // float 10.0f
+        63: putfield      #96                 // Field eyeBrightnessHalfLife:F
+        66: aload_0
+        67: fconst_1
+        68: putfield      #98                 // Field centerDepthHalfLife:F
+        71: aload_0
+        72: new           #100                // class net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives
+        75: dup
+        76: aload_1
+        77: invokespecial #103                // Method net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives."<init>":(Ljava/util/Set;)V
+        80: putfield      #105                // Field renderTargetDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives;
+        83: aload_0
+        84: aload_2
+        85: putfield      #107                // Field shadowDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;
+        88: return
+
+  public net.irisshaders.iris.shaderpack.properties.PackDirectives(java.util.Set<java.lang.Integer>, net.irisshaders.iris.shaderpack.properties.ShaderProperties);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: new           #116                // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives
+         5: dup
+         6: aload_2
+         7: invokespecial #119                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives."<init>":(Lnet/irisshaders/iris/shaderpack/properties/ShaderProperties;)V
+        10: invokespecial #121                // Method "<init>":(Ljava/util/Set;Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)V
+        13: aload_0
+        14: aload_2
+        15: invokevirtual #127                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getCloudSetting:()Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        18: putfield      #129                // Field cloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        21: aload_0
+        22: aload_2
+        23: invokevirtual #132                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getDHCloudSetting:()Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        26: putfield      #134                // Field dhCloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        29: aload_0
+        30: aload_2
+        31: invokevirtual #138                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getUnderwaterOverlay:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        34: iconst_0
+        35: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        38: putfield      #146                // Field underwaterOverlay:Z
+        41: aload_0
+        42: aload_2
+        43: invokevirtual #149                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getVignette:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        46: iconst_0
+        47: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        50: putfield      #151                // Field vignette:Z
+        53: aload_0
+        54: aload_2
+        55: invokevirtual #154                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getSun:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        58: iconst_1
+        59: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        62: putfield      #156                // Field sun:Z
+        65: aload_0
+        66: aload_2
+        67: invokevirtual #159                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getWeather:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        70: iconst_1
+        71: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        74: putfield      #161                // Field weather:Z
+        77: aload_0
+        78: aload_2
+        79: invokevirtual #164                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getWeatherParticles:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        82: iconst_1
+        83: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        86: putfield      #166                // Field weatherParticles:Z
+        89: aload_0
+        90: aload_2
+        91: invokevirtual #169                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getMoon:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        94: iconst_1
+        95: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        98: putfield      #171                // Field moon:Z
+       101: aload_0
+       102: aload_2
+       103: invokevirtual #174                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getStars:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       106: iconst_1
+       107: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       110: putfield      #176                // Field stars:Z
+       113: aload_0
+       114: aload_2
+       115: invokevirtual #179                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getSky:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       118: iconst_1
+       119: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       122: putfield      #181                // Field sky:Z
+       125: aload_0
+       126: aload_2
+       127: invokevirtual #184                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getRainDepth:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       130: iconst_0
+       131: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       134: putfield      #186                // Field rainDepth:Z
+       137: aload_0
+       138: aload_2
+       139: invokevirtual #189                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getSeparateAo:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       142: iconst_0
+       143: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       146: putfield      #191                // Field separateAo:Z
+       149: aload_0
+       150: aload_2
+       151: invokevirtual #193                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.breaksAnisotropy:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       154: iconst_0
+       155: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       158: putfield      #195                // Field breaksAnisotropy:Z
+       161: aload_0
+       162: aload_2
+       163: invokevirtual #198                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getVoxelizeLightBlocks:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       166: iconst_0
+       167: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       170: putfield      #200                // Field voxelizeLightBlocks:Z
+       173: aload_0
+       174: aload_2
+       175: invokevirtual #203                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getSeparateEntityDraws:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       178: iconst_0
+       179: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       182: putfield      #205                // Field separateEntityDraws:Z
+       185: aload_0
+       186: aload_2
+       187: invokevirtual #207                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.skipAllRendering:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       190: iconst_0
+       191: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       194: putfield      #209                // Field skipAllRendering:Z
+       197: aload_0
+       198: aload_2
+       199: invokevirtual #212                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getFrustumCulling:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       202: iconst_1
+       203: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       206: putfield      #214                // Field frustumCulling:Z
+       209: aload_0
+       210: aload_2
+       211: invokevirtual #216                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.supportsEndFlash:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       214: iconst_0
+       215: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       218: putfield      #218                // Field supportsEndFlash:Z
+       221: aload_0
+       222: aload_2
+       223: invokevirtual #221                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getOcclusionCulling:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       226: iconst_1
+       227: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       230: putfield      #223                // Field occlusionCulling:Z
+       233: aload_0
+       234: aload_2
+       235: invokevirtual #226                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getOldLighting:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       238: iconst_0
+       239: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       242: putfield      #228                // Field oldLighting:Z
+       245: aload_0
+       246: aload_2
+       247: invokevirtual #232                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getFallbackTex:()I
+       250: putfield      #234                // Field fallbackTex:I
+       253: aload_0
+       254: aload_2
+       255: invokevirtual #236                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.supportsColorCorrection:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       258: iconst_0
+       259: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       262: putfield      #85                 // Field supportsColorCorrection:Z
+       265: aload_0
+       266: aload_2
+       267: invokevirtual #239                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getConcurrentCompute:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       270: iconst_0
+       271: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       274: putfield      #241                // Field concurrentCompute:Z
+       277: aload_0
+       278: aload_2
+       279: invokevirtual #244                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getOldHandLight:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       282: iconst_1
+       283: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       286: putfield      #246                // Field oldHandLight:Z
+       289: aload_0
+       290: aload_2
+       291: invokevirtual #250                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getExplicitFlips:()Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       294: putfield      #77                 // Field explicitFlips:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       297: aload_0
+       298: aload_2
+       299: invokevirtual #253                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getTextureScaleOverrides:()Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       302: putfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       305: aload_0
+       306: aload_2
+       307: invokevirtual #256                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getPrepareBeforeShadow:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       310: iconst_0
+       311: invokevirtual #144                // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       314: putfield      #258                // Field prepareBeforeShadow:Z
+       317: aload_0
+       318: aload_2
+       319: invokevirtual #262                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getParticleRenderingSettings:()Lnet/irisshaders/iris/shaderpack/properties/ParticleRenderingSettings;
+       322: putfield      #264                // Field particleRenderingSettings:Lnet/irisshaders/iris/shaderpack/properties/ParticleRenderingSettings;
+       325: aload_0
+       326: aload_2
+       327: invokevirtual #267                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getCustomTexturePatching:()Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       330: putfield      #269                // Field textureMap:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       333: return
+
+  net.irisshaders.iris.shaderpack.properties.PackDirectives(java.util.Set<java.lang.Integer>, net.irisshaders.iris.shaderpack.properties.PackDirectives);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: new           #116                // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives
+         5: dup
+         6: aload_2
+         7: invokevirtual #277                // Method getShadowDirectives:()Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;
+        10: invokespecial #280                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives."<init>":(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)V
+        13: invokespecial #121                // Method "<init>":(Ljava/util/Set;Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)V
+        16: aload_0
+        17: aload_2
+        18: getfield      #129                // Field cloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        21: putfield      #129                // Field cloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        24: aload_0
+        25: aload_2
+        26: getfield      #134                // Field dhCloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        29: putfield      #134                // Field dhCloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+        32: aload_0
+        33: aload_2
+        34: getfield      #191                // Field separateAo:Z
+        37: putfield      #191                // Field separateAo:Z
+        40: aload_0
+        41: aload_2
+        42: getfield      #200                // Field voxelizeLightBlocks:Z
+        45: putfield      #200                // Field voxelizeLightBlocks:Z
+        48: aload_0
+        49: aload_2
+        50: getfield      #205                // Field separateEntityDraws:Z
+        53: putfield      #205                // Field separateEntityDraws:Z
+        56: aload_0
+        57: aload_2
+        58: getfield      #214                // Field frustumCulling:Z
+        61: putfield      #214                // Field frustumCulling:Z
+        64: aload_0
+        65: aload_2
+        66: getfield      #218                // Field supportsEndFlash:Z
+        69: putfield      #218                // Field supportsEndFlash:Z
+        72: aload_0
+        73: aload_2
+        74: getfield      #228                // Field oldLighting:Z
+        77: putfield      #228                // Field oldLighting:Z
+        80: aload_0
+        81: aload_2
+        82: getfield      #241                // Field concurrentCompute:Z
+        85: putfield      #241                // Field concurrentCompute:Z
+        88: aload_0
+        89: aload_2
+        90: getfield      #77                 // Field explicitFlips:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        93: putfield      #77                 // Field explicitFlips:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        96: aload_0
+        97: aload_2
+        98: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       101: putfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       104: aload_0
+       105: aload_2
+       106: getfield      #258                // Field prepareBeforeShadow:Z
+       109: putfield      #258                // Field prepareBeforeShadow:Z
+       112: aload_0
+       113: aload_2
+       114: getfield      #234                // Field fallbackTex:I
+       117: putfield      #234                // Field fallbackTex:I
+       120: aload_0
+       121: aload_2
+       122: getfield      #264                // Field particleRenderingSettings:Lnet/irisshaders/iris/shaderpack/properties/ParticleRenderingSettings;
+       125: putfield      #264                // Field particleRenderingSettings:Lnet/irisshaders/iris/shaderpack/properties/ParticleRenderingSettings;
+       128: aload_0
+       129: aload_2
+       130: getfield      #269                // Field textureMap:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       133: putfield      #269                // Field textureMap:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       136: return
+
+  private static float clamp(float, float, float);
+    Code:
+         0: fload_1
+         1: fload_2
+         2: fload_0
+         3: invokestatic  #291                // Method java/lang/Math.min:(FF)F
+         6: invokestatic  #294                // Method java/lang/Math.max:(FF)F
+         9: freturn
+
+  public int getNoiseTextureResolution();
+    Code:
+         0: aload_0
+         1: getfield      #81                 // Field noiseTextureResolution:I
+         4: ireturn
+
+  public float getSunPathRotation();
+    Code:
+         0: aload_0
+         1: getfield      #83                 // Field sunPathRotation:F
+         4: freturn
+
+  public float getAmbientOcclusionLevel();
+    Code:
+         0: aload_0
+         1: getfield      #87                 // Field ambientOcclusionLevel:F
+         4: freturn
+
+  public float getWetnessHalfLife();
+    Code:
+         0: aload_0
+         1: getfield      #90                 // Field wetnessHalfLife:F
+         4: freturn
+
+  public float getDrynessHalfLife();
+    Code:
+         0: aload_0
+         1: getfield      #93                 // Field drynessHalfLife:F
+         4: freturn
+
+  public float getEyeBrightnessHalfLife();
+    Code:
+         0: aload_0
+         1: getfield      #96                 // Field eyeBrightnessHalfLife:F
+         4: freturn
+
+  public float getCenterDepthHalfLife();
+    Code:
+         0: aload_0
+         1: getfield      #98                 // Field centerDepthHalfLife:F
+         4: freturn
+
+  public net.irisshaders.iris.shaderpack.properties.CloudSetting getCloudSetting();
+    Code:
+         0: aload_0
+         1: getfield      #129                // Field cloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+         4: areturn
+
+  public net.irisshaders.iris.shaderpack.properties.CloudSetting getDHCloudSetting();
+    Code:
+         0: aload_0
+         1: getfield      #134                // Field dhCloudSetting:Lnet/irisshaders/iris/shaderpack/properties/CloudSetting;
+         4: areturn
+
+  public boolean underwaterOverlay();
+    Code:
+         0: aload_0
+         1: getfield      #146                // Field underwaterOverlay:Z
+         4: ireturn
+
+  public boolean vignette();
+    Code:
+         0: aload_0
+         1: getfield      #151                // Field vignette:Z
+         4: ireturn
+
+  public boolean shouldRenderSun();
+    Code:
+         0: aload_0
+         1: getfield      #156                // Field sun:Z
+         4: ireturn
+
+  public boolean shouldRenderWeather();
+    Code:
+         0: aload_0
+         1: getfield      #161                // Field weather:Z
+         4: ireturn
+
+  public boolean shouldRenderWeatherParticles();
+    Code:
+         0: aload_0
+         1: getfield      #166                // Field weatherParticles:Z
+         4: ireturn
+
+  public boolean shouldRenderMoon();
+    Code:
+         0: aload_0
+         1: getfield      #171                // Field moon:Z
+         4: ireturn
+
+  public boolean shouldRenderStars();
+    Code:
+         0: aload_0
+         1: getfield      #176                // Field stars:Z
+         4: ireturn
+
+  public boolean shouldRenderSkyDisc();
+    Code:
+         0: aload_0
+         1: getfield      #181                // Field sky:Z
+         4: ireturn
+
+  public net.irisshaders.iris.shaderpack.properties.ParticleRenderingSettings getParticleRenderingSettings();
+    Code:
+         0: aload_0
+         1: getfield      #264                // Field particleRenderingSettings:Lnet/irisshaders/iris/shaderpack/properties/ParticleRenderingSettings;
+         4: areturn
+
+  public boolean rainDepth();
+    Code:
+         0: aload_0
+         1: getfield      #186                // Field rainDepth:Z
+         4: ireturn
+
+  public boolean shouldUseSeparateAo();
+    Code:
+         0: aload_0
+         1: getfield      #191                // Field separateAo:Z
+         4: ireturn
+
+  public boolean breaksAnisotropy();
+    Code:
+         0: aload_0
+         1: getfield      #195                // Field breaksAnisotropy:Z
+         4: ireturn
+
+  public boolean shouldVoxelizeLightBlocks();
+    Code:
+         0: aload_0
+         1: getfield      #200                // Field voxelizeLightBlocks:Z
+         4: ireturn
+
+  public boolean shouldUseSeparateEntityDraws();
+    Code:
+         0: aload_0
+         1: getfield      #205                // Field separateEntityDraws:Z
+         4: ireturn
+
+  public boolean shouldUseFrustumCulling();
+    Code:
+         0: aload_0
+         1: getfield      #214                // Field frustumCulling:Z
+         4: ireturn
+
+  public boolean shouldUseOcclusionCulling();
+    Code:
+         0: aload_0
+         1: getfield      #223                // Field occlusionCulling:Z
+         4: ireturn
+
+  public boolean isOldLighting();
+    Code:
+         0: aload_0
+         1: getfield      #228                // Field oldLighting:Z
+         4: ireturn
+
+  public boolean isOldHandLight();
+    Code:
+         0: aload_0
+         1: getfield      #246                // Field oldHandLight:Z
+         4: ireturn
+
+  public boolean getConcurrentCompute();
+    Code:
+         0: aload_0
+         1: getfield      #241                // Field concurrentCompute:Z
+         4: ireturn
+
+  public boolean isPrepareBeforeShadow();
+    Code:
+         0: aload_0
+         1: getfield      #258                // Field prepareBeforeShadow:Z
+         4: ireturn
+
+  public boolean skipAllRendering();
+    Code:
+         0: aload_0
+         1: getfield      #209                // Field skipAllRendering:Z
+         4: ireturn
+
+  public it.unimi.dsi.fastutil.objects.Object2ObjectMap<net.irisshaders.iris.helpers.Tri<java.lang.String, net.irisshaders.iris.gl.texture.TextureType, net.irisshaders.iris.shaderpack.texture.TextureStage>, java.lang.String> getTextureMap();
+    Code:
+         0: aload_0
+         1: getfield      #269                // Field textureMap:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+         4: areturn
+
+  public net.irisshaders.iris.shaderpack.properties.PackRenderTargetDirectives getRenderTargetDirectives();
+    Code:
+         0: aload_0
+         1: getfield      #105                // Field renderTargetDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives;
+         4: areturn
+
+  public net.irisshaders.iris.shaderpack.properties.PackShadowDirectives getShadowDirectives();
+    Code:
+         0: aload_0
+         1: getfield      #107                // Field shadowDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;
+         4: areturn
+
+  public boolean supportsColorCorrection();
+    Code:
+         0: aload_0
+         1: getfield      #85                 // Field supportsColorCorrection:Z
+         4: ireturn
+
+  public int getFallbackTex();
+    Code:
+         0: aload_0
+         1: getfield      #234                // Field fallbackTex:I
+         4: ireturn
+
+  public void acceptDirectivesFrom(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder);
+    Code:
+         0: aload_0
+         1: getfield      #105                // Field renderTargetDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives;
+         4: aload_1
+         5: invokevirtual #326                // Method net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives.acceptDirectives:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;)V
+         8: aload_0
+         9: getfield      #107                // Field shadowDirectives:Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;
+        12: aload_1
+        13: invokevirtual #327                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives.acceptDirectives:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;)V
+        16: aload_1
+        17: ldc_w         #328                // String noiseTextureResolution
+        20: aload_0
+        21: invokedynamic #345,  0            // InvokeDynamic #0:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Ljava/util/function/IntConsumer;
+        26: invokeinterface #351,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstIntDirective:(Ljava/lang/String;Ljava/util/function/IntConsumer;)V
+        31: aload_1
+        32: ldc_w         #352                // String sunPathRotation
+        35: aload_0
+        36: invokedynamic #361,  0            // InvokeDynamic #1:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        41: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        46: aload_1
+        47: ldc_w         #366                // String ambientOcclusionLevel
+        50: aload_0
+        51: invokedynamic #371,  0            // InvokeDynamic #2:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        56: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        61: aload_1
+        62: ldc_w         #373                // String wetnessHalflife
+        65: aload_0
+        66: invokedynamic #378,  0            // InvokeDynamic #3:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        71: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        76: aload_1
+        77: ldc_w         #380                // String drynessHalflife
+        80: aload_0
+        81: invokedynamic #385,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        86: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        91: aload_1
+        92: ldc_w         #387                // String eyeBrightnessHalflife
+        95: aload_0
+        96: invokedynamic #392,  0            // InvokeDynamic #5:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       101: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       106: aload_1
+       107: ldc_w         #394                // String centerDepthHalflife
+       110: aload_0
+       111: invokedynamic #399,  0            // InvokeDynamic #6:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       116: invokeinterface #365,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       121: return
+
+  public com.google.common.collect.ImmutableMap<java.lang.Integer, java.lang.Boolean> getExplicitFlips(java.lang.String);
+    Code:
+         0: invokestatic  #407                // Method com/google/common/collect/ImmutableMap.builder:()Lcom/google/common/collect/ImmutableMap$Builder;
+         3: astore_2
+         4: aload_0
+         5: getfield      #77                 // Field explicitFlips:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+         8: aload_1
+         9: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        14: checkcast     #415                // class it/unimi/dsi/fastutil/objects/Object2BooleanMap
+        17: astore_3
+        18: aload_3
+        19: ifnonnull     26
+        22: invokestatic  #421                // Method it/unimi/dsi/fastutil/objects/Object2BooleanMaps.emptyMap:()Lit/unimi/dsi/fastutil/objects/Object2BooleanMap;
+        25: astore_3
+        26: aload_3
+        27: aload_2
+        28: aload_1
+        29: invokedynamic #433,  0            // InvokeDynamic #7:accept:(Lcom/google/common/collect/ImmutableMap$Builder;Ljava/lang/String;)Lit/unimi/dsi/fastutil/objects/ObjectBooleanBiConsumer;
+        34: invokeinterface #437,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2BooleanMap.forEach:(Lit/unimi/dsi/fastutil/objects/ObjectBooleanBiConsumer;)V
+        39: aload_2
+        40: invokevirtual #441                // Method com/google/common/collect/ImmutableMap$Builder.build:()Lcom/google/common/collect/ImmutableMap;
+        43: areturn
+
+  public org.joml.Vector2i getTextureScaleOverride(int, int, int);
+    Code:
+         0: iload_1
+         1: invokedynamic #464,  0            // InvokeDynamic #8:makeConcatWithConstants:(I)Ljava/lang/String;
+         6: astore        4
+         8: new           #466                // class org/joml/Vector2i
+        11: dup
+        12: invokespecial #467                // Method org/joml/Vector2i."<init>":()V
+        15: astore        5
+        17: iload_1
+        18: getstatic     #471                // Field net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives.LEGACY_RENDER_TARGETS:Lcom/google/common/collect/ImmutableList;
+        21: invokevirtual #476                // Method com/google/common/collect/ImmutableList.size:()I
+        24: if_icmpge     168
+        27: getstatic     #471                // Field net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives.LEGACY_RENDER_TARGETS:Lcom/google/common/collect/ImmutableList;
+        30: iload_1
+        31: invokevirtual #479                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        34: checkcast     #481                // class java/lang/String
+        37: astore        6
+        39: aload_0
+        40: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        43: aload         6
+        45: invokeinterface #485,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.containsKey:(Ljava/lang/Object;)Z
+        50: ifeq          98
+        53: aload         5
+        55: aload_0
+        56: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        59: aload         6
+        61: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        66: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+        69: iload_2
+        70: invokevirtual #491                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getX:(I)I
+        73: aload_0
+        74: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+        77: aload         6
+        79: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        84: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+        87: iload_3
+        88: invokevirtual #494                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getY:(I)I
+        91: invokevirtual #498                // Method org/joml/Vector2i.set:(II)Lorg/joml/Vector2i;
+        94: pop
+        95: goto          165
+        98: aload_0
+        99: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       102: aload         4
+       104: invokeinterface #485,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.containsKey:(Ljava/lang/Object;)Z
+       109: ifeq          157
+       112: aload         5
+       114: aload_0
+       115: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       118: aload         4
+       120: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       125: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+       128: iload_2
+       129: invokevirtual #491                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getX:(I)I
+       132: aload_0
+       133: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       136: aload         4
+       138: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       143: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+       146: iload_3
+       147: invokevirtual #494                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getY:(I)I
+       150: invokevirtual #498                // Method org/joml/Vector2i.set:(II)Lorg/joml/Vector2i;
+       153: pop
+       154: goto          165
+       157: aload         5
+       159: iload_2
+       160: iload_3
+       161: invokevirtual #498                // Method org/joml/Vector2i.set:(II)Lorg/joml/Vector2i;
+       164: pop
+       165: goto          235
+       168: aload_0
+       169: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       172: aload         4
+       174: invokeinterface #485,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.containsKey:(Ljava/lang/Object;)Z
+       179: ifeq          227
+       182: aload         5
+       184: aload_0
+       185: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       188: aload         4
+       190: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       195: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+       198: iload_2
+       199: invokevirtual #491                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getX:(I)I
+       202: aload_0
+       203: getfield      #79                 // Field scaleOverrides:Lit/unimi/dsi/fastutil/objects/Object2ObjectMap;
+       206: aload         4
+       208: invokeinterface #413,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/Object2ObjectMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       213: checkcast     #487                // class net/irisshaders/iris/gl/texture/TextureScaleOverride
+       216: iload_3
+       217: invokevirtual #494                // Method net/irisshaders/iris/gl/texture/TextureScaleOverride.getY:(I)I
+       220: invokevirtual #498                // Method org/joml/Vector2i.set:(II)Lorg/joml/Vector2i;
+       223: pop
+       224: goto          235
+       227: aload         5
+       229: iload_2
+       230: iload_3
+       231: invokevirtual #498                // Method org/joml/Vector2i.set:(II)Lorg/joml/Vector2i;
+       234: pop
+       235: aload         5
+       237: areturn
+
+  public boolean supportsEndFlash();
+    Code:
+         0: aload_0
+         1: getfield      #218                // Field supportsEndFlash:Z
+         4: ireturn
+
+  private static void lambda$getExplicitFlips$7(com.google.common.collect.ImmutableMap$Builder, java.lang.String, java.lang.String, boolean);
+    Code:
+         0: getstatic     #471                // Field net/irisshaders/iris/shaderpack/properties/PackRenderTargetDirectives.LEGACY_RENDER_TARGETS:Lcom/google/common/collect/ImmutableList;
+         3: aload_2
+         4: invokevirtual #510                // Method com/google/common/collect/ImmutableList.indexOf:(Ljava/lang/Object;)I
+         7: istore        4
+         9: iload         4
+        11: iconst_m1
+        12: if_icmpne     49
+        15: aload_2
+        16: ldc_w         #512                // String colortex
+        19: invokevirtual #516                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+        22: ifeq          49
+        25: aload_2
+        26: ldc_w         #512                // String colortex
+        29: invokevirtual #519                // Method java/lang/String.length:()I
+        32: invokevirtual #522                // Method java/lang/String.substring:(I)Ljava/lang/String;
+        35: astore        5
+        37: aload         5
+        39: invokestatic  #528                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+        42: istore        4
+        44: goto          49
+        47: astore        6
+        49: iload         4
+        51: iconst_m1
+        52: if_icmpeq     72
+        55: aload_0
+        56: iload         4
+        58: invokestatic  #532                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        61: iload_3
+        62: invokestatic  #537                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        65: invokevirtual #541                // Method com/google/common/collect/ImmutableMap$Builder.put:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableMap$Builder;
+        68: pop
+        69: goto          85
+        72: getstatic     #547                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+        75: aload_2
+        76: aload_1
+        77: invokedynamic #552,  0            // InvokeDynamic #9:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        82: invokevirtual #558                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+        85: return
+      Exception table:
+         from    to  target type
+            37    44    47   Class java/lang/NumberFormatException
+
+  private void lambda$acceptDirectivesFrom$6(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #98                 // Field centerDepthHalfLife:F
+         5: return
+
+  private void lambda$acceptDirectivesFrom$5(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #96                 // Field eyeBrightnessHalfLife:F
+         5: return
+
+  private void lambda$acceptDirectivesFrom$4(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #90                 // Field wetnessHalfLife:F
+         5: return
+
+  private void lambda$acceptDirectivesFrom$3(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #90                 // Field wetnessHalfLife:F
+         5: return
+
+  private void lambda$acceptDirectivesFrom$2(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: fconst_0
+         3: fconst_1
+         4: invokestatic  #561                // Method clamp:(FFF)F
+         7: putfield      #87                 // Field ambientOcclusionLevel:F
+        10: return
+
+  private void lambda$acceptDirectivesFrom$1(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #83                 // Field sunPathRotation:F
+         5: return
+
+  private void lambda$acceptDirectivesFrom$0(int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #81                 // Field noiseTextureResolution:I
+         5: return
+}

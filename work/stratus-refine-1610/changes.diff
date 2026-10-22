@@ -1,0 +1,228 @@
+--- 1.6.9/install.py
++++ 1.6.10/install.py
+@@ -0,0 +1,114 @@
++"""Install a Stratus release and migrate only unrelated option overrides.
++
++Old preferences and existing new-version preferences are never overwritten.
++Run with --dry-run to inspect the exact migration before touching a profile.
++"""
++from __future__ import annotations
++import argparse
++import hashlib
++import json
++import os
++from pathlib import Path
++import tempfile
++import zipfile
++
++
++def read_values(path: Path) -> dict[str, str]:
++    if not path.exists():
++        return {}
++    result = {}
++    for line in path.read_text().splitlines():
++        if '=' in line and not line.lstrip().startswith('#'):
++            key, value = line.split('=', 1)
++            result[key.strip()] = value.strip()
++    return result
++
++
++def migrate(values: dict[str, str], policy: dict) -> tuple[dict, dict]:
++    related = set(policy['reset_related_overrides'])
++    return ({k: v for k, v in values.items() if k not in related},
++            {k: v for k, v in values.items() if k in related})
++
++
++def create_if_absent(path: Path, data: bytes) -> bool:
++    """Atomically create, never replace a user's existing settings/archive."""
++    path.parent.mkdir(parents=True, exist_ok=True)
++    with tempfile.NamedTemporaryFile(prefix='.stratus-', dir=path.parent, delete=False) as f:
++        temporary = Path(f.name)
++        f.write(data)
++        f.flush()
++        os.fsync(f.fileno())
++    try:
++        try:
++            os.link(temporary, path)
++            return True
++        except FileExistsError:
++            return False
++    finally:
++        temporary.unlink()
++
++
++def install(archive: Path, profile: Path, previous_settings: Path | None = None,
++            dry_run: bool = False) -> dict:
++    archive = archive.resolve()
++    profile = profile.resolve()
++    with zipfile.ZipFile(archive) as z:
++        if z.testzip() is not None:
++            raise ValueError('ZIP integrity failure')
++        policy = json.loads(z.read('RELEASE-POLICY.json'))
++    expected_name = f"Stratus-{policy['version']}.zip"
++    if archive.name != expected_name:
++        raise ValueError(f'Expected release archive {expected_name}')
++    destination = profile / 'shaderpacks' / archive.name
++    settings = destination.with_suffix('.zip.txt')
++    if previous_settings is None:
++        selected = read_values(profile / 'config/iris.properties').get('shaderPack')
++        if selected:
++            # Iris names packs by basename; do not accept paths outside shaderpacks.
++            if Path(selected).name != selected:
++                raise ValueError('Selected shader name is not a basename')
++            previous_settings = profile / 'shaderpacks' / (selected + '.txt')
++    if previous_settings is not None:
++        previous_settings = previous_settings.resolve()
++        if previous_settings == settings:
++            previous_settings = None
++    original = read_values(previous_settings) if previous_settings else {}
++    preserved, reset = migrate(original, policy)
++    data = archive.read_bytes()
++    if destination.exists() and destination.read_bytes() != data:
++        raise FileExistsError(f'Refusing to replace different archive: {destination}')
++    settings_existed = settings.exists()
++    result = {'version': policy['version'], 'source': str(archive),
++              'installed': str(destination), 'sha256': hashlib.sha256(data).hexdigest(),
++              'previous_settings': str(previous_settings) if previous_settings else None,
++              'unrelated_overrides_carried': preserved, 'related_overrides_reset': reset,
++              'related_visual_defaults': policy['visual_defaults'],
++              'existing_new_version_preferences_preserved': settings_existed,
++              'dry_run': dry_run, 'loaded': False}
++    if not dry_run:
++        result['archive_created'] = create_if_absent(destination, data)
++        if not result['archive_created'] and destination.read_bytes() != data:
++            raise FileExistsError(f'Refusing conflicting concurrently created archive: {destination}')
++        contents = '# Stratus: unrelated overrides migrated; related controls use release/preset defaults.\n'
++        contents += ''.join(f'{k}={v}\n' for k, v in sorted(preserved.items()))
++        result['preferences_created'] = create_if_absent(settings, contents.encode())
++        result['migration_applied'] = result['preferences_created']
++        # A concurrent settings writer wins; never overwrite its data.
++        result['existing_new_version_preferences_preserved'] |= not result['preferences_created']
++    return result
++
++
++def main():
++    parser = argparse.ArgumentParser(description=__doc__)
++    parser.add_argument('--profile', type=Path, required=True)
++    parser.add_argument('--archive', type=Path)
++    parser.add_argument('--previous-settings', type=Path)
++    parser.add_argument('--dry-run', action='store_true')
++    args = parser.parse_args()
++    policy = json.loads(Path(__file__).with_name('RELEASE-POLICY.json').read_text())
++    archive = args.archive or Path(__file__).resolve().parent.parent / f"Stratus-{policy['version']}.zip"
++    print(json.dumps(install(archive, args.profile, args.previous_settings, args.dry_run), indent=2))
++
++
++if __name__ == '__main__':
++    main()
+--- 1.6.9/package.py
++++ 1.6.10/package.py
+@@ -16,12 +16,12 @@
+                       sha256=hashlib.sha256(p.read_bytes()).hexdigest()) for p in sources]
+     project.joinpath('SOURCE-MANIFEST.json').write_text(json.dumps(checksums, indent=2) + '\n')
+     documents = ['README.txt', 'VALIDATION.txt', 'IN-GAME-TEST.txt', 'CHECKS.json', 'LICENSE.txt',
+-                 'SOURCE-MANIFEST.json', 'package.py', 'generate_volume.py']
++                 'SOURCE-MANIFEST.json', 'package.py', 'generate_volume.py', 'install.py', 'RELEASE-POLICY.json']
+     contents = sources + [project / name for name in documents]
+     for item in contents:
+         if not item.is_file():
+             raise FileNotFoundError(item)
+-    destination = project.parent / 'Stratus-1.6.9.zip'
++    destination = project.parent / 'Stratus-1.6.10.zip'
+     with tempfile.TemporaryDirectory(prefix='stratus-package-', dir=project.parent) as scratch:
+         pending = Path(scratch) / destination.name
+         with zipfile.ZipFile(pending, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+--- 1.6.9/shaders/core/scene-trace.glsl
++++ 1.6.10/shaders/core/scene-trace.glsl
+@@ -90,20 +90,26 @@
+     float budget=quality==2?192.0:(quality==1?48.0:24.0);
+     int count=int(clamp(ceil(max(pixels.x,pixels.y)/stride),1.0,budget));
+     float hitPixelTolerance=opticsHitPixelTolerance(pixels,count,stride);
++    // Projected points remain on this unit ray. Hoist the invariant dot
++    // products and reuse each interval end as the next interval start.
++    float qaAlong=dot(qa,direction),qbAlong=dot(qb,direction);
++    float originAlong=dot(origin,direction);
++    float previousT=qaAlong/ka-originAlong;
+     for(int i=0;i<192;i++){
+         if(i>=count)break;
+         float f0=float(i)/float(count),f1=float(i+1)/float(count),f=(f0+f1)*0.5;
+         vec2 uv=mix(pa,pb,f);
+         if(min(uv.x,uv.y)<0.001||max(uv.x,uv.y)>0.999)break;
+-        vec3 p0=mix(qa,qb,f0)/mix(ka,kb,f0),p1=mix(qa,qb,f1)/mix(ka,kb,f1);
+-        vec3 point=mix(qa,qb,f)/mix(ka,kb,f);
++        float t0=previousT;
++        float t1=mix(qaAlong,qbAlong,f1)/mix(ka,kb,f1)-originAlong;
++        previousT=t1;
++        float pointZ=mix(qa.z,qb.z,f)/mix(ka,kb,f);
+         ivec2 cell=clamp(ivec2(uv*vec2(size)),ivec2(0),size-ivec2(1));
+         vec4 data;vec3 receiver=opticsReceiver(cell,data,cache);
+         if(data.a<0.5)continue;
+         vec3 n=unitVector(mat3(gbufferModelView)*data.xyz);
+         float denominator=dot(direction,n);
+         float distance=abs(denominator)>0.00001?dot(receiver-origin,n)/denominator:-1.0;
+-        float t0=dot(p0-origin,direction),t1=dot(p1-origin,direction);
+         float footprint=max(0.012,length(receiver)/(float(size.y)*max(gbufferProjection[1][1],0.1)));
+         if(distance>=max(0.025,t0-footprint)&&distance<=min(maximum,t1+footprint)){
+             vec3 candidate=origin+direction*distance;vec2 hitUV;
+@@ -122,7 +128,7 @@
+         }
+         // A foreground occluder ends the search. Never continue through a
+         // rejected shore edge and steal a farther river-floor pixel.
+-        float occlusion=receiver.z-point.z;
++        float occlusion=receiver.z-pointZ;
+         if(!cache&&occlusion>max(0.08,footprint*3.0))return vec4(0.0);
+     }
+     if(bounded){path=maximum;return vec4(opticsColour(boundUV,boundPoint,boundNormal,cache),opticsBorderCoverage(boundUV,size));}
+--- 1.6.9/shaders/core/volume.glsl
++++ 1.6.10/shaders/core/volume.glsl
+@@ -44,12 +44,20 @@
+         float stride=(finish-begin)*(b-a);
+         vec3 point=origin+ray*(begin+(a+b)*0.5*(finish-begin));
+         float clearWeight=smoothstep(MIST_CLEAR,MIST_CLEAR+22.0,length(point-cameraPosition));
++        // The clear foreground contributes exactly zero; avoid field reads
++        // there, including reflected paths that first turn toward the camera.
++        if(clearWeight<=0.0)continue;
+         float density=mistDensityWorld(point)*clearWeight*outdoor;
+         if(density<0.000001)continue;
+         float opacity=1.0-exp(-density*stride);
+-        float lightDepth=mistDensityWorld(point+lightDirection*12.0)*18.0;
+-        lightDepth+=mistDensityWorld(point+lightDirection*36.0)*24.0;
+-        float sunTransmission=exp(-lightDepth);
++        float sunTransmission=1.0;
++        // At night or with scattering disabled, this entire contribution is
++        // exactly zero. Retain every illumination sample whenever it is visible.
++        if(any(greaterThan(sunRadiance,vec3(0.0)))&&MIST_LIGHT>0.0){
++            float lightDepth=mistDensityWorld(point+lightDirection*12.0)*18.0;
++            lightDepth+=mistDensityWorld(point+lightDirection*36.0)*24.0;
++            sunTransmission=exp(-lightDepth);
++        }
+         vec3 colour=ambientColour;
+         colour+=sunRadiance*sunTransmission*phase*MIST_LIGHT*0.085;
+         scattering+=transmission*opacity*colour;transmission*=1.0-opacity;
+--- 1.6.9/shaders/lang/en_us.lang
++++ 1.6.10/shaders/lang/en_us.lang
+@@ -1,6 +1,6 @@
+ profile.FAST=Fast
+ profile.BALANCED=Balanced
+-profile.REFERENCE=Reference quality
++profile.REFERENCE=Reference (Recommended)
+ profile.HIGH=High
+ screen.SURFACES=Diffuse surfaces
+ screen.CEILING=Overcast ceiling
+--- 1.6.9/shaders/shaders.properties
++++ 1.6.10/shaders/shaders.properties
+@@ -54,10 +54,10 @@
+ screen.BLOOM=BLOOM_STRENGTH BLOOM_RADIUS
+ screen.PERFORMANCE=<profile> <empty> WATER_RENDER_QUALITY ATMOSPHERE_QUALITY CLOUD_LAYERS MIST_DETAIL REFLECTION_MODE REFRACTION_QUALITY REFLECT_RANGE <empty>
+ sliders=WATER_TEXTURE VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS CIRRUS_DENSITY EXPOSURE WET_DARKENING CLOUD_DENSITY CLOUD_DETAIL MIST_SCALE MIST_BREAKUP MIST_LIGHT WATER_TURBIDITY SKY_AMBIENT ambientOcclusionLevel WHITE_BALANCE SURFACE_SATURATION SURFACE_DAMPNESS WET_SHEEN FACE_SHADING FACE_BLEND GROUND_WARMTH BLOOM_STRENGTH BLOOM_RADIUS LAMP_LEVEL LAMP_HEAT CLOUD_AMOUNT CLOUD_ALTITUDE CLOUD_THICKNESS SKY_LEAK SUN_VISIBILITY CIRRUS_AMOUNT CIRRUS_ALTITUDE CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT MIST_AMOUNT MIST_Y MIST_THICKNESS MIST_CLEAR REFLECT_LEVEL REFLECT_RANGE WATER_VISIBILITY WATER_EXTINCTION WATER_DISTORTION RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
+-profile.FAST=WATER_RENDER_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 ATMOSPHERE_QUALITY:0 REFLECTION_MODE:0 REFRACTION_QUALITY:0
+-profile.BALANCED=WATER_RENDER_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 ATMOSPHERE_QUALITY:1 REFLECTION_MODE:1 REFRACTION_QUALITY:0
+-profile.REFERENCE=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:2 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2
+-profile.HIGH=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:3 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2
++profile.FAST=WATER_RENDER_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 ATMOSPHERE_QUALITY:0 REFLECTION_MODE:0 REFRACTION_QUALITY:0 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
++profile.BALANCED=WATER_RENDER_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 ATMOSPHERE_QUALITY:1 REFLECTION_MODE:1 REFRACTION_QUALITY:0 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
++profile.REFERENCE=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:2 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
++profile.HIGH=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:3 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
+ blend.deferred=off
+ blend.composite=off
+ blend.composite1=off

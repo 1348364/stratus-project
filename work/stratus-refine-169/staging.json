@@ -1,0 +1,16 @@
+{
+  "request_id": "0d847664-366f-4d24-a8eb-e198c604b09c",
+  "action": "stage_run",
+  "spec_delta_bytes": 0,
+  "frozen_and_current_document_hashes": {
+    "TASK.md": "373f267a4af5e8187b5e2ab92601362aab9911debc4fd69df149553d4ccf2845",
+    "CHANGES.md": "5b12ce92aad452b883bff475685d9106c003f0d60bf1634745ddd1bef88ba9a2"
+  },
+  "new_target_deltas_staged": [],
+  "existing_pending_requests_preserved": 5,
+  "snapshot_conflicts": [],
+  "editable_baseline": "1.6.9-water-pole-test (newer environment.glsl fix retained)",
+  "planned_release": "1.6.9",
+  "Minecraft_initial_state": "closed; latest log records clean shutdown at 09:34:35",
+  "preserve_unverified_water_pole_candidate": true
+}

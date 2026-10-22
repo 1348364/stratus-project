@@ -1,0 +1,44 @@
+STRATUS 1.6.4 — VALIDATION
+20 October 2026
+
+Native macOS OpenGL: 768 compile/link pairs across eight variants, zero failures.
+Includes defaults, vanilla sky, Fast/Balanced/Reference/High, option extremes and
+Overworld/Nether/End programs. Compatibility shims do not emulate every Iris
+transformation. All 53 reachable controls have English labels. Shadows stay off.
+
+122 candidate GPU renders passed, zero OpenGL errors: 91 actual material-response
+samples with 248 independent invariants/relationships; 10 full water-resolve
+cases; 3 water-raster attachment/blending cases; 18 cloud-integrator samples
+across nine angular thresholds and three sampling budgets. Cloud opacity is
+compared with an independent dense CPU integral through an analytic volume.
+Historical diagnostic renders are not counted as candidate passes.
+
+Actual Main / Stratus Terrain Lab (normal world, Creative) loaded the immutable
+final shader assets in Stratus-1.6.4-Verify-CloudRange.zip and all four preset
+aliases plus vanilla sky mode. Minecraft 1.21.11 / Iris 1.10.8 / Sodium 0.8.14 /
+Apple M1 OpenGL 4.1. No shader compilation failures appeared. 46 captures were
+inspected; the visual report labels baseline controls, supporting material-only
+checks and final-source retests separately. Final-source checks cover waterline,
+submerged wood, upward underwater views, glass above/below water, waterfall,
+particles, matte materials and metal, presets, cloud height/pitch changes and
+the actual Materials settings menu. Supporting checks include biomes, enclosed
+cave lighting, sunset, night and rain. Rejected unloaded-terrain, misplaced
+camera and experimental-cloud frames are not represented as passes.
+
+All 235 shader/configuration/data assets in the release match the immutable
+runtime-tested archive. The test helper was project-local and session-specific,
+never installed in Main/mods. The test client quit gracefully after saving all
+dimensions. Delivery/normal-launch status is recorded separately in the install
+receipt and visual report, rather than inferred from this test run.
+
+PERFORMANCE: UNVERIFIED. Both diagnostic samples were unfocused. Dynamic FPS
+was disabled only in memory during those rejected samples and then restored.
+They establish neither normal-play FPS nor a candidate speedup. The recorded
+framebuffer was 854x480, render distance 12, simulation distance 8, cap 70,
+VSync enabled. No 60-FPS claim or hidden quality reduction.
+
+Known limits: screen-space hidden/off-screen geometry; nearest visible water
+exit only; existing clear-sky fallback for missing exits; heuristic matte
+moisture; bounded cloud integration while inside its layer (960 blocks at
+default span), with distant interior structure approximated by the background.
+No unseen-reference exact-match or exhaustive temporal/mod compatibility claim.

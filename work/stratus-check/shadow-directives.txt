@@ -1,0 +1,987 @@
+Compiled from "PackShadowDirectives.java"
+public class net.irisshaders.iris.shaderpack.properties.PackShadowDirectives {
+  public static final int MAX_SHADOW_COLOR_BUFFERS_IRIS;
+
+  public static final int MAX_SHADOW_COLOR_BUFFERS_OF;
+
+  private final net.irisshaders.iris.helpers.OptionalBoolean shadowEnabled;
+
+  private final net.irisshaders.iris.helpers.OptionalBoolean dhShadowEnabled;
+
+  private final boolean shouldRenderTerrain;
+
+  private final boolean shouldRenderTranslucent;
+
+  private final boolean shouldRenderEntities;
+
+  private final boolean shouldRenderPlayer;
+
+  private final boolean shouldRenderBlockEntities;
+
+  private final boolean shouldRenderLightBlockEntities;
+
+  private final net.irisshaders.iris.shaderpack.properties.ShadowCullState cullingState;
+
+  private final com.google.common.collect.ImmutableList<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings> depthSamplingSettings;
+
+  private final it.unimi.dsi.fastutil.ints.Int2ObjectMap<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings> colorSamplingSettings;
+
+  private int resolution;
+
+  private java.lang.Float fov;
+
+  private float distance;
+
+  private float nearPlane;
+
+  private float farPlane;
+
+  private float voxelDistance;
+
+  private float distanceRenderMul;
+
+  private float entityShadowDistanceMul;
+
+  private boolean explicitRenderDistance;
+
+  private float intervalSize;
+
+  public net.irisshaders.iris.shaderpack.properties.PackShadowDirectives(net.irisshaders.iris.shaderpack.properties.ShaderProperties);
+    Code:
+         0: aload_0
+         1: invokespecial #62                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: sipush        1024
+         8: putfield      #64                 // Field resolution:I
+        11: aload_0
+        12: aconst_null
+        13: putfield      #66                 // Field fov:Ljava/lang/Float;
+        16: aload_0
+        17: ldc           #67                 // float 160.0f
+        19: putfield      #69                 // Field distance:F
+        22: aload_0
+        23: ldc           #70                 // float -100.05f
+        25: putfield      #72                 // Field nearPlane:F
+        28: aload_0
+        29: ldc           #73                 // float 156.0f
+        31: putfield      #75                 // Field farPlane:F
+        34: aload_0
+        35: fconst_0
+        36: putfield      #77                 // Field voxelDistance:F
+        39: aload_0
+        40: ldc           #78                 // float -1.0f
+        42: putfield      #80                 // Field distanceRenderMul:F
+        45: aload_0
+        46: fconst_1
+        47: putfield      #82                 // Field entityShadowDistanceMul:F
+        50: aload_0
+        51: iconst_0
+        52: putfield      #84                 // Field explicitRenderDistance:Z
+        55: aload_0
+        56: fconst_2
+        57: putfield      #86                 // Field intervalSize:F
+        60: aload_0
+        61: aload_1
+        62: invokevirtual #92                 // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowTerrain:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        65: iconst_1
+        66: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        69: putfield      #100                // Field shouldRenderTerrain:Z
+        72: aload_0
+        73: aload_1
+        74: invokevirtual #103                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowTranslucent:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        77: iconst_1
+        78: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        81: putfield      #105                // Field shouldRenderTranslucent:Z
+        84: aload_0
+        85: aload_1
+        86: invokevirtual #108                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowEntities:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+        89: iconst_1
+        90: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+        93: putfield      #110                // Field shouldRenderEntities:Z
+        96: aload_0
+        97: aload_1
+        98: invokevirtual #113                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowPlayer:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       101: iconst_0
+       102: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       105: putfield      #115                // Field shouldRenderPlayer:Z
+       108: aload_0
+       109: aload_1
+       110: invokevirtual #118                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowBlockEntities:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       113: iconst_1
+       114: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       117: putfield      #120                // Field shouldRenderBlockEntities:Z
+       120: aload_0
+       121: aload_1
+       122: invokevirtual #123                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowLightBlockEntities:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       125: iconst_0
+       126: invokevirtual #98                 // Method net/irisshaders/iris/helpers/OptionalBoolean.orElse:(Z)Z
+       129: putfield      #125                // Field shouldRenderLightBlockEntities:Z
+       132: aload_0
+       133: aload_1
+       134: invokevirtual #129                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowCulling:()Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       137: putfield      #131                // Field cullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       140: aload_0
+       141: aload_1
+       142: invokevirtual #134                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getShadowEnabled:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       145: putfield      #136                // Field shadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       148: aload_0
+       149: aload_1
+       150: invokevirtual #139                // Method net/irisshaders/iris/shaderpack/properties/ShaderProperties.getDhShadowEnabled:()Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       153: putfield      #141                // Field dhShadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       156: aload_0
+       157: new           #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+       160: dup
+       161: invokespecial #142                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings."<init>":()V
+       164: new           #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+       167: dup
+       168: invokespecial #142                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings."<init>":()V
+       171: invokestatic  #146                // Method com/google/common/collect/ImmutableList.of:(Ljava/lang/Object;Ljava/lang/Object;)Lcom/google/common/collect/ImmutableList;
+       174: putfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       177: invokestatic  #152                // Method com/google/common/collect/ImmutableList.builder:()Lcom/google/common/collect/ImmutableList$Builder;
+       180: astore_2
+       181: aload_0
+       182: new           #154                // class it/unimi/dsi/fastutil/ints/Int2ObjectArrayMap
+       185: dup
+       186: invokespecial #155                // Method it/unimi/dsi/fastutil/ints/Int2ObjectArrayMap."<init>":()V
+       189: putfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       192: return
+
+  public net.irisshaders.iris.shaderpack.properties.PackShadowDirectives(net.irisshaders.iris.shaderpack.properties.PackShadowDirectives);
+    Code:
+         0: aload_0
+         1: invokespecial #62                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: aload_1
+         6: getfield      #64                 // Field resolution:I
+         9: putfield      #64                 // Field resolution:I
+        12: aload_0
+        13: aload_1
+        14: getfield      #66                 // Field fov:Ljava/lang/Float;
+        17: putfield      #66                 // Field fov:Ljava/lang/Float;
+        20: aload_0
+        21: aload_1
+        22: getfield      #69                 // Field distance:F
+        25: putfield      #69                 // Field distance:F
+        28: aload_0
+        29: aload_1
+        30: getfield      #72                 // Field nearPlane:F
+        33: putfield      #72                 // Field nearPlane:F
+        36: aload_0
+        37: aload_1
+        38: getfield      #75                 // Field farPlane:F
+        41: putfield      #75                 // Field farPlane:F
+        44: aload_0
+        45: aload_1
+        46: getfield      #77                 // Field voxelDistance:F
+        49: putfield      #77                 // Field voxelDistance:F
+        52: aload_0
+        53: aload_1
+        54: getfield      #80                 // Field distanceRenderMul:F
+        57: putfield      #80                 // Field distanceRenderMul:F
+        60: aload_0
+        61: aload_1
+        62: getfield      #82                 // Field entityShadowDistanceMul:F
+        65: putfield      #82                 // Field entityShadowDistanceMul:F
+        68: aload_0
+        69: aload_1
+        70: getfield      #84                 // Field explicitRenderDistance:Z
+        73: putfield      #84                 // Field explicitRenderDistance:Z
+        76: aload_0
+        77: aload_1
+        78: getfield      #86                 // Field intervalSize:F
+        81: putfield      #86                 // Field intervalSize:F
+        84: aload_0
+        85: aload_1
+        86: getfield      #100                // Field shouldRenderTerrain:Z
+        89: putfield      #100                // Field shouldRenderTerrain:Z
+        92: aload_0
+        93: aload_1
+        94: getfield      #105                // Field shouldRenderTranslucent:Z
+        97: putfield      #105                // Field shouldRenderTranslucent:Z
+       100: aload_0
+       101: aload_1
+       102: getfield      #110                // Field shouldRenderEntities:Z
+       105: putfield      #110                // Field shouldRenderEntities:Z
+       108: aload_0
+       109: aload_1
+       110: getfield      #115                // Field shouldRenderPlayer:Z
+       113: putfield      #115                // Field shouldRenderPlayer:Z
+       116: aload_0
+       117: aload_1
+       118: getfield      #120                // Field shouldRenderBlockEntities:Z
+       121: putfield      #120                // Field shouldRenderBlockEntities:Z
+       124: aload_0
+       125: aload_1
+       126: getfield      #125                // Field shouldRenderLightBlockEntities:Z
+       129: putfield      #125                // Field shouldRenderLightBlockEntities:Z
+       132: aload_0
+       133: aload_1
+       134: getfield      #131                // Field cullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       137: putfield      #131                // Field cullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+       140: aload_0
+       141: aload_1
+       142: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       145: putfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       148: aload_0
+       149: aload_1
+       150: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       153: putfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       156: aload_0
+       157: aload_1
+       158: getfield      #136                // Field shadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       161: putfield      #136                // Field shadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       164: aload_0
+       165: aload_1
+       166: getfield      #141                // Field dhShadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       169: putfield      #141                // Field dhShadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+       172: return
+
+  private static void acceptHardwareFilteringSettings(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, com.google.common.collect.ImmutableList<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings>);
+    Code:
+         0: aload_0
+         1: ldc           #171                // String shadowHardwareFiltering
+         3: aload_1
+         4: invokedynamic #189,  0            // InvokeDynamic #0:accept:(Lcom/google/common/collect/ImmutableList;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+         9: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        14: iconst_0
+        15: istore_2
+        16: iload_2
+        17: aload_1
+        18: invokevirtual #199                // Method com/google/common/collect/ImmutableList.size:()I
+        21: if_icmpge     62
+        24: iload_2
+        25: invokedynamic #211,  0            // InvokeDynamic #1:makeConcatWithConstants:(I)Ljava/lang/String;
+        30: astore_3
+        31: aload_0
+        32: aload_3
+        33: aload_1
+        34: iload_2
+        35: invokevirtual #215                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        38: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        41: dup
+        42: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        45: pop
+        46: invokedynamic #228,  0            // InvokeDynamic #2:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        51: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        56: iinc          2, 1
+        59: goto          16
+        62: return
+
+  private static void acceptDepthMipmapSettings(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, com.google.common.collect.ImmutableList<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings>);
+    Code:
+         0: aload_0
+         1: ldc           #235                // String generateShadowMipmap
+         3: aload_1
+         4: invokedynamic #240,  0            // InvokeDynamic #3:accept:(Lcom/google/common/collect/ImmutableList;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+         9: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        14: aload_1
+        15: invokevirtual #244                // Method com/google/common/collect/ImmutableList.isEmpty:()Z
+        18: ifne          46
+        21: aload_0
+        22: ldc           #246                // String shadowtexMipmap
+        24: aload_1
+        25: invokevirtual #250                // Method com/google/common/collect/ImmutableList.getFirst:()Ljava/lang/Object;
+        28: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        31: dup
+        32: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        35: pop
+        36: invokedynamic #255,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        41: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        46: iconst_0
+        47: istore_2
+        48: iload_2
+        49: aload_1
+        50: invokevirtual #199                // Method com/google/common/collect/ImmutableList.size:()I
+        53: if_icmpge     94
+        56: iload_2
+        57: invokedynamic #258,  0            // InvokeDynamic #5:makeConcatWithConstants:(I)Ljava/lang/String;
+        62: astore_3
+        63: aload_0
+        64: aload_3
+        65: aload_1
+        66: iload_2
+        67: invokevirtual #215                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        70: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        73: dup
+        74: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        77: pop
+        78: invokedynamic #255,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        83: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        88: iinc          2, 1
+        91: goto          48
+        94: return
+
+  private static void acceptColorMipmapSettings(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, it.unimi.dsi.fastutil.ints.Int2ObjectMap<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings>);
+    Code:
+         0: aload_0
+         1: ldc_w         #263                // String generateShadowColorMipmap
+         4: aload_1
+         5: invokedynamic #271,  0            // InvokeDynamic #6:accept:(Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        10: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        15: iconst_0
+        16: istore_2
+        17: iload_2
+        18: bipush        8
+        20: if_icmpge     107
+        23: iload_2
+        24: invokedynamic #274,  0            // InvokeDynamic #7:makeConcatWithConstants:(I)Ljava/lang/String;
+        29: astore_3
+        30: aload_0
+        31: aload_3
+        32: aload_1
+        33: iload_2
+        34: invokedynamic #284,  0            // InvokeDynamic #8:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+        39: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        44: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        47: dup
+        48: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        51: pop
+        52: invokedynamic #293,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        57: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        62: iload_2
+        63: invokedynamic #296,  0            // InvokeDynamic #9:makeConcatWithConstants:(I)Ljava/lang/String;
+        68: astore_3
+        69: aload_0
+        70: aload_3
+        71: aload_1
+        72: iload_2
+        73: invokedynamic #301,  0            // InvokeDynamic #10:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+        78: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        83: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        86: dup
+        87: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        90: pop
+        91: invokedynamic #293,  0            // InvokeDynamic #4:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        96: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+       101: iinc          2, 1
+       104: goto          17
+       107: return
+
+  private static void acceptDepthFilteringSettings(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, com.google.common.collect.ImmutableList<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings>);
+    Code:
+         0: aload_1
+         1: invokevirtual #244                // Method com/google/common/collect/ImmutableList.isEmpty:()Z
+         4: ifne          33
+         7: aload_0
+         8: ldc_w         #304                // String shadowtexNearest
+        11: aload_1
+        12: invokevirtual #250                // Method com/google/common/collect/ImmutableList.getFirst:()Ljava/lang/Object;
+        15: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        18: dup
+        19: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        22: pop
+        23: invokedynamic #309,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        28: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        33: iconst_0
+        34: istore_2
+        35: iload_2
+        36: aload_1
+        37: invokevirtual #199                // Method com/google/common/collect/ImmutableList.size:()I
+        40: if_icmpge     113
+        43: iload_2
+        44: invokedynamic #312,  0            // InvokeDynamic #12:makeConcatWithConstants:(I)Ljava/lang/String;
+        49: astore_3
+        50: aload_0
+        51: aload_3
+        52: aload_1
+        53: iload_2
+        54: invokevirtual #215                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        57: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        60: dup
+        61: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        64: pop
+        65: invokedynamic #309,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        70: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        75: iload_2
+        76: invokedynamic #315,  0            // InvokeDynamic #13:makeConcatWithConstants:(I)Ljava/lang/String;
+        81: astore_3
+        82: aload_0
+        83: aload_3
+        84: aload_1
+        85: iload_2
+        86: invokevirtual #215                // Method com/google/common/collect/ImmutableList.get:(I)Ljava/lang/Object;
+        89: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        92: dup
+        93: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        96: pop
+        97: invokedynamic #309,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+       102: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+       107: iinc          2, 1
+       110: goto          35
+       113: return
+
+  private static void acceptColorFilteringSettings(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, it.unimi.dsi.fastutil.ints.Int2ObjectMap<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings>);
+    Code:
+         0: iconst_0
+         1: istore_2
+         2: iload_2
+         3: bipush        8
+         5: if_icmpge     131
+         8: iload_2
+         9: invokedynamic #319,  0            // InvokeDynamic #14:makeConcatWithConstants:(I)Ljava/lang/String;
+        14: astore_3
+        15: aload_0
+        16: aload_3
+        17: aload_1
+        18: iload_2
+        19: invokedynamic #324,  0            // InvokeDynamic #15:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+        24: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        29: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        32: dup
+        33: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        36: pop
+        37: invokedynamic #325,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        42: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        47: iload_2
+        48: invokedynamic #328,  0            // InvokeDynamic #16:makeConcatWithConstants:(I)Ljava/lang/String;
+        53: astore_3
+        54: aload_0
+        55: aload_3
+        56: aload_1
+        57: iload_2
+        58: invokedynamic #333,  0            // InvokeDynamic #17:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+        63: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        68: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        71: dup
+        72: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        75: pop
+        76: invokedynamic #325,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        81: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        86: iload_2
+        87: invokedynamic #336,  0            // InvokeDynamic #18:makeConcatWithConstants:(I)Ljava/lang/String;
+        92: astore_3
+        93: aload_0
+        94: aload_3
+        95: aload_1
+        96: iload_2
+        97: invokedynamic #341,  0            // InvokeDynamic #19:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+       102: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+       107: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+       110: dup
+       111: invokestatic  #221                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       114: pop
+       115: invokedynamic #325,  0            // InvokeDynamic #11:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings;)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+       120: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+       125: iinc          2, 1
+       128: goto          2
+       131: return
+
+  public int getResolution();
+    Code:
+         0: aload_0
+         1: getfield      #64                 // Field resolution:I
+         4: ireturn
+
+  public java.lang.Float getFov();
+    Code:
+         0: aload_0
+         1: getfield      #66                 // Field fov:Ljava/lang/Float;
+         4: areturn
+
+  public float getDistance();
+    Code:
+         0: aload_0
+         1: getfield      #69                 // Field distance:F
+         4: freturn
+
+  public float getNearPlane();
+    Code:
+         0: aload_0
+         1: getfield      #72                 // Field nearPlane:F
+         4: freturn
+
+  public float getFarPlane();
+    Code:
+         0: aload_0
+         1: getfield      #75                 // Field farPlane:F
+         4: freturn
+
+  public float getVoxelDistance();
+    Code:
+         0: aload_0
+         1: getfield      #77                 // Field voxelDistance:F
+         4: freturn
+
+  public float getDistanceRenderMul();
+    Code:
+         0: aload_0
+         1: getfield      #80                 // Field distanceRenderMul:F
+         4: freturn
+
+  public float getEntityShadowDistanceMul();
+    Code:
+         0: aload_0
+         1: getfield      #82                 // Field entityShadowDistanceMul:F
+         4: freturn
+
+  public boolean isDistanceRenderMulExplicit();
+    Code:
+         0: aload_0
+         1: getfield      #84                 // Field explicitRenderDistance:Z
+         4: ireturn
+
+  public float getIntervalSize();
+    Code:
+         0: aload_0
+         1: getfield      #86                 // Field intervalSize:F
+         4: freturn
+
+  public boolean shouldRenderTerrain();
+    Code:
+         0: aload_0
+         1: getfield      #100                // Field shouldRenderTerrain:Z
+         4: ireturn
+
+  public boolean shouldRenderTranslucent();
+    Code:
+         0: aload_0
+         1: getfield      #105                // Field shouldRenderTranslucent:Z
+         4: ireturn
+
+  public boolean shouldRenderEntities();
+    Code:
+         0: aload_0
+         1: getfield      #110                // Field shouldRenderEntities:Z
+         4: ireturn
+
+  public boolean shouldRenderPlayer();
+    Code:
+         0: aload_0
+         1: getfield      #115                // Field shouldRenderPlayer:Z
+         4: ireturn
+
+  public boolean shouldRenderBlockEntities();
+    Code:
+         0: aload_0
+         1: getfield      #120                // Field shouldRenderBlockEntities:Z
+         4: ireturn
+
+  public boolean shouldRenderLightBlockEntities();
+    Code:
+         0: aload_0
+         1: getfield      #125                // Field shouldRenderLightBlockEntities:Z
+         4: ireturn
+
+  public net.irisshaders.iris.shaderpack.properties.ShadowCullState getCullingState();
+    Code:
+         0: aload_0
+         1: getfield      #131                // Field cullingState:Lnet/irisshaders/iris/shaderpack/properties/ShadowCullState;
+         4: areturn
+
+  public net.irisshaders.iris.helpers.OptionalBoolean isShadowEnabled();
+    Code:
+         0: aload_0
+         1: getfield      #136                // Field shadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+         4: areturn
+
+  public net.irisshaders.iris.helpers.OptionalBoolean isDhShadowEnabled();
+    Code:
+         0: aload_0
+         1: getfield      #141                // Field dhShadowEnabled:Lnet/irisshaders/iris/helpers/OptionalBoolean;
+         4: areturn
+
+  public com.google.common.collect.ImmutableList<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$DepthSamplingSettings> getDepthSamplingSettings();
+    Code:
+         0: aload_0
+         1: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+         4: areturn
+
+  public it.unimi.dsi.fastutil.ints.Int2ObjectMap<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings> getColorSamplingSettings();
+    Code:
+         0: aload_0
+         1: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+         4: areturn
+
+  public void acceptDirectives(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder);
+    Code:
+         0: aload_1
+         1: ldc_w         #366                // String SHADOWRES
+         4: aload_0
+         5: invokedynamic #375,  0            // InvokeDynamic #20:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Ljava/util/function/IntConsumer;
+        10: invokeinterface #379,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptCommentIntDirective:(Ljava/lang/String;Ljava/util/function/IntConsumer;)V
+        15: aload_1
+        16: ldc_w         #381                // String shadowMapResolution
+        19: aload_0
+        20: invokedynamic #386,  0            // InvokeDynamic #21:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Ljava/util/function/IntConsumer;
+        25: invokeinterface #389,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstIntDirective:(Ljava/lang/String;Ljava/util/function/IntConsumer;)V
+        30: aload_1
+        31: ldc_w         #391                // String SHADOWFOV
+        34: aload_0
+        35: invokedynamic #400,  0            // InvokeDynamic #22:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        40: invokeinterface #404,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptCommentFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        45: aload_1
+        46: ldc_w         #406                // String shadowMapFov
+        49: aload_0
+        50: invokedynamic #411,  0            // InvokeDynamic #23:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        55: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        60: aload_1
+        61: ldc_w         #416                // String SHADOWHPL
+        64: aload_0
+        65: invokedynamic #421,  0            // InvokeDynamic #24:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        70: invokeinterface #404,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptCommentFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        75: aload_1
+        76: ldc_w         #423                // String shadowDistance
+        79: aload_0
+        80: invokedynamic #428,  0            // InvokeDynamic #25:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+        85: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+        90: aload_1
+        91: ldc_w         #430                // String shadowNearPlane
+        94: aload_0
+        95: invokedynamic #435,  0            // InvokeDynamic #26:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       100: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       105: aload_1
+       106: ldc_w         #437                // String shadowFarPlane
+       109: aload_0
+       110: invokedynamic #442,  0            // InvokeDynamic #27:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       115: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       120: aload_1
+       121: ldc_w         #443                // String voxelDistance
+       124: aload_0
+       125: invokedynamic #448,  0            // InvokeDynamic #28:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       130: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       135: aload_1
+       136: ldc_w         #449                // String entityShadowDistanceMul
+       139: aload_0
+       140: invokedynamic #454,  0            // InvokeDynamic #29:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       145: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       150: aload_1
+       151: ldc_w         #456                // String shadowDistanceRenderMul
+       154: aload_0
+       155: invokedynamic #461,  0            // InvokeDynamic #30:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       160: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       165: aload_1
+       166: ldc_w         #463                // String shadowIntervalSize
+       169: aload_0
+       170: invokedynamic #468,  0            // InvokeDynamic #31:accept:(Lnet/irisshaders/iris/shaderpack/properties/PackShadowDirectives;)Lit/unimi/dsi/fastutil/floats/FloatConsumer;
+       175: invokeinterface #414,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstFloatDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/floats/FloatConsumer;)V
+       180: aload_1
+       181: aload_0
+       182: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       185: invokestatic  #470                // Method acceptHardwareFilteringSettings:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lcom/google/common/collect/ImmutableList;)V
+       188: aload_1
+       189: aload_0
+       190: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       193: invokestatic  #472                // Method acceptDepthMipmapSettings:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lcom/google/common/collect/ImmutableList;)V
+       196: aload_1
+       197: aload_0
+       198: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       201: invokestatic  #474                // Method acceptColorMipmapSettings:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;)V
+       204: aload_1
+       205: aload_0
+       206: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+       209: invokestatic  #476                // Method acceptDepthFilteringSettings:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lcom/google/common/collect/ImmutableList;)V
+       212: aload_1
+       213: aload_0
+       214: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       217: invokestatic  #478                // Method acceptColorFilteringSettings:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;)V
+       220: aload_0
+       221: aload_1
+       222: aload_0
+       223: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+       226: invokevirtual #481                // Method acceptBufferDirectives:(Lnet/irisshaders/iris/shaderpack/parsing/DirectiveHolder;Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;)V
+       229: return
+
+  private void acceptBufferDirectives(net.irisshaders.iris.shaderpack.parsing.DirectiveHolder, it.unimi.dsi.fastutil.ints.Int2ObjectMap<net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings>);
+    Code:
+         0: iconst_0
+         1: istore_3
+         2: iload_3
+         3: bipush        8
+         5: if_icmpge     90
+         8: iload_3
+         9: invokedynamic #485,  0            // InvokeDynamic #32:makeConcatWithConstants:(I)Ljava/lang/String;
+        14: astore        4
+        16: iload_3
+        17: istore        5
+        19: aload_1
+        20: aload         4
+        22: invokedynamic #490,  0            // InvokeDynamic #33:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        27: aload_2
+        28: iload         5
+        30: aload         4
+        32: invokedynamic #502,  0            // InvokeDynamic #34:accept:(Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;ILjava/lang/String;)Ljava/util/function/Consumer;
+        37: invokeinterface #506,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstStringDirective:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+        42: aload_1
+        43: aload         4
+        45: invokedynamic #509,  0            // InvokeDynamic #35:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        50: aload_2
+        51: iload         5
+        53: invokedynamic #517,  0            // InvokeDynamic #36:accept:(Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;I)Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;
+        58: invokeinterface #195,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstBooleanDirective:(Ljava/lang/String;Lit/unimi/dsi/fastutil/booleans/BooleanConsumer;)V
+        63: aload_1
+        64: aload         4
+        66: invokedynamic #520,  0            // InvokeDynamic #37:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+        71: aload_2
+        72: iload         5
+        74: invokedynamic #530,  0            // InvokeDynamic #38:accept:(Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;I)Ljava/util/function/Consumer;
+        79: invokeinterface #533,  3          // InterfaceMethod net/irisshaders/iris/shaderpack/parsing/DirectiveHolder.acceptConstVec4Directive:(Ljava/lang/String;Ljava/util/function/Consumer;)V
+        84: iinc          3, 1
+        87: goto          2
+        90: return
+
+  public java.lang.String toString();
+    Code:
+         0: aload_0
+         1: getfield      #64                 // Field resolution:I
+         4: aload_0
+         5: getfield      #66                 // Field fov:Ljava/lang/Float;
+         8: aload_0
+         9: getfield      #69                 // Field distance:F
+        12: aload_0
+        13: getfield      #80                 // Field distanceRenderMul:F
+        16: aload_0
+        17: getfield      #82                 // Field entityShadowDistanceMul:F
+        20: aload_0
+        21: getfield      #86                 // Field intervalSize:F
+        24: aload_0
+        25: getfield      #148                // Field depthSamplingSettings:Lcom/google/common/collect/ImmutableList;
+        28: invokestatic  #543                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        31: aload_0
+        32: getfield      #157                // Field colorSamplingSettings:Lit/unimi/dsi/fastutil/ints/Int2ObjectMap;
+        35: invokestatic  #543                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        38: invokedynamic #548,  0            // InvokeDynamic #39:makeConcatWithConstants:(ILjava/lang/Float;FFFFLjava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        43: areturn
+
+  private static void lambda$acceptBufferDirectives$26(it.unimi.dsi.fastutil.ints.Int2ObjectMap, int, org.joml.Vector4f);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: invokedynamic #554,  0            // InvokeDynamic #40:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+         7: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        12: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        15: aload_2
+        16: invokevirtual #557                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.setClearColor:(Lorg/joml/Vector4f;)V
+        19: return
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptBufferDirectives$25(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static void lambda$acceptBufferDirectives$24(it.unimi.dsi.fastutil.ints.Int2ObjectMap, int, boolean);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: invokedynamic #566,  0            // InvokeDynamic #41:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+         7: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        12: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        15: iload_2
+        16: invokevirtual #569                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.setClear:(Z)V
+        19: return
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptBufferDirectives$23(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static void lambda$acceptBufferDirectives$22(it.unimi.dsi.fastutil.ints.Int2ObjectMap, int, java.lang.String, java.lang.String);
+    Code:
+         0: aload_3
+         1: invokestatic  #576                // Method net/irisshaders/iris/gl/texture/InternalTextureFormat.fromString:(Ljava/lang/String;)Ljava/util/Optional;
+         4: astore        4
+         6: aload         4
+         8: invokevirtual #581                // Method java/util/Optional.isPresent:()Z
+        11: ifeq          43
+        14: aload_0
+        15: iload_1
+        16: invokedynamic #586,  0            // InvokeDynamic #42:get:()Lit/unimi/dsi/fastutil/ints/Int2ObjectFunction;
+        21: invokeinterface #290,  3          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.computeIfAbsent:(ILit/unimi/dsi/fastutil/ints/Int2ObjectFunction;)Ljava/lang/Object;
+        26: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        29: aload         4
+        31: invokevirtual #588                // Method java/util/Optional.get:()Ljava/lang/Object;
+        34: checkcast     #572                // class net/irisshaders/iris/gl/texture/InternalTextureFormat
+        37: invokevirtual #592                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.setFormat:(Lnet/irisshaders/iris/gl/texture/InternalTextureFormat;)V
+        40: goto          56
+        43: getstatic     #598                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+        46: aload_3
+        47: aload_2
+        48: invokedynamic #603,  0            // InvokeDynamic #43:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        53: invokevirtual #608                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+        56: return
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptBufferDirectives$21(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private void lambda$acceptDirectives$20(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #86                 // Field intervalSize:F
+         5: return
+
+  private void lambda$acceptDirectives$19(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #80                 // Field distanceRenderMul:F
+         5: aload_0
+         6: iconst_1
+         7: putfield      #84                 // Field explicitRenderDistance:Z
+        10: return
+
+  private void lambda$acceptDirectives$18(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #82                 // Field entityShadowDistanceMul:F
+         5: return
+
+  private void lambda$acceptDirectives$17(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #77                 // Field voxelDistance:F
+         5: return
+
+  private void lambda$acceptDirectives$16(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #75                 // Field farPlane:F
+         5: return
+
+  private void lambda$acceptDirectives$15(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #72                 // Field nearPlane:F
+         5: return
+
+  private void lambda$acceptDirectives$14(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #69                 // Field distance:F
+         5: return
+
+  private void lambda$acceptDirectives$13(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: putfield      #69                 // Field distance:F
+         5: return
+
+  private void lambda$acceptDirectives$12(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: invokestatic  #616                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+         5: putfield      #66                 // Field fov:Ljava/lang/Float;
+         8: return
+
+  private void lambda$acceptDirectives$11(float);
+    Code:
+         0: aload_0
+         1: fload_1
+         2: invokestatic  #616                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+         5: putfield      #66                 // Field fov:Ljava/lang/Float;
+         8: return
+
+  private void lambda$acceptDirectives$10(int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #64                 // Field resolution:I
+         5: return
+
+  private void lambda$acceptDirectives$9(int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: putfield      #64                 // Field resolution:I
+         5: return
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptColorFilteringSettings$8(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptColorFilteringSettings$7(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptColorFilteringSettings$6(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptColorMipmapSettings$5(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings lambda$acceptColorMipmapSettings$4(int);
+    Code:
+         0: new           #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+         3: dup
+         4: invokespecial #560                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings."<init>":()V
+         7: areturn
+
+  private static void lambda$acceptColorMipmapSettings$3(it.unimi.dsi.fastutil.ints.Int2ObjectMap, boolean);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: invokedynamic #629,  0            // InvokeDynamic #44:accept:(Z)Lit/unimi/dsi/fastutil/ints/IntObjectBiConsumer;
+         7: invokeinterface #633,  2          // InterfaceMethod it/unimi/dsi/fastutil/ints/Int2ObjectMap.forEach:(Lit/unimi/dsi/fastutil/ints/IntObjectBiConsumer;)V
+        12: return
+
+  private static void lambda$acceptColorMipmapSettings$2(boolean, int, net.irisshaders.iris.shaderpack.properties.PackShadowDirectives$SamplingSettings);
+    Code:
+         0: aload_2
+         1: iload_0
+         2: invokevirtual #253                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.setMipmap:(Z)V
+         5: return
+
+  private static void lambda$acceptDepthMipmapSettings$1(com.google.common.collect.ImmutableList, boolean);
+    Code:
+         0: aload_0
+         1: invokevirtual #639                // Method com/google/common/collect/ImmutableList.iterator:()Lcom/google/common/collect/UnmodifiableIterator;
+         4: astore_2
+         5: aload_2
+         6: invokeinterface #644,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        11: ifeq          32
+        14: aload_2
+        15: invokeinterface #647,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        20: checkcast     #9                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings
+        23: astore_3
+        24: aload_3
+        25: iload_1
+        26: invokevirtual #253                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$SamplingSettings.setMipmap:(Z)V
+        29: goto          5
+        32: return
+
+  private static void lambda$acceptHardwareFilteringSettings$0(com.google.common.collect.ImmutableList, boolean);
+    Code:
+         0: aload_0
+         1: invokevirtual #639                // Method com/google/common/collect/ImmutableList.iterator:()Lcom/google/common/collect/UnmodifiableIterator;
+         4: astore_2
+         5: aload_2
+         6: invokeinterface #644,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        11: ifeq          32
+        14: aload_2
+        15: invokeinterface #647,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        20: checkcast     #7                  // class net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings
+        23: astore_3
+        24: aload_3
+        25: iload_1
+        26: invokevirtual #224                // Method net/irisshaders/iris/shaderpack/properties/PackShadowDirectives$DepthSamplingSettings.setHardwareFiltering:(Z)V
+        29: goto          5
+        32: return
+}

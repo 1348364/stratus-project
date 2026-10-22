@@ -1,0 +1,23 @@
+{
+  "inspected_screenshots": [
+    "qa-firefly-day",
+    "qa-firefly-night",
+    "qa-firefly-animation-1",
+    "qa-firefly-animation-2",
+    "qa-firefly-animation-3",
+    "qa-ore-pairs",
+    "qa-entity-shadows",
+    "qa-water-glass-slime",
+    "qa-rain",
+    "qa-underwater",
+    "qa-forest-scenery"
+  ],
+  "reported_defects_resolved": true,
+  "findings": {
+    "entity_shadows": "No circular shadow under cow, slime or dropped item, with entityShadows enabled.",
+    "ore_dampness": "Ore backing matches adjoining stone/deepslate dampness; colored mineral pixels remain visible.",
+    "firefly_bush": "Black crossed planes resolved with format-75 model-selection patch above the incompatible VanillaTweaks pack. Plant cutouts and moving firefly particles visible by day/night.",
+    "other_visual_checks": "No additional black rectangles or opaque transparency planes observed in the tested glass/slime/water/rain/underwater scenes. Nearby forest remains colored with distant fade.",
+    "held_item": "Capture attempted but HUD-hidden also hid the hand, so held-item visibility is not claimed."
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "baseline": "Released1.6.9 runtime in BaselineReference QA",
+  "candidate": "Released1.6.10 runtime in CandidateReference QA",
+  "same_override_files": true,
+  "explicit_overrides": {
+    "CLOUD_LAYERS": "2",
+    "MIST_DETAIL": "3",
+    "REFLECTION_MODE": "2",
+    "REFRACTION_QUALITY": "2",
+    "SKY_AMBIENT": "1.00",
+    "WATER_EXTINCTION": "1.15",
+    "WATER_RENDER_QUALITY": "2",
+    "WATER_TURBIDITY": "3.00",
+    "ATMOSPHERE_QUALITY": "2"
+  },
+  "full_quality": {
+    "WATER_RENDER_QUALITY": 2,
+    "ATMOSPHERE_QUALITY": 2,
+    "REFLECTION_MODE": 2,
+    "REFRACTION_QUALITY": 2,
+    "CLOUD_LAYERS": 2,
+    "MIST_DETAIL": 3
+  },
+  "unrelated_optics": "Same SKY_AMBIENT1, WATER_EXTINCTION1.15, WATER_TURBIDITY3",
+  "related_visual_defaults": "All nine underlying source defaults are identical across before/after; source controls audit confirms this",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "camera_river": [
+    166.1907,
+    65.9287,
+    32.5536,
+    108.45755,
+    38.829258
+  ],
+  "camera_forest": [
+    166.1907,
+    65.9287,
+    32.5536,
+    0,
+    4
+  ],
+  "weather_clear": true,
+  "world_time": 6000,
+  "saved_vsync": true,
+  "max_fps": 70,
+  "DynamicFPS_enabled": true,
+  "activity_reset": "Only when actual focus1, every5seconds; no saved config change",
+  "sampling": "30seconds Minecraft frame-end ring; focus/size every50ms main-thread poll",
+  "order": "River before1,after1,after2,before2; forest before,after",
+  "no_concurrent_native_GPU_tests_or_profiler": true
+}

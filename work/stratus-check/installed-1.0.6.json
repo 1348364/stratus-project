@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-16",
+  "files": [
+    {
+      "path": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.0.6.zip",
+      "sha256": "d1cb33eba13e253552c08ef746c7fcb66acfa6f1f80e2a342b7779e4d39358c8"
+    },
+    {
+      "path": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/resourcepacks/Stratus-Firefly-Compatibility-1.21.11.zip",
+      "sha256": "c80ad7585fddc04d1f3ef41c3325ed918f6088ec90f6e2f05632c7ec3ab005b0"
+    }
+  ],
+  "profile_options_changed": false,
+  "preserved_settings": "#Fri Oct 16 17:42:47 AEDT 2026\nSURFACE_DAMPNESS=0.65\n"
+}

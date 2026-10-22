@@ -1,0 +1,61 @@
+{
+  "world": "Stratus Shader Lab",
+  "function_commands": 2510,
+  "zones": {
+    "spawn_bridge": [
+      -3,
+      66,
+      -7
+    ],
+    "submerged_wood": [
+      12,
+      64,
+      12
+    ],
+    "materials": [
+      -62,
+      70,
+      -55
+    ],
+    "dampness_shelter": [
+      -62,
+      67,
+      -18
+    ],
+    "entities": [
+      -62,
+      67,
+      12
+    ],
+    "cave_tank": [
+      -61,
+      64,
+      51
+    ],
+    "swamp": [
+      60,
+      65,
+      -48
+    ],
+    "warm_ocean": [
+      60,
+      65,
+      0
+    ],
+    "cold_water": [
+      60,
+      65,
+      48
+    ],
+    "waterfall": [
+      27,
+      79,
+      54
+    ],
+    "cloud_platform": [
+      0,
+      171,
+      -78
+    ]
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "inspected": [
+    "landscape",
+    "entities",
+    "water-edge",
+    "underwater",
+    "interface",
+    "refraction",
+    "particles",
+    "rain-transparency",
+    "bloom-night",
+    "lowland-mist",
+    "cloud-inside",
+    "cloud-above",
+    "cirrus",
+    "water-through-cloud",
+    "fast-water",
+    "nether",
+    "end",
+    "return"
+  ],
+  "method": "Inspected all 18 unretouched Minecraft ScreenshotRecorder captures in three contact sheets, with full-size before/after landscape confirmation.",
+  "observations": [
+    "Opaque surfaces and entity lighting retain the same look; the floating test-pool roof also blocked skylight in the old build.",
+    "Water edges, submerged views and the interface remain continuous; refraction, rain/slime transparency and destruction particles remain visible.",
+    "Bloom remains localized to lights; lowland mist, main/upper clouds and water viewed through clouds remain correctly ordered.",
+    "Fast water, Nether and End captures showed no new artifacts.",
+    "Depth caching uses the existing RGBA16F metadata channel and retains exact central depth; half-resolution edge softening remains a practical limitation."
+  ]
+}

@@ -1,0 +1,724 @@
+Compiled from "DispatchingDirectiveHolder.java"
+public class net.irisshaders.iris.shaderpack.parsing.DispatchingDirectiveHolder implements net.irisshaders.iris.shaderpack.parsing.DirectiveHolder {
+  private final java.util.Map<java.lang.String, it.unimi.dsi.fastutil.booleans.BooleanConsumer> booleanConstVariables;
+
+  private final java.util.Map<java.lang.String, java.util.function.Consumer<java.lang.String>> stringConstVariables;
+
+  private final java.util.Map<java.lang.String, java.util.function.IntConsumer> intConstVariables;
+
+  private final java.util.Map<java.lang.String, it.unimi.dsi.fastutil.floats.FloatConsumer> floatConstVariables;
+
+  private final java.util.Map<java.lang.String, java.util.function.Consumer<org.joml.Vector2f>> vec2ConstVariables;
+
+  private final java.util.Map<java.lang.String, java.util.function.Consumer<org.joml.Vector3i>> ivec3ConstVariables;
+
+  private final java.util.Map<java.lang.String, java.util.function.Consumer<org.joml.Vector4f>> vec4ConstVariables;
+
+  public net.irisshaders.iris.shaderpack.parsing.DispatchingDirectiveHolder();
+    Code:
+         0: aload_0
+         1: invokespecial #39                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #41                 // class java/util/HashMap
+         8: dup
+         9: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        12: putfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+        15: aload_0
+        16: new           #41                 // class java/util/HashMap
+        19: dup
+        20: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        23: putfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+        26: aload_0
+        27: new           #41                 // class java/util/HashMap
+        30: dup
+        31: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        34: putfield      #48                 // Field intConstVariables:Ljava/util/Map;
+        37: aload_0
+        38: new           #41                 // class java/util/HashMap
+        41: dup
+        42: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        45: putfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+        48: aload_0
+        49: new           #41                 // class java/util/HashMap
+        52: dup
+        53: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        56: putfield      #52                 // Field vec2ConstVariables:Ljava/util/Map;
+        59: aload_0
+        60: new           #41                 // class java/util/HashMap
+        63: dup
+        64: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        67: putfield      #54                 // Field ivec3ConstVariables:Ljava/util/Map;
+        70: aload_0
+        71: new           #41                 // class java/util/HashMap
+        74: dup
+        75: invokespecial #42                 // Method java/util/HashMap."<init>":()V
+        78: putfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+        81: return
+
+  public void processDirective(net.irisshaders.iris.shaderpack.parsing.ConstDirectiveParser$ConstDirective);
+    Code:
+         0: aload_1
+         1: invokevirtual #67                 // Method net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective.getType:()Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+         4: astore_2
+         5: aload_1
+         6: invokevirtual #71                 // Method net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective.getKey:()Ljava/lang/String;
+         9: astore_3
+        10: aload_1
+        11: invokevirtual #74                 // Method net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective.getValue:()Ljava/lang/String;
+        14: astore        4
+        16: aload_2
+        17: getstatic     #78                 // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.BOOL:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+        20: if_acmpne     150
+        23: aload_0
+        24: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+        27: aload_3
+        28: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        33: checkcast     #86                 // class it/unimi/dsi/fastutil/booleans/BooleanConsumer
+        36: astore        5
+        38: aload         5
+        40: ifnull        103
+        43: ldc           #88                 // String true
+        45: aload         4
+        47: invokevirtual #94                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        50: ifeq          64
+        53: aload         5
+        55: iconst_1
+        56: invokeinterface #98,  2           // InterfaceMethod it/unimi/dsi/fastutil/booleans/BooleanConsumer.accept:(Z)V
+        61: goto          102
+        64: ldc           #100                // String false
+        66: aload         4
+        68: invokevirtual #94                 // Method java/lang/String.equals:(Ljava/lang/Object;)Z
+        71: ifeq          85
+        74: aload         5
+        76: iconst_0
+        77: invokeinterface #98,  2           // InterfaceMethod it/unimi/dsi/fastutil/booleans/BooleanConsumer.accept:(Z)V
+        82: goto          102
+        85: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+        88: aload_1
+        89: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        92: aload         4
+        94: invokedynamic #122,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        99: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       102: return
+       103: aload_0
+       104: ldc           #130                // String int
+       106: aload_0
+       107: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+       110: aload_1
+       111: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       114: aload_0
+       115: ldc           #130                // String int
+       117: aload_0
+       118: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+       121: aload_1
+       122: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       125: aload_0
+       126: ldc           #136                // String float
+       128: aload_0
+       129: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+       132: aload_1
+       133: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       136: aload_0
+       137: ldc           #138                // String vec4
+       139: aload_0
+       140: getfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+       143: aload_1
+       144: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       147: goto          1242
+       150: aload_2
+       151: getstatic     #141                // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.INT:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+       154: if_acmpne     278
+       157: aload_0
+       158: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+       161: aload_3
+       162: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       167: checkcast     #143                // class java/util/function/Consumer
+       170: astore        5
+       172: aload         5
+       174: ifnull        187
+       177: aload         5
+       179: aload         4
+       181: invokeinterface #146,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       186: return
+       187: aload_0
+       188: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+       191: aload_3
+       192: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       197: checkcast     #148                // class java/util/function/IntConsumer
+       200: astore        6
+       202: aload         6
+       204: ifnull        242
+       207: aload         6
+       209: aload         4
+       211: invokestatic  #154                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       214: invokeinterface #157,  2          // InterfaceMethod java/util/function/IntConsumer.accept:(I)V
+       219: goto          241
+       222: astore        7
+       224: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       227: aload_1
+       228: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       231: invokedynamic #162,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       236: aload         7
+       238: invokevirtual #165                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       241: return
+       242: aload_0
+       243: ldc           #167                // String bool
+       245: aload_0
+       246: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+       249: aload_1
+       250: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       253: aload_0
+       254: ldc           #136                // String float
+       256: aload_0
+       257: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+       260: aload_1
+       261: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       264: aload_0
+       265: ldc           #138                // String vec4
+       267: aload_0
+       268: getfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+       271: aload_1
+       272: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       275: goto          1242
+       278: aload_2
+       279: getstatic     #170                // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.FLOAT:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+       282: if_acmpne     387
+       285: aload_0
+       286: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+       289: aload_3
+       290: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       295: checkcast     #172                // class it/unimi/dsi/fastutil/floats/FloatConsumer
+       298: astore        5
+       300: aload         5
+       302: ifnull        340
+       305: aload         5
+       307: aload         4
+       309: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+       312: invokeinterface #181,  2          // InterfaceMethod it/unimi/dsi/fastutil/floats/FloatConsumer.accept:(F)V
+       317: goto          339
+       320: astore        6
+       322: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       325: aload_1
+       326: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       329: invokedynamic #162,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       334: aload         6
+       336: invokevirtual #165                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       339: return
+       340: aload_0
+       341: ldc           #167                // String bool
+       343: aload_0
+       344: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+       347: aload_1
+       348: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       351: aload_0
+       352: ldc           #130                // String int
+       354: aload_0
+       355: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+       358: aload_1
+       359: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       362: aload_0
+       363: ldc           #130                // String int
+       365: aload_0
+       366: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+       369: aload_1
+       370: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       373: aload_0
+       374: ldc           #138                // String vec4
+       376: aload_0
+       377: getfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+       380: aload_1
+       381: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       384: goto          1242
+       387: aload_2
+       388: getstatic     #184                // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.VEC2:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+       391: if_acmpne     666
+       394: aload_0
+       395: getfield      #52                 // Field vec2ConstVariables:Ljava/util/Map;
+       398: aload_3
+       399: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       404: checkcast     #143                // class java/util/function/Consumer
+       407: astore        5
+       409: aload         5
+       411: ifnull        619
+       414: aload         4
+       416: ldc           #186                // String vec2
+       418: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       421: ifne          439
+       424: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       427: aload_1
+       428: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       431: invokedynamic #193,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       436: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       439: aload         4
+       441: ldc           #186                // String vec2
+       443: invokevirtual #197                // Method java/lang/String.length:()I
+       446: invokevirtual #201                // Method java/lang/String.substring:(I)Ljava/lang/String;
+       449: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+       452: astore        6
+       454: aload         6
+       456: ldc           #206                // String (
+       458: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       461: ifeq          474
+       464: aload         6
+       466: ldc           #208                // String )
+       468: invokevirtual #211                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       471: ifne          489
+       474: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       477: aload_1
+       478: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       481: invokedynamic #193,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       486: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       489: aload         6
+       491: iconst_1
+       492: aload         6
+       494: invokevirtual #197                // Method java/lang/String.length:()I
+       497: iconst_1
+       498: isub
+       499: invokevirtual #214                // Method java/lang/String.substring:(II)Ljava/lang/String;
+       502: astore        6
+       504: aload         6
+       506: ldc           #216                // String ,
+       508: invokevirtual #220                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       511: astore        7
+       513: iconst_0
+       514: istore        8
+       516: iload         8
+       518: aload         7
+       520: arraylength
+       521: if_icmpge     543
+       524: aload         7
+       526: iload         8
+       528: aload         7
+       530: iload         8
+       532: aaload
+       533: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+       536: aastore
+       537: iinc          8, 1
+       540: goto          516
+       543: aload         7
+       545: arraylength
+       546: iconst_2
+       547: if_icmpeq     568
+       550: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       553: aload_1
+       554: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       557: aload         7
+       559: arraylength
+       560: invokedynamic #227,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+       565: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       568: aload         5
+       570: new           #229                // class org/joml/Vector2f
+       573: dup
+       574: aload         7
+       576: iconst_0
+       577: aaload
+       578: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+       581: aload         7
+       583: iconst_1
+       584: aaload
+       585: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+       588: invokespecial #232                // Method org/joml/Vector2f."<init>":(FF)V
+       591: invokeinterface #146,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       596: goto          618
+       599: astore        8
+       601: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       604: aload_1
+       605: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       608: invokedynamic #162,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       613: aload         8
+       615: invokevirtual #165                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       618: return
+       619: aload_0
+       620: ldc           #167                // String bool
+       622: aload_0
+       623: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+       626: aload_1
+       627: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       630: aload_0
+       631: ldc           #130                // String int
+       633: aload_0
+       634: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+       637: aload_1
+       638: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       641: aload_0
+       642: ldc           #130                // String int
+       644: aload_0
+       645: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+       648: aload_1
+       649: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       652: aload_0
+       653: ldc           #136                // String float
+       655: aload_0
+       656: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+       659: aload_1
+       660: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       663: goto          1242
+       666: aload_2
+       667: getstatic     #235                // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.IVEC3:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+       670: if_acmpne     952
+       673: aload_0
+       674: getfield      #54                 // Field ivec3ConstVariables:Ljava/util/Map;
+       677: aload_3
+       678: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       683: checkcast     #143                // class java/util/function/Consumer
+       686: astore        5
+       688: aload         5
+       690: ifnull        905
+       693: aload         4
+       695: ldc           #237                // String ivec3
+       697: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       700: ifne          718
+       703: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       706: aload_1
+       707: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       710: invokedynamic #240,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       715: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       718: aload         4
+       720: ldc           #237                // String ivec3
+       722: invokevirtual #197                // Method java/lang/String.length:()I
+       725: invokevirtual #201                // Method java/lang/String.substring:(I)Ljava/lang/String;
+       728: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+       731: astore        6
+       733: aload         6
+       735: ldc           #206                // String (
+       737: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       740: ifeq          753
+       743: aload         6
+       745: ldc           #208                // String )
+       747: invokevirtual #211                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+       750: ifne          768
+       753: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       756: aload_1
+       757: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       760: invokedynamic #240,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       765: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       768: aload         6
+       770: iconst_1
+       771: aload         6
+       773: invokevirtual #197                // Method java/lang/String.length:()I
+       776: iconst_1
+       777: isub
+       778: invokevirtual #214                // Method java/lang/String.substring:(II)Ljava/lang/String;
+       781: astore        6
+       783: aload         6
+       785: ldc           #216                // String ,
+       787: invokevirtual #220                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+       790: astore        7
+       792: iconst_0
+       793: istore        8
+       795: iload         8
+       797: aload         7
+       799: arraylength
+       800: if_icmpge     822
+       803: aload         7
+       805: iload         8
+       807: aload         7
+       809: iload         8
+       811: aaload
+       812: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+       815: aastore
+       816: iinc          8, 1
+       819: goto          795
+       822: aload         7
+       824: arraylength
+       825: iconst_3
+       826: if_icmpeq     847
+       829: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       832: aload_1
+       833: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       836: aload         7
+       838: arraylength
+       839: invokedynamic #243,  0            // InvokeDynamic #5:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+       844: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+       847: aload         5
+       849: new           #245                // class org/joml/Vector3i
+       852: dup
+       853: aload         7
+       855: iconst_0
+       856: aaload
+       857: invokestatic  #154                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       860: aload         7
+       862: iconst_1
+       863: aaload
+       864: invokestatic  #154                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       867: aload         7
+       869: iconst_2
+       870: aaload
+       871: invokestatic  #154                // Method java/lang/Integer.parseInt:(Ljava/lang/String;)I
+       874: invokespecial #248                // Method org/joml/Vector3i."<init>":(III)V
+       877: invokeinterface #146,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       882: goto          904
+       885: astore        8
+       887: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       890: aload_1
+       891: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       894: invokedynamic #162,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       899: aload         8
+       901: invokevirtual #165                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+       904: return
+       905: aload_0
+       906: ldc           #167                // String bool
+       908: aload_0
+       909: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+       912: aload_1
+       913: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       916: aload_0
+       917: ldc           #130                // String int
+       919: aload_0
+       920: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+       923: aload_1
+       924: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       927: aload_0
+       928: ldc           #130                // String int
+       930: aload_0
+       931: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+       934: aload_1
+       935: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       938: aload_0
+       939: ldc           #136                // String float
+       941: aload_0
+       942: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+       945: aload_1
+       946: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+       949: goto          1242
+       952: aload_2
+       953: getstatic     #251                // Field net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type.VEC4:Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$Type;
+       956: if_acmpne     1242
+       959: aload_0
+       960: getfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+       963: aload_3
+       964: invokeinterface #84,  2           // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+       969: checkcast     #143                // class java/util/function/Consumer
+       972: astore        5
+       974: aload         5
+       976: ifnull        1198
+       979: aload         4
+       981: ldc           #138                // String vec4
+       983: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+       986: ifne          1004
+       989: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       992: aload_1
+       993: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       996: invokedynamic #254,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      1001: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+      1004: aload         4
+      1006: ldc           #138                // String vec4
+      1008: invokevirtual #197                // Method java/lang/String.length:()I
+      1011: invokevirtual #201                // Method java/lang/String.substring:(I)Ljava/lang/String;
+      1014: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+      1017: astore        6
+      1019: aload         6
+      1021: ldc           #206                // String (
+      1023: invokevirtual #190                // Method java/lang/String.startsWith:(Ljava/lang/String;)Z
+      1026: ifeq          1039
+      1029: aload         6
+      1031: ldc           #208                // String )
+      1033: invokevirtual #211                // Method java/lang/String.endsWith:(Ljava/lang/String;)Z
+      1036: ifne          1054
+      1039: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+      1042: aload_1
+      1043: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      1046: invokedynamic #254,  0            // InvokeDynamic #6:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      1051: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+      1054: aload         6
+      1056: iconst_1
+      1057: aload         6
+      1059: invokevirtual #197                // Method java/lang/String.length:()I
+      1062: iconst_1
+      1063: isub
+      1064: invokevirtual #214                // Method java/lang/String.substring:(II)Ljava/lang/String;
+      1067: astore        6
+      1069: aload         6
+      1071: ldc           #216                // String ,
+      1073: invokevirtual #220                // Method java/lang/String.split:(Ljava/lang/String;)[Ljava/lang/String;
+      1076: astore        7
+      1078: iconst_0
+      1079: istore        8
+      1081: iload         8
+      1083: aload         7
+      1085: arraylength
+      1086: if_icmpge     1108
+      1089: aload         7
+      1091: iload         8
+      1093: aload         7
+      1095: iload         8
+      1097: aaload
+      1098: invokevirtual #204                // Method java/lang/String.trim:()Ljava/lang/String;
+      1101: aastore
+      1102: iinc          8, 1
+      1105: goto          1081
+      1108: aload         7
+      1110: arraylength
+      1111: iconst_4
+      1112: if_icmpeq     1133
+      1115: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+      1118: aload_1
+      1119: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      1122: aload         7
+      1124: arraylength
+      1125: invokedynamic #257,  0            // InvokeDynamic #7:makeConcatWithConstants:(Ljava/lang/String;I)Ljava/lang/String;
+      1130: invokevirtual #128                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;)V
+      1133: aload         5
+      1135: new           #259                // class org/joml/Vector4f
+      1138: dup
+      1139: aload         7
+      1141: iconst_0
+      1142: aaload
+      1143: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+      1146: aload         7
+      1148: iconst_1
+      1149: aaload
+      1150: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+      1153: aload         7
+      1155: iconst_2
+      1156: aaload
+      1157: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+      1160: aload         7
+      1162: iconst_3
+      1163: aaload
+      1164: invokestatic  #178                // Method java/lang/Float.parseFloat:(Ljava/lang/String;)F
+      1167: invokespecial #262                // Method org/joml/Vector4f."<init>":(FFFF)V
+      1170: invokeinterface #146,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+      1175: goto          1197
+      1178: astore        8
+      1180: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+      1183: aload_1
+      1184: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+      1187: invokedynamic #162,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      1192: aload         8
+      1194: invokevirtual #165                // Method net/irisshaders/iris/IrisLogging.error:(Ljava/lang/String;Ljava/lang/Throwable;)V
+      1197: return
+      1198: aload_0
+      1199: ldc           #167                // String bool
+      1201: aload_0
+      1202: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+      1205: aload_1
+      1206: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+      1209: aload_0
+      1210: ldc           #130                // String int
+      1212: aload_0
+      1213: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+      1216: aload_1
+      1217: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+      1220: aload_0
+      1221: ldc           #130                // String int
+      1223: aload_0
+      1224: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+      1227: aload_1
+      1228: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+      1231: aload_0
+      1232: ldc           #136                // String float
+      1234: aload_0
+      1235: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+      1238: aload_1
+      1239: invokevirtual #134                // Method typeCheckHelper:(Ljava/lang/String;Ljava/util/Map;Lnet/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective;)V
+      1242: return
+      Exception table:
+         from    to  target type
+           207   219   222   Class java/lang/NumberFormatException
+           305   317   320   Class java/lang/NumberFormatException
+           568   596   599   Class java/lang/NumberFormatException
+           847   882   885   Class java/lang/NumberFormatException
+          1133  1175  1178   Class java/lang/NumberFormatException
+
+  private void typeCheckHelper(java.lang.String, java.util.Map<java.lang.String, ?>, net.irisshaders.iris.shaderpack.parsing.ConstDirectiveParser$ConstDirective);
+    Code:
+         0: aload_2
+         1: aload_3
+         2: invokevirtual #71                 // Method net/irisshaders/iris/shaderpack/parsing/ConstDirectiveParser$ConstDirective.getKey:()Ljava/lang/String;
+         5: invokeinterface #292,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+        10: ifeq          29
+        13: getstatic     #106                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+        16: aload_3
+        17: invokestatic  #110                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+        20: aload_1
+        21: invokedynamic #295,  0            // InvokeDynamic #8:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+        26: invokevirtual #298                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+        29: return
+
+  public void acceptUniformDirective(java.lang.String, java.lang.Runnable);
+    Code:
+         0: return
+
+  public void acceptCommentStringDirective(java.lang.String, java.util.function.Consumer<java.lang.String>);
+    Code:
+         0: return
+
+  public void acceptCommentIntDirective(java.lang.String, java.util.function.IntConsumer);
+    Code:
+         0: return
+
+  public void acceptCommentFloatDirective(java.lang.String, it.unimi.dsi.fastutil.floats.FloatConsumer);
+    Code:
+         0: return
+
+  public void acceptConstBooleanDirective(java.lang.String, it.unimi.dsi.fastutil.booleans.BooleanConsumer);
+    Code:
+         0: aload_0
+         1: getfield      #44                 // Field booleanConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstStringDirective(java.lang.String, java.util.function.Consumer<java.lang.String>);
+    Code:
+         0: aload_0
+         1: getfield      #46                 // Field stringConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstIntDirective(java.lang.String, java.util.function.IntConsumer);
+    Code:
+         0: aload_0
+         1: getfield      #48                 // Field intConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstFloatDirective(java.lang.String, it.unimi.dsi.fastutil.floats.FloatConsumer);
+    Code:
+         0: aload_0
+         1: getfield      #50                 // Field floatConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstVec2Directive(java.lang.String, java.util.function.Consumer<org.joml.Vector2f>);
+    Code:
+         0: aload_0
+         1: getfield      #52                 // Field vec2ConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstIVec3Directive(java.lang.String, java.util.function.Consumer<org.joml.Vector3i>);
+    Code:
+         0: aload_0
+         1: getfield      #54                 // Field ivec3ConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+
+  public void acceptConstVec4Directive(java.lang.String, java.util.function.Consumer<org.joml.Vector4f>);
+    Code:
+         0: aload_0
+         1: getfield      #56                 // Field vec4ConstVariables:Ljava/util/Map;
+         4: aload_1
+         5: aload_2
+         6: invokeinterface #317,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+        11: pop
+        12: return
+}

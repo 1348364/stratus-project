@@ -1,0 +1,232 @@
+[07:21:52] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] READY: local world, HUD hidden
+[07:22:06] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 15
+[07:22:06] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[07:22:07] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:22:07] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed
+[07:22:11] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:22:11] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:22:11] [IO-Worker-70/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-baseline-sun-sky translation{key='screenshot.success', args=[literal{s167-baseline-sun-sky.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-baseline-sun-sky.png]}]]}
+[07:22:12] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 90 -8 creative-flight server confirmed
+[07:22:15] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:22:15] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:22:15] [IO-Worker-75/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-baseline-horizon translation{key='screenshot.success', args=[literal{s167-baseline-horizon.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-baseline-horizon.png]}]]}
+[07:22:16] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 4060.0000 105.0000 4070.0000 135 30 creative-flight server confirmed
+[07:22:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:22:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 105.0, 4070.0]
+[07:22:37] [IO-Worker-70/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-baseline-materials-clear translation{key='screenshot.success', args=[literal{s167-baseline-materials-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-baseline-materials-clear.png]}]]}
+[07:22:38] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather rain 300
+[07:22:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:22:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 105.0, 4070.0]
+[07:22:57] [IO-Worker-70/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-baseline-materials-rain translation{key='screenshot.success', args=[literal{s167-baseline-materials-rain.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-baseline-materials-rain.png]}]]}
+[07:24:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 33
+[07:24:22] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1.zip
+[07:24:24] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:24:24] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1.zip
+[07:24:29] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[07:24:50] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:24:51] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed
+[07:24:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:24:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:24:55] [IO-Worker-80/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-sun-sky translation{key='screenshot.success', args=[literal{s167-candidate-sun-sky.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-sun-sky.png]}]]}
+[07:24:56] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1-HaloOff.zip
+[07:24:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:24:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1-HaloOff.zip
+[07:25:02] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:25:06] [IO-Worker-79/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-halo-off translation{key='screenshot.success', args=[literal{s167-candidate-halo-off.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-halo-off.png]}]]}
+[07:25:07] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1-VanillaSun.zip
+[07:25:08] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:08] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1-VanillaSun.zip
+[07:25:13] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:16] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:16] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:25:16] [IO-Worker-80/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-vanilla-sun translation{key='screenshot.success', args=[literal{s167-candidate-vanilla-sun.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-vanilla-sun.png]}]]}
+[07:25:17] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-Baseline-CirrusOnly.zip
+[07:25:18] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:18] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-Baseline-CirrusOnly.zip
+[07:25:24] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:27] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:27] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:25:27] [IO-Worker-79/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-baseline-cirrus-only translation{key='screenshot.success', args=[literal{s167-baseline-cirrus-only.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-baseline-cirrus-only.png]}]]}
+[07:25:28] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1-CirrusOnly.zip
+[07:25:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1-CirrusOnly.zip
+[07:25:34] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:25:37] [IO-Worker-80/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-cirrus-only translation{key='screenshot.success', args=[literal{s167-candidate-cirrus-only.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-cirrus-only.png]}]]}
+[07:25:38] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1-CirrusOff.zip
+[07:25:39] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:39] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1-CirrusOff.zip
+[07:25:45] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:25:48] [IO-Worker-79/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-cirrus-off translation{key='screenshot.success', args=[literal{s167-candidate-cirrus-off.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-cirrus-off.png]}]]}
+[07:25:49] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v1.zip
+[07:25:49] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:25:49] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v1.zip
+[07:25:54] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:25:55] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 90 -8 creative-flight server confirmed
+[07:26:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:26:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:26:00] [IO-Worker-80/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-candidate-horizon translation{key='screenshot.success', args=[literal{s167-candidate-horizon.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-candidate-horizon.png]}]]}
+[07:27:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 57
+[07:27:44] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2.zip
+[07:27:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:27:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2.zip
+[07:27:52] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[07:27:52] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:27:53] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed
+[07:27:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:27:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:27:57] [IO-Worker-82/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-sun-sky translation{key='screenshot.success', args=[literal{s167-v2-sun-sky.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-sun-sky.png]}]]}
+[07:27:58] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-VanillaSun.zip
+[07:27:59] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:27:59] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-VanillaSun.zip
+[07:28:04] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:28:07] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:07] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[07:28:08] [IO-Worker-82/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-vanilla-sun translation{key='screenshot.success', args=[literal{s167-v2-vanilla-sun.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-vanilla-sun.png]}]]}
+[07:28:08] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2.zip
+[07:28:09] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:09] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2.zip
+[07:28:15] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:28:16] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 4060.0000 102.0000 4075.0000 135 12 creative-flight server confirmed
+[07:28:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[07:28:32] [IO-Worker-84/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-faces-both translation{key='screenshot.success', args=[literal{s167-v2-faces-both.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-faces-both.png]}]]}
+[07:28:32] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-NoVanillaFace.zip
+[07:28:34] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:34] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-NoVanillaFace.zip
+[07:28:40] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:28:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[07:28:43] [IO-Worker-82/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-faces-no-vanilla translation{key='screenshot.success', args=[literal{s167-v2-faces-no-vanilla.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-faces-no-vanilla.png]}]]}
+[07:28:44] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-NoRealisticFace.zip
+[07:28:45] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:45] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-NoRealisticFace.zip
+[07:28:50] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:28:54] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:54] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[07:28:54] [IO-Worker-84/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-faces-no-realistic translation{key='screenshot.success', args=[literal{s167-v2-faces-no-realistic.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-faces-no-realistic.png]}]]}
+[07:28:54] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-NoFaces.zip
+[07:28:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:28:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-NoFaces.zip
+[07:29:01] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:29:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:29:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[07:29:04] [IO-Worker-84/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-faces-off translation{key='screenshot.success', args=[literal{s167-v2-faces-off.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-faces-off.png]}]]}
+[07:29:05] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2.zip
+[07:29:06] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:29:06] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2.zip
+[07:29:11] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather rain 300
+[07:39:27] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:39:28] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 4060.0000 100.5000 4075.0000 135 0 creative-flight server confirmed
+[07:39:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:39:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[07:39:31] [IO-Worker-82/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-wet-default translation{key='screenshot.success', args=[literal{s167-v2-wet-default.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-wet-default.png]}]]}
+[07:39:32] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-WetOff.zip
+[07:39:34] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:39:34] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-WetOff.zip
+[07:39:40] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:39:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:39:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[07:39:43] [IO-Worker-82/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-wet-off translation{key='screenshot.success', args=[literal{s167-v2-wet-off.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-wet-off.png]}]]}
+[07:39:44] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-WetMax.zip
+[07:39:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:39:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-WetMax.zip
+[07:39:53] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:39:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:39:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[07:39:57] [IO-Worker-85/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-wet-max translation{key='screenshot.success', args=[literal{s167-v2-wet-max.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-wet-max.png]}]]}
+[07:39:57] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 4064.0000 103.0000 4080.0000 0 30 creative-flight server confirmed
+[07:40:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:40:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4064.0, 103.0, 4080.0]
+[07:40:01] [IO-Worker-86/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-metal-wet-max translation{key='screenshot.success', args=[literal{s167-v2-metal-wet-max.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-metal-wet-max.png]}]]}
+[07:40:01] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2-WetOff.zip
+[07:40:03] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:40:03] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2-WetOff.zip
+[07:52:40] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[07:52:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:52:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4064.0, 103.0, 4080.0]
+[07:52:44] [IO-Worker-86/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-metal-wet-off translation{key='screenshot.success', args=[literal{s167-v2-metal-wet-off.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-metal-wet-off.png]}]]}
+[07:52:44] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2.zip
+[07:52:45] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[07:52:45] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2.zip
+[07:52:51] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[08:08:21] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[08:08:22] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 4060.0000 100.5000 4075.0000 135 0 creative-flight server confirmed
+[08:08:25] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[08:08:25] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[08:08:25] [IO-Worker-86/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-wet-clear translation{key='screenshot.success', args=[literal{s167-v2-wet-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-wet-clear.png]}]]}
+[10:48:59] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 27
+[10:49:03] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7-QA-v2.zip
+[10:49:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7-QA-v2.zip
+[10:49:09] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[10:49:21] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 12500
+[10:49:21] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 90 -8 creative-flight server confirmed
+[10:49:25] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:25] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[10:49:26] [IO-Worker-108/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-sunset translation{key='screenshot.success', args=[literal{s167-v2-sunset.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-sunset.png]}]]}
+[10:49:26] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[10:49:27] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 64.5000 32.5000 0 18 creative-flight server confirmed
+[10:49:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 64.5, 32.5]
+[10:49:32] [IO-Worker-108/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-river translation{key='screenshot.success', args=[literal{s167-v2-river.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-river.png]}]]}
+[10:49:32] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed
+[10:49:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:49:37] [IO-Worker-108/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-underwater translation{key='screenshot.success', args=[literal{s167-v2-underwater.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-underwater.png]}]]}
+[10:49:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[10:49:38] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS root
+[10:49:39] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS LIGHTING
+[10:49:40] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:40] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:49:40] [IO-Worker-109/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-menu-lighting translation{key='screenshot.success', args=[literal{s167-v2-menu-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-menu-lighting.png]}]]}
+[10:49:40] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS SUN
+[10:49:41] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:41] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:49:41] [IO-Worker-109/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-menu-sun translation{key='screenshot.success', args=[literal{s167-v2-menu-sun.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-menu-sun.png]}]]}
+[10:49:42] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS CLOUDS
+[10:49:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:49:43] [IO-Worker-109/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-menu-clouds translation{key='screenshot.success', args=[literal{s167-v2-menu-clouds.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-menu-clouds.png]}]]}
+[10:49:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS MATERIALS
+[10:49:44] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:49:44] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:49:44] [IO-Worker-109/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-v2-menu-materials translation{key='screenshot.success', args=[literal{s167-v2-menu-materials.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-v2-menu-materials.png]}]]}
+[10:54:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 13
+[10:54:38] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[10:54:38] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS root
+[10:54:39] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS SUN
+[10:54:44] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:54:44] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:54:44] [IO-Worker-111/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-confirmed-menu-sun translation{key='screenshot.success', args=[literal{s167-confirmed-menu-sun.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-confirmed-menu-sun.png]}]]}
+[10:54:45] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS MATERIALS
+[10:54:50] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:54:50] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:54:50] [IO-Worker-111/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-confirmed-menu-materials translation{key='screenshot.success', args=[literal{s167-confirmed-menu-materials.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-confirmed-menu-materials.png]}]]}
+[10:54:51] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] OPTIONS LIGHTING
+[10:54:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[10:54:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[10:54:56] [IO-Worker-111/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-confirmed-menu-lighting translation{key='screenshot.success', args=[literal{s167-confirmed-menu-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-confirmed-menu-lighting.png]}]]}
+[11:04:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] QUEUED 14
+[11:04:08] [Render thread/INFO]: Using shaderpack: Stratus-1.6.7.zip
+[11:04:09] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[11:04:09] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] PACK Stratus-1.6.7.zip
+[11:04:14] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND weather clear 100000
+[11:04:15] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] COMMAND time set 6000
+[11:04:16] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 80.0000 40.5000 0 -65 creative-flight server confirmed
+[11:04:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[11:04:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 80.0, 40.5]
+[11:04:22] [IO-Worker-113/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-release-sun-sky translation{key='screenshot.success', args=[literal{s167-release-sun-sky.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-release-sun-sky.png]}]]}
+[11:04:22] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 164.5000 64.5000 32.5000 0 18 creative-flight server confirmed
+[11:04:27] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[11:04:27] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [164.5, 64.5, 32.5]
+[11:04:27] [IO-Worker-119/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-release-river translation{key='screenshot.success', args=[literal{s167-release-river.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-release-river.png]}]]}
+[11:04:28] [Server thread/INFO]: [STDOUT]: [STRATUS_QA167] CAMERA 153.5778 67.4308 49.6786 2892.165 36.336956 creative-flight server confirmed
+[11:04:32] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[11:04:32] [Render thread/INFO]: [STDOUT]: [STRATUS_QA167] VERIFIED_CAMERA [153.5778, 67.4308, 49.6786]
+[11:04:32] [IO-Worker-121/INFO]: [STDOUT]: [STRATUS_QA167] SCREENSHOT s167-release-restored-position translation{key='screenshot.success', args=[literal{s167-release-restored-position.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-167/screenshots/s167-release-restored-position.png]}]]}

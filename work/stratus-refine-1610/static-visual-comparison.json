@@ -1,0 +1,17 @@
+{
+  "scope": "Actual full-Reference matched camera, shader animation fixed17s and water texture0 in both QA packs; native game animation/particles continue",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "mean_RGB_code_error": 0.20690760534881675,
+  "max_RGB_code_error": 123.0,
+  "p99_RGB_code_error": 5.0,
+  "pixels_differing_more_than_1_code": 26774,
+  "pixels_total": 1212480,
+  "river_crop_mean_error": 0.6520703703703704,
+  "baseline_repeat_mean_code_error": 0.1816109681534266,
+  "candidate_repeat_mean_code_error": 0.20614470616697458,
+  "comparison_repeat_mean_code_error": 0.2654564748834345,
+  "limit": "The reflected foliage also changes between repeated captures of the same pack. Static shader time does not freeze every native game/camera input. This is finite visual comparison, not pixel equivalence."
+}

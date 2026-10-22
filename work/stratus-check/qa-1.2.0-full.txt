@@ -1,0 +1,203 @@
+PACK Stratus-1.2.0-reference.zip
+PACK Stratus-1.2.0.zip
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 6000
+CMD gamemode spectator ShaderCheck
+CMD tp ShaderCheck 36 120 -9 -50 25
+WAIT 2
+RESUME
+SHOT f120-form-top-sides
+CMD tp ShaderCheck 36 110 -9 -50 -20
+WAIT 2
+RESUME
+SHOT f120-form-undersides
+CMD fill 20 100 30 40 100 55 minecraft:stone
+CMD fill 24 100 30 26 100 55 minecraft:iron_ore
+CMD fill 30 100 30 32 100 55 minecraft:oak_planks
+CMD fill 36 100 30 38 100 55 minecraft:iron_block
+CMD tp ShaderCheck 30 101.2 26 0 9
+WAIT 2
+RESUME
+SHOT f120-wet-floor
+PACK Stratus-1.2.0-no-film.zip
+WAIT 2
+RESUME
+SHOT f120-no-film-floor
+PACK Stratus-1.2.0-dry.zip
+WAIT 2
+RESUME
+SHOT f120-dry-floor
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 0 98 -7 180 22
+WAIT 2
+RESUME
+SHOT f120-mixed-materials
+CMD tp ShaderCheck -8 100 2 0 12
+WAIT 2
+RESUME
+SHOT f120-entities-day
+CMD fill 70 100 0 82 108 12 minecraft:stone hollow
+CMD summon minecraft:sheep 74 101 8 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["stratus_120"]}
+CMD summon minecraft:cow 78 101 8 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Tags:["stratus_120"]}
+CMD time set 18000
+CMD tp ShaderCheck 76 102 3 0 8
+WAIT 2
+RESUME
+SHOT f120-entities-dark-room
+CMD setblock 76 103 7 minecraft:lantern
+WAIT 2
+RESUME
+SHOT f120-entities-lantern-room
+CMD tp ShaderCheck 0 96 5 0 10
+WAIT 2
+RESUME
+SHOT f120-bloom-night
+PACK Stratus-1.2.0-no-bloom.zip
+WAIT 2
+RESUME
+SHOT f120-bloom-off
+PACK Stratus-1.2.0-radius-small.zip
+WAIT 2
+RESUME
+SHOT f120-bloom-small-radius
+PACK Stratus-1.2.0.zip
+WAIT 2
+RESUME
+SHOT f120-firefly-night
+CMD time set 6000
+CMD tp ShaderCheck -18 108 -4 -35 35
+WAIT 2
+RESUME
+SHOT f120-water-user-clarity
+PACK Stratus-1.2.0-clear4.zip
+WAIT 2
+RESUME
+SHOT f120-water-clarity4
+CMD tp ShaderCheck -18 100 -4 -35 8
+WAIT 2
+RESUME
+SHOT f120-water-sides
+CMD tp ShaderCheck 13 90 -3 0 0
+WAIT 2
+RESUME
+SHOT f120-underwater-clarity4
+CMD tp ShaderCheck 13 91.9 -3 0 -20
+WAIT 2
+RESUME
+SHOT f120-underwater-interface
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 0 97 5 0 5
+CMD kill @e[tag=stratus_qa_projectile]
+CMD summon minecraft:snowball -1 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+CMD summon minecraft:egg 0 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+CMD summon minecraft:ender_pearl 1 98.3 9 {NoGravity:1b,Tags:["stratus_qa_projectile"],Motion:[0.01d,0d,0d]}
+WAIT 1
+RESUME
+SHOT f120-thrown-items
+CMD setblock 0 97 9 minecraft:stone
+CMD setblock 0 97 9 minecraft:air destroy
+RESUME
+SHOT f120-breaking-particles
+CMD particle minecraft:smoke 0 98 9 0.5 0.5 0.5 0.01 180 force ShaderCheck
+SHOT f120-smoke-particles
+CMD kill @e[tag=stratus_qa_projectile]
+CMD tp ShaderCheck 13 97 -4 0 17
+CMD weather rain
+WAIT 2
+RESUME
+SHOT f120-rain-transparency
+CMD weather clear
+CMD tp ShaderCheck 0 99 -10 0 47
+WAIT 2
+RESUME
+SHOT f120-overview-mist
+CMD tp ShaderCheck 200 140 200 0 -70
+WAIT 2
+RESUME
+SHOT f120-sun-noon
+CMD time set 3000
+CMD tp ShaderCheck 200 140 200 -90 -45
+WAIT 2
+RESUME
+SHOT f120-sun-morning-east
+CMD tp ShaderCheck 200 140 200 90 -45
+WAIT 2
+RESUME
+SHOT f120-sun-morning-west
+CMD time set 11800
+CMD tp ShaderCheck 200 140 200 90 -3
+WAIT 2
+RESUME
+SHOT f120-sunset
+CMD time set 18000
+CMD tp ShaderCheck 200 140 200 0 -25
+WAIT 2
+RESUME
+SHOT f120-clouds-night
+CMD time set 6000
+CMD tp ShaderCheck 200 140 200 0 -25
+WAIT 2
+RESUME
+SHOT f120-clouds-below
+CMD tp ShaderCheck 200 191 200 0 0
+WAIT 2
+RESUME
+SHOT f120-clouds-inside
+CMD tp ShaderCheck 200 245 200 0 35
+WAIT 2
+RESUME
+SHOT f120-clouds-above
+CMD tp ShaderCheck 225 235 200 0 30
+WAIT 2
+RESUME
+SHOT f120-clouds-parallax
+PACK Stratus-1.2.0-fast.zip
+CMD tp ShaderCheck 200 140 200 0 -25
+WAIT 2
+RESUME
+SHOT f120-fast-profile
+PACK Stratus-1.2.0-reference.zip
+WAIT 2
+RESUME
+SHOT f120-reference-profile
+PACK Stratus-1.2.0.zip
+CMD tp ShaderCheck 0 97 5 0 20
+CMD gamemode creative ShaderCheck
+CMD item replace entity ShaderCheck weapon.mainhand with minecraft:iron_pickaxe
+HUD show
+WAIT 2
+RESUME
+SHOT f120-held-item
+HUD hide
+CMD gamemode spectator ShaderCheck
+CMD effect give ShaderCheck minecraft:blindness 10 0 true
+WAIT 2
+RESUME
+SHOT f120-blindness
+CMD effect clear ShaderCheck
+CMD execute in minecraft:the_nether run fill -8 100 -8 8 108 8 minecraft:air
+CMD execute in minecraft:the_nether run fill -8 100 -8 8 100 8 minecraft:netherrack
+CMD execute in minecraft:the_nether run setblock -2 101 2 minecraft:glowstone
+CMD execute in minecraft:the_nether run fill 2 101 0 5 103 3 minecraft:lava
+CMD execute in minecraft:the_nether run tp ShaderCheck 0 103 -5 0 18
+WAIT 5
+RESUME
+SHOT f120-nether
+CMD tp ShaderCheck 3 101 1 0 0
+WAIT 2
+RESUME
+SHOT f120-lava
+CMD execute in minecraft:the_end run fill -8 120 -8 8 120 8 minecraft:end_stone
+CMD execute in minecraft:the_end run fill -3 121 3 -2 127 4 minecraft:obsidian
+CMD execute in minecraft:the_end run setblock 2 121 3 minecraft:end_rod
+CMD execute in minecraft:the_end run tp ShaderCheck 0 123 -5 0 18
+WAIT 5
+RESUME
+SHOT f120-end
+CMD execute in minecraft:overworld run tp ShaderCheck 0 98 -7 180 22
+WAIT 5
+RESUME
+SHOT f120-overworld-return
+STATE
+DONE f120-full-suite

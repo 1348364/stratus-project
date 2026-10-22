@@ -1,0 +1,33 @@
+{
+  "inspected": [
+    "clouds-below",
+    "clouds-inside",
+    "clouds-above",
+    "sky-light",
+    "overview",
+    "water-sides",
+    "water-top",
+    "underwater",
+    "underwater-interface",
+    "materials",
+    "thrown-items",
+    "block-breaking-particles",
+    "smoke-particles",
+    "bloom-night",
+    "rain-glass-slime",
+    "held-item"
+  ],
+  "reported_features_implemented": true,
+  "observations": {
+    "ao": "Default/max 1.00; corner shading visible and zero-AO comparison reduces it.",
+    "water": "Top, side and underwater share the same absorption/tint; no over-blue overlap patches in the final test.",
+    "clouds": "Thin world-height overcast layer with fog within it, soft below/above views and the retained distant sky bands.",
+    "light_leak": "Broad subtle sky opening; GPU radiance increase confirmed.",
+    "bloom": "Restrained bright-pixel glow on lanterns; on/off comparison inspected.",
+    "particles": "Snowball, egg and ender pearl visible with motion; stone destruction fragments and smoke sprites rendered with proper cutouts.",
+    "dampness": "Mixed outdoor blocks including concrete, ore, netherrack, wool and chest dampen uniformly; no procedural damp noise.",
+    "face_shading": "Small diffuse face brightness/tint differences; no added hard shadows.",
+    "held_item": "Iron pickaxe visible with HUD shown.",
+    "limits": "Cloud lighting, water thickness and sky exposure are approximations; no full normal-profile mod-stack or FPS test."
+  }
+}

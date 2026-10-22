@@ -1,0 +1,12 @@
+73612  41.8  5.5 /Users/william.lei/Library/Application Support/ModrinthApp/meta/java_versions/zulu21.44.17-ca-jre21.0.8-macosx_aarch64/zulu-21.jre/Contents/Home/bin/java
+  669  12.5  0.5 /System/Library/PrivateFrameworks/SkyLight.framework/Resources/WindowServer
+  850  11.6  0.2 /usr/sbin/coreaudiod
+92925  11.0  1.1 /Applications/ChatGPT.app/Contents/Resources/codex-cli/CodexCLI.app/Contents/MacOS/codex
+ 1076   8.5  0.2 /System/Library/PrivateFrameworks/CoreSpeech.framework/corespeechd
+    1   7.8  0.1 /sbin/launchd
+  775   3.8  0.4 /System/Library/DriverExtensions/com.apple.DriverKit-AppleBCMWLAN.dext/com.apple.DriverKit-AppleBCMWLAN
+87453   3.4  0.2 /Library/Frameworks/Python.framework/Versions/3.14/Resources/Python.app/Contents/MacOS/Python
+76661   2.8  0.1 /System/Library/Frameworks/WebKit.framework/Versions/A/XPCServices/com.apple.WebKit.WebContent.xpc/Contents/MacOS/com.apple.WebKit.WebContent
+65530   2.0  0.7 /Applications/Agent HUD.app/Contents/MacOS/Agent HUD
+76645   1.9  0.2 /Applications/Superhuman Go.app/Contents/Frameworks/ProjectLlamaContent.framework/Versions/A/Frameworks/WebUI.framework/Versions/A/Helpers/Superhuman Web UI.app/Contents/MacOS/app_inkwell
+69985   1.9  0.2 /Applications/Visual Studio Code.app/Contents/Frameworks/Code Helper.app/Contents/MacOS/Code Helper

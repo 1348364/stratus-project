@@ -1,0 +1,15 @@
+[
+  "package.py",
+  "SOURCE-MANIFEST.json",
+  "IN-GAME-TEST.txt",
+  "VALIDATION.txt",
+  "CHECKS.json",
+  "README.txt",
+  "shaders/shaders.properties",
+  "shaders/core/options.glsl",
+  "shaders/core/lake.frag.glsl",
+  "shaders/core/raster.frag.glsl",
+  "shaders/core/diffuse.glsl",
+  "shaders/core/moisture.glsl",
+  "shaders/lang/en_us.lang"
+]

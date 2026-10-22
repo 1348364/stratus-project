@@ -1,0 +1,82 @@
+[
+  {
+    "name": "options-root",
+    "group": "Settings",
+    "note": "Actual Iris category screen and quality profiles."
+  },
+  {
+    "name": "options-water",
+    "group": "Settings",
+    "note": "Actual Iris water menu, with all retained and new controls."
+  },
+  {
+    "name": "options-reflections",
+    "group": "Settings",
+    "note": "Actual Iris reflections menu, with all retained and new controls."
+  },
+  {
+    "name": "options-refraction",
+    "group": "Settings",
+    "note": "Actual Iris refraction menu, with all retained and new controls."
+  },
+  {
+    "name": "options-waves",
+    "group": "Settings",
+    "note": "Actual Iris waves menu, with all retained and new controls."
+  },
+  {
+    "name": "options-lighting",
+    "group": "Settings",
+    "note": "Actual Iris lighting menu, with all retained and new controls."
+  },
+  {
+    "name": "options-atmosphere",
+    "group": "Settings",
+    "note": "Actual Iris atmosphere menu, with all retained and new controls."
+  },
+  {
+    "name": "options-clouds",
+    "group": "Settings",
+    "note": "Actual Iris clouds menu, with all retained and new controls."
+  },
+  {
+    "name": "options-sun",
+    "group": "Settings",
+    "note": "Actual Iris sun menu, with all retained and new controls."
+  },
+  {
+    "name": "options-fog",
+    "group": "Settings",
+    "note": "Actual Iris fog menu, with all retained and new controls."
+  },
+  {
+    "name": "options-materials",
+    "group": "Settings",
+    "note": "Actual Iris materials menu, with all retained and new controls."
+  },
+  {
+    "name": "options-post",
+    "group": "Settings",
+    "note": "Actual Iris post menu, with all retained and new controls."
+  },
+  {
+    "name": "options-performance",
+    "group": "Settings",
+    "note": "Actual Iris performance menu, with all retained and new controls."
+  },
+  {
+    "name": "underwater-window",
+    "group": "Water",
+    "note": "Underwater view toward a timber post crossing the water/air boundary; opposite IOR direction."
+  },
+  {
+    "name": "custom-sun",
+    "group": "Sky",
+    "note": "Custom sun direction and cloud-filtered warm light from near ground height."
+  },
+  {
+    "name": "release-open",
+    "group": "Regression",
+    "note": "Final isolated client left open at the submerged wood fixture after the projectile recheck."
+  }
+]

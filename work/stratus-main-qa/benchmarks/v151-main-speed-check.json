@@ -1,0 +1,1 @@
+{"tag":"v151-main-speed-check","frames":139,"sampled_seconds":19.6686,"average_fps":7.0671,"median_frame_ms":125.8896,"p95_frame_ms":228.5795,"p99_frame_ms":254.1085,"one_percent_low_fps":2.1765,"method":"MinecraftClient render-head to render-head monotonic wall intervals"}

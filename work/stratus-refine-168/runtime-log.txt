@@ -1,0 +1,1594 @@
+[23:50:19] [Attach Listener/INFO]: [STDERR]: WARNING: A Java agent has been loaded dynamically (/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/agent/live-agent.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[23:50:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] READY: local world, HUD hidden
+[23:51:53] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] QUEUED 49
+[23:51:53] [Server thread/INFO]: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000
+[23:51:53] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4060.0000 100.5000 4075.0000 135 0 creative-flight server confirmed
+[23:51:53] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000]
+[23:52:00] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:52:01] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:52:01] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-Baseline.zip
+[23:52:01] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:52:02] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:52:02] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:02] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:03] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:03] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:03] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:03] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:52:03] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:03] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-Baseline.zip
+[23:52:04] [Render thread/INFO]: Stopping worker threads
+[23:52:04] [Render thread/INFO]: Started 2 worker threads
+[23:52:12] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:12] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:52:12] [IO-Worker-161/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-baseline-clear translation{key='screenshot.success', args=[literal{s168-baseline-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-baseline-clear.png]}]]}
+[23:52:12] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:52:12] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:52:13] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-RainOnly.zip
+[23:52:13] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:52:13] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:52:13] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:13] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:14] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:14] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:14] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:14] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:52:14] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:14] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-RainOnly.zip
+[23:52:14] [Render thread/INFO]: Stopping worker threads
+[23:52:14] [Render thread/INFO]: Started 2 worker threads
+[23:52:23] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:23] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:52:23] [IO-Worker-161/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-rain-only-clear translation{key='screenshot.success', args=[literal{s168-rain-only-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-rain-only-clear.png]}]]}
+[23:52:24] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:52:24] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:52:24] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-AllWeather.zip
+[23:52:24] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:52:24] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:52:24] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:24] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:26] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:26] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:26] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:26] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:52:26] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:26] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-AllWeather.zip
+[23:52:26] [Render thread/INFO]: Stopping worker threads
+[23:52:26] [Render thread/INFO]: Started 2 worker threads
+[23:52:35] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:35] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:52:35] [IO-Worker-161/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-all-weather-clear translation{key='screenshot.success', args=[literal{s168-all-weather-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-all-weather-clear.png]}]]}
+[23:52:36] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:52:36] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:52:37] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-WetOff.zip
+[23:52:37] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:52:37] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:52:37] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:37] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:38] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:38] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:38] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:38] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:52:38] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:38] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-WetOff.zip
+[23:52:38] [Render thread/INFO]: Stopping worker threads
+[23:52:38] [Render thread/INFO]: Started 2 worker threads
+[23:52:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:52:47] [IO-Worker-164/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-wet-off-clear translation{key='screenshot.success', args=[literal{s168-wet-off-clear.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-wet-off-clear.png]}]]}
+[23:52:47] [Server thread/INFO]: Teleported Uperion1K to 4060.000000, 102.000000, 4075.000000
+[23:52:47] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4060.0000 102.0000 4075.0000 135 0 creative-flight server confirmed
+[23:52:47] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4060.000000, 102.000000, 4075.000000]
+[23:52:53] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:52:53] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:52:53] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-VanillaLighting.zip
+[23:52:53] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:52:53] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:52:53] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:53] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:54] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:54] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:54] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:52:54] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:52:54] [Render thread/INFO]: Stopping worker threads
+[23:52:54] [Render thread/INFO]: Started 2 worker threads
+[23:52:54] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:52:54] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-VanillaLighting.zip
+[23:52:54] [Render thread/INFO]: Stopping worker threads
+[23:52:54] [Render thread/INFO]: Started 2 worker threads
+[23:53:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:05] [IO-Worker-161/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-vanilla-lighting translation{key='screenshot.success', args=[literal{s168-vanilla-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-vanilla-lighting.png]}]]}
+[23:53:05] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:53:05] [Render thread/INFO]: Shaders are disabled because enableShaders is set to false in iris.properties
+[23:53:05] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:53:05] [Render thread/INFO]: Stopping worker threads
+[23:53:05] [Render thread/INFO]: Started 2 worker threads
+[23:53:06] [Render thread/WARN]: Program link log for sodium:chunk_shader: WARNING: Output of vertex shader 'v_Material' not read by fragment shader
+
+[23:53:17] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:17] [IO-Worker-164/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-game-vanilla-reference translation{key='screenshot.success', args=[literal{s168-game-vanilla-reference.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-game-vanilla-reference.png]}]]}
+[23:53:18] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:53:18] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:53:18] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-AllWeather.zip
+[23:53:18] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:53:18] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:53:18] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:18] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:19] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:19] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:19] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:53:19] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:53:19] [Render thread/INFO]: [Bedrockify] The condition matches. BedrockIfy Sun Glare Shading is now disabled.
+[23:53:19] [Render thread/INFO]: Stopping worker threads
+[23:53:19] [Render thread/INFO]: Started 2 worker threads
+[23:53:19] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:19] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-AllWeather.zip
+[23:53:19] [Render thread/INFO]: Stopping worker threads
+[23:53:19] [Render thread/INFO]: Started 2 worker threads
+[23:53:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:29] [IO-Worker-166/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-enhanced-lighting translation{key='screenshot.success', args=[literal{s168-enhanced-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-enhanced-lighting.png]}]]}
+[23:53:30] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[23:53:30] [Server thread/INFO]: Saving and pausing game...
+[23:53:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:overworld
+[23:53:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_nether
+[23:53:30] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_end
+[23:53:30] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS root
+[23:53:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS LIGHTING
+[23:53:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:37] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-lighting translation{key='screenshot.success', args=[literal{s168-menu-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-lighting.png]}]]}
+[23:53:37] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS FACE_LIGHTING
+[23:53:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:43] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-face translation{key='screenshot.success', args=[literal{s168-menu-face.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-face.png]}]]}
+[23:53:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS MATERIALS
+[23:53:49] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:49] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:49] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-materials translation{key='screenshot.success', args=[literal{s168-menu-materials.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-materials.png]}]]}
+[23:53:49] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS CLOUDS
+[23:53:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:53:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:53:55] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-clouds translation{key='screenshot.success', args=[literal{s168-menu-clouds.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-clouds.png]}]]}
+[23:53:55] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS CIRRUS
+[23:54:01] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:54:01] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:54:01] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-cirrus translation{key='screenshot.success', args=[literal{s168-menu-cirrus.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-cirrus.png]}]]}
+[23:54:01] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS POST
+[23:54:07] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:54:07] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:54:07] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-post translation{key='screenshot.success', args=[literal{s168-menu-post.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-post.png]}]]}
+[23:54:08] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS PERFORMANCE
+[23:54:13] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:54:13] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:54:13] [IO-Worker-167/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-menu-performance translation{key='screenshot.success', args=[literal{s168-menu-performance.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-menu-performance.png]}]]}
+[23:57:05] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] QUEUED 25
+[23:57:06] [Server thread/INFO]: Teleported Uperion1K to 4060.000000, 102.000000, 4075.000000
+[23:57:06] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4060.0000 102.0000 4075.0000 135 0 creative-flight server confirmed
+[23:57:06] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4060.000000, 102.000000, 4075.000000]
+[23:57:06] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:57:06] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:57:07] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-FinalVanilla.zip
+[23:57:07] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:57:07] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:57:07] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:07] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:08] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:08] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:08] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:08] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:57:08] [Render thread/INFO]: Stopping worker threads
+[23:57:08] [Render thread/INFO]: Started 2 worker threads
+[23:57:08] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:08] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-FinalVanilla.zip
+[23:57:08] [Render thread/INFO]: Stopping worker threads
+[23:57:08] [Render thread/INFO]: Started 2 worker threads
+[23:57:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:21] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:57:22] [IO-Worker-168/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-vanilla-lighting translation{key='screenshot.success', args=[literal{s168-final-vanilla-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-vanilla-lighting.png]}]]}
+[23:57:22] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[23:57:22] [Server thread/INFO]: Saving and pausing game...
+[23:57:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:overworld
+[23:57:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_nether
+[23:57:22] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_end
+[23:57:23] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS root
+[23:57:24] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS LIGHTING
+[23:57:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:29] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 102.0, 4075.0]
+[23:57:29] [IO-Worker-168/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-menu-vanilla translation{key='screenshot.success', args=[literal{s168-final-menu-vanilla.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-menu-vanilla.png]}]]}
+[23:57:30] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:57:30] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[23:57:30] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-Final.zip
+[23:57:30] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[23:57:30] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[23:57:30] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:30] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[23:57:31] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[23:57:31] [Render thread/INFO]: Stopping worker threads
+[23:57:31] [Render thread/INFO]: Started 2 worker threads
+[23:57:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:31] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-Final.zip
+[23:57:31] [Render thread/INFO]: Stopping worker threads
+[23:57:31] [Render thread/INFO]: Started 2 worker threads
+[23:57:36] [Server thread/INFO]: Teleported Uperion1K to 164.500000, 64.500000, 32.500000
+[23:57:36] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 164.5000 64.5000 32.5000 0 18 creative-flight server confirmed
+[23:57:37] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 164.500000, 64.500000, 32.500000]
+[23:57:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [164.5, 64.5, 32.5]
+[23:57:46] [IO-Worker-168/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-river translation{key='screenshot.success', args=[literal{s168-final-river.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-river.png]}]]}
+[23:57:47] [Server thread/INFO]: Teleported Uperion1K to 164.500000, 60.000000, 40.500000
+[23:57:47] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed
+[23:57:47] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 164.500000, 60.000000, 40.500000]
+[23:57:52] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:52] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [164.5, 60.0, 40.5]
+[23:57:52] [IO-Worker-168/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-underwater translation{key='screenshot.success', args=[literal{s168-final-underwater.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-underwater.png]}]]}
+[23:57:53] [Server thread/INFO]: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000
+[23:57:53] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4060.0000 100.5000 4075.0000 135 0 creative-flight server confirmed
+[23:57:53] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000]
+[23:57:58] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:57:58] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:57:58] [IO-Worker-169/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-clear-film translation{key='screenshot.success', args=[literal{s168-final-clear-film.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-clear-film.png]}]]}
+[23:57:59] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[23:57:59] [Server thread/INFO]: Saving and pausing game...
+[23:57:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:overworld
+[23:57:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_nether
+[23:57:59] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_end
+[23:58:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS root
+[23:58:00] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS MATERIALS
+[23:58:06] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[23:58:06] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[23:58:06] [IO-Worker-169/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-menu-materials translation{key='screenshot.success', args=[literal{s168-final-menu-materials.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-menu-materials.png]}]]}
+[23:58:06] [Attach Listener/INFO]: [STDERR]: WARNING: A Java agent has been loaded dynamically (/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/agent/metrics.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[23:59:59] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] QUEUED 3
+[23:59:59] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[23:59:59] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+
+# Log rotated at midnight into latest.log
+[00:00:00] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-FinalVanilla.zip
+[00:00:00] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[00:00:00] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[00:00:00] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:00] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:01] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:01] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:01] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:01] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[00:00:01] [Render thread/INFO]: Stopping worker threads
+[00:00:01] [Render thread/INFO]: Started 2 worker threads
+[00:00:01] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:00:01] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-FinalVanilla.zip
+[00:00:01] [Render thread/INFO]: Stopping worker threads
+[00:00:01] [Render thread/INFO]: Started 2 worker threads
+[00:00:46] [Attach Listener/INFO]: [STDERR]: WARNING: A Java agent has been loaded dynamically (/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/agent/metrics.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[00:00:47] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] QUEUED 19
+[00:00:47] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[00:00:47] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[00:00:47] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-Baseline.zip
+[00:00:47] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[00:00:47] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[00:00:47] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:47] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:48] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:48] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:48] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:00:48] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[00:00:48] [Render thread/INFO]: Stopping worker threads
+[00:00:48] [Render thread/INFO]: Started 2 worker threads
+[00:00:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:00:48] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-Baseline.zip
+[00:00:48] [Render thread/INFO]: Stopping worker threads
+[00:00:48] [Render thread/INFO]: Started 2 worker threads
+[00:00:53] [Server thread/INFO]: Teleported Uperion1K to 164.500000, 80.000000, 32.500000
+[00:00:53] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 164.5000 80.0000 32.5000 0 35 creative-flight server confirmed
+[00:00:53] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 164.500000, 80.000000, 32.500000]
+[00:01:15] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:15] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [164.5, 80.0, 32.5]
+[00:01:15] [IO-Worker-175/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-baseline-river-overview translation{key='screenshot.success', args=[literal{s168-baseline-river-overview.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-baseline-river-overview.png]}]]}
+[00:01:16] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[00:01:16] [Render thread/INFO]: Profile: Custom (+0 options changed by user)
+[00:01:16] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8-QA-Final.zip
+[00:01:16] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[00:01:16] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[00:01:16] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:16] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:17] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:17] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:17] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:17] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[00:01:17] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:17] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8-QA-Final.zip
+[00:01:17] [Render thread/INFO]: Stopping worker threads
+[00:01:17] [Render thread/INFO]: Started 2 worker threads
+[00:01:30] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:30] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [164.5, 80.0, 32.5]
+[00:01:30] [IO-Worker-169/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-final-river-overview translation{key='screenshot.success', args=[literal{s168-final-river-overview.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-final-river-overview.png]}]]}
+[00:01:31] [Render thread/INFO]: Destroying pipeline minecraft:overworld
+[00:01:31] [Render thread/INFO]: Profile: Custom (+2 options changed by user)
+[00:01:31] [Render thread/INFO]: Using shaderpack: Stratus-1.6.8.zip
+[00:01:31] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+[00:01:31] [Render thread/WARN]: Program link log for centerDepthSmooth: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+
+[00:01:31] [Render thread/WARN]: Program link log for deferred: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for deferred1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite1: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite2: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite3: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite4: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite5: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for composite6: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:31] [Render thread/WARN]: Program link log for final: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:32] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:32] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_terrain_cutout: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:32] [Render thread/WARN]: Program link log for sodium:chunk_shader_for_translucent: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'iris_FogFragCoord' not read by fragment shader
+
+[00:01:32] [Render thread/WARN]: Program link log for colorSpaceFragment: WARNING: Could not find vertex shader attribute 'at_tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_midTexCoord' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'UV0' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'iris_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'at_midBlock' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'mc_Entity' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'Position' to match BindAttributeLocation request.
+WARNING: Output of vertex shader 'uv' not read by fragment shader
+
+[00:01:32] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:32] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] PACK Stratus-1.6.8.zip
+[00:01:32] [Render thread/INFO]: Stopping worker threads
+[00:01:32] [Render thread/INFO]: Started 2 worker threads
+[00:01:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:46] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [164.5, 80.0, 32.5]
+[00:01:46] [IO-Worker-169/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-release-river translation{key='screenshot.success', args=[literal{s168-release-river.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-release-river.png]}]]}
+[00:01:47] [Server thread/INFO]: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000
+[00:01:47] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4060.0000 100.5000 4075.0000 135 0 creative-flight server confirmed
+[00:01:47] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4060.000000, 100.500000, 4075.000000]
+[00:01:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:01:56] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[00:01:56] [IO-Worker-174/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-release-clear-film translation{key='screenshot.success', args=[literal{s168-release-clear-film.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-release-clear-film.png]}]]}
+[00:01:57] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] MENU net.irisshaders.iris.gui.screen.ShaderPackScreen
+[00:01:57] [Server thread/INFO]: Saving and pausing game...
+[00:01:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:overworld
+[00:01:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_nether
+[00:01:57] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_end
+[00:01:58] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS root
+[00:01:58] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] OPTIONS LIGHTING
+[00:02:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:02:04] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4060.0, 100.5, 4075.0]
+[00:02:04] [IO-Worker-176/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-release-menu-lighting translation{key='screenshot.success', args=[literal{s168-release-menu-lighting.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-release-menu-lighting.png]}]]}
+[00:02:35] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] QUEUED 5
+[00:02:38] [Server thread/INFO]: Teleported Uperion1K to 4069.297500, 102.221500, 4088.155300
+[00:02:38] [Server thread/INFO]: [STDOUT]: [STRATUS_QA168] CAMERA 4069.2975 102.2215 4088.1553 2113.6128 38.92938 creative-flight server confirmed
+[00:02:38] [Render thread/INFO]: [System] [CHAT] [Server: Teleported Uperion1K to 4069.297500, 102.221500, 4088.155300]
+[00:02:39] [Attach Listener/INFO]: [STDERR]: WARNING: A Java agent has been loaded dynamically (/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/agent/metrics.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[00:02:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_PIPELINE net.irisshaders.iris.pipeline.IrisRenderingPipeline
+[00:02:43] [Render thread/INFO]: [STDOUT]: [STRATUS_QA168] VERIFIED_CAMERA [4069.2975, 102.2215, 4088.1553]
+[00:02:43] [IO-Worker-175/INFO]: [STDOUT]: [STRATUS_QA168] SCREENSHOT s168-release-restored-position translation{key='screenshot.success', args=[literal{s168-release-restored-position.png}[style={underlined,clickEvent=class_10607[path=/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-168/screenshots/s168-release-restored-position.png]}]]}
+[00:02:44] [Server thread/INFO]: Saving and pausing game...
+[00:02:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:overworld
+[00:02:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_nether
+[00:02:44] [Server thread/INFO]: Saving chunks for level 'ServerLevel[Stratus Terrain Lab]'/minecraft:the_end

@@ -1,0 +1,12 @@
+CMD execute in minecraft:the_nether run tp ShaderCheck 4 101 2 0 0
+CMD gamemode creative ShaderCheck
+WAIT 3
+RESUME
+SHOT f120-lava
+CMD gamemode spectator ShaderCheck
+CMD execute in minecraft:overworld run tp ShaderCheck 0 98 -7 180 22
+WAIT 3
+RESUME
+SHOT f120-overworld-return
+STATE
+DONE f120-complete

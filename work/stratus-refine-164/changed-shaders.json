@@ -1,0 +1,7 @@
+[
+  "shaders/core/ceiling.glsl",
+  "shaders/core/diffuse.glsl",
+  "shaders/core/moisture.glsl",
+  "shaders/core/raster.frag.glsl",
+  "shaders/lang/en_us.lang"
+]

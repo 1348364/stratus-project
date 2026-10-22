@@ -1,0 +1,66 @@
+{
+  "version": "1.6.5",
+  "date": "2026-10-20",
+  "status": "Implemented and packaged candidate; Main visual review and foreground FPS pending",
+  "changes": [
+    "High clouds use an independent continuous wispy veil, including lower-cloud gaps.",
+    "Diffuse face shading follows world-space sun direction, sky hemisphere and ground contribution, with rain/exposure gating and bounded contrast.",
+    "Physical cloud footprint reads the running Minecraft/resource-pack clouds.png through an Iris custom sampler. Every occupied pixel and hole is retained.",
+    "Fine 3D billows/erosion removed in favour of connected extrusions, broad gradients and self-shadowing. Cell-boundary quadrature protects the silhouette.",
+    "Default cloud thickness reduced from 96 to 12 blocks; 4-block option added. All prior allowed thicknesses retained."
+  ],
+  "native": {
+    "program_pairs": 768,
+    "variants": 8,
+    "failures": 0,
+    "scope": "Native macOS OpenGL compatibility shims; not Iris transformation/loading proof"
+  },
+  "gpu": {
+    "cloud_renders": 17,
+    "face_samples": 216,
+    "water_resolve_cases": 10,
+    "relationship_checks": 32,
+    "footprint_cells_compared": 65536,
+    "failures": 0,
+    "opengl_errors": 0,
+    "scope": "Actual expanded cloud/diffuse/water GLSL, offline OpenGL; not Minecraft screenshots or FPS"
+  },
+  "source": {
+    "changed_shader_assets": [
+      "shaders/shaders.properties",
+      "shaders/core/options.glsl",
+      "shaders/core/ceiling.glsl",
+      "shaders/core/diffuse.glsl",
+      "shaders/lang/en_us.lang"
+    ],
+    "unchanged_shader_assets": 230,
+    "all_water_mist_and_moisture_files_unchanged": true
+  },
+  "live": {
+    "intended_profile": "Modrinth Main / Minecraft (1)",
+    "observed_selected_pack": "Stratus-1.6.4.zip",
+    "candidate_loaded": false,
+    "candidate_visual_review": "pending",
+    "reason": "Existing normal Java client is running, but native desktop inventory cannot select its window. Main was left running; no competing world session launched."
+  },
+  "performance": {
+    "measured": false,
+    "claim": "No FPS or speedup claim. Lower noise cost and more cell-boundary steps are a trade-off requiring a focused matched benchmark."
+  },
+  "limits": [
+    "Resource packs can change the cloud texture; no Mojang or Story Mode texture is redistributed.",
+    "Exact vanilla horizontal map topology, not an exact reproduction of vanilla height, tick phase, draw range or lighting. Set thickness 4 for vanilla slab proportions.",
+    "CLOUD_AMOUNT now scales opacity of the fixed vanilla footprint; CLOUD_DETAIL controls broad gradients; CLOUD_DISTORTION affects only vertical relief.",
+    "Lower integration has a 1024-segment safety cap; small span values and grazing rays need live temporal/performance review. Integration remains bounded to 7000 blocks and has the existing smooth interior distance bound.",
+    "High cloud veil still uses a finite-altitude slab and horizon fade; it is independent of lower coverage, not a full spherical cloud shell.",
+    "Face lighting is a broad diffuse approximation, not cast shadows. Existing AO and separate ground warmth remain.",
+    "Story Mode-inspired simplicity is an interpretation; no exact reference pack or in-game style match has been certified."
+  ],
+  "evidence": {
+    "compile": "work/stratus-clouds-165/compile.log",
+    "gpu": "work/stratus-clouds-165/gpu-checks.json",
+    "water": "work/stratus-clouds-165/water-regression.json",
+    "offline_preview": "work/stratus-clouds-165/offline-cloud-preview.jpg",
+    "source_diff": "work/stratus-clouds-165/changes.diff"
+  }
+}

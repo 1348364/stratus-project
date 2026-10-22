@@ -1,0 +1,15 @@
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 6
+CMD fill 81 100 71 126 100 116 minecraft:water
+WAIT 5
+PACK Stratus-1.2.0.zip
+RESUME
+WAIT 10
+BENCH baseline120-openwater 20
+SHOT d130-old-openwater
+PACK Stratus-1.3.0-reference.zip
+RESUME
+WAIT 10
+BENCH reference130-openwater 20
+SHOT d130-reference-openwater
+DONE d130-openwater-complete

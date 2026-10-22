@@ -1,0 +1,999 @@
+{
+  "gpu_samples": 91,
+  "assertions": 248,
+  "failures": 0,
+  "checks": [
+    {
+      "name": "saved/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "saved/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-off/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-off/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "retention-max/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "retention-max/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "nether/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "nether/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/porous_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/porous_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/porous_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/porous_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/porous_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/porous_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/porous_night/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/porous_night/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_top/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_top/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_side/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_side/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/sealed_cave/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/sealed_cave/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/metal/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/metal/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/metal_grazing/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/metal_grazing/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/rain/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/rain/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/wood/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/wood/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/polished/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "end/polished/neutral_material_chroma",
+      "passed": true
+    },
+    {
+      "name": "end/black/finite_bounded_absorption",
+      "passed": true
+    },
+    {
+      "name": "saved/view_invariant",
+      "passed": true
+    },
+    {
+      "name": "saved/no_sun_highlight",
+      "passed": true
+    },
+    {
+      "name": "saved/metal/dry",
+      "passed": true
+    },
+    {
+      "name": "saved/metal_grazing/dry",
+      "passed": true
+    },
+    {
+      "name": "saved/sealed_cave/dry",
+      "passed": true
+    },
+    {
+      "name": "saved/rain_never_dries",
+      "passed": true
+    },
+    {
+      "name": "saved/top_retains_more_than_side",
+      "passed": true
+    },
+    {
+      "name": "saved/material_order",
+      "passed": true
+    },
+    {
+      "name": "retention-off/view_invariant",
+      "passed": true
+    },
+    {
+      "name": "retention-off/no_sun_highlight",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-off/metal_grazing/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-off/sealed_cave/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-off/rain_never_dries",
+      "passed": true
+    },
+    {
+      "name": "retention-off/top_retains_more_than_side",
+      "passed": true
+    },
+    {
+      "name": "retention-off/material_order",
+      "passed": true
+    },
+    {
+      "name": "retention-max/view_invariant",
+      "passed": true
+    },
+    {
+      "name": "retention-max/no_sun_highlight",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-max/metal_grazing/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-max/sealed_cave/dry",
+      "passed": true
+    },
+    {
+      "name": "retention-max/rain_never_dries",
+      "passed": true
+    },
+    {
+      "name": "retention-max/top_retains_more_than_side",
+      "passed": true
+    },
+    {
+      "name": "retention-max/material_order",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/view_invariant",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/no_sun_highlight",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal/dry",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/metal_grazing/dry",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/sealed_cave/dry",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/rain_never_dries",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/top_retains_more_than_side",
+      "passed": true
+    },
+    {
+      "name": "dampness-max/material_order",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/porous_night/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sheltered_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/sealed_cave/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/metal_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/rain/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/wood/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/polished/unchanged",
+      "passed": true
+    },
+    {
+      "name": "dampness-off/black/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/porous_night/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/sheltered_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/sealed_cave/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/metal/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/metal_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/rain/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/wood/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/polished/unchanged",
+      "passed": true
+    },
+    {
+      "name": "nether/black/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/porous_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/porous_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/porous_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/porous_night/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_top/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/sheltered_side/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/sealed_cave/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/metal/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/metal_grazing/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/rain/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/wood/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/polished/unchanged",
+      "passed": true
+    },
+    {
+      "name": "end/black/unchanged",
+      "passed": true
+    },
+    {
+      "name": "legacy_retention_scales_only_sheltered_absorption",
+      "passed": true
+    },
+    {
+      "name": "zero_gl_errors",
+      "passed": true
+    }
+  ]
+}

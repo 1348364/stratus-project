@@ -1,0 +1,40 @@
+STRATUS 1.2.0 - VERIFIED VALIDATION
+17 October 2026
+
+NATIVE GPU: PASS
+Apple M1 OpenGL 4.1: 486 compile/link checks, zero failures. 81 program pairs,
+three dimension routes, six variants (default, Fast, Reference, High, numeric
+minimum/maximum). Uses compatibility-to-core shims, separately from real Iris.
+All expanded inputs match the current source. 34 controls/menu entries verified.
+AO default and maximum remain 1.00; water clarity maximum is now 4.00.
+
+FOCUSED GPU OPTICS/LIGHTING: PASS
+21 cases execute the actual GLSL libraries. Verified non-uniform RGB wet
+absorption, lower absorption for smooth surfaces, view-dependent wet sheen,
+zero moisture on covered blocks/entities, entity normal lighting and zero
+self-emission in darkness, separate emissive interiors, billboard stability,
+water path consistency and higher clarity, XYZ cloud density and cloud sunlight
+attenuation, near-geometry cloud occlusion, daytime-only solar core.
+OpenGL errors: 0. A separate HDR impulse test executes both actual bloom passes:
+the 1.50 radius spreads farther than 0.50, with OpenGL errors 0.
+
+ACTUAL IRIS AND VISUAL QA: PASS
+Minecraft 1.21.11 / Iris 1.10.8 / Sodium 0.8.14 / Java 21 on Apple M1.
+40 final-source captures inspected: blocks/undersides, wet/dry/film comparisons,
+entities in daylight/darkness/lantern light, bloom on/off/radius, fireflies,
+water clarity/top/side/underwater/interface, projectiles, destruction/smoke
+particles, rain/transparency, mist, sun at several times, cloud volume and
+parallax, quality presets, held items, blindness, Nether, lava immersion and End.
+Shader errors: 0. All 182 delivered shader/config files match the tested ZIP.
+
+Visual testing prompted a below-horizon sky/fog colour correction and less
+uniform cloud coverage. Breaking particles were recaptured before their short
+lifetime elapsed. Lava was recaptured in Creative, rather than Spectator mode.
+Unmodified ScreenshotRecorder PNGs are in Stratus-1.2.0-visual-checks/.
+No screenshots were generated or retouched to simulate test results.
+
+LIMITS
+These are finite checks, not an exhaustive visual or mod-compatibility guarantee.
+The isolated instance uses Iris, Sodium and a test-only helper, not every mod in
+the normal client. No FPS benchmark. Physical and screen-space approximations
+are documented in README.txt. See CHECKS.json for raw results and provenance.

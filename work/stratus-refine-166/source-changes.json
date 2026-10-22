@@ -1,0 +1,14 @@
+{
+  "changed": [
+    "shaders/shaders.properties",
+    "shaders/core/volume.glsl",
+    "shaders/core/ceiling.glsl",
+    "shaders/core/atmosphere.frag.glsl",
+    "shaders/core/diffuse.glsl",
+    "shaders/core/atmosphere-resolve.frag.glsl",
+    "shaders/lang/en_us.lang"
+  ],
+  "unchanged": 228,
+  "baseline_archive_matches": true,
+  "quality_configuration_unchanged": true
+}

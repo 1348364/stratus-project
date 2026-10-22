@@ -1,0 +1,880 @@
+{
+  "pack": "Stratus 1.3.0",
+  "date": "2026-10-17",
+  "controls": 39,
+  "native_compile_link": {
+    "passed": 630,
+    "failed": 0,
+    "program_pairs": 90,
+    "variants": 7,
+    "renderer": "Apple M1 OpenGL 4.1",
+    "method": "Offline compatibility shim; actual Iris checks recorded separately"
+  },
+  "gpu_appearance_probes": {
+    "cases": {
+      "covered_moisture": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "entity_moisture": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "wet_absorption": {
+        "previous": [
+          0.05007881,
+          0.16681606,
+          0.46888313,
+          1.0
+        ],
+        "current": [
+          0.05007881,
+          0.16681606,
+          0.46888313,
+          1.0
+        ]
+      },
+      "wet_grazing": {
+        "previous": [
+          0.0390821,
+          0.04235731,
+          0.04696527,
+          1.0
+        ],
+        "current": [
+          0.03933751,
+          0.04240759,
+          0.04672688,
+          1.0
+        ]
+      },
+      "entity_top": {
+        "previous": [
+          0.3430905,
+          0.32806963,
+          0.30244315,
+          1.0
+        ],
+        "current": [
+          0.3430905,
+          0.32806963,
+          0.30244315,
+          1.0
+        ]
+      },
+      "entity_side": {
+        "previous": [
+          0.1914794,
+          0.18574218,
+          0.17570208,
+          1.0
+        ],
+        "current": [
+          0.15318353,
+          0.14859375,
+          0.14056167,
+          1.0
+        ]
+      },
+      "entity_bottom": {
+        "previous": [
+          0.08892676,
+          0.08462385,
+          0.07888664,
+          1.0
+        ],
+        "current": [
+          0.06669507,
+          0.06346789,
+          0.05916499,
+          1.0
+        ]
+      },
+      "entity_in_darkness": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "emissive_in_darkness": {
+        "previous": [
+          1.86901152,
+          1.86901152,
+          1.86901152,
+          1.0
+        ],
+        "current": [
+          1.86901152,
+          1.86901152,
+          1.86901152,
+          1.0
+        ]
+      },
+      "billboard_orientation": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "water_split_path": {
+        "previous": [
+          0.0,
+          2e-08,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          1e-08,
+          2e-08,
+          1.0
+        ]
+      },
+      "water_two_blocks": {
+        "previous": [
+          0.45902288,
+          0.48657736,
+          0.49499947,
+          1.0
+        ],
+        "current": [
+          0.19702518,
+          0.37223879,
+          0.44728649,
+          1.0
+        ]
+      },
+      "water_eight_blocks": {
+        "previous": [
+          0.35651284,
+          0.44912395,
+          0.4804619,
+          1.0
+        ],
+        "current": [
+          0.04185443,
+          0.19585535,
+          0.33576071,
+          1.0
+        ]
+      },
+      "water_twenty_blocks": {
+        "previous": [
+          0.21984866,
+          0.38545394,
+          0.4533686,
+          1.0
+        ],
+        "current": [
+          0.03501227,
+          0.13081948,
+          0.23289564,
+          1.0
+        ]
+      },
+      "face_top": {
+        "previous": [
+          1.06787372,
+          1.02112103,
+          0.94135827,
+          1.0
+        ],
+        "current": [
+          1.06787372,
+          1.02112103,
+          0.94135827,
+          1.0
+        ]
+      },
+      "face_east": {
+        "previous": [
+          0.59598213,
+          0.578125,
+          0.546875,
+          1.0
+        ],
+        "current": [
+          0.47678575,
+          0.46250001,
+          0.43750003,
+          1.0
+        ]
+      },
+      "face_west": {
+        "previous": [
+          0.69487458,
+          0.66119462,
+          0.60719937,
+          1.0
+        ],
+        "current": [
+          0.55589974,
+          0.5289557,
+          0.48575953,
+          1.0
+        ]
+      },
+      "face_south": {
+        "previous": [
+          0.69125038,
+          0.65815026,
+          0.60498863,
+          1.0
+        ],
+        "current": [
+          0.62212533,
+          0.59233522,
+          0.54448974,
+          1.0
+        ]
+      },
+      "face_north": {
+        "previous": [
+          0.59598213,
+          0.578125,
+          0.546875,
+          1.0
+        ],
+        "current": [
+          0.53638393,
+          0.52031249,
+          0.4921875,
+          1.0
+        ]
+      },
+      "face_bottom": {
+        "previous": [
+          0.2767857,
+          0.26339284,
+          0.24553572,
+          1.0
+        ],
+        "current": [
+          0.20758928,
+          0.19754463,
+          0.1841518,
+          1.0
+        ]
+      },
+      "ground_warmth": {
+        "previous": [
+          0.10725813,
+          0.107342,
+          0.10654681,
+          1.0
+        ],
+        "current": [
+          0.11283632,
+          0.10844018,
+          0.10134023,
+          1.0
+        ]
+      },
+      "ground_night": {
+        "previous": [
+          0.06310703,
+          0.06135013,
+          0.05739143,
+          1.0
+        ],
+        "current": [
+          0.06310703,
+          0.06135013,
+          0.05739143,
+          1.0
+        ]
+      },
+      "simplex_xyz": {
+        "previous": [
+          0.4569715,
+          0.50962669,
+          0.26219136,
+          1.0
+        ],
+        "current": [
+          0.4569715,
+          0.50962669,
+          0.26219136,
+          1.0
+        ]
+      },
+      "cloud_view_alpha": {
+        "previous": [
+          0.48336816,
+          0.99293256,
+          0.40733385,
+          1.0
+        ],
+        "current": [
+          0.48336816,
+          0.99293256,
+          0.40733385,
+          1.0
+        ]
+      },
+      "cloud_occlusion": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "cirrus_alpha": {
+        "previous": [
+          0.27627969,
+          0.27627969,
+          0.27627969,
+          1.0
+        ],
+        "current": [
+          0.27627969,
+          0.27627969,
+          0.27627969,
+          1.0
+        ]
+      },
+      "mist_xyz": {
+        "previous": [
+          0.00579647,
+          0.00758974,
+          0.00075166,
+          1.0
+        ],
+        "current": [
+          0.00579647,
+          0.00758974,
+          0.00075166,
+          1.0
+        ]
+      },
+      "mist_near_clear": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "mist_covered": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "mist_far": {
+        "previous": [
+          0.52901983,
+          0.52901983,
+          0.52901983,
+          1.0
+        ],
+        "current": [
+          0.52901983,
+          0.52901983,
+          0.52901983,
+          1.0
+        ]
+      },
+      "sun_colour": {
+        "previous": [
+          1.0,
+          0.83999997,
+          0.61000001,
+          1.0
+        ],
+        "current": [
+          1.0,
+          0.83999997,
+          0.61000001,
+          1.0
+        ]
+      },
+      "sun_day": {
+        "previous": [
+          0.38469237,
+          0.46524307,
+          0.58520555,
+          1.0
+        ],
+        "current": [
+          3.86969233,
+          3.39264297,
+          2.71105552,
+          1.0
+        ]
+      },
+      "sun_night": {
+        "previous": [
+          0.00379617,
+          0.00655964,
+          0.01425308,
+          1.0
+        ],
+        "current": [
+          0.00379617,
+          0.00655964,
+          0.01425308,
+          1.0
+        ]
+      },
+      "sky_away_from_sun": {
+        "previous": [
+          0.43387952,
+          0.47699985,
+          0.5382356,
+          1.0
+        ],
+        "current": [
+          0.43387952,
+          0.47699985,
+          0.5382356,
+          1.0
+        ]
+      }
+    },
+    "opengl_errors": 0
+  },
+  "bloom_radius_probe": {
+    "cases": {
+      "small": {
+        "energy": 30.239998,
+        "rms_radius_quarterres_pixels": 0.977578,
+        "nonzero_support_radius": 2.0
+      },
+      "normal": {
+        "energy": 30.116324,
+        "rms_radius_quarterres_pixels": 3.438915,
+        "nonzero_support_radius": 7.746
+      }
+    },
+    "opengl_errors": 0,
+    "larger_radius_spreads_further": true
+  },
+  "checks": {
+    "ao_default_maximum_1": true,
+    "water_default_less_clear_035": true,
+    "six_distinct_cube_faces": true,
+    "daylight_ground_warmer_night_unchanged": true,
+    "dry_entities_and_covered_blocks": true,
+    "emission_separate_from_entity_light": true,
+    "water_path_consistent": true,
+    "cloud_density_3d_and_cirrus_present": true,
+    "mist_world_height_xyz_and_clear_foreground": true,
+    "night_sun_disabled": true,
+    "postwater_atmosphere_order": true,
+    "halfres_reflections_and_atmosphere": true,
+    "quarterres_bloom": true,
+    "sources_match_compiled_and_tested_zip": true
+  },
+  "actual_iris_compilation": true,
+  "in_game_visual_test": true,
+  "runtime": {
+    "minecraft": "1.21.11",
+    "iris": "1.10.8",
+    "sodium": "0.8.14",
+    "gpu": "Apple M1",
+    "opengl": "4.1",
+    "dimensions": [
+      "Overworld",
+      "Nether",
+      "End"
+    ],
+    "shader_errors": 0,
+    "source_files_match_delivery": 206,
+    "screenshots_sha256": {
+      "g130-form-top-sides.png": "7fd031e7ad168c879a846bfc77ceebf4b4a15d8986559f77b600e2048a84cfe8",
+      "g130-form-undersides.png": "c9b00f291198334161a2533c5f486487821c9ca07ec44596be2938f4a4a86e9f",
+      "g130-warm-ground.png": "503af607c99897be17e3dc4b96c98402aed1c1f69d6d90a9949b7e283317fc65",
+      "g130-ground-warmth-off.png": "70dd0193f78e40b26d3efa52974a0f230a9745e076e05efb476602a27ab27551",
+      "g130-entities-day.png": "a793b9eeddee777722280b262cef687da44b8d1ce8204048ffd16c0f019b1e60",
+      "g130-stone-ores.png": "85465064d106bafd2ce4a76bab08e5334f547a456385183ee87f6bf5a81ab56a",
+      "g130-entities-dark.png": "16e71b570cd702d4dd4768aa220736cb0698d8e98404de296fcebc5179c47404",
+      "g130-entities-lit.png": "2324a92a7a1274446ad8c7cc34f9d4c72a61483cc91337860fe08bb7fcd349ad",
+      "g130-bloom-default.png": "f5390600468f80ac18ab3506332993c020dbf0b8d0c9adcbcaa6eb9e6d110044",
+      "g130-bloom-off.png": "fbf735581ea03a8b23aafa562e5067af62614883520b94186a4dae40ac8db76e",
+      "g130-bloom-small-radius.png": "315b2f49b646160aa6acea0ac38785b5ff98ad7bfccadcb8bfe0d9ce3e51a3d1",
+      "g130-fireflies.png": "6d7259d7f6f0c4e25bfdecab874fb2df6aef01ea1a2a0734033fed3223bb8dc3",
+      "g130-water-body.png": "059f567cee878fa7146af034047f58d16711f4ff05be50220c1251e2c55dd8e6",
+      "g130-shallow-water.png": "5d10d2b9a46f1a2449779ee95abfeec663bb104264bf0dab1452c6aead666acf",
+      "g130-water-distortion-off.png": "4982596e22aa03e51d71083b4f42385b93ff231e904cedb9d63d3ecbbd93d2ed",
+      "g130-water-clarity4.png": "550f186444b1ff607907f7da1587ee48d520caa5e0dda2102cedc0c6dfba3a78",
+      "g130-water-sides.png": "d66d3585efe2126322e226eadbced33d143863f230e6ac5c9aac1b75f4b42d48",
+      "g130-underwater.png": "ee25f19aefece65ce53734d69326a581ed9f003c7580b51e177466939ae07d86",
+      "g130-underwater-interface.png": "7bdd15af11871d1359f52b663103ec62c94d2b24258a8f539752c229f132c856",
+      "g130-water-below-clouds.png": "c6a085464ae65560002a8eb8c7c6f57590d64609929b43f86799d39e283d06d2",
+      "g130-water-clouds-off.png": "5e305cd687ab800baa375932006c1f859af7ad1042db8cebd77fbcbf3da66e7e",
+      "g130-thrown-items.png": "5145ccc84c5a7c0da9e7af446ac660f8e96aef02de40ec321d5b01c48fcbf360",
+      "g130-breaking-particles.png": "1a1e9c69f467c19d6aa02e8703868b9adca4b9487d2392afcca2b193e379b05b",
+      "g130-smoke.png": "1f6ef4480422ed470b6964bd44d27585c1235f3cbedea1984565edea3dec2071",
+      "g130-rain-transparency.png": "f2cef9100a7d3f442964a95d348e0f667c00fd1cdec96ddcafd50f29265d997b",
+      "g130-lowland-mist.png": "715da9bf14cf6afc0d6165efcc741ddca5d7e8aab1ca476833c3c9c3e5ad52aa",
+      "g130-mist-off.png": "41da048c2573b3d81c9c29ace4a576dabc57d4d2b8f46467f77655e72b08de52",
+      "g130-mist-high-view.png": "367535ff4c242084f32e2adb0235e86ad8220599b9ab748fedba2f36e87b2302",
+      "g130-ground-sun.png": "639086c5c417990bbb940ce071d799ccecc8362bcbf997bb56c09b21323ca64a",
+      "g130-ground-noon-sun.png": "920967ea66970a99dc6729340706f36a47d8052d7aff60e52ebc8574fd3f8327",
+      "g130-sunset.png": "4e084c5b5aedbacff929546b634f9a567823dd869ed3769f5056c6e66a0f4e20",
+      "g130-clouds-night.png": "08c08f2ece1f072d53221db7935bf8e6667f6165e7c463034475f6876cfb225f",
+      "g130-clouds-below.png": "6315f94768678119241b2e2a722aad551c101bc167fce907ed503e3cf58d8cc8",
+      "g130-clouds-inside.png": "24be196b1a6e60dfaba9b8407e9a2bceb3affd6e1c374d970fe32ebde967f18d",
+      "g130-clouds-above.png": "140e87e109cc3657f1daada65f502603b9baa3df160c10739e256f2883b78fac",
+      "g130-clouds-parallax.png": "2877705a5e638f66ff56ee6f75bdd1661a36f6c833bf555643a8757fd2f311e5",
+      "g130-cirrus-below.png": "aa55892ca1511a639b54b98994a08a42eb49a76785fef41b4af3c9cddd606919",
+      "g130-cirrus-inside.png": "d5aaaf2f06884b460f4601e006fb73fdbb2b34f5caaa1e1b5e4c7cbc516a62c1",
+      "g130-cirrus-above.png": "de5d60b4a7b54da1313e36c3e75d57cd9677076ff3e7ffcd04b3f10e826c483d",
+      "g130-fast-clouds.png": "bd99ced49b02f24f75d6ce3e57034b45edd4b99b37735c8617cb68296acc29ce",
+      "g130-high-clouds.png": "b2da290923d7f0a64315c3b4d6c5cd66f56cd5c93eca1d4fc1589e1c791b7a72",
+      "g130-held-item.png": "e97781625e623bcad470114367369d6405b01bc6619355a1c66667eb0efad1f7",
+      "g130-blindness.png": "9ca917c0c43fa68d9c8c9b755ef9f0095f999903f6d0ed02cb8631ca273ad1b1",
+      "g130-nether.png": "1abfce8b9608915d956537c74de70edab0dc3135dbd144d3f94b16f5e4203493",
+      "g130-lava.png": "7ee1d95a2e9c441d5a70d086fdfc967e01c8b45db6281ae4ddf7cb2b623974a3",
+      "g130-end.png": "6eea39579678253ea951874d903abea44a3dc2073dfe3527b4bfcd0ea6727bba",
+      "g130-return.png": "0c47f6712c9b0a3b0c971f483d2d2aef543720edf49905d55c449480d0228c2b",
+      "g130-refraction-close.png": "19570bccee2a4a47c8e7a61a239d4df13f5f126240198d6289df2c162970586c",
+      "g130-refraction-moving.png": "27ab646acf50b1bc0a8c49abf416d76e39a97b1b3ec2580d4e83102ee52f607a",
+      "g130-refraction-off-close.png": "f3944a7c813f403fdd327e6df9a4619506498f5f4316c423f90febc6b0c89f11"
+    },
+    "main_suite_preset": "Reference, with named comparison options; Fast/High cloud views",
+    "settings": "CLOUD_LAYERS=2\nMIST_DETAIL=2\nREFLECTION_MODE=1\nSKY_AMBIENT=1.60\nSURFACE_DAMPNESS=0.00\nBLOOM_STRENGTH=0.18\nBLOOM_RADIUS=3.00\nWATER_VISIBILITY=0.35\n",
+    "inspection": {
+      "passed": true,
+      "inspected": [
+        "form-top-sides",
+        "form-undersides",
+        "warm-ground",
+        "ground-warmth-off",
+        "entities-day",
+        "stone-ores",
+        "entities-dark",
+        "entities-lit",
+        "bloom-default",
+        "bloom-off",
+        "bloom-small-radius",
+        "fireflies",
+        "water-body",
+        "shallow-water",
+        "water-distortion-off",
+        "water-clarity4",
+        "water-sides",
+        "underwater",
+        "underwater-interface",
+        "water-below-clouds",
+        "water-clouds-off",
+        "thrown-items",
+        "breaking-particles",
+        "smoke",
+        "rain-transparency",
+        "lowland-mist",
+        "mist-off",
+        "mist-high-view",
+        "ground-sun",
+        "ground-noon-sun",
+        "sunset",
+        "clouds-night",
+        "clouds-below",
+        "clouds-inside",
+        "clouds-above",
+        "clouds-parallax",
+        "cirrus-below",
+        "cirrus-inside",
+        "cirrus-above",
+        "fast-clouds",
+        "high-clouds",
+        "held-item",
+        "blindness",
+        "nether",
+        "lava",
+        "end",
+        "return",
+        "refraction-close",
+        "refraction-moving",
+        "refraction-off-close"
+      ],
+      "pending": [],
+      "method": "Inspected unmodified ScreenshotRecorder PNGs as contact sheets, plus full-size water/cloud comparisons and enlarged bloom crops. Optical changes also checked through actual-GLSL GPU probes.",
+      "observations": [
+        "Top, opposite side and underside faces are distinct; warm ground shifts stone and wood gently without changing the indoor/night warmth probe.",
+        "Entities remain dark in an unlit room and take on lantern lighting when lit; ordinary white blocks/entities do not acquire an emissive halo.",
+        "Default bloom spreads visibly beyond lantern cores, with a broader softer radius than 0.50. Firefly bushes retain their correct texture using the existing compatibility resource pack.",
+        "Water is visibly denser and blue-green; clarity 4.00 is more transparent. Top, side and underwater/interface views remain usable; ripple normals bend the transmitted scene.",
+        "A lake seen through foreground clouds is obscured along with the surrounding terrain. The clouds-off comparison reveals the lake; this uses the lower cloud setting to fit the eight-chunk test view.",
+        "Snowball, egg, pearl, block-destruction fragments, smoke, rain and translucent slime render without the prior billboard-normal shading defect.",
+        "Lowland mist is height-dependent and spatially varied with a clear nearby view; its terrain relationship is an approximation based on height, visible depth and skylight.",
+        "The warm solar location is visible from ground level in morning/noon overcast views; sunset warms the sky. Clouds remain visible at night without daytime sun emission.",
+        "Main clouds show rounded density, shading, inside-layer extinction and parallax. Upper wisps appear from below, within and above; lower sampling retains both layers.",
+        "Held-item lighting, blindness, lava immersion, Nether and End rendering were inspected. The Nether frame was recaptured after loading cleared.",
+        "Half-resolution reconstruction can soften very thin boundaries. Water reflection/refraction and fog use the real-time approximations documented in README.txt.",
+        "A striped shallow pool was inspected with refraction on, moving and off; the transmitted stripe boundaries bend subtly with the animated normals, while the control is straight. No geometry waves are added."
+      ]
+    },
+    "process_exit": {
+      "exit_code": 143,
+      "signal": "SIGTERM",
+      "process": "isolated shader test Java only",
+      "completed": "r130-complete"
+    },
+    "limits": [
+      "Finite scenarios, not an exhaustive block/mod/world guarantee",
+      "Isolated Iris/Sodium/test-helper client; normal-profile mod stack not reproduced",
+      "Normal Minecraft client also running; shared GPU/CPU and thermal contention",
+      "Native UI inventory reported the Mac locked during measurement; active-play timing may differ",
+      "20-second wall-interval samples, not isolated GPU timings; stutters affect lows",
+      "No guarantee of locked 60 fps or native Retina resolution performance",
+      "Mist follows height, 3D density and depth/skylight, not a simulated terrain humidity field",
+      "Approximate cloud scattering and prefiltered reflection sky; half-resolution thin-edge detail loss",
+      "Screen-space water cannot recover hidden geometry; approximate partial transparency and bounded waterfall thickness",
+      "Class-based estimated roughness and porosity, no measured PBR maps or cast-shadow maps"
+    ]
+  },
+  "performance": {
+    "framebuffer": [
+      1708,
+      960
+    ],
+    "logical_window": [
+      854,
+      480
+    ],
+    "render_distance_chunks": 8,
+    "simulation_distance_chunks": 5,
+    "vsync": false,
+    "fps_cap": 260,
+    "warmup_seconds": "45 initial, 25 after pack switch, 15 after relocation; fresh client after visual QA",
+    "time": 3000,
+    "weather": "clear",
+    "normal_client_concurrently_running": true,
+    "mac_locked_reported_during_measurement": true,
+    "method": "MinecraftClient render-head to render-head monotonic wall intervals; no external GPU probe/compiler during final samples",
+    "fresh_final_source": {
+      "fresh130-balanced-landscape": {
+        "tag": "fresh130-balanced-landscape",
+        "frames": 1089,
+        "sampled_seconds": 20.0004,
+        "average_fps": 54.4489,
+        "median_frame_ms": 16.2468,
+        "p95_frame_ms": 27.7762,
+        "p99_frame_ms": 33.6923,
+        "one_percent_low_fps": 15.0585,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh130-balanced-water": {
+        "tag": "fresh130-balanced-water",
+        "frames": 930,
+        "sampled_seconds": 19.8988,
+        "average_fps": 46.7365,
+        "median_frame_ms": 20.1045,
+        "p95_frame_ms": 31.4243,
+        "p99_frame_ms": 52.7301,
+        "one_percent_low_fps": 8.427,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh130-balanced-clouds": {
+        "tag": "fresh130-balanced-clouds",
+        "frames": 1065,
+        "sampled_seconds": 19.9695,
+        "average_fps": 53.3312,
+        "median_frame_ms": 18.2805,
+        "p95_frame_ms": 26.3362,
+        "p99_frame_ms": 35.0953,
+        "one_percent_low_fps": 15.7898,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh130-fast-water": {
+        "tag": "fresh130-fast-water",
+        "frames": 974,
+        "sampled_seconds": 19.9354,
+        "average_fps": 48.8579,
+        "median_frame_ms": 19.7722,
+        "p95_frame_ms": 30.3039,
+        "p99_frame_ms": 37.6046,
+        "one_percent_low_fps": 13.8476,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh130-fast-clouds": {
+        "tag": "fresh130-fast-clouds",
+        "frames": 1118,
+        "sampled_seconds": 19.981,
+        "average_fps": 55.9531,
+        "median_frame_ms": 17.7375,
+        "p95_frame_ms": 23.1013,
+        "p99_frame_ms": 29.2177,
+        "one_percent_low_fps": 22.9871,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      }
+    },
+    "after_extended_reload_qa": {
+      "final130-fast-water": {
+        "tag": "final130-fast-water",
+        "frames": 860,
+        "sampled_seconds": 19.9907,
+        "average_fps": 43.02,
+        "median_frame_ms": 22.643,
+        "p95_frame_ms": 34.663,
+        "p99_frame_ms": 39.3693,
+        "one_percent_low_fps": 22.4454,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-balanced-clouds": {
+        "tag": "final130-balanced-clouds",
+        "frames": 1010,
+        "sampled_seconds": 19.9238,
+        "average_fps": 50.6932,
+        "median_frame_ms": 18.1055,
+        "p95_frame_ms": 28.841,
+        "p99_frame_ms": 44.324,
+        "one_percent_low_fps": 7.5694,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-reference-water": {
+        "tag": "final130-reference-water",
+        "frames": 867,
+        "sampled_seconds": 19.9294,
+        "average_fps": 43.5036,
+        "median_frame_ms": 22.3539,
+        "p95_frame_ms": 27.201,
+        "p99_frame_ms": 36.3015,
+        "one_percent_low_fps": 10.2438,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-fast-clouds": {
+        "tag": "final130-fast-clouds",
+        "frames": 1121,
+        "sampled_seconds": 19.943,
+        "average_fps": 56.2101,
+        "median_frame_ms": 17.3192,
+        "p95_frame_ms": 21.4841,
+        "p99_frame_ms": 31.041,
+        "one_percent_low_fps": 16.2914,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-balanced-water": {
+        "tag": "final130-balanced-water",
+        "frames": 904,
+        "sampled_seconds": 19.9419,
+        "average_fps": 45.3317,
+        "median_frame_ms": 21.3516,
+        "p95_frame_ms": 25.1634,
+        "p99_frame_ms": 34.8428,
+        "one_percent_low_fps": 11.3869,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-balanced-landscape": {
+        "tag": "final130-balanced-landscape",
+        "frames": 946,
+        "sampled_seconds": 19.8849,
+        "average_fps": 47.5738,
+        "median_frame_ms": 18.467,
+        "p95_frame_ms": 29.7515,
+        "p99_frame_ms": 68.3196,
+        "one_percent_low_fps": 5.3256,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "final130-reference-clouds": {
+        "tag": "final130-reference-clouds",
+        "frames": 985,
+        "sampled_seconds": 19.9204,
+        "average_fps": 49.4469,
+        "median_frame_ms": 20.0111,
+        "p95_frame_ms": 21.6086,
+        "p99_frame_ms": 26.1201,
+        "one_percent_low_fps": 16.4084,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      }
+    },
+    "previous_1_2_0_high": {
+      "fresh120-landscape": {
+        "tag": "fresh120-landscape",
+        "frames": 549,
+        "sampled_seconds": 19.5973,
+        "average_fps": 28.0141,
+        "median_frame_ms": 27.9477,
+        "p95_frame_ms": 72.6903,
+        "p99_frame_ms": 164.8536,
+        "one_percent_low_fps": 3.3143,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh120-water": {
+        "tag": "fresh120-water",
+        "frames": 570,
+        "sampled_seconds": 19.987,
+        "average_fps": 28.5185,
+        "median_frame_ms": 34.6508,
+        "p95_frame_ms": 42.4089,
+        "p99_frame_ms": 83.735,
+        "one_percent_low_fps": 8.0821,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      },
+      "fresh120-clouds": {
+        "tag": "fresh120-clouds",
+        "frames": 405,
+        "sampled_seconds": 20.0885,
+        "average_fps": 20.1608,
+        "median_frame_ms": 47.5135,
+        "p95_frame_ms": 51.9008,
+        "p99_frame_ms": 103.4799,
+        "one_percent_low_fps": 2.8363,
+        "method": "MinecraftClient render-head to render-head monotonic wall intervals"
+      }
+    },
+    "excluded_experiments": [
+      "Initial water/pool-rim and sealed roof views were discarded, rebuilt as an open pool and remeasured",
+      "Earlier 1.3 draft timings excluded from final-source claims"
+    ]
+  }
+}

@@ -1,0 +1,211 @@
+[
+  {
+    "name": "overview",
+    "camera": [
+      -3,
+      76,
+      -16,
+      0,
+      30
+    ]
+  },
+  {
+    "name": "wood-above",
+    "camera": [
+      12.5,
+      64,
+      12.5,
+      0,
+      25
+    ]
+  },
+  {
+    "name": "wood-underwater",
+    "camera": [
+      12.5,
+      59.8,
+      15.5,
+      0,
+      -25
+    ]
+  },
+  {
+    "name": "wood-grazing",
+    "camera": [
+      12.5,
+      61.4,
+      12.5,
+      0,
+      2
+    ]
+  },
+  {
+    "name": "wood-reverse",
+    "camera": [
+      12.5,
+      64,
+      38,
+      180,
+      25
+    ]
+  },
+  {
+    "name": "shore",
+    "camera": [
+      24,
+      63,
+      24,
+      70,
+      28
+    ]
+  },
+  {
+    "name": "materials",
+    "camera": [
+      -61,
+      73,
+      -31,
+      180,
+      25
+    ]
+  },
+  {
+    "name": "damp-shelter",
+    "camera": [
+      -62,
+      66,
+      -12,
+      180,
+      12
+    ]
+  },
+  {
+    "name": "entities",
+    "camera": [
+      -62,
+      67,
+      -3,
+      0,
+      20
+    ]
+  },
+  {
+    "name": "cave-above",
+    "camera": [
+      -61,
+      64,
+      48,
+      0,
+      15
+    ]
+  },
+  {
+    "name": "cave-underwater",
+    "camera": [
+      -61,
+      59.8,
+      48,
+      0,
+      -10
+    ]
+  },
+  {
+    "name": "swamp",
+    "camera": [
+      60,
+      64,
+      -57,
+      0,
+      25
+    ]
+  },
+  {
+    "name": "warm-ocean",
+    "camera": [
+      60,
+      64,
+      -9,
+      0,
+      25
+    ]
+  },
+  {
+    "name": "cold-water",
+    "camera": [
+      60,
+      64,
+      39,
+      0,
+      25
+    ]
+  },
+  {
+    "name": "waterfall",
+    "camera": [
+      32,
+      72,
+      45,
+      40,
+      5
+    ]
+  },
+  {
+    "name": "cloud-below",
+    "camera": [
+      200,
+      180,
+      200,
+      0,
+      -35
+    ]
+  },
+  {
+    "name": "cloud-nearby",
+    "camera": [
+      200,
+      190,
+      200,
+      0,
+      -35
+    ]
+  },
+  {
+    "name": "cloud-inside",
+    "camera": [
+      200,
+      260,
+      200,
+      0,
+      -20
+    ]
+  },
+  {
+    "name": "cloud-above",
+    "camera": [
+      200,
+      330,
+      200,
+      0,
+      35
+    ]
+  },
+  {
+    "name": "sun",
+    "camera": [
+      -3,
+      70,
+      -7,
+      -90,
+      -30
+    ]
+  },
+  {
+    "name": "night-fireflies"
+  },
+  {
+    "name": "night-water"
+  },
+  {
+    "name": "rain-water"
+  }
+]

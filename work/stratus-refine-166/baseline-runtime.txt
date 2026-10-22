@@ -1,0 +1,15 @@
+[18:15:15] [main/INFO]: Loading Minecraft 1.21.11 with Fabric Loader 0.19.5
+[18:15:31] [Render thread/INFO]: Using shaderpack: Stratus-1.6.4.zip
+[18:15:31] [Render thread/INFO]: OpenGL Renderer: Apple M1
+[21:02:12] [Render thread/INFO]: Using shaderpack: Stratus-1.6.0.zip
+[21:02:52] [Render thread/INFO]: Using shaderpack: Stratus-1.6.4.zip
+[22:56:02] [Render thread/INFO]: Using shaderpack: Stratus-1.6.5.zip
+#This file stores configuration options for Iris, such as the currently active shaderpack
+#Tue Oct 20 22:56:00 AEDT 2026
+allowUnknownShaders=false
+colorSpace=SRGB
+disableUpdateMessage=false
+enableDebugOptions=false
+enableShaders=true
+maxShadowRenderDistance=0
+shaderPack=Stratus-1.6.5.zip

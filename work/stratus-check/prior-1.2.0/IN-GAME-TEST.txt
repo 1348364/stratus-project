@@ -1,0 +1,21 @@
+STRATUS 1.2.0 - ACTUAL MINECRAFT TEST
+17 October 2026
+
+PASS: 40 final-source visual captures, zero shader errors.
+Minecraft Java 1.21.11, Iris 1.10.8, Sodium 0.8.14, Apple M1 OpenGL 4.1.
+High sampling with the user's ambient brightness, AO and water settings formed
+the main suite. Fast/Reference clouds and maximum water clarity were also viewed.
+Overworld, Nether, End, lava immersion, daylight/night/weather, block materials,
+entities, particles, transparency, water interfaces, fog, clouds, solar visibility,
+bloom, held items and blindness were exercised. Raw screenshots and observations
+are in Stratus-1.2.0-visual-checks/ and CHECKS.json.
+
+The helper executes commands and captures via Minecraft's own APIs in a separate
+workspace gameDir and copied world. It is not shipped in the shader or installed
+in the normal profile. Original world unchanged. Test process stopped: SIGTERM,
+exit 143. All 182 shader/configuration files match the tested archive exactly.
+The existing firefly compatibility resource pack was enabled during this run.
+
+No full normal-profile mod-stack or FPS claim. Class-based material properties,
+approximate wet environment reflections and cloud scattering, and screen-space
+water limits are documented in README.txt. Forty scenes are finite coverage.

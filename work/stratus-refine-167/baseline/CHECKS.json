@@ -1,0 +1,81 @@
+{
+  "version": "1.6.6",
+  "date": "2026-10-20",
+  "status": "Implemented candidate, technical checks passed; live visual/performance acceptance pending",
+  "baseline": {
+    "version": "1.6.5",
+    "source_archive_match": true,
+    "Main_loaded_evidence": "work/stratus-refine-166/baseline-runtime.txt"
+  },
+  "changes": [
+    "Face irradiance retains 65% vanilla weights with 35% realistic world-space light at full skylight; cave/exposure gating and existing strength/blend controls remain.",
+    "Default sun samples the current Minecraft 1.21.11 square texture with HDR warmth and existing haze; round procedural core/aureole removed. Native vanilla sun/moon mode remains.",
+    "Atmosphere resolve evaluates rejected-depth pixels at exact full-resolution depth using the selected full atmosphere budget, with smooth confidence blending instead of zero fog."
+  ],
+  "native": {
+    "program_pairs": 768,
+    "variants": 8,
+    "failures": 0,
+    "scope": "Native macOS OpenGL compatibility shims, not live Iris loading"
+  },
+  "gpu": {
+    "candidate_sun_renders": 4,
+    "candidate_fog_cases": 11,
+    "candidate_face_samples": 216,
+    "reference_sun_renders": 1,
+    "reference_fog_cases": 11,
+    "reference_face_samples": 72,
+    "relationship_checks": 27,
+    "water_resolve_cases": 10,
+    "failures": 0,
+    "opengl_errors": 0,
+    "scope": "Actual expanded GLSL on native OpenGL, including baseline/reference comparisons; not Minecraft visual acceptance"
+  },
+  "source": {
+    "changed_runtime_assets": [
+      "shaders/shaders.properties",
+      "shaders/core/volume.glsl",
+      "shaders/core/ceiling.glsl",
+      "shaders/core/atmosphere.frag.glsl",
+      "shaders/core/diffuse.glsl",
+      "shaders/core/atmosphere-resolve.frag.glsl",
+      "shaders/lang/en_us.lang"
+    ],
+    "unchanged_runtime_assets": 228,
+    "options_defaults_and_ranges_unchanged": true,
+    "presets_pass_resolutions_controls_unchanged": true,
+    "water_moisture_cloud_density_code_preserved": true,
+    "option_inventory": "work/stratus-refine-166/option-inventory.json",
+    "preserved_user_options": 53,
+    "valid_Main_saved_overrides": 10
+  },
+  "performance": {
+    "measured": false,
+    "FPS_or_speedup_claim": false,
+    "visual_equivalence_claim": false,
+    "quality_preservation": "No resolution, sample, draw-distance, preset or control reduction. Full selected atmosphere quality in selective fallback, no extra pass. Live equivalence and frame cost pending.",
+    "risk": "Thin geometry with poor reduced-resolution depth coverage can invoke additional full-quality atmosphere integration; requires matched forest scenes and focused frame-time measurement."
+  },
+  "live": {
+    "intended_profile": "Modrinth Main / Minecraft (1)",
+    "observed_pack": "Stratus-1.6.5.zip",
+    "candidate_loaded": false,
+    "visual_review": "pending",
+    "reported_leaf_dots_eliminated_in_Main": "not yet verified",
+    "limitation": "Native desktop inventory cannot select the running Minecraft Java window. Existing game remains open; no competing world session."
+  },
+  "limits": [
+    "The depth-miss black-dot mechanism is reproduced and fixed in a controlled GPU test; other foliage/mipmap/driver causes cannot be excluded without the actual scene.",
+    "Sun texture uses the 1.21.11 environment/celestial/sun.png resource path; resource-pack replacements can change its appearance. No Mojang texture is redistributed.",
+    "The polished sun projection is custom sky rendering, not the native celestial draw; option 1 retains the native renderer.",
+    "Existing 1.6.5 cloud range, small-cell horizon aliasing risks and screen-space water limitations remain."
+  ],
+  "evidence": {
+    "native": "work/stratus-refine-166/compile.log",
+    "gpu": "work/stratus-refine-166/gpu-checks.json",
+    "water": "work/stratus-refine-166/water-regression.json",
+    "sun_preview": "work/stratus-refine-166/offline-sun-preview.jpg",
+    "fog_preview": "work/stratus-refine-166/offline-fog-preview.jpg",
+    "runtime_baseline": "work/stratus-refine-166/baseline-runtime.txt"
+  }
+}

@@ -1,0 +1,65 @@
+{
+    "Features": {
+        "enable_lock_slots": {
+            "value": false
+        },
+        "enable_auto_refill": {
+            "value": false
+        },
+        "highlight_foused_items": {
+            "value": false
+        },
+        "enable_profiles": {
+            "value": false
+        },
+        "villager_trading_enable": {
+            "value": false
+        }
+    },
+    "ModSettings": {
+        "first_run": false,
+        "enable_profiles": {
+            "value": false
+        },
+        "enable_lock_slots": {
+            "value": false
+        },
+        "enable_auto_refill": {
+            "value": false
+        },
+        "villager_trading_enable": {
+            "value": false
+        },
+        "highlight_foused_items": {
+            "value": false
+        }
+    },
+    "LockedSlotsSettings": {
+        "enable_lock_slots": {
+            "value": false
+        }
+    },
+    "AutoRefillSettings": {
+        "refill_armor": {
+            "value": false
+        },
+        "refill_before_tool_break": {
+            "value": false
+        },
+        "auto_refill_enable_per_slot_config": {
+            "value": false
+        }
+    },
+    "EditProfiles": {
+        "enable_profiles": {
+            "value": false
+        }
+    },
+    "Hotkeys": {
+        "open_config_menu": {
+            "main": {
+                "keys": ""
+            }
+        }
+    }
+}

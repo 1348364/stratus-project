@@ -1,0 +1,30 @@
+{
+  "chosenPreset": 0,
+  "apiPreset": 0,
+  "loadedPresets": [
+    {
+      "skin": {
+        "skin_name": "1763119117",
+        "model": "classic",
+        "type": "skinshuffle:config"
+      },
+      "name": "Uperion1K"
+    },
+    {
+      "skin": {
+        "skin_name": "747602016",
+        "model": "SLIM",
+        "type": "skinshuffle:config"
+      },
+      "name": "drdonutt"
+    },
+    {
+      "skin": {
+        "skin_name": "90921784",
+        "model": "WIDE",
+        "type": "skinshuffle:config"
+      },
+      "name": "Unnamed Preset"
+    }
+  ]
+}

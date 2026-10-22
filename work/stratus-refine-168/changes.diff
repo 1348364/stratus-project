@@ -1,0 +1,340 @@
+--- 1.6.7/shaders/core/ceiling.glsl
++++ 1.6.8/shaders/core/ceiling.glsl
+@@ -81,6 +81,8 @@
+     if(amount<=0.0)return vec2(0.0);
+     float h=(worldPoint.y-altitude)/max(thickness,1.0)+0.5;
+     if(upper){
++        // The envelope is exactly zero outside this slab: skip all field work.
++        if(h<=0.0||h>=1.0)return vec2(0.0,h);
+         // A continuous thin veil, independent of the lower cloud texture, span,
+         // coverage and distortion. Broad stretched fields give gentle wisps
+         // across the sky, including the gaps between the physical clouds.
+@@ -91,6 +93,10 @@
+         float envelope=smoothstep(0.0,0.3,h)*(1.0-smoothstep(0.65,1.0,h));
+         return vec2(veil*envelope*amount*CLOUD_DENSITY*CIRRUS_DENSITY*0.045,h);
+     }
++    // Relief can shift h by at most this amount. Beyond it the lower envelope
++    // is exactly zero, including overburden/sun samples outside the cloud.
++    float reliefBound=abs(CLOUD_DISTORTION)*0.04;
++    if(h<=-reliefBound||h>=1.0+reliefBound)return vec2(0.0,h);
+     vec2 mapPoint=cloudMapPosition(worldPoint.xz);
+     float mask=vanillaCloudCell(mapPoint);
+     if(mask<0.5)return vec2(0.0);
+--- 1.6.7/shaders/core/diffuse.glsl
++++ 1.6.8/shaders/core/diffuse.glsl
+@@ -63,14 +63,19 @@
+ #endif
+ }
+ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material){
++#if REALISTIC_LIGHTING == 0
++    // Vanilla lighting keeps the engine's material colour and lightmap intact.
++    return dry;
++#else
+     float moisture=retainedSurfaceMoisture(sky,n,material.x);
+     float saturation=moisture*(0.45+0.55*clamp(biomeHumidity,0.0,1.0));
+     float attenuation=1.0/(1.0+1.40*WET_DARKENING*saturation*clamp(material.x,0.0,1.0));
+     vec3 absorbed=dry*attenuation;
+ #if DIMENSION_TYPE == 0
+-    // A thin rain film on absorbent exposed material. Clear/dry and nonporous
+-    // surfaces keep the existing matte response; no global glossy overlay.
+-    float film=rainStrength*SURFACE_DAMPNESS*smoothstep(0.18,0.85,sky)
++    // All-weather film is explicitly selectable; Rain only retains 1.6.7.
++    // Dampness and material/exposure gates still prevent a uniform glossy coat.
++    float filmSource=WET_WEATHER_MODE==0?1.0:rainStrength;
++    float film=filmSource*SURFACE_DAMPNESS*smoothstep(0.18,0.85,sky)
+         *smoothstep(0.04,0.24,material.x)*mix(0.55,1.0,max(n.y,0.0));
+     if(WET_SHEEN>0.0&&film>0.0001){
+         vec3 view=unitVector(-playerPoint);
+@@ -89,10 +94,17 @@
+     }
+ #endif
+     return absorbed;
++#endif
+ }
+ vec3 diffuseRadiance(vec3 colour, vec3 mappedLight, float skyExposure, vec3 worldNormal,
+                      float kind, vec3 playerPoint, int material) {
+     if (kind < 0.5) return decodeDisplay(colour);
++#if REALISTIC_LIGHTING == 0
++    // oldLighting=true supplies Minecraft's original vertex face shading/AO.
++    // Vanilla multiplies texture/vertex colour by the game's lightmap in display
++    // space. Decode their product once, then bypass artistic grading at output.
++    return decodeDisplay(colour*mappedLight);
++#else
+     vec3 normal = unitVector(worldNormal);
+     if (dot(normal, normal) < 0.1) normal = vec3(0.0, 1.0, 0.0);
+     float lampShare = 1.0 - smoothstep(0.08, 0.85, skyExposure) * daytimeWeight();
+@@ -108,5 +120,6 @@
+         reflected = max(reflected, decodeDisplay(colour) * interior * LAMP_LEVEL * 2.1);
+     }
+     return reflected;
++#endif
+ }
+ #endif
+--- 1.6.7/shaders/core/moisture.glsl
++++ 1.6.8/shaders/core/moisture.glsl
+@@ -3,7 +3,7 @@
+ // Material moisture follows absorption, drainage and sky exposure. A thin
+ // rain film is evaluated locally; no neighbour mask or extra reflection pass.
+ vec3 materialMoisture(vec3 dry,vec3 viewPoint,vec2 uv){
+-#if DIMENSION_TYPE == 0
++#if DIMENSION_TYPE == 0 && REALISTIC_LIGHTING == 1
+     if(SURFACE_DAMPNESS<=0.0)return dry;
+     vec4 surface=texture(colortex1,uv);
+     if(surface.a<0.5)return dry; // Entities, held items, plants and emitters stay dry.
+--- 1.6.7/shaders/core/options.glsl
++++ 1.6.8/shaders/core/options.glsl
+@@ -40,6 +40,8 @@
+ // Independent component multipliers. Both 1 reproduce the legacy 65/35 mix.
+ #define VANILLA_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
+ #define REALISTIC_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
++#define REALISTIC_LIGHTING 1 // [0 1]
++#define WET_WEATHER_MODE 0 // [0 1]
+ #define SUN_CORE_BRIGHTNESS 4.50 // [0.50 1.00 1.50 2.00 2.80 3.50 4.50 6.00 8.00]
+ #define SUN_HALO_STRENGTH 2.00 // [0.00 0.15 0.35 0.65 0.85 1.00 1.20 1.50 2.00 3.00]
+ #define SUN_HALO_RADIUS 1.50 // [0.35 0.50 0.75 1.00 1.25 1.50 2.00 3.00]
+--- 1.6.7/shaders/core/output.frag.glsl
++++ 1.6.8/shaders/core/output.frag.glsl
+@@ -6,6 +6,12 @@
+ layout(location = 0) out vec4 displayPixel;
+ void main() {
+     vec3 physicalColour = max(texture(colortex3, rasterUV).rgb, vec3(0.0));
++#if REALISTIC_LIGHTING == 0
++    // Original game lightmap/vertex colours: no exposure, colour grading,
++    // bloom or highlight shoulder changes their brightness or ambient level.
++    displayPixel=vec4(clamp(encodeDisplay(physicalColour),0.0,1.0),1.0);
++    return;
++#endif
+     physicalColour += max(texture(colortex6, rasterUV).rgb, vec3(0.0)) * BLOOM_STRENGTH;
+     // Camera exposure changes the complete scene, independently of the local
+     // skylight/lamplight controls; UI brightness remains Minecraft's own.
+--- 1.6.7/shaders/core/solar-warmth.glsl
++++ 1.6.8/shaders/core/solar-warmth.glsl
+@@ -19,7 +19,7 @@
+     return 1.0;
+ }
+ vec3 goldenSurfaceWarmth(vec3 radiance,vec3 viewPoint,vec3 worldNormal,float sky){
+-#if DIMENSION_TYPE == 0
++#if DIMENSION_TYPE == 0 && REALISTIC_LIGHTING == 1
+     float facing=max(dot(worldNormal,broadLightDirection()),0.0);
+     float strength=GROUND_WARMTH*facing*smoothstep(0.15,0.9,sky)*solarDaylight()*(1.0-0.8*rainStrength);
+     if(strength>0.001)strength*=localSunVisibility(viewPoint,worldNormal);
+--- 1.6.7/shaders/core/volume.glsl
++++ 1.6.8/shaders/core/volume.glsl
+@@ -34,6 +34,10 @@
+     float g=0.45;
+     float phase=(1.0-g*g)/pow(max(1.0+g*g-2.0*g*cosine,0.05),1.5);
+     float outdoor=smoothstep(0.03,0.60,exposure);
++    // These values depend only on the ray/uniforms, never the integration step.
++    vec3 lightDirection=broadLightDirection();
++    vec3 ambientColour=atmosphericColour()*0.91;
++    vec3 sunRadiance=sunlightColour()*solarDaylight();
+     for(int i=0;i<steps;i++){
+         float a=float(i)/float(steps),b=float(i+1)/float(steps);
+         a=a*a;b=b*b;
+@@ -43,12 +47,11 @@
+         float density=mistDensityWorld(point)*clearWeight*outdoor;
+         if(density<0.000001)continue;
+         float opacity=1.0-exp(-density*stride);
+-        vec3 lightDirection=broadLightDirection();
+         float lightDepth=mistDensityWorld(point+lightDirection*12.0)*18.0;
+         lightDepth+=mistDensityWorld(point+lightDirection*36.0)*24.0;
+         float sunTransmission=exp(-lightDepth);
+-        vec3 colour=atmosphericColour()*0.91;
+-        colour+=sunlightColour()*solarDaylight()*sunTransmission*phase*MIST_LIGHT*0.085;
++        vec3 colour=ambientColour;
++        colour+=sunRadiance*sunTransmission*phase*MIST_LIGHT*0.085;
+         scattering+=transmission*opacity*colour;transmission*=1.0-opacity;
+         if(transmission<0.008)break;
+     }
+--- 1.6.7/shaders/lang/en_us.lang
++++ 1.6.8/shaders/lang/en_us.lang
+@@ -4,7 +4,7 @@
+ profile.HIGH=High
+ screen.SURFACES=Diffuse surfaces
+ screen.CEILING=Overcast ceiling
+-screen.ATMOSPHERE=Layered mist
++screen.ATMOSPHERE=Atmosphere
+ screen.LAKE=Reflective water
+ value.REFLECTION_MODE.0=Sky only
+ value.REFLECTION_MODE.1=Reference
+@@ -18,7 +18,7 @@
+ option.SURFACE_SATURATION=Surface saturation
+ option.SURFACE_SATURATION.comment=1.00 preserves vanilla saturation. Lighting, absorption and bloom still affect the final image.
+ option.SURFACE_DAMPNESS=Surface dampness
+-option.SURFACE_DAMPNESS.comment=Matte moisture absorption follows porosity, face drainage, sky exposure, humidity and rain. No environmental reflections, glossy film, corner outlines or random noise.
++option.SURFACE_DAMPNESS.comment=Material moisture and film amount. All weather allows exposed absorbent surfaces to show sheen in clear weather; Rain only retains the prior weather response. Zero keeps materials dry.
+ value.SURFACE_DAMPNESS.0.00=Dry
+ value.SURFACE_DAMPNESS.0.35=Subtle
+ value.SURFACE_DAMPNESS.0.65=Moderate
+@@ -41,7 +41,7 @@
+ option.CLOUD_DRIFT=Slow cloud drift
+ option.CLOUD_DRIFT.comment=Zero freezes the world-anchored ceiling.
+ option.CLOUD_LAYERS=Cloud sampling
+-option.CLOUD_LAYERS.comment=Cloud shape, integration and self-shadow sampling. High is the reference-quality default; lower values trade detail for speed.
++option.CLOUD_LAYERS.comment=Cloud integration and self-shadow sampling. Source default follows your recorded Main preference; every quality choice remains available.
+ option.MIST_AMOUNT=Valley mist density
+ option.MIST_AMOUNT.comment=Outdoor mist opacity. Cave surfaces without skylight reject valley mist.
+ option.MIST_Y=Lower mist altitude
+@@ -78,14 +78,14 @@
+ option.CLOUD_THICKNESS.comment=Vertical thickness in blocks. Default 12 keeps connected vanilla shapes low and simple; 4 approaches vanilla slab proportions. Existing thicker values remain available.
+ option.SKY_LEAK=Light through the sky
+ option.SKY_LEAK.comment=Broad daylight glow through the cloud ceiling. Sun visibility separately controls the haze-softened solar core.
+-option.WET_SHEEN=Wet film and retention
+-option.WET_SHEEN.comment=Rain-driven view-dependent sheen on exposed absorbent materials, plus existing sheltered matte retention. Zero disables both. Clear/dry and nonporous materials do not gain a glossy coat.
++option.WET_SHEEN=Wet sheen strength
++option.WET_SHEEN.comment=View-dependent film on exposed absorbent surfaces, plus sheltered retention. Weather source is separately selectable. Zero disables sheen and retention; metals/glazed surfaces stay nonglossy.
+ option.BLOOM_RADIUS=Bloom radius
+ option.BLOOM_RADIUS.comment=Restrained halo width, stable relative to image height. Bloom strength remains a separate control.
+ option.SUN_VISIBILITY=Sun through overcast
+ option.SUN_VISIBILITY.comment=Brightness of the polished blocky sun behind clouds. Zero hides its textured core; broad sky haze remains.
+ option.FACE_BLEND=Face shading blend
+-option.FACE_BLEND.comment=Overall blend from unshaded faces to the two independent lighting components. Zero bypasses both.
++option.FACE_BLEND.comment=Combined face-component blend in realistic lighting mode. Zero bypasses the two components; vanilla lighting mode uses the game lighting directly.
+ option.GROUND_WARMTH=Sun-warmed ground
+ option.GROUND_WARMTH.comment=Golden sunlight only on outward sun-facing block faces, weighted by skylight and nearby visible occluders. No brown tint on all sides.
+ option.WATER_DISTORTION=Above-water refraction distortion
+@@ -94,17 +94,15 @@
+ option.CIRRUS_AMOUNT.comment=Coverage/strength of the independent high cloud veil. Its separate density control makes the layer visible without changing lower clouds. Zero hides the upper layer.
+ option.CIRRUS_ALTITUDE=High cloud altitude
+ option.CIRRUS_ALTITUDE.comment=World altitude of the upper wispy cloud layer.
+-
+ screen.WATER=Water
+ screen.REFLECTIONS=Reflections
+-screen.WAVES=Waves and refraction
+-screen.LIGHTING=Lighting and shadows
+-screen.ATMOSPHERE=Atmosphere
++screen.WAVES=Ripples
++screen.LIGHTING=Lighting
+ screen.CLOUDS=Clouds
+ screen.SUN=Sun and moon
+ screen.FOG=Fog
+-screen.MATERIALS=Materials and dampness
+-screen.POST=Colour and bloom
++screen.MATERIALS=Wet materials
++screen.POST=Camera and colour
+ screen.PERFORMANCE=Performance
+ option.CLOUD_STYLE=Cloud style
+ option.CLOUD_STYLE.comment=Stratus extrudes the running game's current cloud texture with simple forms and soft shading. Vanilla uses actual fancy cloud geometry. Off hides both.
+@@ -121,7 +119,6 @@
+ value.BIOME_WATER.1=On
+ option.WATER_TURBIDITY=Suspended sediment
+ option.WATER_TURBIDITY.comment=Scattering from suspended particles. Swamps and rainy rivers carry more sediment; sheltered cave water rejects rain runoff.
+-
+ screen.REFRACTION=Refraction
+ option.REFRACTION_QUALITY=Refraction quality
+ option.REFRACTION_QUALITY.comment=Higher levels improve shoreline protection above water and the search for terrain viewed through the surface from underwater. Fast retains the original above-water depth guard.
+@@ -138,29 +135,24 @@
+ option.MIST_BREAKUP.comment=Zero makes smooth fog; higher values create distinct connected pockets and gaps. Shape remains anchored in3D world space.
+ option.MIST_LIGHT=Fog light scattering
+ option.MIST_LIGHT.comment=Directional sunlight scattered by fog, with internal extinction. Independent of fog density.
+-option.WET_DARKENING=Material absorption darkening
++option.WET_DARKENING=Wet darkening
+ option.WET_DARKENING.comment=Darkening strength on absorbent soil, timber, stone, fabric and masonry. Metals/glazed surfaces have no pore darkening. Wet sheen is separate.
+-
+ option.EXPOSURE=Overall exposure
+ option.EXPOSURE.comment=Camera brightness in stops, affecting terrain, sky, water and bloom together. +1 doubles scene light; HUD is unchanged.
+-
+ option.ATMOSPHERE_QUALITY=Atmosphere quality
+ option.ATMOSPHERE_QUALITY.comment=Cloud and fog image quality, independent of water reflections. Balanced retains volume detail at lower rendering cost.
+ value.ATMOSPHERE_QUALITY.0=Fast
+ value.ATMOSPHERE_QUALITY.1=Balanced
+ value.ATMOSPHERE_QUALITY.2=High
+-
+ option.WATER_RENDER_QUALITY=Water render quality
+ option.WATER_RENDER_QUALITY.comment=Resolution of water surface optics. Balanced uses half resolution with depth and normal aware reconstruction. Opaque terrain and submerged blocks seen directly remain full resolution.
+ value.WATER_RENDER_QUALITY.0=Fast
+ value.WATER_RENDER_QUALITY.1=Balanced
+ value.WATER_RENDER_QUALITY.2=Full resolution
+-
+-
+ option.VANILLA_FACE_CONTRAST=Vanilla face component
+ option.VANILLA_FACE_CONTRAST.comment=Independent multiplier for fixed vanilla axis contrast. 0 removes it; 1 retains the previous contribution. Existing master contrast/blend remain.
+ option.REALISTIC_FACE_CONTRAST=Realistic face component
+-option.REALISTIC_FACE_CONTRAST.comment=Independent multiplier for world-space sun, sky and ground contrast. 0 removes it; 1 retains the previous contribution. Exposure/rain/night still apply.
++option.REALISTIC_FACE_CONTRAST.comment=Adjusts only the directional face component. Use Realistic lighting: Off to restore vanilla face lighting, lightmap brightness and colour together.
+ option.SUN_CORE_BRIGHTNESS=Polished sun brightness
+ option.SUN_CORE_BRIGHTNESS.comment=HDR brightness of the blocky textured core in polished mode. 2.80 reproduces the previous core; vanilla mode is unaffected.
+ option.SUN_HALO_STRENGTH=Sun-local halo strength
+@@ -169,3 +161,25 @@
+ option.SUN_HALO_RADIUS.comment=Angular spread of the polished sun's smoothly falling halo. Does not resize the blocky core or brighten unrelated objects.
+ option.CIRRUS_DENSITY=High cloud density
+ option.CIRRUS_DENSITY.comment=Optical density of the independent high cloud layer. 0 hides it; coverage/altitude and lower-cloud controls remain independent.
++option.REALISTIC_LIGHTING=Realistic lighting
++option.REALISTIC_LIGHTING.comment=Off restores the game's vertex face lighting/AO and lightmap colour/brightness, bypassing ambient/lamp boosts, ground warmth, material recolouring, bloom and camera grading. Stratus water, clouds and atmosphere remain. On keeps artistic controls active; saved values are never erased.
++value.REALISTIC_LIGHTING.0=Off (vanilla)
++value.REALISTIC_LIGHTING.1=On
++option.WET_WEATHER_MODE=Wet sheen conditions
++option.WET_WEATHER_MODE.comment=All weather allows sheen without rain. Rain only keeps the previous rain-gated film. Dampness, material absorption and exposure still control where film appears; Realistic lighting must be On.
++value.WET_WEATHER_MODE.0=All weather
++value.WET_WEATHER_MODE.1=Rain only
++screen.FACE_LIGHTING=Face shading
++screen.FACE_LIGHTING.comment=Independent face components and combined strength. Used in realistic lighting mode.
++screen.AMBIENT_LIGHT=Ambient and daylight
++screen.AMBIENT_LIGHT.comment=Ambient level, corner AO and sun warmth. Vanilla mode retains the game lightmap and skips artistic brightness/warmth changes.
++screen.BLOCK_LIGHT=Block light
++screen.BLOCK_LIGHT.comment=Local brightness and warmth for Stratus lighting.
++screen.CLOUD_SHAPE=Cloud shape and movement
++screen.CLOUD_SHAPE.comment=Advanced lower-cloud scale, gradients, relief and drift. The vanilla footprint remains intact.
++screen.CIRRUS=High clouds
++screen.CIRRUS.comment=Independent cirrus coverage, optical density and altitude.
++screen.COLOUR=Exposure and colour
++screen.COLOUR.comment=Camera grading for Stratus lighting. Saved values remain when vanilla lighting bypasses grading.
++screen.BLOOM=Bloom
++screen.BLOOM.comment=Global light halos. The polished sun also has independent local halo controls.
+--- 1.6.7/shaders/shaders.properties
++++ 1.6.8/shaders/shaders.properties
+@@ -15,26 +15,40 @@
+ stars=false
+ vignette=false
+ underwaterOverlay=false
++#if REALISTIC_LIGHTING == 0
++oldLighting=true
++# The vanilla transfer has no bloom contribution: avoid its two unused passes.
++program.composite5.enabled=false
++program.composite6.enabled=false
++#else
+ oldLighting=false
++#endif
+ separateAo=false
+ particles.ordering=after
+ separateEntityDraws=true
+ 
+-# Familiar category/subcategory layout; every previous control remains accessible.
+-screen=<profile> <empty> [WATER] [LIGHTING] [ATMOSPHERE] [MATERIALS] [POST] [PERFORMANCE]
++# Two-column effect groups. Every retained option remains reachable.
++screen=<profile> <empty> [LIGHTING] [WATER] [ATMOSPHERE] [MATERIALS] [POST] [PERFORMANCE]
+ screen.columns=2
+-screen.WATER=WATER_VISIBILITY BIOME_WATER WATER_TURBIDITY WATER_EXTINCTION [REFLECTIONS] [REFRACTION] [WAVES]
+-screen.REFLECTIONS=REFLECT_LEVEL REFLECTION_MODE REFLECT_RANGE
+-screen.REFRACTION=WATER_RENDER_QUALITY WATER_DISTORTION REFRACTION_QUALITY
+-screen.WAVES=RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
+-screen.LIGHTING=SKY_AMBIENT ambientOcclusionLevel FACE_SHADING FACE_BLEND VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST GROUND_WARMTH LAMP_LEVEL LAMP_HEAT
+-screen.ATMOSPHERE=[CLOUDS] [SUN] [FOG]
+-screen.CLOUDS=CLOUD_STYLE CLOUD_LAYERS CLOUD_AMOUNT CLOUD_DENSITY CLOUD_DETAIL CLOUD_ALTITUDE CLOUD_THICKNESS CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT CIRRUS_AMOUNT CIRRUS_ALTITUDE CIRRUS_DENSITY
+-screen.SUN=SUN_STYLE SUN_VISIBILITY SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS SKY_LEAK
+-screen.FOG=MIST_AMOUNT MIST_CLEAR MIST_Y MIST_THICKNESS MIST_SCALE MIST_BREAKUP MIST_LIGHT MIST_DETAIL
+-screen.MATERIALS=SURFACE_DAMPNESS WET_DARKENING WET_SHEEN
+-screen.POST=EXPOSURE SURFACE_SATURATION WHITE_BALANCE BLOOM_STRENGTH BLOOM_RADIUS
+-screen.PERFORMANCE=WATER_RENDER_QUALITY ATMOSPHERE_QUALITY CLOUD_LAYERS MIST_DETAIL REFLECTION_MODE REFRACTION_QUALITY REFLECT_RANGE
++screen.WATER=WATER_VISIBILITY BIOME_WATER WATER_TURBIDITY WATER_EXTINCTION <empty> <empty> [REFLECTIONS] [REFRACTION] [WAVES]
++screen.REFLECTIONS=REFLECTION_MODE REFLECT_LEVEL REFLECT_RANGE <empty>
++screen.REFRACTION=WATER_RENDER_QUALITY REFRACTION_QUALITY WATER_DISTORTION <empty>
++screen.WAVES=RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE <empty>
++screen.LIGHTING=REALISTIC_LIGHTING <empty> [FACE_LIGHTING] [AMBIENT_LIGHT] [BLOCK_LIGHT]
++screen.FACE_LIGHTING=VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST <empty> <empty> FACE_SHADING FACE_BLEND
++screen.AMBIENT_LIGHT=SKY_AMBIENT ambientOcclusionLevel GROUND_WARMTH <empty>
++screen.BLOCK_LIGHT=LAMP_LEVEL LAMP_HEAT
++screen.ATMOSPHERE=[CLOUDS] [CIRRUS] [SUN] [FOG]
++screen.CLOUDS=CLOUD_STYLE CLOUD_LAYERS CLOUD_AMOUNT CLOUD_DENSITY CLOUD_ALTITUDE CLOUD_THICKNESS <empty> <empty> [CLOUD_SHAPE]
++screen.CLOUD_SHAPE=CLOUD_SPAN CLOUD_DRIFT CLOUD_DETAIL CLOUD_RELIEF CLOUD_DISTORTION <empty>
++screen.CIRRUS=CIRRUS_AMOUNT CIRRUS_DENSITY CIRRUS_ALTITUDE <empty>
++screen.SUN=SUN_STYLE SUN_VISIBILITY <empty> <empty> SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS SKY_LEAK
++screen.FOG=MIST_AMOUNT MIST_CLEAR MIST_Y MIST_THICKNESS <empty> <empty> MIST_SCALE MIST_BREAKUP MIST_LIGHT MIST_DETAIL
++screen.MATERIALS=WET_WEATHER_MODE SURFACE_DAMPNESS WET_SHEEN WET_DARKENING
++screen.POST=[COLOUR] [BLOOM]
++screen.COLOUR=EXPOSURE SURFACE_SATURATION WHITE_BALANCE <empty>
++screen.BLOOM=BLOOM_STRENGTH BLOOM_RADIUS
++screen.PERFORMANCE=<profile> <empty> WATER_RENDER_QUALITY ATMOSPHERE_QUALITY CLOUD_LAYERS MIST_DETAIL REFLECTION_MODE REFRACTION_QUALITY REFLECT_RANGE <empty>
+ sliders=VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS CIRRUS_DENSITY EXPOSURE WET_DARKENING CLOUD_DENSITY CLOUD_DETAIL MIST_SCALE MIST_BREAKUP MIST_LIGHT WATER_TURBIDITY SKY_AMBIENT ambientOcclusionLevel WHITE_BALANCE SURFACE_SATURATION SURFACE_DAMPNESS WET_SHEEN FACE_SHADING FACE_BLEND GROUND_WARMTH BLOOM_STRENGTH BLOOM_RADIUS LAMP_LEVEL LAMP_HEAT CLOUD_AMOUNT CLOUD_ALTITUDE CLOUD_THICKNESS SKY_LEAK SUN_VISIBILITY CIRRUS_AMOUNT CIRRUS_ALTITUDE CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT MIST_AMOUNT MIST_Y MIST_THICKNESS MIST_CLEAR REFLECT_LEVEL REFLECT_RANGE WATER_VISIBILITY WATER_EXTINCTION WATER_DISTORTION RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
+ profile.FAST=WATER_RENDER_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 ATMOSPHERE_QUALITY:0 REFLECTION_MODE:0 REFRACTION_QUALITY:0
+ profile.BALANCED=WATER_RENDER_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 ATMOSPHERE_QUALITY:1 REFLECTION_MODE:1 REFRACTION_QUALITY:0

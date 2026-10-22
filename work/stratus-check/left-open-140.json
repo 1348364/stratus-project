@@ -1,0 +1,7 @@
+{
+  "pid": 31923,
+  "alive": true,
+  "other_minecraft_instances": 1,
+  "shader": "#This file stores configuration options for Iris, such as the currently active shaderpack\n#Sat Oct 17 22:30:17 AEDT 2026\nallowUnknownShaders=false\ncolorSpace=SRGB\ndisableUpdateMessage=true\nenableDebugOptions=false\nenableShaders=true\nmaxShadowRenderDistance=0\nshaderPack=Stratus-1.4.0.zip\n",
+  "qa_complete": "v140-release-complete"
+}

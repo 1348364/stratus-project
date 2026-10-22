@@ -1,0 +1,21 @@
+PACK Stratus-1.3.0-candidate-v2.zip
+CMD tp ShaderCheck 88 106 32 0 55
+WAIT 5
+CMD fill 80 99 30 96 103 46 minecraft:stone outline
+CMD fill 81 103 31 95 103 45 minecraft:air
+CMD fill 81 100 31 95 102 45 minecraft:water
+CMD fill 81 99 31 95 99 45 minecraft:white_concrete
+CMD fill 83 99 31 84 99 45 minecraft:black_concrete
+CMD fill 87 99 31 88 99 45 minecraft:black_concrete
+CMD fill 91 99 31 92 99 45 minecraft:black_concrete
+WAIT 5
+RESUME
+SHOT g130-refraction-close
+WAIT 3
+SHOT g130-refraction-moving
+PACK Stratus-1.3.0-no-distortion-v2.zip
+RESUME
+SHOT g130-refraction-off-close
+PACK Stratus-1.3.0-candidate-v2.zip
+CMD save-all flush
+DONE r130-complete

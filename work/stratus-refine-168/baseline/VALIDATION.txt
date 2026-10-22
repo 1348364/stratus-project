@@ -1,0 +1,32 @@
+STRATUS 1.6.7 — VALIDATION / 21 OCTOBER 2026
+
+COMPLETED
+768 native macOS OpenGL compile/link pairs, eight variants, zero failures.
+Actual GLSL GPU probes: 490 candidate and 49 baseline samples; 21 independent
+relationships pass, zero API errors. Includes exact legacy face combination,
+independent controls, dry/nonporous/cave wet gating, grazing film strength and
+2.8125x upper optical density with lower-layer independence. Ten full water-
+resolve regressions pass under the newly preferred 3.00/6.00 defaults.
+53 previous control IDs/ranges retained; 59 total reachable/labelled controls.
+Seven saved values applied to defaults, old preference bytes preserved. Four
+preset definitions, including Reference, unchanged. Exact inventories recorded.
+
+ACTUAL MAIN VISUAL REVIEW
+Minecraft 1.21.11 / Iris 1.10.8 / normal Stratus Terrain Lab. A guarded project-
+local API driver captured the existing client; no mods installed or world copy
+opened. Pipeline and camera checked. Reviewed sun/vanilla/halo, cirrus only/off,
+face component off combinations, rain wet strengths and metal, clear material,
+sunset atmosphere, river/underwater and menu controls. Full original captures
+and preliminary/rejected-frame labels are in the visual report. Corrected menu
+captures include a render wait; two early stale menu frames are not passes.
+Final source tokens match the immutable QA-v2 build; only two comments differ.
+Final release loading/normal selection is documented in the external install
+receipt, rather than inferred from source or archive creation.
+
+PENDING / LIMITS
+Focused FPS and matched frame times remain unverified; no speedup, maximum-
+performance or exhaustive equivalence claim. No quality reduction or extra
+render pass; preferred quality defaults match the user's saved settings.
+No exhaustive night/sheltered-wet, all-preset motion or mod visual certification.
+Rain/porosity/film and upper clouds are approximations. Existing cloud range,
+screen-space water limitations and selective fog-fallback costs remain.

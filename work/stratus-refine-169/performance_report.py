@@ -1,0 +1,13 @@
+from pathlib import Path
+import json,re,statistics
+w=Path(__file__).parent
+samples=[]
+for p in sorted((w/'benchmarks').glob('*.json')):
+ d=json.loads(p.read_text());d.pop('raw_frame_ns',None);d['file']=p.name
+ if p.name.startswith('focused-'):d['acceptance']='Excluded from shader-performance conclusion: focused static run was limited by vanilla SHORT_AFK (30 FPS); final forest-before overlapped activity-timer diagnostic.'
+ elif not d.get('valid_focused_sample'):d['acceptance']='Rejected: missing focus or focus loss; no FPS conclusion.'
+ elif p.name.startswith('active-'):d['acceptance']='Focused active-game sample with activity limiter reset every 5 seconds; saved options unchanged.'
+ else:d['acceptance']='Rejected.'
+ samples.append(d)
+summary={'scope':'Finite actual Minecraft fixed-camera benchmark; not exhaustive gameplay guarantee','hardware':'Apple M1 / macOS / OpenGL4.1','client':'Minecraft1.21.11 / Iris1.10.8 / Sodium0.8.14 / Main','world':'Stratus Terrain Lab normal world','baseline':'Stratus-1.6.9-water-pole-test.zip, pre-existing editable baseline','after':'Stratus-1.6.9-QA-v2-Candidate.zip, same runtime source as released 1.6.9','framebuffer':[1440,842],'render_distance_chunks':12,'simulation_distance_chunks':8,'saved_vsync':True,'saved_max_fps':70,'saved_inactivity_fps_limit':'afk','DynamicFPS_enabled':True,'DynamicFPS_diagnostic':{'powerState':'FOCUSED','targetFrameRate':260,'enableVsync_method':False,'isForcingLowFPS':False,'graphicsState':'DEFAULT','idle':False},'activity_timer':'Minecraft method_61939 reset and Dynamic FPS onActivity every 5s only while window focus=1; no saved config modification. Monitor records actual limiter NONE/cap70, camera/time/weather. First diagnostic explicitly observed SHORT_AFK/cap30 before reset.','conditions':{'world_time':6000,'rain_gradient':0,'shader_options':'Latest saved pole-test Main settings preserved; current Realistic lighting0, film amount.15, Fast-related water/atmosphere/reflection choices. New texture strength.15. Intentional material/water changes add visible effects; this is whole-build timing, not isolated optimisation cost.'},'samples':samples,'target_60_FPS_verified':False,'whole_game_speedup_verified':False,'remaining':'Performance request remains pending. River valid active comparison ~57.7 before /56.2 after does not establish speedup or 60 FPS; review all forest samples with focus validity. Do not lower resolution/quality to satisfy the target.'}
+(w/'performance-summary.json').write_text(json.dumps(summary,indent=2)+'\n');print(json.dumps([{k:v for k,v in d.items() if k in ['file','valid_focused_sample','average_fps','p95_frame_ms','acceptance']} for d in samples],indent=2))

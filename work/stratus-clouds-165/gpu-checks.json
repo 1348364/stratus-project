@@ -1,0 +1,134 @@
+{
+  "scope": "Actual GLSL on Apple native OpenGL; 65536 map cells, 17 cloud renders, 216 face samples. Offline, not Minecraft visual QA or FPS.",
+  "checks": [
+    {
+      "check": "All 65536 vanilla footprint cells match texture alpha",
+      "passed": true
+    },
+    {
+      "check": "Density preserves every occupied cell and hole",
+      "passed": true
+    },
+    {
+      "check": "Lower amount zero fully disables density",
+      "passed": true
+    },
+    {
+      "check": "cloud-other-low preserves exact horizontal footprint",
+      "passed": true
+    },
+    {
+      "check": "cloud-detail-off preserves exact horizontal footprint",
+      "passed": true
+    },
+    {
+      "check": "cloud-detail-max preserves exact horizontal footprint",
+      "passed": true
+    },
+    {
+      "check": "High clouds have positive finite density throughout 24km sky sample",
+      "passed": true
+    },
+    {
+      "check": "High layer zero turns it off",
+      "passed": true
+    },
+    {
+      "check": "High clouds independent of cloud-low-off",
+      "passed": true
+    },
+    {
+      "check": "High clouds independent of cloud-other-low",
+      "passed": true
+    },
+    {
+      "check": "Below / noon finite RGBA",
+      "passed": true
+    },
+    {
+      "check": "Inside / noon finite RGBA",
+      "passed": true
+    },
+    {
+      "check": "Above / noon finite RGBA",
+      "passed": true
+    },
+    {
+      "check": "Below / sunset finite RGBA",
+      "passed": true
+    },
+    {
+      "check": "Below / night finite RGBA",
+      "passed": true
+    },
+    {
+      "check": "face day sun-facing side brighter",
+      "passed": true
+    },
+    {
+      "check": "face sun reversal reverses side contrast",
+      "passed": true
+    },
+    {
+      "check": "face rain softens directional contrast",
+      "passed": true
+    },
+    {
+      "check": "face night has no solar contrast",
+      "passed": true
+    },
+    {
+      "check": "face caves keep fixed local-light face response",
+      "passed": true
+    },
+    {
+      "check": "face-strong day sun-facing side brighter",
+      "passed": true
+    },
+    {
+      "check": "face-strong sun reversal reverses side contrast",
+      "passed": true
+    },
+    {
+      "check": "face-strong rain softens directional contrast",
+      "passed": true
+    },
+    {
+      "check": "face-strong night has no solar contrast",
+      "passed": true
+    },
+    {
+      "check": "face-strong caves keep fixed local-light face response",
+      "passed": true
+    },
+    {
+      "check": "face-off exact bypass",
+      "passed": true
+    },
+    {
+      "check": "face-blend-off exact bypass",
+      "passed": true
+    },
+    {
+      "check": "face-nether ignores overworld sun and rain",
+      "passed": true
+    },
+    {
+      "check": "face-end ignores overworld sun and rain",
+      "passed": true
+    },
+    {
+      "check": "Face shading is invariant under equivalent camera/sun rotation",
+      "passed": true
+    },
+    {
+      "check": "All face samples finite bounded and nonblack",
+      "passed": true
+    },
+    {
+      "check": "No GPU API errors",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

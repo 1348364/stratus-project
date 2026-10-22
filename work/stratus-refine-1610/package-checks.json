@@ -1,0 +1,15 @@
+{
+  "archive": "outputs/Stratus-1.6.10.zip",
+  "entries": 245,
+  "runtime_assets": 235,
+  "bytes": 7780828,
+  "zip_integrity": true,
+  "all_archive_source_bytes_equal": true,
+  "manifest_hashes_verified": true,
+  "candidate_QA_runtime_equals_release": true,
+  "sha256": "6f33f582371c329fd65f9a5ada06fad317dceb1ecf08589e33b88e321d038387",
+  "old_release_sha256": "98321d67e7225a54a10f9d900ae65bf32f2a1a145559c3d2237513548ae2827d",
+  "initial_documentation_build_preserved": "work/stratus-refine-1610/pre-focused-benchmark-Stratus-1.6.10.zip",
+  "documentation_refreshed_after_user_focused_game": true,
+  "runtime_unchanged_during_documentation_refresh": true
+}

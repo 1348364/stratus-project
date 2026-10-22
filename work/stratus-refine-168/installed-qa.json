@@ -1,0 +1,30 @@
+[
+  {
+    "file": "Stratus-1.6.8-QA-WetOff.zip",
+    "sha256": "5ec031789b653b4b629d48f94f738dfcedc6dbe26d7f21eec51198cdd93d9935"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-VanillaLighting.zip",
+    "sha256": "bdf891d220e881c6b582da25984d32e18e55c1b8e167f9fdb0d76b71287959f6"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-RainOnly.zip",
+    "sha256": "466a01b26604e58f9f110668a890a1e0c2b0568d590abdf6f49445bce071ba58"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-Baseline.zip",
+    "sha256": "eb160b8bf87cb052b06d3eba4eb649ff370f1ba6fe71e4ae34fe81b0d47707b1"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-AllWeather.zip",
+    "sha256": "efc86768204be4fb44e658d66f745f27fa06e7770be6d8032e64ffb87f05d44b"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-Final.zip",
+    "sha256": "4e2cba087e25068d019e948fee7e12be97766395e92d90d3f8a6289a90e9a718"
+  },
+  {
+    "file": "Stratus-1.6.8-QA-FinalVanilla.zip",
+    "sha256": "857b7a68d3214b93242abe634434fe422caaef1002ea3fbb1bccac54a68d47a5"
+  }
+]

@@ -1,0 +1,36 @@
+CMD gamemode spectator ShaderCheck
+CMD weather clear
+CMD time set 6000
+CMD gamerule minecraft:advance_time false
+CMD tp ShaderCheck 36 120 -9 -50 25
+WAIT 3
+CMD fill 42 114 0 44 116 2 minecraft:white_concrete
+CMD fill 48 114 0 50 116 2 minecraft:stone
+CMD fill 54 114 0 56 116 2 minecraft:oak_planks
+WAIT 4
+PACK Stratus-1.1.0.zip
+WAIT 3
+RESUME
+SHOT face111-before-top-sides
+PACK Stratus-1.1.1.zip
+WAIT 3
+RESUME
+SHOT face111-after-top-sides
+CMD tp ShaderCheck 36 110 -9 -50 -20
+WAIT 2
+RESUME
+SHOT face111-undersides
+CMD tp ShaderCheck 0 98 -7 180 22
+WAIT 3
+RESUME
+SHOT face111-materials
+CMD tp ShaderCheck -18 108 -4 -35 35
+WAIT 3
+RESUME
+SHOT face111-water-landscape
+CMD tp ShaderCheck 13 90 -3 0 0
+WAIT 3
+RESUME
+SHOT face111-underwater
+STATE
+DONE v111-face-shading-suite

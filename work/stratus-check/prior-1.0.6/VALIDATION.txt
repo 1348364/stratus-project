@@ -1,0 +1,91 @@
+STRATUS 1.0.6 - VALIDATION
+16 October 2026
+
+INDEPENDENCE AND PACKAGE
+The pack's shader code was authored anew for the attached reference images and
+brief. No earlier pack was used as its shader foundation. Runtime includes are
+confined to Stratus/shaders/core and standard Iris interfaces.
+Comparison against the earlier packs found:
+  0 identical shader or shader-configuration files.
+  0 matching contiguous blocks of 100 shader-code tokens (comments removed).
+  0 external shader includes.
+These checks support the source audit; a similarity check alone is not proof of
+authorship. Generic compiler/test utilities are independent of the shader pack.
+
+IRIS CLEAR-COLOUR PARSER REGRESSION - PASSED
+The 1.0 load failure was reproduced against unmodified parsing classes extracted
+from the installed Iris 1.10.8 JAR: vec4(0.0) triggers the same array-index error.
+Version 1.0.1 uses vec4(0.0, 0.0, 0.0, 0.0) for all three clear colours. The real
+installed parser accepted all three repaired directives. Only logging entry
+points were stubbed to isolate the parser from Minecraft; parser code was not
+reimplemented. This is a focused Iris parser test, not full in-game compilation.
+
+TEXTURE-FORMAT DECLARATION REGRESSION - PASSED
+Version 1.0.1 reached actual Iris GPU compilation but failed because RGBA8 and
+RGBA16F were not declared. Version 1.0.2 declares both as GLSL const integers,
+retaining symbolic names in the five format directives for Iris to parse.
+The installed Iris parser accepted all five symbolic format directives.
+The offline harness no longer injects format definitions. Removing the pack's
+own declarations now reproduces the reported undeclared-identifier errors;
+the repaired source passes all native compile/link checks without that aid.
+
+NATIVE OFFLINE COMPILATION - PASSED
+Apple M1, OpenGL 4.1, GLSL 4.10.
+432 program compile-and-link checks, zero failures:
+  24 program pairs x 3 dimension routes x 6 configurations.
+Configurations: defaults, Fast, Reference, High, all numeric option minima and
+all numeric option maxima, including the independent ambientOcclusionLevel.
+The harness expands includes, applies settings and adapts compatibility builtins
+to explicit core inputs/uniforms. It does not run Iris's actual transformation.
+Unused vertex-output warnings are benign.
+
+STANDALONE GPU PIPELINE DIAGNOSTIC - PASSED
+Rendered a synthetic lake scene through the new material capture, deferred
+resolve, late water-attribute, composite reflection and final-display passes.
+Fast, Reference and High completed without an OpenGL error. The Reference
+diagnostic was visually inspected: sky, mist, matte banks/dock and water with
+distorted terrain silhouettes were visible.
+The diagnostic provides simple vertex colours instead of Minecraft textures
+and emulates attachment transitions. It is not a Minecraft screenshot, an Iris
+integration test, a vanilla AO test, or proof of an exact reference match.
+
+STATIC CHECKS - PASSED
+Include resolution, paired entry points, 26 menu options, preset values, permitted
+quality-only preset changes, material IDs, source hashes and ZIP structure.
+No shadow, compute, geometry or tessellation programs. No custom texture assets,
+image load/store or storage-buffer features. All solid materials remain outside
+the water composition path.
+
+DAMP DIFFUSE MATERIALS
+Outdoor soil, wood, stone and foliage have independent absorbency masks.
+The new Surface dampness control defaults to 1.00 for all presets and applies
+in clear weather. Skylight and face orientation limit indoor/underside effects.
+No additional reflection, gloss, puddle, texture or render-target pass was added.
+
+FOREGROUND CLARITY / AMBIENT GPU PROBES - PASSED
+Foreground mist exclusion increased to 80 blocks, with a smooth background
+transition. Ordinary Overworld engine fog adds only opacity missing from
+Stratus mist. Fluid and status fog retain their own handling. Ambient skylight
+defaults to 1.40; independent corner AO returns to 0.30.
+GPU probes executed the actual previous and updated fog/light functions.
+At distances 16, 32, 64 and 80 blocks, clear-air output exactly preserved
+the input colour. At Y=70 with far=512, mist opacity remained 0.175 at 128
+blocks and 0.430 at 192. Sampled fluid/status fog outputs matched the prior
+release. Skylit linear radiance increased by 1.167 relative to the user
+setting 1.20, while sampled cave light was unchanged. AO default was checked
+separately as 0.30; the native shim does not simulate vanilla corner AO.
+The complete synthetic Reference scene was visually inspected: nearby
+banks/tree colours were clear and distant trees retained pale mist. These
+are GPU diagnostics, not in-game reference-image measurements.
+
+ACTUAL MINECRAFT VISUAL REGRESSION
+See IN-GAME-TEST.txt and CHECKS.json for the verified final visual-test result.
+The supplied screenshots were reproduced in a separate client and copied world.
+The firefly defect also reproduced with shaders disabled, using the supplied
+26.1-26.3 VanillaTweaks resource pack on 1.21.11. A separate minimal format-75
+resource pack restores vanilla firefly-bush model selection. The shader and
+resource compatibility fixes are tested together, with actual screenshots.
+
+GAME PERFORMANCE - NOT MEASURED
+There are no asserted FPS numbers. The offscreen diagnostic is not a game FPS
+benchmark. Use a fixed resolution and render distance for future comparisons.

@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-17",
+  "profile_video_settings": {
+    "biomeBlendRadius": "2",
+    "enableVsync": "true",
+    "entityDistanceScaling": "1.0",
+    "fullscreen": "false",
+    "guiScale": "2",
+    "maxFps": "70",
+    "mipmapLevels": "4",
+    "particles": "0",
+    "renderDistance": "12",
+    "simulationDistance": "8",
+    "prioritizeChunkUpdates": "0",
+    "bobView": "true"
+  },
+  "launcher_logical_window": [
+    854,
+    480
+  ],
+  "last_confirmed_framebuffer": [
+    1708,
+    960
+  ],
+  "mac_unlocked_confirmed": true,
+  "other_minecraft_processes_detected": 0,
+  "mods": "Iris 1.10.8, Sodium 0.8.14, isolated QA helper; full profile mod stack not copied"
+}

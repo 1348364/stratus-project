@@ -1,0 +1,23 @@
+{
+  "saved": {
+    "WET_SHEEN": ".65"
+  },
+  "retention-off": {
+    "WET_SHEEN": "0.00"
+  },
+  "retention-max": {
+    "WET_SHEEN": "2.00"
+  },
+  "dampness-off": {
+    "SURFACE_DAMPNESS": "0.00"
+  },
+  "dampness-max": {
+    "SURFACE_DAMPNESS": "3.00"
+  },
+  "nether": {
+    "DIMENSION_TYPE": "-1"
+  },
+  "end": {
+    "DIMENSION_TYPE": "1"
+  }
+}

@@ -1,0 +1,273 @@
+--- baseline/shaders/shaders.properties
++++ 1.6.9/shaders/shaders.properties
+@@ -23,6 +23,10 @@
+ #else
+ oldLighting=false
+ #endif
++# The reflection cache has no readers when scenery reflections are disabled.
++#if REFLECTION_MODE == 0
++program.composite.enabled=false
++#endif
+ separateAo=false
+ particles.ordering=after
+ separateEntityDraws=true
+@@ -30,7 +34,7 @@
+ # Two-column effect groups. Every retained option remains reachable.
+ screen=<profile> <empty> [LIGHTING] [WATER] [ATMOSPHERE] [MATERIALS] [POST] [PERFORMANCE]
+ screen.columns=2
+-screen.WATER=WATER_VISIBILITY BIOME_WATER WATER_TURBIDITY WATER_EXTINCTION <empty> <empty> [REFLECTIONS] [REFRACTION] [WAVES]
++screen.WATER=WATER_VISIBILITY BIOME_WATER WATER_TURBIDITY WATER_EXTINCTION WATER_TEXTURE <empty> [REFLECTIONS] [REFRACTION] [WAVES]
+ screen.REFLECTIONS=REFLECTION_MODE REFLECT_LEVEL REFLECT_RANGE <empty>
+ screen.REFRACTION=WATER_RENDER_QUALITY REFRACTION_QUALITY WATER_DISTORTION <empty>
+ screen.WAVES=RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE <empty>
+@@ -49,7 +53,7 @@
+ screen.COLOUR=EXPOSURE SURFACE_SATURATION WHITE_BALANCE <empty>
+ screen.BLOOM=BLOOM_STRENGTH BLOOM_RADIUS
+ screen.PERFORMANCE=<profile> <empty> WATER_RENDER_QUALITY ATMOSPHERE_QUALITY CLOUD_LAYERS MIST_DETAIL REFLECTION_MODE REFRACTION_QUALITY REFLECT_RANGE <empty>
+-sliders=VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS CIRRUS_DENSITY EXPOSURE WET_DARKENING CLOUD_DENSITY CLOUD_DETAIL MIST_SCALE MIST_BREAKUP MIST_LIGHT WATER_TURBIDITY SKY_AMBIENT ambientOcclusionLevel WHITE_BALANCE SURFACE_SATURATION SURFACE_DAMPNESS WET_SHEEN FACE_SHADING FACE_BLEND GROUND_WARMTH BLOOM_STRENGTH BLOOM_RADIUS LAMP_LEVEL LAMP_HEAT CLOUD_AMOUNT CLOUD_ALTITUDE CLOUD_THICKNESS SKY_LEAK SUN_VISIBILITY CIRRUS_AMOUNT CIRRUS_ALTITUDE CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT MIST_AMOUNT MIST_Y MIST_THICKNESS MIST_CLEAR REFLECT_LEVEL REFLECT_RANGE WATER_VISIBILITY WATER_EXTINCTION WATER_DISTORTION RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
++sliders=WATER_TEXTURE VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS CIRRUS_DENSITY EXPOSURE WET_DARKENING CLOUD_DENSITY CLOUD_DETAIL MIST_SCALE MIST_BREAKUP MIST_LIGHT WATER_TURBIDITY SKY_AMBIENT ambientOcclusionLevel WHITE_BALANCE SURFACE_SATURATION SURFACE_DAMPNESS WET_SHEEN FACE_SHADING FACE_BLEND GROUND_WARMTH BLOOM_STRENGTH BLOOM_RADIUS LAMP_LEVEL LAMP_HEAT CLOUD_AMOUNT CLOUD_ALTITUDE CLOUD_THICKNESS SKY_LEAK SUN_VISIBILITY CIRRUS_AMOUNT CIRRUS_ALTITUDE CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT MIST_AMOUNT MIST_Y MIST_THICKNESS MIST_CLEAR REFLECT_LEVEL REFLECT_RANGE WATER_VISIBILITY WATER_EXTINCTION WATER_DISTORTION RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
+ profile.FAST=WATER_RENDER_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 ATMOSPHERE_QUALITY:0 REFLECTION_MODE:0 REFRACTION_QUALITY:0
+ profile.BALANCED=WATER_RENDER_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 ATMOSPHERE_QUALITY:1 REFLECTION_MODE:1 REFRACTION_QUALITY:0
+ profile.REFERENCE=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:2 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2
+--- baseline/shaders/core/options.glsl
++++ 1.6.9/shaders/core/options.glsl
+@@ -40,7 +40,7 @@
+ // Independent component multipliers. Both 1 reproduce the legacy 65/35 mix.
+ #define VANILLA_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
+ #define REALISTIC_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
+-#define REALISTIC_LIGHTING 1 // [0 1]
++#define REALISTIC_LIGHTING 0 // [0 1]
+ #define WET_WEATHER_MODE 0 // [0 1]
+ #define SUN_CORE_BRIGHTNESS 4.50 // [0.50 1.00 1.50 2.00 2.80 3.50 4.50 6.00 8.00]
+ #define SUN_HALO_STRENGTH 2.00 // [0.00 0.15 0.35 0.65 0.85 1.00 1.20 1.50 2.00 3.00]
+@@ -63,4 +63,6 @@
+ #define MIST_SCALE 96.0 // [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
+ #define MIST_BREAKUP 0.85 // [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
+ #define MIST_LIGHT 0.65 // [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
++// Reuse the active animated water atlas pattern without changing opacity.
++#define WATER_TEXTURE 0.15 // [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+ #endif
+--- baseline/shaders/core/lake.frag.glsl
++++ 1.6.9/shaders/core/lake.frag.glsl
+@@ -27,13 +27,14 @@
+ void main(){
+     vec3 image=texture(colortex3,rasterUV).rgb;
+     vec4 markedColour=texture(colortex0,rasterUV);
+-    vec4 markedNormal=texture(colortex1,rasterUV),markedDepth=texture(colortex2,rasterUV);
+     if(isEyeInWater==1){
+         completedScene=vec4(max(image,vec3(0.0)),1.0);return;
+     }
+     if(markedColour.a<=0.5){
+         completedScene=vec4(max(image,vec3(0.0)),1.0);return;
+     }
++    // Reject underwater/non-water pixels before fetching interface metadata.
++    vec4 markedNormal=texture(colortex1,rasterUV),markedDepth=texture(colortex2,rasterUV);
+     float opaqueDepth=texture(depthtex1,rasterUV).r;
+     vec3 opaqueView=positionFromDepth(rasterUV,opaqueDepth);
+     float waterSky=clamp(float(eyeBrightnessSmooth.y)/240.0,0.0,1.0);
+@@ -91,7 +92,11 @@
+             transmitted=airBehindWater(transmitted,cameraPosition+point+backRay*opticalPath,backRay,airDistance,waterSky,backgroundGeometry);
+         }
+         transmitted=travelThroughWater(transmitted,min(opticalPath,96.0),waterTint,waterSky,waterLamp);
+-        image=mix(transmitted,reflected,waterReflectionWeight(boundary));
++        // Native still/flow atlas texture and animation, carried in an unused
++        // metadata channel by the existing gtexture fetch. No extra texture read.
++        // Tint only transmission so reflected scenery stays sharp and unpainted.
++        float textureTint=mix(1.0,clamp(markedColour.r,0.0,1.0),WATER_TEXTURE);
++        image=mix(transmitted*textureTint,reflected,waterReflectionWeight(boundary));
+     }
+     completedScene=vec4(max(image,vec3(0.0)),1.0);
+ }
+--- baseline/shaders/core/raster.frag.glsl
++++ 1.6.9/shaders/core/raster.frag.glsl
+@@ -35,7 +35,8 @@
+     if (entityId == 4200) discard;
+     vec4 surface = tintAndOpacity;
+ #if PASS_KIND != 0
+-    surface *= texture(gtexture, atlasCoordinate);
++    vec4 atlasTexel=texture(gtexture, atlasCoordinate);
++    surface *= atlasTexel;
+ #endif
+ #if PASS_KIND == 12
+     // Vanilla sun/moon textures use black additive backgrounds, not cutout alpha.
+@@ -95,8 +96,7 @@
+     if(blockCategory!=4100&&blockCategory!=4103)
+         colour=wetSurfaceResponse(colour,unitVector(orientedNormal),relativeLocation,sky,wetMaterialProperties(material));
+ #elif BLOCK_SURFACE == 1 && LATE_SURFACE == 1
+-    // Unknown translucent block entities have no pore absorption. Ordinary
+-    // entities remain excluded; zero absorption also excludes a rain film.
++    // Translucent block entities receive film; ordinary entities stay excluded.
+     colour=wetSurfaceResponse(colour,unitVector(orientedNormal),relativeLocation,sky,vec2(0.0,0.40));
+ #endif
+     float emission=category>1.5&&category<2.5?smoothstep(0.48,0.94,max(surface.r,max(surface.g,surface.b))):0.0;
+@@ -144,7 +144,7 @@
+ #endif
+ #if LATE_SURFACE == 1
+     #if PASS_KIND == 6
+-    gl_FragData[1] = vec4(0.0, emission, float(blockCategory==4103), mark);
++    gl_FragData[1] = vec4(dot(atlasTexel.rgb,vec3(0.2126,0.7152,0.0722)), emission, float(blockCategory==4103), mark);
+ #else
+     gl_FragData[1] = vec4(0.0, emission, 0.0, surface.a);
+ #endif
+--- baseline/shaders/core/diffuse.glsl
++++ 1.6.9/shaders/core/diffuse.glsl
+@@ -13,15 +13,6 @@
+     if (material == 4116) return vec2(0.16, 0.48);
+     if (material == 4117) return vec2(0.72, 0.91);
+     return vec2(0.45, 0.86);
+-}
+-float exposedWetFilm(float sky){
+-#if DIMENSION_TYPE == 0
+-    float outdoors=smoothstep(0.12,0.83,sky);
+-    float humidity=clamp(biomeHumidity,0.0,1.0);
+-    return clamp(SURFACE_DAMPNESS*outdoors*(0.40+0.30*humidity+0.25*rainStrength),0.0,1.0);
+-#else
+-    return 0.0;
+-#endif
+ }
+ vec3 formIrradiance(vec3 normal, float skyExposure) {
+     float vertical=normal.y>=0.0?1.0:0.5;
+@@ -47,54 +38,34 @@
+     // already-dark surfaces. Zero for either control is an exact bypass.
+     return vec3(clamp(1.0+(irradiance-1.0)*strength,0.18,1.18));
+ }
+-float retainedSurfaceMoisture(float sky,vec3 n,float absorption){
+-#if DIMENSION_TYPE != 0
+-    return 0.0;
+-#else
+-    // Drainage is tied to the world-space face, never to the camera or noise.
+-    // Partial sky exposure approximates a damp sheltered face; sealed caves
+-    // receive neither rain nor an invented persistent water simulation.
+-    float upward=smoothstep(-0.15,0.85,n.y);
+-    float exposed=exposedWetFilm(sky)*mix(0.55,1.0,upward);
+-    float shelter=smoothstep(0.02,0.22,sky)*(1.0-smoothstep(0.22,0.85,sky));
+-    float retained=SURFACE_DAMPNESS*clamp(biomeHumidity,0.0,1.0)
+-        *clamp(absorption,0.0,1.0)*shelter*(0.10+0.12*upward)*WET_SHEEN;
+-    return clamp(exposed+retained,0.0,1.0);
+-#endif
+-}
++// A surface film adds reflected highlights without changing the diffuse albedo.
++// Absorption darkening/retained dampness was deliberately retired in 1.6.9.
++// Material.x remains in the buffer for saved-layout compatibility, not gating.
+ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material){
+-#if REALISTIC_LIGHTING == 0
+-    // Vanilla lighting keeps the engine's material colour and lightmap intact.
+-    return dry;
+-#else
+-    float moisture=retainedSurfaceMoisture(sky,n,material.x);
+-    float saturation=moisture*(0.45+0.55*clamp(biomeHumidity,0.0,1.0));
+-    float attenuation=1.0/(1.0+1.40*WET_DARKENING*saturation*clamp(material.x,0.0,1.0));
+-    vec3 absorbed=dry*attenuation;
+ #if DIMENSION_TYPE == 0
+-    // All-weather film is explicitly selectable; Rain only retains 1.6.7.
+-    // Dampness and material/exposure gates still prevent a uniform glossy coat.
+     float filmSource=WET_WEATHER_MODE==0?1.0:rainStrength;
+     float film=filmSource*SURFACE_DAMPNESS*smoothstep(0.18,0.85,sky)
+-        *smoothstep(0.04,0.24,material.x)*mix(0.55,1.0,max(n.y,0.0));
++        *mix(0.55,1.0,max(n.y,0.0));
+     if(WET_SHEEN>0.0&&film>0.0001){
+         vec3 view=unitVector(-playerPoint);
+         float nv=max(dot(n,view),0.0);
+         if(nv>0.001){
+             float fresnel=0.02+0.98*pow(1.0-nv,5.0);
+-            float coat=clamp(film*WET_SHEEN*fresnel*0.55,0.0,0.45);
++            float coat=clamp(film*WET_SHEEN*fresnel*0.20,0.0,0.20);
+             vec3 environment=softSkyReflection(reflect(-view,n));
+-            absorbed=mix(absorbed,environment,coat);
++            // Reflection can be lighter or darker than a white block. This is
++            // angle-dependent film, never absorption or diffuse recolouring.
++            dry=mix(dry,environment,coat);
+             vec3 light=broadLightDirection(),halfway=unitVector(view+light);
+             float exponent=mix(160.0,36.0,clamp(material.y,0.0,1.0));
+             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
+-            absorbed+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
++            dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
+                 *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
+         }
+     }
+ #endif
+-    return absorbed;
+-#endif
++    // Keep the retired option discoverable by Iris; every allowed value is a no-op.
++    return dry+vec3(0.0)*WET_DARKENING;
+ }
+ vec3 diffuseRadiance(vec3 colour, vec3 mappedLight, float skyExposure, vec3 worldNormal,
+                      float kind, vec3 playerPoint, int material) {
+--- baseline/shaders/core/moisture.glsl
++++ 1.6.9/shaders/core/moisture.glsl
+@@ -1,10 +1,10 @@
+ #ifndef STRATUS_MOISTURE_INCLUDED
+ #define STRATUS_MOISTURE_INCLUDED
+-// Material moisture follows absorption, drainage and sky exposure. A thin
+-// rain film is evaluated locally; no neighbour mask or extra reflection pass.
++// Thin film on exposed solid blocks, including non-porous materials.
++// No absorption darkening, retained dampness or extra reflection pass.
+ vec3 materialMoisture(vec3 dry,vec3 viewPoint,vec2 uv){
+-#if DIMENSION_TYPE == 0 && REALISTIC_LIGHTING == 1
+-    if(SURFACE_DAMPNESS<=0.0)return dry;
++#if DIMENSION_TYPE == 0
++    if(SURFACE_DAMPNESS<=0.0||WET_SHEEN<=0.0)return dry;
+     vec4 surface=texture(colortex1,uv);
+     if(surface.a<0.5)return dry; // Entities, held items, plants and emitters stay dry.
+     vec3 n=unitVector(surface.xyz),p=playerFromView(viewPoint);
+--- baseline/shaders/lang/en_us.lang
++++ 1.6.9/shaders/lang/en_us.lang
+@@ -16,13 +16,13 @@
+ option.WHITE_BALANCE=Subtle white balance
+ option.WHITE_BALANCE.comment=Zero preserves neutral foreground colour.
+ option.SURFACE_SATURATION=Surface saturation
+-option.SURFACE_SATURATION.comment=1.00 preserves vanilla saturation. Lighting, absorption and bloom still affect the final image.
+-option.SURFACE_DAMPNESS=Surface dampness
+-option.SURFACE_DAMPNESS.comment=Material moisture and film amount. All weather allows exposed absorbent surfaces to show sheen in clear weather; Rain only retains the prior weather response. Zero keeps materials dry.
++option.SURFACE_SATURATION.comment=1.00 preserves the input saturation before enhanced lighting and bloom. Vanilla lighting bypasses this artistic adjustment.
++option.SURFACE_DAMPNESS=Surface film amount
++option.SURFACE_DAMPNESS.comment=Thin exposed water film on porous and non-porous solid blocks. No absorption darkening or retained dampness. Zero disables film; existing saved values are retained.
+ value.SURFACE_DAMPNESS.0.00=Dry
+ value.SURFACE_DAMPNESS.0.35=Subtle
+ value.SURFACE_DAMPNESS.0.65=Moderate
+-value.SURFACE_DAMPNESS.1.00=Damp (default)
++value.SURFACE_DAMPNESS.1.00=Normal (default)
+ value.SURFACE_DAMPNESS.1.35=Strong
+ value.SURFACE_DAMPNESS.1.70=Very strong
+ value.SURFACE_DAMPNESS.2.00=Maximum
+@@ -79,7 +79,7 @@
+ option.SKY_LEAK=Light through the sky
+ option.SKY_LEAK.comment=Broad daylight glow through the cloud ceiling. Sun visibility separately controls the haze-softened solar core.
+ option.WET_SHEEN=Wet sheen strength
+-option.WET_SHEEN.comment=View-dependent film on exposed absorbent surfaces, plus sheltered retention. Weather source is separately selectable. Zero disables sheen and retention; metals/glazed surfaces stay nonglossy.
++option.WET_SHEEN.comment=View-dependent highlights on exposed solid blocks, including metal and glazed materials. Works with either lighting mode. Zero disables sheen; sealed caves remain dry.
+ option.BLOOM_RADIUS=Bloom radius
+ option.BLOOM_RADIUS.comment=Restrained halo width, stable relative to image height. Bloom strength remains a separate control.
+ option.SUN_VISIBILITY=Sun through overcast
+@@ -135,8 +135,8 @@
+ option.MIST_BREAKUP.comment=Zero makes smooth fog; higher values create distinct connected pockets and gaps. Shape remains anchored in3D world space.
+ option.MIST_LIGHT=Fog light scattering
+ option.MIST_LIGHT.comment=Directional sunlight scattered by fog, with internal extinction. Independent of fog density.
+-option.WET_DARKENING=Wet darkening
+-option.WET_DARKENING.comment=Darkening strength on absorbent soil, timber, stone, fabric and masonry. Metals/glazed surfaces have no pore darkening. Wet sheen is separate.
++option.WET_DARKENING=Retired darkening
++option.WET_DARKENING.comment=Compatibility setting: saved values remain readable, but this effect was explicitly removed in 1.6.9 to preserve vanilla block colours. Adjust Surface film amount and Wet sheen strength instead.
+ option.EXPOSURE=Overall exposure
+ option.EXPOSURE.comment=Camera brightness in stops, affecting terrain, sky, water and bloom together. +1 doubles scene light; HUD is unchanged.
+ option.ATMOSPHERE_QUALITY=Atmosphere quality
+@@ -162,11 +162,11 @@
+ option.CIRRUS_DENSITY=High cloud density
+ option.CIRRUS_DENSITY.comment=Optical density of the independent high cloud layer. 0 hides it; coverage/altitude and lower-cloud controls remain independent.
+ option.REALISTIC_LIGHTING=Realistic lighting
+-option.REALISTIC_LIGHTING.comment=Off restores the game's vertex face lighting/AO and lightmap colour/brightness, bypassing ambient/lamp boosts, ground warmth, material recolouring, bloom and camera grading. Stratus water, clouds and atmosphere remain. On keeps artistic controls active; saved values are never erased.
+-value.REALISTIC_LIGHTING.0=Off (vanilla)
++option.REALISTIC_LIGHTING.comment=Off (default) restores the game's vertex face lighting/AO and lightmap colour/brightness, bypassing ambient/lamp boosts, ground warmth, bloom and camera grading. Independent wet highlights, Stratus water and atmosphere remain. On retains artistic controls; saved settings are preserved.
++value.REALISTIC_LIGHTING.0=Off (vanilla, default)
+ value.REALISTIC_LIGHTING.1=On
+ option.WET_WEATHER_MODE=Wet sheen conditions
+-option.WET_WEATHER_MODE.comment=All weather allows sheen without rain. Rain only keeps the previous rain-gated film. Dampness, material absorption and exposure still control where film appears; Realistic lighting must be On.
++option.WET_WEATHER_MODE.comment=All weather allows exposed film without rain; Rain only gates it by rainfall. Surface film amount, exposure and face drainage control the highlights. Both porous and non-porous blocks are supported in either lighting mode.
+ value.WET_WEATHER_MODE.0=All weather
+ value.WET_WEATHER_MODE.1=Rain only
+ screen.FACE_LIGHTING=Face shading
+@@ -183,3 +183,5 @@
+ screen.COLOUR.comment=Camera grading for Stratus lighting. Saved values remain when vanilla lighting bypasses grading.
+ screen.BLOOM=Bloom
+ screen.BLOOM.comment=Global light halos. The polished sun also has independent local halo controls.
++option.WATER_TEXTURE=Vanilla water texture
++option.WATER_TEXTURE.comment=Subtle animated still/flow pattern from the active game or resource pack, modulating transmitted water only. Zero restores the clear surface. Does not change opacity, refraction, depth or scenery reflection quality.

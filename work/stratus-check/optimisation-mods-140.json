@@ -1,0 +1,26 @@
+[
+  {
+    "file": "dynamic-fps-3.11.6+minecraft-1.21.11-fabric.jar",
+    "sha256": "42c6f5526acb29713969156018ab08ac921a0a0f37c2a79a39e3783792caa04f"
+  },
+  {
+    "file": "entityculling-fabric-1.11.3-mc1.21.11.jar",
+    "sha256": "79294b608e1edc8dd4746dbbeeef1ba157fc27a361a3f31d155594dc7f30ea85"
+  },
+  {
+    "file": "ferritecore-8.2.0-fabric.jar",
+    "sha256": "f76bd760cbf48280cc7c43180f5089a46235fa24d934a8acf3da04a664c2c715"
+  },
+  {
+    "file": "lithium-fabric-0.21.4+mc1.21.11.jar",
+    "sha256": "5135c41da5b43cbdcb29424bde65195143ac4084e23834c8eac065942201c78b"
+  },
+  {
+    "file": "sodium-extra-fabric-0.9.4+mc1.21.11.jar",
+    "sha256": "ff6ef489193a960c1abf9ac28416f11277db5650a40493bf11d1ec7d96737f4d"
+  },
+  {
+    "file": "fabric-api-0.141.6+1.21.11.jar",
+    "sha256": "bdff7fd7e220085cfad2ff9b1f40dde6534ae0b96cf378f97a374bc54cb9ed0f"
+  }
+]

@@ -1,0 +1,5 @@
+world=Stratus Terrain Lab
+pipeline=net.irisshaders.iris.pipeline.IrisRenderingPipeline
+focused=0
+position=153.5777749148025,67.4308297295431,49.678564032026046
+screen=net.minecraft.class_433@7e5e2b66

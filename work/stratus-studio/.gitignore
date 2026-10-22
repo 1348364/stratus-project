@@ -1,0 +1,10 @@
+.history/
+__pycache__/
+*.log
+node_modules/
+.bridge/
+.cloud-*
+feedback-cache.json
+.feedback-*
+.public-sync-state.json
+.public-updates-state.json

@@ -1,0 +1,40 @@
+CMD gamemode spectator ShaderCheck
+CMD effect clear ShaderCheck
+CMD weather clear
+CMD time set 3000
+CMD save-all flush
+PACK Stratus-1.3.0-balanced-v2.zip
+RESUME
+CMD tp ShaderCheck 0 110 -32 0 20
+WAIT 15
+BENCH final130-balanced-landscape 20
+SHOT p130-balanced-landscape
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 12
+BENCH final130-balanced-water 20
+SHOT p130-balanced-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 12
+BENCH final130-balanced-clouds 20
+SHOT p130-balanced-clouds
+PACK Stratus-1.3.0-candidate-v2.zip
+RESUME
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 12
+BENCH final130-reference-water 20
+SHOT p130-reference-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 12
+BENCH final130-reference-clouds 20
+SHOT p130-reference-clouds
+PACK Stratus-1.3.0-fast-final-v2.zip
+RESUME
+CMD tp ShaderCheck 104 105 75 0 18
+WAIT 12
+BENCH final130-fast-water 20
+SHOT p130-fast-water
+CMD tp ShaderCheck 200 140 200 0 -35
+WAIT 12
+BENCH final130-fast-clouds 20
+SHOT p130-fast-clouds
+DONE p130-performance-complete

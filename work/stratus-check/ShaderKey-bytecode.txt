@@ -1,0 +1,1596 @@
+Compiled from "ShaderKey.java"
+public final class net.irisshaders.iris.pipeline.programs.ShaderKey extends java.lang.Enum<net.irisshaders.iris.pipeline.programs.ShaderKey> {
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BASIC;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BASIC_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXTURED;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXTURED_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SPS;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SKY_BASIC;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SKY_BASIC_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SKY_TEXTURED;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SKY_TEXTURED_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey CLOUDS;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey CLOUDS_SODIUM;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TERRAIN_SOLID;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TERRAIN_CUTOUT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TERRAIN_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey MOVING_BLOCK;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_ALPHA;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_SOLID;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_SOLID_DIFFUSE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_SOLID_BRIGHT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_CUTOUT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_CUTOUT_DIFFUSE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_EYES;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey ENTITIES_EYES_TRANS;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_CUTOUT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_CUTOUT_BRIGHT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_CUTOUT_DIFFUSE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_TEXT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_TEXT_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_TEXT_INTENSITY;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_WATER_BRIGHT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey HAND_WATER_DIFFUSE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey LIGHTNING;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey LEASH;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXT_BG;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey PARTICLES;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey PARTICLES_TRANS;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey WEATHER;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey CRUMBLING;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXT_INTENSITY;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXT_BE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey TEXT_INTENSITY_BE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BLOCK_ENTITY;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BLOCK_ENTITY_BRIGHT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BLOCK_ENTITY_DIFFUSE;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BE_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey BEACON;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey GLINT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey LINES;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey IE_COMPAT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey MEKANISM_FLAME;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TERRAIN_CUTOUT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TRANSLUCENT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_ENTITIES_CUTOUT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_BLOCK;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_BEACON_BEAM;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_BASIC;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_BASIC_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TEX;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TEX_COLOR;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_CLOUDS;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_LINES;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_LEASH;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_LIGHTNING;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_PARTICLES;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TEXT;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TEXT_BG;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey SHADOW_TEXT_INTENSITY;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey IE_COMPAT_SHADOW;
+
+  public static final net.irisshaders.iris.pipeline.programs.ShaderKey MEKANISM_FLAME_SHADOW;
+
+  private final net.irisshaders.iris.shaderpack.loading.ProgramId program;
+
+  private final net.irisshaders.iris.gl.blending.AlphaTest alphaTest;
+
+  private final com.mojang.blaze3d.vertex.VertexFormat vertexFormat;
+
+  private final net.irisshaders.iris.gl.state.FogMode fogMode;
+
+  private final net.irisshaders.iris.pipeline.programs.ShaderKey$LightingModel lightingModel;
+
+  private static final net.irisshaders.iris.pipeline.programs.ShaderKey[] $VALUES;
+
+  public static net.irisshaders.iris.pipeline.programs.ShaderKey[] values();
+    Code:
+         0: getstatic     #103                // Field $VALUES:[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+         3: invokevirtual #108                // Method "[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;".clone:()Ljava/lang/Object;
+         6: checkcast     #104                // class "[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;"
+         9: areturn
+
+  public static net.irisshaders.iris.pipeline.programs.ShaderKey valueOf(java.lang.String);
+    Code:
+         0: ldc           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+         2: aload_0
+         3: invokestatic  #114                // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+         6: checkcast     #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+         9: areturn
+
+  private net.irisshaders.iris.pipeline.programs.ShaderKey(net.irisshaders.iris.shaderpack.loading.ProgramId, net.irisshaders.iris.gl.blending.AlphaTest, com.mojang.blaze3d.vertex.VertexFormat, net.irisshaders.iris.gl.state.FogMode, net.irisshaders.iris.pipeline.programs.ShaderKey$LightingModel);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #121                // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+         6: aload_0
+         7: aload_3
+         8: putfield      #123                // Field program:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        11: aload_0
+        12: aload         4
+        14: putfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        17: aload_0
+        18: aload         5
+        20: putfield      #127                // Field vertexFormat:Lcom/mojang/blaze3d/vertex/VertexFormat;
+        23: aload_0
+        24: aload         6
+        26: putfield      #129                // Field fogMode:Lnet/irisshaders/iris/gl/state/FogMode;
+        29: aload_0
+        30: aload         7
+        32: putfield      #131                // Field lightingModel:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        35: return
+
+  public net.irisshaders.iris.shaderpack.loading.ProgramId getProgram();
+    Code:
+         0: aload_0
+         1: getfield      #123                // Field program:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+         4: areturn
+
+  public net.irisshaders.iris.gl.blending.AlphaTest getAlphaTest();
+    Code:
+         0: aload_0
+         1: getfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+         4: areturn
+
+  public com.mojang.blaze3d.vertex.VertexFormat getVertexFormat();
+    Code:
+         0: aload_0
+         1: getfield      #127                // Field vertexFormat:Lcom/mojang/blaze3d/vertex/VertexFormat;
+         4: areturn
+
+  public net.irisshaders.iris.gl.state.FogMode getFogMode();
+    Code:
+         0: aload_0
+         1: getfield      #129                // Field fogMode:Lnet/irisshaders/iris/gl/state/FogMode;
+         4: areturn
+
+  public boolean isIntensity();
+    Code:
+         0: aload_0
+         1: getstatic     #144                // Field TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+         4: if_acmpeq     21
+         7: aload_0
+         8: getstatic     #146                // Field TEXT_INTENSITY_BE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        11: if_acmpeq     21
+        14: aload_0
+        15: getstatic     #148                // Field SHADOW_TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        18: if_acmpne     25
+        21: iconst_1
+        22: goto          26
+        25: iconst_0
+        26: ireturn
+
+  public java.lang.String getName();
+    Code:
+         0: aload_0
+         1: invokevirtual #153                // Method toString:()Ljava/lang/String;
+         4: getstatic     #159                // Field java/util/Locale.ROOT:Ljava/util/Locale;
+         7: invokevirtual #165                // Method java/lang/String.toLowerCase:(Ljava/util/Locale;)Ljava/lang/String;
+        10: areturn
+
+  public boolean isShadow();
+    Code:
+         0: aload_0
+         1: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+         4: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+         7: if_acmpeq     70
+        10: aload_0
+        11: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        14: getstatic     #176                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowCutout:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        17: if_acmpeq     70
+        20: aload_0
+        21: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        24: getstatic     #179                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        27: if_acmpeq     70
+        30: aload_0
+        31: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        34: getstatic     #182                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowSolid:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        37: if_acmpeq     70
+        40: aload_0
+        41: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        44: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        47: if_acmpeq     70
+        50: aload_0
+        51: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        54: getstatic     #188                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowLightning:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        57: if_acmpeq     70
+        60: aload_0
+        61: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        64: getstatic     #191                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowBlock:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        67: if_acmpne     74
+        70: iconst_1
+        71: goto          75
+        74: iconst_0
+        75: ireturn
+
+  public boolean hasDiffuseLighting();
+    Code:
+         0: aload_0
+         1: getfield      #131                // Field lightingModel:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+         4: getstatic     #195                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+         7: if_acmpeq     20
+        10: aload_0
+        11: getfield      #131                // Field lightingModel:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        14: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        17: if_acmpne     24
+        20: iconst_1
+        21: goto          25
+        24: iconst_0
+        25: ireturn
+
+  public boolean shouldIgnoreLightmap();
+    Code:
+         0: aload_0
+         1: getfield      #131                // Field lightingModel:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+         4: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+         7: if_acmpeq     20
+        10: aload_0
+        11: getfield      #131                // Field lightingModel:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        14: getstatic     #195                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        17: if_acmpne     24
+        20: iconst_1
+        21: goto          25
+        24: iconst_0
+        25: ireturn
+
+  public boolean isGlint();
+    Code:
+         0: aload_0
+         1: getstatic     #205                // Field GLINT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+         4: if_acmpne     11
+         7: iconst_1
+         8: goto          12
+        11: iconst_0
+        12: ireturn
+
+  public boolean isText();
+    Code:
+         0: aload_0
+         1: invokevirtual #208                // Method name:()Ljava/lang/String;
+         4: ldc           #209                // String TEXT
+         6: invokevirtual #213                // Method java/lang/String.contains:(Ljava/lang/CharSequence;)Z
+         9: ireturn
+
+  public static net.irisshaders.iris.pipeline.programs.ShaderKey findBestMatch(com.mojang.blaze3d.pipeline.RenderPipeline, net.irisshaders.iris.shaderpack.loading.ProgramId);
+    Code:
+         0: iconst_0
+         1: istore_2
+         2: aload_0
+         3: invokevirtual #223                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getShaderDefines:()Lnet/minecraft/class_10149;
+         6: invokevirtual #229                // Method net/minecraft/class_10149.comp_3103:()Ljava/util/Map;
+         9: ldc           #231                // String ALPHA_CUTOUT
+        11: invokeinterface #237,  2          // InterfaceMethod java/util/Map.containsKey:(Ljava/lang/Object;)Z
+        16: ifeq          21
+        19: iconst_1
+        20: istore_2
+        21: iload_2
+        22: ifeq          130
+        25: invokestatic  #239                // Method values:()[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        28: astore_3
+        29: aload_3
+        30: arraylength
+        31: istore        4
+        33: iconst_0
+        34: istore        5
+        36: iload         5
+        38: iload         4
+        40: if_icmpge     130
+        43: aload_3
+        44: iload         5
+        46: aaload
+        47: astore        6
+        49: aload_1
+        50: aload         6
+        52: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        55: if_acmpne     124
+        58: aload_0
+        59: invokevirtual #241                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getVertexFormat:()Lcom/mojang/blaze3d/vertex/VertexFormat;
+        62: aload         6
+        64: getfield      #127                // Field vertexFormat:Lcom/mojang/blaze3d/vertex/VertexFormat;
+        67: if_acmpne     124
+        70: aload         6
+        72: getfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        75: invokevirtual #247                // Method net/irisshaders/iris/gl/blending/AlphaTest.reference:()F
+        78: ldc           #248                // float 0.01f
+        80: fcmpl
+        81: ifle          124
+        84: aload         6
+        86: getfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        89: invokevirtual #252                // Method net/irisshaders/iris/gl/blending/AlphaTest.function:()Lnet/irisshaders/iris/gl/blending/AlphaTestFunction;
+        92: getstatic     #258                // Field net/irisshaders/iris/gl/blending/AlphaTestFunction.NEVER:Lnet/irisshaders/iris/gl/blending/AlphaTestFunction;
+        95: if_acmpeq     124
+        98: getstatic     #264                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       101: aload_0
+       102: invokevirtual #268                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getLocation:()Lnet/minecraft/class_2960;
+       105: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       108: aload         6
+       110: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       113: invokedynamic #283,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       118: invokevirtual #289                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+       121: aload         6
+       123: areturn
+       124: iinc          5, 1
+       127: goto          36
+       130: invokestatic  #239                // Method values:()[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       133: astore_3
+       134: aload_3
+       135: arraylength
+       136: istore        4
+       138: iconst_0
+       139: istore        5
+       141: iload         5
+       143: iload         4
+       145: if_icmpge     207
+       148: aload_3
+       149: iload         5
+       151: aaload
+       152: astore        6
+       154: aload_1
+       155: aload         6
+       157: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       160: if_acmpne     201
+       163: aload_0
+       164: invokevirtual #241                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getVertexFormat:()Lcom/mojang/blaze3d/vertex/VertexFormat;
+       167: aload         6
+       169: getfield      #127                // Field vertexFormat:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       172: if_acmpne     201
+       175: getstatic     #264                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       178: aload_0
+       179: invokevirtual #268                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getLocation:()Lnet/minecraft/class_2960;
+       182: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       185: aload         6
+       187: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       190: invokedynamic #292,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       195: invokevirtual #289                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+       198: aload         6
+       200: areturn
+       201: iinc          5, 1
+       204: goto          141
+       207: iload_2
+       208: ifeq          304
+       211: invokestatic  #239                // Method values:()[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       214: astore_3
+       215: aload_3
+       216: arraylength
+       217: istore        4
+       219: iconst_0
+       220: istore        5
+       222: iload         5
+       224: iload         4
+       226: if_icmpge     304
+       229: aload_3
+       230: iload         5
+       232: aaload
+       233: astore        6
+       235: aload_1
+       236: aload         6
+       238: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       241: if_acmpne     298
+       244: aload         6
+       246: getfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       249: invokevirtual #247                // Method net/irisshaders/iris/gl/blending/AlphaTest.reference:()F
+       252: ldc           #248                // float 0.01f
+       254: fcmpl
+       255: ifle          298
+       258: aload         6
+       260: getfield      #125                // Field alphaTest:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       263: invokevirtual #252                // Method net/irisshaders/iris/gl/blending/AlphaTest.function:()Lnet/irisshaders/iris/gl/blending/AlphaTestFunction;
+       266: getstatic     #258                // Field net/irisshaders/iris/gl/blending/AlphaTestFunction.NEVER:Lnet/irisshaders/iris/gl/blending/AlphaTestFunction;
+       269: if_acmpeq     298
+       272: getstatic     #264                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       275: aload_0
+       276: invokevirtual #268                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getLocation:()Lnet/minecraft/class_2960;
+       279: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       282: aload         6
+       284: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       287: invokedynamic #295,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       292: invokevirtual #289                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+       295: aload         6
+       297: areturn
+       298: iinc          5, 1
+       301: goto          222
+       304: invokestatic  #239                // Method values:()[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       307: astore_3
+       308: aload_3
+       309: arraylength
+       310: istore        4
+       312: iconst_0
+       313: istore        5
+       315: iload         5
+       317: iload         4
+       319: if_icmpge     369
+       322: aload_3
+       323: iload         5
+       325: aaload
+       326: astore        6
+       328: aload_1
+       329: aload         6
+       331: invokevirtual #168                // Method getProgram:()Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       334: if_acmpne     363
+       337: getstatic     #264                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       340: aload_0
+       341: invokevirtual #268                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getLocation:()Lnet/minecraft/class_2960;
+       344: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       347: aload         6
+       349: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       352: invokedynamic #298,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       357: invokevirtual #289                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+       360: aload         6
+       362: areturn
+       363: iinc          5, 1
+       366: goto          315
+       369: getstatic     #264                // Field net/irisshaders/iris/Iris.logger:Lnet/irisshaders/iris/IrisLogging;
+       372: aload_0
+       373: invokevirtual #268                // Method com/mojang/blaze3d/pipeline/RenderPipeline.getLocation:()Lnet/minecraft/class_2960;
+       376: invokestatic  #271                // Method java/lang/String.valueOf:(Ljava/lang/Object;)Ljava/lang/String;
+       379: invokedynamic #303,  0            // InvokeDynamic #4:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+       384: invokevirtual #289                // Method net/irisshaders/iris/IrisLogging.warn:(Ljava/lang/String;)V
+       387: aconst_null
+       388: areturn
+
+  private static net.irisshaders.iris.pipeline.programs.ShaderKey[] $values();
+    Code:
+         0: bipush        72
+         2: anewarray     #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+         5: dup
+         6: iconst_0
+         7: getstatic     #310                // Field BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        10: aastore
+        11: dup
+        12: iconst_1
+        13: getstatic     #312                // Field BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        16: aastore
+        17: dup
+        18: iconst_2
+        19: getstatic     #314                // Field TEXTURED:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        22: aastore
+        23: dup
+        24: iconst_3
+        25: getstatic     #316                // Field TEXTURED_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        28: aastore
+        29: dup
+        30: iconst_4
+        31: getstatic     #318                // Field SPS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        34: aastore
+        35: dup
+        36: iconst_5
+        37: getstatic     #320                // Field SKY_BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        40: aastore
+        41: dup
+        42: bipush        6
+        44: getstatic     #322                // Field SKY_BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        47: aastore
+        48: dup
+        49: bipush        7
+        51: getstatic     #324                // Field SKY_TEXTURED:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        54: aastore
+        55: dup
+        56: bipush        8
+        58: getstatic     #326                // Field SKY_TEXTURED_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        61: aastore
+        62: dup
+        63: bipush        9
+        65: getstatic     #328                // Field CLOUDS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        68: aastore
+        69: dup
+        70: bipush        10
+        72: getstatic     #330                // Field CLOUDS_SODIUM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        75: aastore
+        76: dup
+        77: bipush        11
+        79: getstatic     #332                // Field TERRAIN_SOLID:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        82: aastore
+        83: dup
+        84: bipush        12
+        86: getstatic     #334                // Field TERRAIN_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        89: aastore
+        90: dup
+        91: bipush        13
+        93: getstatic     #336                // Field TERRAIN_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        96: aastore
+        97: dup
+        98: bipush        14
+       100: getstatic     #338                // Field MOVING_BLOCK:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       103: aastore
+       104: dup
+       105: bipush        15
+       107: getstatic     #340                // Field ENTITIES_ALPHA:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       110: aastore
+       111: dup
+       112: bipush        16
+       114: getstatic     #342                // Field ENTITIES_SOLID:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       117: aastore
+       118: dup
+       119: bipush        17
+       121: getstatic     #344                // Field ENTITIES_SOLID_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       124: aastore
+       125: dup
+       126: bipush        18
+       128: getstatic     #346                // Field ENTITIES_SOLID_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       131: aastore
+       132: dup
+       133: bipush        19
+       135: getstatic     #348                // Field ENTITIES_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       138: aastore
+       139: dup
+       140: bipush        20
+       142: getstatic     #350                // Field ENTITIES_CUTOUT_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       145: aastore
+       146: dup
+       147: bipush        21
+       149: getstatic     #352                // Field ENTITIES_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       152: aastore
+       153: dup
+       154: bipush        22
+       156: getstatic     #354                // Field ENTITIES_EYES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       159: aastore
+       160: dup
+       161: bipush        23
+       163: getstatic     #356                // Field ENTITIES_EYES_TRANS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       166: aastore
+       167: dup
+       168: bipush        24
+       170: getstatic     #358                // Field HAND_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       173: aastore
+       174: dup
+       175: bipush        25
+       177: getstatic     #360                // Field HAND_CUTOUT_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       180: aastore
+       181: dup
+       182: bipush        26
+       184: getstatic     #362                // Field HAND_CUTOUT_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       187: aastore
+       188: dup
+       189: bipush        27
+       191: getstatic     #364                // Field HAND_TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       194: aastore
+       195: dup
+       196: bipush        28
+       198: getstatic     #366                // Field HAND_TEXT_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       201: aastore
+       202: dup
+       203: bipush        29
+       205: getstatic     #368                // Field HAND_TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       208: aastore
+       209: dup
+       210: bipush        30
+       212: getstatic     #370                // Field HAND_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       215: aastore
+       216: dup
+       217: bipush        31
+       219: getstatic     #372                // Field HAND_WATER_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       222: aastore
+       223: dup
+       224: bipush        32
+       226: getstatic     #374                // Field HAND_WATER_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       229: aastore
+       230: dup
+       231: bipush        33
+       233: getstatic     #376                // Field LIGHTNING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       236: aastore
+       237: dup
+       238: bipush        34
+       240: getstatic     #378                // Field LEASH:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       243: aastore
+       244: dup
+       245: bipush        35
+       247: getstatic     #380                // Field TEXT_BG:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       250: aastore
+       251: dup
+       252: bipush        36
+       254: getstatic     #382                // Field PARTICLES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       257: aastore
+       258: dup
+       259: bipush        37
+       261: getstatic     #384                // Field PARTICLES_TRANS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       264: aastore
+       265: dup
+       266: bipush        38
+       268: getstatic     #386                // Field WEATHER:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       271: aastore
+       272: dup
+       273: bipush        39
+       275: getstatic     #388                // Field CRUMBLING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       278: aastore
+       279: dup
+       280: bipush        40
+       282: getstatic     #390                // Field TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       285: aastore
+       286: dup
+       287: bipush        41
+       289: getstatic     #144                // Field TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       292: aastore
+       293: dup
+       294: bipush        42
+       296: getstatic     #392                // Field TEXT_BE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       299: aastore
+       300: dup
+       301: bipush        43
+       303: getstatic     #146                // Field TEXT_INTENSITY_BE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       306: aastore
+       307: dup
+       308: bipush        44
+       310: getstatic     #394                // Field BLOCK_ENTITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       313: aastore
+       314: dup
+       315: bipush        45
+       317: getstatic     #396                // Field BLOCK_ENTITY_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       320: aastore
+       321: dup
+       322: bipush        46
+       324: getstatic     #398                // Field BLOCK_ENTITY_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       327: aastore
+       328: dup
+       329: bipush        47
+       331: getstatic     #400                // Field BE_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       334: aastore
+       335: dup
+       336: bipush        48
+       338: getstatic     #402                // Field BEACON:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       341: aastore
+       342: dup
+       343: bipush        49
+       345: getstatic     #205                // Field GLINT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       348: aastore
+       349: dup
+       350: bipush        50
+       352: getstatic     #404                // Field LINES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       355: aastore
+       356: dup
+       357: bipush        51
+       359: getstatic     #406                // Field IE_COMPAT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       362: aastore
+       363: dup
+       364: bipush        52
+       366: getstatic     #408                // Field MEKANISM_FLAME:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       369: aastore
+       370: dup
+       371: bipush        53
+       373: getstatic     #410                // Field SHADOW_TERRAIN_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       376: aastore
+       377: dup
+       378: bipush        54
+       380: getstatic     #412                // Field SHADOW_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       383: aastore
+       384: dup
+       385: bipush        55
+       387: getstatic     #414                // Field SHADOW_ENTITIES_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       390: aastore
+       391: dup
+       392: bipush        56
+       394: getstatic     #416                // Field SHADOW_BLOCK:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       397: aastore
+       398: dup
+       399: bipush        57
+       401: getstatic     #418                // Field SHADOW_BEACON_BEAM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       404: aastore
+       405: dup
+       406: bipush        58
+       408: getstatic     #420                // Field SHADOW_BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       411: aastore
+       412: dup
+       413: bipush        59
+       415: getstatic     #422                // Field SHADOW_BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       418: aastore
+       419: dup
+       420: bipush        60
+       422: getstatic     #424                // Field SHADOW_TEX:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       425: aastore
+       426: dup
+       427: bipush        61
+       429: getstatic     #426                // Field SHADOW_TEX_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       432: aastore
+       433: dup
+       434: bipush        62
+       436: getstatic     #428                // Field SHADOW_CLOUDS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       439: aastore
+       440: dup
+       441: bipush        63
+       443: getstatic     #430                // Field SHADOW_LINES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       446: aastore
+       447: dup
+       448: bipush        64
+       450: getstatic     #432                // Field SHADOW_LEASH:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       453: aastore
+       454: dup
+       455: bipush        65
+       457: getstatic     #434                // Field SHADOW_LIGHTNING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       460: aastore
+       461: dup
+       462: bipush        66
+       464: getstatic     #436                // Field SHADOW_PARTICLES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       467: aastore
+       468: dup
+       469: bipush        67
+       471: getstatic     #438                // Field SHADOW_TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       474: aastore
+       475: dup
+       476: bipush        68
+       478: getstatic     #440                // Field SHADOW_TEXT_BG:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       481: aastore
+       482: dup
+       483: bipush        69
+       485: getstatic     #148                // Field SHADOW_TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       488: aastore
+       489: dup
+       490: bipush        70
+       492: getstatic     #442                // Field IE_COMPAT_SHADOW:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       495: aastore
+       496: dup
+       497: bipush        71
+       499: getstatic     #444                // Field MEKANISM_FLAME_SHADOW:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       502: aastore
+       503: areturn
+
+  static {};
+    Code:
+         0: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+         3: dup
+         4: ldc_w         #447                // String BASIC
+         7: iconst_0
+         8: getstatic     #450                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Basic:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        11: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        14: getstatic     #460                // Field net/minecraft/class_290.field_1592:Lcom/mojang/blaze3d/vertex/VertexFormat;
+        17: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+        20: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        23: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+        26: putstatic     #310                // Field BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        29: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+        32: dup
+        33: ldc_w         #471                // String BASIC_COLOR
+        36: iconst_1
+        37: getstatic     #450                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Basic:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        40: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        43: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+        46: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+        49: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        52: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+        55: putstatic     #312                // Field BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        58: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+        61: dup
+        62: ldc_w         #480                // String TEXTURED
+        65: iconst_2
+        66: getstatic     #483                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Textured:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        69: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+        72: getstatic     #486                // Field net/minecraft/class_290.field_1585:Lcom/mojang/blaze3d/vertex/VertexFormat;
+        75: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+        78: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+        81: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+        84: putstatic     #314                // Field TEXTURED:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+        87: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+        90: dup
+        91: ldc_w         #487                // String TEXTURED_COLOR
+        94: iconst_3
+        95: getstatic     #483                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Textured:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+        98: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       101: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       104: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+       107: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       110: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       113: putstatic     #316                // Field TEXTURED_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       116: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       119: dup
+       120: ldc_w         #494                // String SPS
+       123: iconst_4
+       124: getstatic     #497                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SpiderEyes:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       127: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       130: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       133: getstatic     #500                // Field net/irisshaders/iris/gl/state/FogMode.PER_FRAGMENT:Lnet/irisshaders/iris/gl/state/FogMode;
+       136: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       139: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       142: putstatic     #318                // Field SPS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       145: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       148: dup
+       149: ldc_w         #501                // String SKY_BASIC
+       152: iconst_5
+       153: getstatic     #504                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SkyBasic:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       156: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       159: getstatic     #460                // Field net/minecraft/class_290.field_1592:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       162: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+       165: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       168: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       171: putstatic     #320                // Field SKY_BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       174: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       177: dup
+       178: ldc_w         #505                // String SKY_BASIC_COLOR
+       181: bipush        6
+       183: getstatic     #504                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SkyBasic:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       186: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       189: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       192: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+       195: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       198: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       201: putstatic     #322                // Field SKY_BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       204: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       207: dup
+       208: ldc_w         #506                // String SKY_TEXTURED
+       211: bipush        7
+       213: getstatic     #509                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SkyTextured:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       216: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       219: getstatic     #486                // Field net/minecraft/class_290.field_1585:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       222: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+       225: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       228: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       231: putstatic     #324                // Field SKY_TEXTURED:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       234: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       237: dup
+       238: ldc_w         #510                // String SKY_TEXTURED_COLOR
+       241: bipush        8
+       243: getstatic     #509                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SkyTextured:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       246: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       249: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       252: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+       255: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       258: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       261: putstatic     #326                // Field SKY_TEXTURED_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       264: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       267: dup
+       268: ldc_w         #511                // String CLOUDS
+       271: bipush        9
+       273: getstatic     #514                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Clouds:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       276: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       279: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       282: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       285: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       288: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       291: putstatic     #328                // Field CLOUDS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       294: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       297: dup
+       298: ldc_w         #515                // String CLOUDS_SODIUM
+       301: bipush        10
+       303: getstatic     #514                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Clouds:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       306: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       309: getstatic     #519                // Field net/irisshaders/iris/vertices/IrisVertexFormats.CLOUDS:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       312: getstatic     #500                // Field net/irisshaders/iris/gl/state/FogMode.PER_FRAGMENT:Lnet/irisshaders/iris/gl/state/FogMode;
+       315: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       318: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       321: putstatic     #330                // Field CLOUDS_SODIUM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       324: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       327: dup
+       328: ldc_w         #520                // String TERRAIN_SOLID
+       331: bipush        11
+       333: getstatic     #523                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.TerrainSolid:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       336: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       339: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       342: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       345: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       348: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       351: putstatic     #332                // Field TERRAIN_SOLID:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       354: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       357: dup
+       358: ldc_w         #527                // String TERRAIN_CUTOUT
+       361: bipush        12
+       363: getstatic     #530                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.TerrainCutout:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       366: getstatic     #533                // Field net/irisshaders/iris/gl/blending/AlphaTests.HALF_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       369: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       372: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       375: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       378: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       381: putstatic     #334                // Field TERRAIN_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       384: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       387: dup
+       388: ldc_w         #534                // String TERRAIN_TRANSLUCENT
+       391: bipush        13
+       393: getstatic     #537                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Water:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       396: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       399: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       402: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       405: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       408: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       411: putstatic     #336                // Field TERRAIN_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       414: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       417: dup
+       418: ldc_w         #538                // String MOVING_BLOCK
+       421: bipush        14
+       423: getstatic     #541                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Block:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       426: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       429: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       432: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       435: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       438: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       441: putstatic     #338                // Field MOVING_BLOCK:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       444: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       447: dup
+       448: ldc_w         #542                // String ENTITIES_ALPHA
+       451: bipush        15
+       453: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       456: getstatic     #548                // Field net/irisshaders/iris/gl/blending/AlphaTests.VERTEX_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       459: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       462: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       465: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       468: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       471: putstatic     #340                // Field ENTITIES_ALPHA:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       474: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       477: dup
+       478: ldc_w         #552                // String ENTITIES_SOLID
+       481: bipush        16
+       483: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       486: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       489: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       492: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       495: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       498: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       501: putstatic     #342                // Field ENTITIES_SOLID:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       504: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       507: dup
+       508: ldc_w         #553                // String ENTITIES_SOLID_DIFFUSE
+       511: bipush        17
+       513: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       516: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       519: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       522: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       525: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       528: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       531: putstatic     #344                // Field ENTITIES_SOLID_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       534: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       537: dup
+       538: ldc_w         #554                // String ENTITIES_SOLID_BRIGHT
+       541: bipush        18
+       543: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       546: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       549: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       552: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       555: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       558: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       561: putstatic     #346                // Field ENTITIES_SOLID_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       564: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       567: dup
+       568: ldc_w         #555                // String ENTITIES_CUTOUT
+       571: bipush        19
+       573: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       576: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       579: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       582: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       585: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       588: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       591: putstatic     #348                // Field ENTITIES_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       594: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       597: dup
+       598: ldc_w         #556                // String ENTITIES_CUTOUT_DIFFUSE
+       601: bipush        20
+       603: getstatic     #545                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Entities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       606: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       609: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       612: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       615: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       618: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       621: putstatic     #350                // Field ENTITIES_CUTOUT_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       624: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       627: dup
+       628: ldc_w         #557                // String ENTITIES_TRANSLUCENT
+       631: bipush        21
+       633: getstatic     #560                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.EntitiesTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       636: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       639: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       642: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       645: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       648: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       651: putstatic     #352                // Field ENTITIES_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       654: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       657: dup
+       658: ldc_w         #561                // String ENTITIES_EYES
+       661: bipush        22
+       663: getstatic     #497                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SpiderEyes:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       666: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       669: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       672: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       675: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       678: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       681: putstatic     #354                // Field ENTITIES_EYES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       684: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       687: dup
+       688: ldc_w         #562                // String ENTITIES_EYES_TRANS
+       691: bipush        23
+       693: getstatic     #497                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SpiderEyes:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       696: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       699: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       702: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       705: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       708: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       711: putstatic     #356                // Field ENTITIES_EYES_TRANS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       714: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       717: dup
+       718: ldc_w         #563                // String HAND_CUTOUT
+       721: bipush        24
+       723: getstatic     #566                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Hand:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       726: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       729: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       732: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       735: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       738: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       741: putstatic     #358                // Field HAND_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       744: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       747: dup
+       748: ldc_w         #567                // String HAND_CUTOUT_BRIGHT
+       751: bipush        25
+       753: getstatic     #566                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Hand:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       756: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       759: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       762: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       765: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       768: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       771: putstatic     #360                // Field HAND_CUTOUT_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       774: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       777: dup
+       778: ldc_w         #568                // String HAND_CUTOUT_DIFFUSE
+       781: bipush        26
+       783: getstatic     #566                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Hand:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       786: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       789: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       792: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       795: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       798: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       801: putstatic     #362                // Field HAND_CUTOUT_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       804: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       807: dup
+       808: ldc_w         #569                // String HAND_TEXT
+       811: bipush        27
+       813: getstatic     #566                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Hand:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       816: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       819: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       822: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       825: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       828: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       831: putstatic     #364                // Field HAND_TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       834: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       837: dup
+       838: ldc_w         #573                // String HAND_TEXT_TRANSLUCENT
+       841: bipush        28
+       843: getstatic     #576                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.HandWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       846: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       849: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       852: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       855: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       858: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       861: putstatic     #366                // Field HAND_TEXT_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       864: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       867: dup
+       868: ldc_w         #577                // String HAND_TEXT_INTENSITY
+       871: bipush        29
+       873: getstatic     #566                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Hand:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       876: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       879: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       882: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       885: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       888: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       891: putstatic     #368                // Field HAND_TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       894: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       897: dup
+       898: ldc_w         #578                // String HAND_TRANSLUCENT
+       901: bipush        30
+       903: getstatic     #576                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.HandWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       906: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       909: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       912: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       915: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       918: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       921: putstatic     #370                // Field HAND_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       924: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       927: dup
+       928: ldc_w         #579                // String HAND_WATER_BRIGHT
+       931: bipush        31
+       933: getstatic     #576                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.HandWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       936: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       939: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       942: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       945: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       948: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       951: putstatic     #372                // Field HAND_WATER_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       954: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       957: dup
+       958: ldc_w         #580                // String HAND_WATER_DIFFUSE
+       961: bipush        32
+       963: getstatic     #576                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.HandWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       966: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       969: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+       972: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       975: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+       978: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+       981: putstatic     #374                // Field HAND_WATER_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+       984: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+       987: dup
+       988: ldc_w         #581                // String LIGHTNING
+       991: bipush        33
+       993: getstatic     #584                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Lightning:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+       996: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       999: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1002: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1005: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1008: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1011: putstatic     #376                // Field LIGHTNING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1014: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1017: dup
+      1018: ldc_w         #585                // String LEASH
+      1021: bipush        34
+      1023: getstatic     #450                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Basic:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1026: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1029: getstatic     #588                // Field net/minecraft/class_290.field_21468:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1032: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1035: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1038: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1041: putstatic     #378                // Field LEASH:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1044: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1047: dup
+      1048: ldc_w         #589                // String TEXT_BG
+      1051: bipush        35
+      1053: getstatic     #560                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.EntitiesTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1056: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1059: getstatic     #588                // Field net/minecraft/class_290.field_21468:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1062: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1065: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1068: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1071: putstatic     #380                // Field TEXT_BG:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1074: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1077: dup
+      1078: ldc_w         #590                // String PARTICLES
+      1081: bipush        36
+      1083: getstatic     #593                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Particles:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1086: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1089: getstatic     #596                // Field net/minecraft/class_290.field_1584:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1092: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1095: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1098: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1101: putstatic     #382                // Field PARTICLES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1104: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1107: dup
+      1108: ldc_w         #597                // String PARTICLES_TRANS
+      1111: bipush        37
+      1113: getstatic     #600                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ParticlesTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1116: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1119: getstatic     #596                // Field net/minecraft/class_290.field_1584:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1122: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1125: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1128: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1131: putstatic     #384                // Field PARTICLES_TRANS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1134: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1137: dup
+      1138: ldc_w         #601                // String WEATHER
+      1141: bipush        38
+      1143: getstatic     #604                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Weather:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1146: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1149: getstatic     #596                // Field net/minecraft/class_290.field_1584:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1152: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1155: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1158: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1161: putstatic     #386                // Field WEATHER:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1164: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1167: dup
+      1168: ldc_w         #605                // String CRUMBLING
+      1171: bipush        39
+      1173: getstatic     #608                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.DamagedBlock:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1176: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1179: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1182: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1185: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1188: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1191: putstatic     #388                // Field CRUMBLING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1194: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1197: dup
+      1198: ldc           #209                // String TEXT
+      1200: bipush        40
+      1202: getstatic     #560                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.EntitiesTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1205: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1208: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1211: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1214: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1217: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1220: putstatic     #390                // Field TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1223: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1226: dup
+      1227: ldc_w         #609                // String TEXT_INTENSITY
+      1230: bipush        41
+      1232: getstatic     #560                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.EntitiesTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1235: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1238: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1241: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1244: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1247: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1250: putstatic     #144                // Field TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1253: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1256: dup
+      1257: ldc_w         #610                // String TEXT_BE
+      1260: bipush        42
+      1262: getstatic     #613                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.BlockTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1265: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1268: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1271: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1274: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1277: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1280: putstatic     #392                // Field TEXT_BE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1283: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1286: dup
+      1287: ldc_w         #614                // String TEXT_INTENSITY_BE
+      1290: bipush        43
+      1292: getstatic     #613                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.BlockTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1295: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1298: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1301: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1304: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1307: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1310: putstatic     #146                // Field TEXT_INTENSITY_BE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1313: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1316: dup
+      1317: ldc_w         #615                // String BLOCK_ENTITY
+      1320: bipush        44
+      1322: getstatic     #541                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Block:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1325: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1328: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1331: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1334: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1337: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1340: putstatic     #394                // Field BLOCK_ENTITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1343: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1346: dup
+      1347: ldc_w         #616                // String BLOCK_ENTITY_BRIGHT
+      1350: bipush        45
+      1352: getstatic     #541                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Block:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1355: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1358: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1361: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1364: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1367: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1370: putstatic     #396                // Field BLOCK_ENTITY_BRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1373: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1376: dup
+      1377: ldc_w         #617                // String BLOCK_ENTITY_DIFFUSE
+      1380: bipush        46
+      1382: getstatic     #541                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Block:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1385: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1388: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1391: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1394: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1397: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1400: putstatic     #398                // Field BLOCK_ENTITY_DIFFUSE:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1403: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1406: dup
+      1407: ldc_w         #618                // String BE_TRANSLUCENT
+      1410: bipush        47
+      1412: getstatic     #613                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.BlockTrans:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1415: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1418: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1421: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1424: getstatic     #198                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.DIFFUSE_LM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1427: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1430: putstatic     #400                // Field BE_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1433: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1436: dup
+      1437: ldc_w         #619                // String BEACON
+      1440: bipush        48
+      1442: getstatic     #622                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.BeaconBeam:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1445: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1448: getstatic     #625                // Field net/minecraft/class_290.field_1590:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1451: getstatic     #500                // Field net/irisshaders/iris/gl/state/FogMode.PER_FRAGMENT:Lnet/irisshaders/iris/gl/state/FogMode;
+      1454: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1457: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1460: putstatic     #402                // Field BEACON:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1463: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1466: dup
+      1467: ldc_w         #626                // String GLINT
+      1470: bipush        49
+      1472: getstatic     #629                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ArmorGlint:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1475: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1478: getstatic     #486                // Field net/minecraft/class_290.field_1585:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1481: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1484: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1487: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1490: putstatic     #205                // Field GLINT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1493: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1496: dup
+      1497: ldc_w         #630                // String LINES
+      1500: bipush        50
+      1502: getstatic     #633                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Line:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1505: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1508: getstatic     #636                // Field net/minecraft/class_290.field_63455:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1511: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1514: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1517: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1520: putstatic     #404                // Field LINES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1523: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1526: dup
+      1527: ldc_w         #637                // String IE_COMPAT
+      1530: bipush        51
+      1532: getstatic     #541                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Block:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1535: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1538: getstatic     #642                // Field net/irisshaders/iris/pipeline/programs/ShaderAccess.IE_FORMAT:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1541: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1544: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1547: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1550: putstatic     #406                // Field IE_COMPAT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1553: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1556: dup
+      1557: ldc_w         #643                // String MEKANISM_FLAME
+      1560: bipush        52
+      1562: getstatic     #497                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.SpiderEyes:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1565: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1568: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1571: getstatic     #465                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+      1574: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1577: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1580: putstatic     #408                // Field MEKANISM_FLAME:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1583: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1586: dup
+      1587: ldc_w         #644                // String SHADOW_TERRAIN_CUTOUT
+      1590: bipush        53
+      1592: getstatic     #176                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowCutout:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1595: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1598: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1601: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1604: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1607: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1610: putstatic     #410                // Field SHADOW_TERRAIN_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1613: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1616: dup
+      1617: ldc_w         #645                // String SHADOW_TRANSLUCENT
+      1620: bipush        54
+      1622: getstatic     #179                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowWater:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1625: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1628: getstatic     #526                // Field net/irisshaders/iris/vertices/IrisVertexFormats.TERRAIN:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1631: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1634: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1637: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1640: putstatic     #412                // Field SHADOW_TRANSLUCENT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1643: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1646: dup
+      1647: ldc_w         #646                // String SHADOW_ENTITIES_CUTOUT
+      1650: bipush        55
+      1652: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1655: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1658: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1661: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1664: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1667: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1670: putstatic     #414                // Field SHADOW_ENTITIES_CUTOUT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1673: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1676: dup
+      1677: ldc_w         #647                // String SHADOW_BLOCK
+      1680: bipush        56
+      1682: getstatic     #191                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowBlock:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1685: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1688: getstatic     #551                // Field net/irisshaders/iris/vertices/IrisVertexFormats.ENTITY:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1691: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1694: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1697: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1700: putstatic     #416                // Field SHADOW_BLOCK:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1703: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1706: dup
+      1707: ldc_w         #648                // String SHADOW_BEACON_BEAM
+      1710: bipush        57
+      1712: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1715: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1718: getstatic     #625                // Field net/minecraft/class_290.field_1590:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1721: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1724: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1727: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1730: putstatic     #418                // Field SHADOW_BEACON_BEAM:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1733: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1736: dup
+      1737: ldc_w         #649                // String SHADOW_BASIC
+      1740: bipush        58
+      1742: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1745: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1748: getstatic     #460                // Field net/minecraft/class_290.field_1592:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1751: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1754: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1757: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1760: putstatic     #420                // Field SHADOW_BASIC:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1763: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1766: dup
+      1767: ldc_w         #650                // String SHADOW_BASIC_COLOR
+      1770: bipush        59
+      1772: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1775: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1778: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1781: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1784: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1787: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1790: putstatic     #422                // Field SHADOW_BASIC_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1793: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1796: dup
+      1797: ldc_w         #651                // String SHADOW_TEX
+      1800: bipush        60
+      1802: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1805: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1808: getstatic     #486                // Field net/minecraft/class_290.field_1585:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1811: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1814: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1817: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1820: putstatic     #424                // Field SHADOW_TEX:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1823: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1826: dup
+      1827: ldc_w         #652                // String SHADOW_TEX_COLOR
+      1830: bipush        61
+      1832: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1835: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1838: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1841: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1844: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1847: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1850: putstatic     #426                // Field SHADOW_TEX_COLOR:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1853: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1856: dup
+      1857: ldc_w         #653                // String SHADOW_CLOUDS
+      1860: bipush        62
+      1862: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1865: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1868: getstatic     #656                // Field net/minecraft/class_290.field_1577:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1871: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1874: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1877: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1880: putstatic     #428                // Field SHADOW_CLOUDS:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1883: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1886: dup
+      1887: ldc_w         #657                // String SHADOW_LINES
+      1890: bipush        63
+      1892: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1895: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1898: getstatic     #636                // Field net/minecraft/class_290.field_63455:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1901: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1904: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1907: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1910: putstatic     #430                // Field SHADOW_LINES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1913: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1916: dup
+      1917: ldc_w         #658                // String SHADOW_LEASH
+      1920: bipush        64
+      1922: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1925: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1928: getstatic     #588                // Field net/minecraft/class_290.field_21468:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1931: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1934: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1937: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1940: putstatic     #432                // Field SHADOW_LEASH:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1943: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1946: dup
+      1947: ldc_w         #659                // String SHADOW_LIGHTNING
+      1950: bipush        65
+      1952: getstatic     #188                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowLightning:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1955: getstatic     #455                // Field net/irisshaders/iris/gl/blending/AlphaTests.OFF:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1958: getstatic     #477                // Field net/minecraft/class_290.field_1576:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1961: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1964: getstatic     #202                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.FULLBRIGHT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1967: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      1970: putstatic     #434                // Field SHADOW_LIGHTNING:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      1973: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      1976: dup
+      1977: ldc_w         #660                // String SHADOW_PARTICLES
+      1980: bipush        66
+      1982: getstatic     #173                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.Shadow:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      1985: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      1988: getstatic     #596                // Field net/minecraft/class_290.field_1584:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      1991: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      1994: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      1997: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2000: putstatic     #436                // Field SHADOW_PARTICLES:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2003: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      2006: dup
+      2007: ldc_w         #661                // String SHADOW_TEXT
+      2010: bipush        67
+      2012: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      2015: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      2018: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      2021: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      2024: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      2027: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2030: putstatic     #438                // Field SHADOW_TEXT:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2033: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      2036: dup
+      2037: ldc_w         #662                // String SHADOW_TEXT_BG
+      2040: bipush        68
+      2042: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      2045: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      2048: getstatic     #588                // Field net/minecraft/class_290.field_21468:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      2051: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      2054: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      2057: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2060: putstatic     #440                // Field SHADOW_TEXT_BG:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2063: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      2066: dup
+      2067: ldc_w         #663                // String SHADOW_TEXT_INTENSITY
+      2070: bipush        69
+      2072: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      2075: getstatic     #474                // Field net/irisshaders/iris/gl/blending/AlphaTests.NON_ZERO_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      2078: getstatic     #572                // Field net/irisshaders/iris/vertices/IrisVertexFormats.GLYPH:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      2081: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      2084: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      2087: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2090: putstatic     #148                // Field SHADOW_TEXT_INTENSITY:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2093: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      2096: dup
+      2097: ldc_w         #664                // String IE_COMPAT_SHADOW
+      2100: bipush        70
+      2102: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      2105: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      2108: getstatic     #642                // Field net/irisshaders/iris/pipeline/programs/ShaderAccess.IE_FORMAT:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      2111: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      2114: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      2117: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2120: putstatic     #442                // Field IE_COMPAT_SHADOW:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2123: new           #2                  // class net/irisshaders/iris/pipeline/programs/ShaderKey
+      2126: dup
+      2127: ldc_w         #665                // String MEKANISM_FLAME_SHADOW
+      2130: bipush        71
+      2132: getstatic     #185                // Field net/irisshaders/iris/shaderpack/loading/ProgramId.ShadowEntities:Lnet/irisshaders/iris/shaderpack/loading/ProgramId;
+      2135: getstatic     #490                // Field net/irisshaders/iris/gl/blending/AlphaTests.ONE_TENTH_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+      2138: getstatic     #493                // Field net/minecraft/class_290.field_1575:Lcom/mojang/blaze3d/vertex/VertexFormat;
+      2141: getstatic     #479                // Field net/irisshaders/iris/gl/state/FogMode.OFF:Lnet/irisshaders/iris/gl/state/FogMode;
+      2144: getstatic     #468                // Field net/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel.LIGHTMAP:Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;
+      2147: invokespecial #470                // Method "<init>":(Ljava/lang/String;ILnet/irisshaders/iris/shaderpack/loading/ProgramId;Lnet/irisshaders/iris/gl/blending/AlphaTest;Lcom/mojang/blaze3d/vertex/VertexFormat;Lnet/irisshaders/iris/gl/state/FogMode;Lnet/irisshaders/iris/pipeline/programs/ShaderKey$LightingModel;)V
+      2150: putstatic     #444                // Field MEKANISM_FLAME_SHADOW:Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2153: invokestatic  #667                // Method $values:()[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2156: putstatic     #103                // Field $VALUES:[Lnet/irisshaders/iris/pipeline/programs/ShaderKey;
+      2159: return
+}

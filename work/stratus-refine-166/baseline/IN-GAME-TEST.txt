@@ -1,0 +1,24 @@
+STRATUS 1.6.5 — PENDING MAIN REVIEW
+
+1. Copy Stratus-1.6.5.zip into Main/shaderpacks if it is not already present.
+   Keep it zipped. Copy the previous .zip.txt preferences to the new name only
+   if the new file does not already exist. Existing values should be preserved.
+2. Select Stratus-1.6.5.zip in Iris and confirm that name in latest.log without
+   shader compilation or custom-texture loading errors.
+3. In the normal Stratus Terrain Lab world, inspect clouds below, within and
+   above the layer; turn and move slowly, including at grazing horizon angles.
+   Check noon, sunset, night and rain. Disable CLOUD_AMOUNT: high clouds should
+   remain visible throughout the sky. CIRRUS_AMOUNT zero should hide them.
+4. At default CLOUD_SPAN 240, compare the lower connected footprint/holes with
+   current Minecraft clouds. Default thickness is 12; choose 4 for vanilla slab
+   proportions. Source density gradients and shading intentionally differ.
+5. Inspect stone/dirt/wood faces under morning/evening sun, camera rotation,
+   rain and cave torchlight. Check FACE_SHADING and FACE_BLEND zero bypasses.
+   Confirm matte surfaces and waterline/glass/particles remain coherent.
+6. Capture matching settings/cameras before comparing releases. Check all four
+   presets and vanilla cloud/sun modes. Store original screenshots and log paths.
+7. Benchmark only while focused and record Dynamic FPS, hardware, resolution,
+   render/simulation distances, cap and VSync. Background samples are invalid.
+
+These steps have not been completed for 1.6.5. Historical 1.6.4 live evidence
+must not be used to certify this candidate. See VALIDATION.txt / CHECKS.json.

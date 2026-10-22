@@ -1,0 +1,54 @@
+[
+  {
+    "region": "iron_front",
+    "xyxy": [
+      370,
+      280,
+      460,
+      330
+    ],
+    "dry_vs_game_mean_code_error": 0.19066666666666668,
+    "dry_vs_game_max_code_error": 1.0,
+    "sheen_minus_dry_mean_code": 0.0,
+    "sheen_minus_dry_max_code": 0.0
+  },
+  {
+    "region": "iron_top",
+    "xyxy": [
+      390,
+      220,
+      450,
+      238
+    ],
+    "dry_vs_game_mean_code_error": 0.22006172839506172,
+    "dry_vs_game_max_code_error": 1.0,
+    "sheen_minus_dry_mean_code": 0.0,
+    "sheen_minus_dry_max_code": 0.0
+  },
+  {
+    "region": "granite_front",
+    "xyxy": [
+      620,
+      290,
+      690,
+      330
+    ],
+    "dry_vs_game_mean_code_error": 1.2636904761904761,
+    "dry_vs_game_max_code_error": 3.0,
+    "sheen_minus_dry_mean_code": 0.6214285714285714,
+    "sheen_minus_dry_max_code": 4.0
+  },
+  {
+    "region": "grass_foreground",
+    "xyxy": [
+      300,
+      380,
+      520,
+      440
+    ],
+    "dry_vs_game_mean_code_error": 1.0891414141414142,
+    "dry_vs_game_max_code_error": 2.0,
+    "sheen_minus_dry_mean_code": 26.79169191919192,
+    "sheen_minus_dry_max_code": 56.0
+  }
+]

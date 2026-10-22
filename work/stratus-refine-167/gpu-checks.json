@@ -1,0 +1,93 @@
+{
+  "scope": "Actual native GLSL, face component/legacy equivalence, rain film/material gating and cirrus independence; not a performance measurement",
+  "total_samples": 539,
+  "candidate_samples": 490,
+  "baseline_reference_samples": 49,
+  "checks": [
+    {
+      "check": "Default independent components reproduce 1.6.6 shading",
+      "passed": true
+    },
+    {
+      "check": "Independent face components combine linearly",
+      "passed": true
+    },
+    {
+      "check": "no-faces bypasses face contrast",
+      "passed": true
+    },
+    {
+      "check": "master-off bypasses face contrast",
+      "passed": true
+    },
+    {
+      "check": "Vanilla control has a visible separate contribution",
+      "passed": true
+    },
+    {
+      "check": "Realistic control has a visible separate contribution",
+      "passed": true
+    },
+    {
+      "check": "Dry clear materials preserve previous matte response",
+      "passed": true
+    },
+    {
+      "check": "nonporous metal remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "glazed material remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "sealed cave remains unchanged",
+      "passed": true
+    },
+    {
+      "check": "Rain adds an observable response on absorbent wood",
+      "passed": true
+    },
+    {
+      "check": "Grazing wet sheen is observable",
+      "passed": true
+    },
+    {
+      "check": "Wet strength 2 visibly exceeds off at grazing angle",
+      "passed": true
+    },
+    {
+      "check": "Dry response does not depend on wet strength",
+      "passed": true
+    },
+    {
+      "check": "Nether wet film is disabled",
+      "passed": true
+    },
+    {
+      "check": "Cirrus optical density is increased by intended factor",
+      "passed": true
+    },
+    {
+      "check": "Cirrus independent of lower cloud amount",
+      "passed": true
+    },
+    {
+      "check": "Cirrus density zero hides upper layer",
+      "passed": true
+    },
+    {
+      "check": "All sampled outputs finite and nonnegative",
+      "passed": true
+    },
+    {
+      "check": "No GPU API errors",
+      "passed": true
+    },
+    {
+      "check": "All 10 water-resolve regressions pass",
+      "passed": true
+    }
+  ],
+  "failures": 0
+}

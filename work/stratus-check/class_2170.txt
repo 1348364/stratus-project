@@ -1,0 +1,42 @@
+Compiled from "class_2170.java"
+public class net.minecraft.class_2170 {
+  public static final java.lang.String field_60859;
+  private static final java.lang.ThreadLocal<net.minecraft.class_8854<net.minecraft.class_2168>> field_46823;
+  private static final org.slf4j.Logger field_9833;
+  public static final net.minecraft.class_12090 field_31837;
+  public static final net.minecraft.class_12090 field_31838;
+  public static final net.minecraft.class_12090 field_31839;
+  public static final net.minecraft.class_12090 field_31840;
+  public static final net.minecraft.class_12090 field_31841;
+  private static final net.minecraft.class_2641$class_11409<net.minecraft.class_2168> field_60672;
+  private final com.mojang.brigadier.CommandDispatcher<net.minecraft.class_2168> field_9832;
+  public net.minecraft.class_2170(net.minecraft.class_2170$class_5364, net.minecraft.class_7157);
+  public static <S> com.mojang.brigadier.ParseResults<S> method_45018(com.mojang.brigadier.ParseResults<S>, java.util.function.UnaryOperator<S>);
+  public void method_44252(net.minecraft.class_2168, java.lang.String);
+  public static java.lang.String method_71971(java.lang.String);
+  public void method_9249(com.mojang.brigadier.ParseResults<net.minecraft.class_2168>, java.lang.String);
+  private static com.mojang.brigadier.context.ContextChain<net.minecraft.class_2168> method_54492(com.mojang.brigadier.ParseResults<net.minecraft.class_2168>, java.lang.String, net.minecraft.class_2168);
+  public static void method_54313(net.minecraft.class_2168, java.util.function.Consumer<net.minecraft.class_8854<net.minecraft.class_2168>>);
+  public void method_9241(net.minecraft.class_3222);
+  private static <S> void method_9239(com.mojang.brigadier.tree.CommandNode<S>, com.mojang.brigadier.tree.CommandNode<S>, S, java.util.Map<com.mojang.brigadier.tree.CommandNode<S>, com.mojang.brigadier.tree.CommandNode<S>>);
+  public static com.mojang.brigadier.builder.LiteralArgumentBuilder<net.minecraft.class_2168> method_9247(java.lang.String);
+  public static <T> com.mojang.brigadier.builder.RequiredArgumentBuilder<net.minecraft.class_2168, T> method_9244(java.lang.String, com.mojang.brigadier.arguments.ArgumentType<T>);
+  public static java.util.function.Predicate<java.lang.String> method_9238(net.minecraft.class_2170$class_2171);
+  public com.mojang.brigadier.CommandDispatcher<net.minecraft.class_2168> method_9235();
+  public static <S> void method_54312(com.mojang.brigadier.ParseResults<S>) throws com.mojang.brigadier.exceptions.CommandSyntaxException;
+  public static <S> com.mojang.brigadier.exceptions.CommandSyntaxException method_23917(com.mojang.brigadier.ParseResults<S>);
+  public static net.minecraft.class_7157 method_46732(net.minecraft.class_7225$class_7874);
+  public static void method_30852();
+  public static <T extends net.minecraft.class_12097> net.minecraft.class_12095<T> method_71774(net.minecraft.class_12090);
+  public static net.minecraft.class_2168 method_75745(net.minecraft.class_12096);
+  private static java.lang.String method_30851(com.mojang.brigadier.arguments.ArgumentType);
+  private static boolean method_30853(com.mojang.brigadier.arguments.ArgumentType);
+  private static void method_41710(com.mojang.brigadier.CommandDispatcher, com.mojang.brigadier.tree.CommandNode, com.mojang.brigadier.tree.CommandNode, com.mojang.brigadier.tree.CommandNode, java.util.Collection);
+  private static boolean method_9240(net.minecraft.class_2170$class_2171, java.lang.String);
+  private static net.minecraft.class_2583 method_54493(java.lang.String, net.minecraft.class_2583);
+  private static com.mojang.brigadier.exceptions.CommandSyntaxException method_54494(com.mojang.brigadier.ParseResults);
+  private static net.minecraft.class_2583 method_9242(net.minecraft.class_5250, net.minecraft.class_2583);
+  private static void method_54314(java.lang.String, com.mojang.brigadier.context.ContextChain, net.minecraft.class_2168, net.minecraft.class_8854);
+  private static java.lang.String method_44253(java.lang.String);
+  static {};
+}

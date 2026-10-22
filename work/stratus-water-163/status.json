@@ -1,0 +1,12 @@
+{
+  "candidate": "Stratus-1.6.3.zip",
+  "native_compile_pairs": 768,
+  "gpu_cases": 13,
+  "gpu_failures": 0,
+  "gpu_errors": 0,
+  "main_selected_shader": "Stratus-1.6.3.zip",
+  "in_game_retest": "passed matched waterline/upward views, submerged wood, deep river and above river",
+  "main_reopened_normally": true,
+  "main_original_mod_files_unchanged": 34,
+  "main_options_preserved": true
+}

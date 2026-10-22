@@ -1,0 +1,180 @@
+--- 1.6.3/shaders/core/ceiling.glsl
++++ 1.6.4/shaders/core/ceiling.glsl
+@@ -114,22 +114,24 @@
+     vec3 ray=unitVector(worldRay);float begin=0.0,finish=min(distanceLimit,7000.0);
+     if(abs(ray.y)<0.0001){if(origin.y<bottom||origin.y>top)return vec4(0.0);}
+     else{float a=(bottom-origin.y)/ray.y,b=(top-origin.y)/ray.y;begin=max(min(a,b),0.0);finish=min(finish,max(a,b));}
++    // From inside a cloud, kilometre-long grazing rays spent almost the whole
++    // budget on distant cells and resolved the nearby volume as thin sheets.
++    // Keep four broad formations in range, blending the bound through the slab
++    // edges so vertical movement does not switch integration domains abruptly.
++    float interior=smoothstep(bottom,bottom+thickness*0.22,origin.y)
++        *(1.0-smoothstep(top-thickness*0.22,top,origin.y));
++    finish=min(finish,mix(7000.0,max(512.0,CLOUD_SPAN*4.0),interior));
+     if(finish<=begin)return vec4(0.0);
+-    // Integrate cells on fixed world planes. Moving up/down no longer changes
+-    // an eye-distance-dependent quadratic sampling grid through the same cloud.
+-    int axis=abs(ray.y)>max(abs(ray.x),abs(ray.z))?1:(abs(ray.x)>abs(ray.z)?0:2);
+-    float projectedLength=(finish-begin)*abs(ray[axis]);
+-    float cell=max(thickness/max(float(steps)*0.55,8.0),exp2(ceil(log2(max(projectedLength/max(float(steps-2),1.0),0.5)))));
+-    float signRay=ray[axis]>0.0?1.0:-1.0;
+-    float startCoordinate=(origin[axis]+ray[axis]*begin)/cell;
+-    float boundary=(floor(startCoordinate)+(signRay>0.0?1.0:0.0))*cell;
+-    float next=max(begin+0.001,(boundary-origin[axis])/ray[axis]);
+-    float advance=cell/max(abs(ray[axis]),0.0001),start=begin;
++    // Continuous midpoint quadrature over the clipped segment. Direction-
++    // dependent world-plane sizes changed grid phase across pixels, producing
++    // seams and moire inside the layer. The density field remains world-space;
++    // no temporal jitter or camera-anchored noise is introduced.
++    float advance=(finish-begin)/max(float(steps),1.0),start=begin;
+     float transmission=1.0;vec3 scattered=vec3(0.0);
+     float phase=cloudPhase(dot(ray,broadLightDirection()));
+     for(int i=0;i<512;i++){
+         if(i>=steps||start>=finish)break;
+-        float end=min(next,finish),stride=max(end-start,0.0);
++        float end=min(begin+float(i+1)*advance,finish),stride=max(end-start,0.0);
+         vec3 point=origin+ray*(start+end)*0.5;
+         vec2 sampleData=layeredCloudSample(point,true,upper);
+         if(sampleData.x>0.00001){
+@@ -150,7 +152,7 @@
+             scattered+=transmission*opacity*colour;transmission*=1.0-opacity;
+             if(transmission<0.012)break;
+         }
+-        start=end;next+=advance;
++        start=end;
+     }
+     vec3 colour=scattered/max(1.0-transmission,0.0001);
+     colour=mix(colour,atmosphericColour(),1.0-exp(-max(begin-150.0,0.0)*0.00025));
+--- 1.6.3/shaders/core/diffuse.glsl
++++ 1.6.4/shaders/core/diffuse.glsl
+@@ -23,10 +23,6 @@
+     return 0.0;
+ #endif
+ }
+-float materialWetDarkening(float sky,float absorption){
+-    float saturation=exposedWetFilm(sky)*(0.45+0.55*clamp(biomeHumidity,0.0,1.0));
+-    return 1.0/(1.0+1.40*WET_DARKENING*saturation*clamp(absorption,0.0,1.0));
+-}
+ vec3 formIrradiance(vec3 normal, float skyExposure) {
+     // Vanilla axis weights only. No second sky hemisphere or directional
+     // diffuse term is stacked on top of the familiar block-face contrast.
+@@ -34,33 +30,29 @@
+     float vanilla=dot(normal*normal,vec3(0.6,vertical,0.8));
+     return vec3(pow(max(mix(1.0,vanilla,FACE_BLEND),0.02),FACE_SHADING));
+ }
+-float waterFresnel(float cosine) {
+-    return 0.0204 + 0.9796 * pow(1.0 - clamp(cosine, 0.0, 1.0), 5.0);
+-}
+-float wetSunSpecular(vec3 n, vec3 v, vec3 l, float roughness) {
+-    float nv = max(dot(n, v), 0.001), nl = max(dot(n, l), 0.0);
+-    if (nl <= 0.0) return 0.0;
+-    vec3 h = unitVector(v + l);
+-    float nh = max(dot(n, h), 0.0), vh = max(dot(v, h), 0.0);
+-    float alpha = max(roughness * roughness, 0.08), a2 = alpha * alpha;
+-    float denominator = nh * nh * (a2 - 1.0) + 1.0;
+-    float distribution = a2 / max(3.14159265 * denominator * denominator, 0.00001);
+-    float visibility = 0.5 / max(nl * sqrt(nv * nv * (1.0 - a2) + a2)
+-                        + nv * sqrt(nl * nl * (1.0 - a2) + a2), 0.0001);
+-    return distribution * visibility * waterFresnel(vh) * nl;
++float retainedSurfaceMoisture(float sky,vec3 n,float absorption){
++#if DIMENSION_TYPE != 0
++    return 0.0;
++#else
++    // Drainage is tied to the world-space face, never to the camera or noise.
++    // Partial sky exposure approximates a damp sheltered face; sealed caves
++    // receive neither rain nor an invented persistent water simulation.
++    float upward=smoothstep(-0.15,0.85,n.y);
++    float exposed=exposedWetFilm(sky)*mix(0.55,1.0,upward);
++    float shelter=smoothstep(0.02,0.22,sky)*(1.0-smoothstep(0.22,0.85,sky));
++    float retained=SURFACE_DAMPNESS*clamp(biomeHumidity,0.0,1.0)
++        *clamp(absorption,0.0,1.0)*shelter*(0.10+0.12*upward)*WET_SHEEN;
++    return clamp(exposed+retained,0.0,1.0);
++#endif
+ }
+ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material){
+-    // Absorbed water darkens porous substrates. A separate surface film covers
+-    // exposed faces of every material, including nonabsorbing metal/ceramic.
+-    float film=exposedWetFilm(sky);
+-    vec3 wet=dry*materialWetDarkening(sky,material.x);
+-    vec3 v=unitVector(-playerPoint);
+-    float roughness=mix(material.y,max(0.13,material.y*0.38),film);
+-    float sheen=film*WET_SHEEN;
+-    float coat=clamp(sheen*waterFresnel(max(dot(n,v),0.0))*(1.0-roughness*0.35),0.0,0.65);
+-    wet=mix(wet,softSkyReflection(reflect(-v,n))*sky*SKY_AMBIENT,coat);
+-    wet+=sunlightColour()*wetSunSpecular(n,v,broadLightDirection(),roughness)*sheen*sky*daytimeWeight()*0.65;
+-    return wet;
++    // Matte absorption only: no reflected sky, sun lobe, Fresnel coating or
++    // view-dependent light. WET_SHEEN remains a saved-option-compatible name,
++    // now controlling sheltered retention rather than an environmental film.
++    float moisture=retainedSurfaceMoisture(sky,n,material.x);
++    float saturation=moisture*(0.45+0.55*clamp(biomeHumidity,0.0,1.0));
++    float attenuation=1.0/(1.0+1.40*WET_DARKENING*saturation*clamp(material.x,0.0,1.0));
++    return dry*attenuation;
+ }
+ vec3 diffuseRadiance(vec3 colour, vec3 mappedLight, float skyExposure, vec3 worldNormal,
+                      float kind, vec3 playerPoint, int material) {
+--- 1.6.3/shaders/core/moisture.glsl
++++ 1.6.4/shaders/core/moisture.glsl
+@@ -1,7 +1,7 @@
+ #ifndef STRATUS_MOISTURE_INCLUDED
+ #define STRATUS_MOISTURE_INCLUDED
+-// Material absorption and broad exposed-face films are independent of corners,
+-// depth-neighbour shapes, view direction and random noise.
++// Matte absorption follows material, face drainage and sky exposure. It does
++// not create a reflective film, noisy mask or outline from depth neighbours.
+ vec3 materialMoisture(vec3 dry,vec3 viewPoint,vec2 uv){
+ #if DIMENSION_TYPE == 0
+     if(SURFACE_DAMPNESS<=0.0)return dry;
+--- 1.6.3/shaders/core/raster.frag.glsl
++++ 1.6.4/shaders/core/raster.frag.glsl
+@@ -95,8 +95,8 @@
+     if(blockCategory!=4100&&blockCategory!=4103)
+         colour=wetSurfaceResponse(colour,unitVector(orientedNormal),relativeLocation,sky,wetMaterialProperties(material));
+ #elif BLOCK_SURFACE == 1 && LATE_SURFACE == 1
+-    // Translucent block entities use the same film without treating their
+-    // unknown material as absorbent stone. Ordinary entities remain excluded.
++    // Unknown translucent block entities have no pore absorption. Ordinary
++    // entities remain excluded; no material receives a reflective wet film.
+     colour=wetSurfaceResponse(colour,unitVector(orientedNormal),relativeLocation,sky,vec2(0.0,0.40));
+ #endif
+     float emission=category>1.5&&category<2.5?smoothstep(0.48,0.94,max(surface.r,max(surface.g,surface.b))):0.0;
+--- 1.6.3/shaders/lang/en_us.lang
++++ 1.6.4/shaders/lang/en_us.lang
+@@ -18,7 +18,7 @@
+ option.SURFACE_SATURATION=Surface saturation
+ option.SURFACE_SATURATION.comment=1.00 preserves vanilla saturation. Lighting, absorption and bloom still affect the final image.
+ option.SURFACE_DAMPNESS=Surface dampness
+-option.SURFACE_DAMPNESS.comment=Broad outdoor dampness; material absorption controls darkening. Reflections cover exposed faces, with no corner mask or random noise.
++option.SURFACE_DAMPNESS.comment=Matte moisture absorption follows porosity, face drainage, sky exposure, humidity and rain. No environmental reflections, glossy film, corner outlines or random noise.
+ value.SURFACE_DAMPNESS.0.00=Dry
+ value.SURFACE_DAMPNESS.0.35=Subtle
+ value.SURFACE_DAMPNESS.0.65=Moderate
+@@ -53,7 +53,7 @@
+ option.MIST_DETAIL=Mist spatial variation
+ option.MIST_DETAIL.comment=Sampling detail for broad horizontal density patches.
+ option.REFLECT_LEVEL=Water reflection amount
+-option.REFLECT_LEVEL.comment=Scales angle-dependent dielectric reflection. 1.00 uses physical Fresnel; underwater total internal reflection stays complete.
++option.REFLECT_LEVEL.comment=Scales above-water angle-dependent dielectric reflection. 1.00 uses physical Fresnel. The underwater interface remains transparent without a reflection overlay.
+ option.REFLECTION_MODE=Scenery reflection quality
+ option.REFLECTION_MODE.comment=Sky fallback,32-step scenery tracing, or96-step high-quality tracing with precise hits. Hidden geometry remains a screen-space limitation.
+ option.REFLECT_RANGE=Scenery trace distance
+@@ -61,7 +61,7 @@
+ option.WATER_VISIBILITY=Water clarity
+ option.WATER_VISIBILITY.comment=1.70 is the default. Higher values reduce optical extinction. Actual visibility also responds to biome sediment, rain runoff and shelter.
+ option.WATER_EXTINCTION=Depth absorption
+-option.WATER_EXTINCTION.comment=Beer-Lambert absorption and sediment scattering along the refracted path. Top, sides and underwater use the same coefficients.
++option.WATER_EXTINCTION.comment=Absorption and sediment scattering along the actual water segment. Underwater fog stops at the visible exit; air beyond it adds no water absorption.
+ option.RIPPLE_HEIGHT=Ripple strength
+ option.RIPPLE_HEIGHT.comment=Shading normal amplitude. Water geometry remains vanilla.
+ option.RIPPLE_SIZE=Ripple spacing
+@@ -78,8 +78,8 @@
+ option.CLOUD_THICKNESS.comment=Vertical thickness in blocks of the world-space cloud volume.
+ option.SKY_LEAK=Light through the sky
+ option.SKY_LEAK.comment=Broad daylight glow through the cloud ceiling. Sun visibility separately controls the haze-softened solar core.
+-option.WET_SHEEN=Wet surface sheen
+-option.WET_SHEEN.comment=Independent Fresnel water film on exposed block surfaces, including nonabsorbing materials. High values deliberately exaggerate sheen.
++option.WET_SHEEN=Sheltered moisture retention
++option.WET_SHEEN.comment=Extra diffuse moisture absorption on porous, partially sheltered faces. Legacy WET_SHEEN values are retained; solid blocks stay matte at every value.
+ option.BLOOM_RADIUS=Bloom radius
+ option.BLOOM_RADIUS.comment=Restrained halo width, stable relative to image height. Bloom strength remains a separate control.
+ option.SUN_VISIBILITY=Sun through overcast

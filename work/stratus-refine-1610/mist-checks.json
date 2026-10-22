@@ -1,0 +1,121 @@
+{
+  "opengl_errors": 0,
+  "matched_atmosphere_pixels": 131072,
+  "scenes": [
+    {
+      "scene": 0,
+      "max_linear_error": 6.210803985595703e-05,
+      "values_above_1e-6": 2886
+    },
+    {
+      "scene": 1,
+      "max_linear_error": 1.1920928955078125e-07,
+      "values_above_1e-6": 0
+    },
+    {
+      "scene": 2,
+      "max_linear_error": 0.0,
+      "values_above_1e-6": 0
+    },
+    {
+      "scene": 3,
+      "max_linear_error": 3.731250762939453e-05,
+      "values_above_1e-6": 6769
+    },
+    {
+      "scene": 4,
+      "max_linear_error": 6.210803985595703e-05,
+      "values_above_1e-6": 1051
+    },
+    {
+      "scene": 5,
+      "max_linear_error": 1.1920928955078125e-07,
+      "values_above_1e-6": 0
+    },
+    {
+      "scene": 6,
+      "max_linear_error": 0.0,
+      "values_above_1e-6": 0
+    },
+    {
+      "scene": 7,
+      "max_linear_error": 3.731250762939453e-05,
+      "values_above_1e-6": 2529
+    }
+  ],
+  "failures": 0,
+  "timings": [
+    {
+      "scene": 0,
+      "day_or_night": "day",
+      "median_gpu_ms": {
+        "before": 0.075551,
+        "after": 0.070854
+      },
+      "relative_change_percent": -6.216992495135731
+    },
+    {
+      "scene": 1,
+      "day_or_night": "day",
+      "median_gpu_ms": {
+        "before": 0.015271,
+        "after": 0.015583
+      },
+      "relative_change_percent": 2.0430882064042866
+    },
+    {
+      "scene": 2,
+      "day_or_night": "day",
+      "median_gpu_ms": {
+        "before": 0.007935,
+        "after": 0.007849
+      },
+      "relative_change_percent": -1.0838059231253805
+    },
+    {
+      "scene": 3,
+      "day_or_night": "day",
+      "median_gpu_ms": {
+        "before": 0.027738,
+        "after": 0.027501
+      },
+      "relative_change_percent": -0.8544235345014028
+    },
+    {
+      "scene": 4,
+      "day_or_night": "night",
+      "median_gpu_ms": {
+        "before": 0.068266,
+        "after": 0.032906
+      },
+      "relative_change_percent": -51.7973808337972
+    },
+    {
+      "scene": 5,
+      "day_or_night": "night",
+      "median_gpu_ms": {
+        "before": 0.015432,
+        "after": 0.014975
+      },
+      "relative_change_percent": -2.9613789528252887
+    },
+    {
+      "scene": 6,
+      "day_or_night": "night",
+      "median_gpu_ms": {
+        "before": 0.008195,
+        "after": 0.008
+      },
+      "relative_change_percent": -2.379499694935927
+    },
+    {
+      "scene": 7,
+      "day_or_night": "night",
+      "median_gpu_ms": {
+        "before": 0.026685,
+        "after": 0.012073
+      },
+      "relative_change_percent": -54.75735431890575
+    }
+  ]
+}

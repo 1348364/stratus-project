@@ -1,0 +1,197 @@
+{
+  "scope": "Actual baseline/candidate projected interval tracer at all three qualities",
+  "pixels_per_variant": 344064,
+  "scenes": [
+    {
+      "scene": 0,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0169974,
+        "1": 0.0158776
+      }
+    },
+    {
+      "scene": 1,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0129662,
+        "1": 0.0128516
+      }
+    },
+    {
+      "scene": 2,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0165182,
+        "1": 0.0154532
+      }
+    },
+    {
+      "scene": 3,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0218984,
+        "1": 0.0178516
+      }
+    },
+    {
+      "scene": 4,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.021539,
+        "1": 0.0220573
+      }
+    },
+    {
+      "scene": 5,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0233437,
+        "1": 0.0188203
+      }
+    },
+    {
+      "scene": 6,
+      "comparisons": [
+        {
+          "quality": 0,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 1,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        },
+        {
+          "quality": 2,
+          "max_RGBA_error": 0.0,
+          "pixels_exceed_1e-3": 0,
+          "hit_mismatches": 0
+        }
+      ],
+      "median_gpu_ms": {
+        "0": 0.0258047,
+        "1": 0.0238385
+      }
+    }
+  ],
+  "failures": 0,
+  "opengl_errors": 0
+}

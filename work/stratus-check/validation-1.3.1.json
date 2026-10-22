@@ -1,0 +1,734 @@
+{
+  "pack": "Stratus 1.3.1",
+  "date": "2026-10-17",
+  "controls": 39,
+  "native_compile_link": {
+    "passed": 630,
+    "failed": 0,
+    "program_pairs": 90,
+    "variants": 7,
+    "renderer": "Apple M1 OpenGL 4.1",
+    "method": "Offline compatibility shim; actual Iris checks recorded separately"
+  },
+  "gpu_appearance_probes": {
+    "cases": {
+      "covered_moisture": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "entity_moisture": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "wet_absorption": {
+        "previous": [
+          0.05007881,
+          0.16681606,
+          0.46888313,
+          1.0
+        ],
+        "current": [
+          0.05007881,
+          0.16681606,
+          0.46888313,
+          1.0
+        ]
+      },
+      "wet_grazing": {
+        "previous": [
+          0.0390821,
+          0.04235731,
+          0.04696527,
+          1.0
+        ],
+        "current": [
+          0.03933751,
+          0.04240759,
+          0.04672688,
+          1.0
+        ]
+      },
+      "entity_top": {
+        "previous": [
+          0.3430905,
+          0.32806963,
+          0.30244315,
+          1.0
+        ],
+        "current": [
+          0.3430905,
+          0.32806963,
+          0.30244315,
+          1.0
+        ]
+      },
+      "entity_side": {
+        "previous": [
+          0.1914794,
+          0.18574218,
+          0.17570208,
+          1.0
+        ],
+        "current": [
+          0.15318353,
+          0.14859375,
+          0.14056167,
+          1.0
+        ]
+      },
+      "entity_bottom": {
+        "previous": [
+          0.08892676,
+          0.08462385,
+          0.07888664,
+          1.0
+        ],
+        "current": [
+          0.06669507,
+          0.06346789,
+          0.05916499,
+          1.0
+        ]
+      },
+      "entity_in_darkness": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "emissive_in_darkness": {
+        "previous": [
+          1.86901152,
+          1.86901152,
+          1.86901152,
+          1.0
+        ],
+        "current": [
+          1.86901152,
+          1.86901152,
+          1.86901152,
+          1.0
+        ]
+      },
+      "billboard_orientation": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "water_split_path": {
+        "previous": [
+          0.0,
+          2e-08,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          1e-08,
+          2e-08,
+          1.0
+        ]
+      },
+      "water_two_blocks": {
+        "previous": [
+          0.45902288,
+          0.48657736,
+          0.49499947,
+          1.0
+        ],
+        "current": [
+          0.19702518,
+          0.37223879,
+          0.44728649,
+          1.0
+        ]
+      },
+      "water_eight_blocks": {
+        "previous": [
+          0.35651284,
+          0.44912395,
+          0.4804619,
+          1.0
+        ],
+        "current": [
+          0.04185443,
+          0.19585535,
+          0.33576071,
+          1.0
+        ]
+      },
+      "water_twenty_blocks": {
+        "previous": [
+          0.21984866,
+          0.38545394,
+          0.4533686,
+          1.0
+        ],
+        "current": [
+          0.03501227,
+          0.13081948,
+          0.23289564,
+          1.0
+        ]
+      },
+      "face_top": {
+        "previous": [
+          1.06787372,
+          1.02112103,
+          0.94135827,
+          1.0
+        ],
+        "current": [
+          1.06787372,
+          1.02112103,
+          0.94135827,
+          1.0
+        ]
+      },
+      "face_east": {
+        "previous": [
+          0.59598213,
+          0.578125,
+          0.546875,
+          1.0
+        ],
+        "current": [
+          0.47678575,
+          0.46250001,
+          0.43750003,
+          1.0
+        ]
+      },
+      "face_west": {
+        "previous": [
+          0.69487458,
+          0.66119462,
+          0.60719937,
+          1.0
+        ],
+        "current": [
+          0.55589974,
+          0.5289557,
+          0.48575953,
+          1.0
+        ]
+      },
+      "face_south": {
+        "previous": [
+          0.69125038,
+          0.65815026,
+          0.60498863,
+          1.0
+        ],
+        "current": [
+          0.62212533,
+          0.59233522,
+          0.54448974,
+          1.0
+        ]
+      },
+      "face_north": {
+        "previous": [
+          0.59598213,
+          0.578125,
+          0.546875,
+          1.0
+        ],
+        "current": [
+          0.53638393,
+          0.52031249,
+          0.4921875,
+          1.0
+        ]
+      },
+      "face_bottom": {
+        "previous": [
+          0.2767857,
+          0.26339284,
+          0.24553572,
+          1.0
+        ],
+        "current": [
+          0.20758928,
+          0.19754463,
+          0.1841518,
+          1.0
+        ]
+      },
+      "ground_warmth": {
+        "previous": [
+          0.10725813,
+          0.107342,
+          0.10654681,
+          1.0
+        ],
+        "current": [
+          0.11283632,
+          0.10844018,
+          0.10134023,
+          1.0
+        ]
+      },
+      "ground_night": {
+        "previous": [
+          0.06310703,
+          0.06135013,
+          0.05739143,
+          1.0
+        ],
+        "current": [
+          0.06310703,
+          0.06135013,
+          0.05739143,
+          1.0
+        ]
+      },
+      "simplex_xyz": {
+        "previous": [
+          0.4569715,
+          0.50962669,
+          0.26219136,
+          1.0
+        ],
+        "current": [
+          0.4569715,
+          0.50962669,
+          0.26219136,
+          1.0
+        ]
+      },
+      "cloud_view_alpha": {
+        "previous": [
+          0.48336816,
+          0.99293256,
+          0.40733385,
+          1.0
+        ],
+        "current": [
+          0.48336816,
+          0.99293256,
+          0.40733385,
+          1.0
+        ]
+      },
+      "cloud_occlusion": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "cirrus_alpha": {
+        "previous": [
+          0.27627969,
+          0.27627969,
+          0.27627969,
+          1.0
+        ],
+        "current": [
+          0.27627969,
+          0.27627969,
+          0.27627969,
+          1.0
+        ]
+      },
+      "mist_xyz": {
+        "previous": [
+          0.00579647,
+          0.00758974,
+          0.00075166,
+          1.0
+        ],
+        "current": [
+          0.00579647,
+          0.00758974,
+          0.00075166,
+          1.0
+        ]
+      },
+      "mist_near_clear": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "mist_covered": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "mist_far": {
+        "previous": [
+          0.52901983,
+          0.52901983,
+          0.52901983,
+          1.0
+        ],
+        "current": [
+          0.52901983,
+          0.52901983,
+          0.52901983,
+          1.0
+        ]
+      },
+      "sun_colour": {
+        "previous": [
+          1.0,
+          0.83999997,
+          0.61000001,
+          1.0
+        ],
+        "current": [
+          1.0,
+          0.83999997,
+          0.61000001,
+          1.0
+        ]
+      },
+      "sun_day": {
+        "previous": [
+          0.38469237,
+          0.46524307,
+          0.58520555,
+          1.0
+        ],
+        "current": [
+          3.86969233,
+          3.39264297,
+          2.71105552,
+          1.0
+        ]
+      },
+      "sun_night": {
+        "previous": [
+          0.00379617,
+          0.00655964,
+          0.01425308,
+          1.0
+        ],
+        "current": [
+          0.00379617,
+          0.00655964,
+          0.01425308,
+          1.0
+        ]
+      },
+      "sky_away_from_sun": {
+        "previous": [
+          0.43387952,
+          0.47699985,
+          0.5382356,
+          1.0
+        ],
+        "current": [
+          0.43387952,
+          0.47699985,
+          0.5382356,
+          1.0
+        ]
+      }
+    },
+    "opengl_errors": 0
+  },
+  "bloom_radius_probe": {
+    "cases": {
+      "small": {
+        "energy": 30.239998,
+        "rms_radius_quarterres_pixels": 0.977578,
+        "nonzero_support_radius": 2.0
+      },
+      "normal": {
+        "energy": 30.116324,
+        "rms_radius_quarterres_pixels": 3.438915,
+        "nonzero_support_radius": 7.746
+      }
+    },
+    "opengl_errors": 0,
+    "larger_radius_spreads_further": true
+  },
+  "source_hashes": {
+    "shaders/block.properties": "50b11badf4c920fa856116815589b998adf07e2276c8d8dd8541a6178a4b99ed",
+    "shaders/composite.fsh": "6ff634ea336a1f159388e7ea81f804290a4b3a10d21df494f1722f502fdcb85d",
+    "shaders/composite.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite1.fsh": "1df8e0676d0cad589c376fdb31f55d9dd6358e88dc7127f813012b5bce4b8599",
+    "shaders/composite1.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite2.fsh": "dce6f1089f4e9f0eb632e59144913b2a67d9c5373a61a5c5e3066df68796ca77",
+    "shaders/composite2.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite3.fsh": "f98a6907db81fe9d8fe7371a5e1d1028720c250d2d649b11e62d1fab50f43383",
+    "shaders/composite3.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite4.fsh": "34eb65f1d18d3acaf3f3058d6dae96b386487355d90ebf59cf82bdcead83475b",
+    "shaders/composite4.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite5.fsh": "d67192b6546d4196f15eae2d653ca01080f364222d19e367f8d6d71b0b42584f",
+    "shaders/composite5.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/core/air.glsl": "697d833e0fc20b059392a343545461d5fa33908914c9fc04ea70d513e3573b3f",
+    "shaders/core/atmosphere-resolve.frag.glsl": "38b2aab59e4394408cb9708c29f45f26d327b7067798d267229f2d6804f15fb2",
+    "shaders/core/atmosphere.frag.glsl": "3de6a9c08e7fb7214b4251ab98b52c4f61c3a9f7a888390fb1b5b893d49f71f5",
+    "shaders/core/bloom-horizontal.frag.glsl": "61a398632a34254242764f1bc1a06af575e7bcd987b7bdbd23bfaddb73803235",
+    "shaders/core/bloom-vertical.frag.glsl": "7acc666e5e688a3d13535438dfcaed0d5387a82daed39646e2f51ee0eaee9d09",
+    "shaders/core/ceiling.glsl": "fad87710f282623bafafbfa75191aba16a013bc73c05405ed550d901f9083c1c",
+    "shaders/core/diffuse.glsl": "372a4fcb4d677b027c15f06aae0390f476a15794f4d1bf61d52c363cc8cee981",
+    "shaders/core/field.glsl": "8f2b97cf68a3bca0144a4f019cd89b2dc8a4cdf367ee06c769225bbd2a6261fb",
+    "shaders/core/frame.glsl": "5ac51458e907bf4a4c0440516f2170855b7df602869e70bd657be58eb107e426",
+    "shaders/core/lake-normal.glsl": "27684c9f42c9f423a93a4906d62b1fe91ccff9ee98a23ee408a6041d2e95b641",
+    "shaders/core/lake.frag.glsl": "dde871d45bbcbe68b49fd2d23a4d15e69184f9da1324ea52cd75faac04c0e35a",
+    "shaders/core/medium.glsl": "29cd46e41692f4bed215d69764b8057b17a8893671a507b2dfae5924d07bddf9",
+    "shaders/core/options.glsl": "0d7f04b1637a6e4c3c3c0b6932ce5fedb192b567bfda8cad1846f831ed803555",
+    "shaders/core/output.frag.glsl": "6fb408301834c8a687f3e4b3659b922dacda5b490de50464b0d85318fd3c811b",
+    "shaders/core/raster.frag.glsl": "d884847329217f9c2b6cd15a2c021d6b29183a8a684c6987f9c5ad30a04356b1",
+    "shaders/core/raster.vert.glsl": "cac058d66a473b7eb92b2e00cefc6b49fcda1c1364f9f048ddb4284b0b841c57",
+    "shaders/core/resolve.frag.glsl": "81cf8ae5b446a1d0f970dac2fc93b2b36972fcce7ebe9f16fb402ef02955fa00",
+    "shaders/core/scene-depth.glsl": "b865f0e9917e904bda5544ce545ada0fd86c58abe1e903f482d7b20b3f86648b",
+    "shaders/core/screen.vert.glsl": "b954e02a4ba1a49f7ad97b473307ec2592b71e170a4bcf4f55ec3ac1aecae8c9",
+    "shaders/core/trace.glsl": "fbce7427ca0f8aa2c99d133790e27095b8132c62076582cb85c3a7a8eeebd55d",
+    "shaders/core/volume.glsl": "9e9dfc754ab473d5f4c7a36fce6b8e852f46c5242ac3c64cc963fdb411733f23",
+    "shaders/core/water-reflection.frag.glsl": "d3e7714e981b42ec9b434b094cb2127ba38b1d98ff549e34aec1c384b435e673",
+    "shaders/deferred.fsh": "03b1e04a2af159ba714804d549bb55f8d85fd21a43e7d4f0d2cbc499cfb011d3",
+    "shaders/deferred.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/entity.properties": "b9530c8acf16eadb594c52e307795f05c7478fd7f8852fbd7e826d9fdd6f4d26",
+    "shaders/final.fsh": "7d89c683209f49f1bfe00bd324356bb9010adbbbe0b5a17e1a798526dfc52403",
+    "shaders/final.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/gbuffers_armor_glint.fsh": "ebc02dedc7a445648216a6b6058a75b4b6279417f002966bb2fbd18ada21c830",
+    "shaders/gbuffers_armor_glint.vsh": "0671c22957e0d3a84f411b00ac9b9cafdaa8e5db0c247fea9b67e06a495c1865",
+    "shaders/gbuffers_basic.fsh": "29a20aab85fb7d672e50d0982df4dbf40ced11adfe606730f494202e7d42b6db",
+    "shaders/gbuffers_basic.vsh": "53f6382f842aa8dfd4404fcdeaf0d2097c8ee82bad817c592f79de9d658858f0",
+    "shaders/gbuffers_beaconbeam.fsh": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7",
+    "shaders/gbuffers_beaconbeam.vsh": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c",
+    "shaders/gbuffers_block.fsh": "472057a313d113c8b61cd6d637c804ee8aeda7e22f6c518ecfed958110d30ca5",
+    "shaders/gbuffers_block.vsh": "c04d83ea447583562693ee31df104c5836dc6b0e606c446e76b6c30000be3d1d",
+    "shaders/gbuffers_block_translucent.fsh": "04c29eacfbbca611749d5216e97aca2c49a0f6f8bb4c846029743428bf4296cc",
+    "shaders/gbuffers_block_translucent.vsh": "2e9d33065a73bc745d38c41cd37c44574951e353f66d5be4c89418fbd7d7b218",
+    "shaders/gbuffers_clouds.fsh": "1fb9f011df651ec39f915122220c0031285253b1e160fb320b0c8ce0225adf11",
+    "shaders/gbuffers_clouds.vsh": "2ceb74b1ec124e373f3b13561920f7ed686fe47abfabb90b6346539f1a7e0413",
+    "shaders/gbuffers_damagedblock.fsh": "98e00051fda85f0a19ba123fa1c423e9f9c9f79662c8651c95fd401645e85c17",
+    "shaders/gbuffers_damagedblock.vsh": "ac7b4f67d89ee878d96c1bef16f374c177d6fa0cf878b7965a96f4b6ca05cec0",
+    "shaders/gbuffers_entities.fsh": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb",
+    "shaders/gbuffers_entities.vsh": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359",
+    "shaders/gbuffers_entities_translucent.fsh": "f2cf9fe0e8b8a2cde5becbc9d85b485ae31223a52b8ba6f00ad830bd7252d5c6",
+    "shaders/gbuffers_entities_translucent.vsh": "dbf14c14e9f07c3f153c287ccfdda3ce9a84fdaaa1a20fe0808ad86541e88fe5",
+    "shaders/gbuffers_hand.fsh": "1efd90b1395d241029fbc4d48de9a0a0baba88903530377c0e40b9456794511c",
+    "shaders/gbuffers_hand.vsh": "8a109ac5c7b3652473039c9cdb9615f61753259ae7f9892f5e6482bcd054f4c0",
+    "shaders/gbuffers_hand_water.fsh": "f81b5de5ec426d96a22583d5f9ff402134ae6f798533caab3489b99c45745084",
+    "shaders/gbuffers_hand_water.vsh": "cc578ce0b7a61f022ae140896ee3fd096fa1a00f9b904127acc5fb332ffc333e",
+    "shaders/gbuffers_item.fsh": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb",
+    "shaders/gbuffers_item.vsh": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359",
+    "shaders/gbuffers_particles.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_particles.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_particles_translucent.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_particles_translucent.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_skybasic.fsh": "1fb9f011df651ec39f915122220c0031285253b1e160fb320b0c8ce0225adf11",
+    "shaders/gbuffers_skybasic.vsh": "2ceb74b1ec124e373f3b13561920f7ed686fe47abfabb90b6346539f1a7e0413",
+    "shaders/gbuffers_skytextured.fsh": "1fb9f011df651ec39f915122220c0031285253b1e160fb320b0c8ce0225adf11",
+    "shaders/gbuffers_skytextured.vsh": "2ceb74b1ec124e373f3b13561920f7ed686fe47abfabb90b6346539f1a7e0413",
+    "shaders/gbuffers_spidereyes.fsh": "de3a2c9889607116dc391140cf62ab319cd2539542567a223423ab7d33076cb6",
+    "shaders/gbuffers_spidereyes.vsh": "736f939b2f40a449834e8ab7fdb9493e17d2431182af7f3a756afad2efac1cec",
+    "shaders/gbuffers_terrain.fsh": "e8e8b95c47a032ac4f6169c847b0f032179d9e8b8e57086ce12736de8079f44d",
+    "shaders/gbuffers_terrain.vsh": "6774bc0e1c657034ed1e9e9aeaf6c07f7896f18b0d0b073144a74cabeb7540e2",
+    "shaders/gbuffers_textured.fsh": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7",
+    "shaders/gbuffers_textured.vsh": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c",
+    "shaders/gbuffers_textured_lit.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_textured_lit.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_water.fsh": "38a8aa70eed2ee7b4131dece244015a1e7929e5aa02e67174d2aaddca27c4c1a",
+    "shaders/gbuffers_water.vsh": "b3d737be55ddd8591d598bef84818ce4068fd20cfd7f0bb1d4d66874e3d7cf82",
+    "shaders/gbuffers_weather.fsh": "7eed5ce078b2972ab11a7c834419f7d2bc9057ee1605acca2c4a17b0cd7914ef",
+    "shaders/gbuffers_weather.vsh": "c13b91d66f8cfb7eda386b71a8e87bbfbabb6b762d5cb10dd8fc5081a43d25f2",
+    "shaders/lang/en_us.lang": "c21b274f905ad676fa6094c97781f333a59e962ed86632e2f08c5f5fd5b5a0b0",
+    "shaders/shaders.properties": "71aa5a67f92b9529d9a372488d7c3237bdcf7aad41544f09cdb5cfbffd150628",
+    "shaders/world-1/composite.fsh": "d4f5a2cbaec5c3b9f7d388cdb78afb296bb38bc37b304f006b6b3fc4133d5611",
+    "shaders/world-1/composite.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite1.fsh": "d2aeae09f2d82fd9758466a6c779c061425914f677eaa25e90def6d5e6ecd1b0",
+    "shaders/world-1/composite1.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite2.fsh": "e5fd616578be2853982b25b6f6a1fa5059175362dc19f4b782f20822309edb0f",
+    "shaders/world-1/composite2.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite3.fsh": "f45971a016950a8c7fe33a348ab7640a16ea9a73b0451f486f2ece74ddcad37f",
+    "shaders/world-1/composite3.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite4.fsh": "3c5a7a787d688380bb171dd2162154a1be7a0b00afc221cc1410f3eaff8449aa",
+    "shaders/world-1/composite4.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite5.fsh": "45061aa1fee89b1cb16f231ff0dea6af30b68edcc0719d1e1a7de90e5edc3172",
+    "shaders/world-1/composite5.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/deferred.fsh": "5e83fc54eb12c58d357a210cab374b61454418382804c1aab8aabbd424a40961",
+    "shaders/world-1/deferred.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/final.fsh": "b37534de1efbe951fc0c8ab78442e8d59e5bf976ff8d6dbff5d300293d5e6544",
+    "shaders/world-1/final.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/gbuffers_armor_glint.fsh": "3cd2e92fd15cd310f748754efd18f46afe03c64a6948b3cf5ee25dcda1de54a1",
+    "shaders/world-1/gbuffers_armor_glint.vsh": "1f01afa50eb7968b7dd2ae73ae454b3daa170ba928918e75309a9a92976e98fd",
+    "shaders/world-1/gbuffers_basic.fsh": "20a49989cd0511f2c80d7079bd7d00ff9097bd076638311ec7ab96f69d1c7066",
+    "shaders/world-1/gbuffers_basic.vsh": "af5ac2615096af6bf1be2ac0028ad9821debf81b8b6201e2a2db5c79b055ab70",
+    "shaders/world-1/gbuffers_beaconbeam.fsh": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d",
+    "shaders/world-1/gbuffers_beaconbeam.vsh": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e",
+    "shaders/world-1/gbuffers_block.fsh": "03c7b6d99624c1cdacdb8f36ff6141f58e7f398f2e0125e0cb0113379e211ee4",
+    "shaders/world-1/gbuffers_block.vsh": "da4a479bf19d68521e1b121b4adba83b58c8e7d6997dcdcb90d395ec0cb2f564",
+    "shaders/world-1/gbuffers_block_translucent.fsh": "b2c7bbe8abf3f1c0c7578ec4e5f2fddf8bc13fabcc98772ab9209f60308d1eef",
+    "shaders/world-1/gbuffers_block_translucent.vsh": "d8e77a90ec47fb1ee8d5a5e3333a3f589e9b3820f9bd56aa2ce153176e9868cd",
+    "shaders/world-1/gbuffers_clouds.fsh": "11012cb4be5a6268792ffb2234624811ac94cfe2e3c36db6293d8e68252faff4",
+    "shaders/world-1/gbuffers_clouds.vsh": "616d056b3e3a8b2b4e3c004cd1bd083908ad88f9a581836e93f9114fb3eac9cb",
+    "shaders/world-1/gbuffers_damagedblock.fsh": "9745fe5187f1924c53facaa33f62f1ffc2eb3f302e093dda90906db2a4ef4e54",
+    "shaders/world-1/gbuffers_damagedblock.vsh": "455171391733f7e6de5eec62735393dcf4c307e7cffe18d6b7dfde8b72599d14",
+    "shaders/world-1/gbuffers_entities.fsh": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7",
+    "shaders/world-1/gbuffers_entities.vsh": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4",
+    "shaders/world-1/gbuffers_entities_translucent.fsh": "38a38d2b34f39ea6378f243e8ea40c755b8678591ce66a88e5605abf5366993e",
+    "shaders/world-1/gbuffers_entities_translucent.vsh": "2ba02420f7484a0401eac9c98fa6e4b1108ee84e0d5c215b26d46681df02f4ad",
+    "shaders/world-1/gbuffers_hand.fsh": "309bf1240171a2cdb61d72fc066c00c1817aa853a4a4947b9ca8c12fd63b5c48",
+    "shaders/world-1/gbuffers_hand.vsh": "ae58f961f2c258e9369d8040ba44972465bbf35a7cb1b63fed4fd168bda753b8",
+    "shaders/world-1/gbuffers_hand_water.fsh": "e373237be980b42a3309795f4ff7dbccec7ec61ced07ed12d348a61b15a0bed7",
+    "shaders/world-1/gbuffers_hand_water.vsh": "c20daf6eee8e6da4fc5204e3e7b58b276a79439dd222ab4d2a080de7b6121245",
+    "shaders/world-1/gbuffers_item.fsh": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7",
+    "shaders/world-1/gbuffers_item.vsh": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4",
+    "shaders/world-1/gbuffers_particles.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_particles.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_particles_translucent.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_particles_translucent.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_skybasic.fsh": "11012cb4be5a6268792ffb2234624811ac94cfe2e3c36db6293d8e68252faff4",
+    "shaders/world-1/gbuffers_skybasic.vsh": "616d056b3e3a8b2b4e3c004cd1bd083908ad88f9a581836e93f9114fb3eac9cb",
+    "shaders/world-1/gbuffers_skytextured.fsh": "11012cb4be5a6268792ffb2234624811ac94cfe2e3c36db6293d8e68252faff4",
+    "shaders/world-1/gbuffers_skytextured.vsh": "616d056b3e3a8b2b4e3c004cd1bd083908ad88f9a581836e93f9114fb3eac9cb",
+    "shaders/world-1/gbuffers_spidereyes.fsh": "87c36ab1075508c3c8ec98cafb38e804912979125d7e904f6fd4a412d004d2e4",
+    "shaders/world-1/gbuffers_spidereyes.vsh": "004a3adc9b3191409e0259a5328eeb2be7f01b7aece0adceb3a6ef3a31c87632",
+    "shaders/world-1/gbuffers_terrain.fsh": "5b02aa74481350964a0e3709584baae022f96094b2c581fe3daeec4a4f3fd5ef",
+    "shaders/world-1/gbuffers_terrain.vsh": "097a34b0859a25311d156210678b23220f147d2059a3f6b02f86650c4a7b3c7b",
+    "shaders/world-1/gbuffers_textured.fsh": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d",
+    "shaders/world-1/gbuffers_textured.vsh": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e",
+    "shaders/world-1/gbuffers_textured_lit.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_textured_lit.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_water.fsh": "a16befd5d895d0eebcae298c5861777eadd397ea3b59327385ae225926cab393",
+    "shaders/world-1/gbuffers_water.vsh": "dbf8bfb8149b4d49ad6a811f560247bfe6f499006d9e33c1db6d045d039e6ef4",
+    "shaders/world-1/gbuffers_weather.fsh": "4f4db89b3f70caad36b7b5f206c2951693866f13cf496bbe6ae86129355f49dd",
+    "shaders/world-1/gbuffers_weather.vsh": "3aaf70c4c4170fe760556d036197e309c5a28eee6a60280f5e62c6022d63dcbf",
+    "shaders/world1/composite.fsh": "c4dbbc54d0491b04d2d0700c545f818decc00b45df75d8c545912a4b899c76a8",
+    "shaders/world1/composite.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite1.fsh": "76ab8fbda73c11d92540e4629be92ded81a4747ad6c50e5ec515813cf4bc2e9f",
+    "shaders/world1/composite1.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite2.fsh": "2ddfd6737be6a98fbe67ea2c19dd0ba00c35376d1736d8b41c404a060f3331f3",
+    "shaders/world1/composite2.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite3.fsh": "2f4916a1b4683f7923ed24b33da01d6808bf5f696c80ffb34b544d838f38a783",
+    "shaders/world1/composite3.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite4.fsh": "2a146987458402c12fc808b7af1a6b55d324551714d0cebed3d9415be0389610",
+    "shaders/world1/composite4.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite5.fsh": "7507055754989a3454a768d1228e83186d1b64ef92032c1b3b8916108a2b780f",
+    "shaders/world1/composite5.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/deferred.fsh": "2720d7dd6bb90f63b0772b73dcfac1506563253745651bd661a5a7d3f813ce4f",
+    "shaders/world1/deferred.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/final.fsh": "a0b0da88a31d508a945ff90108bf1ece8bdce2d9c35114c211ebbf4fbe5576f1",
+    "shaders/world1/final.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/gbuffers_armor_glint.fsh": "a009e3a776002a94e7e356717a524e13b59d83f4f348077a3fb0f2b34b49aabb",
+    "shaders/world1/gbuffers_armor_glint.vsh": "6367768b1f7d73d31e87b3d85eee2c8900dfac77ab8a70d57034d61508298f1d",
+    "shaders/world1/gbuffers_basic.fsh": "18ddf83530801b291d2d2391f237046d01191a74fa9b9fd68196cac3d7376911",
+    "shaders/world1/gbuffers_basic.vsh": "831c1720dc85f35a1c46e92413fe106c18a95cd2435cd59986654dd988b6c1ef",
+    "shaders/world1/gbuffers_beaconbeam.fsh": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70",
+    "shaders/world1/gbuffers_beaconbeam.vsh": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45",
+    "shaders/world1/gbuffers_block.fsh": "699f9b018322b0501f96836beb51f0099fe2e9d7fa5926fbad10dfaeb26bb645",
+    "shaders/world1/gbuffers_block.vsh": "6f7881ee7a2bbbb75947aa3b5524d06a099c9870f41d621d1888e14aa07e221f",
+    "shaders/world1/gbuffers_block_translucent.fsh": "fa3ec9ef902a9457460cba9aabaa7d3db35ea79fa63ea70916c712bce0a43f6e",
+    "shaders/world1/gbuffers_block_translucent.vsh": "e42751556f72cdd91bcc5bcf76d21ab068b8b501fc0440fb1f5d223638c70fcf",
+    "shaders/world1/gbuffers_clouds.fsh": "3403f934a829e811329898b7ed3029a7c77b1d8a77c14c4bc97c89692fce4e14",
+    "shaders/world1/gbuffers_clouds.vsh": "335dec9cfa1889e4ede7bd359f07d50311b83bc4a7751959d995771a9de6a870",
+    "shaders/world1/gbuffers_damagedblock.fsh": "ba411b1b684813755e7fd3f4ad24eac91e4dd246080ff18e9b1ff69f96bceb3c",
+    "shaders/world1/gbuffers_damagedblock.vsh": "43acaebc0c1aab805e6f38a3fa1777ef38124487800d1106ddfad87fe1efa999",
+    "shaders/world1/gbuffers_entities.fsh": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f",
+    "shaders/world1/gbuffers_entities.vsh": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb",
+    "shaders/world1/gbuffers_entities_translucent.fsh": "4a5a002eb9fea936062e8e00a47c80d0758db00f04fecb575f986695419b33a9",
+    "shaders/world1/gbuffers_entities_translucent.vsh": "fdd05d05e4696ddab2d560442d771c0b455e706bb1041f387857f34351a8b5d2",
+    "shaders/world1/gbuffers_hand.fsh": "81ffa8811d41941df14fd594cd0e4ec4df8d4fe877ffcb93fbe7eeaacc5295b8",
+    "shaders/world1/gbuffers_hand.vsh": "e17a435a11fe13d2c0c5cd60f69fd8bf5d3fe6dd280e1e8974aca4448fb39fee",
+    "shaders/world1/gbuffers_hand_water.fsh": "ba4fe0664d4134f8a18f3c0431fd402b07d82a4a4f9ef65269ec777a447b7d25",
+    "shaders/world1/gbuffers_hand_water.vsh": "242adb5174901a4bee6d9fe541bc04b5e4b09962dda4a091bb284364f3953739",
+    "shaders/world1/gbuffers_item.fsh": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f",
+    "shaders/world1/gbuffers_item.vsh": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb",
+    "shaders/world1/gbuffers_particles.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_particles.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_particles_translucent.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_particles_translucent.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_skybasic.fsh": "3403f934a829e811329898b7ed3029a7c77b1d8a77c14c4bc97c89692fce4e14",
+    "shaders/world1/gbuffers_skybasic.vsh": "335dec9cfa1889e4ede7bd359f07d50311b83bc4a7751959d995771a9de6a870",
+    "shaders/world1/gbuffers_skytextured.fsh": "3403f934a829e811329898b7ed3029a7c77b1d8a77c14c4bc97c89692fce4e14",
+    "shaders/world1/gbuffers_skytextured.vsh": "335dec9cfa1889e4ede7bd359f07d50311b83bc4a7751959d995771a9de6a870",
+    "shaders/world1/gbuffers_spidereyes.fsh": "0cc12629c7cf9e8ee77798e1da82d2a4af8d614848c2398c9b440700a14df79f",
+    "shaders/world1/gbuffers_spidereyes.vsh": "0725e802896edd742b9336160119662f3aaf8abf30c98c48722d09a0ac761257",
+    "shaders/world1/gbuffers_terrain.fsh": "ffece8623ec99183f74b619a66c5030a4c45d87336cd18fdff18f575e802ff2c",
+    "shaders/world1/gbuffers_terrain.vsh": "055f2e5eb908af386d5bb7f926df61d20c3b414a6f23e4689a70a8bfd96e70cb",
+    "shaders/world1/gbuffers_textured.fsh": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70",
+    "shaders/world1/gbuffers_textured.vsh": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45",
+    "shaders/world1/gbuffers_textured_lit.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_textured_lit.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_water.fsh": "ec1ed2dbf0d3feee9675c03ceff5bfa954acd92490a6cc0a9da85f89ded0f7e8",
+    "shaders/world1/gbuffers_water.vsh": "7e34a7dbe5270fd147f0c785ab0f1a12fe2db5a6679d7a96abce738622663f92",
+    "shaders/world1/gbuffers_weather.fsh": "9d046549b3183ee46b70484334da7125d25339a8324b6a370ea9304c2132f1d8",
+    "shaders/world1/gbuffers_weather.vsh": "82ae8daac3fb3731c182c16cd99398e18c1767c5a6d366e593914f1afd1502d7"
+  },
+  "checks": {
+    "ao_default_maximum_1": true,
+    "water_default_less_clear_035": true,
+    "six_distinct_cube_faces": true,
+    "daylight_ground_warmer_night_unchanged": true,
+    "dry_entities_and_covered_blocks": true,
+    "emission_separate_from_entity_light": true,
+    "water_path_consistent": true,
+    "cloud_density_3d_and_cirrus_present": true,
+    "mist_world_height_xyz_and_clear_foreground": true,
+    "night_sun_disabled": true,
+    "postwater_atmosphere_order": true,
+    "halfres_reflections_and_atmosphere": true,
+    "quarterres_bloom": true,
+    "sources_match_compiled_and_tested_zip": true
+  }
+}

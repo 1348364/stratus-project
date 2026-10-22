@@ -1,0 +1,29 @@
+Compiled from "IrisConfig.java"
+public class net.irisshaders.iris.config.IrisConfig {
+  private static final java.lang.String COMMENT;
+  private final java.nio.file.Path propertiesPath;
+  private final java.nio.file.Path excludedPath;
+  private java.lang.String shaderPackName;
+  private boolean enableShaders;
+  private boolean allowUnknownShaders;
+  private boolean enableDebugOptions;
+  private java.util.List<net.minecraft.class_2960> shadersToSkip;
+  private boolean disableUpdateMessage;
+  private static com.google.gson.Gson GSON;
+  public net.irisshaders.iris.config.IrisConfig(java.nio.file.Path, java.nio.file.Path);
+  public void initialize() throws java.io.IOException;
+  public boolean isInternal();
+  public java.util.Optional<java.lang.String> getShaderPackName();
+  public void setShaderPackName(java.lang.String);
+  public boolean areShadersEnabled();
+  public boolean areDebugOptionsEnabled();
+  public boolean shouldDisableUpdateMessage();
+  public void setDebugEnabled(boolean);
+  public void setShadersEnabled(boolean);
+  public void load() throws java.io.IOException;
+  public void save() throws java.io.IOException;
+  public boolean shouldAllowUnknownShaders();
+  public boolean shouldSkip(net.minecraft.class_2960);
+  public void setUnknown(boolean) throws java.io.IOException;
+  static {};
+}

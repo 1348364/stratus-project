@@ -1,0 +1,389 @@
+{
+  "scope": "Actual Iris composite GL_TIME_ELAPSED intervals; diagnostic instrumentation overhead, not gameplay FPS",
+  "samples": [
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.983833
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 1.465041
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 24.7665
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.469709
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 1.338541
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.642376
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.552958
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.096916
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 2.031001
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 23.600292
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.222875
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.99425
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.635626
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.724249
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.147875
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 5.396751
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 1.143667
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 21.853625
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.282999
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.579834
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 7.059125
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.608125
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.139499
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.860916
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 23.2285
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.33575
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.95275
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.48175
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.527416
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.061375
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.792416
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 21.690791
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 2.487125
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.82
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.739125
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.551791
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.041292
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.79125
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 2.880751
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 23.911209
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.270334
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.909542
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.731917
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.606876
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.1025
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.728375
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 21.971709
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 2.824292
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.980876
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.455541
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.516249
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.857625
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 1.214667
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 21.556792
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.204459
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.882624
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.426584
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 2.039375
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.754625
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 24.3355
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.242375
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.895792
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.779333
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 2.178375
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.16075
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.665251
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 1.146251
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 23.94125
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.3185
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 1.067374
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.571751
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.513625
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.0605
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 1.756459
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 23.252834
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 1.221791
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 0.870375
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.488666
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.542709
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.013334
+    },
+    {
+      "pass": "deferred",
+      "gpu_ms": 2.135959
+    },
+    {
+      "pass": "deferred1",
+      "gpu_ms": 0.0
+    },
+    {
+      "pass": "composite",
+      "gpu_ms": 22.380041
+    },
+    {
+      "pass": "composite1",
+      "gpu_ms": 2.38
+    },
+    {
+      "pass": "composite2",
+      "gpu_ms": 1.229626
+    },
+    {
+      "pass": "composite3",
+      "gpu_ms": 5.598124
+    },
+    {
+      "pass": "composite4",
+      "gpu_ms": 0.701709
+    },
+    {
+      "pass": "final",
+      "gpu_ms": 0.094375
+    }
+  ]
+}

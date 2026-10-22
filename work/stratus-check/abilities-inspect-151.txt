@@ -1,0 +1,178 @@
+Compiled from "class_1656.java"
+public final class net.minecraft.class_1656$class_11347 extends java.lang.Record {
+  final boolean comp_4223;
+
+  final boolean comp_4224;
+
+  final boolean comp_4225;
+
+  final boolean comp_4226;
+
+  final boolean comp_4227;
+
+  final float comp_4228;
+
+  final float comp_4229;
+
+  public static final com.mojang.serialization.Codec<net.minecraft.class_1656$class_11347> field_60363;
+
+  public net.minecraft.class_1656$class_11347(boolean, boolean, boolean, boolean, boolean, float, float);
+    Code:
+         0: aload_0
+         1: invokespecial #47                 // Method java/lang/Record."<init>":()V
+         4: aload_0
+         5: iload_1
+         6: putfield      #49                 // Field comp_4223:Z
+         9: aload_0
+        10: iload_2
+        11: putfield      #51                 // Field comp_4224:Z
+        14: aload_0
+        15: iload_3
+        16: putfield      #53                 // Field comp_4225:Z
+        19: aload_0
+        20: iload         4
+        22: putfield      #55                 // Field comp_4226:Z
+        25: aload_0
+        26: iload         5
+        28: putfield      #57                 // Field comp_4227:Z
+        31: aload_0
+        32: fload         6
+        34: putfield      #59                 // Field comp_4228:F
+        37: aload_0
+        38: fload         7
+        40: putfield      #61                 // Field comp_4229:F
+        43: return
+
+  public final java.lang.String toString();
+    Code:
+         0: aload_0
+         1: invokedynamic #84,  0             // InvokeDynamic #0:toString:(Lnet/minecraft/class_1656$class_11347;)Ljava/lang/String;
+         6: areturn
+
+  public final int hashCode();
+    Code:
+         0: aload_0
+         1: invokedynamic #89,  0             // InvokeDynamic #0:hashCode:(Lnet/minecraft/class_1656$class_11347;)I
+         6: ireturn
+
+  public final boolean equals(java.lang.Object);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: invokedynamic #94,  0             // InvokeDynamic #0:equals:(Lnet/minecraft/class_1656$class_11347;Ljava/lang/Object;)Z
+         7: ireturn
+
+  public boolean comp_4223();
+    Code:
+         0: aload_0
+         1: getfield      #49                 // Field comp_4223:Z
+         4: ireturn
+
+  public boolean comp_4224();
+    Code:
+         0: aload_0
+         1: getfield      #51                 // Field comp_4224:Z
+         4: ireturn
+
+  public boolean comp_4225();
+    Code:
+         0: aload_0
+         1: getfield      #53                 // Field comp_4225:Z
+         4: ireturn
+
+  public boolean comp_4226();
+    Code:
+         0: aload_0
+         1: getfield      #55                 // Field comp_4226:Z
+         4: ireturn
+
+  public boolean comp_4227();
+    Code:
+         0: aload_0
+         1: getfield      #57                 // Field comp_4227:Z
+         4: ireturn
+
+  public float comp_4228();
+    Code:
+         0: aload_0
+         1: getfield      #59                 // Field comp_4228:F
+         4: freturn
+
+  public float comp_4229();
+    Code:
+         0: aload_0
+         1: getfield      #61                 // Field comp_4229:F
+         4: freturn
+
+  private static com.mojang.datafixers.kinds.App method_71388(com.mojang.serialization.codecs.RecordCodecBuilder$Instance);
+    Code:
+         0: aload_0
+         1: getstatic     #105                // Field com/mojang/serialization/Codec.BOOL:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+         4: ldc           #107                // String invulnerable
+         6: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+        11: iconst_0
+        12: invokestatic  #119                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        15: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+        18: invokedynamic #143,  0            // InvokeDynamic #1:apply:()Ljava/util/function/Function;
+        23: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+        26: getstatic     #105                // Field com/mojang/serialization/Codec.BOOL:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+        29: ldc           #149                // String flying
+        31: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+        36: iconst_0
+        37: invokestatic  #119                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        40: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+        43: invokedynamic #153,  0            // InvokeDynamic #2:apply:()Ljava/util/function/Function;
+        48: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+        51: getstatic     #105                // Field com/mojang/serialization/Codec.BOOL:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+        54: ldc           #155                // String mayfly
+        56: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+        61: iconst_0
+        62: invokestatic  #119                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        65: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+        68: invokedynamic #159,  0            // InvokeDynamic #3:apply:()Ljava/util/function/Function;
+        73: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+        76: getstatic     #105                // Field com/mojang/serialization/Codec.BOOL:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+        79: ldc           #161                // String instabuild
+        81: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+        86: iconst_0
+        87: invokestatic  #119                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+        90: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+        93: invokedynamic #165,  0            // InvokeDynamic #4:apply:()Ljava/util/function/Function;
+        98: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+       101: getstatic     #105                // Field com/mojang/serialization/Codec.BOOL:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+       104: ldc           #167                // String mayBuild
+       106: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+       111: iconst_1
+       112: invokestatic  #119                // Method java/lang/Boolean.valueOf:(Z)Ljava/lang/Boolean;
+       115: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+       118: invokedynamic #171,  0            // InvokeDynamic #5:apply:()Ljava/util/function/Function;
+       123: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+       126: getstatic     #174                // Field com/mojang/serialization/Codec.FLOAT:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+       129: ldc           #176                // String flySpeed
+       131: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+       136: ldc           #177                // float 0.05f
+       138: invokestatic  #182                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+       141: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+       144: invokedynamic #188,  0            // InvokeDynamic #6:apply:()Ljava/util/function/Function;
+       149: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+       152: getstatic     #174                // Field com/mojang/serialization/Codec.FLOAT:Lcom/mojang/serialization/codecs/PrimitiveCodec;
+       155: ldc           #190                // String walkSpeed
+       157: invokeinterface #113,  2          // InterfaceMethod com/mojang/serialization/codecs/PrimitiveCodec.fieldOf:(Ljava/lang/String;)Lcom/mojang/serialization/MapCodec;
+       162: ldc           #191                // float 0.1f
+       164: invokestatic  #182                // Method java/lang/Float.valueOf:(F)Ljava/lang/Float;
+       167: invokevirtual #125                // Method com/mojang/serialization/MapCodec.orElse:(Ljava/lang/Object;)Lcom/mojang/serialization/MapCodec;
+       170: invokedynamic #195,  0            // InvokeDynamic #7:apply:()Ljava/util/function/Function;
+       175: invokevirtual #147                // Method com/mojang/serialization/MapCodec.forGetter:(Ljava/util/function/Function;)Lcom/mojang/serialization/codecs/RecordCodecBuilder;
+       178: invokevirtual #199                // Method com/mojang/serialization/codecs/RecordCodecBuilder$Instance.group:(Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;Lcom/mojang/datafixers/kinds/App;)Lcom/mojang/datafixers/Products$P7;
+       181: aload_0
+       182: invokedynamic #209,  0            // InvokeDynamic #8:apply:()Lcom/mojang/datafixers/util/Function7;
+       187: invokevirtual #212                // Method com/mojang/datafixers/Products$P7.apply:(Lcom/mojang/datafixers/kinds/Applicative;Lcom/mojang/datafixers/util/Function7;)Lcom/mojang/datafixers/kinds/App;
+       190: areturn
+
+  static {};
+    Code:
+         0: invokedynamic #219,  0            // InvokeDynamic #9:apply:()Ljava/util/function/Function;
+         5: invokestatic  #223                // Method com/mojang/serialization/codecs/RecordCodecBuilder.create:(Ljava/util/function/Function;)Lcom/mojang/serialization/Codec;
+         8: putstatic     #225                // Field field_60363:Lcom/mojang/serialization/Codec;
+        11: return
+}

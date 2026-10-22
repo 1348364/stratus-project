@@ -1,0 +1,705 @@
+{
+  "version": "1.6.10",
+  "date": "2026-10-22",
+  "request_id": "dfc0d10a-85ec-429d-ab34-b70c4ce76c83",
+  "status": "Finite source/native GPU, Main visual and focused full-Reference checks completed. Approximately60FPS target and remaining scene acceptance stay pending.",
+  "baseline": "Released Stratus1.6.9, byte-equivalent runtime snapshot",
+  "native": {
+    "program_pairs": 768,
+    "variants": 8,
+    "failures": 0,
+    "scope": "Native macOS OpenGL compatibility-shim compile/link; separate from Iris runtime"
+  },
+  "controls": {
+    "controls_total": 62,
+    "all_prior_ids_defaults_ranges_menus_preserved": true,
+    "all_prior_quality_profile_assignments_preserved": true,
+    "nine_related_visual_defaults_explicit_in_all_four_profiles": true,
+    "reference_identifier_preserved_and_recommended_label_added": true,
+    "all_controls_reachable": true,
+    "related_reset_keys": [
+      "REALISTIC_LIGHTING",
+      "EXPOSURE",
+      "WHITE_BALANCE",
+      "SURFACE_SATURATION",
+      "SURFACE_DAMPNESS",
+      "WET_SHEEN",
+      "WET_DARKENING",
+      "WET_WEATHER_MODE",
+      "WATER_TEXTURE"
+    ],
+    "new_version_file_overwrite_policy": "Never overwrite; old releases/settings preserved",
+    "mixed_visual_performance_default_policy": "Reference unless explicitly approved otherwise"
+  },
+  "migration": {
+    "checks": [
+      "Dry run writes no archive or preferences",
+      "Related film/colour overrides reset",
+      "Unrelated optics/quality/ambient tuning preserved",
+      "Prior preferences remain byte-identical",
+      "Existing new-version tuning wins",
+      "Conflicting same-version archive is refused",
+      "Atomic creation never overwrites an existing file",
+      "Visual defaults explicitly apply to all four presets",
+      "Concurrent conflicting archive rejected before creating preferences"
+    ],
+    "failures": 0,
+    "scope": "Installer policy integration with temporary profiles; no Main data used or changed"
+  },
+  "trace": {
+    "scope": "Actual baseline/candidate projected interval tracer at all three qualities",
+    "pixels_per_variant": 344064,
+    "scenes": [
+      {
+        "scene": 0,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0169974,
+          "1": 0.0158776
+        }
+      },
+      {
+        "scene": 1,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0129662,
+          "1": 0.0128516
+        }
+      },
+      {
+        "scene": 2,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0165182,
+          "1": 0.0154532
+        }
+      },
+      {
+        "scene": 3,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0218984,
+          "1": 0.0178516
+        }
+      },
+      {
+        "scene": 4,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.021539,
+          "1": 0.0220573
+        }
+      },
+      {
+        "scene": 5,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0233437,
+          "1": 0.0188203
+        }
+      },
+      {
+        "scene": 6,
+        "comparisons": [
+          {
+            "quality": 0,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 1,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          },
+          {
+            "quality": 2,
+            "max_RGBA_error": 0.0,
+            "pixels_exceed_1e-3": 0,
+            "hit_mismatches": 0
+          }
+        ],
+        "median_gpu_ms": {
+          "0": 0.0258047,
+          "1": 0.0238385
+        }
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "atmosphere": {
+    "opengl_errors": 0,
+    "matched_atmosphere_pixels": 131072,
+    "scenes": [
+      {
+        "scene": 0,
+        "max_linear_error": 6.210803985595703e-05,
+        "values_above_1e-6": 2886
+      },
+      {
+        "scene": 1,
+        "max_linear_error": 1.1920928955078125e-07,
+        "values_above_1e-6": 0
+      },
+      {
+        "scene": 2,
+        "max_linear_error": 0.0,
+        "values_above_1e-6": 0
+      },
+      {
+        "scene": 3,
+        "max_linear_error": 3.731250762939453e-05,
+        "values_above_1e-6": 6769
+      },
+      {
+        "scene": 4,
+        "max_linear_error": 6.210803985595703e-05,
+        "values_above_1e-6": 1051
+      },
+      {
+        "scene": 5,
+        "max_linear_error": 1.1920928955078125e-07,
+        "values_above_1e-6": 0
+      },
+      {
+        "scene": 6,
+        "max_linear_error": 0.0,
+        "values_above_1e-6": 0
+      },
+      {
+        "scene": 7,
+        "max_linear_error": 3.731250762939453e-05,
+        "values_above_1e-6": 2529
+      }
+    ],
+    "failures": 0,
+    "timings": [
+      {
+        "scene": 0,
+        "day_or_night": "day",
+        "median_gpu_ms": {
+          "before": 0.075551,
+          "after": 0.070854
+        },
+        "relative_change_percent": -6.216992495135731
+      },
+      {
+        "scene": 1,
+        "day_or_night": "day",
+        "median_gpu_ms": {
+          "before": 0.015271,
+          "after": 0.015583
+        },
+        "relative_change_percent": 2.0430882064042866
+      },
+      {
+        "scene": 2,
+        "day_or_night": "day",
+        "median_gpu_ms": {
+          "before": 0.007935,
+          "after": 0.007849
+        },
+        "relative_change_percent": -1.0838059231253805
+      },
+      {
+        "scene": 3,
+        "day_or_night": "day",
+        "median_gpu_ms": {
+          "before": 0.027738,
+          "after": 0.027501
+        },
+        "relative_change_percent": -0.8544235345014028
+      },
+      {
+        "scene": 4,
+        "day_or_night": "night",
+        "median_gpu_ms": {
+          "before": 0.068266,
+          "after": 0.032906
+        },
+        "relative_change_percent": -51.7973808337972
+      },
+      {
+        "scene": 5,
+        "day_or_night": "night",
+        "median_gpu_ms": {
+          "before": 0.015432,
+          "after": 0.014975
+        },
+        "relative_change_percent": -2.9613789528252887
+      },
+      {
+        "scene": 6,
+        "day_or_night": "night",
+        "median_gpu_ms": {
+          "before": 0.008195,
+          "after": 0.008
+        },
+        "relative_change_percent": -2.379499694935927
+      },
+      {
+        "scene": 7,
+        "day_or_night": "night",
+        "median_gpu_ms": {
+          "before": 0.026685,
+          "after": 0.012073
+        },
+        "relative_change_percent": -54.75735431890575
+      }
+    ]
+  },
+  "water": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.4977731,
+          0.332056,
+          0.1906237
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.0637219,
+          0.1481078,
+          0.1588745
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.3176273,
+          0.2803899,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.8,
+          0.4,
+          0.2
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.3963326,
+          0.1520035,
+          0.1031235
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.2820984,
+          0.167633,
+          0.1194729
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.5492423,
+          0.3675921,
+          0.1829588
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.4539303,
+          0.3205609,
+          0.1889648
+        ],
+        "max_error": 3e-08
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "performance": {
+    "version": "1.6.10",
+    "status": "Matched focused full-Reference testing completed; approximately60 FPS target remains unmet. Small finite scene gains do not certify general gameplay improvement.",
+    "target_preset": "REFERENCE",
+    "focused_comparison_verified": true,
+    "target_60_FPS_verified": false,
+    "quality_reduction": false,
+    "conditions": {
+      "baseline": "Released1.6.9 runtime in BaselineReference QA",
+      "candidate": "Released1.6.10 runtime in CandidateReference QA",
+      "same_override_files": true,
+      "explicit_overrides": {
+        "CLOUD_LAYERS": "2",
+        "MIST_DETAIL": "3",
+        "REFLECTION_MODE": "2",
+        "REFRACTION_QUALITY": "2",
+        "SKY_AMBIENT": "1.00",
+        "WATER_EXTINCTION": "1.15",
+        "WATER_RENDER_QUALITY": "2",
+        "WATER_TURBIDITY": "3.00",
+        "ATMOSPHERE_QUALITY": "2"
+      },
+      "full_quality": {
+        "WATER_RENDER_QUALITY": 2,
+        "ATMOSPHERE_QUALITY": 2,
+        "REFLECTION_MODE": 2,
+        "REFRACTION_QUALITY": 2,
+        "CLOUD_LAYERS": 2,
+        "MIST_DETAIL": 3
+      },
+      "unrelated_optics": "Same SKY_AMBIENT1, WATER_EXTINCTION1.15, WATER_TURBIDITY3",
+      "related_visual_defaults": "All nine underlying source defaults are identical across before/after; source controls audit confirms this",
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "camera_river": [
+        166.1907,
+        65.9287,
+        32.5536,
+        108.45755,
+        38.829258
+      ],
+      "camera_forest": [
+        166.1907,
+        65.9287,
+        32.5536,
+        0,
+        4
+      ],
+      "weather_clear": true,
+      "world_time": 6000,
+      "saved_vsync": true,
+      "max_fps": 70,
+      "DynamicFPS_enabled": true,
+      "activity_reset": "Only when actual focus1, every5seconds; no saved config change",
+      "sampling": "30seconds Minecraft frame-end ring; focus/size every50ms main-thread poll",
+      "order": "River before1,after1,after2,before2; forest before,after",
+      "no_concurrent_native_GPU_tests_or_profiler": true
+    },
+    "activity_monitor": "final-activity-monitor.txt",
+    "process_snapshot": "benchmark-process-snapshot.txt (near end of run; not a continuous process trace)",
+    "samples": [
+      {
+        "valid_focused_sample": true,
+        "frames": 596,
+        "average_fps": 19.8351,
+        "median_frame_ms": 50.4255,
+        "p95_frame_ms": 55.5603,
+        "p99_frame_ms": 63.0435,
+        "focused_polls": 559,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.047815833,
+        "file": "benchmarks/reference-river-before-1.json"
+      },
+      {
+        "valid_focused_sample": true,
+        "frames": 602,
+        "average_fps": 20.0435,
+        "median_frame_ms": 49.8738,
+        "p95_frame_ms": 57.4118,
+        "p99_frame_ms": 62.4267,
+        "focused_polls": 558,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.034653709,
+        "file": "benchmarks/reference-river-after-1.json"
+      },
+      {
+        "valid_focused_sample": true,
+        "frames": 609,
+        "average_fps": 20.2856,
+        "median_frame_ms": 48.9942,
+        "p95_frame_ms": 53.5232,
+        "p99_frame_ms": 62.8041,
+        "focused_polls": 556,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.021292458,
+        "file": "benchmarks/reference-river-after-2.json"
+      },
+      {
+        "valid_focused_sample": true,
+        "frames": 582,
+        "average_fps": 19.3955,
+        "median_frame_ms": 51.5243,
+        "p95_frame_ms": 56.5705,
+        "p99_frame_ms": 64.1196,
+        "focused_polls": 559,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.006923209,
+        "file": "benchmarks/reference-river-before-2.json"
+      },
+      {
+        "valid_focused_sample": true,
+        "frames": 534,
+        "average_fps": 17.7699,
+        "median_frame_ms": 56.1502,
+        "p95_frame_ms": 63.0936,
+        "p99_frame_ms": 64.4224,
+        "focused_polls": 526,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.0508995,
+        "file": "benchmarks/reference-forest-before.json"
+      },
+      {
+        "valid_focused_sample": true,
+        "frames": 543,
+        "average_fps": 18.0673,
+        "median_frame_ms": 55.2883,
+        "p95_frame_ms": 63.0715,
+        "p99_frame_ms": 64.4236,
+        "focused_polls": 526,
+        "unfocused_polls": 0,
+        "framebuffer": [
+          1440,
+          842
+        ],
+        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+        "duration_from_frame_ring_seconds": 30.054289,
+        "file": "benchmarks/reference-forest-after.json"
+      }
+    ],
+    "comparison": [
+      {
+        "scene": "river",
+        "baseline_fps": 19.615437828747396,
+        "candidate_fps": 20.164531196170373,
+        "finite_mean_change_percent": 2.799291926169767,
+        "target_60_FPS_met": false
+      },
+      {
+        "scene": "forest",
+        "baseline_fps": 17.769850782669582,
+        "candidate_fps": 18.067304802985024,
+        "finite_mean_change_percent": 1.6739252566236429,
+        "target_60_FPS_met": false
+      }
+    ],
+    "river_summary_method": "Pooled frame counts / pooled Minecraft frame-duration sums across two30-second samples per build, order before/after/after/before",
+    "forest_summary_method": "One30-second sample per build",
+    "limits": [
+      "Only two fixed normal-world views; not a moving gameplay or universal performance guarantee",
+      "Earlier1.6.9 ~56FPS samples used different saved quality choices, so cannot certify full Reference",
+      "No native GPU probe/profiler ran during accepted FPS samples",
+      "Small gains may include normal run/thermal variation; target remains far from60"
+    ],
+    "diagnostics": {
+      "status": "Pending: focused active-game Reference comparison unavailable; no whole-game speedup or 60 FPS claim.",
+      "target_preset": "REFERENCE",
+      "quality_reduction": false,
+      "framebuffer": [
+        1440,
+        842
+      ],
+      "render_distance_chunks": 12,
+      "simulation_distance_chunks": 8,
+      "saved_vsync": true,
+      "saved_max_fps": 70,
+      "saved_inactivity_fps_limit": "afk",
+      "DynamicFPS_enabled": true,
+      "observed_focus": false,
+      "observed_DynamicFPS_state": "UNFOCUSED",
+      "observed_vanilla_limiter": "LONG_AFK / cap15",
+      "scope": "Main river GPU pass diagnostics are unfocused and do not establish gameplay FPS. Native probes are isolated microbenchmarks.",
+      "reflection_pass_diagnostic_ms": {
+        "baseline": 24.274,
+        "candidate": 22.457
+      },
+      "diagnostic_limit": "Different short diagnostic sessions; not an accepted matched focused benchmark. Plane-cache and no-reflection-fog experiments were rejected and are excluded from release source.",
+      "actual_samples": "No accepted focused sample for 1.6.10 yet. Mac locked / game unfocused; retain request in CHANGES.md."
+    },
+    "next_step": "Continue measuring the full-resolution scenery-reflection and foliage/atmosphere bottlenecks; retain all quality, ranges, controls and intended visuals. Do not close the60FPS request."
+  },
+  "live": {
+    "profile": "Modrinth Main / Minecraft (1)",
+    "world": "Stratus Terrain Lab normal world",
+    "Minecraft": "1.21.11",
+    "Iris": "1.10.8",
+    "Sodium": "0.8.14",
+    "hardware": "Apple M1 / macOS / OpenGL4.1",
+    "scope": "Actual framebuffer captures from immutable QA packs using final runtime code. Baseline, isolation variants and rejected frames are labelled separately in the visual report. Release loading and final preferences require the external install receipt.",
+    "report": "outputs/Stratus-1.6.10-visual-checks/index.html"
+  },
+  "preserved": [
+    "All 62 source option IDs/defaults/allowed values and menu paths",
+    "Original six quality assignments in each of four profiles",
+    "Full chosen framebuffer/effect resolutions, sample budgets, traversal caps and ranges",
+    "Existing pole filter and all unrelated runtime source",
+    "Older archives/preferences and existing new-version settings"
+  ],
+  "limits": [
+    "Full Reference river19.6154\u219220.1645FPS; forest17.7699\u219218.0673FPS. Small finite gains, far below requested60FPS; no general guarantee.",
+    "Finite checks do not certify all scenes, presets, mods or movement",
+    "Exact historical downward-water pole and distant-leaf contexts remain unverified",
+    "Repeated same-pack reflected foliage varies; screenshots do not establish pixel equivalence",
+    "The plane-cache and no-reflection-fog diagnostic experiments are not release source"
+  ]
+}

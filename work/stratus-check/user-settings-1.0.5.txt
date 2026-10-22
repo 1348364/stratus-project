@@ -1,0 +1,5 @@
+# Stratus 1.0.5: clearer foreground, brighter skylight, reset corner AO.
+SKY_AMBIENT=1.40
+SURFACE_DAMPNESS=0.65
+ambientOcclusionLevel=0.30
+MIST_CLEAR=80.0
