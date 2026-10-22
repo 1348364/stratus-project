@@ -9,6 +9,8 @@ This workflow reduces repeated AI work. Existing shader scope, quality, controls
 - **Run Changes + TASK.md** only for an explicitly wanted full target review. Do not expand routine changes into a whole-project audit.
 - Saving, delivery, copying files, release feeds, feedback mail and GitHub sync are handled by code; do not ask a model to repeat those jobs.
 
+Release planning and version choices follow [RELEASE-ROADMAP.md](RELEASE-ROADMAP.md). Read the relevant milestone when choosing a release number; do not expand a routine batch into the full roadmap.
+
 ## Start and resume
 
 1. Studio generates `CONTEXT.md` and an initial `PROGRESS.md` for each run batch using local Python, without AI calls. The context has hashes, TASK section locations, filename navigation hints and the latest recorded release summary.

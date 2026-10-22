@@ -262,12 +262,17 @@
     "work/Custom instructions/COMPLETED-CHANGES.md",
     "work/Custom instructions/CURRENT-CONTEXT.md",
     "work/Custom instructions/GOALS.md",
+    "work/Custom instructions/IN-PROGRESS/43b4c0ad-c217-4a82-8534-29d34345f150/CHANGES.md",
+    "work/Custom instructions/IN-PROGRESS/43b4c0ad-c217-4a82-8534-29d34345f150/CONTEXT.md",
+    "work/Custom instructions/IN-PROGRESS/43b4c0ad-c217-4a82-8534-29d34345f150/PROGRESS.md",
+    "work/Custom instructions/IN-PROGRESS/43b4c0ad-c217-4a82-8534-29d34345f150/TASK.md",
     "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CHANGES.md",
     "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CONTEXT.md",
     "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/PROGRESS.md",
     "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/TASK.md",
     "work/Custom instructions/PROMPTS.md",
     "work/Custom instructions/README.md",
+    "work/Custom instructions/RELEASE-ROADMAP.md",
     "work/Custom instructions/SHADER-SPEC-1.6.7.md",
     "work/Custom instructions/SHADER-SPEC.md",
     "work/Custom instructions/SPEC-BASELINE.md",
@@ -799,6 +804,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "d4b05212a0de7741119a9861a14648a287b5fda0fcfd821c70a1ac7e9cb2c8b7",
+  "fingerprint": "284378499db09939dc7cdab8fe06b38f57d0e8c37a392e62229ec384d5b6e0eb",
   "policy": "Committed websites, settled standalone services/docs and final packaged shader. No model calls."
 }

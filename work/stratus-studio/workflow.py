@@ -60,6 +60,7 @@ def prepare_context(project=PROJECT, batch=None):
         '',
         '## Read first',
         '- Project AGENTS.md, work/Custom instructions/AGENTS.md, GOALS.md and WORKFLOW.md.',
+        '- RELEASE-ROADMAP.md guides release numbering; planned milestones are not extra implementation scope.',
         '- Active brief and applicable TASK.md. Read unchanged documents once per context; use hashes to detect changes.',
         '- PROGRESS.md, if resuming this batch. Recheck changed files and relevant runtime state before reusing evidence.',
         '- Relative links copied into a batch brief resolve from work/Custom instructions, their original location.',
