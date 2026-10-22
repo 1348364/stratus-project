@@ -21,7 +21,7 @@ def package():
     for item in contents:
         if not item.is_file():
             raise FileNotFoundError(item)
-    destination = project.parent / 'Stratus-1.6.11.zip'
+    destination = project.parent / 'Stratus-1.6.12.zip'
     with tempfile.TemporaryDirectory(prefix='stratus-package-', dir=project.parent) as scratch:
         pending = Path(scratch) / destination.name
         with zipfile.ZipFile(pending, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:

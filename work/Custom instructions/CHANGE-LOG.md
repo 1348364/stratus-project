@@ -1,5 +1,33 @@
 # Stratus change and output log
 
+## 23 October 2026 — Stratus 1.6.12
+
+### At a glance
+
+- Native animated water texture and biome tint now cover the whole visible water surface, including distant/grazing reflections. Clear optics at zero, shallow-bed visibility and sharp reflection detail remain.
+- Built **[Stratus1.6.12](../../outputs/Stratus-1.6.12.zip)**; installed, selected and loaded in Main. All62 controls/defaults/ranges/menu paths and four approved preset assignments are preserved. [Receipt](../../outputs/Stratus-1.6.12-install.json), [actual comparison gallery](../../outputs/Stratus-1.6.12-visual-checks/index.html).
+- Passed768 native pairs,192 actual surface-GPU samples,ten underwater cases,ten installer checks and actual Iris matching of all four62-option profiles. Finite loaded-world water/preset/fixture views reviewed. **FPS remains explicitly deferred; no speedup or60FPS claim.**
+
+### Scope, source and compatibility
+
+Studio `stage_run` **7a6a15fb-dcb6-4313-94d3-7a32fb13dd79**, working only in its [active batch](IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CHANGES.md). The frozen TASK delta repeats completed1.6.11 preset/readiness reconciliation; no duplicate rebuilding or additional feature work was invented. The shared next unsent CHANGES.md is untouched. [Snapshot comparison](../stratus-refine-1612/snapshot-comparison.json), [baseline audit](../stratus-refine-1612/baseline-audit.json).
+
+`lake.frag.glsl` now combines reflection/transmission before applying `water-surface.glsl`. Native atlas luminance already carried by the existing raster pass combines with active biome colour in a bounded multiplicative surface treatment. There is no distance cutoff, extra texture read, pass, opacity change, added light or reflection blur. Fresnel weights/tracing, refraction, water paths and the underwater bypass remain. `WATER_TEXTURE` keeps its ID/range/default1.00 in every preset; only its tooltip changes. This explicitly supersedes the old transmission-only wording, as authorised in the brief. [Source diff](../stratus-refine-1612/changes.diff), [options audit](../stratus-refine-1612/option-audit.json).
+
+Only WATER_TEXTURE is release-related for migration. The installer carries unrelated latest overrides and later manual water choices differing from the captured1.00 baseline; existing new-release preferences win. All previous archives/preferences are preserved. [Policy](../../outputs/Stratus/RELEASE-POLICY.json), [ten migration checks](../stratus-refine-1612/migration-checks.json).
+
+### Verification and limits
+
+The whole-surface tint portion is verified separately from a pre-existing waterline defect. At feet164.5,61.24,40.5/yaw0/pitch0, matched1.6.11 and1.6.12 captures reproduce a rectangular sky/treetop tint band just below the surface. It remains pending in the active brief; no all-waterline acceptance is claimed. [Repro/evidence](../stratus-refine-1612/waterline-issue.json).
+
+- [Native log](../stratus-refine-1612/compile.log):768 compatibility-shim compile/link pairs/eight variants/three dimensions/zero failures. Separate from Iris runtime proof.
+- [Surface GPU](../stratus-refine-1612/surface-checks.json):192 actual GLSL samples across zero/half/max/biome-off; identity, bounded HDR/black, continuous strength, contrast, native pattern response and biome-off independence. [Underwater GPU](../stratus-refine-1612/water-checks.json):ten real water-resolve cases, zero failures/API errors.
+- [Actual Iris profiles](../stratus-refine-1612/iris-profile-checks.json):all four exact62-value maps parsed/matched. Live views include matched old/zero/half/max river, close and grazing on/off,90° downward, underwater/air exit, all presets, existing wood/waterfall/underwater fixtures and waterline positions. Original framebuffer captures and review notes are in the gallery manifest. Animation differs between captures; no pixel-equivalence claim. Active VanillaTweaks has no water replacement; arbitrary alternate resource packs and exhaustive weather/motion/mod coverage are not certified.
+- Actual view-distance disk loading/empty work queues and stable counts≥5seconds gated captures. Initial flight-transition camera drift was rejected before screenshot; retry set flight first. No BENCH command was allowed by this run’s driver. Captures were unfocused and are visual evidence only. [Live context](../stratus-refine-1612/live-context.json), [readiness trace](../stratus-refine-1612/chunk-readiness.jsonl).
+- [Restoration](../stratus-refine-1612/restoration-checks.json):original current-session camera/HUD/pause/flight and weather/daylight/timers restored, polling stopped and only own QA copies removed. Four temporarily replaced fixture blocks were read back as their exact original water states. The old helper block-setter method was unavailable; the existing server-command recovery restored and verified all four blocks. Its stopped/error/recovery evidence is retained.
+
+Release SHA256: `5232c270a31de108ba862135e0f4a6bedaba16e011c2ec1b44a651f7a50c44e2`; 246entries / 236runtime assets. [Final audit](../stratus-refine-1612/final-audit.json). Remaining performance/FPS and intended historical leaf/pole checks stay pending in the active batch; its path is authoritative for this request.
+
 ## 22 October 2026 — Stratus 1.6.11
 
 ### At a glance

@@ -141,8 +141,8 @@
   },
   {
     "path": "shaders/core/lake.frag.glsl",
-    "bytes": 6163,
-    "sha256": "6033059faa576f43ff8d8adb25936053b67033274edb278d880003cc9b61795b"
+    "bytes": 6173,
+    "sha256": "b437f068e0869e011aff053b8f616cb59d5f0c5b6f0e40a7d0bcb7f2d39adaf7"
   },
   {
     "path": "shaders/core/medium.glsl",
@@ -253,6 +253,11 @@
     "path": "shaders/core/water-resolve.frag.glsl",
     "bytes": 3482,
     "sha256": "c9aa73f09e88b37583e7dc2f4966eefab5ed97f9da00de2729ea47116976c826"
+  },
+  {
+    "path": "shaders/core/water-surface.glsl",
+    "bytes": 588,
+    "sha256": "586bf1ee1a72388e8c21c43c037f97da3ec0c60add8575391696f24b67f48473"
   },
   {
     "path": "shaders/core/weather-volume.glsl",
@@ -516,8 +521,8 @@
   },
   {
     "path": "shaders/lang/en_us.lang",
-    "bytes": 14598,
-    "sha256": "5a8d6d25bc0d54aaec5bcc5fc147524d26367000d2ffb1bdb3cdf23c56bc4e75"
+    "bytes": 14623,
+    "sha256": "853bd31e09e681a8ee43b47b336e57039eb2c3195d31bc72dd7f923e334c4cc1"
   },
   {
     "path": "shaders/shaders.properties",

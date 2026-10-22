@@ -1,22 +1,17 @@
-STRATUS1.6.11 — LIVE CHECKS / NEXT PERFORMANCE RUN
-Select the new ZIP after running the change-aware installer. Reference now
-represents the explicitly approved Main visual AND quality baseline. High keeps
-full-resolution detailed optics; Fast/Balanced are lighter. Every control remains.
-Confirm Reference(Recommended) in Iris and the expected film/water defaults.
-A later preserved manual override can correctly make the active profile Custom.
+STRATUS 1.6.12 — IN-GAME CHECKS
+Load the intended release in Modrinth Main and confirm the Iris pipeline.
+Compare native water texture zero/half/default=max at matched river cameras,
+including near/middle/far water, grazing reflections and downward pitch.
+Review all four presets, shoreline, shallow/deep water, waterfall, submerged
+wood, glass/particles, waterline and underwater exit behaviour. Check the
+active resource pack and native animation; distance filtering must not shimmer
+or create abrupt bands. Record finite coverage and any pending cases honestly.
+FPS is deferred until explicitly requested again. Keep loading and steady-state
+results separate on a future benchmark using the existing chunk-readiness gate.
 
-Completed technical/live checks are listed in VALIDATION.txt and the external
-visual report. Initial unloaded frames are rejected and labelled separately.
-The active cloud texture was read only into private work evidence; no Minecraft
-texture is bundled with the shader. Existing source uses active resource assets.
-
-FPS TESTING IS DEFERRED: do not start sampling until the user requests it again.
-For that future run: confirm actual profile/pack/options/framebuffer/render and
-simulation distances/weather/time/camera. READY must wait for all view-distance
-columns plus empty Sodium jobs/workers/uploads/task queues and stable counts
->=5seconds. A fresh successful gate is required at BENCH start. Record focus,
-Dynamic FPS and vanilla AFK limiter continuously. Label chunk-loading samples
-separately; never use them as steady-state results. Compare at matched quality;
-the preset rebase is not a rendering-algorithm speedup. Keep60FPS pending until
-actual evidence supports it. Stop all temporary helpers and restore client/world
-state afterwards. Do not substitute old full-detail Reference benchmarks.
+KNOWN PENDING WATERLINE CHECK
+At feet164.5,61.24,40.5/yaw0/pitch0 in Terrain Lab, a rectangular sky/treetop
+tint band appears just below the surface. It is reproduced at matched settings
+on1.6.11 and1.6.12, so it predates this surface-tint change. It remains unresolved
+and pending; do not describe all waterline views as clean. See the external
+waterline baseline captures and work/stratus-refine-1612/waterline-issue.json.

@@ -3,6 +3,7 @@
 #include "/core/ceiling.glsl"
 #include "/core/air.glsl"
 #include "/core/medium.glsl"
+#include "/core/water-surface.glsl"
 #include "/core/water-interface.glsl"
 #include "/core/lake-normal.glsl"
 #include "/core/environment.glsl"
@@ -92,11 +93,11 @@ void main(){
             transmitted=airBehindWater(transmitted,cameraPosition+point+backRay*opticalPath,backRay,airDistance,waterSky,backgroundGeometry);
         }
         transmitted=travelThroughWater(transmitted,min(opticalPath,96.0),waterTint,waterSky,waterLamp);
-        // Native still/flow atlas texture and animation, carried in an unused
-        // metadata channel by the existing gtexture fetch. No extra texture read.
-        // Tint only transmission so reflected scenery stays sharp and unpainted.
-        float textureTint=mix(1.0,clamp(markedColour.r,0.0,1.0),WATER_TEXTURE);
-        image=mix(transmitted*textureTint,reflected,waterReflectionWeight(boundary));
+        // Apply the native atlas pattern and biome colour after Fresnel mixing:
+        // reflective/distant water receives the same surface treatment as nearby
+        // water, with no distance cutoff or change to reflection trace/detail.
+        image=mix(transmitted,reflected,waterReflectionWeight(boundary));
+        image=vanillaWaterSurface(image,markedColour.r,waterTint);
     }
     completedScene=vec4(max(image,vec3(0.0)),1.0);
 }

@@ -184,4 +184,4 @@ screen.COLOUR.comment=Camera grading for Stratus lighting. Saved values remain w
 screen.BLOOM=Bloom
 screen.BLOOM.comment=Global light halos. The polished sun also has independent local halo controls.
 option.WATER_TEXTURE=Vanilla water texture
-option.WATER_TEXTURE.comment=Subtle animated still/flow pattern from the active game or resource pack, modulating transmitted water only. Zero restores the clear surface. Does not change opacity, refraction, depth or scenery reflection quality.
+option.WATER_TEXTURE.comment=Animated still/flow pattern from the active game or resource pack with biome tint across the whole visible water surface, including distant reflections. Zero restores clear optics. Preserves opacity, refraction, depth and reflection detail.

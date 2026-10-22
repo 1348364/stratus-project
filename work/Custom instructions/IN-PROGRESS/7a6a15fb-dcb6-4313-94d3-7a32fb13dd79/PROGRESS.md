@@ -1,23 +1,17 @@
 # Batch progress
 
-Status: technical checks passed; live visual matrix in progress; not packaged.
+Status: Stratus1.6.12 delivered/loaded; verified whole-surface tint portion archived. Batch remains partially unfinished.
 
 ## Resume here
-- Work/evidence: `work/stratus-refine-1612/`; baseline source preserved there.
-- Changed: lake composition, new water-surface helper, WATER_TEXTURE tooltip. Native atlas pattern/biome tint multiply completed water optics, without distance cutoff, added reads or reflection blur. All option values/profiles unchanged.
-- Frozen delta repeats verified 1.6.11 reconciliation; no duplicate work staged. Shared CHANGES.md is the next queue and is untouched.
-- Next: native compile/link, targeted surface and underwater GPU checks, option/installer audit; package new 1.6.12, load and inspect matched Main scenes if live access works.
+- Source: outputs/Stratus. Release: outputs/Stratus-1.6.12.zip (SHA2565232c270a31de108ba862135e0f4a6bedaba16e011c2ec1b44a651f7a50c44e2).
+- Evidence: work/stratus-refine-1612/final-audit.json, reconciliation.json, changes.diff, package-checks.json; outputs/Stratus-1.6.12-install.json and visual-checks/index.html.
+- Changed runtime: lake composition, new water-surface helper, WATER_TEXTURE tooltip. Existing atlas pattern/biome colour multiply completed water optics with no distance cutoff, extra reads/pass, opacity change or blur. All62 controls/defaults/ranges/menu paths and approved quality/preset values retained.
+- Frozen delta repeats already completed1.6.11 reconciliation; no duplicate implementation. No snapshot conflicts. Shared next unsent CHANGES.md unchanged. Frozen .bridge and batch TASK snapshot untouched.
 
 ## Evidence and remaining work
-- Initial fingerprints and snapshot comparison saved in work directory.
-- Water appearance acceptance remains unverified. Existing foliage/historical-context requests remain pending.
-- FPS remains explicitly deferred; no sampling authorised by this batch.
-
-## Technical/live checkpoint
-- Native:768 compile/link pairs, zero failures (`compile.log`). Surface GPU:192 samples, zero failures (`surface-checks.json`). Underwater:10cases, zero errors (`water-checks.json`). Installer:10integration checks (`migration-checks.json`). Options/preset inventories unchanged (`option-audit.json`).
-- Existing Main process73612 / Terrain Lab /1.6.11 baseline confirmed by actual Iris runtime report. Current game differs from prior session: new initial camera/weather recorded. Active VanillaTweaks has no water asset replacement. Framebuffer1440×842; unfocused captures are visual evidence only, no FPS.
-- Driver version1612 attached; BENCH command explicitly disabled. World/daylight/weather state saved for restoration. First camera-flight transition rejected; retry with flight set before camera passed actual loaded441-column gate.
-- Reviewed baseline/zero/half/max river views. Tint visible on distant reflective water; same geometry/camera, no source distance cutoff. Close/grazing/downward/underwater/all-preset captures queued. No fixture blocks touched.
-- Before final stop: install/select/review released ZIP, return original camera/HUD/pause/flight, restore exact weather/daylight via restore-world-time marker, stop driver and verify markers; remove only own temporary Main QA variants after equivalence checks.
-
-- Additional review: close and grazing on/off pairs show full visible water coverage, preserved reflections/shallow bed and dry banks. Straight-down90° and underwater exit/particles reviewed. Fast/Balanced finite views reviewed. Actual Iris parsed and matched all four62-value profiles. Remaining Reference/High and existing fixtures/waterline captures queued. Report draft: `outputs/Stratus-1.6.12-visual-checks/index.html`; review notes distinguish inspected and pending images.
+- Passed768 native pairs;192 actual surface-GPU samples;ten underwater cases;ten installer checks;four actual Iris62-option profile maps; source/archive/QA/install byte equivalence. Actual release loaded in Main/normal Terrain Lab with Reference/zero overrides.
+-25 actual Main images reviewed: matched old/zero/half/max river, close/grazing pairs,90° downward, underwater exit, all presets, wood/waterfall/glass/particle fixtures and waterline baseline comparison. Unfocused captures are visual evidence, never FPS proof.
+- Remaining waterline acceptance: feet164.5,61.24,40.5/yaw0/pitch0 shows a rectangular tint band over sky/treetops on BOTH1.6.11 and1.6.12. Unresolved pre-existing defect; not labelled clean. Next: capture actual water-exit/depth metadata near the clip plane at this reproducible camera, establish the cause, then repair/test transition while preserving submerged-segment rules. See waterline-issue.json. Kept in active batch.
+- Existing deferred FPS/approximately60FPS and actual FPS gate integration remain pending; do not resume until requested. Original historical pole/leaf and relevant distant-foliage fallback contexts also remain pending.
+- Original current-session camera/HUD/pause/flight and exact initial daylight/weather flags/timers restored. Four temporary glass fixture blocks read back as original source water. Old block-setter restoration helper failed; existing bounded command recovery succeeded, evidence retained. All helpers stopped; own verified Main QA files removed. Current release left selected.
+- TASK.md reconciled without weakening waterline target. Only verified tint portion in COMPLETED-CHANGES.md; unfinished acceptance stays in this batch. CHANGE-LOG.md records full evidence/limits.

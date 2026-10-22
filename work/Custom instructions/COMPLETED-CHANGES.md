@@ -4,6 +4,12 @@ Archive of completed requests and their release/evidence references. This is his
 
 ## Completed changes
 
+### Stratus 1.6.12 — 23 October 2026
+
+- [x] Completed the whole-surface tint portion: native animated water texture/biome tint visibly covers the whole water surface, including distant and reflection-dominated views; zero disables the added treatment. Reflections/refraction, shallow-bed clarity, water paths and every control/range/preset quality choice remain. Passed technical/installer/Iris checks and finite matched Main river/grazing/downward/underwater/preset/fixture/waterline review. The pre-existing below-surface rectangular tint band remains unresolved; the original request’s remaining waterline acceptance is kept pending in its active batch. FPS and the original unknown pole/leaf contexts also remain pending.
+
+[Release](../../outputs/Stratus-1.6.12.zip) · [Change log and limits](CHANGE-LOG.md#23-october-2026--stratus-1612) · [Actual visual comparisons](../../outputs/Stratus-1.6.12-visual-checks/index.html) · [Install/load receipt](../../outputs/Stratus-1.6.12-install.json).
+
 ### Stratus 1.6.11 — 22 October 2026
 
 - [x] Adopted the captured latest Main visual **and quality** tuning as Reference/source defaults, by explicit user choice. All four presets share 56 visual defaults; six quality settings are ordered below/at/above Reference. All 62 IDs, allowed values and menu paths remain; High retains full detailed optics. Actual Iris reports Reference with zero overrides and all62 values match the approved capture.
