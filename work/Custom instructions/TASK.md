@@ -22,7 +22,8 @@ This is the complete, long-term target for Stratus: its intended look, behaviour
 ### Identity and reference
 
 - Project = Stratus, an original Minecraft Java shader pack for Iris.
-- Current reference = editable source `outputs/Stratus/` and versioned release `outputs/Stratus-1.6.12.zip`; check live state before assuming a newer task uses this build. The older water-pole test archive remains preserved separately.
+- Stable verified reference = versioned release `outputs/Stratus-1.6.12.zip`; Main has been restored to this build. The older water-pole test archive remains preserved separately. Check live state before relying on any recorded selection.
+- Current editable source = `outputs/Stratus/`, now the packaged `outputs/Stratus-1.7.0-rc1.zip` implementation candidate for batch `43b4c0ad-c217-4a82-8534-29d34345f150`. Its native-water mode, exposed-face film and transparent-solid optics are not fully accepted; final ZIP loading, remaining live checks and the known waterline band remain pending in that batch. All previous62 control defaults/ranges/quality assignments remain, with three added controls and65-value candidate presets. The user skipped remaining live checks after the Mac locked; FPS stays deferred. Do not treat this candidate as completion of the1.7 roadmap or rewrite the requirements below to excuse unverified behaviour. See CHANGE-LOG.md for finite evidence. The unchanged design wording below retains the stable baseline until the pending candidate requests are verified.
 - Verified reference runtime = Minecraft Java 1.21.11, Iris 1.10.8, Sodium 0.8.14, Apple M1/macOS and GLSL 330/OpenGL 4.1; this is not blanket certification for other setups.
 - Licence = MIT; keep licence and attribution in a clean rebuild.
 - Intended live review = Modrinth Main and a normal-world terrain/river scene; confirm actual profile, loaded ZIP and options before judging a build.
