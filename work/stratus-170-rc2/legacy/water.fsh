@@ -362,7 +362,13 @@ void main(){
         weight*=exp(-abs(depth.x-d.x)/max(0.10,depth.x*0.025));
         optics+=texelFetch(colortex12,c,0).rgb*weight;total+=weight;
     }
-    vec4 tint=texture(colortex8,rasterUV);if(dot(tint.rgb,tint.rgb)<0.001)tint.rgb=biomeWaterTint;
+    vec4 tint=texture(colortex8,rasterUV);
+#if WATER_STYLE == 0
+    if(dot(tint.rgb,tint.rgb)<0.001)tint.rgb=biomeWaterTint;
+#endif
+    // Native colour may legitimately be near black indoors. Its alpha is the
+    // cache-validity marker, not brightness; never replace dark native texels
+    // with a bright, display-space biome tint.
     vec3 ray=positionFromDepth(rasterUV,0.5),water=ray*(depth.x/max(-ray.z,0.00001));
     if(total>0.0001)optics/=total;
     else{
@@ -373,7 +379,7 @@ void main(){
     }
 #if WATER_STYLE == 1
     // Preserve native atlas detail independently of the selected optics buffer.
-    optics=nativeWaterSurface(optics,vec4(tint.rgb,mark.g));
+    optics=nativeWaterSurface(optics,vec4(tint.rgb,mark.g*step(0.5,tint.a)));
 #endif
     // Keep glass, particles and other forward surfaces at full resolution.
     // A dark/tinted pane replaces part of the background; it is not a signed

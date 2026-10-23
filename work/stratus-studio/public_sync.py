@@ -68,36 +68,28 @@ def candidates():
    if not (legacy or current):continue
    package=server.PROJECT/'outputs'/('Stratus-'+v+'.zip')
    if not package.is_file() or hashlib.sha256(package.read_bytes()).hexdigest()!=r.get('sha256'):continue
-   folder=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase')
-   images=sorted(folder.glob('*.png')) if folder.is_dir() else []
-   # Prefer the release report's reviewed, hash-verified final-pack captures.
-   # QA/baseline/isolated variants and menus are not release showcase images.
-   report=server.PROJECT/'outputs'/('Stratus-'+v+'-visual-checks')
-   manifest=report/'manifest.json'
-   if not images and manifest.is_file():
-    captures=json.loads(manifest.read_text())
-    if captures.get('version')==v:
-     for capture in captures.get('captures',[]):
-      if capture.get('pack')!=pack or capture.get('status')!='reviewed':continue
-      image=(report/capture.get('file','')).resolve()
-      if not image.is_relative_to(report.resolve()) or not image.is_file():continue
-      if any(word in image.stem.lower() for word in ['menu','restored']):continue
-      if hashlib.sha256(image.read_bytes()).hexdigest()!=capture.get('sha256'):continue
-      images.append(image)
-   if not images and r.get('runtime_evidence'):
-    evidence=(server.PROJECT/r['runtime_evidence']).resolve()
-    if not evidence.is_relative_to(server.PROJECT) or not evidence.is_file():continue
-    folder=evidence.parent/'screenshots';prefix='s'+v.replace('.','')+'-release-'
-    images=sorted(x for x in folder.glob(prefix+'*.png') if not any(word in x.stem for word in ['menu','restored']))
-   if len(images)>=2:yield tuple(map(int,v.split('.'))),v,r,images[:10]
+   folder=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase-natural')
+   if not folder.is_dir():folder=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase')
+   labels_file=folder/'showcase.json'
+   if not labels_file.is_file():continue
+   curated=json.loads(labels_file.read_text())
+   if curated.get('version')!=v or curated.get('scene_policy')!='natural-world-only' or curated.get('reviewed') is not True or curated.get('runtime_assets_match_release') is not True:continue
+   approved=curated.get('scenes',[])
+   if len(approved)!=10 or any(s.get('natural_world') is not True or s.get('reviewed') is not True for s in approved):continue
+   images=[folder/s['file'] for s in approved]
+   if any(re.search(r'fixture|materials|menu|test-platform',p.stem,re.I) for p in images):continue
+   if any(not p.resolve().is_relative_to(folder.resolve()) or not p.is_file() for p in images):continue
+   if any(hashlib.sha256(p.read_bytes()).hexdigest()!=s.get('sha256') for p,s in zip(images,approved)):continue
+   if len({s['sha256'] for s in approved})!=10:continue
+   yield tuple(map(int,v.split('.'))),v,r,images
   except (OSError,ValueError,KeyError):continue
 
 def sync_showcase():
  choices=sorted(candidates(),reverse=True)
- if not choices:return {'status':'waiting','detail':'No eligible loaded release with at least two release captures.'}
+ if not choices:return {'status':'waiting','detail':'No eligible loaded release with ten reviewed natural-world captures.'}
  _,v,receipt,images=choices[0]
  labels={}
- labels_path=server.PROJECT/'outputs'/('Stratus-'+v+'-showcase')/'showcase.json'
+ labels_path=images[0].parent/'showcase.json'
  if labels_path.is_file():
   labelled=json.loads(labels_path.read_text())
   if labelled.get('version')!=v:raise ValueError('Showcase labels have the wrong version.')
@@ -114,10 +106,10 @@ def sync_showcase():
   title=label.get('title',name.replace('-',' ').capitalize()+'.')
   description=label.get('description',f'Actual Minecraft release capture from Stratus {v}.')
   key=f'{v}/{name}-{digest}.png';uploads.append((key,raw));scenes.append({'id':name,'title':title,'description':description,'alt':f'Stratus {v}: '+title,'image':'/api/images/'+key})
- if len(scenes)<2:return {'status':'waiting','detail':'At least two valid PNG captures are required; existing gallery preserved.'}
+ if len(scenes)!=10:return {'status':'waiting','detail':'Ten reviewed natural-world captures are required; existing gallery preserved.'}
  # Prefer a river/landscape over a material close-up for the home image.
  scenes.sort(key=lambda s:('river' not in s['id'],s['id']))
- summary=f'Stratus {v} is packaged and recorded as loaded in Minecraft. Each image labels its release or Reference preset settings. Visual checks and performance measurements are separate; no FPS improvement is implied.'
+ summary=f'Ten reviewed Stratus {v} captures of naturally generated terrain and skies. Each image labels its saved release, Reference or cloud-focused settings. Shader runtime assets match the packaged release; no FPS improvement is implied.'
  manifest={'version':v,'date':receipt.get('verification_date',''),'summary':summary,'scenes':scenes}
  fingerprint=hashlib.sha256(json.dumps(manifest,sort_keys=True).encode()).hexdigest()
  old=json.loads(STATE.read_text()) if STATE.exists() else {}

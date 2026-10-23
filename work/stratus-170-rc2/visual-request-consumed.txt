@@ -1,17 +1,14 @@
-PACK Stratus-1.7.0-rc2-QA-Before.zip
-CAM 164.5 60 40.5 0 -35
-READY before-underwater 180
-SHOT rc2-before-underwater
-PACK Stratus-1.7.0-rc2-QA-Candidate.zip
-READY after-underwater 180
-SHOT rc2-after-underwater
-VANILLA
-READY vanilla-underwater 180
-SHOT rc2-vanilla-underwater
-PACK Stratus-1.7.0-rc2-QA-TextureZero.zip
-READY zero-underwater 180
-SHOT rc2-zero-underwater
-PACK Stratus-1.7.0-rc2-QA-TextureHalf.zip
-READY half-underwater 180
-SHOT rc2-half-underwater
-DONE underwater-route
+PACK Stratus-1.7.0-rc2-QA-v3-Candidate.zip
+CAM 4207.2 165.6 4204.7 100 -12
+READY fixed-cave-flow 180
+SHOT rc2-v3-cave-flow
+CAM 4201.4 169.0 4203.8 -90 30
+READY fixed-cave-down 180
+SHOT rc2-v3-cave-down
+CAM 164.5 61.24 40.5 0 0
+READY final-waterline 180
+SHOT rc2-v3-waterline
+CAM 166.1907 65.9287 32.5536 108.45755 38.829258
+READY final-river 180
+SHOT rc2-v3-river
+DONE final-water-route
