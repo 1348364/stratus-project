@@ -727,6 +727,7 @@
     "tools/GITHUB-SYNC.md",
     "tools/export_github.py",
     "tools/github-sync.json",
+    "tools/github_backups.py",
     "tools/github_sync.py",
     "work/Custom instructions/.prompts/clouds.md",
     "work/Custom instructions/.prompts/performance.md",
@@ -9642,6 +9643,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "8183d0cdb28ea6ff9f7edb32076c9a248ff1b428476b78fef165cafb5ce0c3cf",
+  "fingerprint": "9048d77d5cf6816b11380c213a3d22713a1d3c2dc17a2633fd4546a471e62437",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

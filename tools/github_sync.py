@@ -5,7 +5,6 @@ import argparse,fcntl,hashlib,io,json,os,plistlib,re,shutil,subprocess,sys,tarfi
 from datetime import datetime,timezone
 from pathlib import Path
 import github_backups
-import sys as _sys
 ROOT=Path(__file__).resolve().parents[1]
 CHECKOUT=ROOT/'work/stratus-github'
 STATE=ROOT/'work/stratus-studio/.github-sync-state.json'
@@ -39,7 +38,7 @@ def atomic(path,value):
 def state_save(state):atomic(STATE,json.dumps(state,indent=2).encode())
 def allowed(name):
  p=Path(name)
- return not any(part in OMIT for part in p.parts) and p.name not in {'feedback-cache.json','resourceful-config-web.json','.DS_Store'} and not p.name.startswith(('.env','.dev.vars','.feedback-','.cloud-','.public-','.github-sync')) and p.suffix not in {'.log','.class','.lock','.pem','.key'}
+ return not any(part in OMIT for part in p.parts) and p.name not in {'feedback-cache.json','resourceful-config-web.json','connector-grants.json','.DS_Store'} and not p.name.startswith(('.env','.dev.vars','.feedback-','.cloud-','.public-','.github-sync')) and p.suffix not in {'.log','.class','.lock','.pem','.key'}
 
 def inspect_bytes(name,data):
  if Path(name).suffix.lower() not in TEXT:return
@@ -99,7 +98,7 @@ def snapshot():
    for p in (ROOT/'outputs/Stratus').iterdir():
     if p.is_file() and allowed(p.name):files['outputs/Stratus/'+p.name]=p.read_bytes()
  files[f'outputs/Stratus-{v}-install.json']=json.dumps(receipt,indent=2).encode()+b'\n'
- github_backups.augment_sources(_sys.modules[__name__],files)
+ github_backups.augment_sources(sys.modules[__name__],files)
  files['README.md']=b'''# Stratus shader project
 
 Source, websites, development work, showcase images and verification evidence.
@@ -185,8 +184,8 @@ def run():
   if remote!=expected:git('remote','set-url','origin',expected)
   git('fetch','origin','main');git('merge','--ff-only','origin/main')
   files,heads,v,pack,_=snapshot()
-  index,groups=github_backups.backup_inventory(_sys.modules[__name__],state,files)
-  index=github_backups.upload_backups(_sys.modules[__name__],repo_name,state,index,groups)
+  index,groups=github_backups.backup_inventory(sys.modules[__name__],state,files)
+  index=github_backups.upload_backups(sys.modules[__name__],repo_name,state,index,groups)
   files['WORK-BACKUP-INDEX.json']=json.dumps({'files':index,'source_files':'See AUTO-SYNC-MANIFEST.json for Git-tracked source.','binary_release':github_backups.SNAPSHOT_TAG,'policy':'Exact original historical archives plus checksum-verified immutable new work assets. Development snapshots are not final releases.','excluded':['credentials and private feedback','raw app logs and compiled caches','third-party Minecraft runtime','regenerable website deployment bundles']},indent=2).encode()+b'\n'
   files=settled_sources(files,state)
   fingerprint=digest(json.dumps({name:digest(data) for name,data in sorted(files.items())},sort_keys=True).encode())
@@ -208,7 +207,7 @@ def run():
    atomic(prior_file,json.dumps(manifest,indent=2).encode()+b'\n')
    git('add','--all')
    if git('diff','--cached','--name-only').strip():git('commit','-m','Sync completed Stratus project updates ('+v+')')
-   git('push','origin','main')
+   command(['git','push','origin','main'],CHECKOUT,timeout=1800)
    local=git('rev-parse','HEAD').decode().strip();remote_sha=git('ls-remote','origin','refs/heads/main').decode().split()[0]
    if local!=remote_sha:raise ValueError('Push could not be verified.')
    state.update(published=fingerprint,commit=local,remote=expected,last_pushed=datetime.now(timezone.utc).isoformat(),last_status='Source pushed and verified.')
