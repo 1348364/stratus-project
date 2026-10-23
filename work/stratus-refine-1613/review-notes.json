@@ -1,0 +1,13 @@
+{
+  "s1613-vanilla-river.png": "Shaders disabled. Native blue river, biome colour and animated atlas texture provide the comparison baseline.",
+  "s1613-native-isolated-river.png": "v2 isolated native mode. Colour close to vanilla; surface texture visibly softer than the baseline. Superseded by full-resolution v3 treatment.",
+  "s1613-candidate-river.png": "v2 Reference candidate. Native blue surface and shore/riverbed visible with retained Stratus optics/atmosphere. Texture softness superseded by v3.",
+  "s1613-legacy-river.png": "v2 selectable legacy Stratus mode. Clearer physical water and patterned surface treatment retained. Final physical resolve also passes ten GPU cases; no final v3 legacy capture.",
+  "s1613-native-underwater.png": "v2 underwater camera. Foreground and bank coherent in this finite view; straight-through exit deliberately omits vanilla back-face atlas layer. Not full native-fog compatibility acceptance.",
+  "s1613-v3-native-isolated-river.png": "Final shader source, isolated native mode. Full-resolution animated surface detail now sharp, close to shaders-off colour/texture. Small differences remain; animation phases differ.",
+  "s1613-v3-candidate-river.png": "Final shader source, Reference candidate. Full-resolution native surface character with ripples/optics and Stratus mist retained; clear shoreline and no nearby-only tint cutoff.",
+  "s1613-v3-far-river.png": "Final Reference candidate, far-bank camera. Native blue treatment remains across distant water. Foreground trees stay native; no near-only fade introduced.",
+  "s1613-v3-underwater.png": "Final Reference candidate at the matched submerged camera. Foreground river geometry coherent, air beyond exit remains clear. Vanilla comparison visibly differs at the surface due to retained no-overlay underwater design.",
+  "s1613-vanilla-underwater.png": "Shaders disabled at matching submerged camera. Native back-face surface atlas makes the above-water scene much bluer. This overlay is intentionally absent in current Stratus straight-through baseline; no pixel-equivalence claim.",
+  "s1613-v3-waterline.png": "FAILED ACCEPTANCE: just below the surface, a rectangular blue/sky/treetop band is visible. Known baseline defect remains; no waterline fix or clean acceptance claimed."
+}

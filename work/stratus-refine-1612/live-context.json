@@ -1,0 +1,33 @@
+{
+  "profile": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)",
+  "world": "Stratus Terrain Lab",
+  "process": 73612,
+  "settings": [
+    "maxFps:70",
+    "mipmapLevels:4",
+    "renderDistance:12",
+    "simulationDistance:8",
+    "resourcePacks:[\"vanilla\",\"continuity:default\",\"continuity:glass_pane_culling_fix\",\"file/VanillaTweaks_r448798_MC1.21.x.zip\"]"
+  ],
+  "active_VanillaTweaks_water_replacements": [],
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "focus": false,
+  "FPS_samples": 0,
+  "visual_only_unfocused_captures_not_performance_evidence": true,
+  "versions_from_last_verified_runtime": "Minecraft1.21.11/Iris1.10.8/Sodium0.8.14; runtime source jar paths/version refreshed in logs and agent checks",
+  "actual_installed_mod_metadata": [
+    {
+      "id": "sodium",
+      "version": "0.8.14+mc1.21.11",
+      "file": "sodium-fabric-0.8.14+mc1.21.11.jar"
+    },
+    {
+      "id": "iris",
+      "version": "1.10.8+mc1.21.11",
+      "file": "iris-fabric-1.10.8+mc1.21.11.jar"
+    }
+  ]
+}

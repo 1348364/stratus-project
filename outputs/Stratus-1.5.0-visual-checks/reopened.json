@@ -1,0 +1,19 @@
+{
+  "version": "1.5.0",
+  "fresh_launch_verified": true,
+  "shader_errors": 0,
+  "active_shader": "Stratus-1.5.0.zip",
+  "test_client_running_verified_with_ps": true,
+  "test_pid": 64376,
+  "marker": "v150-reopened-complete",
+  "hud_enabled": true,
+  "camera": [
+    156.5,
+    105,
+    43.5
+  ],
+  "scene": "Submerged three-dimensional wooden refraction fixture",
+  "release_sha256": "c01f8e5d20bdd20c2cda937a615d841900fd762d99f156fca51ddb79af2a76a9",
+  "reopened_capture_sha256": "e147235000029eb6b0d274670c65577d3fc7e7587bbeccc4836fe2bf8b2b77e9",
+  "shader_assets_verified": 219
+}

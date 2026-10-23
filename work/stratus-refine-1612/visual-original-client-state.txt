@@ -1,0 +1,6 @@
+position=175.74051186152587,64.0,-2.589126682840936
+yaw=-115.773705
+pitch=13.358755
+hud=false
+pause=true
+flying=false

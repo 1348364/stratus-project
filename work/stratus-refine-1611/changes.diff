@@ -1,0 +1,2130 @@
+--- 1.6.10/CHECKS.json
++++ 1.6.11/CHECKS.json
+@@ -1,682 +1,713 @@
+ {
+-  "version": "1.6.10",
++  "version": "1.6.11",
+   "date": "2026-10-22",
+-  "request_id": "dfc0d10a-85ec-429d-ab34-b70c4ce76c83",
+-  "status": "Finite source/native GPU, Main visual and focused full-Reference checks completed. Approximately60FPS target and remaining scene acceptance stay pending.",
+-  "baseline": "Released Stratus1.6.9, byte-equivalent runtime snapshot",
++  "request_id": "d5f466f4-5927-4054-a65f-6a32e48779c1",
++  "status": "Approved preset rebase, later-edit-safe migration and actual chunk readiness gate. Native/GPU/Iris/finite visual checks; FPS explicitly deferred. Final release load is recorded in external install receipt.",
+   "native": {
+     "program_pairs": 768,
+     "variants": 8,
++    "dimensions": 3,
+     "failures": 0,
+-    "scope": "Native macOS OpenGL compatibility-shim compile/link; separate from Iris runtime"
+-  },
+-  "controls": {
+-    "controls_total": 62,
+-    "all_prior_ids_defaults_ranges_menus_preserved": true,
+-    "all_prior_quality_profile_assignments_preserved": true,
+-    "nine_related_visual_defaults_explicit_in_all_four_profiles": true,
+-    "reference_identifier_preserved_and_recommended_label_added": true,
+-    "all_controls_reachable": true,
+-    "related_reset_keys": [
+-      "REALISTIC_LIGHTING",
+-      "EXPOSURE",
+-      "WHITE_BALANCE",
+-      "SURFACE_SATURATION",
++    "scope": "Native macOS compatibility-shim compile/link; separate from actual Iris load"
++  },
++  "options": {
++    "controls": 62,
++    "all_IDs_ranges_menu_paths_preserved": true,
++    "source_defaults_changed_by_user_approval": {
++      "SKY_AMBIENT": {
++        "before": "1.40",
++        "after": "1.00"
++      },
++      "SURFACE_DAMPNESS": {
++        "before": "1.00",
++        "after": "0.65"
++      },
++      "CLOUD_LAYERS": {
++        "before": "1",
++        "after": "2"
++      },
++      "MIST_DETAIL": {
++        "before": "2",
++        "after": "3"
++      },
++      "REFLECTION_MODE": {
++        "before": "2",
++        "after": "0"
++      },
++      "WATER_VISIBILITY": {
++        "before": "1.70",
++        "after": "2.20"
++      },
++      "WATER_EXTINCTION": {
++        "before": "3.00",
++        "after": "0.90"
++      },
++      "RIPPLE_HEIGHT": {
++        "before": "0.80",
++        "after": "0.55"
++      },
++      "RIPPLE_SIZE": {
++        "before": "1.00",
++        "after": "0.40"
++      },
++      "RIPPLE_RATE": {
++        "before": "0.45",
++        "after": "1.00"
++      },
++      "WATER_TURBIDITY": {
++        "before": "6.00",
++        "after": "3.00"
++      },
++      "REFRACTION_QUALITY": {
++        "before": "0",
++        "after": "1"
++      },
++      "WATER_RENDER_QUALITY": {
++        "before": "2",
++        "after": "1"
++      },
++      "WATER_TEXTURE": {
++        "before": "0.15",
++        "after": "1.00"
++      }
++    },
++    "reference_equals_all_62_effective_captured_Main_values": true,
++    "visual_options_shared_across_all_profiles": 56,
++    "quality_options_ordered_per_profile": {
++      "FAST": {
++        "WATER_RENDER_QUALITY": "0",
++        "ATMOSPHERE_QUALITY": "0",
++        "CLOUD_LAYERS": "1",
++        "MIST_DETAIL": "1",
++        "REFLECTION_MODE": "0",
++        "REFRACTION_QUALITY": "0"
++      },
++      "BALANCED": {
++        "WATER_RENDER_QUALITY": "1",
++        "ATMOSPHERE_QUALITY": "1",
++        "CLOUD_LAYERS": "1",
++        "MIST_DETAIL": "2",
++        "REFLECTION_MODE": "0",
++        "REFRACTION_QUALITY": "0"
++      },
++      "REFERENCE": {
++        "WATER_RENDER_QUALITY": "1",
++        "ATMOSPHERE_QUALITY": "1",
++        "CLOUD_LAYERS": "2",
++        "MIST_DETAIL": "3",
++        "REFLECTION_MODE": "0",
++        "REFRACTION_QUALITY": "1"
++      },
++      "HIGH": {
++        "WATER_RENDER_QUALITY": "2",
++        "ATMOSPHERE_QUALITY": "2",
++        "CLOUD_LAYERS": "3",
++        "MIST_DETAIL": "3",
++        "REFLECTION_MODE": "2",
++        "REFRACTION_QUALITY": "2"
++      }
++    },
++    "same_Reference_default_definition_in_source_and_profile": true,
++    "related_migration_keys": [
++      "ATMOSPHERE_QUALITY",
++      "CLOUD_LAYERS",
++      "MIST_DETAIL",
++      "REFLECTION_MODE",
++      "REFRACTION_QUALITY",
++      "RIPPLE_HEIGHT",
++      "RIPPLE_RATE",
++      "RIPPLE_SIZE",
++      "SKY_AMBIENT",
+       "SURFACE_DAMPNESS",
+-      "WET_SHEEN",
+-      "WET_DARKENING",
+-      "WET_WEATHER_MODE",
+-      "WATER_TEXTURE"
++      "WATER_EXTINCTION",
++      "WATER_RENDER_QUALITY",
++      "WATER_TEXTURE",
++      "WATER_TURBIDITY",
++      "WATER_VISIBILITY"
+     ],
+-    "new_version_file_overwrite_policy": "Never overwrite; old releases/settings preserved",
+-    "mixed_visual_performance_default_policy": "Reference unless explicitly approved otherwise"
+-  },
+-  "migration": {
++    "all_higher_quality_choices_still_available": true,
++    "rebase_is_not_an_optimisation_speedup": true
++  },
++  "Iris_profile_interpretation": {
++    "FAST": {
++      "option_count": 62,
++      "matches_after_applying_full_profile": true,
++      "values": {
++        "CIRRUS_AMOUNT": "0.65",
++        "WATER_TURBIDITY": "3.00",
++        "MIST_Y": "70.0",
++        "WATER_EXTINCTION": "0.90",
++        "CIRRUS_ALTITUDE": "360.0",
++        "GROUND_WARMTH": "0.00",
++        "CLOUD_DENSITY": "1.00",
++        "SUN_VISIBILITY": "0.85",
++        "WATER_TEXTURE": "1.00",
++        "CLOUD_THICKNESS": "12.0",
++        "CLOUD_AMOUNT": "0.68",
++        "MIST_THICKNESS": "18.0",
++        "SUN_HALO_RADIUS": "1.50",
++        "SKY_AMBIENT": "1.00",
++        "CLOUD_RELIEF": "0.75",
++        "REFLECTION_MODE": "0",
++        "FACE_BLEND": "1.00",
++        "MIST_SCALE": "96.0",
++        "WATER_VISIBILITY": "2.20",
++        "REFLECT_RANGE": "120.0",
++        "MIST_LIGHT": "0.65",
++        "BLOOM_RADIUS": "3.00",
++        "BIOME_WATER": "1",
++        "REFRACTION_QUALITY": "0",
++        "CLOUD_ALTITUDE": "256.0",
++        "WET_DARKENING": "1.00",
++        "SURFACE_SATURATION": "1.00",
++        "ATMOSPHERE_QUALITY": "0",
++        "CLOUD_DETAIL": "1.00",
++        "FACE_SHADING": "1.00",
++        "CIRRUS_DENSITY": "1.00",
++        "ambientOcclusionLevel": "1.00",
++        "SURFACE_DAMPNESS": "0.65",
++        "REFLECT_LEVEL": "1.00",
++        "REALISTIC_LIGHTING": "0",
++        "WET_SHEEN": "0.85",
++        "MIST_AMOUNT": "0.85",
++        "VANILLA_FACE_CONTRAST": "1.00",
++        "SUN_STYLE": "0",
++        "WATER_RENDER_QUALITY": "0",
++        "SKY_LEAK": "0.35",
++        "WATER_DISTORTION": "1.00",
++        "MIST_BREAKUP": "0.85",
++        "CLOUD_SPAN": "240.0",
++        "CLOUD_DISTORTION": "0.85",
++        "RIPPLE_SIZE": "0.40",
++        "REALISTIC_FACE_CONTRAST": "1.00",
++        "EXPOSURE": "0.20",
++        "CLOUD_LAYERS": "1",
++        "RIPPLE_HEIGHT": "0.55",
++        "CLOUD_STYLE": "0",
++        "RIPPLE_RATE": "1.00",
++        "WHITE_BALANCE": "0.00",
++        "MIST_DETAIL": "1",
++        "LAMP_HEAT": "0.25",
++        "CLOUD_DRIFT": "0.25",
++        "SUN_CORE_BRIGHTNESS": "4.50",
++        "WET_WEATHER_MODE": "0",
++        "SUN_HALO_STRENGTH": "2.00",
++        "LAMP_LEVEL": "1.00",
++        "MIST_CLEAR": "24.0",
++        "BLOOM_STRENGTH": "0.18"
++      }
++    },
++    "BALANCED": {
++      "option_count": 62,
++      "matches_after_applying_full_profile": true,
++      "values": {
++        "CIRRUS_AMOUNT": "0.65",
++        "WATER_TURBIDITY": "3.00",
++        "MIST_Y": "70.0",
++        "WATER_EXTINCTION": "0.90",
++        "CIRRUS_ALTITUDE": "360.0",
++        "GROUND_WARMTH": "0.00",
++        "CLOUD_DENSITY": "1.00",
++        "SUN_VISIBILITY": "0.85",
++        "WATER_TEXTURE": "1.00",
++        "CLOUD_THICKNESS": "12.0",
++        "CLOUD_AMOUNT": "0.68",
++        "MIST_THICKNESS": "18.0",
++        "SUN_HALO_RADIUS": "1.50",
++        "SKY_AMBIENT": "1.00",
++        "CLOUD_RELIEF": "0.75",
++        "REFLECTION_MODE": "0",
++        "FACE_BLEND": "1.00",
++        "MIST_SCALE": "96.0",
++        "WATER_VISIBILITY": "2.20",
++        "REFLECT_RANGE": "120.0",
++        "MIST_LIGHT": "0.65",
++        "BLOOM_RADIUS": "3.00",
++        "BIOME_WATER": "1",
++        "REFRACTION_QUALITY": "0",
++        "CLOUD_ALTITUDE": "256.0",
++        "WET_DARKENING": "1.00",
++        "SURFACE_SATURATION": "1.00",
++        "ATMOSPHERE_QUALITY": "1",
++        "CLOUD_DETAIL": "1.00",
++        "FACE_SHADING": "1.00",
++        "CIRRUS_DENSITY": "1.00",
++        "ambientOcclusionLevel": "1.00",
++        "SURFACE_DAMPNESS": "0.65",
++        "REFLECT_LEVEL": "1.00",
++        "REALISTIC_LIGHTING": "0",
++        "WET_SHEEN": "0.85",
++        "MIST_AMOUNT": "0.85",
++        "VANILLA_FACE_CONTRAST": "1.00",
++        "SUN_STYLE": "0",
++        "WATER_RENDER_QUALITY": "1",
++        "SKY_LEAK": "0.35",
++        "WATER_DISTORTION": "1.00",
++        "MIST_BREAKUP": "0.85",
++        "CLOUD_SPAN": "240.0",
++        "CLOUD_DISTORTION": "0.85",
++        "RIPPLE_SIZE": "0.40",
++        "REALISTIC_FACE_CONTRAST": "1.00",
++        "EXPOSURE": "0.20",
++        "CLOUD_LAYERS": "1",
++        "RIPPLE_HEIGHT": "0.55",
++        "CLOUD_STYLE": "0",
++        "RIPPLE_RATE": "1.00",
++        "WHITE_BALANCE": "0.00",
++        "MIST_DETAIL": "2",
++        "LAMP_HEAT": "0.25",
++        "CLOUD_DRIFT": "0.25",
++        "SUN_CORE_BRIGHTNESS": "4.50",
++        "WET_WEATHER_MODE": "0",
++        "SUN_HALO_STRENGTH": "2.00",
++        "LAMP_LEVEL": "1.00",
++        "MIST_CLEAR": "24.0",
++        "BLOOM_STRENGTH": "0.18"
++      }
++    },
++    "REFERENCE": {
++      "option_count": 62,
++      "matches_after_applying_full_profile": true,
++      "values": {
++        "CIRRUS_AMOUNT": "0.65",
++        "WATER_TURBIDITY": "3.00",
++        "MIST_Y": "70.0",
++        "WATER_EXTINCTION": "0.90",
++        "CIRRUS_ALTITUDE": "360.0",
++        "GROUND_WARMTH": "0.00",
++        "CLOUD_DENSITY": "1.00",
++        "SUN_VISIBILITY": "0.85",
++        "WATER_TEXTURE": "1.00",
++        "CLOUD_THICKNESS": "12.0",
++        "CLOUD_AMOUNT": "0.68",
++        "MIST_THICKNESS": "18.0",
++        "SUN_HALO_RADIUS": "1.50",
++        "SKY_AMBIENT": "1.00",
++        "CLOUD_RELIEF": "0.75",
++        "REFLECTION_MODE": "0",
++        "FACE_BLEND": "1.00",
++        "MIST_SCALE": "96.0",
++        "WATER_VISIBILITY": "2.20",
++        "REFLECT_RANGE": "120.0",
++        "MIST_LIGHT": "0.65",
++        "BLOOM_RADIUS": "3.00",
++        "BIOME_WATER": "1",
++        "REFRACTION_QUALITY": "1",
++        "CLOUD_ALTITUDE": "256.0",
++        "WET_DARKENING": "1.00",
++        "SURFACE_SATURATION": "1.00",
++        "ATMOSPHERE_QUALITY": "1",
++        "CLOUD_DETAIL": "1.00",
++        "FACE_SHADING": "1.00",
++        "CIRRUS_DENSITY": "1.00",
++        "ambientOcclusionLevel": "1.00",
++        "SURFACE_DAMPNESS": "0.65",
++        "REFLECT_LEVEL": "1.00",
++        "REALISTIC_LIGHTING": "0",
++        "WET_SHEEN": "0.85",
++        "MIST_AMOUNT": "0.85",
++        "VANILLA_FACE_CONTRAST": "1.00",
++        "SUN_STYLE": "0",
++        "WATER_RENDER_QUALITY": "1",
++        "SKY_LEAK": "0.35",
++        "WATER_DISTORTION": "1.00",
++        "MIST_BREAKUP": "0.85",
++        "CLOUD_SPAN": "240.0",
++        "CLOUD_DISTORTION": "0.85",
++        "RIPPLE_SIZE": "0.40",
++        "REALISTIC_FACE_CONTRAST": "1.00",
++        "EXPOSURE": "0.20",
++        "CLOUD_LAYERS": "2",
++        "RIPPLE_HEIGHT": "0.55",
++        "CLOUD_STYLE": "0",
++        "RIPPLE_RATE": "1.00",
++        "WHITE_BALANCE": "0.00",
++        "MIST_DETAIL": "3",
++        "LAMP_HEAT": "0.25",
++        "CLOUD_DRIFT": "0.25",
++        "SUN_CORE_BRIGHTNESS": "4.50",
++        "WET_WEATHER_MODE": "0",
++        "SUN_HALO_STRENGTH": "2.00",
++        "LAMP_LEVEL": "1.00",
++        "MIST_CLEAR": "24.0",
++        "BLOOM_STRENGTH": "0.18"
++      }
++    },
++    "HIGH": {
++      "option_count": 62,
++      "matches_after_applying_full_profile": true,
++      "values": {
++        "CIRRUS_AMOUNT": "0.65",
++        "WATER_TURBIDITY": "3.00",
++        "MIST_Y": "70.0",
++        "WATER_EXTINCTION": "0.90",
++        "CIRRUS_ALTITUDE": "360.0",
++        "GROUND_WARMTH": "0.00",
++        "CLOUD_DENSITY": "1.00",
++        "SUN_VISIBILITY": "0.85",
++        "WATER_TEXTURE": "1.00",
++        "CLOUD_THICKNESS": "12.0",
++        "CLOUD_AMOUNT": "0.68",
++        "MIST_THICKNESS": "18.0",
++        "SUN_HALO_RADIUS": "1.50",
++        "SKY_AMBIENT": "1.00",
++        "CLOUD_RELIEF": "0.75",
++        "REFLECTION_MODE": "2",
++        "FACE_BLEND": "1.00",
++        "MIST_SCALE": "96.0",
++        "WATER_VISIBILITY": "2.20",
++        "REFLECT_RANGE": "120.0",
++        "MIST_LIGHT": "0.65",
++        "BLOOM_RADIUS": "3.00",
++        "BIOME_WATER": "1",
++        "REFRACTION_QUALITY": "2",
++        "CLOUD_ALTITUDE": "256.0",
++        "WET_DARKENING": "1.00",
++        "SURFACE_SATURATION": "1.00",
++        "ATMOSPHERE_QUALITY": "2",
++        "CLOUD_DETAIL": "1.00",
++        "FACE_SHADING": "1.00",
++        "CIRRUS_DENSITY": "1.00",
++        "ambientOcclusionLevel": "1.00",
++        "SURFACE_DAMPNESS": "0.65",
++        "REFLECT_LEVEL": "1.00",
++        "REALISTIC_LIGHTING": "0",
++        "WET_SHEEN": "0.85",
++        "MIST_AMOUNT": "0.85",
++        "VANILLA_FACE_CONTRAST": "1.00",
++        "SUN_STYLE": "0",
++        "WATER_RENDER_QUALITY": "2",
++        "SKY_LEAK": "0.35",
++        "WATER_DISTORTION": "1.00",
++        "MIST_BREAKUP": "0.85",
++        "CLOUD_SPAN": "240.0",
++        "CLOUD_DISTORTION": "0.85",
++        "RIPPLE_SIZE": "0.40",
++        "REALISTIC_FACE_CONTRAST": "1.00",
++        "EXPOSURE": "0.20",
++        "CLOUD_LAYERS": "3",
++        "RIPPLE_HEIGHT": "0.55",
++        "CLOUD_STYLE": "0",
++        "RIPPLE_RATE": "1.00",
++        "WHITE_BALANCE": "0.00",
++        "MIST_DETAIL": "3",
++        "LAMP_HEAT": "0.25",
++        "CLOUD_DRIFT": "0.25",
++        "SUN_CORE_BRIGHTNESS": "4.50",
++        "WET_WEATHER_MODE": "0",
++        "SUN_HALO_STRENGTH": "2.00",
++        "LAMP_LEVEL": "1.00",
++        "MIST_CLEAR": "24.0",
++        "BLOOM_STRENGTH": "0.18"
++      }
++    }
++  },
++  "installer": {
+     "checks": [
+-      "Dry run writes no archive or preferences",
+-      "Related film/colour overrides reset",
+-      "Unrelated optics/quality/ambient tuning preserved",
+-      "Prior preferences remain byte-identical",
+-      "Existing new-version tuning wins",
+-      "Conflicting same-version archive is refused",
+-      "Atomic creation never overwrites an existing file",
+-      "Visual defaults explicitly apply to all four presets",
+-      "Concurrent conflicting archive rejected before creating preferences"
++      "Dry run writes no destination",
++      "Captured related values reset to identical approved Reference defaults",
++      "Old preferences byte-identical",
++      "Later related manual edit preserved",
++      "Later removal preserves old source default",
++      "Unrelated latest override preserved",
++      "Existing new-version settings never overwritten",
++      "Atomic create cannot overwrite",
++      "Conflicting archive refused",
++      "Concurrent conflicting archive refused before preferences"
+     ],
+     "failures": 0,
+-    "scope": "Installer policy integration with temporary profiles; no Main data used or changed"
+-  },
+-  "trace": {
+-    "scope": "Actual baseline/candidate projected interval tracer at all three qualities",
+-    "pixels_per_variant": 344064,
+-    "scenes": [
+-      {
+-        "scene": 0,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0169974,
+-          "1": 0.0158776
+-        }
+-      },
+-      {
+-        "scene": 1,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0129662,
+-          "1": 0.0128516
+-        }
+-      },
+-      {
+-        "scene": 2,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0165182,
+-          "1": 0.0154532
+-        }
+-      },
+-      {
+-        "scene": 3,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0218984,
+-          "1": 0.0178516
+-        }
+-      },
+-      {
+-        "scene": 4,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.021539,
+-          "1": 0.0220573
+-        }
+-      },
+-      {
+-        "scene": 5,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0233437,
+-          "1": 0.0188203
+-        }
+-      },
+-      {
+-        "scene": 6,
+-        "comparisons": [
+-          {
+-            "quality": 0,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 1,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          },
+-          {
+-            "quality": 2,
+-            "max_RGBA_error": 0.0,
+-            "pixels_exceed_1e-3": 0,
+-            "hit_mismatches": 0
+-          }
+-        ],
+-        "median_gpu_ms": {
+-          "0": 0.0258047,
+-          "1": 0.0238385
+-        }
++    "scope": "Temporary profiles, actual1.6.11 policy and installer. No Main writes."
++  },
++  "underwater": {
++    "scope": "actual full-resolution water-resolve shader",
++    "cases": [
++      {
++        "name": "air_receiver_near",
++        "rgb": [
++          0.6602546,
++          0.3753241,
++          0.1976346
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "air_receiver_far",
++        "rgb": [
++          0.6602546,
++          0.3753241,
++          0.1976346
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "submerged_receiver",
++        "rgb": [
++          0.7265702,
++          0.3873817,
++          0.1988004
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "deep_submerged",
++        "rgb": [
++          0.3774901,
++          0.3134322,
++          0.1913006
++        ],
++        "max_error": 3e-08
++      },
++      {
++        "name": "sky_after_exit",
++        "rgb": [
++          0.6602546,
++          0.3753241,
++          0.1976346
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "sky_missing_exit",
++        "rgb": [
++          0.8,
++          0.4,
++          0.2
++        ],
++        "max_error": 0.0
++      },
++      {
++        "name": "glass_before_exit",
++        "rgb": [
++          0.6162699,
++          0.1938531,
++          0.1048677
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "glass_after_exit",
++        "rgb": [
++          0.5786929,
++          0.1972679,
++          0.10793
++        ],
++        "max_error": 1e-08
++      },
++      {
++        "name": "additive_particle",
++        "rgb": [
++          0.9453518,
++          0.4730772,
++          0.1976346
++        ],
++        "max_error": 6e-08
++      },
++      {
++        "name": "vertical_exit",
++        "rgb": [
++          0.712761,
++          0.3849262,
++          0.1985645
++        ],
++        "max_error": 6e-08
+       }
+     ],
+     "failures": 0,
+     "opengl_errors": 0
+   },
+-  "atmosphere": {
+-    "opengl_errors": 0,
+-    "matched_atmosphere_pixels": 131072,
+-    "scenes": [
+-      {
+-        "scene": 0,
+-        "max_linear_error": 6.210803985595703e-05,
+-        "values_above_1e-6": 2886
+-      },
+-      {
+-        "scene": 1,
+-        "max_linear_error": 1.1920928955078125e-07,
+-        "values_above_1e-6": 0
+-      },
+-      {
+-        "scene": 2,
+-        "max_linear_error": 0.0,
+-        "values_above_1e-6": 0
+-      },
+-      {
+-        "scene": 3,
+-        "max_linear_error": 3.731250762939453e-05,
+-        "values_above_1e-6": 6769
+-      },
+-      {
+-        "scene": 4,
+-        "max_linear_error": 6.210803985595703e-05,
+-        "values_above_1e-6": 1051
+-      },
+-      {
+-        "scene": 5,
+-        "max_linear_error": 1.1920928955078125e-07,
+-        "values_above_1e-6": 0
+-      },
+-      {
+-        "scene": 6,
+-        "max_linear_error": 0.0,
+-        "values_above_1e-6": 0
+-      },
+-      {
+-        "scene": 7,
+-        "max_linear_error": 3.731250762939453e-05,
+-        "values_above_1e-6": 2529
++  "chunk_readiness": {
++    "scope": "Actual normal-world loaded view disk and Sodium queues before visual captures; FPS explicitly deferred.",
++    "required_view_disk_columns": 441,
++    "render_distance": 12,
++    "stable_window_minimum_ms": 5000,
++    "observed_not_ready_count": 275,
++    "observed_max_pending_uploads": 100,
++    "observed_max_pending_tasks": 92,
++    "completed_gates": {
++      "baseline-river-visual": {
++        "stable_ms": 5114,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 650,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cirrus-sunset-off-retry": {
++        "stable_ms": 5119,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 794,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cirrus-day-on-retry": {
++        "stable_ms": 5123,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 794,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cirrus-sunset-on-retry": {
++        "stable_ms": 5132,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 794,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cirrus-day-loaded": {
++        "stable_ms": 5114,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 794,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cirrus-day-off-retry": {
++        "stable_ms": 5129,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 794,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "underwater-visual": {
++        "stable_ms": 5119,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 650,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "cloud-interior-loaded": {
++        "stable_ms": 5107,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 904,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "fixture-loaded": {
++        "stable_ms": 5121,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 791,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
++      },
++      "candidate-river-visual": {
++        "stable_ms": 5289,
++        "state": {
++          "ready": true,
++          "render_distance": 12,
++          "required_view_disk_columns": 441,
++          "present_view_disk_columns": 441,
++          "client_loaded_columns": 650,
++          "render_sections": 12792,
++          "queued_jobs": 0,
++          "busy_workers": 0,
++          "pending_uploads": 0,
++          "pending_task_lists": 0
++        }
+       }
++    },
++    "future_BENCH_guard": "Fresh successful gate required at sample start. During sampling poll queues/counts/camera and focus/size; reject nonsteady samples. Actual FPS integration remains deferred/unverified."
++  },
++  "performance": {
++    "version": "1.6.11",
++    "status": "Deferred by explicit user instruction: skip for now; user will request later.",
++    "new_FPS_samples": 0,
++    "target_approximately60FPS_verified": false,
++    "quality_baseline": "User explicitly approved latest saved Main visual and quality choices as Reference. Reference now uses water1/atmosphere1/cloud2/mist3/sky-only0/refraction1. High retains full/detailed settings.",
++    "preset_rebase_is_not_shader_code_speedup": true,
++    "new_render_algorithm_optimisation": false,
++    "chunk_gate_implemented_and_exercised_without_FPS": true,
++    "gate_evidence": "work/stratus-refine-1611/chunk-gate-checks.json",
++    "next_test": "Only when user requests FPS: same approved Reference settings/camera/resolution; READY gate until all441 view-disk columns present, workers/jobs/uploads/task queues empty, counts stable>=5seconds. Focused active game; record Dynamic FPS/AFK state. Loading-phase results must be labelled separately.",
++    "previous1_6_10_full_Reference": "Old full-detail Reference river19.6\u219220.2/forest17.8\u219218.1FPS used a different quality baseline; do not compare as an optimisation speedup."
++  },
++  "occupied_cloud_evidence": {
++    "source": "No VanillaTweaks override; preserved vanilla reference",
++    "cloud_cell": [
++      22,
++      1
+     ],
+-    "failures": 0,
+-    "timings": [
+-      {
+-        "scene": 0,
+-        "day_or_night": "day",
+-        "median_gpu_ms": {
+-          "before": 0.075551,
+-          "after": 0.070854
+-        },
+-        "relative_change_percent": -6.216992495135731
+-      },
+-      {
+-        "scene": 1,
+-        "day_or_night": "day",
+-        "median_gpu_ms": {
+-          "before": 0.015271,
+-          "after": 0.015583
+-        },
+-        "relative_change_percent": 2.0430882064042866
+-      },
+-      {
+-        "scene": 2,
+-        "day_or_night": "day",
+-        "median_gpu_ms": {
+-          "before": 0.007935,
+-          "after": 0.007849
+-        },
+-        "relative_change_percent": -1.0838059231253805
+-      },
+-      {
+-        "scene": 3,
+-        "day_or_night": "day",
+-        "median_gpu_ms": {
+-          "before": 0.027738,
+-          "after": 0.027501
+-        },
+-        "relative_change_percent": -0.8544235345014028
+-      },
+-      {
+-        "scene": 4,
+-        "day_or_night": "night",
+-        "median_gpu_ms": {
+-          "before": 0.068266,
+-          "after": 0.032906
+-        },
+-        "relative_change_percent": -51.7973808337972
+-      },
+-      {
+-        "scene": 5,
+-        "day_or_night": "night",
+-        "median_gpu_ms": {
+-          "before": 0.015432,
+-          "after": 0.014975
+-        },
+-        "relative_change_percent": -2.9613789528252887
+-      },
+-      {
+-        "scene": 6,
+-        "day_or_night": "night",
+-        "median_gpu_ms": {
+-          "before": 0.008195,
+-          "after": 0.008
+-        },
+-        "relative_change_percent": -2.379499694935927
+-      },
+-      {
+-        "scene": 7,
+-        "day_or_night": "night",
+-        "median_gpu_ms": {
+-          "before": 0.026685,
+-          "after": 0.012073
+-        },
+-        "relative_change_percent": -54.75735431890575
+-      }
+-    ]
+-  },
+-  "water": {
+-    "scope": "actual full-resolution water-resolve shader",
+-    "cases": [
+-      {
+-        "name": "air_receiver_near",
+-        "rgb": [
+-          0.3176273,
+-          0.2803899,
+-          0.1829588
+-        ],
+-        "max_error": 3e-08
+-      },
+-      {
+-        "name": "air_receiver_far",
+-        "rgb": [
+-          0.3176273,
+-          0.2803899,
+-          0.1829588
+-        ],
+-        "max_error": 3e-08
+-      },
+-      {
+-        "name": "submerged_receiver",
+-        "rgb": [
+-          0.4977731,
+-          0.332056,
+-          0.1906237
+-        ],
+-        "max_error": 0.0
+-      },
+-      {
+-        "name": "deep_submerged",
+-        "rgb": [
+-          0.0637219,
+-          0.1481078,
+-          0.1588745
+-        ],
+-        "max_error": 3e-08
+-      },
+-      {
+-        "name": "sky_after_exit",
+-        "rgb": [
+-          0.3176273,
+-          0.2803899,
+-          0.1829588
+-        ],
+-        "max_error": 3e-08
+-      },
+-      {
+-        "name": "sky_missing_exit",
+-        "rgb": [
+-          0.8,
+-          0.4,
+-          0.2
+-        ],
+-        "max_error": 0.0
+-      },
+-      {
+-        "name": "glass_before_exit",
+-        "rgb": [
+-          0.3963326,
+-          0.1520035,
+-          0.1031235
+-        ],
+-        "max_error": 6e-08
+-      },
+-      {
+-        "name": "glass_after_exit",
+-        "rgb": [
+-          0.2820984,
+-          0.167633,
+-          0.1194729
+-        ],
+-        "max_error": 6e-08
+-      },
+-      {
+-        "name": "additive_particle",
+-        "rgb": [
+-          0.5492423,
+-          0.3675921,
+-          0.1829588
+-        ],
+-        "max_error": 3e-08
+-      },
+-      {
+-        "name": "vertical_exit",
+-        "rgb": [
+-          0.4539303,
+-          0.3205609,
+-          0.1889648
+-        ],
+-        "max_error": 3e-08
+-      }
++    "camera_feet": [
++      270.0,
++      254.38,
++      14.04
+     ],
+-    "failures": 0,
+-    "opengl_errors": 0
+-  },
+-  "performance": {
+-    "version": "1.6.10",
+-    "status": "Matched focused full-Reference testing completed; approximately60 FPS target remains unmet. Small finite scene gains do not certify general gameplay improvement.",
+-    "target_preset": "REFERENCE",
+-    "focused_comparison_verified": true,
+-    "target_60_FPS_verified": false,
+-    "quality_reduction": false,
+-    "conditions": {
+-      "baseline": "Released1.6.9 runtime in BaselineReference QA",
+-      "candidate": "Released1.6.10 runtime in CandidateReference QA",
+-      "same_override_files": true,
+-      "explicit_overrides": {
+-        "CLOUD_LAYERS": "2",
+-        "MIST_DETAIL": "3",
+-        "REFLECTION_MODE": "2",
+-        "REFRACTION_QUALITY": "2",
+-        "SKY_AMBIENT": "1.00",
+-        "WATER_EXTINCTION": "1.15",
+-        "WATER_RENDER_QUALITY": "2",
+-        "WATER_TURBIDITY": "3.00",
+-        "ATMOSPHERE_QUALITY": "2"
+-      },
+-      "full_quality": {
+-        "WATER_RENDER_QUALITY": 2,
+-        "ATMOSPHERE_QUALITY": 2,
+-        "REFLECTION_MODE": 2,
+-        "REFRACTION_QUALITY": 2,
+-        "CLOUD_LAYERS": 2,
+-        "MIST_DETAIL": 3
+-      },
+-      "unrelated_optics": "Same SKY_AMBIENT1, WATER_EXTINCTION1.15, WATER_TURBIDITY3",
+-      "related_visual_defaults": "All nine underlying source defaults are identical across before/after; source controls audit confirms this",
+-      "framebuffer": [
+-        1440,
+-        842
+-      ],
+-      "camera_river": [
+-        166.1907,
+-        65.9287,
+-        32.5536,
+-        108.45755,
+-        38.829258
+-      ],
+-      "camera_forest": [
+-        166.1907,
+-        65.9287,
+-        32.5536,
+-        0,
+-        4
+-      ],
+-      "weather_clear": true,
+-      "world_time": 6000,
+-      "saved_vsync": true,
+-      "max_fps": 70,
+-      "DynamicFPS_enabled": true,
+-      "activity_reset": "Only when actual focus1, every5seconds; no saved config change",
+-      "sampling": "30seconds Minecraft frame-end ring; focus/size every50ms main-thread poll",
+-      "order": "River before1,after1,after2,before2; forest before,after",
+-      "no_concurrent_native_GPU_tests_or_profiler": true
+-    },
+-    "activity_monitor": "final-activity-monitor.txt",
+-    "process_snapshot": "benchmark-process-snapshot.txt (near end of run; not a continuous process trace)",
+-    "samples": [
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 596,
+-        "average_fps": 19.8351,
+-        "median_frame_ms": 50.4255,
+-        "p95_frame_ms": 55.5603,
+-        "p99_frame_ms": 63.0435,
+-        "focused_polls": 559,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.047815833,
+-        "file": "benchmarks/reference-river-before-1.json"
+-      },
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 602,
+-        "average_fps": 20.0435,
+-        "median_frame_ms": 49.8738,
+-        "p95_frame_ms": 57.4118,
+-        "p99_frame_ms": 62.4267,
+-        "focused_polls": 558,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.034653709,
+-        "file": "benchmarks/reference-river-after-1.json"
+-      },
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 609,
+-        "average_fps": 20.2856,
+-        "median_frame_ms": 48.9942,
+-        "p95_frame_ms": 53.5232,
+-        "p99_frame_ms": 62.8041,
+-        "focused_polls": 556,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.021292458,
+-        "file": "benchmarks/reference-river-after-2.json"
+-      },
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 582,
+-        "average_fps": 19.3955,
+-        "median_frame_ms": 51.5243,
+-        "p95_frame_ms": 56.5705,
+-        "p99_frame_ms": 64.1196,
+-        "focused_polls": 559,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.006923209,
+-        "file": "benchmarks/reference-river-before-2.json"
+-      },
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 534,
+-        "average_fps": 17.7699,
+-        "median_frame_ms": 56.1502,
+-        "p95_frame_ms": 63.0936,
+-        "p99_frame_ms": 64.4224,
+-        "focused_polls": 526,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.0508995,
+-        "file": "benchmarks/reference-forest-before.json"
+-      },
+-      {
+-        "valid_focused_sample": true,
+-        "frames": 543,
+-        "average_fps": 18.0673,
+-        "median_frame_ms": 55.2883,
+-        "p95_frame_ms": 63.0715,
+-        "p99_frame_ms": 64.4236,
+-        "focused_polls": 526,
+-        "unfocused_polls": 0,
+-        "framebuffer": [
+-          1440,
+-          842
+-        ],
+-        "method": "Minecraft's frame-end duration ring; focus and size checked every 50ms main-thread poll",
+-        "duration_from_frame_ring_seconds": 30.054289,
+-        "file": "benchmarks/reference-forest-after.json"
+-      }
+-    ],
+-    "comparison": [
+-      {
+-        "scene": "river",
+-        "baseline_fps": 19.615437828747396,
+-        "candidate_fps": 20.164531196170373,
+-        "finite_mean_change_percent": 2.799291926169767,
+-        "target_60_FPS_met": false
+-      },
+-      {
+-        "scene": "forest",
+-        "baseline_fps": 17.769850782669582,
+-        "candidate_fps": 18.067304802985024,
+-        "finite_mean_change_percent": 1.6739252566236429,
+-        "target_60_FPS_met": false
+-      }
+-    ],
+-    "river_summary_method": "Pooled frame counts / pooled Minecraft frame-duration sums across two30-second samples per build, order before/after/after/before",
+-    "forest_summary_method": "One30-second sample per build",
+-    "limits": [
+-      "Only two fixed normal-world views; not a moving gameplay or universal performance guarantee",
+-      "Earlier1.6.9 ~56FPS samples used different saved quality choices, so cannot certify full Reference",
+-      "No native GPU probe/profiler ran during accepted FPS samples",
+-      "Small gains may include normal run/thermal variation; target remains far from60"
+-    ],
+-    "diagnostics": {
+-      "status": "Pending: focused active-game Reference comparison unavailable; no whole-game speedup or 60 FPS claim.",
+-      "target_preset": "REFERENCE",
+-      "quality_reduction": false,
+-      "framebuffer": [
+-        1440,
+-        842
+-      ],
+-      "render_distance_chunks": 12,
+-      "simulation_distance_chunks": 8,
+-      "saved_vsync": true,
+-      "saved_max_fps": 70,
+-      "saved_inactivity_fps_limit": "afk",
+-      "DynamicFPS_enabled": true,
+-      "observed_focus": false,
+-      "observed_DynamicFPS_state": "UNFOCUSED",
+-      "observed_vanilla_limiter": "LONG_AFK / cap15",
+-      "scope": "Main river GPU pass diagnostics are unfocused and do not establish gameplay FPS. Native probes are isolated microbenchmarks.",
+-      "reflection_pass_diagnostic_ms": {
+-        "baseline": 24.274,
+-        "candidate": 22.457
+-      },
+-      "diagnostic_limit": "Different short diagnostic sessions; not an accepted matched focused benchmark. Plane-cache and no-reflection-fog experiments were rejected and are excluded from release source.",
+-      "actual_samples": "No accepted focused sample for 1.6.10 yet. Mac locked / game unfocused; retain request in CHANGES.md."
+-    },
+-    "next_step": "Continue measuring the full-resolution scenery-reflection and foliage/atmosphere bottlenecks; retain all quality, ranges, controls and intended visuals. Do not close the60FPS request."
++    "eye_y": 256,
++    "drift_for_test": 0,
++    "alpha": 255,
++    "QA_only_not_distributed": true,
++    "actual_runtime_alpha_at_camera": 255,
++    "active_runtime_footprint_matches_planned": true,
++    "actual_resource_origin": "vanilla"
+   },
+   "live": {
+     "profile": "Modrinth Main / Minecraft (1)",
+@@ -685,21 +716,18 @@
+     "Iris": "1.10.8",
+     "Sodium": "0.8.14",
+     "hardware": "Apple M1 / macOS / OpenGL4.1",
+-    "scope": "Actual framebuffer captures from immutable QA packs using final runtime code. Baseline, isolation variants and rejected frames are labelled separately in the visual report. Release loading and final preferences require the external install receipt.",
+-    "report": "outputs/Stratus-1.6.10-visual-checks/index.html"
+-  },
+-  "preserved": [
+-    "All 62 source option IDs/defaults/allowed values and menu paths",
+-    "Original six quality assignments in each of four profiles",
+-    "Full chosen framebuffer/effect resolutions, sample budgets, traversal caps and ranges",
+-    "Existing pole filter and all unrelated runtime source",
+-    "Older archives/preferences and existing new-version settings"
+-  ],
++    "framebuffer": [
++      1440,
++      842
++    ],
++    "review": "Matched62-option river/underwater views, existing submerged fixtures, confirmed occupied cloud and clearer independent cirrus/day/sunset isolations. Unloaded first attempts are rejected and superseded by gated retries. Final release and menu review recorded separately in receipt/report.",
++    "report": "outputs/Stratus-1.6.11-visual-checks/index.html"
++  },
+   "limits": [
+-    "Full Reference river19.6154\u219220.1645FPS; forest17.7699\u219218.0673FPS. Small finite gains, far below requested60FPS; no general guarantee.",
+-    "Finite checks do not certify all scenes, presets, mods or movement",
+-    "Exact historical downward-water pole and distant-leaf contexts remain unverified",
+-    "Repeated same-pack reflected foliage varies; screenshots do not establish pixel equivalence",
+-    "The plane-cache and no-reflection-fog diagnostic experiments are not release source"
++    "No FPS sampling or60FPS verification: explicit user deferral",
++    "The approved Reference quality rebase is not a rendering-algorithm speedup",
++    "Exact historical pole/distant-leaf contexts and relevant leaf-fog acceptance remain pending",
++    "Finite visual checks do not certify every preset/mod/motion/weather combination",
++    "All original controls/ranges are retained; selecting a preset intentionally applies its common56 visual defaults plus six quality choices"
+   ]
+ }
+--- 1.6.10/IN-GAME-TEST.txt
++++ 1.6.11/IN-GAME-TEST.txt
+@@ -1,34 +1,22 @@
+-STRATUS 1.6.10 — LIVE CHECKS AND FOLLOW-UP
++STRATUS1.6.11 — LIVE CHECKS / NEXT PERFORMANCE RUN
++Select the new ZIP after running the change-aware installer. Reference now
++represents the explicitly approved Main visual AND quality baseline. High keeps
++full-resolution detailed optics; Fast/Balanced are lighter. Every control remains.
++Confirm Reference(Recommended) in Iris and the expected film/water defaults.
++A later preserved manual override can correctly make the active profile Custom.
+ 
+-Run install.py with the latest actual previous release settings, then select
+-Stratus-1.6.10.zip. Confirm active Iris pipeline and log before judging it.
+-The installer preserves unrelated tuning; testing Reference should not erase
+-your normal saved quality preferences. Reference (Recommended) retains its ID.
+-Materials: film amount, sheen conditions/strength, retired darkening. Water:
+-vanilla texture strength. Lighting: vanilla/enhanced switch and retained tuning.
++Completed technical/live checks are listed in VALIDATION.txt and the external
++visual report. Initial unloaded frames are rejected and labelled separately.
++The active cloud texture was read only into private work evidence; no Minecraft
++texture is bundled with the shader. Existing source uses active resource assets.
+ 
+-Review actual river/reflections, shallow/deep water, waterline, underwater air
+-exits, glass, submerged wood, particles and waterfall. Review clouds below,
+-within and above the layer, small spans/grazing rays, cirrus alone, motion,
+-sunset and native mode. Review clear/rain film, cave/local lamps/night and
+-native/polished sun. Reject unloaded terrain and inside-block captures. The
+-versioned visual report records finite checks and any remaining gaps.
+-
+-To complete performance acceptance: unlock/focus the existing Main window,
+-use full Reference at1440x842/render12/simulation8 and matched fixed cameras,
+-weather clear/time6000. Record focus continuously, Dynamic FPS state and the
+-Minecraft inactivity limiter. Temporary activity resets may hold NONE/cap70
+-without modifying saved settings; stop the helper afterwards. Compare30-second
+-baseline/candidate samples with no concurrent native GPU test/profiler. A locked,
+-background-throttled or AFK-limited window is invalid even if a counter appears.
+-Keep the approximately60 FPS target pending until actual evidence supports it.
+-
+-Restore original camera/HUD/pause/flight, weather/daytime/timers and temporary
+-fixture blocks after testing. Preserve all older ZIPs, preferences, mods and
+-worlds. Exact historical pole/leaf contexts remain separately unverified.
+-
+-RECORDED FULL-REFERENCE RESULT
+-Matched focused30-second samples completed with no focus loss and NONE/cap70.
+-River19.6154→20.1645 FPS (two samples/build), forest17.7699→18.0673 (one/build).
+-The approximately60FPS target remains unmet. Continue measured optimisation
+-without quality cuts; do not retest merely to recertify unchanged source.
++FPS TESTING IS DEFERRED: do not start sampling until the user requests it again.
++For that future run: confirm actual profile/pack/options/framebuffer/render and
++simulation distances/weather/time/camera. READY must wait for all view-distance
++columns plus empty Sodium jobs/workers/uploads/task queues and stable counts
++>=5seconds. A fresh successful gate is required at BENCH start. Record focus,
++Dynamic FPS and vanilla AFK limiter continuously. Label chunk-loading samples
++separately; never use them as steady-state results. Compare at matched quality;
++the preset rebase is not a rendering-algorithm speedup. Keep60FPS pending until
++actual evidence supports it. Stop all temporary helpers and restore client/world
++state afterwards. Do not substitute old full-detail Reference benchmarks.
+--- 1.6.10/README.txt
++++ 1.6.11/README.txt
+@@ -1,60 +1,50 @@
+-STRATUS 1.6.10 — SETTINGS MIGRATION AND MEASURED-WORK OPTIMISATION
+-22 October 2026 / Minecraft Java1.21.11 / Iris1.10.8 / Sodium0.8.14
+-Apple M1, macOS, GLSL330 / OpenGL4.1. Original MIT source.
++STRATUS1.6.11 — YOUR REFERENCE PRESET AND CHUNK-READY QA
++22 October2026 / Minecraft Java1.21.11 / Iris1.10.8 / Sodium0.8.14
++Apple M1 / macOS / OpenGL4.1. Original MIT source.
+ 
+-CHANGES
+-Preserve the 1.6.9 vanilla colour, independent surface film and native animated
+-water texture. Reference is now labelled Reference (Recommended); its ID and
+-full effect resolution/quality remain unchanged. All 62 controls, choices and
+-menus remain. Every preset explicitly uses the approved colour/film/water-texture
+-visual defaults. Existing quality assignments remain exactly as before.
++APPROVED PRESET CHANGE
++Reference(Recommended) and the source defaults now use the captured latest Main
++visual AND quality choices, explicitly approved by the user. Its quality is
++half-resolution water/atmosphere, cloud sampling2, mist3, sky-only reflections
++and refraction1. This supersedes the old full-detail Reference definition.
++High retains full effect resolution, detailed scenery reflections/refraction
++and cloud sampling3. All those quality choices remain manually selectable.
++Fast/Balanced use lighter quality choices; no component exceeds Reference.
++Every preset explicitly shares the same56 visual settings from Reference.
++All62 IDs, allowed values, labels/tooltips and menu paths remain available.
++Selecting a preset deliberately applies these visual and quality defaults.
+ 
+-The scenery tracer reuses projected interval endpoints and invariant dot
+-products. Mist skips density work only for its zero-weight clear foreground,
+-and skips sunlight density samples only when sunlight/scattering contributes
+-zero. No effect, sample budget, range, resolution or quality selection is cut.
+-The slower plane-cache experiment was rejected and is not included.
++CAPTURED MAIN TUNING
++Visual values include sky ambient1, film amount0.65, water visibility2.2,
++extinction0.9, turbidity3, ripple height0.55/size0.40/rate1, water texture1.
++Remaining source visual values are retained and explicit in every profile.
++See RELEASE-POLICY.json and CHECKS.json for the complete machine-readable state.
+ 
+-SETTINGS MIGRATION
+-Use install.py to carry only unrelated latest overrides to a new release.
+-RELEASE-POLICY.json lists the nine related colour/film/water-texture keys reset
+-to intended defaults for this release. This reset was explicitly user-approved.
+-Original old settings remain untouched. Existing new-version settings always
+-win; the installer never overwrites them or a conflicting archive. Selecting a
+-preset deliberately applies its explicit visual defaults and original quality.
+-Future visual defaults apply to all presets; combined visual/performance
+-changes default to Reference unless explicitly approved otherwise. Performance
+-implementation changes in this release apply to all presets without quality cuts.
+-
+-INSTALL
+-Keep the ZIP zipped. From the editable source folder run:
+-python3 install.py --profile "/path/to/Modrinth/profile" --dry-run
+-python3 install.py --profile "/path/to/Modrinth/profile"
+-Then select Stratus-1.6.10.zip in Iris. Use --archive for a ZIP elsewhere and
+---previous-settings for an explicit old .zip.txt path. This matters if a test
+-pack is currently selected. Installing is separate from selecting/loading.
+-Manual ZIP copying does not run the selective-settings migration.
++MIGRATION AND NEWER EDITS
++The installer resets only the related changed-default/quality keys to the
++approved captured Reference values. It carries unrelated overrides and preserves
++later manual old-version edits that differ from that capture, including removal
++of an override to return to an older source default. Existing new-version
++preferences always win. Old archives/preferences are never overwritten.
++Run python3 install.py --profile "/path/to/profile" --dry-run, then repeat without
++--dry-run. Use --previous-settings when a QA pack is selected. Select the new
++ZIP in Iris afterwards. Installing, selecting and loading are separate stages.
++Manual ZIP copying does not perform this migration.
+ 
+ VERIFICATION
+-768 native compile/link pairs / zero failures. Actual GLSL matched tracer
+-checks: 344,064 pixels per variant, three qualities, zero hit mismatches.
+-Atmosphere: 131,072 matched pixels across day/night, max linear error <0.0001.
+-Ten underwater resolve cases and nine installer integration checks passed.
+-Finite actual Main captures cover water, materials, night and cloud views;
+-see the labelled visual report and install receipt for exact accepted scope.
++768 native compile/link pairs/eight variants/zero failures. Iris interpreted
++all four62-option profiles and each matched after applying its declared values.
++Ten underwater resolve cases at current Reference optics and ten installer
++integration checks passed. Actual Main views compare matched Reference tuning,
++water/underwater/fixtures, occupied clouds and independent cirrus/day/sunset.
++See the labelled report and external Stratus-1.6.11-install.json for exact scope.
+ 
+-FOCUSED FULL-REFERENCE RESULTS AND LIMITS
+-1440x842 / render12 / simulation8 / same six Reference quality selections,
+-weather clear / time6000 / fixed matched cameras / saved VSync true / cap70.
+-Dynamic FPS FOCUSED; vanilla limiter NONE/cap70 confirmed every5seconds.
+-River, two30-second samples per build: baseline19.6154 / new20.1645 FPS.
+-Forest, one30-second sample per build: baseline17.7699 / new18.0673 FPS.
+-All six samples had zero focus-loss polls. Small finite gains (~2.8% river,
+-~1.7% forest) are not a general gameplay guarantee. Reference60FPS remains
+-unmet and pending. Earlier~56FPS samples used different saved quality choices.
+-No native GPU probe/profiler ran concurrently. Temporary activity resets left
+-saved options unchanged and were stopped; original client state was restored.
+-Screen-space misses, finite cloud range and approximate film/atmosphere remain.
+-Occupied-cloud interior, clearer independent cirrus/sunset, exact historical
+-pole/leaf views and exhaustive scene/preset/mod/motion coverage remain pending.
+-See VALIDATION.txt, CHECKS.json and Stratus-1.6.10-performance.json in outputs/.
++CHUNK READINESS AND PERFORMANCE
++The QA driver checks all441 columns in the render12 view disk, Sodium build
++jobs/workers/upload/task queues and stable counts for at least5seconds before
++allowing a steady-state check. Live traces show it blocked while uploads were
++pending. Future FPS sampling also requires focus and valid active-game limits.
++FPS WAS EXPLICITLY DEFERRED BY THE USER. No new FPS samples or60FPS claim.
++The approved lower-cost Reference baseline is not a code-optimisation speedup.
++Existing1.6.10 rendering algorithms are retained in this release. Performance,
++exact original pole/leaf scenes and remaining leaf-fog acceptance stay pending.
+--- 1.6.10/RELEASE-POLICY.json
++++ 1.6.11/RELEASE-POLICY.json
+@@ -1,30 +1,91 @@
+ {
+-  "version": "1.6.10",
++  "version": "1.6.11",
+   "reset_related_overrides": [
+-    "REALISTIC_LIGHTING",
+-    "EXPOSURE",
+-    "WHITE_BALANCE",
+-    "SURFACE_SATURATION",
++    "ATMOSPHERE_QUALITY",
++    "CLOUD_LAYERS",
++    "MIST_DETAIL",
++    "REFLECTION_MODE",
++    "REFRACTION_QUALITY",
++    "RIPPLE_HEIGHT",
++    "RIPPLE_RATE",
++    "RIPPLE_SIZE",
++    "SKY_AMBIENT",
+     "SURFACE_DAMPNESS",
+-    "WET_SHEEN",
+-    "WET_DARKENING",
+-    "WET_WEATHER_MODE",
+-    "WATER_TEXTURE"
++    "WATER_EXTINCTION",
++    "WATER_RENDER_QUALITY",
++    "WATER_TEXTURE",
++    "WATER_TURBIDITY",
++    "WATER_VISIBILITY"
+   ],
+   "visual_defaults": {
+-    "REALISTIC_LIGHTING": "0",
++    "SKY_AMBIENT": "1.00",
+     "EXPOSURE": "0.20",
+     "WHITE_BALANCE": "0.00",
+     "SURFACE_SATURATION": "1.00",
+-    "SURFACE_DAMPNESS": "1.00",
++    "SURFACE_DAMPNESS": "0.65",
++    "CLOUD_AMOUNT": "0.68",
++    "CLOUD_ALTITUDE": "256.0",
++    "CLOUD_THICKNESS": "12.0",
++    "SKY_LEAK": "0.35",
++    "CLOUD_SPAN": "240.0",
++    "CLOUD_DISTORTION": "0.85",
++    "CLOUD_RELIEF": "0.75",
++    "CLOUD_DRIFT": "0.25",
++    "MIST_AMOUNT": "0.85",
++    "MIST_Y": "70.0",
++    "MIST_THICKNESS": "18.0",
++    "MIST_CLEAR": "24.0",
++    "REFLECT_LEVEL": "1.00",
++    "REFLECT_RANGE": "120.0",
++    "WATER_VISIBILITY": "2.20",
++    "WATER_EXTINCTION": "0.90",
++    "RIPPLE_HEIGHT": "0.55",
++    "RIPPLE_SIZE": "0.40",
++    "RIPPLE_RATE": "1.00",
++    "FACE_SHADING": "1.00",
++    "WET_DARKENING": "1.00",
+     "WET_SHEEN": "0.85",
+-    "WET_DARKENING": "1.00",
++    "BLOOM_STRENGTH": "0.18",
++    "BLOOM_RADIUS": "3.00",
++    "SUN_VISIBILITY": "0.85",
++    "LAMP_LEVEL": "1.00",
++    "LAMP_HEAT": "0.25",
++    "VANILLA_FACE_CONTRAST": "1.00",
++    "REALISTIC_FACE_CONTRAST": "1.00",
++    "REALISTIC_LIGHTING": "0",
+     "WET_WEATHER_MODE": "0",
+-    "WATER_TEXTURE": "0.15"
++    "SUN_CORE_BRIGHTNESS": "4.50",
++    "SUN_HALO_STRENGTH": "2.00",
++    "SUN_HALO_RADIUS": "1.50",
++    "CIRRUS_DENSITY": "1.00",
++    "FACE_BLEND": "1.00",
++    "GROUND_WARMTH": "0.00",
++    "WATER_DISTORTION": "1.00",
++    "CIRRUS_AMOUNT": "0.65",
++    "CIRRUS_ALTITUDE": "360.0",
++    "CLOUD_STYLE": "0",
++    "SUN_STYLE": "0",
++    "WATER_TURBIDITY": "3.00",
++    "BIOME_WATER": "1",
++    "CLOUD_DENSITY": "1.00",
++    "CLOUD_DETAIL": "1.00",
++    "MIST_SCALE": "96.0",
++    "MIST_BREAKUP": "0.85",
++    "MIST_LIGHT": "0.65",
++    "WATER_TEXTURE": "1.00",
++    "ambientOcclusionLevel": "1.00"
++  },
++  "reference_quality_defaults": {
++    "WATER_RENDER_QUALITY": "1",
++    "ATMOSPHERE_QUALITY": "1",
++    "CLOUD_LAYERS": "2",
++    "MIST_DETAIL": "3",
++    "REFLECTION_MODE": "0",
++    "REFRACTION_QUALITY": "1"
+   },
+   "classifications": [
+     {
+-      "change": "Approved 1.6.9 colour, film and water texture defaults",
++      "change": "Explicitly approved latest Main visual baseline",
+       "type": "visual",
+       "presets": [
+         "FAST",
+@@ -33,28 +94,239 @@
+         "HIGH"
+       ],
+       "defaults": {
+-        "REALISTIC_LIGHTING": "0",
++        "SKY_AMBIENT": "1.00",
+         "EXPOSURE": "0.20",
+         "WHITE_BALANCE": "0.00",
+         "SURFACE_SATURATION": "1.00",
+-        "SURFACE_DAMPNESS": "1.00",
++        "SURFACE_DAMPNESS": "0.65",
++        "CLOUD_AMOUNT": "0.68",
++        "CLOUD_ALTITUDE": "256.0",
++        "CLOUD_THICKNESS": "12.0",
++        "SKY_LEAK": "0.35",
++        "CLOUD_SPAN": "240.0",
++        "CLOUD_DISTORTION": "0.85",
++        "CLOUD_RELIEF": "0.75",
++        "CLOUD_DRIFT": "0.25",
++        "MIST_AMOUNT": "0.85",
++        "MIST_Y": "70.0",
++        "MIST_THICKNESS": "18.0",
++        "MIST_CLEAR": "24.0",
++        "REFLECT_LEVEL": "1.00",
++        "REFLECT_RANGE": "120.0",
++        "WATER_VISIBILITY": "2.20",
++        "WATER_EXTINCTION": "0.90",
++        "RIPPLE_HEIGHT": "0.55",
++        "RIPPLE_SIZE": "0.40",
++        "RIPPLE_RATE": "1.00",
++        "FACE_SHADING": "1.00",
++        "WET_DARKENING": "1.00",
+         "WET_SHEEN": "0.85",
+-        "WET_DARKENING": "1.00",
++        "BLOOM_STRENGTH": "0.18",
++        "BLOOM_RADIUS": "3.00",
++        "SUN_VISIBILITY": "0.85",
++        "LAMP_LEVEL": "1.00",
++        "LAMP_HEAT": "0.25",
++        "VANILLA_FACE_CONTRAST": "1.00",
++        "REALISTIC_FACE_CONTRAST": "1.00",
++        "REALISTIC_LIGHTING": "0",
+         "WET_WEATHER_MODE": "0",
+-        "WATER_TEXTURE": "0.15"
++        "SUN_CORE_BRIGHTNESS": "4.50",
++        "SUN_HALO_STRENGTH": "2.00",
++        "SUN_HALO_RADIUS": "1.50",
++        "CIRRUS_DENSITY": "1.00",
++        "FACE_BLEND": "1.00",
++        "GROUND_WARMTH": "0.00",
++        "WATER_DISTORTION": "1.00",
++        "CIRRUS_AMOUNT": "0.65",
++        "CIRRUS_ALTITUDE": "360.0",
++        "CLOUD_STYLE": "0",
++        "SUN_STYLE": "0",
++        "WATER_TURBIDITY": "3.00",
++        "BIOME_WATER": "1",
++        "CLOUD_DENSITY": "1.00",
++        "CLOUD_DETAIL": "1.00",
++        "MIST_SCALE": "96.0",
++        "MIST_BREAKUP": "0.85",
++        "MIST_LIGHT": "0.65",
++        "WATER_TEXTURE": "1.00",
++        "ambientOcclusionLevel": "1.00"
+       }
+     },
+     {
+-      "change": "Equivalent-work performance optimisation",
+-      "type": "performance",
++      "change": "Explicitly approved Main quality as Reference with ordered lower/higher presets",
++      "type": "visual_and_performance",
+       "presets": [
+         "FAST",
+         "BALANCED",
+         "REFERENCE",
+         "HIGH"
+       ],
+-      "quality_reduction": false
++      "per_preset_quality": {
++        "FAST": {
++          "WATER_RENDER_QUALITY": "0",
++          "ATMOSPHERE_QUALITY": "0",
++          "CLOUD_LAYERS": "1",
++          "MIST_DETAIL": "1",
++          "REFLECTION_MODE": "0",
++          "REFRACTION_QUALITY": "0"
++        },
++        "BALANCED": {
++          "WATER_RENDER_QUALITY": "1",
++          "ATMOSPHERE_QUALITY": "1",
++          "CLOUD_LAYERS": "1",
++          "MIST_DETAIL": "2",
++          "REFLECTION_MODE": "0",
++          "REFRACTION_QUALITY": "0"
++        },
++        "REFERENCE": {
++          "WATER_RENDER_QUALITY": "1",
++          "ATMOSPHERE_QUALITY": "1",
++          "CLOUD_LAYERS": "2",
++          "MIST_DETAIL": "3",
++          "REFLECTION_MODE": "0",
++          "REFRACTION_QUALITY": "1"
++        },
++        "HIGH": {
++          "WATER_RENDER_QUALITY": "2",
++          "ATMOSPHERE_QUALITY": "2",
++          "CLOUD_LAYERS": "3",
++          "MIST_DETAIL": "3",
++          "REFLECTION_MODE": "2",
++          "REFRACTION_QUALITY": "2"
++        }
++      },
++      "user_approved_reference_quality_rebase": true,
++      "optimisation_speedup_claim": false
+     }
+   ],
+-  "migration_rule": "Carry unrelated current overrides only when new-version settings do not exist. Reset related overrides to release/preset defaults. Preserve every old file and existing new-version settings. Future combined visual/performance defaults belong to REFERENCE unless explicitly approved otherwise."
++  "migration_rule": "For this approved preset rebase, reset only changed visual-default keys and the six quality keys to the captured Main Reference defaults. Carry unrelated latest overrides; never overwrite old or existing new-version settings. Existing controls and allowed values remain. Newer old-version manual overrides differing from the captured approved baseline win, including a manual return to an old source default.",
++  "previous_source_defaults": {
++    "SKY_AMBIENT": "1.40",
++    "EXPOSURE": "0.20",
++    "WHITE_BALANCE": "0.00",
++    "SURFACE_SATURATION": "1.00",
++    "SURFACE_DAMPNESS": "1.00",
++    "CLOUD_AMOUNT": "0.68",
++    "CLOUD_ALTITUDE": "256.0",
++    "CLOUD_THICKNESS": "12.0",
++    "SKY_LEAK": "0.35",
++    "CLOUD_SPAN": "240.0",
++    "CLOUD_DISTORTION": "0.85",
++    "CLOUD_RELIEF": "0.75",
++    "CLOUD_DRIFT": "0.25",
++    "CLOUD_LAYERS": "1",
++    "MIST_AMOUNT": "0.85",
++    "MIST_Y": "70.0",
++    "MIST_THICKNESS": "18.0",
++    "MIST_CLEAR": "24.0",
++    "MIST_DETAIL": "2",
++    "REFLECT_LEVEL": "1.00",
++    "REFLECTION_MODE": "2",
++    "REFLECT_RANGE": "120.0",
++    "WATER_VISIBILITY": "1.70",
++    "WATER_EXTINCTION": "3.00",
++    "RIPPLE_HEIGHT": "0.80",
++    "RIPPLE_SIZE": "1.00",
++    "RIPPLE_RATE": "0.45",
++    "FACE_SHADING": "1.00",
++    "WET_DARKENING": "1.00",
++    "WET_SHEEN": "0.85",
++    "BLOOM_STRENGTH": "0.18",
++    "BLOOM_RADIUS": "3.00",
++    "SUN_VISIBILITY": "0.85",
++    "LAMP_LEVEL": "1.00",
++    "LAMP_HEAT": "0.25",
++    "VANILLA_FACE_CONTRAST": "1.00",
++    "REALISTIC_FACE_CONTRAST": "1.00",
++    "REALISTIC_LIGHTING": "0",
++    "WET_WEATHER_MODE": "0",
++    "SUN_CORE_BRIGHTNESS": "4.50",
++    "SUN_HALO_STRENGTH": "2.00",
++    "SUN_HALO_RADIUS": "1.50",
++    "CIRRUS_DENSITY": "1.00",
++    "FACE_BLEND": "1.00",
++    "GROUND_WARMTH": "0.00",
++    "WATER_DISTORTION": "1.00",
++    "CIRRUS_AMOUNT": "0.65",
++    "CIRRUS_ALTITUDE": "360.0",
++    "CLOUD_STYLE": "0",
++    "SUN_STYLE": "0",
++    "WATER_TURBIDITY": "6.00",
++    "BIOME_WATER": "1",
++    "REFRACTION_QUALITY": "0",
++    "ATMOSPHERE_QUALITY": "1",
++    "WATER_RENDER_QUALITY": "2",
++    "CLOUD_DENSITY": "1.00",
++    "CLOUD_DETAIL": "1.00",
++    "MIST_SCALE": "96.0",
++    "MIST_BREAKUP": "0.85",
++    "MIST_LIGHT": "0.65",
++    "WATER_TEXTURE": "0.15",
++    "ambientOcclusionLevel": "1.00"
++  },
++  "captured_previous_values": {
++    "SKY_AMBIENT": "1.00",
++    "EXPOSURE": "0.20",
++    "WHITE_BALANCE": "0.00",
++    "SURFACE_SATURATION": "1.00",
++    "SURFACE_DAMPNESS": "0.65",
++    "CLOUD_AMOUNT": "0.68",
++    "CLOUD_ALTITUDE": "256.0",
++    "CLOUD_THICKNESS": "12.0",
++    "SKY_LEAK": "0.35",
++    "CLOUD_SPAN": "240.0",
++    "CLOUD_DISTORTION": "0.85",
++    "CLOUD_RELIEF": "0.75",
++    "CLOUD_DRIFT": "0.25",
++    "CLOUD_LAYERS": "2",
++    "MIST_AMOUNT": "0.85",
++    "MIST_Y": "70.0",
++    "MIST_THICKNESS": "18.0",
++    "MIST_CLEAR": "24.0",
++    "MIST_DETAIL": "3",
++    "REFLECT_LEVEL": "1.00",
++    "REFLECTION_MODE": "0",
++    "REFLECT_RANGE": "120.0",
++    "WATER_VISIBILITY": "2.20",
++    "WATER_EXTINCTION": "0.90",
++    "RIPPLE_HEIGHT": "0.55",
++    "RIPPLE_SIZE": "0.40",
++    "RIPPLE_RATE": "1.00",
++    "FACE_SHADING": "1.00",
++    "WET_DARKENING": "1.00",
++    "WET_SHEEN": "0.85",
++    "BLOOM_STRENGTH": "0.18",
++    "BLOOM_RADIUS": "3.00",
++    "SUN_VISIBILITY": "0.85",
++    "LAMP_LEVEL": "1.00",
++    "LAMP_HEAT": "0.25",
++    "VANILLA_FACE_CONTRAST": "1.00",
++    "REALISTIC_FACE_CONTRAST": "1.00",
++    "REALISTIC_LIGHTING": "0",
++    "WET_WEATHER_MODE": "0",
++    "SUN_CORE_BRIGHTNESS": "4.50",
++    "SUN_HALO_STRENGTH": "2.00",
++    "SUN_HALO_RADIUS": "1.50",
++    "CIRRUS_DENSITY": "1.00",
++    "FACE_BLEND": "1.00",
++    "GROUND_WARMTH": "0.00",
++    "WATER_DISTORTION": "1.00",
++    "CIRRUS_AMOUNT": "0.65",
++    "CIRRUS_ALTITUDE": "360.0",
++    "CLOUD_STYLE": "0",
++    "SUN_STYLE": "0",
++    "WATER_TURBIDITY": "3.00",
++    "BIOME_WATER": "1",
++    "REFRACTION_QUALITY": "1",
++    "ATMOSPHERE_QUALITY": "1",
++    "WATER_RENDER_QUALITY": "1",
++    "CLOUD_DENSITY": "1.00",
++    "CLOUD_DETAIL": "1.00",
++    "MIST_SCALE": "96.0",
++    "MIST_BREAKUP": "0.85",
++    "MIST_LIGHT": "0.65",
++    "WATER_TEXTURE": "1.00",
++    "ambientOcclusionLevel": "1.00"
++  },
++  "preserve_newer_manual_overrides": true
+ }
+--- 1.6.10/VALIDATION.txt
++++ 1.6.11/VALIDATION.txt
+@@ -1,41 +1,33 @@
+-STRATUS 1.6.10 — VALIDATION / 22 OCTOBER 2026
++STRATUS1.6.11 — VALIDATION
++768 native compatibility-shim program pairs /8 variants /3 dimensions /0failures.
++This checks syntax/linking separately from actual Iris runtime proof.
++Ten current-default underwater resolve cases pass with0failures/API errors:
++air exits, shallow/deep receivers, glass, additive particles and vertical exits.
++Ten temporary-profile installer checks pass, including later related edits,
++manual removal of an old override, unrelated preferences, existing new-version
++settings, atomic creation and existing/concurrent archive conflicts.
+ 
+-Native compatibility-shim compile/link: 768 program pairs, eight variants,
+-three dimensions, zero failures. This is separate from actual Iris loading.
+-Actual projected-tracer GLSL: seven synthetic scenes at three quality levels,
+-344,064 pixels per variant, zero hit mismatches, zero errors over0.001 and
+-zero OpenGL errors. Same interval budgets, ranges and occlusion logic remain.
+-Actual full atmosphere GLSL: eight day/night/height/range cases,131,072 matched
+-pixels, max linear RGBA error0.0000621081 (<0.0001), zero OpenGL errors.
+-Ten current-source underwater resolve cases pass, including air exits, glass,
+-additive particles and vertical exits. Nine temporary-profile installer checks
+-pass, including concurrent conflicting archive refusal and no overwrites.
++All62 IDs/ranges/menu paths are retained. Four presets explicitly share56visual
++values; six quality settings are ordered Fast<=Balanced<=Reference<=High.
++Iris parsed62assignments/profile and matched all four applied profile maps.
++Source defaults now match approved Reference, including current Main quality.
++The old full-detail Reference definition was deliberately superseded by user.
+ 
+-All62 prior IDs/defaults/ranges/menu access and four profiles retained.
+-Nine visual defaults explicitly apply in each profile; original six quality
+-assignments remain unchanged. Reference label updated; identifier retained.
+-Related saved overrides reset only via the approved migration policy. Existing
+-new-version preferences and all old versions remain untouched.
++Actual Main captures: matched baseline/candidate Reference tuning, river,
++underwater and existing fixtures; camera inside a confirmed occupied active
++cloud cell; independent cirrus with lower clouds disabled, day/sunset on/off.
++Initial unloaded isolation attempts are rejected; gated retries are retained.
++No pixel-equivalence or exhaustive scene/preset/mod certification is claimed.
++Final archive/source/installed byte proof and loaded pipeline are recorded in
++external outputs/Stratus-1.6.11-install.json and the versioned visual report.
+ 
+-Actual Main QA uses final runtime source in immutable named test packs. Normal
+-river, underwater, waterline and controlled fixture/cloud/material scenes were
+-captured; accepted, limited and rejected frames are labelled in the report.
+-Repeated captures show reflected-foliage variation even on the same baseline;
+-no screenshot pixel-equivalence claim is made. Native matched probes establish
+-finite component equivalence within the tolerances above, not universal visuals.
+-Final release archive/source/installed equivalence and loaded pack are recorded
+-separately in outputs/Stratus-1.6.10-install.json.
++Chunk readiness is actual data, not an arbitrary wait: all441 view-disk columns
++loaded, queues/workers/uploads empty and counts stable>=5seconds. Traces show
++not-ready periods and later successful gates. Future benchmark sampling requires
++a fresh gate and monitors renewed chunk/camera/focus/size changes. FPS integration
++and60FPS acceptance remain deferred by the user's explicit request. No FPS was
++sampled this pass. Old1.6.10full-quality results are a different quality baseline.
+ 
+-Focused full-Reference performance was subsequently tested after the user
+-foregrounded Main. Six30-second samples, zero focus-loss polls,1440x842,
+-render12/simulation8, matched Reference settings/cameras/weather clear/time6000.
+-Dynamic FPS remained FOCUSED, vanilla limiter NONE/cap70; temporary activity
+-resets every5seconds changed no saved setting. River pooled two samples/build:
+-19.6154 before /20.1645 after FPS. Forest one/build:17.7699 /18.0673 FPS.
+-The small finite improvements do not establish a general speedup or60FPS.
+-The target stays pending. Raw samples and conditions are in the external
+-versioned performance summary and work/stratus-refine-1610. No quality cuts or
+-concurrent native GPU probes/profiler. Prior unfocused diagnostics remain
+-separately labelled. Original client state restored and both helpers stopped.
+-Exact historical pole/leaf scenes, clearer cloud acceptance and exhaustive
+-presets/mods/moving-camera coverage remain pending in the project queue.
++Current rendering algorithms, old pole filter, resource-pack sun/cloud sources,
++all higher quality choices, old settings and unrelated mods/worlds are preserved.
++Exact historical pole/leaf context and relevant leaf-fog review remain pending.
+--- 1.6.10/install.py
++++ 1.6.11/install.py
+@@ -26,8 +26,17 @@
+ 
+ def migrate(values: dict[str, str], policy: dict) -> tuple[dict, dict]:
+     related = set(policy['reset_related_overrides'])
+-    return ({k: v for k, v in values.items() if k not in related},
+-            {k: v for k, v in values.items() if k in related})
++    carried = {k: v for k, v in values.items() if k not in related}
++    reset = {k: v for k, v in values.items() if k in related}
++    if policy.get('preserve_newer_manual_overrides'):
++        captured = policy['captured_previous_values']
++        previous_defaults = policy['previous_source_defaults']
++        for key in related:
++            latest = values.get(key, previous_defaults[key])
++            if latest != captured[key]:
++                carried[key] = latest
++                reset.pop(key, None)
++    return carried, reset
+ 
+ 
+ def create_if_absent(path: Path, data: bytes) -> bool:
+@@ -83,6 +92,7 @@
+               'previous_settings': str(previous_settings) if previous_settings else None,
+               'unrelated_overrides_carried': preserved, 'related_overrides_reset': reset,
+               'related_visual_defaults': policy['visual_defaults'],
++              'newer_manual_overrides_preserved': {k: v for k, v in preserved.items() if k in policy['reset_related_overrides']},
+               'existing_new_version_preferences_preserved': settings_existed,
+               'dry_run': dry_run, 'loaded': False}
+     if not dry_run:
+--- 1.6.10/package.py
++++ 1.6.11/package.py
+@@ -21,7 +21,7 @@
+     for item in contents:
+         if not item.is_file():
+             raise FileNotFoundError(item)
+-    destination = project.parent / 'Stratus-1.6.10.zip'
++    destination = project.parent / 'Stratus-1.6.11.zip'
+     with tempfile.TemporaryDirectory(prefix='stratus-package-', dir=project.parent) as scratch:
+         pending = Path(scratch) / destination.name
+         with zipfile.ZipFile(pending, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
+--- 1.6.10/shaders/core/options.glsl
++++ 1.6.11/shaders/core/options.glsl
+@@ -1,12 +1,13 @@
+ #ifndef STRATUS_OPTIONS_INCLUDED
+ #define STRATUS_OPTIONS_INCLUDED
+-// Balanced defaults retain physical water optics; High restores the finest sampling.
+-#define SKY_AMBIENT 1.40 // [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
++// Reference defaults use the explicitly approved latest Main tuning.
++// All quality choices remain available; higher presets retain detailed optics.
++#define SKY_AMBIENT 1.00 // [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
+ #define EXPOSURE 0.20 // [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
+ const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
+ #define WHITE_BALANCE 0.00 // [-0.24 -0.16 -0.08 -0.04 0.00 0.04 0.08 0.16 0.24]
+ #define SURFACE_SATURATION 1.00 // [0.00 0.25 0.50 0.75 0.85 0.93 1.00 1.07 1.15 1.30 1.50 1.75 2.00]
+-#define SURFACE_DAMPNESS 1.00 // [0.00 0.15 0.35 0.65 1.00 1.35 1.70 2.00 2.50 3.00]
++#define SURFACE_DAMPNESS 0.65 // [0.00 0.15 0.35 0.65 1.00 1.35 1.70 2.00 2.50 3.00]
+ #define CLOUD_AMOUNT 0.68 // [0.00 0.35 0.60 0.68 0.75 0.90 1.00]
+ #define CLOUD_ALTITUDE 256.0 // [64.0 96.0 128.0 160.0 192.0 224.0 256.0 320.0 384.0 512.0 640.0 768.0]
+ #define CLOUD_THICKNESS 12.0 // [4.0 12.0 20.0 32.0 40.0 56.0 72.0 96.0 128.0 160.0 200.0]
+@@ -15,20 +16,20 @@
+ #define CLOUD_DISTORTION 0.85 // [0.00 0.25 0.45 0.65 0.85 1.00 1.25 1.50 2.00]
+ #define CLOUD_RELIEF 0.75 // [0.00 0.25 0.40 0.55 0.75 1.00 1.25 1.50]
+ #define CLOUD_DRIFT 0.25 // [0.00 0.10 0.25 0.45 0.70 1.00 1.50 2.00 3.00]
+-#define CLOUD_LAYERS 1 // [1 2 3]
++#define CLOUD_LAYERS 2 // [1 2 3]
+ #define MIST_AMOUNT 0.85 // [0.00 0.15 0.30 0.40 0.60 0.75 0.85 1.00 1.25 1.50 2.00 3.00]
+ #define MIST_Y 70.0 // [-32.0 0.0 32.0 48.0 64.0 70.0 88.0 112.0 144.0 192.0 256.0 320.0]
+ #define MIST_THICKNESS 18.0 // [4.0 7.0 9.0 12.0 18.0 24.0 32.0 48.0 64.0]
+ #define MIST_CLEAR 24.0 // [0.0 4.0 8.0 16.0 24.0 32.0 48.0 64.0 80.0 112.0 144.0]
+-#define MIST_DETAIL 2 // [1 2 3]
++#define MIST_DETAIL 3 // [1 2 3]
+ #define REFLECT_LEVEL 1.00 // [0.00 0.40 0.60 0.85 1.00]
+-#define REFLECTION_MODE 2 // [0 1 2]
++#define REFLECTION_MODE 0 // [0 1 2]
+ #define REFLECT_RANGE 120.0 // [24.0 48.0 64.0 88.0 120.0 160.0 224.0 320.0]
+-#define WATER_VISIBILITY 1.70 // [0.05 0.10 0.20 0.35 0.50 0.70 0.90 1.10 1.30 1.70 2.20 3.00 4.00 6.00 8.00 12.00 16.00]
+-#define WATER_EXTINCTION 3.00 // [0.10 0.20 0.45 0.65 0.90 1.15 1.40 2.00 3.00]
+-#define RIPPLE_HEIGHT 0.80 // [0.00 0.15 0.30 0.55 0.80 1.00 1.30 1.70 2.20 3.00]
+-#define RIPPLE_SIZE 1.00 // [0.25 0.40 0.65 0.80 1.00 1.25 1.50 2.00 3.00 4.00]
+-#define RIPPLE_RATE 0.45 // [0.00 0.10 0.20 0.45 0.70 1.00 1.50 2.00 3.00]
++#define WATER_VISIBILITY 2.20 // [0.05 0.10 0.20 0.35 0.50 0.70 0.90 1.10 1.30 1.70 2.20 3.00 4.00 6.00 8.00 12.00 16.00]
++#define WATER_EXTINCTION 0.90 // [0.10 0.20 0.45 0.65 0.90 1.15 1.40 2.00 3.00]
++#define RIPPLE_HEIGHT 0.55 // [0.00 0.15 0.30 0.55 0.80 1.00 1.30 1.70 2.20 3.00]
++#define RIPPLE_SIZE 0.40 // [0.25 0.40 0.65 0.80 1.00 1.25 1.50 2.00 3.00 4.00]
++#define RIPPLE_RATE 1.00 // [0.00 0.10 0.20 0.45 0.70 1.00 1.50 2.00 3.00]
+ #define FACE_SHADING 1.00 // [0.00 0.15 0.25 0.35 0.50 0.70 0.85 1.00 1.25 1.50 2.00]
+ #define WET_DARKENING 1.00 // [0.00 0.25 0.50 0.75 1.00 1.30 1.70 2.00 2.50]
+ #define WET_SHEEN 0.85 // [0.00 0.15 0.35 0.65 0.85 1.00 1.35 1.70 2.00]
+@@ -53,16 +54,16 @@
+ #define CIRRUS_ALTITUDE 360.0 // [200.0 240.0 280.0 320.0 360.0 400.0 460.0 560.0 700.0 900.0 1200.0]
+ #define CLOUD_STYLE 0 // [0 1 2]
+ #define SUN_STYLE 0 // [0 1]
+-#define WATER_TURBIDITY 6.00 // [0.00 0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00]
++#define WATER_TURBIDITY 3.00 // [0.00 0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00]
+ #define BIOME_WATER 1 // [0 1]
+-#define REFRACTION_QUALITY 0 // [0 1 2]
++#define REFRACTION_QUALITY 1 // [0 1 2]
+ #define ATMOSPHERE_QUALITY 1 // [0 1 2]
+-#define WATER_RENDER_QUALITY 2 // [0 1 2]
++#define WATER_RENDER_QUALITY 1 // [0 1 2]
+ #define CLOUD_DENSITY 1.00 // [0.15 0.30 0.50 0.75 1.00 1.30 1.70 2.20 3.00]
+ #define CLOUD_DETAIL 1.00 // [0.00 0.25 0.50 0.75 1.00 1.30 1.70 2.00]
+ #define MIST_SCALE 96.0 // [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
+ #define MIST_BREAKUP 0.85 // [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
+ #define MIST_LIGHT 0.65 // [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
+ // Reuse the active animated water atlas pattern without changing opacity.
+-#define WATER_TEXTURE 0.15 // [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
++#define WATER_TEXTURE 1.00 // [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+ #endif
+--- 1.6.10/shaders/shaders.properties
++++ 1.6.11/shaders/shaders.properties
+@@ -54,10 +54,10 @@
+ screen.BLOOM=BLOOM_STRENGTH BLOOM_RADIUS
+ screen.PERFORMANCE=<profile> <empty> WATER_RENDER_QUALITY ATMOSPHERE_QUALITY CLOUD_LAYERS MIST_DETAIL REFLECTION_MODE REFRACTION_QUALITY REFLECT_RANGE <empty>
+ sliders=WATER_TEXTURE VANILLA_FACE_CONTRAST REALISTIC_FACE_CONTRAST SUN_CORE_BRIGHTNESS SUN_HALO_STRENGTH SUN_HALO_RADIUS CIRRUS_DENSITY EXPOSURE WET_DARKENING CLOUD_DENSITY CLOUD_DETAIL MIST_SCALE MIST_BREAKUP MIST_LIGHT WATER_TURBIDITY SKY_AMBIENT ambientOcclusionLevel WHITE_BALANCE SURFACE_SATURATION SURFACE_DAMPNESS WET_SHEEN FACE_SHADING FACE_BLEND GROUND_WARMTH BLOOM_STRENGTH BLOOM_RADIUS LAMP_LEVEL LAMP_HEAT CLOUD_AMOUNT CLOUD_ALTITUDE CLOUD_THICKNESS SKY_LEAK SUN_VISIBILITY CIRRUS_AMOUNT CIRRUS_ALTITUDE CLOUD_SPAN CLOUD_DISTORTION CLOUD_RELIEF CLOUD_DRIFT MIST_AMOUNT MIST_Y MIST_THICKNESS MIST_CLEAR REFLECT_LEVEL REFLECT_RANGE WATER_VISIBILITY WATER_EXTINCTION WATER_DISTORTION RIPPLE_HEIGHT RIPPLE_SIZE RIPPLE_RATE
+-profile.FAST=WATER_RENDER_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 ATMOSPHERE_QUALITY:0 REFLECTION_MODE:0 REFRACTION_QUALITY:0 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
+-profile.BALANCED=WATER_RENDER_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 ATMOSPHERE_QUALITY:1 REFLECTION_MODE:1 REFRACTION_QUALITY:0 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
+-profile.REFERENCE=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:2 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
+-profile.HIGH=WATER_RENDER_QUALITY:2 CLOUD_LAYERS:3 MIST_DETAIL:3 ATMOSPHERE_QUALITY:2 REFLECTION_MODE:2 REFRACTION_QUALITY:2 REALISTIC_LIGHTING:0 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:1.00 WET_SHEEN:0.85 WET_DARKENING:1.00 WET_WEATHER_MODE:0 WATER_TEXTURE:0.15
++profile.FAST=WATER_RENDER_QUALITY:0 ATMOSPHERE_QUALITY:0 CLOUD_LAYERS:1 MIST_DETAIL:1 REFLECTION_MODE:0 REFRACTION_QUALITY:0 SKY_AMBIENT:1.00 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:0.65 CLOUD_AMOUNT:0.68 CLOUD_ALTITUDE:256.0 CLOUD_THICKNESS:12.0 SKY_LEAK:0.35 CLOUD_SPAN:240.0 CLOUD_DISTORTION:0.85 CLOUD_RELIEF:0.75 CLOUD_DRIFT:0.25 MIST_AMOUNT:0.85 MIST_Y:70.0 MIST_THICKNESS:18.0 MIST_CLEAR:24.0 REFLECT_LEVEL:1.00 REFLECT_RANGE:120.0 WATER_VISIBILITY:2.20 WATER_EXTINCTION:0.90 RIPPLE_HEIGHT:0.55 RIPPLE_SIZE:0.40 RIPPLE_RATE:1.00 FACE_SHADING:1.00 WET_DARKENING:1.00 WET_SHEEN:0.85 BLOOM_STRENGTH:0.18 BLOOM_RADIUS:3.00 SUN_VISIBILITY:0.85 LAMP_LEVEL:1.00 LAMP_HEAT:0.25 VANILLA_FACE_CONTRAST:1.00 REALISTIC_FACE_CONTRAST:1.00 REALISTIC_LIGHTING:0 WET_WEATHER_MODE:0 SUN_CORE_BRIGHTNESS:4.50 SUN_HALO_STRENGTH:2.00 SUN_HALO_RADIUS:1.50 CIRRUS_DENSITY:1.00 FACE_BLEND:1.00 GROUND_WARMTH:0.00 WATER_DISTORTION:1.00 CIRRUS_AMOUNT:0.65 CIRRUS_ALTITUDE:360.0 CLOUD_STYLE:0 SUN_STYLE:0 WATER_TURBIDITY:3.00 BIOME_WATER:1 CLOUD_DENSITY:1.00 CLOUD_DETAIL:1.00 MIST_SCALE:96.0 MIST_BREAKUP:0.85 MIST_LIGHT:0.65 WATER_TEXTURE:1.00 ambientOcclusionLevel:1.00
++profile.BALANCED=WATER_RENDER_QUALITY:1 ATMOSPHERE_QUALITY:1 CLOUD_LAYERS:1 MIST_DETAIL:2 REFLECTION_MODE:0 REFRACTION_QUALITY:0 SKY_AMBIENT:1.00 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:0.65 CLOUD_AMOUNT:0.68 CLOUD_ALTITUDE:256.0 CLOUD_THICKNESS:12.0 SKY_LEAK:0.35 CLOUD_SPAN:240.0 CLOUD_DISTORTION:0.85 CLOUD_RELIEF:0.75 CLOUD_DRIFT:0.25 MIST_AMOUNT:0.85 MIST_Y:70.0 MIST_THICKNESS:18.0 MIST_CLEAR:24.0 REFLECT_LEVEL:1.00 REFLECT_RANGE:120.0 WATER_VISIBILITY:2.20 WATER_EXTINCTION:0.90 RIPPLE_HEIGHT:0.55 RIPPLE_SIZE:0.40 RIPPLE_RATE:1.00 FACE_SHADING:1.00 WET_DARKENING:1.00 WET_SHEEN:0.85 BLOOM_STRENGTH:0.18 BLOOM_RADIUS:3.00 SUN_VISIBILITY:0.85 LAMP_LEVEL:1.00 LAMP_HEAT:0.25 VANILLA_FACE_CONTRAST:1.00 REALISTIC_FACE_CONTRAST:1.00 REALISTIC_LIGHTING:0 WET_WEATHER_MODE:0 SUN_CORE_BRIGHTNESS:4.50 SUN_HALO_STRENGTH:2.00 SUN_HALO_RADIUS:1.50 CIRRUS_DENSITY:1.00 FACE_BLEND:1.00 GROUND_WARMTH:0.00 WATER_DISTORTION:1.00 CIRRUS_AMOUNT:0.65 CIRRUS_ALTITUDE:360.0 CLOUD_STYLE:0 SUN_STYLE:0 WATER_TURBIDITY:3.00 BIOME_WATER:1 CLOUD_DENSITY:1.00 CLOUD_DETAIL:1.00 MIST_SCALE:96.0 MIST_BREAKUP:0.85 MIST_LIGHT:0.65 WATER_TEXTURE:1.00 ambientOcclusionLevel:1.00
++profile.REFERENCE=WATER_RENDER_QUALITY:1 ATMOSPHERE_QUALITY:1 CLOUD_LAYERS:2 MIST_DETAIL:3 REFLECTION_MODE:0 REFRACTION_QUALITY:1 SKY_AMBIENT:1.00 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:0.65 CLOUD_AMOUNT:0.68 CLOUD_ALTITUDE:256.0 CLOUD_THICKNESS:12.0 SKY_LEAK:0.35 CLOUD_SPAN:240.0 CLOUD_DISTORTION:0.85 CLOUD_RELIEF:0.75 CLOUD_DRIFT:0.25 MIST_AMOUNT:0.85 MIST_Y:70.0 MIST_THICKNESS:18.0 MIST_CLEAR:24.0 REFLECT_LEVEL:1.00 REFLECT_RANGE:120.0 WATER_VISIBILITY:2.20 WATER_EXTINCTION:0.90 RIPPLE_HEIGHT:0.55 RIPPLE_SIZE:0.40 RIPPLE_RATE:1.00 FACE_SHADING:1.00 WET_DARKENING:1.00 WET_SHEEN:0.85 BLOOM_STRENGTH:0.18 BLOOM_RADIUS:3.00 SUN_VISIBILITY:0.85 LAMP_LEVEL:1.00 LAMP_HEAT:0.25 VANILLA_FACE_CONTRAST:1.00 REALISTIC_FACE_CONTRAST:1.00 REALISTIC_LIGHTING:0 WET_WEATHER_MODE:0 SUN_CORE_BRIGHTNESS:4.50 SUN_HALO_STRENGTH:2.00 SUN_HALO_RADIUS:1.50 CIRRUS_DENSITY:1.00 FACE_BLEND:1.00 GROUND_WARMTH:0.00 WATER_DISTORTION:1.00 CIRRUS_AMOUNT:0.65 CIRRUS_ALTITUDE:360.0 CLOUD_STYLE:0 SUN_STYLE:0 WATER_TURBIDITY:3.00 BIOME_WATER:1 CLOUD_DENSITY:1.00 CLOUD_DETAIL:1.00 MIST_SCALE:96.0 MIST_BREAKUP:0.85 MIST_LIGHT:0.65 WATER_TEXTURE:1.00 ambientOcclusionLevel:1.00
++profile.HIGH=WATER_RENDER_QUALITY:2 ATMOSPHERE_QUALITY:2 CLOUD_LAYERS:3 MIST_DETAIL:3 REFLECTION_MODE:2 REFRACTION_QUALITY:2 SKY_AMBIENT:1.00 EXPOSURE:0.20 WHITE_BALANCE:0.00 SURFACE_SATURATION:1.00 SURFACE_DAMPNESS:0.65 CLOUD_AMOUNT:0.68 CLOUD_ALTITUDE:256.0 CLOUD_THICKNESS:12.0 SKY_LEAK:0.35 CLOUD_SPAN:240.0 CLOUD_DISTORTION:0.85 CLOUD_RELIEF:0.75 CLOUD_DRIFT:0.25 MIST_AMOUNT:0.85 MIST_Y:70.0 MIST_THICKNESS:18.0 MIST_CLEAR:24.0 REFLECT_LEVEL:1.00 REFLECT_RANGE:120.0 WATER_VISIBILITY:2.20 WATER_EXTINCTION:0.90 RIPPLE_HEIGHT:0.55 RIPPLE_SIZE:0.40 RIPPLE_RATE:1.00 FACE_SHADING:1.00 WET_DARKENING:1.00 WET_SHEEN:0.85 BLOOM_STRENGTH:0.18 BLOOM_RADIUS:3.00 SUN_VISIBILITY:0.85 LAMP_LEVEL:1.00 LAMP_HEAT:0.25 VANILLA_FACE_CONTRAST:1.00 REALISTIC_FACE_CONTRAST:1.00 REALISTIC_LIGHTING:0 WET_WEATHER_MODE:0 SUN_CORE_BRIGHTNESS:4.50 SUN_HALO_STRENGTH:2.00 SUN_HALO_RADIUS:1.50 CIRRUS_DENSITY:1.00 FACE_BLEND:1.00 GROUND_WARMTH:0.00 WATER_DISTORTION:1.00 CIRRUS_AMOUNT:0.65 CIRRUS_ALTITUDE:360.0 CLOUD_STYLE:0 SUN_STYLE:0 WATER_TURBIDITY:3.00 BIOME_WATER:1 CLOUD_DENSITY:1.00 CLOUD_DETAIL:1.00 MIST_SCALE:96.0 MIST_BREAKUP:0.85 MIST_LIGHT:0.65 WATER_TEXTURE:1.00 ambientOcclusionLevel:1.00
+ blend.deferred=off
+ blend.composite=off
+ blend.composite1=off

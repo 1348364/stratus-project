@@ -1,0 +1,17 @@
+STRATUS 1.6.12 — IN-GAME CHECKS
+Load the intended release in Modrinth Main and confirm the Iris pipeline.
+Compare native water texture zero/half/default=max at matched river cameras,
+including near/middle/far water, grazing reflections and downward pitch.
+Review all four presets, shoreline, shallow/deep water, waterfall, submerged
+wood, glass/particles, waterline and underwater exit behaviour. Check the
+active resource pack and native animation; distance filtering must not shimmer
+or create abrupt bands. Record finite coverage and any pending cases honestly.
+FPS is deferred until explicitly requested again. Keep loading and steady-state
+results separate on a future benchmark using the existing chunk-readiness gate.
+
+KNOWN PENDING WATERLINE CHECK
+At feet164.5,61.24,40.5/yaw0/pitch0 in Terrain Lab, a rectangular sky/treetop
+tint band appears just below the surface. It is reproduced at matched settings
+on1.6.11 and1.6.12, so it predates this surface-tint change. It remains unresolved
+and pending; do not describe all waterline views as clean. See the external
+waterline baseline captures and work/stratus-refine-1612/waterline-issue.json.

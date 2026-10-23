@@ -6,7 +6,8 @@
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
 #define SKY_AMBIENT 0.20 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE -3.00 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 0.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
@@ -69,8 +70,14 @@ const float ambientOcclusionLevel = 0.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00
 #define MIST_SCALE 24.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
 #define MIST_BREAKUP 0.00 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
 #define MIST_LIGHT 0.00 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
+// Active native layer strength; retained patterned tint in Stratus mode.
 #define WATER_TEXTURE 0.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 0 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 0.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 0.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl
@@ -465,7 +472,7 @@ vec2 wetMaterialProperties(int material) {
     if (material == 4110) return vec2(0.90, 0.96);
     if (material == 4111) return vec2(0.64, 0.80);
     if (material == 4113) return vec2(0.02, 0.68);
-    if (material == 4114) return vec2(0.00, 0.38);
+    if (material == 4114 || (material>=4120&&material<=4123)) return vec2(0.00, 0.38);
     if (material == 4115) return vec2(0.80, 0.98);
     if (material == 4116) return vec2(0.16, 0.48);
     if (material == 4117) return vec2(0.72, 0.91);
@@ -502,19 +509,19 @@ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material
 #if DIMENSION_TYPE == 0
     float filmSource=WET_WEATHER_MODE==0?1.0:rainStrength;
     float film=filmSource*SURFACE_DAMPNESS*smoothstep(0.18,0.85,sky)
-        *mix(0.55,1.0,max(n.y,0.0));
+        *mix(0.78,1.0,clamp(n.y*0.5+0.5,0.0,1.0));
     if(WET_SHEEN>0.0&&film>0.0001){
         vec3 view=unitVector(-playerPoint);
         float nv=max(dot(n,view),0.0);
         if(nv>0.001){
-            float fresnel=0.02+0.98*pow(1.0-nv,5.0);
-            float coat=clamp(film*WET_SHEEN*fresnel*0.20,0.0,0.20);
+            float fresnel=0.08+0.92*pow(1.0-nv,5.0);
+            float coat=clamp(film*WET_SHEEN*fresnel*0.25,0.0,0.22);
             vec3 environment=softSkyReflection(reflect(-view,n));
             // Reflection can be lighter or darker than a white block. This is
             // angle-dependent film, never absorption or diffuse recolouring.
             dry=mix(dry,environment,coat);
             vec3 light=broadLightDirection(),halfway=unitVector(view+light);
-            float exponent=mix(160.0,36.0,clamp(material.y,0.0,1.0));
+            float exponent=mix(80.0,16.0,clamp(material.y,0.0,1.0));
             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
             dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
                 *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
@@ -637,6 +644,8 @@ const int colortex10Format = RGBA16F;
 const int colortex11Format = RGBA16F;
 const int colortex12Format = RGBA16F;
 const int colortex13Format = RGBA16F;
+const int colortex15Format = RGBA16F;
+const vec4 colortex15ClearColor = vec4(0.0,0.0,0.0,0.0);
 const vec4 colortex13ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
 const int R16F = 33325;
 const int colortex14Format = R16F;

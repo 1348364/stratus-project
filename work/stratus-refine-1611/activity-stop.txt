@@ -1,0 +1,1 @@
+User explicitly deferred FPS testing; stop benchmark activity helper.

@@ -1,0 +1,26 @@
+{
+  "version": "1.6.9",
+  "source": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.6.9.zip",
+  "installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.9.zip",
+  "bytes": 7776538,
+  "sha256": "98321d67e7225a54a10f9d900ae65bf32f2a1a145559c3d2237513548ae2827d",
+  "installed_sha256": "98321d67e7225a54a10f9d900ae65bf32f2a1a145559c3d2237513548ae2827d",
+  "settings_source": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.9-water-pole-test.zip.txt",
+  "settings_preserved": true,
+  "loaded": true,
+  "verification": "Actual IrisRenderingPipeline and effective options read from the exact installed release; final release captures inspected.",
+  "selected": true,
+  "runtime_state": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-refine-169/runtime-v3-Optional_Stratus-1.6.9.zip_.txt",
+  "visual_report": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.6.9-visual-checks/index.html",
+  "focused_gameplay_FPS": {
+    "river": 56.1894,
+    "forest": 60.0723,
+    "framebuffer": [
+      1440,
+      842
+    ],
+    "target_verified": false
+  },
+  "test_driver_stopped": true,
+  "activity_helper_stopped": true
+}

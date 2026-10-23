@@ -1,0 +1,177 @@
+[
+  {
+    "file": "s169-baseline-original.png",
+    "status": "Pre-existing 1.6.9-water-pole-test baseline; 854x480 and unfocused. Visual reference only.",
+    "sha256": "82d12fa79ea1d24063295ec1730fa3f31d608342ee3068bb1f97df2ffbfec3db"
+  },
+  {
+    "file": "v169-active-forest-after.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "aea3feec75046e3baf7e9d37aded05d180423a5b516de2b51784091ffddceb8f"
+  },
+  {
+    "file": "v169-active-forest-before-repeat.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "8c5b90ce9f45d344c4a8b5c117e2cb64dce72c3053a553f3453a052c3fc79d78"
+  },
+  {
+    "file": "v169-active-forest-before.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "1de04f8519cdb442590dd8470b988bc5b219257069e55bc6d8e6b54aa667eb0d"
+  },
+  {
+    "file": "v169-active-river.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "b153203bf139b87fe6d4808afc6a0f79657a54146498ce486841ad0785b06035"
+  },
+  {
+    "file": "v169-confirmed-current-river.png",
+    "status": "Accepted supporting v1 comparison with additional loading/readback wait. Water code matches final; film was subsequently refined.",
+    "sha256": "f27348cebe09567f3818f467d086a3b0e8c673a8fbcff87a0cdf014bbaac84b7"
+  },
+  {
+    "file": "v169-confirmed-nonporous-dry.png",
+    "status": "Accepted supporting v1 comparison with additional loading/readback wait. Water code matches final; film was subsequently refined.",
+    "sha256": "96307ab445dbe4019f408c09d4a4a6dca56e2fe9a0d52e834b906f3534db3039"
+  },
+  {
+    "file": "v169-confirmed-nonporous-sheen.png",
+    "status": "Accepted supporting v1 comparison with additional loading/readback wait. Water code matches final; film was subsequently refined.",
+    "sha256": "d60ac2427972d5275a12a453d0db2f169d8b59cdc8dcd4db5c233f6237846b3b"
+  },
+  {
+    "file": "v169-confirmed-texture-max.png",
+    "status": "Accepted supporting v1 comparison with additional loading/readback wait. Water code matches final; film was subsequently refined.",
+    "sha256": "f7a0122f50a2b55e5f48a6ec09f1780354bd97610d8222e59cde35cf89940af2"
+  },
+  {
+    "file": "v169-confirmed-texture-off.png",
+    "status": "Accepted supporting v1 comparison with additional loading/readback wait. Water code matches final; film was subsequently refined.",
+    "sha256": "bbe852ae78ccb9160cb37e8a901b658692ab4ed1be38491d92eaa1e3c246494f"
+  },
+  {
+    "file": "v169-current-river.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "8d0af4467282c43254d4b5c4b0ab7d8cb816a2863349680c2afe5b1325bd2160"
+  },
+  {
+    "file": "v169-dry-terrain.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "163574dae208fcdc2f09eb2feed31843e72eae4571e2ecdb78bcc201ce344524"
+  },
+  {
+    "file": "v169-enhanced-no-dampness.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "8c10a2fc1e040f9c5be8265291ea23eef184555f0376fc6341103ab6908c0f57"
+  },
+  {
+    "file": "v169-fixture-game-vanilla.png",
+    "status": "Minecraft shaders disabled reference. Different water/sky/atmosphere are expected.",
+    "sha256": "f9fe246c13e333091da96b4ca601abf56b9b2f2541bfa1100c6d35e952f006c9"
+  },
+  {
+    "file": "v169-focused-river.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "8f0cba0eddfe9f926bab28555515e68c9219e6505d13eabf89168f5bd34c4a5d"
+  },
+  {
+    "file": "v169-game-vanilla.png",
+    "status": "Minecraft shaders disabled reference. Different water/sky/atmosphere are expected.",
+    "sha256": "6aa7ca1e09fdb1a7ac7ca0ec251b7fc6e25e598559a51c7aa9e24888ab61114b"
+  },
+  {
+    "file": "v169-grazing-dry.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "5be794fe17965cc7db6a880f90fc36baf1955c82e976792b6f7d9dc008337f12"
+  },
+  {
+    "file": "v169-grazing-sheen.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "49b88e5dbb290345526959feb27277f1fdfee6e75b338c17b466ef3b09657e42"
+  },
+  {
+    "file": "v169-materials-dry.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "2b457866ad27b5696655a39fea57012875b2449c5dc364cde750873fb9e0fbac"
+  },
+  {
+    "file": "v169-materials-sheen.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "0f321083fa08c7d90749ba5c36bf1db966cd6848a1f5e6882470f0506e5ec543"
+  },
+  {
+    "file": "v169-menu-materials.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "7ba6860c3642800a175c9fdd0d4ffd41721fb006f41259d8d9f4bcb1fd81a120"
+  },
+  {
+    "file": "v169-nonporous-dry.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "7de1fd041063a4f166067f78cd832f3095a0c6647adf4e4a203421ab7a4769f7"
+  },
+  {
+    "file": "v169-nonporous-sheen.png",
+    "status": "REJECTED: initial distant fixture had not loaded. Repeated in confirmed and v2 captures.",
+    "sha256": "9e11a048e497c2b2e00dc26893220921a511c213b684a6922516b3aac2ddf752"
+  },
+  {
+    "file": "v169-release-menu-materials.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "82e8828efed13bc960ba17162abc3b0afba4163875781078d0ae8992023be6e1"
+  },
+  {
+    "file": "v169-release-restored-position.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "1381945ca0591d28ae2bdf8e67fe6d7bfb0a27090646ade6d0e9c48d57fb5633"
+  },
+  {
+    "file": "v169-release-river.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "009fc5b09370bdf868b51edb8ac02e80c60edc06e00a17a446d104a7e6024358"
+  },
+  {
+    "file": "v169-release-underwater.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "97013135f937eaec74a015131c323009c19362b36782201b7c61e885fd598c33"
+  },
+  {
+    "file": "v169-texture-max.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "d7e201340763baaa6b84a0c3598a0d04988252f60a4d02cbedc4985a0de85150"
+  },
+  {
+    "file": "v169-texture-off.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "3036f109c60b4da8b31e21eff38a9f4606cae31cf0314ef045259b542a73b593"
+  },
+  {
+    "file": "v169-underwater.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "c121501b5488d03f641d497d141c361459390634facce2226645826ca5551383"
+  },
+  {
+    "file": "v169-v2-grazing-dry.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "5607b24138cac270153d13d13670b246a0d263d5d1f7b651b8e41f715d9ce427"
+  },
+  {
+    "file": "v169-v2-grazing-sheen.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "b6fd4fb44c7c35fd39681c0abee6097521bfd551ee509539183ca5c6053a73c5"
+  },
+  {
+    "file": "v169-v2-menu-water.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "41c2a0309d9d37b65153e3f0f0db513288150fe9b72710b9a8bec7f969f3feae"
+  },
+  {
+    "file": "v169-v2-river.png",
+    "status": "Final runtime shader code; actual Main framebuffer. v2 uses refined film reflection.",
+    "sha256": "1a5539c0a4484d851a81102feac895441fda62402a2417f7566164f5e8eee2ba"
+  },
+  {
+    "file": "v169-waterline.png",
+    "status": "Supporting preliminary v1 capture. Final film differs; do not use as final-code acceptance.",
+    "sha256": "79082340e0aa375e28f8fba9d985de3dee0845192ea38bda5e44866fddc3c731"
+  }
+]

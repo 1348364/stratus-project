@@ -1,0 +1,13 @@
+{
+  "version": "1.7.0-rc1",
+  "archive": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.7.0-rc1.zip",
+  "sha256": "3ba73a5413a86ec9cc6e220f6ab016709fd559a19648ae325872721ab0e6ff35",
+  "entries": 247,
+  "archive_integrity": true,
+  "source_byte_equivalence": true,
+  "all_v3_QA_shader_bytes_match": true,
+  "previous_1_6_12_preserved": true,
+  "installed": false,
+  "loaded": false,
+  "status": "Packaged candidate only; remaining live acceptance skipped by user."
+}

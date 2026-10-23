@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Dry run writes nothing",
+    "Only related captured water setting resets; unrelated visual and quality carry",
+    "Old preferences remain byte-identical",
+    "Later manual water choice 0.00 wins",
+    "Later manual water choice 0.50 wins",
+    "Later manual water choice 0.75 wins",
+    "Missing prior settings preserve source default",
+    "Existing new release preferences win",
+    "Atomic create never overwrites",
+    "Conflicting archive refused"
+  ],
+  "failures": 0,
+  "scope": "Actual 1.6.12 policy and installer in temporary profiles, no Main writes"
+}

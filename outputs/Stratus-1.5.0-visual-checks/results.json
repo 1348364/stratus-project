@@ -1,0 +1,761 @@
+{
+  "version": "1.5.0",
+  "native_compile_pairs": 744,
+  "native_variants": 8,
+  "program_pairs": 93,
+  "controls": 50,
+  "menu_reachable_controls": 50,
+  "gpu_invariant_cases": 41,
+  "gpu_errors": 0,
+  "gpu_invariants_passed": true,
+  "weather_volume_size": [
+    128,
+    128,
+    128,
+    4
+  ],
+  "status": "verified within documented finite scope",
+  "source_hashes": {
+    "shaders/block.properties": "9b040f825fcfdef6cbe1ee8d849687348924836ac0974c39b3146095ffb55622",
+    "shaders/composite.fsh": "6ff634ea336a1f159388e7ea81f804290a4b3a10d21df494f1722f502fdcb85d",
+    "shaders/composite.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite1.fsh": "1df8e0676d0cad589c376fdb31f55d9dd6358e88dc7127f813012b5bce4b8599",
+    "shaders/composite1.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite2.fsh": "dce6f1089f4e9f0eb632e59144913b2a67d9c5373a61a5c5e3066df68796ca77",
+    "shaders/composite2.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite3.fsh": "f98a6907db81fe9d8fe7371a5e1d1028720c250d2d649b11e62d1fab50f43383",
+    "shaders/composite3.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite4.fsh": "34eb65f1d18d3acaf3f3058d6dae96b386487355d90ebf59cf82bdcead83475b",
+    "shaders/composite4.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/composite5.fsh": "d67192b6546d4196f15eae2d653ca01080f364222d19e367f8d6d71b0b42584f",
+    "shaders/composite5.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/core/air.glsl": "697d833e0fc20b059392a343545461d5fa33908914c9fc04ea70d513e3573b3f",
+    "shaders/core/atmosphere-resolve.frag.glsl": "38b2aab59e4394408cb9708c29f45f26d327b7067798d267229f2d6804f15fb2",
+    "shaders/core/atmosphere.frag.glsl": "3de6a9c08e7fb7214b4251ab98b52c4f61c3a9f7a888390fb1b5b893d49f71f5",
+    "shaders/core/bloom-horizontal.frag.glsl": "61a398632a34254242764f1bc1a06af575e7bcd987b7bdbd23bfaddb73803235",
+    "shaders/core/bloom-vertical.frag.glsl": "7acc666e5e688a3d13535438dfcaed0d5387a82daed39646e2f51ee0eaee9d09",
+    "shaders/core/ceiling.glsl": "e84a3960be113186ea42fbca486b0131e8e5996e8106eda24f47dc85d2505241",
+    "shaders/core/diffuse.glsl": "8700fcf02cdf45731b20d61f2b4250268e55d0f7e04f5d7e5da1b64877b69b2a",
+    "shaders/core/environment.frag.glsl": "bf15815b049651ef6ebbcc6c388e4fe61ffaa9c1c95e81f6f1691a899bbf486d",
+    "shaders/core/environment.glsl": "5ef9af8126a8ff73ca1eddcc2fe1386ca2769f2e28217fb3c9643d401de8d134",
+    "shaders/core/field.glsl": "8f2b97cf68a3bca0144a4f019cd89b2dc8a4cdf367ee06c769225bbd2a6261fb",
+    "shaders/core/frame.glsl": "05070e80777119c2c4d2dc128fdc192f121c1cfef9ee2bf75186c0f02246dad8",
+    "shaders/core/lake-normal.glsl": "115abbbbb474ac74df83c9b13e9cfb3a7d08144c8b5d001c1d97bee971586c23",
+    "shaders/core/lake.frag.glsl": "84fffdb8ab2ca639f8b9be719afa8f0b98f3f1a020c28c267cb91b2dd322838a",
+    "shaders/core/medium.glsl": "ba3a3d1a0ea9a51b6a4cb1b0f985c64c0c2cd2cf9c45961dadaa5b29b12f441a",
+    "shaders/core/moisture.glsl": "b74a3d01821dc12f1696214635dd81a2388fdf91e629bd8fd15468aaa4b7c9e8",
+    "shaders/core/options.glsl": "c4a41a0df51770e8981c522c15f056683231da6ba6bf79a46fd3885b7ee414cf",
+    "shaders/core/output.frag.glsl": "6fb408301834c8a687f3e4b3659b922dacda5b490de50464b0d85318fd3c811b",
+    "shaders/core/raster.frag.glsl": "c3255ede6895ad73cc66c3c27b8661efc56892664716ae74b318383ca7315a58",
+    "shaders/core/raster.vert.glsl": "cac058d66a473b7eb92b2e00cefc6b49fcda1c1364f9f048ddb4284b0b841c57",
+    "shaders/core/refraction.glsl": "9d76bbd5b18ef3abc939bb73e11d56633652596832cbe4a51bcaa752d2cd8846",
+    "shaders/core/resolve.frag.glsl": "c69831a6bf93fe6c75157eff54318c606d7528c516d23e665b8a76636fc7e91b",
+    "shaders/core/scene-depth.glsl": "b865f0e9917e904bda5544ce545ada0fd86c58abe1e903f482d7b20b3f86648b",
+    "shaders/core/screen.vert.glsl": "b954e02a4ba1a49f7ad97b473307ec2592b71e170a4bcf4f55ec3ac1aecae8c9",
+    "shaders/core/trace.glsl": "589b258f9aa85ed840e05e263a755a8079355ea04a361a6ee2d3c24f25a3805a",
+    "shaders/core/volume.glsl": "df4ce2f4c10f4f801b2b13e549a97da6996004860a708a94dbe138e5a86eaf8d",
+    "shaders/core/water-reflection.frag.glsl": "2175c11f004d4047c34127a3da1c3c24ca9a466a6d015fc1ed14558ac22595ad",
+    "shaders/core/weather-volume.glsl": "d72bf406b67e03ad3f1093e7185d658f5944c9d4bbf7a07e93153884c5bdd003",
+    "shaders/deferred.fsh": "03b1e04a2af159ba714804d549bb55f8d85fd21a43e7d4f0d2cbc499cfb011d3",
+    "shaders/deferred.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/deferred1.fsh": "7593d9d471a037a99b86d7bc9d8aece95610b649647cec8f97bf75cc4e581a63",
+    "shaders/deferred1.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/entity.properties": "b9530c8acf16eadb594c52e307795f05c7478fd7f8852fbd7e826d9fdd6f4d26",
+    "shaders/final.fsh": "7d89c683209f49f1bfe00bd324356bb9010adbbbe0b5a17e1a798526dfc52403",
+    "shaders/final.vsh": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853",
+    "shaders/gbuffers_armor_glint.fsh": "ebc02dedc7a445648216a6b6058a75b4b6279417f002966bb2fbd18ada21c830",
+    "shaders/gbuffers_armor_glint.vsh": "0671c22957e0d3a84f411b00ac9b9cafdaa8e5db0c247fea9b67e06a495c1865",
+    "shaders/gbuffers_basic.fsh": "29a20aab85fb7d672e50d0982df4dbf40ced11adfe606730f494202e7d42b6db",
+    "shaders/gbuffers_basic.vsh": "53f6382f842aa8dfd4404fcdeaf0d2097c8ee82bad817c592f79de9d658858f0",
+    "shaders/gbuffers_beaconbeam.fsh": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7",
+    "shaders/gbuffers_beaconbeam.vsh": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c",
+    "shaders/gbuffers_block.fsh": "472057a313d113c8b61cd6d637c804ee8aeda7e22f6c518ecfed958110d30ca5",
+    "shaders/gbuffers_block.vsh": "c04d83ea447583562693ee31df104c5836dc6b0e606c446e76b6c30000be3d1d",
+    "shaders/gbuffers_block_translucent.fsh": "04c29eacfbbca611749d5216e97aca2c49a0f6f8bb4c846029743428bf4296cc",
+    "shaders/gbuffers_block_translucent.vsh": "2e9d33065a73bc745d38c41cd37c44574951e353f66d5be4c89418fbd7d7b218",
+    "shaders/gbuffers_clouds.fsh": "edee1c764d8d9383508864c7e2dfbfc941363609d39430ae0b21dc29613f1d48",
+    "shaders/gbuffers_clouds.vsh": "37924b7a55032a2f46169cb9a92622081e34aa75c64d936174d9f3f06e8d9d1c",
+    "shaders/gbuffers_damagedblock.fsh": "98e00051fda85f0a19ba123fa1c423e9f9c9f79662c8651c95fd401645e85c17",
+    "shaders/gbuffers_damagedblock.vsh": "ac7b4f67d89ee878d96c1bef16f374c177d6fa0cf878b7965a96f4b6ca05cec0",
+    "shaders/gbuffers_entities.fsh": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb",
+    "shaders/gbuffers_entities.vsh": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359",
+    "shaders/gbuffers_entities_translucent.fsh": "f2cf9fe0e8b8a2cde5becbc9d85b485ae31223a52b8ba6f00ad830bd7252d5c6",
+    "shaders/gbuffers_entities_translucent.vsh": "dbf14c14e9f07c3f153c287ccfdda3ce9a84fdaaa1a20fe0808ad86541e88fe5",
+    "shaders/gbuffers_hand.fsh": "1efd90b1395d241029fbc4d48de9a0a0baba88903530377c0e40b9456794511c",
+    "shaders/gbuffers_hand.vsh": "8a109ac5c7b3652473039c9cdb9615f61753259ae7f9892f5e6482bcd054f4c0",
+    "shaders/gbuffers_hand_water.fsh": "f81b5de5ec426d96a22583d5f9ff402134ae6f798533caab3489b99c45745084",
+    "shaders/gbuffers_hand_water.vsh": "cc578ce0b7a61f022ae140896ee3fd096fa1a00f9b904127acc5fb332ffc333e",
+    "shaders/gbuffers_item.fsh": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb",
+    "shaders/gbuffers_item.vsh": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359",
+    "shaders/gbuffers_particles.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_particles.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_particles_translucent.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_particles_translucent.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_skybasic.fsh": "1fb9f011df651ec39f915122220c0031285253b1e160fb320b0c8ce0225adf11",
+    "shaders/gbuffers_skybasic.vsh": "2ceb74b1ec124e373f3b13561920f7ed686fe47abfabb90b6346539f1a7e0413",
+    "shaders/gbuffers_skytextured.fsh": "ebc02dedc7a445648216a6b6058a75b4b6279417f002966bb2fbd18ada21c830",
+    "shaders/gbuffers_skytextured.vsh": "0671c22957e0d3a84f411b00ac9b9cafdaa8e5db0c247fea9b67e06a495c1865",
+    "shaders/gbuffers_spidereyes.fsh": "de3a2c9889607116dc391140cf62ab319cd2539542567a223423ab7d33076cb6",
+    "shaders/gbuffers_spidereyes.vsh": "736f939b2f40a449834e8ab7fdb9493e17d2431182af7f3a756afad2efac1cec",
+    "shaders/gbuffers_terrain.fsh": "e8e8b95c47a032ac4f6169c847b0f032179d9e8b8e57086ce12736de8079f44d",
+    "shaders/gbuffers_terrain.vsh": "6774bc0e1c657034ed1e9e9aeaf6c07f7896f18b0d0b073144a74cabeb7540e2",
+    "shaders/gbuffers_textured.fsh": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7",
+    "shaders/gbuffers_textured.vsh": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c",
+    "shaders/gbuffers_textured_lit.fsh": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901",
+    "shaders/gbuffers_textured_lit.vsh": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9",
+    "shaders/gbuffers_water.fsh": "38a8aa70eed2ee7b4131dece244015a1e7929e5aa02e67174d2aaddca27c4c1a",
+    "shaders/gbuffers_water.vsh": "b3d737be55ddd8591d598bef84818ce4068fd20cfd7f0bb1d4d66874e3d7cf82",
+    "shaders/gbuffers_weather.fsh": "7eed5ce078b2972ab11a7c834419f7d2bc9057ee1605acca2c4a17b0cd7914ef",
+    "shaders/gbuffers_weather.vsh": "c13b91d66f8cfb7eda386b71a8e87bbfbabb6b762d5cb10dd8fc5081a43d25f2",
+    "shaders/lang/en_us.lang": "669c581541e9b38fe708ddfddecd85854428c62957b3fe6d96363db0abe08a55",
+    "shaders/shaders.properties": "77cfed5b6157cd366160b3df39bbe60f4e3158b44964664c11dc1ef922839615",
+    "shaders/volumes/weather.rgba8": "90d381201b4851eb65c6847678765eb71f4dfdc965b8b4e4d36f455c33b2e99a",
+    "shaders/volumes/weather.rgba8.mcmeta": "a9c0596d66a650e39e5a0b57c524bd21202b6223060ef84eef194ce6db585658",
+    "shaders/world-1/composite.fsh": "d4f5a2cbaec5c3b9f7d388cdb78afb296bb38bc37b304f006b6b3fc4133d5611",
+    "shaders/world-1/composite.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite1.fsh": "d2aeae09f2d82fd9758466a6c779c061425914f677eaa25e90def6d5e6ecd1b0",
+    "shaders/world-1/composite1.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite2.fsh": "e5fd616578be2853982b25b6f6a1fa5059175362dc19f4b782f20822309edb0f",
+    "shaders/world-1/composite2.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite3.fsh": "f45971a016950a8c7fe33a348ab7640a16ea9a73b0451f486f2ece74ddcad37f",
+    "shaders/world-1/composite3.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite4.fsh": "3c5a7a787d688380bb171dd2162154a1be7a0b00afc221cc1410f3eaff8449aa",
+    "shaders/world-1/composite4.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/composite5.fsh": "45061aa1fee89b1cb16f231ff0dea6af30b68edcc0719d1e1a7de90e5edc3172",
+    "shaders/world-1/composite5.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/deferred.fsh": "5e83fc54eb12c58d357a210cab374b61454418382804c1aab8aabbd424a40961",
+    "shaders/world-1/deferred.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/deferred1.fsh": "525919a6079d73d808e8f414616ce9fe9ee93252f33aa00a057582b17a631ada",
+    "shaders/world-1/deferred1.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/final.fsh": "b37534de1efbe951fc0c8ab78442e8d59e5bf976ff8d6dbff5d300293d5e6544",
+    "shaders/world-1/final.vsh": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608",
+    "shaders/world-1/gbuffers_armor_glint.fsh": "3cd2e92fd15cd310f748754efd18f46afe03c64a6948b3cf5ee25dcda1de54a1",
+    "shaders/world-1/gbuffers_armor_glint.vsh": "1f01afa50eb7968b7dd2ae73ae454b3daa170ba928918e75309a9a92976e98fd",
+    "shaders/world-1/gbuffers_basic.fsh": "20a49989cd0511f2c80d7079bd7d00ff9097bd076638311ec7ab96f69d1c7066",
+    "shaders/world-1/gbuffers_basic.vsh": "af5ac2615096af6bf1be2ac0028ad9821debf81b8b6201e2a2db5c79b055ab70",
+    "shaders/world-1/gbuffers_beaconbeam.fsh": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d",
+    "shaders/world-1/gbuffers_beaconbeam.vsh": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e",
+    "shaders/world-1/gbuffers_block.fsh": "03c7b6d99624c1cdacdb8f36ff6141f58e7f398f2e0125e0cb0113379e211ee4",
+    "shaders/world-1/gbuffers_block.vsh": "da4a479bf19d68521e1b121b4adba83b58c8e7d6997dcdcb90d395ec0cb2f564",
+    "shaders/world-1/gbuffers_block_translucent.fsh": "b2c7bbe8abf3f1c0c7578ec4e5f2fddf8bc13fabcc98772ab9209f60308d1eef",
+    "shaders/world-1/gbuffers_block_translucent.vsh": "d8e77a90ec47fb1ee8d5a5e3333a3f589e9b3820f9bd56aa2ce153176e9868cd",
+    "shaders/world-1/gbuffers_clouds.fsh": "69957d14dd990fc45a38c1179a238615730456ed9ed6f87cdcdc05e63034cb35",
+    "shaders/world-1/gbuffers_clouds.vsh": "099252023a03a232e2705ce932922daad4cb3fd62050353decb23cef74085ebc",
+    "shaders/world-1/gbuffers_damagedblock.fsh": "9745fe5187f1924c53facaa33f62f1ffc2eb3f302e093dda90906db2a4ef4e54",
+    "shaders/world-1/gbuffers_damagedblock.vsh": "455171391733f7e6de5eec62735393dcf4c307e7cffe18d6b7dfde8b72599d14",
+    "shaders/world-1/gbuffers_entities.fsh": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7",
+    "shaders/world-1/gbuffers_entities.vsh": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4",
+    "shaders/world-1/gbuffers_entities_translucent.fsh": "38a38d2b34f39ea6378f243e8ea40c755b8678591ce66a88e5605abf5366993e",
+    "shaders/world-1/gbuffers_entities_translucent.vsh": "2ba02420f7484a0401eac9c98fa6e4b1108ee84e0d5c215b26d46681df02f4ad",
+    "shaders/world-1/gbuffers_hand.fsh": "309bf1240171a2cdb61d72fc066c00c1817aa853a4a4947b9ca8c12fd63b5c48",
+    "shaders/world-1/gbuffers_hand.vsh": "ae58f961f2c258e9369d8040ba44972465bbf35a7cb1b63fed4fd168bda753b8",
+    "shaders/world-1/gbuffers_hand_water.fsh": "e373237be980b42a3309795f4ff7dbccec7ec61ced07ed12d348a61b15a0bed7",
+    "shaders/world-1/gbuffers_hand_water.vsh": "c20daf6eee8e6da4fc5204e3e7b58b276a79439dd222ab4d2a080de7b6121245",
+    "shaders/world-1/gbuffers_item.fsh": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7",
+    "shaders/world-1/gbuffers_item.vsh": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4",
+    "shaders/world-1/gbuffers_particles.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_particles.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_particles_translucent.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_particles_translucent.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_skybasic.fsh": "11012cb4be5a6268792ffb2234624811ac94cfe2e3c36db6293d8e68252faff4",
+    "shaders/world-1/gbuffers_skybasic.vsh": "616d056b3e3a8b2b4e3c004cd1bd083908ad88f9a581836e93f9114fb3eac9cb",
+    "shaders/world-1/gbuffers_skytextured.fsh": "3cd2e92fd15cd310f748754efd18f46afe03c64a6948b3cf5ee25dcda1de54a1",
+    "shaders/world-1/gbuffers_skytextured.vsh": "1f01afa50eb7968b7dd2ae73ae454b3daa170ba928918e75309a9a92976e98fd",
+    "shaders/world-1/gbuffers_spidereyes.fsh": "87c36ab1075508c3c8ec98cafb38e804912979125d7e904f6fd4a412d004d2e4",
+    "shaders/world-1/gbuffers_spidereyes.vsh": "004a3adc9b3191409e0259a5328eeb2be7f01b7aece0adceb3a6ef3a31c87632",
+    "shaders/world-1/gbuffers_terrain.fsh": "5b02aa74481350964a0e3709584baae022f96094b2c581fe3daeec4a4f3fd5ef",
+    "shaders/world-1/gbuffers_terrain.vsh": "097a34b0859a25311d156210678b23220f147d2059a3f6b02f86650c4a7b3c7b",
+    "shaders/world-1/gbuffers_textured.fsh": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d",
+    "shaders/world-1/gbuffers_textured.vsh": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e",
+    "shaders/world-1/gbuffers_textured_lit.fsh": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072",
+    "shaders/world-1/gbuffers_textured_lit.vsh": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0",
+    "shaders/world-1/gbuffers_water.fsh": "a16befd5d895d0eebcae298c5861777eadd397ea3b59327385ae225926cab393",
+    "shaders/world-1/gbuffers_water.vsh": "dbf8bfb8149b4d49ad6a811f560247bfe6f499006d9e33c1db6d045d039e6ef4",
+    "shaders/world-1/gbuffers_weather.fsh": "4f4db89b3f70caad36b7b5f206c2951693866f13cf496bbe6ae86129355f49dd",
+    "shaders/world-1/gbuffers_weather.vsh": "3aaf70c4c4170fe760556d036197e309c5a28eee6a60280f5e62c6022d63dcbf",
+    "shaders/world1/composite.fsh": "c4dbbc54d0491b04d2d0700c545f818decc00b45df75d8c545912a4b899c76a8",
+    "shaders/world1/composite.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite1.fsh": "76ab8fbda73c11d92540e4629be92ded81a4747ad6c50e5ec515813cf4bc2e9f",
+    "shaders/world1/composite1.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite2.fsh": "2ddfd6737be6a98fbe67ea2c19dd0ba00c35376d1736d8b41c404a060f3331f3",
+    "shaders/world1/composite2.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite3.fsh": "2f4916a1b4683f7923ed24b33da01d6808bf5f696c80ffb34b544d838f38a783",
+    "shaders/world1/composite3.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite4.fsh": "2a146987458402c12fc808b7af1a6b55d324551714d0cebed3d9415be0389610",
+    "shaders/world1/composite4.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/composite5.fsh": "7507055754989a3454a768d1228e83186d1b64ef92032c1b3b8916108a2b780f",
+    "shaders/world1/composite5.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/deferred.fsh": "2720d7dd6bb90f63b0772b73dcfac1506563253745651bd661a5a7d3f813ce4f",
+    "shaders/world1/deferred.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/deferred1.fsh": "e50a1077e9ed853ef6ba064d83d266e3a2746e0ab3793029198f15300674671f",
+    "shaders/world1/deferred1.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/final.fsh": "a0b0da88a31d508a945ff90108bf1ece8bdce2d9c35114c211ebbf4fbe5576f1",
+    "shaders/world1/final.vsh": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031",
+    "shaders/world1/gbuffers_armor_glint.fsh": "a009e3a776002a94e7e356717a524e13b59d83f4f348077a3fb0f2b34b49aabb",
+    "shaders/world1/gbuffers_armor_glint.vsh": "6367768b1f7d73d31e87b3d85eee2c8900dfac77ab8a70d57034d61508298f1d",
+    "shaders/world1/gbuffers_basic.fsh": "18ddf83530801b291d2d2391f237046d01191a74fa9b9fd68196cac3d7376911",
+    "shaders/world1/gbuffers_basic.vsh": "831c1720dc85f35a1c46e92413fe106c18a95cd2435cd59986654dd988b6c1ef",
+    "shaders/world1/gbuffers_beaconbeam.fsh": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70",
+    "shaders/world1/gbuffers_beaconbeam.vsh": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45",
+    "shaders/world1/gbuffers_block.fsh": "699f9b018322b0501f96836beb51f0099fe2e9d7fa5926fbad10dfaeb26bb645",
+    "shaders/world1/gbuffers_block.vsh": "6f7881ee7a2bbbb75947aa3b5524d06a099c9870f41d621d1888e14aa07e221f",
+    "shaders/world1/gbuffers_block_translucent.fsh": "fa3ec9ef902a9457460cba9aabaa7d3db35ea79fa63ea70916c712bce0a43f6e",
+    "shaders/world1/gbuffers_block_translucent.vsh": "e42751556f72cdd91bcc5bcf76d21ab068b8b501fc0440fb1f5d223638c70fcf",
+    "shaders/world1/gbuffers_clouds.fsh": "247c820b5c5702b744bce82f430c344cd9af8ee97b1ea33b92498b5e95cbac45",
+    "shaders/world1/gbuffers_clouds.vsh": "7559a78e474fd053ac30e14ada46d29827320bd68969e5adec50c1304514b32b",
+    "shaders/world1/gbuffers_damagedblock.fsh": "ba411b1b684813755e7fd3f4ad24eac91e4dd246080ff18e9b1ff69f96bceb3c",
+    "shaders/world1/gbuffers_damagedblock.vsh": "43acaebc0c1aab805e6f38a3fa1777ef38124487800d1106ddfad87fe1efa999",
+    "shaders/world1/gbuffers_entities.fsh": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f",
+    "shaders/world1/gbuffers_entities.vsh": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb",
+    "shaders/world1/gbuffers_entities_translucent.fsh": "4a5a002eb9fea936062e8e00a47c80d0758db00f04fecb575f986695419b33a9",
+    "shaders/world1/gbuffers_entities_translucent.vsh": "fdd05d05e4696ddab2d560442d771c0b455e706bb1041f387857f34351a8b5d2",
+    "shaders/world1/gbuffers_hand.fsh": "81ffa8811d41941df14fd594cd0e4ec4df8d4fe877ffcb93fbe7eeaacc5295b8",
+    "shaders/world1/gbuffers_hand.vsh": "e17a435a11fe13d2c0c5cd60f69fd8bf5d3fe6dd280e1e8974aca4448fb39fee",
+    "shaders/world1/gbuffers_hand_water.fsh": "ba4fe0664d4134f8a18f3c0431fd402b07d82a4a4f9ef65269ec777a447b7d25",
+    "shaders/world1/gbuffers_hand_water.vsh": "242adb5174901a4bee6d9fe541bc04b5e4b09962dda4a091bb284364f3953739",
+    "shaders/world1/gbuffers_item.fsh": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f",
+    "shaders/world1/gbuffers_item.vsh": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb",
+    "shaders/world1/gbuffers_particles.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_particles.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_particles_translucent.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_particles_translucent.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_skybasic.fsh": "3403f934a829e811329898b7ed3029a7c77b1d8a77c14c4bc97c89692fce4e14",
+    "shaders/world1/gbuffers_skybasic.vsh": "335dec9cfa1889e4ede7bd359f07d50311b83bc4a7751959d995771a9de6a870",
+    "shaders/world1/gbuffers_skytextured.fsh": "a009e3a776002a94e7e356717a524e13b59d83f4f348077a3fb0f2b34b49aabb",
+    "shaders/world1/gbuffers_skytextured.vsh": "6367768b1f7d73d31e87b3d85eee2c8900dfac77ab8a70d57034d61508298f1d",
+    "shaders/world1/gbuffers_spidereyes.fsh": "0cc12629c7cf9e8ee77798e1da82d2a4af8d614848c2398c9b440700a14df79f",
+    "shaders/world1/gbuffers_spidereyes.vsh": "0725e802896edd742b9336160119662f3aaf8abf30c98c48722d09a0ac761257",
+    "shaders/world1/gbuffers_terrain.fsh": "ffece8623ec99183f74b619a66c5030a4c45d87336cd18fdff18f575e802ff2c",
+    "shaders/world1/gbuffers_terrain.vsh": "055f2e5eb908af386d5bb7f926df61d20c3b414a6f23e4689a70a8bfd96e70cb",
+    "shaders/world1/gbuffers_textured.fsh": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70",
+    "shaders/world1/gbuffers_textured.vsh": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45",
+    "shaders/world1/gbuffers_textured_lit.fsh": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6",
+    "shaders/world1/gbuffers_textured_lit.vsh": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2",
+    "shaders/world1/gbuffers_water.fsh": "ec1ed2dbf0d3feee9675c03ceff5bfa954acd92490a6cc0a9da85f89ded0f7e8",
+    "shaders/world1/gbuffers_water.vsh": "7e34a7dbe5270fd147f0c785ab0f1a12fe2db5a6679d7a96abce738622663f92",
+    "shaders/world1/gbuffers_weather.fsh": "9d046549b3183ee46b70484334da7125d25339a8324b6a370ea9304c2132f1d8",
+    "shaders/world1/gbuffers_weather.vsh": "82ae8daac3fb3731c182c16cd99398e18c1767c5a6d366e593914f1afd1502d7"
+  },
+  "runtime": {
+    "actual_iris_load": true,
+    "shader_errors": 0,
+    "minecraft": "1.21.11",
+    "iris": "1.10.8",
+    "sodium": "0.8.14",
+    "gpu": "Apple M1",
+    "opengl": "4.1",
+    "water_levels_verified": 16,
+    "water_source_id": 4100,
+    "water_flow_id": 4103,
+    "entity_shadow_id": 4200,
+    "active_shader": "Stratus-1.5.0.zip",
+    "left_open": true,
+    "world": "StratusCheck (isolated copy)",
+    "final_camera": [
+      156.5,
+      105,
+      43.5
+    ],
+    "source_assets_identical_to_test_zip": 219,
+    "custom_3d_texture_verified": true,
+    "random_tick_speed_restored": 3
+  },
+  "inspection": {
+    "capture_count": 63,
+    "captures": [
+      {
+        "name": "material-wet-verified",
+        "group": "Materials",
+        "note": "Broad film and material absorption on whole faces; dirt, timber, stone/ore, polished stone, iron, glazed ceramic, sandstone."
+      },
+      {
+        "name": "material-absorption-only-verified",
+        "group": "Materials",
+        "note": "Wet sheen disabled: absorbent substrate darkening, with nonabsorbing iron/glazed ceramic unchanged."
+      },
+      {
+        "name": "material-dry-verified",
+        "group": "Materials",
+        "note": "Master dampness disabled, same geometry and lighting."
+      },
+      {
+        "name": "material-grazing-verified",
+        "group": "Materials",
+        "note": "Grazing view shows a broad film over full outdoor faces, including smooth nonabsorbing material."
+      },
+      {
+        "name": "material-rain-verified",
+        "group": "Materials",
+        "note": "Rain strengthens wetting without a corner-retention mask."
+      },
+      {
+        "name": "wood-above",
+        "group": "Water",
+        "note": "Reference-quality refraction through submerged logs, beam, stairs, slabs, fence gaps and glass."
+      },
+      {
+        "name": "wood-unbent",
+        "group": "Water",
+        "note": "Unbent control of the identical three-dimensional wooden fixture."
+      },
+      {
+        "name": "wood-underwater",
+        "group": "Water",
+        "note": "Submerged geometry, water/air interface and underwater reflection."
+      },
+      {
+        "name": "wood-grazing",
+        "group": "Water",
+        "note": "Grazing transmission over varied receiver depths and normals."
+      },
+      {
+        "name": "waterline-below",
+        "group": "Water",
+        "note": "Eye just below the waterline: Snell window and TIR outside its critical angle."
+      },
+      {
+        "name": "waterline-above",
+        "group": "Water",
+        "note": "Eye just above the interface, using the opposite air/water IOR direction."
+      },
+      {
+        "name": "water-shore-corner",
+        "group": "Water",
+        "note": "Water silhouette and receiver transitions at a nearby bank/corner."
+      },
+      {
+        "name": "wood-reverse-angle",
+        "group": "Water",
+        "note": "Opposite-angle view of submerged steps, logs and fence gaps."
+      },
+      {
+        "name": "water-clarity-max",
+        "group": "Settings",
+        "note": "Expanded water-clarity maximum16.00, compared with the default1.70."
+      },
+      {
+        "name": "water-artistic-range",
+        "group": "Settings",
+        "note": "Deliberately exaggerated refraction/ripples; physical ray bending remains the1.00 default."
+      },
+      {
+        "name": "water-swamp",
+        "group": "Water",
+        "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+      },
+      {
+        "name": "water-warm-ocean",
+        "group": "Water",
+        "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+      },
+      {
+        "name": "water-frozen-ocean",
+        "group": "Water",
+        "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+      },
+      {
+        "name": "water-river",
+        "group": "Water",
+        "note": "Controlled biome tint and sediment comparison; random_tick_speed0 prevents freezing."
+      },
+      {
+        "name": "water-rain",
+        "group": "Water",
+        "note": "Rain runoff/turbidity and ripple response in exposed river water."
+      },
+      {
+        "name": "reflection-lake",
+        "group": "Water",
+        "note": "Opaque terrain, colored columns and cow reflected across water."
+      },
+      {
+        "name": "reflection-control",
+        "group": "Water",
+        "note": "Reflection-disabled control; total internal reflection remains physical underwater."
+      },
+      {
+        "name": "deep-underwater",
+        "group": "Water",
+        "note": "Deep water optical path, interface and distant wall reflection precision."
+      },
+      {
+        "name": "shallow-underwater",
+        "group": "Water",
+        "note": "Shallow basin sides/floor and consistent attenuation."
+      },
+      {
+        "name": "waterfall-sides",
+        "group": "Water",
+        "note": "Flowing levels and a thin falling sheet against terrain and sky."
+      },
+      {
+        "name": "waterfall-top",
+        "group": "Water",
+        "note": "Source and flowing transition over the waterfall lip."
+      },
+      {
+        "name": "cave-water",
+        "group": "Water",
+        "note": "Sheltered dark water; no outdoor rain-runoff or fog veil."
+      },
+      {
+        "name": "cave-lit",
+        "group": "Water",
+        "note": "Local block light and Snell transmission onto a striped floor."
+      },
+      {
+        "name": "striped-floor",
+        "group": "Water",
+        "note": "Straight floor stripes reveal refraction folding or screen-edge discontinuities."
+      },
+      {
+        "name": "water-night",
+        "group": "Water",
+        "note": "Night water lighting and reflection fallback."
+      },
+      {
+        "name": "water-above-cloud",
+        "group": "Water",
+        "note": "Low cloud volume stays below the elevated lake; view down through the water/cloud overlap."
+      },
+      {
+        "name": "cloud-below",
+        "group": "Sky",
+        "note": "High-resolution rounded cloud structure from beneath, separated from low fog."
+      },
+      {
+        "name": "cloud-inside",
+        "group": "Sky",
+        "note": "Camera within the continuous three-dimensional cloud volume."
+      },
+      {
+        "name": "cloud-above",
+        "group": "Sky",
+        "note": "Rounded main cloud tops and separate high-altitude cirrus."
+      },
+      {
+        "name": "cirrus-above",
+        "group": "Sky",
+        "note": "View down across the high cloud layer."
+      },
+      {
+        "name": "cloud-detail-range",
+        "group": "Settings",
+        "note": "Higher cloud density2.20 and detail1.70 demonstrate independent tuning."
+      },
+      {
+        "name": "fog-landscape",
+        "group": "Atmosphere",
+        "note": "Default valley fog, with nearer pockets and preserved foreground clarity."
+      },
+      {
+        "name": "fog-near",
+        "group": "Atmosphere",
+        "note": "Fog between nearby and deeper tree layers, anchored in world space."
+      },
+      {
+        "name": "fog-controls",
+        "group": "Settings",
+        "note": "Fog altitude96, near range8 and density1.50 as an explicit stronger artistic setting."
+      },
+      {
+        "name": "vanilla-sky",
+        "group": "Sky",
+        "note": "Actual vanilla clouds and textured sun remain independent options."
+      },
+      {
+        "name": "vanilla-moon",
+        "group": "Sky",
+        "note": "Actual textured moon, without a black rectangular background."
+      },
+      {
+        "name": "nether",
+        "group": "Regression",
+        "note": "Nether pipeline and dimension-specific atmosphere after the shared-library changes."
+      },
+      {
+        "name": "end",
+        "group": "Regression",
+        "note": "End pipeline and fallback lighting."
+      },
+      {
+        "name": "entities",
+        "group": "Regression",
+        "note": "Entities retain form lighting and stay outside material pore-darkening."
+      },
+      {
+        "name": "breaking-particles",
+        "group": "Regression",
+        "note": "Breaking particles after the material/refraction updates."
+      },
+      {
+        "name": "projectiles-verified",
+        "group": "Regression",
+        "note": "Stationary snowball, egg and pearl, recaptured after explicit server settling; checks ordinary sprite shading."
+      },
+      {
+        "name": "bloom-fireflies",
+        "group": "Regression",
+        "note": "Emissive/firefly-bush and restrained factory bloom."
+      },
+      {
+        "name": "options-root",
+        "group": "Settings",
+        "note": "Actual Iris category screen and quality profiles."
+      },
+      {
+        "name": "options-water",
+        "group": "Settings",
+        "note": "Actual Iris water menu, with all retained and new controls."
+      },
+      {
+        "name": "options-reflections",
+        "group": "Settings",
+        "note": "Actual Iris reflections menu, with all retained and new controls."
+      },
+      {
+        "name": "options-refraction",
+        "group": "Settings",
+        "note": "Actual Iris refraction menu, with all retained and new controls."
+      },
+      {
+        "name": "options-waves",
+        "group": "Settings",
+        "note": "Actual Iris waves menu, with all retained and new controls."
+      },
+      {
+        "name": "options-lighting",
+        "group": "Settings",
+        "note": "Actual Iris lighting menu, with all retained and new controls."
+      },
+      {
+        "name": "options-atmosphere",
+        "group": "Settings",
+        "note": "Actual Iris atmosphere menu, with all retained and new controls."
+      },
+      {
+        "name": "options-clouds",
+        "group": "Settings",
+        "note": "Actual Iris clouds menu, with all retained and new controls."
+      },
+      {
+        "name": "options-sun",
+        "group": "Settings",
+        "note": "Actual Iris sun menu, with all retained and new controls."
+      },
+      {
+        "name": "options-fog",
+        "group": "Settings",
+        "note": "Actual Iris fog menu, with all retained and new controls."
+      },
+      {
+        "name": "options-materials",
+        "group": "Settings",
+        "note": "Actual Iris materials menu, with all retained and new controls."
+      },
+      {
+        "name": "options-post",
+        "group": "Settings",
+        "note": "Actual Iris post menu, with all retained and new controls."
+      },
+      {
+        "name": "options-performance",
+        "group": "Settings",
+        "note": "Actual Iris performance menu, with all retained and new controls."
+      },
+      {
+        "name": "underwater-window",
+        "group": "Water",
+        "note": "Underwater view toward a timber post crossing the water/air boundary; opposite IOR direction."
+      },
+      {
+        "name": "custom-sun",
+        "group": "Sky",
+        "note": "Custom sun direction and cloud-filtered warm light from near ground height."
+      },
+      {
+        "name": "release-open",
+        "group": "Regression",
+        "note": "Final isolated client left open at the submerged wood fixture after the projectile recheck."
+      }
+    ],
+    "capture_sha256": {
+      "v150-material-wet-verified.png": "fb89aa30e489d50100bee6dd7593b08923d34ea16110919ace3fe6f5cc280296",
+      "v150-material-absorption-only-verified.png": "d466a82bd22f2e79cd4a9871e9183f1598c1dafdf67c755909f1f0591d48dbcc",
+      "v150-material-dry-verified.png": "cc1e2707670d26512a522ac45408668698eca961a0449fdf855fd8da19b6af20",
+      "v150-material-grazing-verified.png": "886a644a36c8f14115e0f7b094a387dc8daae2529e7676beea575d50826fc748",
+      "v150-material-rain-verified.png": "cbcaec1c11f98edd66c76b26388dc1e25b5cdb28883630ab9f0962c5fadfcfbc",
+      "v150-wood-above.png": "23b6331a6a1a62cc5f2062cadfd3c445fe5da80567ba437271707d01ef967e19",
+      "v150-wood-unbent.png": "e045375b6f7a9ce57c31ce3c0aa920c88c2d4ef9ccfa0b65ced48980ab65afc7",
+      "v150-wood-underwater.png": "0aa973141ab1ff61852d156d19f26fa98749b71a1271d8c2033d768f76cd1c61",
+      "v150-wood-grazing.png": "e1d0c060db9191d96deb4cf498fd033cf3ec70d8a5d5c42cfa79c76b46f2d88b",
+      "v150-waterline-below.png": "2383c7afd42d9d20b229244fc33137e68d44b3d685ac946668fb71fb9cc4fca6",
+      "v150-waterline-above.png": "6e91ba4c464d6644b5c6c1edf1c7137f60b4d83b1c8ecadf8233bd45b7793840",
+      "v150-water-shore-corner.png": "f706d22ab0299dcb10a8e5dad96a90ed8915d5c487d7354ce870a7a4fcf85f64",
+      "v150-wood-reverse-angle.png": "de0ba5d3fa625ad895cb74351913761c187aaafa1c062ce1e35fa2a47f1078b9",
+      "v150-water-clarity-max.png": "695b4489aa726710f2b64ee646a54698a0350a47f3ee95a7d5fdd3dace2d72e4",
+      "v150-water-artistic-range.png": "22d140b253fa4333254717ae4337325921f39895609666e87179f8a0370a3adb",
+      "v150-water-swamp.png": "eecb961c11e322f4bbdcd41dcf77e485520957843e6ee313bf7408ef3dfbb3e8",
+      "v150-water-warm-ocean.png": "12555e5c9f8acf87cb7bf09fb94ccbdd04c928fa59e4dffd74d5fe673eb0499b",
+      "v150-water-frozen-ocean.png": "76786d92c26e552ff7cb4d0ece89bdfbdb137631ddd05d43f5c24ef63b0f9c53",
+      "v150-water-river.png": "0bf664c841a1914c91e1b247e502e78ef61160e39569617d99e58fcfe1d0fc2e",
+      "v150-water-rain.png": "d3c81839dd84ffacaefe41a9bcdc5c8206e477c621c343615945cd163bcfd890",
+      "v150-reflection-lake.png": "8c79d015efcc573b889b4a09082b36ff9fd2f5091a8d87ee9acf5ff424c59046",
+      "v150-reflection-control.png": "911bfa67742369e1724ee50bc4bb826aa72fb79ae2db1ab4ef30d2c27c52bd0a",
+      "v150-deep-underwater.png": "c775abc849fa786a9021f1e02dbb9c1f863c661b8e2119fef7dc70a7960ecc80",
+      "v150-shallow-underwater.png": "6e011a85c664cb5095e9e7da1a9250156dc0efdf41bd2dd86a37242b4a9d7917",
+      "v150-waterfall-sides.png": "b34653f1443124422e1937467b61e04bf15c5a3392404da4f0dc4b4b113dc99a",
+      "v150-waterfall-top.png": "8ef100ed170e4d6d961c0dfa08d64ee15772578b50c7f953b5a81043374c71a4",
+      "v150-cave-water.png": "4ec8f37149925224000b08e614c67e46fa3fbd119afee4a1b7702b4c6df23b54",
+      "v150-cave-lit.png": "73f8d6de5ebdb23a4288b8639aff8f31c92b394dcaf3f483fd0e2031fecf3089",
+      "v150-striped-floor.png": "8191663531bd028a99a63fef1efa463e5b638e0b08317d331a8a2b6c49c9d838",
+      "v150-water-night.png": "a83eff7cb2efc3338627da79323c7ae56d2e2b079b2ab641ea646c2ef24e791b",
+      "v150-water-above-cloud.png": "1eff3642a649c6eb84f000ede8fdc75d61b3516cc8fcbb132636f7469668a69b",
+      "v150-cloud-below.png": "2f41efd7c731fc0ea48d85186c8992af8c412aa1b2701521247271ffd0bb10e7",
+      "v150-cloud-inside.png": "0dcf0979815a08d9b230e39cb04a63e6760d677526aecbca5865a380b1b1d57f",
+      "v150-cloud-above.png": "55cfcd9e1d5e0ae5104601e1b1dfce99e9fe26652376ad25920790d4acf538a6",
+      "v150-cirrus-above.png": "182b688eb875debd91c667e53fdfedbb9e4f78a2599a4e9ddb0fdf86f130dfce",
+      "v150-cloud-detail-range.png": "0a3f328381c0c4b6c95ab9a0e22e6415980c6195d1b5a2786a493e6c6cef020a",
+      "v150-fog-landscape.png": "62643638634cd82e6a535f4fa9f2a2ce22364fe4137b5effa489157ca3cef04e",
+      "v150-fog-near.png": "c36f10a72d2db9dc4442a106ab1095c049228db2c13d86caadec0380e3cfa433",
+      "v150-fog-controls.png": "b311f8d4f113e950c5126baed5cc0a9015ae57a4a7a508dbf76b955613b1ba22",
+      "v150-vanilla-sky.png": "0fd5e1624dcee104e518450be5f7ab5d4fcb0a8f8e0003e0a9db53977809cf21",
+      "v150-vanilla-moon.png": "e34596f5cd4f160dc80123ac9f315ac829746af9e50b6565b30288d37882ce79",
+      "v150-nether.png": "a973f464c902fec7a8a0a1a1bd0371e2bcec6dd0a9b57a9f12aafcf713bc572e",
+      "v150-end.png": "2ac7e76a37fe432a7507ac6f4d1439cbf48899a2af259053c12a30513223a7d9",
+      "v150-entities.png": "b92d5fbef1f1d8d94d290693ebc40561428996c5bd3d4e76c7320d464eb55cf8",
+      "v150-breaking-particles.png": "65387f3bcfd0ca43847bdc61644968821c5ac6a0b66cec0bbb1ffaefdecb2259",
+      "v150-projectiles-verified.png": "85ee33146ec6524839495c18ff70024b7404e99beaf6cf94a1cf9a35089ca378",
+      "v150-bloom-fireflies.png": "3e8a38a7672e6d7d0c3c0f422d790b2aea61e741cda06356c45fed529c4cc1cf",
+      "v150-options-root.png": "a5037d471bd25e972cdbb3f30445ba3f14cbac484646ccd401a9c1c98d364c7b",
+      "v150-options-water.png": "4bb81d583dbf4afb7e69d7cb30f323a18d8cba38c8f55b1441c93894489c5247",
+      "v150-options-reflections.png": "0f193f807551c3634cae233555ab090d2f32eb1e9dea78186daef2d2941a9f1b",
+      "v150-options-refraction.png": "956e03be89dddfce59b6b344529d9345fa68dc2fe846f4a6ecfb1f5d68e6ebae",
+      "v150-options-waves.png": "7d95ca5e4f2ad3f0db48b3ac3a062e1bb17819e0bac7eb6b17f55a0c5afba2e3",
+      "v150-options-lighting.png": "fc3d1e723ffea706e05b2ff71369306e01bed7f0e25eb79cec85c9fe70bae217",
+      "v150-options-atmosphere.png": "79e7ab7abc8cd818219e18500065a2d3a3939210db661bd2d11b0dee3b03c363",
+      "v150-options-clouds.png": "293204c4db73744b7bf09dc17d0d4aba954e27143e687765f1d29e24caa81866",
+      "v150-options-sun.png": "0a48fcd86aa2de385f1b25530a3dbaa3cf72c7ca2e49a3a73761aca8af547dce",
+      "v150-options-fog.png": "51acd7d75049be3d89973e66ccfcc175e230998299da59551184f16a37dbcd77",
+      "v150-options-materials.png": "b0caf24abe3706ce46a229ed99627e7ffe43a6035b7646c452d07b16eddc9e1d",
+      "v150-options-post.png": "6626b627b7c71fd1efd8cb469207ad07cb46ae1ea8bc0e151f215865e44e7e7b",
+      "v150-options-performance.png": "9a785afd898065250baefc1e330335164bcba8f1ffa1952e63f33804472059ea",
+      "v150-underwater-window.png": "94f49baa113a19c998b8ab7991f659ebd86b8c4dd87d12799b51f519daa1b5bf",
+      "v150-custom-sun.png": "b2eca9a2ed22c2bcbf342e502ba608c33f201a6b33a24cd4ef213a0e781946c6",
+      "v150-release-open.png": "e6e35ece44f6be9f4706df2511b7efe0207c3c8ef030a8800b3a0cba1abef820"
+    },
+    "review": {
+      "inspected": [
+        "material-wet-verified",
+        "material-absorption-only-verified",
+        "material-dry-verified",
+        "material-grazing-verified",
+        "material-rain-verified",
+        "wood-above",
+        "wood-unbent",
+        "wood-underwater",
+        "wood-grazing",
+        "waterline-below",
+        "waterline-above",
+        "water-shore-corner",
+        "wood-reverse-angle",
+        "water-clarity-max",
+        "water-artistic-range",
+        "water-swamp",
+        "water-warm-ocean",
+        "water-frozen-ocean",
+        "water-river",
+        "water-rain",
+        "reflection-lake",
+        "reflection-control",
+        "deep-underwater",
+        "shallow-underwater",
+        "waterfall-sides",
+        "waterfall-top",
+        "cave-water",
+        "cave-lit",
+        "striped-floor",
+        "water-night",
+        "water-above-cloud",
+        "cloud-below",
+        "cloud-inside",
+        "cloud-above",
+        "cirrus-above",
+        "cloud-detail-range",
+        "fog-landscape",
+        "fog-near",
+        "fog-controls",
+        "vanilla-sky",
+        "vanilla-moon",
+        "nether",
+        "end",
+        "entities",
+        "breaking-particles",
+        "projectiles-verified",
+        "bloom-fireflies",
+        "options-root",
+        "options-water",
+        "options-reflections",
+        "options-refraction",
+        "options-waves",
+        "options-lighting",
+        "options-atmosphere",
+        "options-clouds",
+        "options-sun",
+        "options-fog",
+        "options-materials",
+        "options-post",
+        "options-performance",
+        "underwater-window",
+        "custom-sun",
+        "release-open"
+      ],
+      "disposition": "Accepted within finite scope, with screen-space disocclusion and transparent-layer limitations documented.",
+      "method": "Full-resolution critical water/material/projectile frames and labelled contact pages for all final-source scene/control/menu frames. No generated preview images substituted for game screenshots.",
+      "observations": [
+        "The submerged wooden fixture changes apparent depth and block placement relative to its unbent control. Logs, steps, slabs and fence gaps were checked from several angles; the underwater surface view shows the Snell window and total internal reflection.",
+        "Colored columns and the cow appear in the lake reflection; the reflection-disabled control removes ordinary scenery reflections. Deep/shallow, thin falling water, dark/lit caves, shore corners, rain/night and elevated water over lower clouds were inspected.",
+        "Swamp water is visibly muddier than warm-ocean water; river and frozen-ocean variants remain distinct without ice contamination. Expanded clarity and artistic-distortion controls produce visible changes.",
+        "Absorption-only material views darken soil, timber and raw stone more than polished stone; iron and glazed ceramic retain their dry substrate. Broad film remains independent of darkening, including at grazing angles. Stone and ore use the same substrate class.",
+        "Cloud views show a continuous filled volume from below, inside and above, with rounded relief and a separate upper layer. Default fog leaves nearby trees clearer while introducing spatial pockets between deeper tree layers; stronger controls move the fog closer/higher.",
+        "Custom sunlight remains warm and locatable through overcast; vanilla cloud/sun/moon options render their actual geometry/textures. Nether/End, entity form lighting, breaking particles, the settled snowball/egg/pearl repeat, fireflies/bloom and thirteen option screens were inspected.",
+        "Some newly revealed faces, thin fence/glass layers and screen edges can still show missing or blended refraction detail because only one visible opaque depth layer is available. This remains an approximation, not a claim of artifact-free path tracing."
+      ],
+      "excluded_captures": [
+        "Initial five material frames: fixture writes failed in unloaded chunks. Replaced after loading/holding chunks.",
+        "Initial projectile frame: captured before all asynchronous spawn commands completed. Replaced after long server-settling waits."
+      ]
+    },
+    "scope": "Final 128-cubed data and full-resolution High source. Five initial material screenshots excluded because fixture chunks had not loaded; board rebuilt in loaded/temporarily forced chunks and recaptured. Finite water/sky/material/dimension/menu coverage; no claim to all possible worlds."
+  },
+  "quality": {
+    "priority": "Visual fidelity per user request; previous60fps target withdrawn",
+    "preset": "HIGH",
+    "refraction_max_samples": 256,
+    "reflection_max_steps": 96,
+    "weather_volume": [
+      128,
+      128,
+      128
+    ],
+    "sky_cache": [
+      512,
+      256
+    ],
+    "reflection_atmosphere_buffer_scale": 1.0,
+    "performance_benchmark": false,
+    "60fps_verified": false
+  },
+  "limits": [
+    "Screen-space rays cannot recover hidden or off-screen geometry, or independent transparent depth layers. Disocclusions and screen-edge fallback transitions can remain.",
+    "Material absorption classes are artist-tuned block heuristics, not measured porosity or PBR texture maps.",
+    "Cloud and fog scattering, weather and biome sediment are approximations. Sky-cache origin introduces cloud parallax approximation.",
+    "Shading waves do not displace block geometry. No cast terrain shadow maps or full fluid simulation.",
+    "Visual inspection is finite; heavily modified resource packs and every world configuration are not covered."
+  ],
+  "non_shader_findings": [
+    "An obsolete randomTickSpeed command was rejected; correct1.21.11 namespaced random_tick_speed was then used and restored.",
+    "Initial material fixture writes failed because chunks were unloaded; replaced by a loaded-chunk fixture and five inspected replacement screenshots.",
+    "Offline local test login reports unrelated Realms authentication errors; no claim that the entire log is error-free."
+  ]
+}

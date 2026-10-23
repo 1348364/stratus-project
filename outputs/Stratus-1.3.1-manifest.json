@@ -1,0 +1,24 @@
+{
+  "file": "Stratus-1.3.1.zip",
+  "bytes": 92755,
+  "sha256": "723559295992c855e0adbcc144f25a903d2fde34300ab991444ede5821f77812",
+  "shader_config_files": 206,
+  "native_compile_link_passes": 630,
+  "new_visual_regression_captures": 18,
+  "current_settings": {
+    "render_chunks": 12,
+    "simulation_chunks": 8,
+    "vsync": true,
+    "fps_cap": 70,
+    "framebuffer": [
+      1708,
+      960
+    ]
+  },
+  "average_fps": {
+    "landscape": 55.5999,
+    "water": 54.337,
+    "clouds": 63.7979
+  },
+  "locked_60fps_claim": false
+}

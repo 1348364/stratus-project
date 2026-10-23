@@ -1,0 +1,9 @@
+position=149.7926,78.7531,19.5529
+yaw=-54.77826
+pitch=49.948273
+hud=false
+pause=true
+flying=true
+screen=net.minecraft.class_433
+worldTime=1000
+rainGradient=0.0

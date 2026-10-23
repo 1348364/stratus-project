@@ -1,0 +1,16 @@
+{
+  "batch": "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79",
+  "completed": "whole-surface water tint",
+  "pending": "existing waterline acceptance, performance/FPS by deferral and intended historical foliage/pole contexts",
+  "conflicts": [],
+  "shared_next_queue_edited": false,
+  "documents": {
+    "work/Custom instructions/TASK.md": "3da26e5f8a3712e8a8e325b435ae3115f72233d5fa4e3b97f2057119bf37aef4",
+    "work/Custom instructions/CHANGE-LOG.md": "13e98d9237bb5c3088283c5aeef3aaa01b4ce4cf1bd37d0524fb2b9f896f7f0f",
+    "work/Custom instructions/COMPLETED-CHANGES.md": "1208ea77b52ec0bcd4e24554629f0ed7111fe2a07c146c49fbccb62c40bb33ec",
+    "work/Custom instructions/IN-PROGRESS/7a6a15fb-dcb6-4313-94d3-7a32fb13dd79/CHANGES.md": "59dbe072941aef3a4efc9dbd5bc592d6e3635678b50d66b266e45fda7ffc7e1a"
+  },
+  "local_links_checked": 35,
+  "no_completed_items_left_in_active_pending": true,
+  "partial_waterline_acceptance_retained": true
+}

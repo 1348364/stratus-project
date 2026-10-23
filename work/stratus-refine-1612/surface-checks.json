@@ -1,0 +1,1 @@
+{"scope":"actual water-surface GLSL on native GPU, not Minecraft visual acceptance","samples":192,"variants":4,"relationships":["zero exact identity","bounded HDR and black preservation","continuous strength interpolation","radiance contrast retained","native pattern monotonic","biome off independent of biome input"],"failures":0,"gl_error":0}

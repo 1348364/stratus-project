@@ -1,0 +1,16 @@
+{
+  "checks": [
+    "Dry run writes no destination",
+    "Captured related values reset to identical approved Reference defaults",
+    "Old preferences byte-identical",
+    "Later related manual edit preserved",
+    "Later removal preserves old source default",
+    "Unrelated latest override preserved",
+    "Existing new-version settings never overwritten",
+    "Atomic create cannot overwrite",
+    "Conflicting archive refused",
+    "Concurrent conflicting archive refused before preferences"
+  ],
+  "failures": 0,
+  "scope": "Temporary profiles, actual1.6.11 policy and installer. No Main writes."
+}

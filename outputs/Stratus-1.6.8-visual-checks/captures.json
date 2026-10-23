@@ -1,0 +1,132 @@
+[
+  {
+    "file": "s168-all-weather-clear.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "5a59475ffd9ff16198f983ed77e9c557b1b2f4496958ca7d1e08295a7c392c86"
+  },
+  {
+    "file": "s168-baseline-clear.png",
+    "status": "1.6.7 baseline with matched latest Main option values",
+    "sha256": "c4efdb137af66ccb6bd54d540fcdfee10dae4740b12e0dc709c3245b11b369ee"
+  },
+  {
+    "file": "s168-baseline-river-overview.png",
+    "status": "1.6.7 baseline with matched latest Main option values",
+    "sha256": "dcc4890c9077517306a49e7a58f9cd3d65555bdff36e51389ef0457267bcc0cc"
+  },
+  {
+    "file": "s168-enhanced-lighting.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "895ee65452d416489fefa52f55487ace9013210abae63ec2306c64fc21666520"
+  },
+  {
+    "file": "s168-final-clear-film.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "0171b33948bcd6b9367442dbbae0849552b1ba7a71b65c2a1b3ba389b9597af1"
+  },
+  {
+    "file": "s168-final-menu-materials.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "a76e4a57378b5029f55cfe20647af811c23664e1c2bbfef32688be93e728bb84"
+  },
+  {
+    "file": "s168-final-menu-vanilla.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "3ad2aaa062323ad18ed6ac025e6ed2ef8c35950cabccb4ef7a3d1a3e668eb404"
+  },
+  {
+    "file": "s168-final-river-overview.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "8ae9345e6ad21b0f746d957a8f39a53712c1a7a9810d0627bb8bdc0b1af42dbe"
+  },
+  {
+    "file": "s168-final-river.png",
+    "status": "Rejected acceptance frame: insufficient visible terrain after teleport; superseded by loaded overview/release captures",
+    "sha256": "5da1fc66ce0b0cea4bc18c0387244b8df83da9fd96435f819785ff5817712df1"
+  },
+  {
+    "file": "s168-final-underwater.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "0d6d6fe45f57bdf415013c6e9ffc9df8ce64554378546a8de604c707e80e5b58"
+  },
+  {
+    "file": "s168-final-vanilla-lighting.png",
+    "status": "Final runtime shader code / reviewed Main capture",
+    "sha256": "41d7ea24b8c55c1386143795f7f3c120c50bf6fb77a2f2414bf217461b4e930d"
+  },
+  {
+    "file": "s168-game-vanilla-reference.png",
+    "status": "Minecraft with shaders disabled; lighting reference, custom sky/water intentionally differ",
+    "sha256": "de3dbc894cd380ba11b4c22bbce7d84ea28c6a658ed6d841970e7209f8d14a63"
+  },
+  {
+    "file": "s168-menu-cirrus.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "69fedb72c5f60f7672c0c80d18b16cbc9a6b46cb46e63380115a3131b4b571e5"
+  },
+  {
+    "file": "s168-menu-clouds.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "66e86151e88610aa0a2e701ff1dea5732c5247a669a25d7d4a01053c7170b794"
+  },
+  {
+    "file": "s168-menu-face.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "05ad88f12bc0b6cc721ad451e1df272e9c80dba0a775b7d8cfb27f3187b9fcc5"
+  },
+  {
+    "file": "s168-menu-lighting.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "62840837a78abcc6958d2d8eb61fcf2681f33c04045224636f8e30bb26e0e073"
+  },
+  {
+    "file": "s168-menu-materials.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "2e18f04e2776c9e3de4b894a501fd5e6d2b63f9ed555bcbf3174b224b83335d0"
+  },
+  {
+    "file": "s168-menu-performance.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "22391e434179c83cd0e8ff900769b8b6bfb1f305a8912cfd247cfbfd1ca8b67b"
+  },
+  {
+    "file": "s168-menu-post.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "9075eeeaeb77da1d3b14ba19b18d83165c40d95db1d3680f7f569a7cd515fa0a"
+  },
+  {
+    "file": "s168-rain-only-clear.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "c410869f454bc4f15e5e8b92348b3b9f08c3c5c0ccada0c5df569bafac016655"
+  },
+  {
+    "file": "s168-release-clear-film.png",
+    "status": "Final released 1.6.8 ZIP loaded in Main; reviewed capture",
+    "sha256": "844c5bc3a07fcbe1af3743127d9772b1a391055be64e2e6f965a4267da7ab4a0"
+  },
+  {
+    "file": "s168-release-menu-lighting.png",
+    "status": "Final released 1.6.8 ZIP loaded in Main; reviewed capture",
+    "sha256": "e4d21a3b0042a1b13cd3b8c3fe5f23397c075b8408a5e424f213c8675ed561fd"
+  },
+  {
+    "file": "s168-release-restored-position.png",
+    "status": "Camera restoration evidence; not visual acceptance",
+    "sha256": "d0516328354c48bf45fe726f5cd5905cc7b80b0823694e2c8facbbde3c7844d9"
+  },
+  {
+    "file": "s168-release-river.png",
+    "status": "Final released 1.6.8 ZIP loaded in Main; reviewed capture",
+    "sha256": "a308c56c37008932496a4cd98b6f9ff5034666ecedd56df11a92fe0bc366331f"
+  },
+  {
+    "file": "s168-vanilla-lighting.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "9287a6e69e84f07d252a1b75dc20b15527992a688e02d65098d6cf4415e8175b"
+  },
+  {
+    "file": "s168-wet-off-clear.png",
+    "status": "Reviewed actual Main QA comparison",
+    "sha256": "07fd3e4cec5c27649b0be4e0cfe80d3f99f66a3a2222a511179b7abbd1c91a41"
+  }
+]

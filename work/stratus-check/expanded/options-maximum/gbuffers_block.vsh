@@ -18,7 +18,8 @@ uniform mat4 shim_ModelViewProjectionMatrix;
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
 #define SKY_AMBIENT 4.00 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE 3.00 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
@@ -81,8 +82,14 @@ const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00
 #define MIST_SCALE 480.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
 #define MIST_BREAKUP 2.00 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
 #define MIST_LIGHT 2.00 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
+// Active native layer strength; retained patterned tint in Stratus mode.
 #define WATER_TEXTURE 1.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 1 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl

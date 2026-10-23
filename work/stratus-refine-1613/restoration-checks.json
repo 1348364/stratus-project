@@ -1,0 +1,20 @@
+{
+  "camera_max_error_blocks": 4.0622403957968345e-05,
+  "equivalent_yaw_pitch": true,
+  "original_HUD_pause_flight": true,
+  "original_daylight_weather_flags_and_timers_exact": true,
+  "original_1_6_12_loaded_with_same62_values": true,
+  "no_temporary_block_edits": true,
+  "visual_and_world_watchers_stopped": true,
+  "final_client": {
+    "position": "149.7926,78.7531,19.5529",
+    "yaw": "-54.77826",
+    "pitch": "49.948273",
+    "hud": "false",
+    "pause": "true",
+    "flying": "true",
+    "screen": "net.minecraft.class_433",
+    "worldTime": "1000",
+    "rainGradient": "0.0"
+  }
+}

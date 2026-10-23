@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Agent-Class: ProfileAgent1610B
+Can-Retransform-Classes: true
+Class-Path: asm.jar
+

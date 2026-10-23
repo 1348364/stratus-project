@@ -1,0 +1,9 @@
+{
+  "current_vs_frozen_differs": {
+    "TASK.md": false,
+    "CHANGES.md": true
+  },
+  "shared_changes": "Expected Studio move into active batch; next queue is protected.",
+  "delta_review": "Only previously completed 1.6.11 preset rebase and chunk gate; no new duplicate implementation requirements.",
+  "batch_matches_frozen_changes": true
+}

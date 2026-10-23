@@ -1,0 +1,30 @@
+{
+  "version": "1.6.8",
+  "source": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.6.8.zip",
+  "installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.8.zip",
+  "bytes": 7774697,
+  "sha256": "af9e4d4e94a04e2498765be875b49685b797d82804ebcb963834233c060c8115",
+  "installed_bytes_match": true,
+  "preferences_source": "Stratus-1.6.7.zip.txt",
+  "copied_current_preferences_sha256": "d0f8f49fcc47c33ca701270bdb98fec18eb01e9570caef4f58a1f3e9861759fa",
+  "old_preferences_sha256": "d0f8f49fcc47c33ca701270bdb98fec18eb01e9570caef4f58a1f3e9861759fa",
+  "old_preferences_preserved": true,
+  "release_loaded": true,
+  "performance": "Focused Minecraft FPS explicitly deferred to morning of 22 October 2026",
+  "runtime_pack": "Stratus-1.6.8.zip",
+  "runtime_evidence": "work/stratus-refine-168/runtime-Optional_Stratus-1.6.8.zip_.txt",
+  "runtime_profile": "Profile: Custom (+2 options changed by user)",
+  "window_focused": false,
+  "framebuffer": "1440x842",
+  "DynamicFPS_enabled": true,
+  "current_saved_overrides": {
+    "SKY_AMBIENT": "1.00",
+    "WATER_TURBIDITY": "3.00"
+  },
+  "restored_camera_HUD_pause_flight": true,
+  "test_driver_stopped": true,
+  "verification_date": "2026-10-22",
+  "current_preferences_sha256": "11d451470c27ae941ee0c2426ccc5e56eb9897740afa7edc97858653c3e76598",
+  "current_preference_values_match_original": true,
+  "settings_comment_note": "Iris refreshed the new settings file timestamp on load; numerical saved values are unchanged."
+}

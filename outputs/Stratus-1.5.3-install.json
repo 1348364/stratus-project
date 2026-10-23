@@ -1,0 +1,22 @@
+{
+  "archive": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.5.3.zip",
+  "sha256": "7f88cfb26cf11a96c25d7a4dfec8ab952733611dad4f2aff55352cedccfd510d",
+  "shader_files_matching_tested": 230,
+  "original_mods_unchanged": 34,
+  "shader_options_preserved": {
+    "CLOUD_LAYERS": "1",
+    "FACE_SHADING": "2.00",
+    "GROUND_WARMTH": "0.00",
+    "MIST_DETAIL": "2",
+    "REFLECTION_MODE": "2",
+    "WATER_EXTINCTION": "3.00",
+    "WATER_RENDER_QUALITY": "2",
+    "WATER_TURBIDITY": "6.00",
+    "WET_SHEEN": "0.65",
+    "ambientOcclusionLevel": "0.60"
+  },
+  "test_client_saved_and_closed": true,
+  "normal_main_relaunch": "running normally via Modrinth in Stratus Terrain Lab",
+  "normal_launch_shaderpack": "Stratus-1.5.3.zip",
+  "normal_launch_qa_helper_loaded": false
+}

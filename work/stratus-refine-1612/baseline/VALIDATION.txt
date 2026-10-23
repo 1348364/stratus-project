@@ -1,0 +1,33 @@
+STRATUS1.6.11 — VALIDATION
+768 native compatibility-shim program pairs /8 variants /3 dimensions /0failures.
+This checks syntax/linking separately from actual Iris runtime proof.
+Ten current-default underwater resolve cases pass with0failures/API errors:
+air exits, shallow/deep receivers, glass, additive particles and vertical exits.
+Ten temporary-profile installer checks pass, including later related edits,
+manual removal of an old override, unrelated preferences, existing new-version
+settings, atomic creation and existing/concurrent archive conflicts.
+
+All62 IDs/ranges/menu paths are retained. Four presets explicitly share56visual
+values; six quality settings are ordered Fast<=Balanced<=Reference<=High.
+Iris parsed62assignments/profile and matched all four applied profile maps.
+Source defaults now match approved Reference, including current Main quality.
+The old full-detail Reference definition was deliberately superseded by user.
+
+Actual Main captures: matched baseline/candidate Reference tuning, river,
+underwater and existing fixtures; camera inside a confirmed occupied active
+cloud cell; independent cirrus with lower clouds disabled, day/sunset on/off.
+Initial unloaded isolation attempts are rejected; gated retries are retained.
+No pixel-equivalence or exhaustive scene/preset/mod certification is claimed.
+Final archive/source/installed byte proof and loaded pipeline are recorded in
+external outputs/Stratus-1.6.11-install.json and the versioned visual report.
+
+Chunk readiness is actual data, not an arbitrary wait: all441 view-disk columns
+loaded, queues/workers/uploads empty and counts stable>=5seconds. Traces show
+not-ready periods and later successful gates. Future benchmark sampling requires
+a fresh gate and monitors renewed chunk/camera/focus/size changes. FPS integration
+and60FPS acceptance remain deferred by the user's explicit request. No FPS was
+sampled this pass. Old1.6.10full-quality results are a different quality baseline.
+
+Current rendering algorithms, old pole filter, resource-pack sun/cloud sources,
+all higher quality choices, old settings and unrelated mods/worlds are preserved.
+Exact historical pole/leaf context and relevant leaf-fog review remain pending.

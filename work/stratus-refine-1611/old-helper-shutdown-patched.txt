@@ -1,0 +1,1 @@
+Bypassed failed test-only readiness call to allow own helper to stop; no Minecraft/Iris classes changed.

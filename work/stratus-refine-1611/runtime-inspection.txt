@@ -1,0 +1,1206 @@
+CLASS net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/mods/sodium-fabric-0.8.14+mc1.21.11.jar <no signer certificates>)
+public void net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.shutdown()
+public int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getScheduledJobCount()
+public int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getBusyThreadCount()
+public float net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getBusyFraction(long)
+private void net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.shutdownThreads()
+private static int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getOptimalThreadCount()
+private static int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getMaxThreadCount()
+public boolean net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.isBuildQueueEmpty()
+private static int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getThreadCount()
+public int net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getTotalThreadCount()
+public long net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.getTotalRemainingDuration(long)
+public net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobTyped net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.scheduleTask(net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderTask,boolean,java.util.function.Consumer,boolean)
+public void net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.tryStealTask(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJob)
+static final org.apache.logging.log4j.Logger net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.LOGGER
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobQueue net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.queue
+private final java.util.List net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.threads
+private final java.util.concurrent.atomic.AtomicInteger net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.busyThreadCount
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.ChunkBuildContext net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder.localContext
+CLASS net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/mods/sodium-fabric-0.8.14+mc1.21.11.jar <no signer certificates>)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.update(net.minecraft.class_4184,net.caffeinemc.mods.sodium.client.render.viewport.Viewport,net.caffeinemc.mods.sodium.client.util.FogParameters,boolean)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.destroy()
+private float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getSearchDistance(net.caffeinemc.mods.sodium.client.util.FogParameters)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.resetRenderLists()
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.updateSectionInfo(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,net.caffeinemc.mods.sodium.client.render.chunk.data.BuiltSectionInfo)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.connectNeighborNodes(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.onSectionRemoved(int,int,int)
+private net.caffeinemc.mods.sodium.client.render.chunk.RenderSection net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getRenderSection(int,int,int)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.submitSectionTasks(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector,net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector,net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector,net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.submitSectionTasks(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector,net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget,net.caffeinemc.mods.sodium.client.render.chunk.TaskQueueType)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.submitSectionTask(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector,net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,int,net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget,boolean)
+public net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.createRebuildTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,int)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.upgradePendingUpdate(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,int)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.shouldPrioritizeTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,float)
+public int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getVisibleChunkCount()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.processGFNIMovement(net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.trigger.CameraMovement)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.finalizeRenderLists(net.caffeinemc.mods.sodium.client.render.viewport.Viewport)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.tickVisibleRenders()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.beforeSectionUpdates()
+public boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.isSectionVisible(int,int,int)
+public int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getTotalSections()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.scheduleRebuild(int,int,int,boolean)
+private float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getRenderDistance()
+public java.util.Collection net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getDebugStrings(boolean)
+public net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getBuilder()
+public boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.needsUpdate()
+private static java.util.List net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.filterChunkBuildResults(java.util.ArrayList)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.renderLayer(net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices,net.caffeinemc.mods.sodium.client.render.chunk.terrain.TerrainRenderPass,double,double,double,net.caffeinemc.mods.sodium.client.util.FogParameters,net.minecraft.class_12137)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.updateChunks(boolean)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.shouldUseOcclusionCulling(net.minecraft.class_4184,boolean)
+public java.util.Collection net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getSectionsWithGlobalEntities()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.markGraphDirty()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.prepareFrame(org.joml.Vector3dc)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.cleanupAndFlip()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.uploadChunks()
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.onChunkAdded(int,int)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.onChunkRemoved(int,int)
+public net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getRenderLists()
+public boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.isSectionBuilt(int,int,int)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sectionVisible(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection)
+private net.caffeinemc.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.modify$cco000$iris$useExtendedVertexFormat$1(net.caffeinemc.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType)
+private net.caffeinemc.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.modify$cco000$iris$useExtendedVertexFormat$2(net.caffeinemc.mods.sodium.client.render.chunk.vertex.format.ChunkVertexType)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.wrapMethod$ccp000$iris$updateShadowRenderLists(net.minecraft.class_4184,net.caffeinemc.mods.sodium.client.render.viewport.Viewport,net.caffeinemc.mods.sodium.client.util.FogParameters,int,boolean,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$useShadowRenderList(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager,net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$cco000$iris$disableFogOcclusion(net.caffeinemc.mods.sodium.client.gui.SodiumOptions$PerformanceSettings)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$useShadowRenderList3(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager,net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists)
+private java.util.Map net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$useShadowTaskList3(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager)
+private net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$useShadowRenderList2(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$doNotUploadDuringShadow(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.isSectionImmediatePresentationCandidate(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$doNotUpdateDuringShadow(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$notifyChangedCamera(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$useShadowTaskrList(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager,java.util.Map)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.createTerrainRenderList$mixinextras$wrapped$71(net.minecraft.class_4184,net.caffeinemc.mods.sodium.client.render.viewport.Viewport,net.caffeinemc.mods.sodium.client.util.FogParameters,int,boolean)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$zdg000$axiom$prepareFrame(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$onSectionRemoved(int,int,int,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$updateSectionInfo(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,net.caffeinemc.mods.sodium.client.render.chunk.data.BuiltSectionInfo,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.redirect$ccp000$iris$setOutOfGraph(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager,net.minecraft.class_4076)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.handler$ccp000$iris$create(net.minecraft.class_638,int,net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.SortBehavior,net.caffeinemc.mods.sodium.client.gl.device.CommandList,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.createTerrainRenderList(net.minecraft.class_4184,net.caffeinemc.mods.sodium.client.render.viewport.Viewport,net.caffeinemc.mods.sodium.client.util.FogParameters,int,boolean)
+private float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.getEffectiveRenderDistance(net.caffeinemc.mods.sodium.client.util.FogParameters)
+private void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.disconnectNeighborNodes(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection)
+private java.util.ArrayList net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.collectChunkBuildResults()
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.processChunkBuildResults(java.util.ArrayList)
+private float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.modifyReturnValue$dhm000$sodium-extra$sodiumExtra$expandCylindricalFogSearchDistance(float,net.caffeinemc.mods.sodium.client.util.FogParameters)
+private java.lang.Boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.mixinextras$bridge$createTerrainRenderList$mixinextras$wrapped$71$72(java.lang.Object[])
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.isOutOfGraph(net.minecraft.class_4076)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.onSectionAdded(int,int,int)
+public void net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.scheduleSort(long,boolean)
+public net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderSortingTask net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.createSortTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection,int)
+private float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.modifyReturnValue$dhm000$sodium-extra$sodiumExtra$expandCylindricalFogCullDistance(float,net.caffeinemc.mods.sodium.client.util.FogParameters)
+private static final float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.NEARBY_REBUILD_DISTANCE
+private static final float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.IMMEDIATE_PRESENT_DISTANCE
+private static final float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.NEARBY_SORT_DISTANCE
+private static final float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.FRAME_DURATION_UPLOAD_FRACTION
+private static final long net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.MIN_UPLOAD_DURATION_BUDGET
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.builder
+private final net.caffeinemc.mods.sodium.client.render.chunk.region.RenderRegionManager net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.regions
+private final net.caffeinemc.mods.sodium.client.world.cloned.ClonedChunkSectionCache net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sectionCache
+private final it.unimi.dsi.fastutil.longs.Long2ReferenceMap net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sectionByPosition
+private final java.util.concurrent.ConcurrentLinkedDeque net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.buildResults
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.JobDurationEstimator net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.jobDurationEstimator
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.MeshTaskSizeEstimator net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.meshTaskSizeEstimator
+private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadDurationEstimator net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.jobUploadDurationEstimator
+private net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastBlockingCollector
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.thisFrameBlockingTasks
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.nextFrameBlockingTasks
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.deferredTasks
+private final net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderer net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.chunkRenderer
+private final net.minecraft.class_638 net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.level
+private final it.unimi.dsi.fastutil.objects.ReferenceSet net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sectionsWithGlobalEntities
+private final net.caffeinemc.mods.sodium.client.render.chunk.occlusion.OcclusionCuller net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.occlusionCuller
+private final int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.renderDistance
+private final net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.SortBehavior net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sortBehavior
+private final net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.trigger.SortTriggering net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sortTriggering
+private net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.renderLists
+private net.caffeinemc.mods.sodium.client.render.chunk.lists.SectionCollector net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.sectionCollector
+private net.caffeinemc.mods.sodium.client.render.chunk.lists.SectionCollector net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastSectionCollector
+private java.util.Map net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.taskLists
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.frame
+private long net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastFrameDuration
+private long net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.averageFrameDuration
+private long net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastFrameAtTime
+private static final float net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.FRAME_DURATION_UPDATE_RATIO
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.needsGraphUpdate
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastUpdatedFrame
+private org.joml.Vector3dc net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.cameraPosition
+private final net.caffeinemc.mods.sodium.client.render.chunk.tree.RemovableMultiForest net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.renderableSectionTree
+private net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.shadowRenderLists
+private java.util.Map net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.shadowTaskLists
+private int net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.lastUpdatedFrameShadow
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.shadowNeedsRenderListUpdate
+private boolean net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager.renderListStateIsShadow
+CLASS net.minecraft.class_631 FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/.fabric/remappedJars/minecraft-1.21.11-0.19.5/client-intermediary.jar <no signer certificates>)
+public net.minecraft.class_2791 net.minecraft.class_631.method_12121(int,int,net.minecraft.class_2806,boolean)
+public net.minecraft.class_3568 net.minecraft.class_631.method_12130()
+public java.lang.String net.minecraft.class_631.method_12122()
+public void net.minecraft.class_631.method_12127(java.util.function.BooleanSupplier,boolean)
+public void net.minecraft.class_631.method_62872(int,int,int,boolean)
+public net.minecraft.class_1922 net.minecraft.class_631.method_16399()
+public int net.minecraft.class_631.method_14151()
+public void net.minecraft.class_631.method_12247(net.minecraft.class_1944,net.minecraft.class_4076)
+public void net.minecraft.class_631.method_49630(int,int,net.minecraft.class_2540)
+public net.minecraft.class_2818 net.minecraft.class_631.method_16020(int,int,net.minecraft.class_2540,java.util.Map,java.util.function.Consumer)
+public void net.minecraft.class_631.method_2859(net.minecraft.class_1923)
+public void net.minecraft.class_631.method_20317(int,int)
+public void net.minecraft.class_631.method_20180(int)
+private void net.minecraft.class_631.handler$bak000$fabric-lifecycle-events-v1$onChunkLoad(int,int,net.minecraft.class_2540,java.util.Map,java.util.function.Consumer,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private static int net.minecraft.class_631.method_20230(int)
+private static boolean net.minecraft.class_631.method_20181(net.minecraft.class_2818,int,int)
+public net.minecraft.class_2818 net.minecraft.class_631.method_2857(int,int,net.minecraft.class_2806,boolean)
+private void net.minecraft.class_631.handler$bak000$fabric-lifecycle-events-v1$onChunkUnload(net.minecraft.class_1923,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_2818)
+private void net.minecraft.class_631.handler$bak000$fabric-lifecycle-events-v1$onChunkUnload(int,int,net.minecraft.class_2540,java.util.Map,java.util.function.Consumer,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable,net.minecraft.class_2818)
+private void net.minecraft.class_631.handler$bak000$fabric-lifecycle-events-v1$onUpdateLoadDistance(int,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_631$class_3681,net.minecraft.class_2818,net.minecraft.class_1923)
+private void net.minecraft.class_631.handler$deh000$sodium$onChunkUnloaded(net.minecraft.class_1923,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_631.handler$deh000$sodium$onChunkLoaded(int,int,net.minecraft.class_2540,java.util.Map,java.util.function.Consumer,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+public it.unimi.dsi.fastutil.longs.LongOpenHashSet net.minecraft.class_631.method_62890()
+static final org.slf4j.Logger net.minecraft.class_631.field_3679
+private final net.minecraft.class_2818 net.minecraft.class_631.field_3676
+private final net.minecraft.class_3568 net.minecraft.class_631.field_3677
+volatile net.minecraft.class_631$class_3681 net.minecraft.class_631.field_16246
+final net.minecraft.class_638 net.minecraft.class_631.field_16525
+CLASS net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/mods/sodium-fabric-0.8.14+mc1.21.11.jar <no signer certificates>)
+public static net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.instance()
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.reload()
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.setLevel(net.minecraft.class_638)
+public boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.isEntityVisible(net.minecraft.class_897,net.minecraft.class_1297)
+public int net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.getVisibleChunkCount()
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.scheduleTerrainUpdate()
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.extractBlockEntities(net.minecraft.class_4184,float,it.unimi.dsi.fastutil.longs.Long2ObjectMap,net.minecraft.class_11658)
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.processChunkEvents()
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.extractBlockEntity(net.minecraft.class_2586,net.minecraft.class_4587,net.minecraft.class_4184,float,it.unimi.dsi.fastutil.longs.Long2ObjectMap,net.minecraft.class_11658)
+public java.lang.String net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.getChunksDebugString()
+public static net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.instanceNullable()
+public java.util.Collection net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.getDebugStrings(boolean)
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.initRenderer(net.caffeinemc.mods.sodium.client.gl.device.CommandList)
+public boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.isTerrainRenderComplete()
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.scheduleRebuildForBlockArea(int,int,int,int,int,int,boolean)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.scheduleRebuildForChunks(int,int,int,int,int,int,boolean)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.updateFogColor(org.joml.Vector4f)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.setupTerrain(net.minecraft.class_4184,net.caffeinemc.mods.sodium.client.render.viewport.Viewport,net.caffeinemc.mods.sodium.client.util.FogParameters,boolean,boolean,net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices)
+public boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.isSectionReady(int,int,int)
+private boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.redirect$cdc000$iris$forceEndGraphRebuild(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.scheduleRebuildForChunk(int,int,int,boolean)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.iterateVisibleBlockEntities(java.util.function.Consumer)
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.unloadLevel()
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.loadLevel(net.minecraft.class_638)
+public void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.drawChunkLayer(net.minecraft.class_11531,net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices,double,double,double,net.minecraft.class_12137)
+private void net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.handler$cdc000$iris$skipEntityCheck(net.minecraft.class_897,net.minecraft.class_1297,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.redirect$cdc000$iris$forceChunkGraphRebuildInShadowPass(net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager)
+public boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.isBoxVisible(double,double,double,double,double,double)
+private final net.minecraft.class_310 net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.client
+private net.minecraft.class_638 net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.level
+private int net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.renderDistance
+private org.joml.Vector3d net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastCameraPos
+private double net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastCameraPitch
+private double net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastCameraYaw
+private net.caffeinemc.mods.sodium.client.util.FogParameters net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastFogParameters
+private org.joml.Matrix4f net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastProjectionMatrix
+private boolean net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.useEntityCulling
+private net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.renderSectionManager
+private static final double net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.MAX_ENTITY_CHECK_VOLUME
+private float net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer.lastSunAngle
+CLASS net.minecraft.class_761 FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/.fabric/remappedJars/minecraft-1.21.11-0.19.5/client-intermediary.jar <no signer certificates>)
+public void net.minecraft.class_761.close()
+private void net.minecraft.class_761.swap()
+public net.minecraft.class_638 net.minecraft.class_761.getLevel()
+private boolean net.minecraft.class_761.iris$alwaysRenderSky(boolean)
+private net.irisshaders.iris.shaderpack.properties.ParticleRenderingSettings net.minecraft.class_761.getRenderingSettings()
+public void net.minecraft.class_761.sodium$setMatrices(net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices)
+public net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices net.minecraft.class_761.sodium$getMatrices()
+public void net.minecraft.class_761.invokeCullTerrain(net.minecraft.class_4184,net.minecraft.class_4604,boolean)
+public net.minecraft.class_4599 net.minecraft.class_761.getRenderBuffers()
+public void net.minecraft.class_761.setRenderBuffers(net.minecraft.class_4599)
+public it.unimi.dsi.fastutil.longs.Long2ObjectMap net.minecraft.class_761.getDestructionProgress()
+public net.minecraft.class_9955 net.minecraft.class_761.method_62196()
+public net.minecraft.class_12180$class_12181 net.minecraft.class_761.method_75414()
+public void net.minecraft.class_761.method_3292()
+public void net.minecraft.class_761.method_3244(net.minecraft.class_638)
+public void net.minecraft.class_761.method_3279()
+public void net.minecraft.class_761.method_62908(long)
+public void net.minecraft.class_761.method_8570(net.minecraft.class_1922,net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_2680,int)
+public void net.minecraft.class_761.method_21596(net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_2680)
+public void net.minecraft.class_761.method_18145(int,int,int)
+public void net.minecraft.class_761.method_62219(int,int,int,int,int,int)
+public void net.minecraft.class_761.method_8569(int,net.minecraft.class_2338,int)
+public boolean net.minecraft.class_761.method_40050(net.minecraft.class_2338)
+public net.minecraft.class_276 net.minecraft.class_761.method_29361()
+public net.minecraft.class_276 net.minecraft.class_761.method_29363()
+public net.minecraft.class_276 net.minecraft.class_761.method_22990()
+public static int net.minecraft.class_761.method_23794(net.minecraft.class_1920,net.minecraft.class_2338)
+public void net.minecraft.class_761.method_71118()
+public net.minecraft.class_2960 net.minecraft.class_761.fabric$getId()
+public net.minecraft.class_276 net.minecraft.class_761.method_29362()
+public void net.minecraft.class_761.method_14491(net.minecraft.class_3300)
+public void net.minecraft.class_761.method_8571(int,int,int)
+public void net.minecraft.class_761.method_65201(net.minecraft.class_1923)
+public java.lang.String net.minecraft.class_761.method_3289()
+public java.lang.String net.minecraft.class_761.method_3272()
+public void net.minecraft.class_761.method_35776()
+public void net.minecraft.class_761.method_35775()
+private void net.minecraft.class_761.method_74752(net.minecraft.class_4184,net.minecraft.class_4604,boolean)
+public void net.minecraft.class_761.method_76296()
+public net.minecraft.class_276 net.minecraft.class_761.method_29364()
+public static int net.minecraft.class_761.method_23793(net.minecraft.class_761$class_10948,net.minecraft.class_1920,net.minecraft.class_2680,net.minecraft.class_2338)
+public void net.minecraft.class_761.method_3252(net.minecraft.class_4184)
+public void net.minecraft.class_761.method_3242(int,int)
+public void net.minecraft.class_761.method_3254()
+public int net.minecraft.class_761.method_3246()
+public boolean net.minecraft.class_761.method_3281()
+public void net.minecraft.class_761.method_22710(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$onReload(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_761.handler$zgg000$bedrockify$updateSunAngleDiff(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ded000$sodium$onWorldChanged(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$disableFrustum(org.joml.Matrix4f,org.joml.Matrix4f,net.minecraft.class_243,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private void net.minecraft.class_761.handler$bnj000$iris$setupPipeline(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_761.handler$zea000$axiom$renderLevelHead(org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_9779,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f)
+private static java.lang.Boolean net.minecraft.class_761.mixinextras$bridge$method_7325$201(java.lang.Object[])
+private void net.minecraft.class_761.handler$ded000$sodium$getRenderState(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_74927$188(java.lang.Object[])
+private void net.minecraft.class_761.handler$bnj000$iris$beginLevelRender(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_9909,net.minecraft.class_9916)
+private void net.minecraft.class_761.handler$bnj000$iris$endLevelRender(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_761.handler$zea000$axiom$renderLevelLast(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$cbo000$iris$addParticleTarget(net.minecraft.class_9909,net.minecraft.class_4604,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,boolean,net.minecraft.class_11658,net.minecraft.class_9779,net.minecraft.class_3695,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_9916)
+private static java.lang.Iterable net.minecraft.class_761.mixinextras$bridge$method_18112$193(java.lang.Object[])
+private net.minecraft.class_1921 net.minecraft.class_761.modify$bnj000$iris$beginBlockOutline(net.minecraft.class_1921)
+public void net.minecraft.class_761.handler$zea000$axiom$compileSections(net.minecraft.class_4184,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_761.handler$bnl000$iris$preRenderSky(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$beginWeather(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$beginWorldBorder(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$beginClouds(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_62168$197(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_73002$196(java.lang.Object[])
+private com.mojang.blaze3d.textures.FilterMode net.minecraft.class_761.redirect$ded000$sodium$setFilterMode()
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_72170$190(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_73002$195(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_23285$189(java.lang.Object[])
+private void net.minecraft.class_761.handler$bnj000$iris$beginTranslucents(org.spongepowered.asm.mixin.injection.callback.CallbackInfo,org.joml.Matrix4f)
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_72170$191(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$method_72170$192(java.lang.Object[])
+private static void net.minecraft.class_761.md2ad8c9$iris$lambda$iris$beginSky$2$1(net.irisshaders.iris.pipeline.WorldRenderingPipeline)
+private static void net.minecraft.class_761.md2ad8c9$iris$lambda$iris$endSky$3$0(net.irisshaders.iris.pipeline.WorldRenderingPipeline)
+public void net.minecraft.class_761.axiom$pushTranslucentRenderTarget(net.minecraft.class_276)
+public void net.minecraft.class_761.axiom$popTranslucentRenderTarget()
+private void net.minecraft.class_761.handler$zgg000$bedrockify$reloadWorldRendererCallback(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private int net.minecraft.class_761.redirect$ded000$sodium$nullifyBuiltChunkStorage(net.minecraft.class_315)
+private void net.minecraft.class_761.handler$ccd000$iris$immediateStateBeginLevelRender(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeRender(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeDebugRender(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ccd000$iris$immediateStateEndLevelRender(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$zkc000$entityculling$extractVisibleEntities(net.minecraft.class_4184,net.minecraft.class_4604,net.minecraft.class_9779,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$cfd000$legacyfreecam$onExtractVisibleEntities(net.minecraft.class_4184,net.minecraft.class_4604,net.minecraft.class_9779,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$cfj001$legacyfreecam$onExtractVisibleEntities(net.minecraft.class_4184,net.minecraft.class_4604,net.minecraft.class_9779,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ded000$sodium$extractVisibleBlockEntities(net.minecraft.class_4184,float,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$zkc000$entityculling$extractEntityRedir(net.minecraft.class_1297,float,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private void net.minecraft.class_761.wrapOperation$dhe000$sodium-extra$modifyCloudHeight(net.minecraft.class_9955,int,net.minecraft.class_4063,float,net.minecraft.class_243,long,float,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.wrapOperation$cbo000$iris$renderTranslucentParticles(net.minecraft.class_11684,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeTerrainRender(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$endMainRender(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$cal000$iris$preventRebuildNearInShadowPass(net.minecraft.class_4184,net.minecraft.class_4604,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_761.handler$ded000$sodium$replaceBlockEntityIteration(java.util.function.Consumer,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ded000$sodium$init(net.minecraft.class_310,net.minecraft.class_898,net.minecraft.class_824,net.minecraft.class_4599,net.minecraft.class_11658,net.minecraft.class_11684,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ded001$sodium$onReload(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_761.handler$bnj000$iris$beginSky(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_761.handler$bnj000$iris$endSky(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.wrapOperation$cbk000$iris$skip(com.mojang.blaze3d.systems.CommandEncoder,com.mojang.blaze3d.textures.GpuTexture,double,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.handler$bnj000$iris$endWeather(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$endClouds(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.iris$setDebugRenderStage(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.iris$resetDebugRenderStage(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public boolean net.minecraft.class_761.invokeDoesMobEffectBlockSky(net.minecraft.class_4184)
+private void net.minecraft.class_761.iris$disableFabulousGraphics()
+public net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer net.minecraft.class_761.sodium$getWorldRenderer()
+public void net.minecraft.class_761.method_3296()
+private net.minecraft.class_279 net.minecraft.class_761.method_62907()
+protected boolean net.minecraft.class_761.method_3270()
+private void net.minecraft.class_761.method_64059()
+public net.minecraft.class_846 net.minecraft.class_761.method_34810()
+public double net.minecraft.class_761.method_34811()
+public double net.minecraft.class_761.method_34812()
+public static net.minecraft.class_4604 net.minecraft.class_761.method_52816(net.minecraft.class_4604)
+private void net.minecraft.class_761.method_38551(net.minecraft.class_4604)
+public void net.minecraft.class_761.method_38550(net.minecraft.class_846$class_851)
+private net.minecraft.class_4604 net.minecraft.class_761.method_32133(org.joml.Matrix4f,org.joml.Matrix4f,net.minecraft.class_243)
+private void net.minecraft.class_761.method_3269(net.minecraft.class_4184)
+private void net.minecraft.class_761.method_72917(net.minecraft.class_4184,net.minecraft.class_4604,net.minecraft.class_9779,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_74314(net.minecraft.class_4184,float,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_74923(net.minecraft.class_4184,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_74922(net.minecraft.class_4184,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_62218(org.joml.Vector4f)
+private void net.minecraft.class_761.method_62200(net.minecraft.class_9909,net.minecraft.class_4184,com.mojang.blaze3d.buffers.GpuBufferSlice)
+private void net.minecraft.class_761.method_62202(net.minecraft.class_9909,net.minecraft.class_4604,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,boolean,net.minecraft.class_11658,net.minecraft.class_9779,net.minecraft.class_3695)
+private void net.minecraft.class_761.method_62201(net.minecraft.class_9909,com.mojang.blaze3d.buffers.GpuBufferSlice)
+private void net.minecraft.class_761.method_62204(net.minecraft.class_9909,net.minecraft.class_4063,net.minecraft.class_243,long,float,int,float)
+private void net.minecraft.class_761.method_62203(net.minecraft.class_9909,com.mojang.blaze3d.buffers.GpuBufferSlice)
+private void net.minecraft.class_761.method_62199(net.minecraft.class_9909,net.minecraft.class_12075,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Matrix4f)
+private void net.minecraft.class_761.method_62214(com.mojang.blaze3d.buffers.GpuBufferSlice,net.minecraft.class_11658,net.minecraft.class_3695,org.joml.Matrix4f,net.minecraft.class_9925,net.minecraft.class_9925,boolean,net.minecraft.class_9925,net.minecraft.class_9925)
+private void net.minecraft.class_761.method_62213(com.mojang.blaze3d.buffers.GpuBufferSlice,net.minecraft.class_9925,net.minecraft.class_9925)
+private void net.minecraft.class_761.method_62205(int,net.minecraft.class_4063,float,net.minecraft.class_243,long,float)
+private void net.minecraft.class_761.method_62216(com.mojang.blaze3d.buffers.GpuBufferSlice,int,float)
+private void net.minecraft.class_761.method_75413(com.mojang.blaze3d.buffers.GpuBufferSlice,net.minecraft.class_9925,net.minecraft.class_12075,org.joml.Matrix4f)
+private net.minecraft.class_10017 net.minecraft.class_761.method_72914(net.minecraft.class_1297,float)
+private void net.minecraft.class_761.method_72916(net.minecraft.class_4587,net.minecraft.class_11658,net.minecraft.class_11659)
+private void net.minecraft.class_761.method_62208(net.minecraft.class_4587,net.minecraft.class_11658,net.minecraft.class_11661)
+private void net.minecraft.class_761.method_62206(net.minecraft.class_4587,net.minecraft.class_4597$class_4598,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_62210(net.minecraft.class_4597$class_4598,net.minecraft.class_4587,boolean,net.minecraft.class_11658)
+private void net.minecraft.class_761.method_22712(net.minecraft.class_4587,net.minecraft.class_4588,double,double,double,net.minecraft.class_12074,int,float)
+private void net.minecraft.class_761.method_22979(net.minecraft.class_4587)
+private void net.minecraft.class_761.method_62198(net.minecraft.class_243)
+private void net.minecraft.class_761.method_64060(net.minecraft.class_846$class_851,net.minecraft.class_10196,net.minecraft.class_243,boolean,boolean)
+private void net.minecraft.class_761.method_74921()
+private void net.minecraft.class_761.method_22987(net.minecraft.class_3191)
+private boolean net.minecraft.class_761.method_43788(net.minecraft.class_4184)
+private static void net.minecraft.class_761.method_62215(com.mojang.blaze3d.buffers.GpuBufferSlice,net.minecraft.class_12076,net.minecraft.class_9975)
+private void net.minecraft.class_761.method_16037(net.minecraft.class_2338,boolean)
+public void net.minecraft.class_761.method_18146(int,int,int,int,int,int)
+private void net.minecraft.class_761.method_3295(int,int,int,boolean)
+private static java.util.SortedSet net.minecraft.class_761.method_22988(long)
+public net.minecraft.class_276 net.minecraft.class_761.method_29360()
+public it.unimi.dsi.fastutil.objects.ObjectArrayList net.minecraft.class_761.method_62220()
+public net.minecraft.class_8679 net.minecraft.class_761.method_62221()
+public net.minecraft.class_4604 net.minecraft.class_761.method_62222()
+private void net.minecraft.class_761.method_76647()
+private static void net.minecraft.class_761.method_72156(int,com.mojang.blaze3d.buffers.GpuBufferSlice[],com.mojang.blaze3d.systems.RenderPass$class_10885)
+private net.minecraft.class_11532 net.minecraft.class_761.method_72157(org.joml.Matrix4fc,double,double,double)
+private static net.minecraft.class_10017 net.minecraft.class_761.processNametag(net.minecraft.class_1297,float,net.minecraft.class_10017)
+public void net.minecraft.class_761.saveState()
+public void net.minecraft.class_761.restoreState()
+private void net.minecraft.class_761.handler$cah000$iris$disableFabulousGraphicsOnResourceReload(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$cah000$iris$disableFabulousGraphicsOnLevelRendererReload(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private net.minecraft.class_4604 net.minecraft.class_761.modifyExpressionValue$bid000$fabric-rendering-v1$onSetupFrustum(net.minecraft.class_4604)
+private void net.minecraft.class_761.wrapOperation$bid000$fabric-rendering-v1$onWorldBorderExtraction(net.minecraft.class_9978,net.minecraft.class_2784,float,net.minecraft.class_243,double,net.minecraft.class_12078,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$afterBlockOutlineExtraction(net.minecraft.class_4184,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeDrawBlockOutline(net.minecraft.class_4597$class_4598,net.minecraft.class_4587,boolean,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.redirect$cbo000$iris$redirectToAvoidItemPickupParticles(net.minecraft.class_11943,net.minecraft.class_11661,net.minecraft.class_12075)
+private net.minecraft.class_11532 net.minecraft.class_761.modifyExpressionValue$bid000$fabric-rendering-v1$onRenderBlockLayers(net.minecraft.class_11532)
+private java.lang.Void net.minecraft.class_761.mixinextras$bridge$wrapOperation$bnj000$iris$beginTerrainLayer$198(com.llamalad7.mixinextras.injector.wrapoperation.Operation,java.lang.Object[])
+private net.minecraft.class_4587 net.minecraft.class_761.modifyExpressionValue$bid000$fabric-rendering-v1$onCreateMatrixStack(net.minecraft.class_4587)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeEntitySubmission(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.wrapOperation$bid000$fabric-rendering-v1$afterEntityRender(net.minecraft.class_4618,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.handler$bid000$fabric-rendering-v1$beforeTranslucentRender(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private java.lang.Void net.minecraft.class_761.mixinextras$bridge$wrapOperation$bnj000$iris$beginTerrainLayer$199(com.llamalad7.mixinextras.injector.wrapoperation.Operation,java.lang.Object[])
+private java.lang.Void net.minecraft.class_761.mixinextras$bridge$wrapOperation$bnj000$iris$beginTerrainLayer$200(com.llamalad7.mixinextras.injector.wrapoperation.Operation,java.lang.Object[])
+public void net.minecraft.class_761.wrapOperation$zea000$axiom$method_62214_renderChunkGroup(net.minecraft.class_11532,net.minecraft.class_11531,net.minecraft.class_12137,com.llamalad7.mixinextras.injector.wrapoperation.Operation,net.minecraft.class_11658,org.joml.Matrix4f)
+public void net.minecraft.class_761.handler$epp000$xaerominimap$onRenderLevel(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$bnj000$iris$renderTerrainShadows(net.minecraft.class_9922,net.minecraft.class_9779,boolean,net.minecraft.class_4184,org.joml.Matrix4f,org.joml.Matrix4f,org.joml.Matrix4f,com.mojang.blaze3d.buffers.GpuBufferSlice,org.joml.Vector4f,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public boolean net.minecraft.class_761.wrapOperation$zea000$axiom$tick_isSpectator(net.minecraft.class_746,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private boolean net.minecraft.class_761.wrapWithCondition$bnk000$iris$skipSetupRender(net.minecraft.class_761,net.minecraft.class_4184,net.minecraft.class_4604,boolean)
+private void net.minecraft.class_761.handler$cbo000$iris$disablePassIfNeeded(net.minecraft.class_9909,com.mojang.blaze3d.buffers.GpuBufferSlice,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private java.lang.Iterable net.minecraft.class_761.wrapOperation$bnk000$iris$skipRenderEntities(net.minecraft.class_638,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+public void net.minecraft.class_761.handler$zdp000$axiom$extractBlockOutlineHead(net.minecraft.class_4184,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_761.handler$zdp000$axiom$extractBlockOutline(net.minecraft.class_4184,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_2680,net.minecraft.class_2338)
+public void net.minecraft.class_761.handler$zea000$axiom$renderBlockOutline(net.minecraft.class_4597$class_4598,net.minecraft.class_4587,boolean,net.minecraft.class_11658,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_761.handler$ded000$sodium$onTerrainUpdateScheduled(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_761.handler$zea000$axiom$getTranslucentTarget(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private static java.lang.Void net.minecraft.class_761.mixinextras$bridge$clearDepthTexture$194(java.lang.Object[])
+private boolean net.minecraft.class_761.wrapWithCondition$bnk000$iris$skipRenderChunks(net.minecraft.class_11532,net.minecraft.class_11531,net.minecraft.class_12137)
+private void net.minecraft.class_761.wrapOperation$cbo000$iris$renderMainParticles(net.minecraft.class_11684,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_761.md2ad8c9$iris$lambda$iris$beginLevelRender$0$3()
+private static void net.minecraft.class_761.md2ad8c9$iris$lambda$iris$endLevelRender$1$2(net.irisshaders.iris.UpdateChecker$BetaInfo)
+private void net.minecraft.class_761.wrapOperation$bnj000$iris$beginTerrainLayer(net.minecraft.class_11532,net.minecraft.class_11531,net.minecraft.class_12137,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+public void net.minecraft.class_761.wrapOperation$zea000$axiom$method_62214_renderChunkGroup$mixinextras$bridge$179(net.minecraft.class_11532,net.minecraft.class_11531,net.minecraft.class_12137,com.llamalad7.mixinextras.injector.wrapoperation.Operation,com.llamalad7.mixinextras.sugar.ref.LocalRef,com.llamalad7.mixinextras.sugar.ref.LocalRef)
+public net.minecraft.class_898 net.minecraft.class_761.getEntityRenderDispatcher()
+public void net.minecraft.class_761.invokeExtractBlockEntities(net.minecraft.class_4184,float,net.minecraft.class_11658)
+private static final net.minecraft.class_2960 net.minecraft.class_761.field_53900
+private static final net.minecraft.class_2960 net.minecraft.class_761.field_53901
+public static final int net.minecraft.class_761.field_32759
+public static final int net.minecraft.class_761.field_34812
+public static final int net.minecraft.class_761.field_54162
+private static final int net.minecraft.class_761.field_54163
+private static final float net.minecraft.class_761.field_64450
+private final net.minecraft.class_310 net.minecraft.class_761.field_4088
+private final net.minecraft.class_898 net.minecraft.class_761.field_4109
+private final net.minecraft.class_824 net.minecraft.class_761.field_27741
+private net.minecraft.class_4599 net.minecraft.class_761.field_20951
+private net.minecraft.class_9975 net.minecraft.class_761.field_53075
+private final net.minecraft.class_9955 net.minecraft.class_761.field_53076
+private final net.minecraft.class_9978 net.minecraft.class_761.field_53077
+private final net.minecraft.class_9976 net.minecraft.class_761.field_53078
+private final net.minecraft.class_11943 net.minecraft.class_761.field_62647
+public final net.minecraft.class_863 net.minecraft.class_761.field_63067
+public final net.minecraft.class_4503 net.minecraft.class_761.field_63068
+private net.minecraft.class_638 net.minecraft.class_761.field_4085
+private final net.minecraft.class_8679 net.minecraft.class_761.field_45615
+private it.unimi.dsi.fastutil.objects.ObjectArrayList net.minecraft.class_761.field_45616
+private final it.unimi.dsi.fastutil.objects.ObjectArrayList net.minecraft.class_761.field_54164
+public net.minecraft.class_769 net.minecraft.class_761.field_4112
+private int net.minecraft.class_761.field_4073
+private final it.unimi.dsi.fastutil.ints.Int2ObjectMap net.minecraft.class_761.field_4058
+private final it.unimi.dsi.fastutil.longs.Long2ObjectMap net.minecraft.class_761.field_20950
+private net.minecraft.class_276 net.minecraft.class_761.field_53080
+private final net.minecraft.class_9960 net.minecraft.class_761.field_53081
+private int net.minecraft.class_761.field_4084
+private int net.minecraft.class_761.field_4105
+private int net.minecraft.class_761.field_4121
+private double net.minecraft.class_761.field_4069
+private double net.minecraft.class_761.field_4081
+private double net.minecraft.class_761.field_4096
+private double net.minecraft.class_761.field_4115
+private double net.minecraft.class_761.field_4064
+private net.minecraft.class_846 net.minecraft.class_761.field_45614
+private int net.minecraft.class_761.field_4062
+private boolean net.minecraft.class_761.field_62945
+private net.minecraft.class_4604 net.minecraft.class_761.field_4056
+private net.minecraft.class_2338 net.minecraft.class_761.field_54160
+private int net.minecraft.class_761.field_54161
+public final net.minecraft.class_11658 net.minecraft.class_761.field_61737
+private final net.minecraft.class_11661 net.minecraft.class_761.field_61738
+private final net.minecraft.class_11684 net.minecraft.class_761.field_61739
+private net.minecraft.class_12137 net.minecraft.class_761.field_64218
+private final net.minecraft.class_12185 net.minecraft.class_761.field_63574
+private net.minecraft.class_761$class_12351 net.minecraft.class_761.field_64566
+private net.minecraft.class_898 net.minecraft.class_761.entityCulling$entityRenderDispatcher
+private java.util.List net.minecraft.class_761.lateRenders
+private double net.minecraft.class_761.aabbExpansion
+private final net.fabricmc.fabric.impl.client.rendering.world.WorldRenderContextImpl net.minecraft.class_761.renderContext
+private final net.fabricmc.fabric.impl.client.rendering.world.WorldExtractionContextImpl net.minecraft.class_761.extractionContext
+private net.minecraft.class_2960 net.minecraft.class_761.fabric$id
+private static final java.lang.String net.minecraft.class_761.CLEAR
+private static final java.lang.String net.minecraft.class_761.RENDER_SKY
+private static final java.lang.String net.minecraft.class_761.RENDER_CLOUDS
+private static final java.lang.String net.minecraft.class_761.RENDER_WEATHER
+private net.irisshaders.iris.pipeline.WorldRenderingPipeline net.minecraft.class_761.pipeline
+private boolean net.minecraft.class_761.warned
+private boolean net.minecraft.class_761.disableFrustumCulling
+private static final it.unimi.dsi.fastutil.objects.ObjectArrayList net.minecraft.class_761.EMPTY_LIST
+private it.unimi.dsi.fastutil.objects.ObjectArrayList net.minecraft.class_761.savedRenderChunks
+private double net.minecraft.class_761.savedLastCameraX
+private double net.minecraft.class_761.savedLastCameraY
+private double net.minecraft.class_761.savedLastCameraZ
+private double net.minecraft.class_761.savedLastCameraPitch
+private double net.minecraft.class_761.savedLastCameraYaw
+private static final java.util.EnumMap net.minecraft.class_761.STATIC_MAP
+private net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer net.minecraft.class_761.renderer
+private net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices net.minecraft.class_761.matrices
+private net.minecraft.class_276 net.minecraft.class_761.overrideTranslucentRenderTarget
+private static com.moulberry.axiom.render.AxiomWorldRenderContext net.minecraft.class_761.renderContext
+CLASS net.minecraft.class_638 FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/.fabric/remappedJars/minecraft-1.21.11-0.19.5/client-intermediary.jar <no signer certificates>)
+public java.lang.String net.minecraft.class_638.toString()
+public void net.minecraft.class_638.registerForCleaning(net.minecraft.class_10719)
+public boolean net.minecraft.class_638.axiom$isTimeFrozen()
+public net.caffeinemc.mods.sodium.client.render.chunk.map.ChunkTracker net.minecraft.class_638.sodium$getTracker()
+public xaero.lib.client.level.ClientLevelData net.minecraft.class_638.xaerolib_getData()
+public void net.minecraft.class_638.xaerolib_setData(xaero.lib.client.level.ClientLevelData)
+public xaero.common.minimap.mcworld.MinimapClientWorldData net.minecraft.class_638.getXaero_minimapData()
+public void net.minecraft.class_638.setXaero_minimapData(xaero.common.minimap.mcworld.MinimapClientWorldData)
+public xaero.map.mcworld.WorldMapClientWorldData net.minecraft.class_638.getXaero_worldmapData()
+public void net.minecraft.class_638.setXaero_worldmapData(xaero.map.mcworld.WorldMapClientWorldData)
+public net.minecraft.class_5582 net.minecraft.class_638.nbtac$getEntityStorage()
+public net.minecraft.class_2791 net.minecraft.class_638.method_8392(int,int)
+public net.minecraft.class_2784 net.minecraft.class_638.method_8621()
+public net.minecraft.class_5217$class_12064 net.minecraft.class_638.method_74854()
+public net.minecraft.class_12205 net.minecraft.class_638.method_75728()
+public void net.minecraft.class_638.method_8444(net.minecraft.class_1297,int,net.minecraft.class_2338,int)
+public net.minecraft.class_7699 net.minecraft.class_638.method_45162()
+public void net.minecraft.class_638.method_32888(net.minecraft.class_6880,net.minecraft.class_243,net.minecraft.class_5712$class_7397)
+public void net.minecraft.class_638.method_8406(net.minecraft.class_2394,double,double,double,double,double,double)
+public net.minecraft.class_269 net.minecraft.class_638.method_8428()
+public java.util.List net.minecraft.class_638.method_18456()
+public net.minecraft.class_2802 net.minecraft.class_638.method_8398()
+public boolean net.minecraft.class_638.method_30092(net.minecraft.class_2338,net.minecraft.class_2680,int,int)
+public void net.minecraft.class_638.method_16109(net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_2680)
+public void net.minecraft.class_638.method_8413(net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_2680,int)
+public void net.minecraft.class_638.method_31595(net.minecraft.class_2338,net.minecraft.class_2680)
+public int net.minecraft.class_638.method_8615()
+public boolean net.minecraft.class_638.method_8393(int,int)
+public void net.minecraft.class_638.method_8465(net.minecraft.class_1297,double,double,double,net.minecraft.class_6880,net.minecraft.class_3419,float,float,long)
+public void net.minecraft.class_638.method_8449(net.minecraft.class_1297,net.minecraft.class_1297,net.minecraft.class_6880,net.minecraft.class_3419,float,float,long)
+public void net.minecraft.class_638.method_8486(double,double,double,net.minecraft.class_3414,net.minecraft.class_3419,float,float,boolean)
+public void net.minecraft.class_638.method_55116(net.minecraft.class_1297,net.minecraft.class_3414,net.minecraft.class_3419,float,float)
+public void net.minecraft.class_638.method_67392(net.minecraft.class_3414,net.minecraft.class_3419,float,float)
+public void net.minecraft.class_638.method_8466(net.minecraft.class_2394,boolean,boolean,double,double,double,double,double,double)
+public void net.minecraft.class_638.method_8494(net.minecraft.class_2394,double,double,double,double,double,double)
+public void net.minecraft.class_638.method_17452(net.minecraft.class_2394,boolean,double,double,double,double,double,double)
+public net.minecraft.class_8921 net.minecraft.class_638.method_54719()
+public boolean net.minecraft.class_638.method_38989(net.minecraft.class_1297)
+public void net.minecraft.class_638.method_8454(net.minecraft.class_1297,net.minecraft.class_1282,net.minecraft.class_5362,double,double,double,float,boolean,net.minecraft.class_1937$class_7867,net.minecraft.class_2394,net.minecraft.class_2394,net.minecraft.class_6012,net.minecraft.class_6880)
+public java.lang.String net.minecraft.class_638.method_31419()
+public void net.minecraft.class_638.method_27873(net.minecraft.class_5217$class_12064)
+protected net.minecraft.class_5577 net.minecraft.class_638.method_31592()
+public java.util.Collection net.minecraft.class_638.method_65097()
+public java.util.List net.minecraft.class_638.method_66349(net.minecraft.class_1297,net.minecraft.class_238)
+public net.minecraft.class_1297 net.minecraft.class_638.method_8469(int)
+public void net.minecraft.class_638.method_71970(net.minecraft.class_2586)
+public net.minecraft.class_5217 net.minecraft.class_638.method_8401()
+public net.minecraft.class_22 net.minecraft.class_638.method_17891(net.minecraft.class_9209)
+public void net.minecraft.class_638.method_8474(int,net.minecraft.class_2338,int)
+public net.minecraft.class_129 net.minecraft.class_638.method_8538(net.minecraft.class_128)
+public void net.minecraft.class_638.method_8517(int,net.minecraft.class_2338,int)
+public void net.minecraft.class_638.method_8547(double,double,double,double,double,double,java.util.List)
+public void net.minecraft.class_638.method_8509(int)
+public void net.minecraft.class_638.method_8522(net.minecraft.class_2596)
+public net.minecraft.class_10286 net.minecraft.class_638.method_8433()
+public net.minecraft.class_1845 net.minecraft.class_638.method_59547()
+public net.minecraft.class_9895 net.minecraft.class_638.method_61269()
+public int net.minecraft.class_638.method_67233(net.minecraft.class_2338)
+public net.minecraft.class_12204 net.minecraft.class_638.method_75598()
+public int net.minecraft.class_638.method_23752(net.minecraft.class_2338,net.minecraft.class_6539)
+public net.minecraft.class_6880 net.minecraft.class_638.method_22387(int,int,int)
+public float net.minecraft.class_638.method_24852(net.minecraft.class_2350,boolean)
+public net.minecraft.class_6756 net.minecraft.class_638.method_8397()
+public net.minecraft.class_6756 net.minecraft.class_638.method_8405()
+public void net.minecraft.class_638.method_8525(net.minecraft.class_2561)
+public net.minecraft.class_638$class_5271 net.minecraft.class_638.method_28104()
+public void net.minecraft.class_638.method_74254(net.minecraft.class_2338,net.minecraft.class_2350)
+public void net.minecraft.class_638.method_18116()
+public void net.minecraft.class_638.method_8441(java.util.function.BooleanSupplier)
+public void net.minecraft.class_638.method_2941(int,int,int)
+private net.minecraft.class_4700 net.minecraft.class_638.md2ad8c9$fabric-rendering-v1$lambda$new$1$0(net.minecraft.class_6539)
+public void net.minecraft.class_638.handler$zkd000$entityculling$tickEntity(net.minecraft.class_1297,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_638.wrapOperation$zbl000$axiom$onRemoveEntity(net.minecraft.class_1297,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private int net.minecraft.class_638.md2ad8c9$fabric-rendering-v1$lambda$new$0$1(net.minecraft.class_6539,net.minecraft.class_2338)
+private void net.minecraft.class_638.handler$deg000$sodium$captureSeed(net.minecraft.class_634,net.minecraft.class_638$class_5271,net.minecraft.class_5321,net.minecraft.class_6880,int,int,net.minecraft.class_761,boolean,long,int,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.util.List net.minecraft.class_638.mixinextras$bridge$method_5685$160(java.lang.Object[])
+private void net.minecraft.class_638.handler$dei000$sodium$trackChunkUnload(net.minecraft.class_2818,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_638.mixinextras$bridge$method_36209$159(java.lang.Object[])
+public void net.minecraft.class_638.handler$zbl000$axiom$onLevelEvent(net.minecraft.class_1297,int,net.minecraft.class_2338,int,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_638.method_41927(int)
+public java.util.Set net.minecraft.class_638.method_72019()
+public void net.minecraft.class_638.method_41928(net.minecraft.class_2338,net.minecraft.class_2680,int)
+public void net.minecraft.class_638.method_41926(net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_243)
+public net.minecraft.class_7202 net.minecraft.class_638.method_41925()
+private void net.minecraft.class_638.method_23778(it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap)
+public void net.minecraft.class_638.handler$zbl000$axiom$setBlock(net.minecraft.class_2338,net.minecraft.class_2680,int,int,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+public void net.minecraft.class_638.handler$zbl001$axiom$onTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private int net.minecraft.class_638.getWardenHeartBeatDelay(net.minecraft.class_7260)
+public net.minecraft.class_5582 net.minecraft.class_638.lithium$getEntityManager()
+public long net.minecraft.class_638.sodium$getBiomeZoomSeed()
+private void net.minecraft.class_638.viaFabricPlus$checkChunk(net.minecraft.class_1297)
+private void net.minecraft.class_638.handler$eme000$viafabricplus$alwaysTickEntities(net.minecraft.class_1297,net.minecraft.class_1297,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_638.handler$eme000$viafabricplus$alwaysTickEntities(net.minecraft.class_1297,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private java.util.List net.minecraft.class_638.wrapOperation$eme000$viafabricplus$alwaysTickEntities(net.minecraft.class_1297,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_638.handler$bhc000$fabric-rendering-v1$onResetChunkColor(net.minecraft.class_1923,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_638.handler$bhc000$fabric-rendering-v1$onReloadColor(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public net.minecraft.class_2248 net.minecraft.class_638.modifyReturnValue$zbl000$axiom$getMarkerParticleTarget(net.minecraft.class_2248)
+private boolean net.minecraft.class_638.localvar$ccb000$iris$maybeDisableDirectionalShading(boolean)
+public void net.minecraft.class_638.handler$dig000$sodium-extra$addBlockBreakParticles(net.minecraft.class_2338,net.minecraft.class_2680,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_638.handler$dig000$sodium-extra$addBlockBreakingParticles(net.minecraft.class_2338,net.minecraft.class_2350,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_638.handler$emf000$viafabricplus$removePendingUpdateManager(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_638.handler$bao000$fabric-lifecycle-events-v1$startWorldTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_638.handler$bao000$fabric-lifecycle-events-v1$tickWorldAfterBlockEntities(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private java.lang.Object net.minecraft.class_638.modifyExpressionValue$bhc000$fabric-rendering-v1$modifyNullCache(java.lang.Object,net.minecraft.class_2338,net.minecraft.class_6539)
+private net.minecraft.class_12205$class_12314 net.minecraft.class_638.method_76541(net.minecraft.class_12205$class_12314)
+private java.lang.Integer net.minecraft.class_638.method_76540(int,java.lang.Integer,int)
+private java.lang.Float net.minecraft.class_638.method_76542(java.lang.Float,int)
+public void net.minecraft.class_638.method_38536(java.lang.Runnable)
+public void net.minecraft.class_638.method_38534()
+public net.minecraft.class_11743 net.minecraft.class_638.method_73229()
+private void net.minecraft.class_638.method_29090()
+public void net.minecraft.class_638.method_29089(long,long,boolean)
+public java.lang.Iterable net.minecraft.class_638.method_18112()
+private void net.minecraft.class_638.method_32124(net.minecraft.class_1297)
+public boolean net.minecraft.class_638.method_62145(net.minecraft.class_1297)
+public void net.minecraft.class_638.method_18646(net.minecraft.class_1297)
+private static java.lang.String net.minecraft.class_638.method_18649(net.minecraft.class_1297)
+private void net.minecraft.class_638.method_18647(net.minecraft.class_1297,net.minecraft.class_1297)
+public void net.minecraft.class_638.method_18110(net.minecraft.class_2818)
+public void net.minecraft.class_638.method_23782(net.minecraft.class_1923)
+private static void net.minecraft.class_638.method_32121(net.minecraft.class_1923,net.minecraft.class_6539,net.minecraft.class_4700)
+public void net.minecraft.class_638.method_62895(long)
+public void net.minecraft.class_638.method_23784()
+private static void net.minecraft.class_638.method_23779(net.minecraft.class_6539,net.minecraft.class_4700)
+public int net.minecraft.class_638.method_18120()
+public void net.minecraft.class_638.method_53875(net.minecraft.class_1297)
+public void net.minecraft.class_638.method_2945(int,net.minecraft.class_1297$class_5529)
+private net.minecraft.class_2248 net.minecraft.class_638.method_35752()
+public void net.minecraft.class_638.method_2943(int,int,int,int,net.minecraft.class_5819,net.minecraft.class_2248,net.minecraft.class_2338$class_2339)
+private void net.minecraft.class_638.method_2938(net.minecraft.class_2338,net.minecraft.class_2680,net.minecraft.class_2394,boolean)
+private void net.minecraft.class_638.method_2932(double,double,double,double,double,net.minecraft.class_2394)
+private void net.minecraft.class_638.method_2948(net.minecraft.class_2338,net.minecraft.class_2394,net.minecraft.class_265,double)
+private java.lang.String net.minecraft.class_638.method_2946() throws java.lang.Exception
+private java.lang.String net.minecraft.class_638.method_2933() throws java.lang.Exception
+private java.lang.String net.minecraft.class_638.method_54633() throws java.lang.Exception
+private void net.minecraft.class_638.method_43207(double,double,double,net.minecraft.class_3414,net.minecraft.class_3419,float,float,boolean,long)
+public net.minecraft.class_631 net.minecraft.class_638.method_2935()
+public void net.minecraft.class_638.method_47437(net.minecraft.class_9209,net.minecraft.class_22)
+public void net.minecraft.class_638.method_18113(int,int,int)
+public void net.minecraft.class_638.method_62146(int,int,int,int,int,int)
+private void net.minecraft.class_638.method_74919(net.minecraft.class_2394,boolean,boolean,double,double,double,double,double,double)
+private net.minecraft.class_4066 net.minecraft.class_638.method_74918(boolean)
+private java.lang.String net.minecraft.class_638.method_74917(net.minecraft.class_2394) throws java.lang.Exception
+private java.lang.String net.minecraft.class_638.method_74916(double,double,double) throws java.lang.Exception
+public java.util.List net.minecraft.class_638.method_65192()
+private int net.minecraft.class_638.method_23789()
+public int net.minecraft.class_638.method_23780(net.minecraft.class_2338,net.minecraft.class_6539)
+protected java.util.Map net.minecraft.class_638.method_35754()
+protected void net.minecraft.class_638.method_35753(java.util.Map)
+private void net.minecraft.class_638.method_74253(net.minecraft.class_2338,net.minecraft.class_2680,double,double,double,double,double,double)
+public void net.minecraft.class_638.method_39023(int)
+public int net.minecraft.class_638.method_39024()
+public void net.minecraft.class_638.method_73228(net.minecraft.class_243,float,int,net.minecraft.class_6012)
+private int net.minecraft.class_638.method_38538(net.minecraft.class_2338)
+private int net.minecraft.class_638.method_38537(net.minecraft.class_2338)
+private int net.minecraft.class_638.method_68160(net.minecraft.class_2338)
+private int net.minecraft.class_638.method_38535(net.minecraft.class_2338)
+private void net.minecraft.class_638.processDisplay(net.minecraft.class_8113)
+private void net.minecraft.class_638.basicTick(net.minecraft.class_1297)
+private static final org.slf4j.Logger net.minecraft.class_638.field_37952
+public static final net.minecraft.class_2561 net.minecraft.class_638.field_61021
+private static final double net.minecraft.class_638.field_32641
+private static final int net.minecraft.class_638.field_34805
+private static final int net.minecraft.class_638.field_34806
+final net.minecraft.class_5574 net.minecraft.class_638.field_27733
+private final net.minecraft.class_5582 net.minecraft.class_638.field_27734
+private final net.minecraft.class_634 net.minecraft.class_638.field_3727
+private final net.minecraft.class_761 net.minecraft.class_638.field_17780
+private final net.minecraft.class_9959 net.minecraft.class_638.field_53028
+private final net.minecraft.class_638$class_5271 net.minecraft.class_638.field_24430
+private final net.minecraft.class_8921 net.minecraft.class_638.field_47129
+private final net.minecraft.class_11743 net.minecraft.class_638.field_62026
+private final net.minecraft.class_310 net.minecraft.class_638.field_3729
+final java.util.List net.minecraft.class_638.field_18226
+final java.util.List net.minecraft.class_638.field_55125
+private final java.util.Map net.minecraft.class_638.field_17675
+private int net.minecraft.class_638.field_21526
+private final it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap net.minecraft.class_638.field_21527
+private final net.minecraft.class_631 net.minecraft.class_638.field_24605
+private final java.util.Deque net.minecraft.class_638.field_34804
+private int net.minecraft.class_638.field_35163
+private net.minecraft.class_7202 net.minecraft.class_638.field_37951
+private final java.util.Set net.minecraft.class_638.field_60919
+private final net.minecraft.class_11741 net.minecraft.class_638.field_62027
+private final net.minecraft.class_2784 net.minecraft.class_638.field_62596
+private final net.minecraft.class_12205 net.minecraft.class_638.field_64444
+private final int net.minecraft.class_638.field_53029
+private boolean net.minecraft.class_638.field_54500
+private static final java.util.Set net.minecraft.class_638.field_35432
+private boolean net.minecraft.class_638.playedBlockBreakThisTick
+private net.minecraft.class_310 net.minecraft.class_638.mc
+private final it.unimi.dsi.fastutil.objects.Reference2ReferenceMap net.minecraft.class_638.customColorCache
+private long net.minecraft.class_638.biomeZoomSeed
+private final net.caffeinemc.mods.sodium.client.render.chunk.map.ChunkTracker net.minecraft.class_638.chunkTracker
+private xaero.lib.client.level.ClientLevelData net.minecraft.class_638.xaerolib_data
+private xaero.common.minimap.mcworld.MinimapClientWorldData net.minecraft.class_638.xaero_minimapData
+private xaero.map.mcworld.WorldMapClientWorldData net.minecraft.class_638.xaero_worldmapData
+CLASS net.minecraft.class_310 FROM (file:/Users/william.lei/Library/Application%20Support/ModrinthApp/profiles/Minecraft%20(1)/.fabric/remappedJars/minecraft-1.21.11-0.19.5/client-intermediary.jar <no signer certificates>)
+public void net.minecraft.class_310.close()
+private void net.minecraft.class_310.handler$zof000$fabric-events-interaction-v0$injectHandleInputEventsForPreAttackCallback(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService net.minecraft.class_310.authme$getAuthService()
+public int net.minecraft.class_310.getXaeroMinimap_fps()
+public int net.minecraft.class_310.getXaeroWorldMap_fps()
+public void net.minecraft.class_310.axiom$addCustomNbtData(net.minecraft.class_1799,net.minecraft.class_2586,net.minecraft.class_5455)
+public void net.minecraft.class_310.setProfileFuture(java.util.concurrent.CompletableFuture)
+public void net.minecraft.class_310.setUserApiService(com.mojang.authlib.minecraft.UserApiService)
+public void net.minecraft.class_310.setPlayerSocialManager(net.minecraft.class_5520)
+public void net.minecraft.class_310.setReportingContext(net.minecraft.class_7574)
+public void net.minecraft.class_310.setRealmsDataFetcher(net.minecraft.class_7578)
+public net.minecraft.class_378 net.minecraft.class_310.nbtac$getFontManager()
+public com.mojang.authlib.minecraft.UserApiService net.minecraft.class_310.getUserApiService()
+private static void net.minecraft.class_310.unmap() throws net.fabricmc.fabric.impl.registry.sync.RemapException
+public net.minecraft.class_2535 net.minecraft.class_310.getConnection()
+public static net.minecraft.class_310 net.minecraft.class_310.method_1551()
+public net.minecraft.class_320 net.minecraft.class_310.method_1548()
+public void net.minecraft.class_310.method_1507(net.minecraft.class_437)
+public void net.minecraft.class_310.handler$zci000$axiom$pickBlock(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public static void net.minecraft.class_310.method_22681(net.minecraft.class_310,net.minecraft.class_1076,java.lang.String,net.minecraft.class_315,net.minecraft.class_128)
+public static void net.minecraft.class_310.method_1565(net.minecraft.class_310,java.io.File,net.minecraft.class_128)
+public void net.minecraft.class_310.method_1514()
+public void net.minecraft.class_310.method_1592()
+public void net.minecraft.class_310.method_1490()
+public net.minecraft.class_1132 net.minecraft.class_310.method_1576()
+public boolean net.minecraft.class_310.method_1542()
+public net.minecraft.class_8015 net.minecraft.class_310.method_48186()
+public net.minecraft.class_333 net.minecraft.class_310.method_44713()
+public boolean net.minecraft.class_310.method_74188()
+public net.minecraft.class_1041 net.minecraft.class_310.method_22683()
+private void net.minecraft.class_310.handler$zmm000$fabric-data-generation-api-v1$main(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public net.minecraft.class_634 net.minecraft.class_310.method_1562()
+public net.minecraft.class_1144 net.minecraft.class_310.method_1483()
+public net.minecraft.class_7594 net.minecraft.class_310.method_44714()
+private static net.minecraft.class_7497 net.minecraft.class_310.mixinextras$bridge$method_44143$382(java.lang.Object[])
+private void net.minecraft.class_310.handler$bob000$iris$beforeLoadOptions(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$fbn000$yumi_mc_core$onInit(net.minecraft.class_542,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_18819$383(java.lang.Object[])
+private void net.minecraft.class_310.handler$zjk000$dynamic_fps$onInit(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bnn000$iris$setupImages(net.minecraft.class_542,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$dbj000$nbtac$atConstructor(net.minecraft.class_542,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$zjk000$dynamic_fps$setScreen(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$djj001$spruceui$onScreenRemove(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bmc000$gammautils$saveOnClose(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$dco000$skinshuffle$render(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$ddf000$sodium$preRender(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$dic000$sodium-extra$onRunTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public boolean net.minecraft.class_310.modify$eoo000$xaerolib$onRenderCall(boolean)
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_1237$381(java.lang.Object[])
+private void net.minecraft.class_310.handler$ddf000$sodium$postRender(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$resizeDisplay(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$continueAttack(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$startAttack(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private static java.lang.Boolean net.minecraft.class_310.mixinextras$bridge$method_2924$385(java.lang.Object[])
+public void net.minecraft.class_310.handler$zcg000$axiom$startUseItem(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+void net.minecraft.class_310.handler$zzd000$appleskin$onTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_25393$384(java.lang.Object[])
+public void net.minecraft.class_310.handler$zcg000$axiom$handleKeyboards(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_1507$387(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_1507$388(java.lang.Object[])
+private static java.lang.Void net.minecraft.class_310.mixinextras$bridge$method_1507$389(java.lang.Object[])
+private static java.lang.Boolean net.minecraft.class_310.mixinextras$bridge$method_74188$386(java.lang.Object[])
+public void net.minecraft.class_310.handler$zcg000$axiom$onRightClick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$eog000$voicechat$disconnect(net.minecraft.class_437,boolean,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bnp000$iris$resetPipeline(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$pickBlockInfinite(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_310.handler$djm000$transition$fillReport(net.minecraft.class_310,net.minecraft.class_1076,java.lang.String,net.minecraft.class_315,net.minecraft.class_128,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$djm000$transition$fillReport(net.minecraft.class_128,org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private void net.minecraft.class_310.handler$bfn001$fabric-registry-sync-v0$afterModInit(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public boolean net.minecraft.class_310.method_33883()
+public net.minecraft.class_1297 net.minecraft.class_310.method_1560()
+public net.minecraft.class_1156 net.minecraft.class_310.method_1577()
+private net.minecraft.class_7497 net.minecraft.class_310.wrapOperation$zzj000$authme$wrapCreateServices(com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService,java.io.File,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.wrapOperation$ddf000$sodium$registerSodiumIcon(net.minecraft.class_1060,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+public void net.minecraft.class_310.handler$cec000$jei$beforeInitialResourceReload(net.minecraft.class_542,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$getMainRenderTarget(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private void net.minecraft.class_310.handler$ddf000$sodium$postResourceReload(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+public void net.minecraft.class_310.handler$fab000$xaerominimap$onOpenScreen(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$fao001$xaeroworldmap$onOpenScreen(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$zfp000$bedrockify$computeDeltaTime(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public boolean net.minecraft.class_310.localvar$fah000$xaeroworldmap$onRunTick(boolean)
+public void net.minecraft.class_310.handler$fao000$xaeroworldmap$onRunTickStart(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.minecraft.class_310.wrapWithCondition$zjk000$dynamic_fps$runTick(com.mojang.blaze3d.systems.CommandEncoder,com.mojang.blaze3d.textures.GpuTexture,int,com.mojang.blaze3d.textures.GpuTexture,double)
+public boolean net.minecraft.class_310.modify$fao001$xaeroworldmap$onRenderCall(boolean)
+private boolean net.minecraft.class_310.redirect$dgi000$sodium$redirectWindowMinimized(net.minecraft.class_1041)
+private void net.minecraft.class_310.handler$dep000$sodium$updatePercentileCache(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$djj000$spruceui$onResolutionChanged(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$cfg000$legacyfreecam$onDoAttack(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private net.minecraft.class_1269$class_9861 net.minecraft.class_310.redirect$emd000$viafabricplus$disableSwing(net.minecraft.class_1269$class_9860)
+private net.minecraft.class_1269$class_9861 net.minecraft.class_310.redirect$emd000$viafabricplus$disableSwing2(net.minecraft.class_1269$class_9860)
+public void net.minecraft.class_310.handler$fab002$xaerominimap$onTickStart(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$fao004$xaeroworldmap$onTickStart(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.wrapOperation$djj000$spruceui$onScreenTick(net.minecraft.class_437,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.handler$eog000$voicechat$handleKeybinds(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.redirect$zcg000$axiom$updateSelectedSlot(net.minecraft.class_1661,int)
+public void net.minecraft.class_310.handler$fab000$xaerominimap$onJoinWorld(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$fao001$xaeroworldmap$onJoinWorld(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$cfg000$legacyfreecam$onDisconnect(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$fab000$xaerominimap$onDisconnect(net.minecraft.class_437,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$fao001$xaeroworldmap$onDisconnect(net.minecraft.class_437,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$bnp000$iris$trackLastDimensionOnLeave(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$cec000$jei$updateLevelInEngines(net.minecraft.class_638,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$cfg000$legacyfreecam$onDoItemPick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$zof000$fabric-events-interaction-v0$injectHandleBlockBreakingForCancelling(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.minecraft.class_310.modifyExpressionValue$eee000$viafabricplus$allowBlockBreakAndItemUsageAtTheSameTime(boolean)
+private void net.minecraft.class_310.handler$zof000$fabric-events-interaction-v0$injectDoAttackForCancelling(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private boolean net.minecraft.class_310.modifyExpressionValue$eee000$viafabricplus$allowItemUsageAndBlockBreakAtTheSameTime(boolean)
+private boolean net.minecraft.class_310.wrapOperation$dam000$macos_input_fixes$handleInputEventsIsCtrlPressedAdjustment(net.minecraft.class_310,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$onScreenRemoveBecauseStopping(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.minecraft.class_310.wrapWithCondition$emd000$viafabricplus$fixSwingPacketOrder(net.minecraft.class_746,net.minecraft.class_1268)
+private void net.minecraft.class_310.handler$zof000$fabric-events-interaction-v0$injectUseEntityCallback(org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_1268,net.minecraft.class_3966,net.minecraft.class_1297)
+public boolean net.minecraft.class_310.wrapWithCondition$zcg000$axiom$handleKeybindsSendPacket(net.minecraft.class_634,net.minecraft.class_2596)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$beforeLoadingScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$afterLoadingScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bap000$fabric-lifecycle-events-v1$afterClientWorldChange(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private float net.minecraft.class_310.method_54785(float)
+private static boolean net.minecraft.class_310.method_40189(java.lang.Object)
+private com.mojang.authlib.yggdrasil.ProfileResult net.minecraft.class_310.method_53464()
+private com.mojang.authlib.minecraft.UserApiService net.minecraft.class_310.method_31382(com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService,net.minecraft.class_542)
+private com.mojang.authlib.minecraft.UserApiService$UserProperties net.minecraft.class_310.method_55608()
+private java.lang.String net.minecraft.class_310.method_24287()
+public void net.minecraft.class_310.method_15995(boolean)
+private java.lang.String net.minecraft.class_310.method_68467(net.minecraft.class_2960,com.mojang.blaze3d.shaders.ShaderType)
+private void net.minecraft.class_310.method_60320(net.minecraft.class_1078)
+public void net.minecraft.class_310.method_63507(java.lang.Exception)
+void net.minecraft.class_310.method_57017()
+private void net.minecraft.class_310.method_1506(int,long)
+public void net.minecraft.class_310.method_15993()
+private void net.minecraft.class_310.method_53522(net.minecraft.class_310$class_8764,java.util.Optional)
+public void net.minecraft.class_310.method_18502(net.minecraft.class_4071)
+private int net.minecraft.class_310.method_16010()
+public boolean net.minecraft.class_310.method_74187()
+public boolean net.minecraft.class_310.method_74189()
+private void net.minecraft.class_310.method_53465(net.minecraft.class_310$class_8764)
+private void net.minecraft.class_310.method_51736(net.minecraft.class_310$class_8764)
+private java.lang.Runnable net.minecraft.class_310.method_53527(net.minecraft.class_310$class_8764)
+public boolean net.minecraft.class_310.method_53466()
+private boolean net.minecraft.class_310.method_53525(java.util.List)
+private void net.minecraft.class_310.method_53528(net.minecraft.class_310$class_8764,boolean)
+private void net.minecraft.class_310.method_53529(net.minecraft.class_437)
+private net.minecraft.class_437 net.minecraft.class_310.method_53523(java.lang.Runnable)
+public com.mojang.authlib.minecraft.BanDetails net.minecraft.class_310.method_44647()
+private static net.minecraft.class_437 net.minecraft.class_310.method_53520(com.mojang.authlib.minecraft.BanDetails,java.lang.Runnable)
+private static net.minecraft.class_437 net.minecraft.class_310.method_53519(com.mojang.authlib.GameProfile,java.lang.Runnable)
+public void net.minecraft.class_310.method_24288()
+public static net.minecraft.class_6683 net.minecraft.class_310.method_24289()
+public net.minecraft.class_642 net.minecraft.class_310.method_1558()
+public boolean net.minecraft.class_310.method_72704()
+private void net.minecraft.class_310.method_24226(java.lang.Throwable,net.minecraft.class_310$class_8764)
+public void net.minecraft.class_310.method_31186(java.lang.Throwable,net.minecraft.class_2561,net.minecraft.class_310$class_8764)
+private java.util.concurrent.CompletableFuture net.minecraft.class_310.method_36561(boolean,net.minecraft.class_310$class_8764)
+private void net.minecraft.class_310.method_24229(net.minecraft.class_2561)
+private void net.minecraft.class_310.method_49294()
+public void net.minecraft.class_310.method_72100()
+private void net.minecraft.class_310.method_49292(net.minecraft.class_2561)
+public net.minecraft.class_374 net.minecraft.class_310.method_1566()
+public void net.minecraft.class_310.method_54580(net.minecraft.class_128)
+private void net.minecraft.class_310.method_54579()
+public net.minecraft.class_340 net.minecraft.class_310.method_53526()
+private net.minecraft.class_3695 net.minecraft.class_310.method_24458(boolean,net.minecraft.class_4758)
+private void net.minecraft.class_310.method_1523(boolean)
+private void net.minecraft.class_310.method_24460(boolean,net.minecraft.class_4758)
+private void net.minecraft.class_310.method_1519()
+public net.minecraft.class_276 net.minecraft.class_310.method_1522()
+public java.lang.String net.minecraft.class_310.method_1515()
+public java.lang.String net.minecraft.class_310.method_1547()
+public void net.minecraft.class_310.method_1494(net.minecraft.class_128)
+private net.minecraft.class_128 net.minecraft.class_310.method_43589(net.minecraft.class_128)
+public void net.minecraft.class_310.method_43587(net.minecraft.class_128)
+private static net.minecraft.class_128 net.minecraft.class_310.method_43588(net.minecraft.class_128)
+public net.minecraft.class_128 net.minecraft.class_310.method_1587(net.minecraft.class_128)
+public static int net.minecraft.class_310.method_61962(java.io.File,net.minecraft.class_128)
+public boolean net.minecraft.class_310.method_1573()
+public java.util.concurrent.CompletableFuture net.minecraft.class_310.method_1521()
+private void net.minecraft.class_310.method_24228(boolean,net.minecraft.class_310$class_8764,java.util.concurrent.CompletableFuture,java.util.Optional)
+private void net.minecraft.class_310.method_17044()
+public net.minecraft.class_776 net.minecraft.class_310.method_1541()
+private static void net.minecraft.class_310.method_64035(net.minecraft.class_6880$class_6883)
+public net.minecraft.class_32 net.minecraft.class_310.method_1586()
+public void net.minecraft.class_310.method_29041(net.minecraft.class_338$class_11732)
+public net.minecraft.class_310$class_5859 net.minecraft.class_310.method_33884()
+private void net.minecraft.class_310.method_44352(boolean)
+public void net.minecraft.class_310.method_48185(net.minecraft.class_8015)
+private net.minecraft.class_4011 net.minecraft.class_310.modifyExpressionValue$fbo000$zoomify$onReloadResources(net.minecraft.class_4011)
+private void net.minecraft.class_310.handler$dld000$viafabricplus$callPostGameLoadEvent(net.minecraft.class_542,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bap000$fabric-lifecycle-events-v1$onStart(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$checkThreadOnDev(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$onScreenRemove(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$dbk000$resourcefulconfig$rconfig$onRemoved(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bap000$fabric-lifecycle-events-v1$onStopping(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$djj001$spruceui$onScreenRemoveBecauseStopping(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$fbd000$yet_another_config_lib_v3$closeImages(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.wrapOperation$zch000$axiom$runTick_blitToScreen(net.minecraft.class_276,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.handler$cfg000$legacyfreecam$onHandleBlockBreaking(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$emd000$viafabricplus$fixSwingPacketOrder(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+private boolean net.minecraft.class_310.wrapOperation$edn000$viafabricplus$removeHitPenalty(net.minecraft.class_636,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.handler$zho000$bedrockify$modifyCrosshairTarget(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bap000$fabric-lifecycle-events-v1$onStartTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$ecl000$viafabricplus$processInputQueues(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$beforeScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bkh000$fabric-screen-api-v1$afterScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$edn000$viafabricplus$moveCooldownIncrement(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private int net.minecraft.class_310.redirect$edn000$viafabricplus$moveCooldownIncrement(net.minecraft.class_310)
+private void net.minecraft.class_310.handler$bap000$fabric-lifecycle-events-v1$onEndTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$cfg000$legacyfreecam$onHandleInputEvents(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.wrapOperation$zcg000$axiom$handleKeybinds_setScreen(net.minecraft.class_310,net.minecraft.class_437,com.llamalad7.mixinextras.injector.wrapoperation.Operation)
+private void net.minecraft.class_310.handler$ekd000$viafabricplus$sendOpenInventoryPacket(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private boolean net.minecraft.class_310.wrapWithCondition$emd000$viafabricplus$disableSwing(net.minecraft.class_746,net.minecraft.class_1268)
+private void net.minecraft.class_310.handler$djj000$spruceui$onBeforeLoadingScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_3928)
+private void net.minecraft.class_310.handler$djj000$spruceui$onAfterLoadingScreenTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$dkc000$viafabricplus$disableProtocolTranslator(net.minecraft.class_32$class_5143,net.minecraft.class_3283,net.minecraft.class_6904,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo,net.minecraft.class_2535)
+private void net.minecraft.class_310.handler$bnp000$iris$trackLastDimensionOnLevelChange(net.minecraft.class_638,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$bfn000$fabric-registry-sync-v0$disconnectAfter(net.minecraft.class_437,boolean,boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$emj000$viafabricplus$pickItemClientside(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$dae000$macos_input_fixes$onWindowFocusChanged(boolean,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.md2ad8c9$macos_input_fixes$lambda$scrollCallback$0$1(double,double)
+private void net.minecraft.class_310.md2ad8c9$macos_input_fixes$lambda$keyCallback$0$0(int,int,int,int)
+private void net.minecraft.class_310.handler$ddf000$sodium$postInit(org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable)
+public void net.minecraft.class_310.handler$zcg000$axiom$setScreen(net.minecraft.class_437,org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$cfl000$libipn$tickPre(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private void net.minecraft.class_310.handler$bno002$iris$onTick(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$cfl000$libipn$tickPost(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+public void net.minecraft.class_310.handler$zcg000$axiom$setLevel(org.spongepowered.asm.mixin.injection.callback.CallbackInfo)
+private static void net.minecraft.class_310.method_18508(java.util.concurrent.CompletableFuture)
+public net.minecraft.class_12180$class_12181 net.minecraft.class_310.method_75308()
+private boolean net.minecraft.class_310.method_60647()
+public void net.minecraft.class_310.method_1574()
+public boolean net.minecraft.class_310.method_1496()
+public void net.minecraft.class_310.method_30133()
+public int net.minecraft.class_310.method_47599()
+public long net.minecraft.class_310.method_47600()
+public void net.minecraft.class_310.method_72099()
+public boolean net.minecraft.class_310.method_34745(java.util.function.Consumer)
+private void net.minecraft.class_310.method_37286()
+private void net.minecraft.class_310.method_37290(java.util.function.Consumer,net.minecraft.class_3696)
+private void net.minecraft.class_310.method_37291(java.util.function.Consumer,java.nio.file.Path)
+private static net.minecraft.class_6396 net.minecraft.class_310.method_37274(net.minecraft.class_6396,net.minecraft.class_310,net.minecraft.class_1076,java.lang.String,net.minecraft.class_315)
+private void net.minecraft.class_310.method_37276(net.minecraft.class_6396,java.util.function.Consumer,java.util.List)
+private static void net.minecraft.class_310.method_37283(java.util.function.Consumer,java.nio.file.Path)
+private static void net.minecraft.class_310.method_37284(java.util.function.Consumer,java.util.concurrent.CompletableFuture,java.util.concurrent.CompletableFuture)
+private static void net.minecraft.class_310.method_37277(net.minecraft.class_3696)
+private void net.minecraft.class_310.method_34746(java.util.function.Consumer,net.minecraft.class_3696)
+private void net.minecraft.class_310.method_41733()
+private java.nio.file.Path net.minecraft.class_310.method_37275(net.minecraft.class_6396,java.util.List)
+public boolean net.minecraft.class_310.method_22108()
+public void net.minecraft.class_310.method_20539(boolean)
+private void net.minecraft.class_310.method_1590(boolean)
+private boolean net.minecraft.class_310.method_1536()
+private void net.minecraft.class_310.method_1583()
+public net.minecraft.class_1142 net.minecraft.class_310.method_1538()
+private void net.minecraft.class_310.method_1508()
+private boolean net.minecraft.class_310.method_31321()
+private static boolean net.minecraft.class_310.method_1491()
+private java.util.Optional net.minecraft.class_310.method_72098()
+private void net.minecraft.class_310.method_72096(net.minecraft.class_6880)
+private void net.minecraft.class_310.method_1511()
+private static java.util.Optional net.minecraft.class_310.method_72097(net.minecraft.class_2378,net.minecraft.class_6885$class_6888)
+public net.minecraft.class_6628 net.minecraft.class_310.method_47601()
+public double net.minecraft.class_310.method_41734()
+public net.minecraft.class_7853 net.minecraft.class_310.method_43590()
+public net.minecraft.class_7196 net.minecraft.class_310.method_41735()
+public void net.minecraft.class_310.method_29610(net.minecraft.class_32$class_5143,net.minecraft.class_3283,net.minecraft.class_6904,boolean)
+private net.minecraft.class_1132 net.minecraft.class_310.method_29603(net.minecraft.class_32$class_5143,net.minecraft.class_3283,net.minecraft.class_6904,net.minecraft.class_11545,java.lang.Thread)
+public void net.minecraft.class_310.method_44376(net.minecraft.class_7569)
+private static java.lang.String net.minecraft.class_310.method_41732(net.minecraft.class_6904) throws java.lang.Exception
+private static boolean net.minecraft.class_310.method_72702(long)
+private static void net.minecraft.class_310.method_1510(net.minecraft.class_2561)
+public void net.minecraft.class_310.method_1481(net.minecraft.class_638)
+private void net.minecraft.class_310.method_76796(net.minecraft.class_638)
+public void net.minecraft.class_310.method_73360(net.minecraft.class_2561)
+public void net.minecraft.class_310.method_76795(net.minecraft.class_437,boolean)
+public void net.minecraft.class_310.method_76797(boolean)
+public void net.minecraft.class_310.method_18096(net.minecraft.class_437,boolean,boolean)
+public void net.minecraft.class_310.method_55505()
+public void net.minecraft.class_310.method_29970(net.minecraft.class_437)
+private void net.minecraft.class_310.method_18097(net.minecraft.class_638,boolean)
+public void net.minecraft.class_310.method_52703(net.minecraft.class_437)
+public void net.minecraft.class_310.method_1504(net.minecraft.class_1297)
+private com.mojang.authlib.minecraft.UserApiService$UserProperties net.minecraft.class_310.method_55607()
+public boolean net.minecraft.class_310.method_47602()
+public boolean net.minecraft.class_310.method_47595()
+public boolean net.minecraft.class_310.method_47596()
+public boolean net.minecraft.class_310.method_29043()
+public boolean net.minecraft.class_310.method_53518()
+public boolean net.minecraft.class_310.method_35706()
+public boolean net.minecraft.class_310.method_29042(java.util.UUID)
+public final boolean net.minecraft.class_310.method_1530()
+public final boolean net.minecraft.class_310.method_73196()
+public static boolean net.minecraft.class_310.method_1498()
+public static boolean net.minecraft.class_310.method_29611()
+public static boolean net.minecraft.class_310.method_1588()
+private void net.minecraft.class_310.method_54117(net.minecraft.class_129)
+private static java.lang.String net.minecraft.class_310.method_54116(double)
+private static java.lang.String net.minecraft.class_310.method_54121() throws java.lang.Exception
+private java.lang.String net.minecraft.class_310.method_54120() throws java.lang.Exception
+private static java.lang.String net.minecraft.class_310.method_54119() throws java.lang.Exception
+private java.lang.String net.minecraft.class_310.method_54118() throws java.lang.Exception
+private static java.lang.String net.minecraft.class_310.method_37292(java.lang.String)
+public static java.lang.String net.minecraft.class_310.method_54578()
+private static java.lang.String net.minecraft.class_310.method_37278(net.minecraft.class_310)
+private static java.lang.String net.minecraft.class_310.method_68671()
+private static java.lang.String net.minecraft.class_310.method_37289()
+private static java.lang.String net.minecraft.class_310.method_37287()
+private static java.lang.String net.minecraft.class_310.method_53905(net.minecraft.class_310)
+public net.minecraft.class_5407 net.minecraft.class_310.method_30049()
+private static java.lang.String net.minecraft.class_310.method_37279(net.minecraft.class_310)
+private static java.lang.String net.minecraft.class_310.method_37280(net.minecraft.class_1076)
+private static java.lang.String net.minecraft.class_310.method_37288()
+private static java.lang.String net.minecraft.class_310.method_60864()
+public java.util.concurrent.CompletableFuture net.minecraft.class_310.method_1513()
+private static java.util.concurrent.CompletionStage net.minecraft.class_310.method_18507(java.util.concurrent.CompletableFuture)
+public boolean net.minecraft.class_310.method_47392()
+public boolean net.minecraft.class_310.method_52701(java.util.UUID)
+public com.mojang.authlib.GameProfile net.minecraft.class_310.method_53462()
+public java.net.Proxy net.minecraft.class_310.method_1487()
+public net.minecraft.class_1060 net.minecraft.class_310.method_1531()
+public net.minecraft.class_10151 net.minecraft.class_310.method_62887()
+public net.minecraft.class_3300 net.minecraft.class_310.method_1478()
+public net.minecraft.class_3283 net.minecraft.class_310.method_1520()
+public net.minecraft.class_3268 net.minecraft.class_310.method_45573()
+public net.minecraft.class_1066 net.minecraft.class_310.method_1516()
+public java.nio.file.Path net.minecraft.class_310.method_1479()
+public net.minecraft.class_1076 net.minecraft.class_310.method_1526()
+private static boolean net.minecraft.class_310.freecam$disableInteract()
+public void net.minecraft.class_310.axiom$pushMainRenderTarget(net.minecraft.class_276)
+public void net.minecraft.class_310.axiom$popMainRenderTarget()
+public void net.minecraft.class_310.axiom$setRightClickDelay(int)
+public int net.minecraft.class_310.axiom$getRightClickDelay()
+public void net.minecraft.class_310.setProfileKeyPairManager(net.minecraft.class_7853)
+public boolean net.minecraft.class_310.method_1493()
+public net.minecraft.class_5195 net.minecraft.class_310.method_1544()
+public float net.minecraft.class_310.method_75759()
+public net.minecraft.class_7497 net.minecraft.class_310.method_73361()
+public net.minecraft.class_1071 net.minecraft.class_310.method_1582()
+public boolean net.minecraft.class_310.method_27022(net.minecraft.class_1297)
+protected java.lang.Thread net.minecraft.class_310.method_3777()
+public java.lang.Runnable net.minecraft.class_310.method_16211(java.lang.Runnable)
+protected boolean net.minecraft.class_310.method_18856(java.lang.Runnable)
+public net.minecraft.class_898 net.minecraft.class_310.method_1561()
+public net.minecraft.class_824 net.minecraft.class_310.method_31975()
+public net.minecraft.class_918 net.minecraft.class_310.method_1480()
+public net.minecraft.class_330 net.minecraft.class_310.method_61965()
+public com.mojang.datafixers.DataFixer net.minecraft.class_310.method_1543()
+public net.minecraft.class_9779 net.minecraft.class_310.method_61966()
+public net.minecraft.class_324 net.minecraft.class_310.method_1505()
+public boolean net.minecraft.class_310.method_1555()
+public boolean net.minecraft.class_310.method_1569()
+public net.minecraft.class_302 net.minecraft.class_310.method_1571()
+public net.minecraft.class_1092 net.minecraft.class_310.method_1554()
+public net.minecraft.class_11697 net.minecraft.class_310.method_72703()
+public net.minecraft.class_10093 net.minecraft.class_310.method_61963()
+public net.minecraft.class_11327 net.minecraft.class_310.method_71267()
+public net.minecraft.class_2561 net.minecraft.class_310.method_35698(java.io.File)
+private static void net.minecraft.class_310.method_35701(net.minecraft.class_2561)
+private static net.minecraft.class_2583 net.minecraft.class_310.method_35704(java.io.File,net.minecraft.class_2583)
+public net.minecraft.class_4008 net.minecraft.class_310.method_18095()
+public net.minecraft.class_4071 net.minecraft.class_310.method_18506()
+public net.minecraft.class_5520 net.minecraft.class_310.method_31320()
+public net.minecraft.class_9919 net.minecraft.class_310.method_61964()
+public net.minecraft.class_4599 net.minecraft.class_310.method_22940()
+public void net.minecraft.class_310.method_24041(int)
+public net.minecraft.class_5599 net.minecraft.class_310.method_31974()
+public void net.minecraft.class_310.method_38932()
+public net.minecraft.class_7574 net.minecraft.class_310.method_44377()
+public net.minecraft.class_7578 net.minecraft.class_310.method_44646()
+public net.minecraft.class_8497 net.minecraft.class_310.method_51253()
+public net.minecraft.class_8657 net.minecraft.class_310.method_52700()
+public net.minecraft.class_8580 net.minecraft.class_310.method_52702()
+public net.minecraft.class_11786 net.minecraft.class_310.method_73362()
+public net.minecraft.class_10442 net.minecraft.class_310.method_65386()
+public boolean net.minecraft.class_310.method_73363()
+public net.minecraft.class_11980 net.minecraft.class_310.method_74186()
+public java.util.Collection net.minecraft.class_310.method_75309()
+private static net.minecraft.class_2583 net.minecraft.class_310.method_37281(java.nio.file.Path,net.minecraft.class_2583)
+private static void net.minecraft.class_310.method_37285(java.util.function.Consumer,net.minecraft.class_2561)
+private static void net.minecraft.class_310.method_37282(java.util.function.Consumer,double,int)
+private void net.minecraft.class_310.method_49293(boolean,net.minecraft.class_310$class_8764,java.lang.Throwable)
+private void net.minecraft.class_310.method_29339(java.util.concurrent.CompletableFuture,net.minecraft.class_310$class_8764)
+private static void net.minecraft.class_310.method_53524(java.lang.Runnable,boolean)
+private void net.minecraft.class_310.method_53521(net.minecraft.class_310$class_8764,java.lang.Throwable)
+private void net.minecraft.class_310.method_29338(net.minecraft.class_310$class_8764)
+private void net.minecraft.class_310.keyCallback(int,int,int,int)
+private void net.minecraft.class_310.scrollCallback(double,double,double,double,double,double)
+public net.minecraft.class_1041 net.minecraft.class_310.getWindow()
+public void net.minecraft.class_310.setUser(net.minecraft.class_320)
+public net.minecraft.class_327 net.minecraft.class_310.getFont()
+private static void net.minecraft.class_310.md2ad8c9$viafabricplus$lambda$disableProtocolTranslator$0$3(net.minecraft.class_2535)
+public static int net.minecraft.class_310.getFPS$sodium-extra_$md$2ad8c9$2()
+static net.minecraft.class_310 net.minecraft.class_310.field_1700
+private static final org.slf4j.Logger net.minecraft.class_310.field_1762
+private static final int net.minecraft.class_310.field_32145
+public static final net.minecraft.class_2960 net.minecraft.class_310.field_1740
+public static final net.minecraft.class_2960 net.minecraft.class_310.field_24211
+public static final net.minecraft.class_2960 net.minecraft.class_310.field_1749
+private static final net.minecraft.class_2960 net.minecraft.class_310.field_36433
+private static final java.util.concurrent.CompletableFuture net.minecraft.class_310.field_18009
+private static final net.minecraft.class_2561 net.minecraft.class_310.field_26841
+private static final net.minecraft.class_2561 net.minecraft.class_310.field_60984
+public static final java.lang.String net.minecraft.class_310.field_33735
+private final long net.minecraft.class_310.field_46550
+private final java.nio.file.Path net.minecraft.class_310.field_1757
+private java.util.concurrent.CompletableFuture net.minecraft.class_310.field_45899
+private final net.minecraft.class_1060 net.minecraft.class_310.field_1764
+private final net.minecraft.class_10151 net.minecraft.class_310.field_53831
+private final com.mojang.datafixers.DataFixer net.minecraft.class_310.field_1768
+private final net.minecraft.class_3682 net.minecraft.class_310.field_1686
+private final net.minecraft.class_1041 net.minecraft.class_310.field_1704
+private final net.minecraft.class_9779$class_9781 net.minecraft.class_310.field_52750
+private final net.minecraft.class_4599 net.minecraft.class_310.field_20909
+public final net.minecraft.class_761 net.minecraft.class_310.field_1769
+private final net.minecraft.class_898 net.minecraft.class_310.field_1731
+private final net.minecraft.class_10442 net.minecraft.class_310.field_55226
+private final net.minecraft.class_918 net.minecraft.class_310.field_1742
+private final net.minecraft.class_330 net.minecraft.class_310.field_52751
+public final net.minecraft.class_702 net.minecraft.class_310.field_1713
+private final net.minecraft.class_11939 net.minecraft.class_310.field_62565
+private net.minecraft.class_320 net.minecraft.class_310.field_1726
+public final net.minecraft.class_327 net.minecraft.class_310.field_1772
+public final net.minecraft.class_327 net.minecraft.class_310.field_39924
+public final net.minecraft.class_757 net.minecraft.class_310.field_1773
+public final net.minecraft.class_329 net.minecraft.class_310.field_1705
+public final net.minecraft.class_315 net.minecraft.class_310.field_1690
+public final net.minecraft.class_11633 net.minecraft.class_310.field_61504
+private final net.minecraft.class_302 net.minecraft.class_310.field_1732
+public final net.minecraft.class_312 net.minecraft.class_310.field_1729
+public final net.minecraft.class_309 net.minecraft.class_310.field_1774
+private net.minecraft.class_8015 net.minecraft.class_310.field_41782
+public final java.io.File net.minecraft.class_310.field_1697
+private final java.lang.String net.minecraft.class_310.field_1711
+private final java.lang.String net.minecraft.class_310.field_1720
+private final java.net.Proxy net.minecraft.class_310.field_1739
+private final boolean net.minecraft.class_310.field_61503
+private final net.minecraft.class_32 net.minecraft.class_310.field_1748
+private final boolean net.minecraft.class_310.field_1721
+private final boolean net.minecraft.class_310.field_25033
+private final boolean net.minecraft.class_310.field_25034
+private final net.minecraft.class_3304 net.minecraft.class_310.field_1745
+private final net.minecraft.class_3268 net.minecraft.class_310.field_40380
+private final net.minecraft.class_1066 net.minecraft.class_310.field_40381
+private final net.minecraft.class_3283 net.minecraft.class_310.field_1715
+private final net.minecraft.class_1076 net.minecraft.class_310.field_1717
+private final net.minecraft.class_324 net.minecraft.class_310.field_1751
+private final net.minecraft.class_276 net.minecraft.class_310.field_1689
+private final net.minecraft.class_10219 net.minecraft.class_310.field_54267
+private final net.minecraft.class_1144 net.minecraft.class_310.field_1727
+private final net.minecraft.class_1142 net.minecraft.class_310.field_1714
+public final net.minecraft.class_378 net.minecraft.class_310.field_1708
+private final net.minecraft.class_4008 net.minecraft.class_310.field_17763
+private final net.minecraft.class_5407 net.minecraft.class_310.field_25671
+private final net.minecraft.class_6877 net.minecraft.class_310.field_36434
+private com.mojang.authlib.minecraft.UserApiService net.minecraft.class_310.field_26902
+private final java.util.concurrent.CompletableFuture net.minecraft.class_310.field_47680
+private final net.minecraft.class_1071 net.minecraft.class_310.field_1707
+private final net.minecraft.class_11697 net.minecraft.class_310.field_61502
+private final net.minecraft.class_1092 net.minecraft.class_310.field_1763
+private final net.minecraft.class_776 net.minecraft.class_310.field_1756
+private final net.minecraft.class_10093 net.minecraft.class_310.field_52752
+private final net.minecraft.class_11327 net.minecraft.class_310.field_60302
+private final net.minecraft.class_374 net.minecraft.class_310.field_1702
+private final net.minecraft.class_1156 net.minecraft.class_310.field_1758
+private net.minecraft.class_5520 net.minecraft.class_310.field_26842
+private final net.minecraft.class_824 net.minecraft.class_310.field_27388
+private final net.minecraft.class_6628 net.minecraft.class_310.field_41331
+private net.minecraft.class_7853 net.minecraft.class_310.field_39068
+private net.minecraft.class_7578 net.minecraft.class_310.field_39718
+private final net.minecraft.class_8497 net.minecraft.class_310.field_44539
+private final net.minecraft.class_7497 net.minecraft.class_310.field_62106
+private final net.minecraft.class_11786 net.minecraft.class_310.field_62107
+public net.minecraft.class_636 net.minecraft.class_310.field_1761
+public net.minecraft.class_638 net.minecraft.class_310.field_1687
+public net.minecraft.class_746 net.minecraft.class_310.field_1724
+private net.minecraft.class_1132 net.minecraft.class_310.field_1766
+private net.minecraft.class_2535 net.minecraft.class_310.field_1746
+private boolean net.minecraft.class_310.field_1759
+private net.minecraft.class_1297 net.minecraft.class_310.field_1719
+public net.minecraft.class_1297 net.minecraft.class_310.field_1692
+public net.minecraft.class_239 net.minecraft.class_310.field_1765
+private int net.minecraft.class_310.field_1752
+public int net.minecraft.class_310.field_1771
+private volatile boolean net.minecraft.class_310.field_1734
+private long net.minecraft.class_310.field_1750
+private long net.minecraft.class_310.field_1712
+private int net.minecraft.class_310.field_1735
+public boolean net.minecraft.class_310.field_1743
+public net.minecraft.class_437 net.minecraft.class_310.field_1755
+private net.minecraft.class_4071 net.minecraft.class_310.field_18175
+private boolean net.minecraft.class_310.field_46551
+java.lang.Thread net.minecraft.class_310.field_1696
+private volatile boolean net.minecraft.class_310.field_1698
+private java.util.function.Supplier net.minecraft.class_310.field_1747
+private static int net.minecraft.class_310.field_1738
+private long net.minecraft.class_310.field_41332
+private final net.minecraft.class_9919 net.minecraft.class_310.field_52753
+public boolean net.minecraft.class_310.field_32144
+public boolean net.minecraft.class_310.field_1730
+private boolean net.minecraft.class_310.field_1695
+private java.util.concurrent.CompletableFuture net.minecraft.class_310.field_18174
+private net.minecraft.class_372 net.minecraft.class_310.field_26843
+private int net.minecraft.class_310.field_22224
+private final net.minecraft.class_4757 net.minecraft.class_310.field_22225
+private net.minecraft.class_5962 net.minecraft.class_310.field_29569
+private final net.minecraft.class_6360 net.minecraft.class_310.field_33697
+private long net.minecraft.class_310.field_37855
+private double net.minecraft.class_310.field_37856
+private net.minecraft.class_7168$class_7169 net.minecraft.class_310.field_37857
+private final net.minecraft.class_333 net.minecraft.class_310.field_39769
+private final net.minecraft.class_7594 net.minecraft.class_310.field_39770
+private net.minecraft.class_7574 net.minecraft.class_310.field_39492
+private final net.minecraft.class_8657 net.minecraft.class_310.field_45294
+private final net.minecraft.class_8580 net.minecraft.class_310.field_45295
+private boolean net.minecraft.class_310.field_45900
+private final long net.minecraft.class_310.field_46552
+private long net.minecraft.class_310.field_46553
+private final net.minecraft.class_11980 net.minecraft.class_310.field_62566
+private final net.minecraft.class_12185 net.minecraft.class_310.field_63466
+private java.util.List net.minecraft.class_310.field_64524
+private net.minecraft.class_276 net.minecraft.class_310.compositeRenderTarget
+private static boolean net.minecraft.class_310.iris$initialized
+private com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService net.minecraft.class_310.authme$authService
+long net.minecraft.class_310.newTime
+private boolean net.minecraft.class_310.attackCancelled
+private static final org.slf4j.Logger net.minecraft.class_310.LOGGER
+private static final boolean net.minecraft.class_310.DEBUG_SCREEN
+private net.minecraft.class_437 net.minecraft.class_310.tickingScreen
+private boolean net.minecraft.class_310.runOnce
+private final it.unimi.dsi.fastutil.longs.LongArrayFIFOQueue net.minecraft.class_310.fences
+private final boolean net.minecraft.class_310.sodium$redirectWindowMinimizedState
+private net.minecraft.class_437 net.minecraft.class_310.fd2ad8c9$spruceui$tickingScreen$0
+static final boolean net.minecraft.class_310.$assertionsDisabled
+private net.minecraft.class_276 net.minecraft.class_310.overrideMainRenderTarget

@@ -1,0 +1,32 @@
+PACK Stratus-1.6.11-QA-BaselineReference.zip
+CAM 166.1907 65.9287 32.5536 108.45755 38.829258
+READY baseline-river-visual 120
+SHOT s1611-baseline-river
+PACK Stratus-1.6.11-QA-CandidateReference.zip
+READY candidate-river-visual 120
+SHOT s1611-candidate-river
+CAM 164.5 60 40.5 0 -35
+READY underwater-visual 120
+SHOT s1611-reference-underwater
+CAM 4096 97 4101 0 25
+READY fixture-loaded 180
+SHOT s1611-reference-submerged-wood
+PACK Stratus-1.6.11-QA-CloudInterior.zip
+CAM 270.0 254.38 14.04 90 0
+READY cloud-interior-loaded 120
+SHOT s1611-occupied-cloud-interior
+PACK Stratus-1.6.11-QA-CirrusOn.zip
+CAM 164.5 100 40.5 90 -8
+READY cirrus-day-loaded 120
+SHOT s1611-cirrus-day-on
+PACK Stratus-1.6.11-QA-CirrusOff.zip
+WAIT 8
+SHOT s1611-cirrus-day-off
+PACK Stratus-1.6.11-QA-CirrusOn.zip
+CMD time set 12000
+WAIT 12
+SHOT s1611-cirrus-sunset-on
+PACK Stratus-1.6.11-QA-CirrusOff.zip
+WAIT 8
+SHOT s1611-cirrus-sunset-off
+DONE Preset and cloud visual-only matrix captured

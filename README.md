@@ -1,23 +1,14 @@
-# Stratus project archive
+# Stratus shader project
 
-Private source archive of the Stratus Minecraft Iris shader, public showcase, private Studio, release workflow, feedback sender and completed development tooling.
+Source, websites, development work, showcase images and verification evidence.
 
-## Layout
+- `outputs/Stratus/`: latest final documented shader package contents.
+- `development/Stratus/`: settled editable shader, including unfinished/candidate work.
+- `work/`: authored QA tools, reports, project documents and websites.
+- `outputs/*-showcase/`: curated showcase images and their provenance.
+- `WORK-BACKUP-INDEX.json`: exact paths/checksums and GitHub Release asset locations for historical and new binary work. Large images, QA packs and release archives live in Releases rather than ordinary Git files.
+- `tools/GITHUB-SYNC.md`: automatic sync coverage and operation.
 
-- `outputs/Stratus/`: editable shader, packaging/installation tools, textures and licence.
-- `work/Custom instructions/`: complete target, pending requests, completed archive and release evidence log.
-- `work/stratus-public/`: public site and standalone visual effects.
-- `work/stratus-studio-cloud/`: private editor/server source.
-- `work/stratus-studio/`: local editor, cloud sync, automatic release posting, SMTP mail and cache.
-- Remaining work folders: authored QA, research, verification reports and helper source.
-- GitHub Release assets: historical shader builds, labelled visual reports and development imagery.
+Final shader downloads use `shader-vVERSION` releases. `project-work-snapshots` contains explicitly unfinished development backups; it does not certify those builds. The historical project backup is retained.
 
-The archive preserves documented verification limits. Source, packaging, actual Minecraft visual checks and measured performance are separate states. Pending performance or scene acceptance is not marked complete by this backup.
-
-## Running
-
-Read the README beside the relevant component. Websites use their existing Sites hosting configuration; server credentials must be configured separately. Local Studio uses its documented start command. Standalone mail setup uses macOS Keychain. No secrets or private feedback are included.
-
-## Refreshing this archive
-
-In the original project, run `python3 tools/export_github.py`, inspect `EXPORT-MANIFEST.json`, then commit/push this checkout and upload the regenerated release asset ZIPs. Uploads require an authenticated GitHub CLI. This export uses no model calls or ChatGPT automation.
+Standalone macOS code syncs without model calls. Private credentials, feedback, app logs, third-party Minecraft runtime and regenerable build caches are excluded.

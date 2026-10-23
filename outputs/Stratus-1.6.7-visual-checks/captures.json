@@ -1,0 +1,187 @@
+[
+  {
+    "file": "baseline-current-view.png",
+    "status": "Not acceptance evidence: paused menu or stale menu frame; retained original",
+    "sha256": "b48f3ba936945210cad1bf1c23b8d37d15ff86bcdb9cca8e24e65412f93c9559"
+  },
+  {
+    "file": "s167-baseline-cirrus-only.png",
+    "status": "1.6.6 baseline",
+    "sha256": "c14104c0ef1aed371c5d6e4eb680315a1f6b7aeb68429d12e7b4273abb08c3a3"
+  },
+  {
+    "file": "s167-baseline-horizon.png",
+    "status": "1.6.6 baseline",
+    "sha256": "ac9467c8401bdedfe1f101d9fc49ecfcb85e6d240ef0f51581feb29613758e7a"
+  },
+  {
+    "file": "s167-baseline-materials-clear.png",
+    "status": "1.6.6 baseline",
+    "sha256": "9d1f0bf692c5d6e6efb4b17358b85d130bd1deed8af20b9972780aa20d35265c"
+  },
+  {
+    "file": "s167-baseline-materials-rain.png",
+    "status": "1.6.6 baseline",
+    "sha256": "b8413be54806061b2b7fbea189229fa8872edbd9e70fee798a4632acae58d6c8"
+  },
+  {
+    "file": "s167-baseline-sun-sky.png",
+    "status": "1.6.6 baseline",
+    "sha256": "2857f5c8e2d8601cd7afa612f28a570308506f950cd6b5d16627a4cdfd15445f"
+  },
+  {
+    "file": "s167-candidate-cirrus-off.png",
+    "status": "Supporting high-cloud isolation comparison; unchanged cirrus code",
+    "sha256": "e5d8a041960cb36997422d2309d5fcb6f3fc32f7f27a2cf65df8080c6ef86214"
+  },
+  {
+    "file": "s167-candidate-cirrus-only.png",
+    "status": "Supporting high-cloud isolation comparison; unchanged cirrus code",
+    "sha256": "67e0b9b93e0b8194f2abeff4fa1a3f7dba9aba81ca9f337d0019f86e070d5668"
+  },
+  {
+    "file": "s167-candidate-halo-off.png",
+    "status": "Preliminary sun/default experiment; final v2 comparisons supersede it",
+    "sha256": "caa0ba0839a919791b7ea24c8d71d2b7f63af429b23d7d8a326e7bdc767f4eed"
+  },
+  {
+    "file": "s167-candidate-horizon.png",
+    "status": "Preliminary sun/default experiment; final v2 comparisons supersede it",
+    "sha256": "439ef2d6ae054ceab53272b5870329598e48d80b062420eccb3efa84f523fa25"
+  },
+  {
+    "file": "s167-candidate-sun-sky.png",
+    "status": "Preliminary sun/default experiment; final v2 comparisons supersede it",
+    "sha256": "3e21053e028e0179f497acd87233d0853cf71453f66cf9c5a6e35aee51752f1c"
+  },
+  {
+    "file": "s167-candidate-vanilla-sun.png",
+    "status": "Preliminary sun/default experiment; final v2 comparisons supersede it",
+    "sha256": "7b39eecbd7ff40505def44732aeb7339ece59b2496df917ea22845e6f2c81dbd"
+  },
+  {
+    "file": "s167-confirmed-menu-lighting.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "04e4836d6e640d27d5b1597186aa129ce44b721fcf330236f9228dad34440405"
+  },
+  {
+    "file": "s167-confirmed-menu-materials.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "01e90e2de212b2aba0f808eacf9895099c3493129fdc4e0d07f11511ea83c8d4"
+  },
+  {
+    "file": "s167-confirmed-menu-sun.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "033735473fdf8b6340cdd1a295a893a33991135a3d4c272df1235758145cad55"
+  },
+  {
+    "file": "s167-v2-faces-both.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "eeb4d2a1d9a5f30efd71985347ac0327051d5d49b44d58c304931473cef4f312"
+  },
+  {
+    "file": "s167-v2-faces-no-realistic.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "6d383cd40a4c60b038c12cdd8715e9fc2307c56ddad6d41959ef46ee57a171a8"
+  },
+  {
+    "file": "s167-v2-faces-no-vanilla.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "f09adb76b61c38fb57e31532d1882f86b4897e69b35b931d3dc95d2c1a8aa6ed"
+  },
+  {
+    "file": "s167-v2-faces-off.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "70ccde1e82bd83e02bbb850f722e563ebc6627ce23976eda64004e08523e7948"
+  },
+  {
+    "file": "s167-v2-menu-clouds.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "e3bdf102d0c038b4b180881bf2462548e9b564cbdd5c07e55589acd3ba0af6f0"
+  },
+  {
+    "file": "s167-v2-menu-lighting.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "df971d84733e8e6ccfdfae3413b8f931fde687ae7a263f5b4d4fdb670395ee72"
+  },
+  {
+    "file": "s167-v2-menu-materials.png",
+    "status": "Not acceptance evidence: paused menu or stale menu frame; retained original",
+    "sha256": "77a41464b58153a9c1bc1e959d9eebd257e6a582441fe2035c6317c7970ae983"
+  },
+  {
+    "file": "s167-v2-menu-sun.png",
+    "status": "Not acceptance evidence: paused menu or stale menu frame; retained original",
+    "sha256": "b425ede287dca6dcdb8fe427d22cd6a937fcfaf0188bb99cba996229a175fd8b"
+  },
+  {
+    "file": "s167-v2-metal-wet-max.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "343408ab8d8789dc7ae804a337b58c77236f668562889a632cea735b7eb6fa7a"
+  },
+  {
+    "file": "s167-v2-metal-wet-off.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "0152902b7473e545c1cf1ed91b51ba086b0bd17a20f061b94c184800ff1ba18e"
+  },
+  {
+    "file": "s167-v2-river.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "68b782e1f2d4f49d63df3f308ff31318fab60c03ec5f9fc5e4871a55b84ad50e"
+  },
+  {
+    "file": "s167-v2-sun-sky.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "7a4ae20c006007e52096f8085dde8f850d5c1cb6a4d8880eaed8fb7bad0a7381"
+  },
+  {
+    "file": "s167-v2-sunset.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "cffdf5a658b84edd9d3c4488a0d3256d9b3ecb86f1b1d0e1cd8f533ccd20d0e2"
+  },
+  {
+    "file": "s167-v2-underwater.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "1f1700656256ec9b5f7b5bb7e1af4752bf542f392de34d4acb78aca3f0bd5fcf"
+  },
+  {
+    "file": "s167-v2-vanilla-sun.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "79bdced00cd85e8dda30033bb2d572f2bd42102e9003d0682d5963bb74353712"
+  },
+  {
+    "file": "s167-v2-wet-clear.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "f8f2e2dbb78d87f8216a6775509f633bb125d74c6e2850faab000338214670e3"
+  },
+  {
+    "file": "s167-v2-wet-default.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "1e0aa41f8f9e663de1130ca72a9a1f8fa0eb816d356f3228632e2da47185b013"
+  },
+  {
+    "file": "s167-v2-wet-max.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "aeb515124f684eb3c10bdb87bc02ee7c3d82010b97c1cabb54e611cc3d7c3966"
+  },
+  {
+    "file": "s167-v2-wet-off.png",
+    "status": "Final shader-code comparison / reviewed Main capture",
+    "sha256": "ecf5b1d703db6a4dc8f0b51cf6f1dfc8e7864b5fd2e8564240ae9fb2c12bb245"
+  },
+  {
+    "file": "s167-release-restored-position.png",
+    "status": "Final release: restoration capture; not visual acceptance evidence",
+    "sha256": "103a2111e2ac6392d90e484bf6fc8f2a8a1ffb2b7362c4954708c1c880665486"
+  },
+  {
+    "file": "s167-release-river.png",
+    "status": "Final released ZIP loaded in Main; reviewed actual capture",
+    "sha256": "303e7f95ca41310d81763f711fc5c1e9e618081b715a60211b0897918bc61480"
+  },
+  {
+    "file": "s167-release-sun-sky.png",
+    "status": "Final released ZIP loaded in Main; reviewed actual capture",
+    "sha256": "b9a9110a6aa43c1634b341e788ba293e79e8e023005ae125971280bd20065a58"
+  }
+]

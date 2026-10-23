@@ -1,0 +1,13 @@
+{
+  "version": "1.6.11",
+  "status": "Deferred by explicit user instruction: skip for now; user will request later.",
+  "new_FPS_samples": 0,
+  "target_approximately60FPS_verified": false,
+  "quality_baseline": "User explicitly approved latest saved Main visual and quality choices as Reference. Reference now uses water1/atmosphere1/cloud2/mist3/sky-only0/refraction1. High retains full/detailed settings.",
+  "preset_rebase_is_not_shader_code_speedup": true,
+  "new_render_algorithm_optimisation": false,
+  "chunk_gate_implemented_and_exercised_without_FPS": true,
+  "gate_evidence": "work/stratus-refine-1611/chunk-gate-checks.json",
+  "next_test": "Only when user requests FPS: same approved Reference settings/camera/resolution; READY gate until all441 view-disk columns present, workers/jobs/uploads/task queues empty, counts stable>=5seconds. Focused active game; record Dynamic FPS/AFK state. Loading-phase results must be labelled separately.",
+  "previous1_6_10_full_Reference": "Old full-detail Reference river19.6\u219220.2/forest17.8\u219218.1FPS used a different quality baseline; do not compare as an optimisation speedup."
+}

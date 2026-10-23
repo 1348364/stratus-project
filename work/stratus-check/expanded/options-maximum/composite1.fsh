@@ -6,7 +6,8 @@
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
 #define SKY_AMBIENT 4.00 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE 3.00 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
@@ -69,8 +70,14 @@ const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00
 #define MIST_SCALE 480.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
 #define MIST_BREAKUP 2.00 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
 #define MIST_LIGHT 2.00 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
+// Active native layer strength; retained patterned tint in Stratus mode.
 #define WATER_TEXTURE 1.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 1 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl
@@ -594,6 +601,10 @@ vec3 throughAir(vec3 radiance, vec3 relativePoint, float skyExposure) {
     // Water attenuation is applied once in composite, to the actual camera-to-
     // interface distance. This keeps top, side and underwater paths consistent.
     if (isEyeInWater == 1) {
+#if WATER_STYLE == 1
+        // Native environmental fog already includes game status effects.
+        return airResult;
+#endif
         float waterStatus = clamp(max(blindness, darknessFactor), 0.0, 1.0);
         return airResult * (1.0 - waterStatus * smoothstep(2.0, 13.0, length(relativePoint)));
     }
@@ -647,6 +658,12 @@ float suspendedSediment(vec3 tint,float skyExposure){
     return WATER_TURBIDITY*0.06;
 #endif
 }
+// Native underwater fog uses the running game's environmental range/colour.
+// Above the interface vanilla has a surface alpha layer, not water-depth fog.
+float nativeWaterOpacity(float distanceInWater){
+    if(isEyeInWater!=1||distanceInWater<=0.0)return 0.0;
+    return clamp((distanceInWater-fogStart)/max(fogEnd-fogStart,0.0001),0.0,1.0);
+}
 vec3 waterExtinction(vec3 tint,float skyExposure){
     tint=activeWaterTint(tint);
     float sediment=suspendedSediment(tint,skyExposure);
@@ -656,6 +673,9 @@ vec3 waterExtinction(vec3 tint,float skyExposure){
     return (absorption+vec3(sediment*0.42))*WATER_EXTINCTION/max(WATER_VISIBILITY,0.05);
 }
 vec3 waterBodyColour(vec3 tint,float skyExposure,float blockLight){
+#if WATER_STYLE == 1
+    return decodeDisplay(fogColor);
+#else
     tint=activeWaterTint(tint);
     float sediment=suspendedSediment(tint,skyExposure);
     vec3 regional=clamp(tint/vec3(0.247,0.463,0.894),vec3(0.15),vec3(2.0));
@@ -663,10 +683,22 @@ vec3 waterBodyColour(vec3 tint,float skyExposure,float blockLight){
     vec3 body=mix(blueGreen,vec3(0.16,0.13,0.065),clamp(sediment*0.8,0.0,0.65));
     float lighting=0.025+skyExposure*daytimeWeight()*0.9+blockLight*0.45;
     return body*lighting;
+#endif
+}
+vec3 waterTransmission(float distanceInWater,vec3 tint,float skyExposure){
+#if WATER_STYLE == 1
+    return vec3(1.0-nativeWaterOpacity(distanceInWater));
+#else
+    return exp(-waterExtinction(tint,skyExposure)*max(distanceInWater,0.0));
+#endif
 }
 vec3 travelThroughWater(vec3 radiance,float distanceInWater,vec3 tint,float skyExposure,float blockLight){
-    vec3 transmission=exp(-waterExtinction(tint,skyExposure)*max(distanceInWater,0.0));
+#if WATER_STYLE == 1
+    return decodeDisplay(mix(encodeDisplay(radiance),fogColor,nativeWaterOpacity(distanceInWater)));
+#else
+    vec3 transmission=waterTransmission(distanceInWater,tint,skyExposure);
     return radiance*transmission+waterBodyColour(tint,skyExposure,blockLight)*(1.0-transmission);
+#endif
 }
 // Shared defaults also cover underwater pixels with no visible interface.
 vec3 waterExtinction(){return waterExtinction(biomeWaterTint,1.0);}
@@ -675,6 +707,27 @@ vec3 travelThroughWater(vec3 c,float d,float sky){return travelThroughWater(c,d,
 #endif
 
 // END INCLUDE /core/medium.glsl
+
+
+// BEGIN INCLUDE /core/water-surface.glsl
+#ifndef STRATUS_WATER_SURFACE_INCLUDED
+#define STRATUS_WATER_SURFACE_INCLUDED
+// Native animated still/flow luminance is already sampled with atlas derivatives
+// in the water geometry pass. Apply a bounded, multiplicative surface tint to
+// the completed optics: no extra sampling, blur, opacity or added radiance.
+vec3 vanillaWaterSurface(vec3 radiance,float nativePattern,vec3 biomeTint){
+    float pattern=mix(0.65,1.0,clamp(nativePattern,0.0,1.0));
+    vec3 tint=mix(vec3(1.0),activeWaterTint(biomeTint),0.40);
+    return radiance*mix(vec3(1.0),pattern*tint,WATER_TEXTURE);
+}
+// Native alpha blend in display space, matching the game's texture/light path.
+vec3 nativeWaterSurface(vec3 behind,vec4 nativeLayer){
+    float coverage=clamp(nativeLayer.a*WATER_TEXTURE,0.0,1.0);
+    return decodeDisplay(mix(encodeDisplay(behind),encodeDisplay(nativeLayer.rgb),coverage));
+}
+#endif
+
+// END INCLUDE /core/water-surface.glsl
 
 
 // BEGIN INCLUDE /core/water-interface.glsl
@@ -1159,7 +1212,9 @@ void main(){
         vec3 viewRay=positionFromDepth(rasterUV,0.5);
         vec3 waterView=viewRay*(markedDepth.x/max(-viewRay.z,0.00001));waterSky=markedDepth.y;
         vec4 opticalData=texture(colortex8,rasterUV);
+#if WATER_STYLE == 0
         waterTint=opticalData.rgb;waterLamp=opticalData.a;
+#endif
         if(dot(waterTint,waterTint)<0.001)waterTint=biomeWaterTint;
         vec3 point=playerFromView(waterView);
         vec3 faceView=unitVector(mat3(gbufferModelView)*markedNormal.xyz);
@@ -1207,11 +1262,15 @@ void main(){
             transmitted=airBehindWater(transmitted,cameraPosition+point+backRay*opticalPath,backRay,airDistance,waterSky,backgroundGeometry);
         }
         transmitted=travelThroughWater(transmitted,min(opticalPath,96.0),waterTint,waterSky,waterLamp);
-        // Native still/flow atlas texture and animation, carried in an unused
-        // metadata channel by the existing gtexture fetch. No extra texture read.
-        // Tint only transmission so reflected scenery stays sharp and unpainted.
-        float textureTint=mix(1.0,clamp(markedColour.r,0.0,1.0),WATER_TEXTURE);
-        image=mix(transmitted*textureTint,reflected,waterReflectionWeight(boundary));
+        // Apply the native atlas pattern and biome colour after Fresnel mixing:
+        // reflective/distant water receives the same surface treatment as nearby
+        // water, with no distance cutoff or change to reflection trace/detail.
+        image=mix(transmitted,reflected,waterReflectionWeight(boundary));
+#if WATER_STYLE == 0
+        image=vanillaWaterSurface(image,markedColour.r,waterTint);
+#endif
+        // Native atlas colour/alpha is composed at full resolution in resolve,
+        // so lower-resolution optics never blur the vanilla water texture.
     }
     completedScene=vec4(max(image,vec3(0.0)),1.0);
 }

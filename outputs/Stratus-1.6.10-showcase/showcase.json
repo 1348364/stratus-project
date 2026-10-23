@@ -1,0 +1,87 @@
+{
+  "version": "1.6.10",
+  "runtime_assets_match_release": true,
+  "comparison_pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+  "scenes": [
+    {
+      "file": "01-river.png",
+      "title": "River",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Saved release settings.",
+      "sha256": "5c5be803b34ebc26958d65246dfb2b2763fa1a7e2270b961ae5c6041952f07e2",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-river.png",
+      "pack": "Stratus-1.6.10.zip"
+    },
+    {
+      "file": "02-underwater.png",
+      "title": "Underwater",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Saved release settings.",
+      "sha256": "d3e9a38fc3325e9155d078765ea33850c02eb0bdb1741a25d6db2f33396abf71",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-underwater.png",
+      "pack": "Stratus-1.6.10.zip"
+    },
+    {
+      "file": "03-river-screen-edge.png",
+      "title": "Forest reflections",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "6625ead85183f9980204163e1d7e486d268e604b95297134548064a9a631fd97",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-river-screen-edge.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "04-reference-waterline.png",
+      "title": "At the waterline",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "b37e2b2b148aeaf348ef1006a84faa772bd3e02749d73eda0d6530ee4e2d56ae",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-waterline.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "05-reference-underwater-air-exit.png",
+      "title": "Looking through the surface",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "88205e1d2e70f33c2084654f9f3654d863a36af3d6048a3947f79948595e4d0c",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-underwater-air-exit.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "06-polished-sun.png",
+      "title": "Square sun and halo",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "f4202e792fd0d6efdf1385d98d375718c190a518e74aa30e4d9a1a09af671689",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-polished-sun.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "07-materials-clear.png",
+      "title": "Materials in daylight",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "d7849c00c49985036c56be9243619caa9618560bfa8442c2082a502fe9b9c069",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-materials-clear.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "08-materials-rain.png",
+      "title": "Rain on materials",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "e95a7dea0d0baeed04052f0abce871ea4a0c6c95352d1ccdfc1135f8ef0c9fc3",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-materials-rain.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "09-materials-night.png",
+      "title": "Materials after dark",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "b9977b94872b88a4a68b0252e63c41e094dbe240970e5a259408628c21538f87",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-materials-night.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    },
+    {
+      "file": "10-fixture-waterfall-background.png",
+      "title": "Through falling water",
+      "description": "Actual Stratus 1.6.10 Minecraft capture. Reference preset; quality settings differ from the saved release views.",
+      "sha256": "fa0697f84d9a8cbfd902ba1f2da17f92865207d1c804e331eebbc3f19357e6af",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-fixture-waterfall-background.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip"
+    }
+  ]
+}

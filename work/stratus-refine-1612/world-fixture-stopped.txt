@@ -1,0 +1,1 @@
+Original helper stopped after method mismatch; recovery restored/verified four exact water states and all original weather/daylight values. No polling remains.

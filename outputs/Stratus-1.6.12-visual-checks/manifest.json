@@ -1,0 +1,219 @@
+{
+  "version": "1.6.12",
+  "profile": "Main / Minecraft (1)",
+  "world": "Stratus Terrain Lab",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "FPS": "Explicitly deferred. Unfocused captures are visual evidence only.",
+  "captures": [
+    {
+      "file": "captures/s1612-close-off.png",
+      "sha256": "b99c3d191081ed16637486313607562c9b37d229b6ec1e61343d3e386519f9f5",
+      "review": "Matched close zero-strength view with visible shallow bed, shoreline and deep river.",
+      "pack": "Stratus-1.6.12-QA-Off.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:48:24]"
+    },
+    {
+      "file": "captures/s1612-close-on.png",
+      "sha256": "9fd74ab6bff5139be42519821625b9532800db1c5310fc406a0f3cf9d3b8e431",
+      "review": "Default=max. Shallow bed remains visible; tint covers both foreground and reflective middle/far water. Above-water shoreline and foliage unchanged in appearance.",
+      "pack": "Stratus-1.6.12-QA-On.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:49:15]"
+    },
+    {
+      "file": "captures/s1612-downward-on.png",
+      "sha256": "e6ce84905154eea35b8564329a5f4ff84abcfeed6aebef929b3eef2a02336fd7",
+      "review": "Straight-down90\u00b0 finite regression. Bed and depth transitions remain coherent with whole-surface tint; no inverted patch, opaque rectangle or reflected-sky pole visible in this scene. Does not certify the unknown historical pole camera.",
+      "pack": "Stratus-1.6.12-QA-On.zip",
+      "camera": "164.5000 64.5000 40.5000 0 90 creative-flight server confirmed",
+      "time": "[06:52:04]"
+    },
+    {
+      "file": "captures/s1612-fixture-particles.png",
+      "sha256": "5bb637aa951e369a1679ae234c2dc61a0681e2085c4933a5bb0ba7fc64c9ceee",
+      "review": "Same underwater fixture with an emitted bubble command confirmed in server log. Ambient/visible particles remain; a still image alone does not certify bubble motion.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "time": "[06:57:39]"
+    },
+    {
+      "file": "captures/s1612-fixture-underwater.png",
+      "sha256": "8d3a13b2045225e78030ff1983402d3e7e3ba139cebe8ddf39cf45ee3fc28ab5",
+      "review": "Existing underwater wood/pond viewed toward air. Submerged wood, pool floor and air-exit geometry remain coherent.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "time": "[06:57:37]"
+    },
+    {
+      "file": "captures/s1612-fixture-waterfall.png",
+      "sha256": "4d650102850c6d477e474d0707c5d830acacbe140ace67bc4a537e67ad80b86c",
+      "review": "Existing falling curtain/receiving pond: tint covers the waterfall and pond, stone remains visible through the curtain, and distant dry glass panes/terrain retain their appearance. No new opaque water rectangle in this finite view.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4097.0000 98.0000 4119.0000 -70 0 creative-flight server confirmed",
+      "time": "[06:57:19]"
+    },
+    {
+      "file": "captures/s1612-fixture-wood-above.png",
+      "sha256": "5827d6cec4d6229e0ae9ff977d3e4531ad278f493a5f0600b94f4ef04ae1022a",
+      "review": "Existing normal-world fixture: submerged logs and stepped wood remain visible through the tinted surface with coherent depth and shore boundaries. No blocks were changed.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 97.0000 4101.0000 0 25 creative-flight server confirmed",
+      "time": "[06:56:46]"
+    },
+    {
+      "file": "captures/s1612-glass-above.png",
+      "sha256": "9ca7e8c448539ffb0e46afe0234703499f136a39b8646bd05984c1d884e1d3b2",
+      "review": "Four temporary glass blocks replace snapshotted source-water states in the existing fixture. Above-water bed/wood and water tint remain coherent through the clear pane. Exact water states restored after testing.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 97.0000 4101.0000 -25 15 creative-flight server confirmed",
+      "time": "[07:02:25]"
+    },
+    {
+      "file": "captures/s1612-glass-particles.png",
+      "sha256": "77c0b4d9c7f6a90947a81a6b2000f888d18b19a0c2f2996a469d7c0c6bd15a10",
+      "review": "Glass plus emitted bubble/ambient particles: finite transparency regression view; no opaque pane overlay. Motion/exhaustive particle types are not certified.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "time": "[07:02:36]"
+    },
+    {
+      "file": "captures/s1612-glass-underwater.png",
+      "sha256": "ad7977d069372348094b0702294c21d812099c45fa5606df675e76ad64ca5c88",
+      "review": "Through-glass underwater fixture: wood, bed and geometry beyond the water exit remain visible without an opaque tinted rectangle.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "4096.0000 92.8000 4101.0000 -25 2 creative-flight server confirmed",
+      "time": "[07:02:34]"
+    },
+    {
+      "file": "captures/s1612-grazing-off.png",
+      "sha256": "6da80714c60ec9d84c42b0e9f0c975f245e574c317582c0505eefbe4a7f36ae9",
+      "review": "Clear-surface control at low viewing angle; reflective river and shallow right bank remain visible.",
+      "pack": "Stratus-1.6.12-QA-Off.zip",
+      "camera": "164.5000 64.5000 40.5000 0 3 creative-flight server confirmed",
+      "time": "[06:50:12]"
+    },
+    {
+      "file": "captures/s1612-grazing-on.png",
+      "sha256": "3ec658b1a619967fa938b1fd669fc5db0c684a805e0e7ad3043c60f00bce9a32",
+      "review": "Matched low-angle default. Blue surface tint remains visible on reflection-dominated water into the distance. Reflected cloud shapes and ripple detail remain; no tint leaks onto dry banks or trees.",
+      "pack": "Stratus-1.6.12-QA-On.zip",
+      "camera": "164.5000 64.5000 40.5000 0 3 creative-flight server confirmed",
+      "time": "[06:51:05]"
+    },
+    {
+      "file": "captures/s1612-preset-balanced.png",
+      "sha256": "37157c1a9fd2173b0d1a03c37452c27183293e92154206bba146992736731481",
+      "review": "Balanced preset retains half-resolution water and lighter refraction/cloud settings. Surface tint covers the visible river, with bed detail and shoreline retained.",
+      "pack": "Stratus-1.6.12-QA-BALANCED.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:54:00]"
+    },
+    {
+      "file": "captures/s1612-preset-fast.png",
+      "sha256": "24cf2ffc32dbd170e1e16bbce54fb1c6d64c611445040b1846a04f7b8d0a8455",
+      "review": "Fast preset uses its unchanged lower-resolution optics; the whole-surface tint remains active and shallow-bed/shore transitions are coherent.",
+      "pack": "Stratus-1.6.12-QA-FAST.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:53:03]"
+    },
+    {
+      "file": "captures/s1612-preset-high.png",
+      "sha256": "e4b2641b4e669fbb98ffa890194ac6616c6c9a8fb53745104c930c03bc68cf47",
+      "review": "High retains full-resolution optics and scenery reflections at unchanged quality. Reflected cutout-tree detail remains present under the surface tint; screen-space/cutout limitations are not redesigned by this change.",
+      "pack": "Stratus-1.6.12-QA-HIGH.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:55:47]"
+    },
+    {
+      "file": "captures/s1612-preset-reference.png",
+      "sha256": "56ea55e7126ab0fb4157c9d161a1988b50b7bace289f2f36bdfdfb3ddf45eddd",
+      "review": "Approved Reference values, including half-resolution water and sky-only reflections. Default tint covers the visible water; bed/shore detail remains.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[06:54:53]"
+    },
+    {
+      "file": "captures/s1612-release-river.png",
+      "sha256": "dc33077961afb733786deecb6b9e61e96e9450bba3891a8cf3361ab5a9928cd7",
+      "review": "Actual final Stratus1.6.12 release ZIP, loaded in Iris at approved Reference defaults. Same clear whole-surface tint/bed/shore result as the byte-identical QA candidate. Waterline defect remains separately pending.",
+      "pack": "Stratus-1.6.12.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[07:07:49]"
+    },
+    {
+      "file": "captures/s1612-river-before.png",
+      "sha256": "db432cabb553880a4d7993343f3a0b4a67a15a5142053250149cc47a75640a34",
+      "review": "Previous1.6.11 appearance at matched approved Reference values/camera. Reflective far water remains comparatively grey.",
+      "pack": "Stratus-1.6.12-QA-Before.zip",
+      "camera": "171.9963 69.5963 -9.4214 -88.273254 14.962544 creative-flight server confirmed",
+      "time": "[06:45:02]"
+    },
+    {
+      "file": "captures/s1612-river-half.png",
+      "sha256": "b50122ea7ce2bf7cbb1f316a5d030bc76f38a8c0d22e07b056e40caeaa44ebd0",
+      "review": "Half strength gives an intermediate surface colour over the visible river.",
+      "pack": "Stratus-1.6.12-QA-Half.zip",
+      "camera": "171.9963 69.5963 -9.4214 -88.273254 14.962544 creative-flight server confirmed",
+      "time": "[06:46:44]"
+    },
+    {
+      "file": "captures/s1612-river-off.png",
+      "sha256": "6a90ad7e172983f209bb855c0c092cdabfd6e5da09f40791e2ddecd09296fe50",
+      "review": "New source, texture strength zero. Clear optics; above-water banks/foliage keep their palette.",
+      "pack": "Stratus-1.6.12-QA-Off.zip",
+      "camera": "171.9963 69.5963 -9.4214 -88.273254 14.962544 creative-flight server confirmed",
+      "time": "[06:45:53]"
+    },
+    {
+      "file": "captures/s1612-river-on.png",
+      "sha256": "e3cba294fda1eee52be049123ae22416a68d00ba9a6b2e40eb4e36f6425d29c1",
+      "review": "Default=max. Tint remains visible across middle/far reflective water; no nearby-only boundary. Natural fog and animation remain.",
+      "pack": "Stratus-1.6.12-QA-On.zip",
+      "camera": "171.9963 69.5963 -9.4214 -88.273254 14.962544 creative-flight server confirmed",
+      "time": "[06:47:33]"
+    },
+    {
+      "file": "captures/s1612-underwater-on.png",
+      "sha256": "efc5802911e4cbac0845af8b9c5f1c8a40cb17e6876c02d9c5b7b7d4bccc995d",
+      "review": "Underwater view towards water exit/air and banks. Straight-through optics, submerged attenuation and visible particles remain; surface-overlay path correctly bypassed underwater. Finite regression only.",
+      "pack": "Stratus-1.6.12-QA-On.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[06:52:13]"
+    },
+    {
+      "file": "captures/s1612-waterline-high.png",
+      "sha256": "2b41d0b33b492e04465309f2c29b261d692434c591eae0c074eccb97a1c23995",
+      "review": "Just above surface: water coverage, tint/reflections and bank/air boundary remain coherent in this finite view.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "164.5000 61.3400 40.5000 0 0 creative-flight server confirmed",
+      "time": "[06:59:03]"
+    },
+    {
+      "file": "captures/s1612-waterline-low-before.png",
+      "sha256": "4d122e8ea329275d16bcc12262d5b787de700ba25d80470640fc5f10b8ed3784",
+      "review": "Previous1.6.11 at the identical just-below-surface camera reproduces the same rectangular sky/treetop tint band. Confirms a pre-existing waterline defect, not a new surface-tint regression. Waterline acceptance stays pending.",
+      "pack": "Stratus-1.6.12-QA-Before.zip",
+      "camera": "164.5000 61.2400 40.5000 0 0 creative-flight server confirmed",
+      "time": "[07:03:35]"
+    },
+    {
+      "file": "captures/s1612-waterline-low.png",
+      "sha256": "461a9b231baf5e40b1bfe544c957cac2b8e77ce5d5c240363d6c285e9cd0b0a9",
+      "review": "Just below surface: a rectangular sky/treetop tint band is visible. Not accepted as a clean waterline result; baseline comparison queued to distinguish an existing near-plane/exit issue from this surface change.",
+      "pack": "Stratus-1.6.12-QA-REFERENCE.zip",
+      "camera": "164.5000 61.2400 40.5000 0 0 creative-flight server confirmed",
+      "time": "[06:58:40]"
+    }
+  ],
+  "scope": "Finite current-world water-surface comparisons. Animated texture/ripples/clouds differ between captures; no pixel-equivalence claim.",
+  "unverified": [
+    "Existing just-below-surface rectangular tint band, reproduced on1.6.11 and1.6.12",
+    "FPS target/integration",
+    "Exact historical pole/leaf context and intended distant-leaf fallback",
+    "Exhaustive weather/mod/resource-pack/moving-camera combinations"
+  ]
+}

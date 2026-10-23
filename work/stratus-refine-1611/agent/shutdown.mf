@@ -1,0 +1,3 @@
+Agent-Class: ShutdownHelper1611
+Can-Redefine-Classes: true
+

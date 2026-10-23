@@ -1,0 +1,19 @@
+{
+  "camera_max_error_blocks": 2.6682840935876584e-05,
+  "camera_HUD_pause_flight_restored": true,
+  "original_daylight_weather_flags_and_timers_exact": true,
+  "four_temporary_glass_blocks_restored_to_exact_original_water_states": true,
+  "all_helpers_stopped": true,
+  "fixture_recovery": "Older helper block-setter method was unavailable. Its failed restoration did not change blocks; bounded server-command recovery restored and read back all four exact source-water states. Error and recovery receipts retained.",
+  "final_client": {
+    "position": "175.7405,64.0,-2.5891",
+    "yaw": "-115.773705",
+    "pitch": "13.358755",
+    "hud": "false",
+    "pause": "true",
+    "flying": "false",
+    "screen": "net.minecraft.class_433",
+    "worldTime": "1000",
+    "rainGradient": "0.0"
+  }
+}

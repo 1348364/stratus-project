@@ -1,0 +1,11 @@
+{
+  "file": "Stratus-1.3.0.zip",
+  "bytes": 96682,
+  "sha256": "4d0a45c2b42417865e33481200d3d9ff64e253241feeb39d69fe9116de8662ea",
+  "shader_config_files": 206,
+  "native_compile_link_passes": 630,
+  "inspected_visual_captures": 50,
+  "shader_errors": 0,
+  "fps_target_fully_reached": false,
+  "settings_file": "Stratus-1.3.0.zip.txt"
+}

@@ -6,71 +6,78 @@
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
-#define SKY_AMBIENT 1.40 // [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
+#define SKY_AMBIENT 1.00 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE 0.20 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
 #define WHITE_BALANCE 0.00 //  [-0.24 -0.16 -0.08 -0.04 0.00 0.04 0.08 0.16 0.24]
 #define SURFACE_SATURATION 1.00 //  [0.00 0.25 0.50 0.75 0.85 0.93 1.00 1.07 1.15 1.30 1.50 1.75 2.00]
-#define SURFACE_DAMPNESS 1.00 //  [0.00 0.15 0.35 0.65 1.00 1.35 1.70 2.00 2.50 3.00]
-#define CLOUD_AMOUNT 0.68 // [0.00 0.35 0.60 0.68 0.75 0.90 1.00]
-#define CLOUD_ALTITUDE 256.0 // [64.0 96.0 128.0 160.0 192.0 224.0 256.0 320.0 384.0 512.0 640.0 768.0]
-#define CLOUD_THICKNESS 12.0 // [4.0 12.0 20.0 32.0 40.0 56.0 72.0 96.0 128.0 160.0 200.0]
-#define SKY_LEAK 0.35 // [0.00 0.10 0.15 0.25 0.35 0.50 0.70 1.00 1.40 2.00]
-#define CLOUD_SPAN 240.0 // [64.0 96.0 160.0 240.0 360.0 540.0 700.0 900.0 1200.0 1800.0]
-#define CLOUD_DISTORTION 0.85 // [0.00 0.25 0.45 0.65 0.85 1.00 1.25 1.50 2.00]
-#define CLOUD_RELIEF 0.75 // [0.00 0.25 0.40 0.55 0.75 1.00 1.25 1.50]
-#define CLOUD_DRIFT 0.25 // [0.00 0.10 0.25 0.45 0.70 1.00 1.50 2.00 3.00]
+#define SURFACE_DAMPNESS 0.65 //  [0.00 0.15 0.35 0.65 1.00 1.35 1.70 2.00 2.50 3.00]
+#define CLOUD_AMOUNT 0.68 //  [0.00 0.35 0.60 0.68 0.75 0.90 1.00]
+#define CLOUD_ALTITUDE 256.0 //  [64.0 96.0 128.0 160.0 192.0 224.0 256.0 320.0 384.0 512.0 640.0 768.0]
+#define CLOUD_THICKNESS 12.0 //  [4.0 12.0 20.0 32.0 40.0 56.0 72.0 96.0 128.0 160.0 200.0]
+#define SKY_LEAK 0.35 //  [0.00 0.10 0.15 0.25 0.35 0.50 0.70 1.00 1.40 2.00]
+#define CLOUD_SPAN 240.0 //  [64.0 96.0 160.0 240.0 360.0 540.0 700.0 900.0 1200.0 1800.0]
+#define CLOUD_DISTORTION 0.85 //  [0.00 0.25 0.45 0.65 0.85 1.00 1.25 1.50 2.00]
+#define CLOUD_RELIEF 0.75 //  [0.00 0.25 0.40 0.55 0.75 1.00 1.25 1.50]
+#define CLOUD_DRIFT 0.25 //  [0.00 0.10 0.25 0.45 0.70 1.00 1.50 2.00 3.00]
 #define CLOUD_LAYERS 2 //  [1 2 3]
-#define MIST_AMOUNT 0.85 // [0.00 0.15 0.30 0.40 0.60 0.75 0.85 1.00 1.25 1.50 2.00 3.00]
-#define MIST_Y 70.0 // [-32.0 0.0 32.0 48.0 64.0 70.0 88.0 112.0 144.0 192.0 256.0 320.0]
-#define MIST_THICKNESS 18.0 // [4.0 7.0 9.0 12.0 18.0 24.0 32.0 48.0 64.0]
-#define MIST_CLEAR 24.0 // [0.0 4.0 8.0 16.0 24.0 32.0 48.0 64.0 80.0 112.0 144.0]
+#define MIST_AMOUNT 0.85 //  [0.00 0.15 0.30 0.40 0.60 0.75 0.85 1.00 1.25 1.50 2.00 3.00]
+#define MIST_Y 70.0 //  [-32.0 0.0 32.0 48.0 64.0 70.0 88.0 112.0 144.0 192.0 256.0 320.0]
+#define MIST_THICKNESS 18.0 //  [4.0 7.0 9.0 12.0 18.0 24.0 32.0 48.0 64.0]
+#define MIST_CLEAR 24.0 //  [0.0 4.0 8.0 16.0 24.0 32.0 48.0 64.0 80.0 112.0 144.0]
 #define MIST_DETAIL 3 //  [1 2 3]
-#define REFLECT_LEVEL 1.00 // [0.00 0.40 0.60 0.85 1.00]
-#define REFLECTION_MODE 2 //  [0 1 2]
-#define REFLECT_RANGE 120.0 // [24.0 48.0 64.0 88.0 120.0 160.0 224.0 320.0]
-#define WATER_VISIBILITY 1.70 // [0.05 0.10 0.20 0.35 0.50 0.70 0.90 1.10 1.30 1.70 2.20 3.00 4.00 6.00 8.00 12.00 16.00]
-#define WATER_EXTINCTION 3.00 // [0.10 0.20 0.45 0.65 0.90 1.15 1.40 2.00 3.00]
-#define RIPPLE_HEIGHT 0.80 // [0.00 0.15 0.30 0.55 0.80 1.00 1.30 1.70 2.20 3.00]
-#define RIPPLE_SIZE 1.00 // [0.25 0.40 0.65 0.80 1.00 1.25 1.50 2.00 3.00 4.00]
-#define RIPPLE_RATE 0.45 // [0.00 0.10 0.20 0.45 0.70 1.00 1.50 2.00 3.00]
-#define FACE_SHADING 1.00 // [0.00 0.15 0.25 0.35 0.50 0.70 0.85 1.00 1.25 1.50 2.00]
+#define REFLECT_LEVEL 1.00 //  [0.00 0.40 0.60 0.85 1.00]
+#define REFLECTION_MODE 0 //  [0 1 2]
+#define REFLECT_RANGE 120.0 //  [24.0 48.0 64.0 88.0 120.0 160.0 224.0 320.0]
+#define WATER_VISIBILITY 2.20 //  [0.05 0.10 0.20 0.35 0.50 0.70 0.90 1.10 1.30 1.70 2.20 3.00 4.00 6.00 8.00 12.00 16.00]
+#define WATER_EXTINCTION 0.90 //  [0.10 0.20 0.45 0.65 0.90 1.15 1.40 2.00 3.00]
+#define RIPPLE_HEIGHT 0.55 //  [0.00 0.15 0.30 0.55 0.80 1.00 1.30 1.70 2.20 3.00]
+#define RIPPLE_SIZE 0.40 //  [0.25 0.40 0.65 0.80 1.00 1.25 1.50 2.00 3.00 4.00]
+#define RIPPLE_RATE 1.00 //  [0.00 0.10 0.20 0.45 0.70 1.00 1.50 2.00 3.00]
+#define FACE_SHADING 1.00 //  [0.00 0.15 0.25 0.35 0.50 0.70 0.85 1.00 1.25 1.50 2.00]
 #define WET_DARKENING 1.00 //  [0.00 0.25 0.50 0.75 1.00 1.30 1.70 2.00 2.50]
 #define WET_SHEEN 0.85 //  [0.00 0.15 0.35 0.65 0.85 1.00 1.35 1.70 2.00]
-#define BLOOM_STRENGTH 0.18 // [0.00 0.03 0.06 0.12 0.18 0.25 0.35 0.50 0.75 1.00]
-#define BLOOM_RADIUS 3.00 // [0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00 8.00 12.00]
-#define SUN_VISIBILITY 0.85 // [0.00 0.25 0.45 0.65 0.85 1.00 1.50 2.00 3.00]
-#define LAMP_LEVEL 1.00 // [0.20 0.40 0.70 0.85 1.00 1.15 1.30 1.60 2.00 3.00]
-#define LAMP_HEAT 0.25 // [0.00 0.15 0.25 0.40 0.60 0.80 1.00 1.50]
+#define BLOOM_STRENGTH 0.18 //  [0.00 0.03 0.06 0.12 0.18 0.25 0.35 0.50 0.75 1.00]
+#define BLOOM_RADIUS 3.00 //  [0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00 8.00 12.00]
+#define SUN_VISIBILITY 0.85 //  [0.00 0.25 0.45 0.65 0.85 1.00 1.50 2.00 3.00]
+#define LAMP_LEVEL 1.00 //  [0.20 0.40 0.70 0.85 1.00 1.15 1.30 1.60 2.00 3.00]
+#define LAMP_HEAT 0.25 //  [0.00 0.15 0.25 0.40 0.60 0.80 1.00 1.50]
 // Independent component multipliers. Both 1 reproduce the legacy 65/35 mix.
-#define VANILLA_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
-#define REALISTIC_FACE_CONTRAST 1.00 // [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
+#define VANILLA_FACE_CONTRAST 1.00 //  [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
+#define REALISTIC_FACE_CONTRAST 1.00 //  [0.00 0.15 0.25 0.35 0.50 0.65 0.85 1.00 1.25 1.50 2.00 3.00]
 #define REALISTIC_LIGHTING 0 //  [0 1]
 #define WET_WEATHER_MODE 0 //  [0 1]
-#define SUN_CORE_BRIGHTNESS 4.50 // [0.50 1.00 1.50 2.00 2.80 3.50 4.50 6.00 8.00]
-#define SUN_HALO_STRENGTH 2.00 // [0.00 0.15 0.35 0.65 0.85 1.00 1.20 1.50 2.00 3.00]
-#define SUN_HALO_RADIUS 1.50 // [0.35 0.50 0.75 1.00 1.25 1.50 2.00 3.00]
-#define CIRRUS_DENSITY 1.00 // [0.00 0.25 0.50 0.75 1.00 1.25 1.50 2.00 3.00]
-#define FACE_BLEND 1.00 // [0.00 0.25 0.50 0.75 1.00]
-#define GROUND_WARMTH 0.00 // [0.00 0.20 0.45 0.65 0.85 1.00 1.35 1.70 2.00]
-#define WATER_DISTORTION 1.00 // [0.00 0.20 0.35 0.55 0.75 1.00 1.20 1.35 1.60 2.00]
-#define CIRRUS_AMOUNT 0.65 // [0.00 0.35 0.65 0.85 1.00]
-#define CIRRUS_ALTITUDE 360.0 // [200.0 240.0 280.0 320.0 360.0 400.0 460.0 560.0 700.0 900.0 1200.0]
-#define CLOUD_STYLE 0 // [0 1 2]
-#define SUN_STYLE 0 // [0 1]
-#define WATER_TURBIDITY 6.00 // [0.00 0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00]
-#define BIOME_WATER 1 // [0 1]
-#define REFRACTION_QUALITY 2 //  [0 1 2]
-#define ATMOSPHERE_QUALITY 2 //  [0 1 2]
-#define WATER_RENDER_QUALITY 2 //  [0 1 2]
-#define CLOUD_DENSITY 1.00 // [0.15 0.30 0.50 0.75 1.00 1.30 1.70 2.20 3.00]
-#define CLOUD_DETAIL 1.00 // [0.00 0.25 0.50 0.75 1.00 1.30 1.70 2.00]
-#define MIST_SCALE 96.0 // [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
-#define MIST_BREAKUP 0.85 // [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
-#define MIST_LIGHT 0.65 // [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
-#define WATER_TEXTURE 0.15 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+#define SUN_CORE_BRIGHTNESS 4.50 //  [0.50 1.00 1.50 2.00 2.80 3.50 4.50 6.00 8.00]
+#define SUN_HALO_STRENGTH 2.00 //  [0.00 0.15 0.35 0.65 0.85 1.00 1.20 1.50 2.00 3.00]
+#define SUN_HALO_RADIUS 1.50 //  [0.35 0.50 0.75 1.00 1.25 1.50 2.00 3.00]
+#define CIRRUS_DENSITY 1.00 //  [0.00 0.25 0.50 0.75 1.00 1.25 1.50 2.00 3.00]
+#define FACE_BLEND 1.00 //  [0.00 0.25 0.50 0.75 1.00]
+#define GROUND_WARMTH 0.00 //  [0.00 0.20 0.45 0.65 0.85 1.00 1.35 1.70 2.00]
+#define WATER_DISTORTION 1.00 //  [0.00 0.20 0.35 0.55 0.75 1.00 1.20 1.35 1.60 2.00]
+#define CIRRUS_AMOUNT 0.65 //  [0.00 0.35 0.65 0.85 1.00]
+#define CIRRUS_ALTITUDE 360.0 //  [200.0 240.0 280.0 320.0 360.0 400.0 460.0 560.0 700.0 900.0 1200.0]
+#define CLOUD_STYLE 0 //  [0 1 2]
+#define SUN_STYLE 0 //  [0 1]
+#define WATER_TURBIDITY 3.00 //  [0.00 0.25 0.50 1.00 1.50 2.00 3.00 4.00 6.00]
+#define BIOME_WATER 1 //  [0 1]
+#define REFRACTION_QUALITY 1 //  [0 1 2]
+#define ATMOSPHERE_QUALITY 1 //  [0 1 2]
+#define WATER_RENDER_QUALITY 1 //  [0 1 2]
+#define CLOUD_DENSITY 1.00 //  [0.15 0.30 0.50 0.75 1.00 1.30 1.70 2.20 3.00]
+#define CLOUD_DETAIL 1.00 //  [0.00 0.25 0.50 0.75 1.00 1.30 1.70 2.00]
+#define MIST_SCALE 96.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
+#define MIST_BREAKUP 0.85 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
+#define MIST_LIGHT 0.65 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
+// Active native layer strength; retained patterned tint in Stratus mode.
+#define WATER_TEXTURE 1.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 1 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 0.75 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 0.50 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl
@@ -465,7 +472,7 @@ vec2 wetMaterialProperties(int material) {
     if (material == 4110) return vec2(0.90, 0.96);
     if (material == 4111) return vec2(0.64, 0.80);
     if (material == 4113) return vec2(0.02, 0.68);
-    if (material == 4114) return vec2(0.00, 0.38);
+    if (material == 4114 || (material>=4120&&material<=4123)) return vec2(0.00, 0.38);
     if (material == 4115) return vec2(0.80, 0.98);
     if (material == 4116) return vec2(0.16, 0.48);
     if (material == 4117) return vec2(0.72, 0.91);
@@ -502,19 +509,19 @@ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material
 #if DIMENSION_TYPE == 0
     float filmSource=WET_WEATHER_MODE==0?1.0:rainStrength;
     float film=filmSource*SURFACE_DAMPNESS*smoothstep(0.18,0.85,sky)
-        *mix(0.55,1.0,max(n.y,0.0));
+        *mix(0.78,1.0,clamp(n.y*0.5+0.5,0.0,1.0));
     if(WET_SHEEN>0.0&&film>0.0001){
         vec3 view=unitVector(-playerPoint);
         float nv=max(dot(n,view),0.0);
         if(nv>0.001){
-            float fresnel=0.02+0.98*pow(1.0-nv,5.0);
-            float coat=clamp(film*WET_SHEEN*fresnel*0.20,0.0,0.20);
+            float fresnel=0.08+0.92*pow(1.0-nv,5.0);
+            float coat=clamp(film*WET_SHEEN*fresnel*0.25,0.0,0.22);
             vec3 environment=softSkyReflection(reflect(-view,n));
             // Reflection can be lighter or darker than a white block. This is
             // angle-dependent film, never absorption or diffuse recolouring.
             dry=mix(dry,environment,coat);
             vec3 light=broadLightDirection(),halfway=unitVector(view+light);
-            float exponent=mix(160.0,36.0,clamp(material.y,0.0,1.0));
+            float exponent=mix(80.0,16.0,clamp(material.y,0.0,1.0));
             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
             dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
                 *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
@@ -637,6 +644,8 @@ const int colortex10Format = RGBA16F;
 const int colortex11Format = RGBA16F;
 const int colortex12Format = RGBA16F;
 const int colortex13Format = RGBA16F;
+const int colortex15Format = RGBA16F;
+const vec4 colortex15ClearColor = vec4(0.0,0.0,0.0,0.0);
 const vec4 colortex13ClearColor = vec4(0.0, 0.0, 0.0, 0.0);
 const int R16F = 33325;
 const int colortex14Format = R16F;

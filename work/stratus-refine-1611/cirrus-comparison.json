@@ -1,0 +1,28 @@
+[
+  {
+    "phase": "day",
+    "sky_ROI": [
+      40,
+      30,
+      1400,
+      440
+    ],
+    "mean_abs_RGB_codes": 23.51121711730957,
+    "max_abs_RGB_codes": 49.0,
+    "fraction_pixels_different": 1.0,
+    "scope": "Actual matched loaded Main sky, lower clouds/mist disabled and drift0, same camera/time; finite cirrus visibility, not pixel-equivalent whole scenes."
+  },
+  {
+    "phase": "sunset",
+    "sky_ROI": [
+      40,
+      30,
+      1400,
+      440
+    ],
+    "mean_abs_RGB_codes": 22.846776962280273,
+    "max_abs_RGB_codes": 50.0,
+    "fraction_pixels_different": 1.0,
+    "scope": "Actual matched loaded Main sky, lower clouds/mist disabled and drift0, same camera/time; finite cirrus visibility, not pixel-equivalent whole scenes."
+  }
+]

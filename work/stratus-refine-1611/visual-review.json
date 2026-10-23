@@ -1,0 +1,248 @@
+{
+  "version": "1.6.11",
+  "profile": "Modrinth Main / Minecraft (1)",
+  "world": "Stratus Terrain Lab normal world",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "FPS": "Skipped by explicit user instruction. Zero new samples.",
+  "reference_quality_rebase_user_approved": true,
+  "no_new_rendering_algorithm_speedup_claim": true,
+  "cloud_interior": {
+    "source": "No VanillaTweaks override; preserved vanilla reference",
+    "cloud_cell": [
+      22,
+      1
+    ],
+    "camera_feet": [
+      270.0,
+      254.38,
+      14.04
+    ],
+    "eye_y": 256,
+    "drift_for_test": 0,
+    "alpha": 255,
+    "QA_only_not_distributed": true,
+    "actual_runtime_alpha_at_camera": 255,
+    "active_runtime_footprint_matches_planned": true,
+    "actual_resource_origin": "vanilla"
+  },
+  "cirrus_comparison": [
+    {
+      "phase": "day",
+      "sky_ROI": [
+        40,
+        30,
+        1400,
+        440
+      ],
+      "mean_abs_RGB_codes": 23.51121711730957,
+      "max_abs_RGB_codes": 49.0,
+      "fraction_pixels_different": 1.0,
+      "scope": "Actual matched loaded Main sky, lower clouds/mist disabled and drift0, same camera/time; finite cirrus visibility, not pixel-equivalent whole scenes."
+    },
+    {
+      "phase": "sunset",
+      "sky_ROI": [
+        40,
+        30,
+        1400,
+        440
+      ],
+      "mean_abs_RGB_codes": 22.846776962280273,
+      "max_abs_RGB_codes": 50.0,
+      "fraction_pixels_different": 1.0,
+      "scope": "Actual matched loaded Main sky, lower clouds/mist disabled and drift0, same camera/time; finite cirrus visibility, not pixel-equivalent whole scenes."
+    }
+  ],
+  "captures": [
+    {
+      "file": "captures/s1611-baseline-river.png",
+      "status": "reviewed",
+      "note": "Previous runtime with all62 approved Reference values explicitly overridden; compare at matched quality, not old full-detail Reference.",
+      "sha256": "3054ea7c53208f8112d7df328a8005c40aa2417dba31d38893d4b6275d066325",
+      "pack": "Stratus-1.6.11-QA-BaselineReference.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[23:27:37]"
+    },
+    {
+      "file": "captures/s1611-candidate-river.png",
+      "status": "reviewed",
+      "note": "Candidate runtime with the same62 values. Water animation varies; no pixel-equivalence or code speedup claim.",
+      "sha256": "ac8970551d36cb45128ceb4a23eec68ce8f7d619c03fad45b188feff2accbf5d",
+      "pack": "Stratus-1.6.11-QA-CandidateReference.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[23:28:28]"
+    },
+    {
+      "file": "captures/s1611-cirrus-day-off-loaded.png",
+      "status": "reviewed",
+      "note": "Accepted loaded on/off isolation at matched time/camera. Lower clouds and mist off; drift0. Cirrus wisps remain visible independently, including sunset.",
+      "sha256": "78dd07ca368d99b5e9b04936dc391b8cb56a33be9c2411ccc347c4ec1f6d53a2",
+      "pack": "Stratus-1.6.11-QA-CirrusOff.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:34:47]"
+    },
+    {
+      "file": "captures/s1611-cirrus-day-off.png",
+      "status": "superseded",
+      "note": "First isolation attempt: some reload frames contained incomplete terrain. Superseded by loaded retries; not counted as accepted comparison.",
+      "sha256": "fa3b14ee41b2f6fe9dc30550610ddb8783c774a8b3813c66bd979f3c02aa53d9",
+      "pack": "Stratus-1.6.11-QA-CirrusOff.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:31:37]"
+    },
+    {
+      "file": "captures/s1611-cirrus-day-on-loaded.png",
+      "status": "reviewed",
+      "note": "Accepted loaded on/off isolation at matched time/camera. Lower clouds and mist off; drift0. Cirrus wisps remain visible independently, including sunset.",
+      "sha256": "2936d3ef82217f46decb3ece106e41970a7ba4f035a3d41bd805630b636d8f10",
+      "pack": "Stratus-1.6.11-QA-CirrusOn.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:34:09]"
+    },
+    {
+      "file": "captures/s1611-cirrus-day-on.png",
+      "status": "superseded",
+      "note": "First isolation attempt: some reload frames contained incomplete terrain. Superseded by loaded retries; not counted as accepted comparison.",
+      "sha256": "0f7fc397f52d1417ff10c2fd764e4b029ecaaf4dbbbeeab1175bd939070c7a45",
+      "pack": "Stratus-1.6.11-QA-CirrusOn.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:31:19]"
+    },
+    {
+      "file": "captures/s1611-cirrus-sunset-off-loaded.png",
+      "status": "reviewed",
+      "note": "Accepted loaded on/off isolation at matched time/camera. Lower clouds and mist off; drift0. Cirrus wisps remain visible independently, including sunset.",
+      "sha256": "f0a72c471b2a364cc7cc921365d66f7d6e803746462fbfcef2915eb52e8ac52e",
+      "pack": "Stratus-1.6.11-QA-CirrusOff.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:36:02]"
+    },
+    {
+      "file": "captures/s1611-cirrus-sunset-off.png",
+      "status": "superseded",
+      "note": "First isolation attempt: some reload frames contained incomplete terrain. Superseded by loaded retries; not counted as accepted comparison.",
+      "sha256": "6cec089f29fe0db7aba74c7c4e8b9013174f818975151378fdf91053ff04a02f",
+      "pack": "Stratus-1.6.11-QA-CirrusOff.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:32:13]"
+    },
+    {
+      "file": "captures/s1611-cirrus-sunset-on-loaded.png",
+      "status": "reviewed",
+      "note": "Accepted loaded on/off isolation at matched time/camera. Lower clouds and mist off; drift0. Cirrus wisps remain visible independently, including sunset.",
+      "sha256": "93a5f8d6068a60c33e3314c1a7c84e54bbf7bd220c205f55fed6c06044196bb0",
+      "pack": "Stratus-1.6.11-QA-CirrusOn.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:35:24]"
+    },
+    {
+      "file": "captures/s1611-cirrus-sunset-on.png",
+      "status": "superseded",
+      "note": "First isolation attempt: some reload frames contained incomplete terrain. Superseded by loaded retries; not counted as accepted comparison.",
+      "sha256": "804c1c8cae4c5c9110f73319c7285fe532ca12c7b27d9a701d2bc4fa45b054ff",
+      "pack": "Stratus-1.6.11-QA-CirrusOn.zip",
+      "camera": "164.5000 100.0000 40.5000 90 -8 creative-flight server confirmed",
+      "time": "[23:31:57]"
+    },
+    {
+      "file": "captures/s1611-occupied-cloud-interior.png",
+      "status": "reviewed",
+      "note": "Camera eye at cloud altitude256 in active resource cell(22,1), measured alpha255; mist/cirrus off and drift0 isolate actual occupied lower cloud.",
+      "sha256": "525bc8f98878e42a8004ced2a6abbb88c608035cfaf5ffa4af374f1736081fa5",
+      "pack": "Stratus-1.6.11-QA-CloudInterior.zip",
+      "camera": "270.0000 254.3800 14.0400 90 0 creative-flight server confirmed",
+      "time": "[23:30:27]"
+    },
+    {
+      "file": "captures/s1611-reference-submerged-wood.png",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer reviewed for finite water/cloud regression; see pack and camera context.",
+      "sha256": "2e7e60662cea039680aa7e4c68810963c13eb266c27c3a9cd9233a58bfb8e894",
+      "pack": "Stratus-1.6.11-QA-CandidateReference.zip",
+      "camera": "4096.0000 97.0000 4101.0000 0 25 creative-flight server confirmed",
+      "time": "[23:29:56]"
+    },
+    {
+      "file": "captures/s1611-reference-underwater.png",
+      "status": "reviewed",
+      "note": "Actual Main framebuffer reviewed for finite water/cloud regression; see pack and camera context.",
+      "sha256": "8ed546c1cde59d86ea5d05079e6b5c4b53c3547cfe2d48940383c8b89b9969d8",
+      "pack": "Stratus-1.6.11-QA-CandidateReference.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[23:29:03]"
+    },
+    {
+      "file": "captures/s1611-release-menu-materials.png",
+      "status": "reviewed",
+      "note": "Final film amount Moderate(0.65), explicitly captured from current Main; all-weather/sheens/retired control retained.",
+      "sha256": "4d945229c2dc7b6ac92d52751991777da6fa48115404fb4c36515fd5e758f971",
+      "pack": "Stratus-1.6.11.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[23:41:14]"
+    },
+    {
+      "file": "captures/s1611-release-menu-performance.png",
+      "status": "reviewed",
+      "note": "Approved Reference: Balanced water/atmosphere/refraction, cloud2/mist3 and sky-only reflections. Full detailed choices remain selectable and in High.",
+      "sha256": "5b300594af318f70f3153de1423faff0f492c99c294ba8be49b2239acb14637d",
+      "pack": "Stratus-1.6.11.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[23:41:19]"
+    },
+    {
+      "file": "captures/s1611-release-menu-root.png",
+      "status": "reviewed",
+      "note": "Final release Reference(Recommended), no custom overrides. All62 runtime values equal the captured approved Main tuning.",
+      "sha256": "91240f2adcb05dc296b123227372e3ae593e83d44ca6c4505886e52a0fe207da",
+      "pack": "Stratus-1.6.11.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[23:41:08]"
+    },
+    {
+      "file": "captures/s1611-release-river.png",
+      "status": "reviewed",
+      "note": "Actual released ZIP river at approved Reference defaults. FPS was deferred.",
+      "sha256": "8d85ed34bc6be03dc7b80392b2d3a8c4d8e7f1d09e772db783da9907e6560be5",
+      "pack": "Stratus-1.6.11.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "time": "[23:40:26]"
+    },
+    {
+      "file": "captures/s1611-release-underwater.png",
+      "status": "reviewed",
+      "note": "Actual released ZIP underwater view toward forest/air exit. Finite optics regression, not historical pole/leaf acceptance.",
+      "sha256": "1df606f007fda31335b3c58cfae7a72ad5d4b2b41dbe668397d9fbb032b7f006",
+      "pack": "Stratus-1.6.11.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "time": "[23:41:02]"
+    }
+  ],
+  "restoration": {
+    "camera_max_position_error_blocks": 2.7999049050819735e-05,
+    "yaw_modulo360_error_degrees": 3.999999989900971e-06,
+    "HUD_pause_flight_restored": true,
+    "screen": "net.minecraft.class_433",
+    "world_time": 1000,
+    "rain_gradient": 0,
+    "original_weather_timers_flags_daylight_restored": true,
+    "all_helper_stop_markers": [
+      "driver-stopped.txt",
+      "visual-driver-stopped.txt",
+      "activity-stopped.txt",
+      "world-time-stopped.txt",
+      "old-helper-bytecode-restored.txt"
+    ],
+    "test_helper_recovery": "Initial test helper hit a loaded-class version mismatch. Only its own test class was temporarily patched to stop and then restored; uniquely versioned replacement passed live gates. No Minecraft/Iris classes were modified.",
+    "no_fixture_blocks_modified": true
+  },
+  "pending": [
+    "User-requested future focused FPS and60FPS target",
+    "FPS integration validation of readiness/renewed-activity rejection",
+    "Relevant distant-leaf exact-depth fallback acceptance",
+    "Exact historical pole/leaf camera/context",
+    "Exhaustive preset/mod/weather/motion coverage"
+  ]
+}

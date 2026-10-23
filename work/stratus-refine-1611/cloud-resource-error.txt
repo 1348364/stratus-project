@@ -1,0 +1,1 @@
+java.lang.NoSuchMethodException: net.minecraft.class_2960.method_60654(java.lang.String,java.lang.String)

@@ -1,0 +1,363 @@
+{
+  "pack": "Stratus 1.1.0",
+  "date": "2026-10-16",
+  "options": 31,
+  "native_compile_link": {
+    "passed": 486,
+    "failed": 0,
+    "program_pairs": 81,
+    "variants": 6,
+    "renderer": "Apple M1 OpenGL 4.1",
+    "method": "Offline compatibility shim, separate from actual Iris test"
+  },
+  "gpu_appearance_probes": {
+    "cases": {
+      "wet_origin": {
+        "previous": [
+          0.20328483,
+          0.20328483,
+          0.20328483,
+          1.0
+        ],
+        "current": [
+          0.20328483,
+          0.20328483,
+          0.20328483,
+          1.0
+        ]
+      },
+      "wet_far_away": {
+        "previous": [
+          0.20328483,
+          0.20328483,
+          0.20328483,
+          1.0
+        ],
+        "current": [
+          0.20328483,
+          0.20328483,
+          0.20328483,
+          1.0
+        ]
+      },
+      "covered_dry": {
+        "previous": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "current": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ]
+      },
+      "entity_dry": {
+        "previous": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ],
+        "current": [
+          0.5,
+          0.5,
+          0.5,
+          1.0
+        ]
+      },
+      "all_materials_same": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "all_faces_same": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "water_split_path": {
+        "previous": [
+          1e-08,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          1e-08,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "water_two_blocks": {
+        "previous": [
+          0.36564556,
+          0.45348507,
+          0.48523712,
+          1.0
+        ],
+        "current": [
+          0.36564556,
+          0.45348507,
+          0.48523712,
+          1.0
+        ]
+      },
+      "water_eight_blocks": {
+        "previous": [
+          0.14969067,
+          0.34361041,
+          0.44497168,
+          1.0
+        ],
+        "current": [
+          0.14969067,
+          0.34361041,
+          0.44497168,
+          1.0
+        ]
+      },
+      "cloud_below_inside_above": {
+        "previous": [
+          0.20552105,
+          0.99506766,
+          0.20561475,
+          1.0
+        ],
+        "current": [
+          0.20552105,
+          0.99506766,
+          0.20561475,
+          1.0
+        ]
+      },
+      "cloud_direction_and_occlusion": {
+        "previous": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        "current": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      },
+      "sky_light_leak": {
+        "previous": [
+          0.39694813,
+          0.46256888,
+          0.56396067,
+          1.0
+        ],
+        "current": [
+          0.44613555,
+          0.50150889,
+          0.58855438,
+          1.0
+        ]
+      },
+      "face_shading": {
+        "previous": [
+          0.12972856,
+          0.12875924,
+          0.12504347,
+          1.0
+        ],
+        "current": [
+          0.13135545,
+          0.13037397,
+          0.12661161,
+          1.0
+        ]
+      }
+    },
+    "opengl_errors": 0
+  },
+  "checks": {
+    "ao_default_and_maximum_1": true,
+    "dampness_world_position_independent": true,
+    "all_block_classes_same_dampness": true,
+    "covered_blocks_and_entities_dry": true,
+    "water_absorption_shared_and_path_consistent": true,
+    "finite_cloud_layer_below_inside_above": true,
+    "clouds_occluded_by_nearer_geometry": true,
+    "sky_light_leak_measurable": true,
+    "face_shading_subtle": true,
+    "preset_art_controls_unchanged": true,
+    "expanded_sources_match_native_checks": true,
+    "source_matches_tested_zip": true
+  },
+  "actual_iris_compilation": true,
+  "in_game_visual_test": true,
+  "runtime": {
+    "minecraft": "1.21.11",
+    "iris": "1.10.8",
+    "sodium": "0.8.14",
+    "java": 21,
+    "gpu": "Apple M1",
+    "opengl": "4.1",
+    "preset": "Reference",
+    "dimension": "Overworld",
+    "tested_zip": "Stratus-1.1.0-verified5.zip",
+    "source_files_match_delivery": 182,
+    "shader_errors": 0,
+    "screenshots_sha256": {
+      "release110-clouds-below.png": "fe67329c0fc82296c57c17da57f726141c13d612e0f4e9f559a8d4c5d8627a1e",
+      "release110-clouds-inside.png": "6eb4ae47174ee6b0c8f225dea94cedee0934c964208f71a071321ba38bf6cefe",
+      "release110-clouds-above.png": "ddc8d434b37487084dda1d7f7cadd1b23992c6d222a732dcea6a862304985f5e",
+      "release110-sky-light.png": "9b31fc11fb2e8f342cd972dde550587fcdd3b057b971c729d7e24c301717202e",
+      "release110-overview.png": "ab3a47b02d3d25e94ea2eed757b6b39f719e4a0a3b6d0c80fe2b00b0d28852a4",
+      "release110-water-sides.png": "f40491823af88a14ddec2ce43b59d3cc8c1f18583099169045b6df5ff8693861",
+      "release110-water-top.png": "ed9cd65126eb90d192b94f083547c8024c9882be92602b764b3f34faf4189f82",
+      "release110-underwater.png": "f5344c10aff30fbfee0cfc8a6053360822bd4e3ffa4811b9e8c5c7e770ca7f27",
+      "release110-underwater-interface.png": "9598e520f8c7202712cafbd6694b92207694f06f2a877154880aae2ec4008a14",
+      "release110-materials.png": "f02613d2cfec164b4da9baf0b947e885f91a524cb6508bfc6003613c970ac68b",
+      "release110-thrown-items.png": "32e92da731b0d8e88c83c4ce70fb9483849a1a295d69141538ddc8feb5d4c07b",
+      "release110-block-breaking-particles.png": "43090b62cda429b4449c633fd9fa0b4bc1c11850ef3b51967caadbbd8ffcc760",
+      "release110-smoke-particles.png": "4baac3427b24a1ff482cdd2418bab85df3f8d46873c74dbf81033fcc25c7cc86",
+      "release110-bloom-night.png": "6e40812a83cb62d1be7b3ef02ea4ea2beb37d9785b810cc3353031ca5486bcbf",
+      "release110-rain-glass-slime.png": "18d26988100cf94168478a49a7dbcb63f37339541e8b63cd62231d1fcb8774d3",
+      "release110-held-item.png": "32dd68c64b66075195e885c79d347fdc718fef7fa9e578e10bd81c32ac532709"
+    },
+    "inspection": {
+      "inspected": [
+        "clouds-below",
+        "clouds-inside",
+        "clouds-above",
+        "sky-light",
+        "overview",
+        "water-sides",
+        "water-top",
+        "underwater",
+        "underwater-interface",
+        "materials",
+        "thrown-items",
+        "block-breaking-particles",
+        "smoke-particles",
+        "bloom-night",
+        "rain-glass-slime",
+        "held-item"
+      ],
+      "reported_features_implemented": true,
+      "observations": {
+        "ao": "Default/max 1.00; corner shading visible and zero-AO comparison reduces it.",
+        "water": "Top, side and underwater share the same absorption/tint; no over-blue overlap patches in the final test.",
+        "clouds": "Thin world-height overcast layer with fog within it, soft below/above views and the retained distant sky bands.",
+        "light_leak": "Broad subtle sky opening; GPU radiance increase confirmed.",
+        "bloom": "Restrained bright-pixel glow on lanterns; on/off comparison inspected.",
+        "particles": "Snowball, egg and ender pearl visible with motion; stone destruction fragments and smoke sprites rendered with proper cutouts.",
+        "dampness": "Mixed outdoor blocks including concrete, ore, netherrack, wool and chest dampen uniformly; no procedural damp noise.",
+        "face_shading": "Small diffuse face brightness/tint differences; no added hard shadows.",
+        "held_item": "Iron pickaxe visible with HUD shown.",
+        "limits": "Cloud lighting, water thickness and sky exposure are approximations; no full normal-profile mod-stack or FPS test."
+      }
+    },
+    "process_exit": {
+      "exit_code": 143,
+      "signal": "SIGTERM",
+      "scope": "Only isolated workspace QA client",
+      "session": 42273
+    },
+    "control_comparisons": {
+      "bloom": {
+        "mean_signed_byte_difference": -0.019432748538011697,
+        "mean_absolute_byte_difference": 1.896859649122807,
+        "max_absolute_byte_difference": 158.0,
+        "roi_yx": [
+          [
+            700,
+            890
+          ],
+          [
+            700,
+            1000
+          ]
+        ]
+      },
+      "damp": {
+        "mean_signed_byte_difference": -44.00745635056487,
+        "mean_absolute_byte_difference": 44.00745635056487,
+        "max_absolute_byte_difference": 72.0,
+        "roi_yx": [
+          [
+            390,
+            850
+          ],
+          [
+            180,
+            1450
+          ]
+        ]
+      },
+      "face": {
+        "mean_signed_byte_difference": -1.4024848796074403,
+        "mean_absolute_byte_difference": 1.8524312450074176,
+        "max_absolute_byte_difference": 5.0,
+        "roi_yx": [
+          [
+            390,
+            850
+          ],
+          [
+            180,
+            1450
+          ]
+        ]
+      },
+      "ao": {
+        "mean_signed_byte_difference": -8.6389957777017,
+        "mean_absolute_byte_difference": 8.6389957777017,
+        "max_absolute_byte_difference": 104.0,
+        "roi_yx": [
+          [
+            390,
+            850
+          ],
+          [
+            180,
+            1450
+          ]
+        ]
+      }
+    },
+    "comparison_note": "Control pairs use the final material/bloom functions. The distant sky was refined subsequently and final release scenes were recaptured. Animated particles and lightmap flicker can differ between captures.",
+    "warnings": [
+      "Unused shader-interface linker warnings",
+      "Offline dummy-identity authentication failures before world load",
+      "Native gldCopyBufferSubData diagnostic"
+    ],
+    "server_tick_lag_warning": false,
+    "game_fps_measured": false,
+    "limits": [
+      "Overworld and Reference visually tested; other dimensions/presets passed offline compilation only",
+      "Full normal-profile mod stack was not reproduced",
+      "Waterfall thickness is estimated; screen-space reflections cannot see hidden geometry",
+      "Sky-exposure wetness uses the game lightmap rather than rain ray tracing",
+      "Finite visual scenarios; no assertion that every possible visual defect is absent"
+    ]
+  }
+}

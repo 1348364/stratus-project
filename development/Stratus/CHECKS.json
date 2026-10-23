@@ -1,0 +1,295 @@
+{
+  "version": "1.7.0-rc1",
+  "batch": "43b4c0ad-c217-4a82-8534-29d34345f150",
+  "status": "Release candidate; incomplete live acceptance. All four requests remain pending.",
+  "native_pairs": 768,
+  "native_failures": 0,
+  "native_matrix_log": "work/stratus-refine-1613/compile-final.log",
+  "wet_GPU": {
+    "scope": "actual wet-film GLSL, all six face normals, shelter/weather/zero controls",
+    "samples": 96,
+    "minimum_exposed_face_change": 0.00525482,
+    "failures": 0,
+    "gl_error": 0
+  },
+  "transparent_GPU": {
+    "scope": "actual transparent-solid GLSL, no-interface/foreground guards and zero/independent optics",
+    "pixel_samples": 24576,
+    "reflection_changed_interior_pixels": 814,
+    "refraction_changed_interior_pixels": 814,
+    "failures": 0,
+    "gl_error": 0
+  },
+  "legacy_underwater_GPU": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.7265702,
+          0.3873817,
+          0.1988004
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.3774901,
+          0.3134322,
+          0.1913006
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.8,
+          0.4,
+          0.2
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.6162699,
+          0.1938531,
+          0.1048677
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.5786929,
+          0.1972679,
+          0.10793
+        ],
+        "max_error": 1e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.9453518,
+          0.4730772,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.712761,
+          0.3849262,
+          0.1985645
+        ],
+        "max_error": 6e-08
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "native_underwater_GPU": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.5984013,
+          0.3107674,
+          0.1698051
+        ],
+        "max_error": 9e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.5984013,
+          0.3107674,
+          0.1698051
+        ],
+        "max_error": 9e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.6949394,
+          0.3537433,
+          0.1845424
+        ],
+        "max_error": 2.4e-07
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.1857498,
+          0.117702,
+          0.0959369
+        ],
+        "max_error": 7e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.5984013,
+          0.3107674,
+          0.1698051
+        ],
+        "max_error": 9e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.7999998,
+          0.3999999,
+          0.2
+        ],
+        "max_error": 1.8e-07
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.582804,
+          0.1711673,
+          0.0941888
+        ],
+        "max_error": 1.2e-07
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.5244983,
+          0.1627223,
+          0.0933723
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.8458905,
+          0.3947957,
+          0.1698051
+        ],
+        "max_error": 2.4e-07
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.6749566,
+          0.3448879,
+          0.1815376
+        ],
+        "max_error": 1.8e-07
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "controls": {
+    "previous_controls": 62,
+    "current_controls": 65,
+    "previous_defaults_and_ranges_preserved": true,
+    "reachable_controls": 65,
+    "tooltips_present": true,
+    "all_four_original_preset_assignments_preserved": true,
+    "all_presets_native_water_default": true,
+    "block_tokens_preserved": 618,
+    "changed_shader_files": [
+      "shaders/block.properties",
+      "shaders/core/air.glsl",
+      "shaders/core/atmosphere-resolve.frag.glsl",
+      "shaders/core/bloom-horizontal.frag.glsl",
+      "shaders/core/diffuse.glsl",
+      "shaders/core/lake.frag.glsl",
+      "shaders/core/medium.glsl",
+      "shaders/core/options.glsl",
+      "shaders/core/raster.frag.glsl",
+      "shaders/core/resolve.frag.glsl",
+      "shaders/core/submerged-compose.glsl",
+      "shaders/core/transparent-optics.glsl",
+      "shaders/core/water-resolve.frag.glsl",
+      "shaders/core/water-surface.glsl",
+      "shaders/lang/en_us.lang",
+      "shaders/shaders.properties"
+    ],
+    "failures": 0
+  },
+  "migration": {
+    "checks": [
+      "Dry run writes nothing",
+      "Related native water default resets selectively; unrelated wet and quality carry",
+      "Previous preferences byte-identical",
+      "Later manual native-layer value 0.00 wins",
+      "Later manual native-layer value 0.50 wins",
+      "Later manual native-layer value 0.75 wins",
+      "Missing new controls use source defaults",
+      "Explicit previously unknown manual WATER_STYLE preserved",
+      "Explicit previously unknown manual TRANSPARENT_REFLECTIONS preserved",
+      "Explicit previously unknown manual TRANSPARENT_REFRACTION preserved",
+      "Existing new release preferences win",
+      "Atomic create never overwrites",
+      "Conflicting archive refused"
+    ],
+    "failures": 0,
+    "scope": "Actual candidate policy/unchanged installer in temporary profiles; no Main writes"
+  },
+  "Iris_profiles": {
+    "FAST": {
+      "option_count": 65,
+      "matches_after_applying_full_profile": true
+    },
+    "BALANCED": {
+      "option_count": 65,
+      "matches_after_applying_full_profile": true
+    },
+    "REFERENCE": {
+      "option_count": 65,
+      "matches_after_applying_full_profile": true
+    },
+    "HIGH": {
+      "option_count": 65,
+      "matches_after_applying_full_profile": true
+    }
+  },
+  "FPS_samples": 0,
+  "limits": [
+    "Just-below-surface rectangular sky/treetop tint band remains visible in native mode, as on the previous baseline. No waterline acceptance or fix claimed.",
+    "Remaining live wet-film side/underside, shelter/rain and transparent glass/ice/slime/honey controls-off comparisons skipped at user request after Mac locked.",
+    "Native underwater biome, status-effect, night-vision, mod and resource-pack compatibility not fully verified. Native mode retains Stratus straight-through underwater exit rather than vanilla back-face surface overlay, so it is not pixel-identical vanilla.",
+    "Only nearest visible transparent interface; bounded screen-space refraction, missing scenery uses sky fallback, overlapping solids/particles and water-behind-glass require final live acceptance.",
+    "No FPS samples. Performance and the approximately60FPS target remain deferred.",
+    "Candidate archive is packaged only. Temporary QA equivalents loaded; final candidate archive not installed/selected/reviewed. Stable1.6.12 restored."
+  ],
+  "release_installed": false,
+  "release_loaded": false,
+  "source_equivalent_QA_loaded": true
+}

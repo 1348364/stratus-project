@@ -1,0 +1,52 @@
+[
+  {
+    "path": "CHECKS.json",
+    "added": false,
+    "sha256": "94f82fbdedcbc04ec0ed25ea36c76126633ab5c4babd85e18169a62dd631e86c"
+  },
+  {
+    "path": "IN-GAME-TEST.txt",
+    "added": false,
+    "sha256": "64c84c6a4c0fcf882dc722748173b6b44b66e6ddb2fda813a3f0c6525c7ef1e1"
+  },
+  {
+    "path": "README.txt",
+    "added": false,
+    "sha256": "7ec03c20fbb0bd3ad79a8199ead3b738083b11a6345eb4d7c20e9c3b90ccd7b3"
+  },
+  {
+    "path": "RELEASE-POLICY.json",
+    "added": false,
+    "sha256": "f0c568a46d5bdec91fcfd44eee07f18c882d1ae0dcef013a69489c35543903e3"
+  },
+  {
+    "path": "SOURCE-MANIFEST.json",
+    "added": false,
+    "sha256": "2acd367f2effb980c9f79475f0c824944c7c35815a6f61f5b36f240e2c8fdbea"
+  },
+  {
+    "path": "VALIDATION.txt",
+    "added": false,
+    "sha256": "7c436141e3a839d84350c5e00cf216d2913974796691ae9b154c32acfd4855c4"
+  },
+  {
+    "path": "install.py",
+    "added": false,
+    "sha256": "a01bd5e6f7f283f2a4cd58cf995d2a3c83a58cce874b585bb97f5213a45273d8"
+  },
+  {
+    "path": "package.py",
+    "added": false,
+    "sha256": "ce5016b058b0c39bb04fc509b4b4b85b6825ff2b3c0621e503d171aa1aad08b3"
+  },
+  {
+    "path": "shaders/core/options.glsl",
+    "added": false,
+    "sha256": "26f9348eb27344f632190dfc66c05b9bd39c66b1e7cdaa148691a17dca428105"
+  },
+  {
+    "path": "shaders/shaders.properties",
+    "added": false,
+    "sha256": "51dc4fe69788cc9f8c2d4ce1136f95c7c4df05cb75f6009cb0801ba844aa9ceb"
+  }
+]

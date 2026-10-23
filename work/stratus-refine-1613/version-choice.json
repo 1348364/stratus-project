@@ -1,0 +1,5 @@
+{
+  "candidate_version": "1.7.0-rc1",
+  "development_evidence_prefix": "1.6.13",
+  "reason": "Native-water mode and transparent-solid optics are substantial user-visible additions. Use a minor-version release candidate, rather than a patch or claiming the full roadmap milestone passed; known waterline and remaining visual/compatibility acceptance stay pending."
+}

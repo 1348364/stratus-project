@@ -1,0 +1,13 @@
+{
+  "version": "1.6.5",
+  "source": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.6.5.zip",
+  "installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.5.zip",
+  "sha256": "d6d005f670a90d2246b3c3e43208d5a5862a70f8ba79a8670aa4724ad8153809",
+  "bytes_match": true,
+  "preferences_copied_if_absent": true,
+  "new_preferences": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.5.zip.txt",
+  "preferences_equal_prior": true,
+  "selected_pack_unchanged": "shaderPack=Stratus-1.6.4.zip",
+  "candidate_live_loading": "pending",
+  "worlds_mods_and_resource_packs_modified": false
+}

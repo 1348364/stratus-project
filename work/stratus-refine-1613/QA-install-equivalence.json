@@ -1,0 +1,52 @@
+[
+  {
+    "file": "Stratus-1.6.13-QA-BALANCED.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-Before.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-Candidate.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-Dry.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-FAST.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-HIGH.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-Legacy.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-NativeIsolated.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-OpticsOff.zip",
+    "exists": true,
+    "bytes_equal": true
+  },
+  {
+    "file": "Stratus-1.6.13-QA-REFERENCE.zip",
+    "exists": true,
+    "bytes_equal": true
+  }
+]

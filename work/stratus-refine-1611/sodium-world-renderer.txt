@@ -1,0 +1,1143 @@
+Compiled from "SodiumWorldRenderer.java"
+public class net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer {
+  private final net.minecraft.class_310 client;
+
+  private net.minecraft.class_638 level;
+
+  private int renderDistance;
+
+  private org.joml.Vector3d lastCameraPos;
+
+  private double lastCameraPitch;
+
+  private double lastCameraYaw;
+
+  private net.caffeinemc.mods.sodium.client.util.FogParameters lastFogParameters;
+
+  private org.joml.Matrix4f lastProjectionMatrix;
+
+  private boolean useEntityCulling;
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager renderSectionManager;
+
+  private static final double MAX_ENTITY_CHECK_VOLUME;
+
+  public static net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer instance();
+    Code:
+         0: invokestatic  #60                 // Method instanceNullable:()Lnet/caffeinemc/mods/sodium/client/render/SodiumWorldRenderer;
+         3: astore_0
+         4: aload_0
+         5: ifnonnull     18
+         8: new           #62                 // class java/lang/IllegalStateException
+        11: dup
+        12: ldc           #64                 // String No renderer attached to active level
+        14: invokespecial #68                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+        17: athrow
+        18: aload_0
+        19: areturn
+
+  public static net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer instanceNullable();
+    Code:
+         0: invokestatic  #75                 // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+         3: getfield      #79                 // Field net/minecraft/class_310.field_1769:Lnet/minecraft/class_761;
+         6: astore_0
+         7: aload_0
+         8: instanceof    #81                 // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+        11: ifeq          26
+        14: aload_0
+        15: checkcast     #81                 // class net/caffeinemc/mods/sodium/client/world/LevelRendererExtension
+        18: astore_1
+        19: aload_1
+        20: invokeinterface #84,  1           // InterfaceMethod net/caffeinemc/mods/sodium/client/world/LevelRendererExtension.sodium$getWorldRenderer:()Lnet/caffeinemc/mods/sodium/client/render/SodiumWorldRenderer;
+        25: areturn
+        26: aconst_null
+        27: areturn
+
+  public net.caffeinemc.mods.sodium.client.render.SodiumWorldRenderer(net.minecraft.class_310);
+    Code:
+         0: aload_0
+         1: invokespecial #92                 // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: getstatic     #97                 // Field net/caffeinemc/mods/sodium/client/util/FogParameters.NONE:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+         8: putfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        11: aload_0
+        12: aload_1
+        13: putfield      #101                // Field client:Lnet/minecraft/class_310;
+        16: return
+
+  public void setLevel(net.minecraft.class_638);
+    Code:
+         0: aload_0
+         1: getfield      #106                // Field level:Lnet/minecraft/class_638;
+         4: aload_1
+         5: if_acmpne     9
+         8: return
+         9: aload_0
+        10: getfield      #106                // Field level:Lnet/minecraft/class_638;
+        13: ifnull        20
+        16: aload_0
+        17: invokevirtual #109                // Method unloadLevel:()V
+        20: aload_1
+        21: ifnull        29
+        24: aload_0
+        25: aload_1
+        26: invokevirtual #112                // Method loadLevel:(Lnet/minecraft/class_638;)V
+        29: return
+
+  private void loadLevel(net.minecraft.class_638);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: putfield      #106                // Field level:Lnet/minecraft/class_638;
+         5: getstatic     #120                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+         8: invokeinterface #124,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.createCommandList:()Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;
+        13: astore_2
+        14: aload_0
+        15: aload_2
+        16: invokevirtual #128                // Method initRenderer:(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+        19: aload_2
+        20: ifnull        56
+        23: aload_2
+        24: invokeinterface #133,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+        29: goto          56
+        32: astore_3
+        33: aload_2
+        34: ifnull        54
+        37: aload_2
+        38: invokeinterface #133,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+        43: goto          54
+        46: astore        4
+        48: aload_3
+        49: aload         4
+        51: invokevirtual #139                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        54: aload_3
+        55: athrow
+        56: return
+      Exception table:
+         from    to  target type
+            14    19    32   Class java/lang/Throwable
+            37    43    46   Class java/lang/Throwable
+
+  private void unloadLevel();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: ifnull        19
+         7: aload_0
+         8: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        11: invokevirtual #148                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.destroy:()V
+        14: aload_0
+        15: aconst_null
+        16: putfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        19: aload_0
+        20: aconst_null
+        21: putfield      #106                // Field level:Lnet/minecraft/class_638;
+        24: return
+
+  public int getVisibleChunkCount();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: invokevirtual #152                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getVisibleChunkCount:()I
+         7: ireturn
+
+  public void scheduleTerrainUpdate();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: ifnull        14
+         7: aload_0
+         8: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        11: invokevirtual #156                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.markGraphDirty:()V
+        14: return
+
+  public boolean isTerrainRenderComplete();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: invokevirtual #162                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getBuilder:()Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+         7: invokevirtual #167                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.isBuildQueueEmpty:()Z
+        10: ireturn
+
+  public void updateFogColor(org.joml.Vector4f);
+    Code:
+         0: aload_0
+         1: new           #94                 // class net/caffeinemc/mods/sodium/client/util/FogParameters
+         4: dup
+         5: aload_1
+         6: aload_0
+         7: getfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        10: invokespecial #173                // Method net/caffeinemc/mods/sodium/client/util/FogParameters."<init>":(Lorg/joml/Vector4f;Lnet/caffeinemc/mods/sodium/client/util/FogParameters;)V
+        13: putfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        16: return
+
+  public void setupTerrain(net.minecraft.class_4184, net.caffeinemc.mods.sodium.client.render.viewport.Viewport, net.caffeinemc.mods.sodium.client.util.FogParameters, boolean, boolean, net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices);
+    Code:
+         0: iconst_0
+         1: invokestatic  #188                // Method net/caffeinemc/mods/sodium/client/util/NativeBuffer.reclaim:(Z)V
+         4: aload_0
+         5: invokevirtual #191                // Method processChunkEvents:()V
+         8: aload_0
+         9: invokestatic  #197                // Method net/caffeinemc/mods/sodium/client/SodiumClientMod.options:()Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions;
+        12: getfield      #201                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions.performance:Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings;
+        15: getfield      #203                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings.useEntityCulling:Z
+        18: putfield      #204                // Field useEntityCulling:Z
+        21: aload_0
+        22: getfield      #101                // Field client:Lnet/minecraft/class_310;
+        25: getfield      #208                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        28: invokevirtual #213                // Method net/minecraft/class_315.method_38521:()I
+        31: aload_0
+        32: getfield      #215                // Field renderDistance:I
+        35: if_icmpeq     42
+        38: aload_0
+        39: invokevirtual #218                // Method reload:()V
+        42: invokestatic  #224                // Method net/minecraft/class_10209.method_64146:()Lnet/minecraft/class_3695;
+        45: astore        7
+        47: aload         7
+        49: ldc           #226                // String camera_setup
+        51: invokeinterface #231,  2          // InterfaceMethod net/minecraft/class_3695.method_15396:(Ljava/lang/String;)V
+        56: aload_0
+        57: getfield      #101                // Field client:Lnet/minecraft/class_310;
+        60: getfield      #235                // Field net/minecraft/class_310.field_1724:Lnet/minecraft/class_746;
+        63: astore        8
+        65: aload         8
+        67: ifnonnull     80
+        70: new           #62                 // class java/lang/IllegalStateException
+        73: dup
+        74: ldc           #237                // String Client instance has no active player entity
+        76: invokespecial #68                 // Method java/lang/IllegalStateException."<init>":(Ljava/lang/String;)V
+        79: athrow
+        80: aload_1
+        81: invokevirtual #245                // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+        84: astore        9
+        86: new           #247                // class org/joml/Vector3d
+        89: dup
+        90: aload         9
+        92: invokevirtual #253                // Method net/minecraft/class_243.method_10216:()D
+        95: aload         9
+        97: invokevirtual #256                // Method net/minecraft/class_243.method_10214:()D
+       100: aload         9
+       102: invokevirtual #259                // Method net/minecraft/class_243.method_10215:()D
+       105: invokespecial #262                // Method org/joml/Vector3d."<init>":(DDD)V
+       108: astore        10
+       110: aload_1
+       111: invokevirtual #266                // Method net/minecraft/class_4184.method_19329:()F
+       114: fstore        11
+       116: aload_1
+       117: invokevirtual #269                // Method net/minecraft/class_4184.method_19330:()F
+       120: fstore        12
+       122: aload_0
+       123: getfield      #271                // Field lastCameraPos:Lorg/joml/Vector3d;
+       126: ifnonnull     135
+       129: aload_0
+       130: aload         10
+       132: putfield      #271                // Field lastCameraPos:Lorg/joml/Vector3d;
+       135: aload_0
+       136: getfield      #277                // Field lastProjectionMatrix:Lorg/joml/Matrix4f;
+       139: ifnonnull     158
+       142: aload_0
+       143: new           #279                // class org/joml/Matrix4f
+       146: dup
+       147: aload         6
+       149: invokevirtual #283                // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices.projection:()Lorg/joml/Matrix4fc;
+       152: invokespecial #286                // Method org/joml/Matrix4f."<init>":(Lorg/joml/Matrix4fc;)V
+       155: putfield      #277                // Field lastProjectionMatrix:Lorg/joml/Matrix4f;
+       158: aload         10
+       160: aload_0
+       161: getfield      #271                // Field lastCameraPos:Lorg/joml/Vector3d;
+       164: invokevirtual #290                // Method org/joml/Vector3d.equals:(Ljava/lang/Object;)Z
+       167: ifne          174
+       170: iconst_1
+       171: goto          175
+       174: iconst_0
+       175: istore        13
+       177: aload_3
+       178: invokevirtual #293                // Method net/caffeinemc/mods/sodium/client/util/FogParameters.cullDistance:()F
+       181: aload_0
+       182: getfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+       185: invokevirtual #293                // Method net/caffeinemc/mods/sodium/client/util/FogParameters.cullDistance:()F
+       188: fcmpl
+       189: ifeq          196
+       192: iconst_1
+       193: goto          197
+       196: iconst_0
+       197: istore        14
+       199: fload         11
+       201: f2d
+       202: aload_0
+       203: getfield      #295                // Field lastCameraPitch:D
+       206: dcmpl
+       207: ifne          221
+       210: fload         12
+       212: f2d
+       213: aload_0
+       214: getfield      #297                // Field lastCameraYaw:D
+       217: dcmpl
+       218: ifeq          225
+       221: iconst_1
+       222: goto          226
+       225: iconst_0
+       226: istore        15
+       228: aload         6
+       230: invokevirtual #283                // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices.projection:()Lorg/joml/Matrix4fc;
+       233: aload_0
+       234: getfield      #277                // Field lastProjectionMatrix:Lorg/joml/Matrix4f;
+       237: ldc_w         #298                // float 1.0E-4f
+       240: invokeinterface #303,  3          // InterfaceMethod org/joml/Matrix4fc.equals:(Lorg/joml/Matrix4fc;F)Z
+       245: ifne          252
+       248: iconst_1
+       249: goto          253
+       252: iconst_0
+       253: istore        16
+       255: aload_0
+       256: getfield      #277                // Field lastProjectionMatrix:Lorg/joml/Matrix4f;
+       259: aload         6
+       261: invokevirtual #283                // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices.projection:()Lorg/joml/Matrix4fc;
+       264: invokevirtual #307                // Method org/joml/Matrix4f.set:(Lorg/joml/Matrix4fc;)Lorg/joml/Matrix4f;
+       267: pop
+       268: aload_0
+       269: fload         11
+       271: f2d
+       272: putfield      #295                // Field lastCameraPitch:D
+       275: aload_0
+       276: fload         12
+       278: f2d
+       279: putfield      #297                // Field lastCameraYaw:D
+       282: iload         13
+       284: ifne          302
+       287: iload         14
+       289: ifne          302
+       292: iload         15
+       294: ifne          302
+       297: iload         16
+       299: ifeq          309
+       302: aload_0
+       303: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       306: invokevirtual #156                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.markGraphDirty:()V
+       309: aload_0
+       310: aload_3
+       311: putfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+       314: aload_0
+       315: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       318: aload         10
+       320: invokevirtual #311                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.prepareFrame:(Lorg/joml/Vector3dc;)V
+       323: iload         13
+       325: ifeq          364
+       328: aload         7
+       330: ldc_w         #313                // String translucent_triggering
+       333: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       338: aload_0
+       339: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       342: new           #318                // class net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/CameraMovement
+       345: dup
+       346: aload_0
+       347: getfield      #271                // Field lastCameraPos:Lorg/joml/Vector3d;
+       350: aload         10
+       352: invokespecial #321                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/CameraMovement."<init>":(Lorg/joml/Vector3dc;Lorg/joml/Vector3dc;)V
+       355: invokevirtual #325                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.processGFNIMovement:(Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/CameraMovement;)V
+       358: aload_0
+       359: aload         10
+       361: putfield      #271                // Field lastCameraPos:Lorg/joml/Vector3d;
+       364: iload         5
+       366: ifeq          376
+       369: aload_0
+       370: getfield      #215                // Field renderDistance:I
+       373: goto          377
+       376: iconst_1
+       377: istore        17
+       379: iconst_0
+       380: istore        18
+       382: iload         18
+       384: iload         17
+       386: if_icmpge     483
+       389: aload_0
+       390: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       393: invokevirtual #328                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.needsUpdate:()Z
+       396: ifeq          421
+       399: aload         7
+       401: ldc_w         #330                // String chunk_render_lists
+       404: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       409: aload_0
+       410: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       413: aload_1
+       414: aload_2
+       415: aload_3
+       416: iload         4
+       418: invokevirtual #334                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.update:(Lnet/minecraft/class_4184;Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;Lnet/caffeinemc/mods/sodium/client/util/FogParameters;Z)V
+       421: aload         7
+       423: ldc_w         #336                // String chunk_update
+       426: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       431: aload_0
+       432: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       435: invokevirtual #339                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.cleanupAndFlip:()V
+       438: aload_0
+       439: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       442: iload         5
+       444: invokevirtual #342                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.updateChunks:(Z)V
+       447: aload         7
+       449: ldc_w         #344                // String chunk_upload
+       452: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       457: aload_0
+       458: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       461: invokevirtual #347                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.uploadChunks:()V
+       464: aload_0
+       465: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       468: invokevirtual #328                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.needsUpdate:()Z
+       471: ifne          477
+       474: goto          483
+       477: iinc          18, 1
+       480: goto          382
+       483: aload         7
+       485: ldc_w         #330                // String chunk_render_lists
+       488: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       493: aload_0
+       494: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       497: aload_2
+       498: invokevirtual #351                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.finalizeRenderLists:(Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;)V
+       501: aload         7
+       503: ldc_w         #353                // String chunk_render_tick
+       506: invokeinterface #316,  2          // InterfaceMethod net/minecraft/class_3695.method_15405:(Ljava/lang/String;)V
+       511: aload_0
+       512: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       515: invokevirtual #356                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.tickVisibleRenders:()V
+       518: aload         7
+       520: invokeinterface #359,  1          // InterfaceMethod net/minecraft/class_3695.method_15407:()V
+       525: aload_0
+       526: getfield      #101                // Field client:Lnet/minecraft/class_310;
+       529: getfield      #208                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+       532: invokevirtual #213                // Method net/minecraft/class_315.method_38521:()I
+       535: i2d
+       536: ldc2_w        #360                // double 8.0d
+       539: ddiv
+       540: dconst_1
+       541: ldc2_w        #362                // double 2.5d
+       544: invokestatic  #369                // Method net/minecraft/class_3532.method_15350:(DDD)D
+       547: aload_0
+       548: getfield      #101                // Field client:Lnet/minecraft/class_310;
+       551: getfield      #208                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+       554: invokevirtual #373                // Method net/minecraft/class_315.method_42517:()Lnet/minecraft/class_7172;
+       557: invokevirtual #379                // Method net/minecraft/class_7172.method_41753:()Ljava/lang/Object;
+       560: checkcast     #381                // class java/lang/Double
+       563: invokevirtual #384                // Method java/lang/Double.doubleValue:()D
+       566: dmul
+       567: invokestatic  #390                // Method net/minecraft/class_1297.method_5840:(D)V
+       570: return
+
+  private void processChunkEvents();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: invokevirtual #411                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.beforeSectionUpdates:()V
+         7: aload_0
+         8: getfield      #106                // Field level:Lnet/minecraft/class_638;
+        11: invokestatic  #417                // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTrackerHolder.get:(Lnet/minecraft/class_638;)Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker;
+        14: astore_1
+        15: aload_1
+        16: aload_0
+        17: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        20: dup
+        21: invokestatic  #423                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        24: pop
+        25: invokedynamic #440,  0            // InvokeDynamic #0:apply:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;)Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;
+        30: aload_0
+        31: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        34: dup
+        35: invokestatic  #423                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        38: pop
+        39: invokedynamic #445,  0            // InvokeDynamic #1:apply:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;)Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;
+        44: invokevirtual #449                // Method net/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker.forEachEvent:(Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;)V
+        47: return
+
+  public void drawChunkLayer(net.minecraft.class_11531, net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices, double, double, double, net.minecraft.class_12137);
+    Code:
+         0: aload_1
+         1: getstatic     #464                // Field net/minecraft/class_11531.field_61022:Lnet/minecraft/class_11531;
+         4: if_acmpne     54
+         7: aload_0
+         8: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        11: aload_2
+        12: getstatic     #470                // Field net/caffeinemc/mods/sodium/client/render/chunk/terrain/DefaultTerrainRenderPasses.SOLID:Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;
+        15: dload_3
+        16: dload         5
+        18: dload         7
+        20: aload_0
+        21: getfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        24: aload         9
+        26: invokevirtual #474                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.renderLayer:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;DDDLnet/caffeinemc/mods/sodium/client/util/FogParameters;Lnet/minecraft/class_12137;)V
+        29: aload_0
+        30: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        33: aload_2
+        34: getstatic     #477                // Field net/caffeinemc/mods/sodium/client/render/chunk/terrain/DefaultTerrainRenderPasses.CUTOUT:Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;
+        37: dload_3
+        38: dload         5
+        40: dload         7
+        42: aload_0
+        43: getfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        46: aload         9
+        48: invokevirtual #474                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.renderLayer:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;DDDLnet/caffeinemc/mods/sodium/client/util/FogParameters;Lnet/minecraft/class_12137;)V
+        51: goto          83
+        54: aload_1
+        55: getstatic     #480                // Field net/minecraft/class_11531.field_61023:Lnet/minecraft/class_11531;
+        58: if_acmpne     83
+        61: aload_0
+        62: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        65: aload_2
+        66: getstatic     #483                // Field net/caffeinemc/mods/sodium/client/render/chunk/terrain/DefaultTerrainRenderPasses.TRANSLUCENT:Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;
+        69: dload_3
+        70: dload         5
+        72: dload         7
+        74: aload_0
+        75: getfield      #99                 // Field lastFogParameters:Lnet/caffeinemc/mods/sodium/client/util/FogParameters;
+        78: aload         9
+        80: invokevirtual #474                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.renderLayer:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;DDDLnet/caffeinemc/mods/sodium/client/util/FogParameters;Lnet/minecraft/class_12137;)V
+        83: return
+
+  public void reload();
+    Code:
+         0: aload_0
+         1: getfield      #106                // Field level:Lnet/minecraft/class_638;
+         4: ifnonnull     8
+         7: return
+         8: getstatic     #120                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+        11: invokeinterface #124,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.createCommandList:()Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;
+        16: astore_1
+        17: aload_0
+        18: aload_1
+        19: invokevirtual #128                // Method initRenderer:(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+        22: aload_1
+        23: ifnull        57
+        26: aload_1
+        27: invokeinterface #133,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+        32: goto          57
+        35: astore_2
+        36: aload_1
+        37: ifnull        55
+        40: aload_1
+        41: invokeinterface #133,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+        46: goto          55
+        49: astore_3
+        50: aload_2
+        51: aload_3
+        52: invokevirtual #139                // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+        55: aload_2
+        56: athrow
+        57: return
+      Exception table:
+         from    to  target type
+            17    22    35   Class java/lang/Throwable
+            40    46    49   Class java/lang/Throwable
+
+  private void initRenderer(net.caffeinemc.mods.sodium.client.gl.device.CommandList);
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: ifnull        19
+         7: aload_0
+         8: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        11: invokevirtual #148                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.destroy:()V
+        14: aload_0
+        15: aconst_null
+        16: putfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        19: getstatic     #490                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.DYNAMIC_DEFER_NEARBY_ZERO_FRAMES:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        22: astore_2
+        23: invokestatic  #496                // InterfaceMethod net/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation.getInstance:()Lnet/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation;
+        26: invokeinterface #499,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation.isDevelopmentEnvironment:()Z
+        31: ifeq          50
+        34: invokestatic  #197                // Method net/caffeinemc/mods/sodium/client/SodiumClientMod.options:()Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions;
+        37: getfield      #503                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions.debug:Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions$DebugSettings;
+        40: getfield      #506                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions$DebugSettings.terrainSortingEnabled:Z
+        43: ifne          50
+        46: getstatic     #509                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.OFF:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        49: astore_2
+        50: aload_0
+        51: aload_0
+        52: getfield      #101                // Field client:Lnet/minecraft/class_310;
+        55: getfield      #208                // Field net/minecraft/class_310.field_1690:Lnet/minecraft/class_315;
+        58: invokevirtual #213                // Method net/minecraft/class_315.method_38521:()I
+        61: putfield      #215                // Field renderDistance:I
+        64: aload_0
+        65: new           #145                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager
+        68: dup
+        69: aload_0
+        70: getfield      #106                // Field level:Lnet/minecraft/class_638;
+        73: aload_0
+        74: getfield      #215                // Field renderDistance:I
+        77: aload_2
+        78: aload_1
+        79: invokespecial #512                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager."<init>":(Lnet/minecraft/class_638;ILnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+        82: putfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        85: aload_0
+        86: getfield      #106                // Field level:Lnet/minecraft/class_638;
+        89: invokestatic  #417                // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTrackerHolder.get:(Lnet/minecraft/class_638;)Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker;
+        92: astore_3
+        93: aload_3
+        94: invokevirtual #516                // Method net/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker.getReadyChunks:()Lit/unimi/dsi/fastutil/longs/LongCollection;
+        97: aload_0
+        98: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       101: dup
+       102: invokestatic  #423                // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       105: pop
+       106: invokedynamic #440,  0            // InvokeDynamic #0:apply:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;)Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;
+       111: invokestatic  #520                // Method net/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker.forEachChunk:(Lit/unimi/dsi/fastutil/longs/LongCollection;Lnet/caffeinemc/mods/sodium/client/render/chunk/map/ChunkTracker$ChunkEventHandler;)V
+       114: return
+
+  public void extractBlockEntities(net.minecraft.class_4184, float, it.unimi.dsi.fastutil.longs.Long2ObjectMap<java.util.SortedSet<net.minecraft.class_3191>>, net.minecraft.class_11658);
+    Code:
+         0: new           #27                 // class net/minecraft/class_4587
+         3: dup
+         4: invokespecial #528                // Method net/minecraft/class_4587."<init>":()V
+         7: astore        5
+         9: aload_0
+        10: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        13: invokevirtual #532                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getRenderLists:()Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+        16: astore        6
+        18: aload         6
+        20: invokevirtual #538                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.iterator:()Ljava/util/Iterator;
+        23: astore        7
+        25: aload         7
+        27: invokeinterface #543,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        32: ifeq          163
+        35: aload         7
+        37: invokeinterface #546,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        42: checkcast     #548                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList
+        45: astore        8
+        47: aload         8
+        49: invokevirtual #552                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.getRegion:()Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;
+        52: astore        9
+        54: aload         8
+        56: invokevirtual #556                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.sectionsWithEntitiesIterator:()Lnet/caffeinemc/mods/sodium/client/util/iterator/ByteIterator;
+        59: astore        10
+        61: aload         10
+        63: ifnonnull     69
+        66: goto          25
+        69: aload         10
+        71: invokeinterface #561,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.hasNext:()Z
+        76: ifeq          160
+        79: aload         10
+        81: invokeinterface #564,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.nextByteAsInt:()I
+        86: istore        11
+        88: aload         9
+        90: iload         11
+        92: invokevirtual #568                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.getSection:(I)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        95: astore        12
+        97: aload         12
+        99: invokevirtual #574                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getCulledBlockEntities:()[Lnet/minecraft/class_2586;
+       102: astore        13
+       104: aload         13
+       106: ifnonnull     112
+       109: goto          69
+       112: aload         13
+       114: astore        14
+       116: aload         14
+       118: arraylength
+       119: istore        15
+       121: iconst_0
+       122: istore        16
+       124: iload         16
+       126: iload         15
+       128: if_icmpge     157
+       131: aload         14
+       133: iload         16
+       135: aaload
+       136: astore        17
+       138: aload_0
+       139: aload         17
+       141: aload         5
+       143: aload_1
+       144: fload_2
+       145: aload_3
+       146: aload         4
+       148: invokevirtual #580                // Method extractBlockEntity:(Lnet/minecraft/class_2586;Lnet/minecraft/class_4587;Lnet/minecraft/class_4184;FLit/unimi/dsi/fastutil/longs/Long2ObjectMap;Lnet/minecraft/class_11658;)V
+       151: iinc          16, 1
+       154: goto          124
+       157: goto          69
+       160: goto          25
+       163: aload_0
+       164: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       167: invokevirtual #588                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getSectionsWithGlobalEntities:()Ljava/util/Collection;
+       170: invokeinterface #591,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       175: astore        8
+       177: aload         8
+       179: invokeinterface #543,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       184: ifeq          262
+       187: aload         8
+       189: invokeinterface #546,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       194: checkcast     #570                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+       197: astore        9
+       199: aload         9
+       201: invokevirtual #594                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getGlobalBlockEntities:()[Lnet/minecraft/class_2586;
+       204: astore        10
+       206: aload         10
+       208: ifnonnull     214
+       211: goto          177
+       214: aload         10
+       216: astore        11
+       218: aload         11
+       220: arraylength
+       221: istore        12
+       223: iconst_0
+       224: istore        13
+       226: iload         13
+       228: iload         12
+       230: if_icmpge     259
+       233: aload         11
+       235: iload         13
+       237: aaload
+       238: astore        14
+       240: aload_0
+       241: aload         14
+       243: aload         5
+       245: aload_1
+       246: fload_2
+       247: aload_3
+       248: aload         4
+       250: invokevirtual #580                // Method extractBlockEntity:(Lnet/minecraft/class_2586;Lnet/minecraft/class_4587;Lnet/minecraft/class_4184;FLit/unimi/dsi/fastutil/longs/Long2ObjectMap;Lnet/minecraft/class_11658;)V
+       253: iinc          13, 1
+       256: goto          226
+       259: goto          177
+       262: return
+
+  private void extractBlockEntity(net.minecraft.class_2586, net.minecraft.class_4587, net.minecraft.class_4184, float, it.unimi.dsi.fastutil.longs.Long2ObjectMap<java.util.SortedSet<net.minecraft.class_3191>>, net.minecraft.class_11658);
+    Code:
+         0: aload_1
+         1: invokevirtual #624                // Method net/minecraft/class_2586.method_11016:()Lnet/minecraft/class_2338;
+         4: astore        7
+         6: aload         5
+         8: aload         7
+        10: invokevirtual #630                // Method net/minecraft/class_2338.method_10063:()J
+        13: invokeinterface #633,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ObjectMap.get:(J)Ljava/lang/Object;
+        18: checkcast     #635                // class java/util/SortedSet
+        21: astore        8
+        23: aload         8
+        25: ifnull        121
+        28: aload         8
+        30: invokeinterface #638,  1          // InterfaceMethod java/util/SortedSet.isEmpty:()Z
+        35: ifne          121
+        38: aload_2
+        39: invokevirtual #641                // Method net/minecraft/class_4587.method_22903:()V
+        42: aload_2
+        43: aload         7
+        45: invokevirtual #644                // Method net/minecraft/class_2338.method_10263:()I
+        48: i2d
+        49: aload_3
+        50: invokevirtual #245                // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+        53: getfield      #647                // Field net/minecraft/class_243.field_1352:D
+        56: dsub
+        57: aload         7
+        59: invokevirtual #650                // Method net/minecraft/class_2338.method_10264:()I
+        62: i2d
+        63: aload_3
+        64: invokevirtual #245                // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+        67: getfield      #653                // Field net/minecraft/class_243.field_1351:D
+        70: dsub
+        71: aload         7
+        73: invokevirtual #656                // Method net/minecraft/class_2338.method_10260:()I
+        76: i2d
+        77: aload_3
+        78: invokevirtual #245                // Method net/minecraft/class_4184.method_71156:()Lnet/minecraft/class_243;
+        81: getfield      #659                // Field net/minecraft/class_243.field_1350:D
+        84: dsub
+        85: invokevirtual #662                // Method net/minecraft/class_4587.method_22904:(DDD)V
+        88: new           #20                 // class net/minecraft/class_11683$class_11792
+        91: dup
+        92: aload         8
+        94: invokeinterface #665,  1          // InterfaceMethod java/util/SortedSet.last:()Ljava/lang/Object;
+        99: checkcast     #667                // class net/minecraft/class_3191
+       102: invokevirtual #670                // Method net/minecraft/class_3191.method_13988:()I
+       105: aload_2
+       106: invokevirtual #674                // Method net/minecraft/class_4587.method_23760:()Lnet/minecraft/class_4587$class_4665;
+       109: invokespecial #677                // Method net/minecraft/class_11683$class_11792."<init>":(ILnet/minecraft/class_4587$class_4665;)V
+       112: astore        9
+       114: aload_2
+       115: invokevirtual #680                // Method net/minecraft/class_4587.method_22909:()V
+       118: goto          124
+       121: aconst_null
+       122: astore        9
+       124: invokestatic  #75                 // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+       127: invokevirtual #684                // Method net/minecraft/class_310.method_31975:()Lnet/minecraft/class_824;
+       130: aload_1
+       131: fload         4
+       133: aload         9
+       135: invokevirtual #690                // Method net/minecraft/class_824.method_74348:(Lnet/minecraft/class_2586;FLnet/minecraft/class_11683$class_11792;)Lnet/minecraft/class_11954;
+       138: astore        10
+       140: aload         10
+       142: ifnull        158
+       145: aload         6
+       147: getfield      #694                // Field net/minecraft/class_11658.field_62646:Ljava/util/List;
+       150: aload         10
+       152: invokeinterface #699,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       157: pop
+       158: return
+
+  public void iterateVisibleBlockEntities(java.util.function.Consumer<net.minecraft.class_2586>);
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: invokevirtual #532                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getRenderLists:()Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         7: astore_2
+         8: aload_2
+         9: invokevirtual #538                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.iterator:()Ljava/util/Iterator;
+        12: astore_3
+        13: aload_3
+        14: invokeinterface #543,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        19: ifeq          144
+        22: aload_3
+        23: invokeinterface #546,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        28: checkcast     #548                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList
+        31: astore        4
+        33: aload         4
+        35: invokevirtual #552                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.getRegion:()Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;
+        38: astore        5
+        40: aload         4
+        42: invokevirtual #556                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.sectionsWithEntitiesIterator:()Lnet/caffeinemc/mods/sodium/client/util/iterator/ByteIterator;
+        45: astore        6
+        47: aload         6
+        49: ifnonnull     55
+        52: goto          13
+        55: aload         6
+        57: invokeinterface #561,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.hasNext:()Z
+        62: ifeq          141
+        65: aload         6
+        67: invokeinterface #564,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.nextByteAsInt:()I
+        72: istore        7
+        74: aload         5
+        76: iload         7
+        78: invokevirtual #568                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.getSection:(I)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        81: astore        8
+        83: aload         8
+        85: invokevirtual #574                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getCulledBlockEntities:()[Lnet/minecraft/class_2586;
+        88: astore        9
+        90: aload         9
+        92: ifnonnull     98
+        95: goto          55
+        98: aload         9
+       100: astore        10
+       102: aload         10
+       104: arraylength
+       105: istore        11
+       107: iconst_0
+       108: istore        12
+       110: iload         12
+       112: iload         11
+       114: if_icmpge     138
+       117: aload         10
+       119: iload         12
+       121: aaload
+       122: astore        13
+       124: aload_1
+       125: aload         13
+       127: invokeinterface #720,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       132: iinc          12, 1
+       135: goto          110
+       138: goto          55
+       141: goto          13
+       144: aload_0
+       145: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       148: invokevirtual #588                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getSectionsWithGlobalEntities:()Ljava/util/Collection;
+       151: invokeinterface #591,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+       156: astore        4
+       158: aload         4
+       160: invokeinterface #543,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+       165: ifeq          238
+       168: aload         4
+       170: invokeinterface #546,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+       175: checkcast     #570                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+       178: astore        5
+       180: aload         5
+       182: invokevirtual #594                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getGlobalBlockEntities:()[Lnet/minecraft/class_2586;
+       185: astore        6
+       187: aload         6
+       189: ifnonnull     195
+       192: goto          158
+       195: aload         6
+       197: astore        7
+       199: aload         7
+       201: arraylength
+       202: istore        8
+       204: iconst_0
+       205: istore        9
+       207: iload         9
+       209: iload         8
+       211: if_icmpge     235
+       214: aload         7
+       216: iload         9
+       218: aaload
+       219: astore        10
+       221: aload_1
+       222: aload         10
+       224: invokeinterface #720,  2          // InterfaceMethod java/util/function/Consumer.accept:(Ljava/lang/Object;)V
+       229: iinc          9, 1
+       232: goto          207
+       235: goto          158
+       238: return
+
+  public <T extends net.minecraft.class_1297, S extends net.minecraft.class_10017> boolean isEntityVisible(net.minecraft.class_897<T, S>, T);
+    Code:
+         0: aload_0
+         1: getfield      #204                // Field useEntityCulling:Z
+         4: ifne          9
+         7: iconst_1
+         8: ireturn
+         9: aload_0
+        10: getfield      #101                // Field client:Lnet/minecraft/class_310;
+        13: aload_2
+        14: invokevirtual #731                // Method net/minecraft/class_310.method_27022:(Lnet/minecraft/class_1297;)Z
+        17: ifne          27
+        20: aload_2
+        21: invokevirtual #734                // Method net/minecraft/class_1297.method_5733:()Z
+        24: ifeq          29
+        27: iconst_1
+        28: ireturn
+        29: aload_1
+        30: checkcast     #736                // class net/caffeinemc/mods/sodium/mixin/core/render/world/EntityRendererAccessor
+        33: aload_2
+        34: invokeinterface #740,  2          // InterfaceMethod net/caffeinemc/mods/sodium/mixin/core/render/world/EntityRendererAccessor.sodium$getBoundingBoxForCulling:(Lnet/minecraft/class_1297;)Lnet/minecraft/class_238;
+        39: astore_3
+        40: aload_3
+        41: getfield      #745                // Field net/minecraft/class_238.field_1320:D
+        44: aload_3
+        45: getfield      #748                // Field net/minecraft/class_238.field_1323:D
+        48: dsub
+        49: aload_3
+        50: getfield      #751                // Field net/minecraft/class_238.field_1325:D
+        53: aload_3
+        54: getfield      #754                // Field net/minecraft/class_238.field_1322:D
+        57: dsub
+        58: dmul
+        59: aload_3
+        60: getfield      #757                // Field net/minecraft/class_238.field_1324:D
+        63: aload_3
+        64: getfield      #760                // Field net/minecraft/class_238.field_1321:D
+        67: dsub
+        68: dmul
+        69: dstore        4
+        71: dload         4
+        73: ldc2_w        #54                 // double 61440.0d
+        76: dcmpl
+        77: ifle          82
+        80: iconst_1
+        81: ireturn
+        82: aload_0
+        83: aload_3
+        84: getfield      #748                // Field net/minecraft/class_238.field_1323:D
+        87: aload_3
+        88: getfield      #754                // Field net/minecraft/class_238.field_1322:D
+        91: aload_3
+        92: getfield      #760                // Field net/minecraft/class_238.field_1321:D
+        95: aload_3
+        96: getfield      #745                // Field net/minecraft/class_238.field_1320:D
+        99: aload_3
+       100: getfield      #751                // Field net/minecraft/class_238.field_1325:D
+       103: aload_3
+       104: getfield      #757                // Field net/minecraft/class_238.field_1324:D
+       107: invokevirtual #764                // Method isBoxVisible:(DDDDDD)Z
+       110: ireturn
+
+  public boolean isBoxVisible(double, double, double, double, double, double);
+    Code:
+         0: dload         9
+         2: aload_0
+         3: getfield      #106                // Field level:Lnet/minecraft/class_638;
+         6: invokevirtual #780                // Method net/minecraft/class_638.method_31607:()I
+         9: i2d
+        10: ldc2_w        #781                // double 0.5d
+        13: dadd
+        14: dcmpg
+        15: iflt          35
+        18: dload_3
+        19: aload_0
+        20: getfield      #106                // Field level:Lnet/minecraft/class_638;
+        23: invokevirtual #785                // Method net/minecraft/class_638.method_31600:()I
+        26: i2d
+        27: ldc2_w        #781                // double 0.5d
+        30: dsub
+        31: dcmpl
+        32: ifle          37
+        35: iconst_1
+        36: ireturn
+        37: dload_1
+        38: ldc2_w        #781                // double 0.5d
+        41: dsub
+        42: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        45: istore        13
+        47: dload_3
+        48: ldc2_w        #781                // double 0.5d
+        51: dsub
+        52: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        55: istore        14
+        57: dload         5
+        59: ldc2_w        #781                // double 0.5d
+        62: dsub
+        63: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        66: istore        15
+        68: dload         7
+        70: ldc2_w        #781                // double 0.5d
+        73: dadd
+        74: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        77: istore        16
+        79: dload         9
+        81: ldc2_w        #781                // double 0.5d
+        84: dadd
+        85: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        88: istore        17
+        90: dload         11
+        92: ldc2_w        #781                // double 0.5d
+        95: dadd
+        96: invokestatic  #791                // Method net/minecraft/class_4076.method_32204:(D)I
+        99: istore        18
+       101: iload         13
+       103: istore        19
+       105: iload         19
+       107: iload         16
+       109: if_icmpgt     170
+       112: iload         15
+       114: istore        20
+       116: iload         20
+       118: iload         18
+       120: if_icmpgt     164
+       123: iload         14
+       125: istore        21
+       127: iload         21
+       129: iload         17
+       131: if_icmpgt     158
+       134: aload_0
+       135: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+       138: iload         19
+       140: iload         21
+       142: iload         20
+       144: invokevirtual #795                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.isSectionVisible:(III)Z
+       147: ifeq          152
+       150: iconst_1
+       151: ireturn
+       152: iinc          21, 1
+       155: goto          127
+       158: iinc          20, 1
+       161: goto          116
+       164: iinc          19, 1
+       167: goto          105
+       170: iconst_0
+       171: ireturn
+
+  public java.lang.String getChunksDebugString();
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: ifnonnull     9
+         7: aconst_null
+         8: areturn
+         9: ldc_w         #806                // String C: %d/%d D: %d
+        12: iconst_3
+        13: anewarray     #4                  // class java/lang/Object
+        16: dup
+        17: iconst_0
+        18: aload_0
+        19: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        22: invokevirtual #152                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getVisibleChunkCount:()I
+        25: invokestatic  #812                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        28: aastore
+        29: dup
+        30: iconst_1
+        31: aload_0
+        32: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        35: invokevirtual #815                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getTotalSections:()I
+        38: invokestatic  #812                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        41: aastore
+        42: dup
+        43: iconst_2
+        44: aload_0
+        45: getfield      #215                // Field renderDistance:I
+        48: invokestatic  #812                // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        51: aastore
+        52: invokestatic  #821                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+        55: areturn
+
+  public void scheduleRebuildForBlockArea(int, int, int, int, int, int, boolean);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: iconst_4
+         3: ishr
+         4: iload_2
+         5: iconst_4
+         6: ishr
+         7: iload_3
+         8: iconst_4
+         9: ishr
+        10: iload         4
+        12: iconst_4
+        13: ishr
+        14: iload         5
+        16: iconst_4
+        17: ishr
+        18: iload         6
+        20: iconst_4
+        21: ishr
+        22: iload         7
+        24: invokevirtual #827                // Method scheduleRebuildForChunks:(IIIIIIZ)V
+        27: return
+
+  public void scheduleRebuildForChunks(int, int, int, int, int, int, boolean);
+    Code:
+         0: iload_1
+         1: istore        8
+         3: iload         8
+         5: iload         4
+         7: if_icmpgt     60
+        10: iload_2
+        11: istore        9
+        13: iload         9
+        15: iload         5
+        17: if_icmpgt     54
+        20: iload_3
+        21: istore        10
+        23: iload         10
+        25: iload         6
+        27: if_icmpgt     48
+        30: aload_0
+        31: iload         8
+        33: iload         9
+        35: iload         10
+        37: iload         7
+        39: invokevirtual #831                // Method scheduleRebuildForChunk:(IIIZ)V
+        42: iinc          10, 1
+        45: goto          23
+        48: iinc          9, 1
+        51: goto          13
+        54: iinc          8, 1
+        57: goto          3
+        60: return
+
+  public void scheduleRebuildForChunk(int, int, int, boolean);
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: iload_1
+         5: iload_2
+         6: iload_3
+         7: iload         4
+         9: invokevirtual #837                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.scheduleRebuild:(IIIZ)V
+        12: return
+
+  public java.util.Collection<java.lang.String> getDebugStrings(boolean);
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: ifnonnull     13
+         7: invokestatic  #847                // Method java/util/Collections.emptyList:()Ljava/util/List;
+        10: goto          21
+        13: aload_0
+        14: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+        17: iload_1
+        18: invokevirtual #849                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.getDebugStrings:(Z)Ljava/util/Collection;
+        21: areturn
+
+  public boolean isSectionReady(int, int, int);
+    Code:
+         0: aload_0
+         1: getfield      #143                // Field renderSectionManager:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;
+         4: iload_1
+         5: iload_2
+         6: iload_3
+         7: invokevirtual #853                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager.isSectionBuilt:(III)Z
+        10: ireturn
+}

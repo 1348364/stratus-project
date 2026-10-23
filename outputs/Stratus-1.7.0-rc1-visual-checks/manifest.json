@@ -1,0 +1,126 @@
+{
+  "version": "1.7.0-rc1",
+  "status": "Packaged candidate; remaining live checks skipped by user. No full request accepted.",
+  "development_QA_prefix": "1.6.13",
+  "profile": "Main / Minecraft (1)",
+  "world": "Stratus Terrain Lab",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "render_distance": 12,
+  "time": 1000,
+  "weather": "clear",
+  "source_equivalent_v3": true,
+  "final_archive_installed": false,
+  "FPS_samples": 0,
+  "captures": [
+    {
+      "file": "captures/s1613-candidate-river.png",
+      "sha256": "6f87dc2ad97ac2ac2b12b2c6d3a6926c5843a3ab18d4055146b4a3d018de3730",
+      "review": "v2 Reference candidate. Native blue surface and shore/riverbed visible with retained Stratus optics/atmosphere. Texture softness superseded by v3.",
+      "pack": "Stratus-1.6.13-QA-v2-Candidate.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "candidate-river",
+      "time": "[07:48:43]"
+    },
+    {
+      "file": "captures/s1613-legacy-river.png",
+      "sha256": "eee18034c6d328e5baedcb763777837b7063b4a9f1d205951555e31f73cf612b",
+      "review": "v2 selectable legacy Stratus mode. Clearer physical water and patterned surface treatment retained. Final physical resolve also passes ten GPU cases; no final v3 legacy capture.",
+      "pack": "Stratus-1.6.13-QA-v2-Legacy.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "legacy-river",
+      "time": "[07:49:35]"
+    },
+    {
+      "file": "captures/s1613-native-isolated-river.png",
+      "sha256": "518a217aff761a9bb29bd21a073444460f32f03892ce7fcdc56ad9e16c9920f7",
+      "review": "v2 isolated native mode. Colour close to vanilla; surface texture visibly softer than the baseline. Superseded by full-resolution v3 treatment.",
+      "pack": "Stratus-1.6.13-QA-v2-NativeIsolated.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "native-isolated-river",
+      "time": "[07:47:51]"
+    },
+    {
+      "file": "captures/s1613-native-underwater.png",
+      "sha256": "cea5728eb5f70e93a79d280a50d2288d0a7f4b0cacb682838957b8dfadbdd04c",
+      "review": "v2 underwater camera. Foreground and bank coherent in this finite view; straight-through exit deliberately omits vanilla back-face atlas layer. Not full native-fog compatibility acceptance.",
+      "pack": "Stratus-1.6.13-QA-v2-Candidate.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "readiness_gate": "native-underwater",
+      "time": "[07:50:17]"
+    },
+    {
+      "file": "captures/s1613-v3-candidate-river.png",
+      "sha256": "76105940c95af901ab08d0511e8909f22807bc355674f6d2d0c2ee66313393db",
+      "review": "Final shader source, Reference candidate. Full-resolution native surface character with ripples/optics and Stratus mist retained; clear shoreline and no nearby-only tint cutoff.",
+      "pack": "Stratus-1.6.13-QA-v3-Candidate.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "candidate-v3-river",
+      "time": "[08:39:54]"
+    },
+    {
+      "file": "captures/s1613-v3-far-river.png",
+      "sha256": "3571d40786b588384da9e074bcae75262a5ea1eea361074c501b23dbf7b71b36",
+      "review": "Final Reference candidate, far-bank camera. Native blue treatment remains across distant water. Foreground trees stay native; no near-only fade introduced.",
+      "pack": "Stratus-1.6.13-QA-v3-Candidate.zip",
+      "camera": "171.9963 69.5963 -9.4214 -88.273254 14.962544 creative-flight server confirmed",
+      "readiness_gate": "v3-far-river",
+      "time": "[08:41:03]"
+    },
+    {
+      "file": "captures/s1613-v3-native-isolated-river.png",
+      "sha256": "58cd71d902b56bb1705644178b8c7292ab475897e8236b2c6ca6e8847be323bd",
+      "review": "Final shader source, isolated native mode. Full-resolution animated surface detail now sharp, close to shaders-off colour/texture. Small differences remain; animation phases differ.",
+      "pack": "Stratus-1.6.13-QA-v3-NativeIsolated.zip",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "native-v3-river",
+      "time": "[08:38:56]"
+    },
+    {
+      "file": "captures/s1613-v3-underwater.png",
+      "sha256": "5324c216b7881f604796d3d76d41d9941c0303646c09d0676ea65f597104d4de",
+      "review": "Final Reference candidate at the matched submerged camera. Foreground river geometry coherent, air beyond exit remains clear. Vanilla comparison visibly differs at the surface due to retained no-overlay underwater design.",
+      "pack": "Stratus-1.6.13-QA-v3-Candidate.zip",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "readiness_gate": "v3-underwater",
+      "time": "[08:41:30]"
+    },
+    {
+      "file": "captures/s1613-v3-waterline.png",
+      "sha256": "1108af39c96edcc69adba4dbbbc220a672b93c9a860774931289c93a4d9a1367",
+      "review": "FAILED ACCEPTANCE: just below the surface, a rectangular blue/sky/treetop band is visible. Known baseline defect remains; no waterline fix or clean acceptance claimed.",
+      "pack": "Stratus-1.6.13-QA-v3-Candidate.zip",
+      "camera": "164.5000 61.2400 40.5000 0 0 creative-flight server confirmed",
+      "readiness_gate": "v3-waterline",
+      "time": "[08:43:00]"
+    },
+    {
+      "file": "captures/s1613-vanilla-river.png",
+      "sha256": "3ac0afd4929f36fff585cc1edd0fda57682a7dfa74695f11132084d13e5061c8",
+      "review": "Shaders disabled. Native blue river, biome colour and animated atlas texture provide the comparison baseline.",
+      "pack": "Shaders disabled",
+      "camera": "166.1907 65.9287 32.5536 108.45755 38.829258 creative-flight server confirmed",
+      "readiness_gate": "vanilla-river",
+      "time": "[07:42:49]"
+    },
+    {
+      "file": "captures/s1613-vanilla-underwater.png",
+      "sha256": "936e89dfe5fd78cc8cc6b752f356d0854a50ec59c58cb82df0a6d964c50f93b0",
+      "review": "Shaders disabled at matching submerged camera. Native back-face surface atlas makes the above-water scene much bluer. This overlay is intentionally absent in current Stratus straight-through baseline; no pixel-equivalence claim.",
+      "pack": "Shaders disabled",
+      "camera": "164.5000 60.0000 40.5000 0 -35 creative-flight server confirmed",
+      "readiness_gate": "vanilla-underwater",
+      "time": "[08:42:07]"
+    }
+  ],
+  "limitations": [
+    "Just-below-surface rectangular sky/treetop tint band remains visible in native mode, as on the previous baseline. No waterline acceptance or fix claimed.",
+    "Remaining live wet-film side/underside, shelter/rain and transparent glass/ice/slime/honey controls-off comparisons skipped at user request after Mac locked.",
+    "Native underwater biome, status-effect, night-vision, mod and resource-pack compatibility not fully verified. Native mode retains Stratus straight-through underwater exit rather than vanilla back-face surface overlay, so it is not pixel-identical vanilla.",
+    "Only nearest visible transparent interface; bounded screen-space refraction, missing scenery uses sky fallback, overlapping solids/particles and water-behind-glass require final live acceptance.",
+    "No FPS samples. Performance and the approximately60FPS target remain deferred.",
+    "Candidate archive is packaged only. Temporary QA equivalents loaded; final candidate archive not installed/selected/reviewed. Stable1.6.12 restored."
+  ]
+}

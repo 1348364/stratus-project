@@ -1,0 +1,20 @@
+{
+  "request_id": "d5f466f4-5927-4054-a65f-6a32e48779c1",
+  "action": "stage_run",
+  "frozen_current_documents_match": true,
+  "delta_assessment": "All TASK delta clauses are already implemented or documented by1.6.10; no duplicate shader work staged. Existing pending requests drive this pass.",
+  "new_pending": [
+    "Adopt latest saved Main visual and quality choices as Reference by explicit user answer",
+    "Shared visual defaults across four presets, ordered quality below/above Reference",
+    "Gate steady-state FPS on actual chunk readiness; separate optional loading-phase samples"
+  ],
+  "preserved_pending": [
+    "Approximately60 FPS on new approved Reference baseline",
+    "Incomplete cloud/foliage verification",
+    "Exact original pole/leaf context"
+  ],
+  "explicit_user_answer": "Adopt my current visual and quality choices as Reference",
+  "baseline": "Stratus1.6.10 source byte-equivalent to released ZIP",
+  "baseline_sha256": "6f33f582371c329fd65f9a5ada06fad317dceb1ecf08589e33b88e321d038387",
+  "latest_user_instruction": "Skip focused FPS for now; user will request it later. No FPS samples permitted in this pass."
+}

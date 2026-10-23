@@ -1,0 +1,5 @@
+[
+  "shaders/core/lake.frag.glsl",
+  "shaders/core/water-surface.glsl",
+  "shaders/lang/en_us.lang"
+]

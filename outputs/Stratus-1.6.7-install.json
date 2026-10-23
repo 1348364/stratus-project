@@ -1,0 +1,20 @@
+{
+  "version": "1.6.7",
+  "source": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.6.7.zip",
+  "installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.7.zip",
+  "bytes": 7771716,
+  "sha256": "a273a3591d126f1406c9413f7e46684c095e98413998d393375925dce27f56eb",
+  "installed_bytes_match": true,
+  "old_preferences_preserved": true,
+  "preferred_settings_copied": true,
+  "release_loaded": true,
+  "runtime_pack": "Optional[Stratus-1.6.7.zip]",
+  "runtime_profile": "Profile: Custom (+0 options changed by user)",
+  "profiles": "[FAST, BALANCED, REFERENCE, HIGH]",
+  "window_focused": false,
+  "framebuffer": "1440x842",
+  "DynamicFPS_enabled": "true",
+  "camera_restored": true,
+  "HUD_pause_menu_restored_and_driver_stopped": true,
+  "runtime_evidence": "work/stratus-refine-167/final-runtime-state.txt"
+}

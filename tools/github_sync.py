@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse,fcntl,hashlib,io,json,os,plistlib,re,shutil,subprocess,sys,tarfile,tempfile,time,zipfile
 from datetime import datetime,timezone
 from pathlib import Path
+import github_backups
+import sys as _sys
 ROOT=Path(__file__).resolve().parents[1]
 CHECKOUT=ROOT/'work/stratus-github'
 STATE=ROOT/'work/stratus-studio/.github-sync-state.json'
@@ -11,8 +13,8 @@ CONFIG=ROOT/'tools/github-sync.json'
 LABEL='au.stratus.project.github-sync'
 GH='/opt/homebrew/bin/gh'
 PYTHON='/Library/Frameworks/Python.framework/Versions/3.14/bin/python3'
-TEXT={'.py','.java','.c','.h','.glsl','.md','.html','.js','.mjs','.css','.ts','.tsx','.json','.txt','.yml','.yaml','.toml','.sql','.sh','.command','.plist','.properties','.lang','.svg','.xml','.fsh','.vsh','.gsh','.comp','.patch','.diff'}
-OMIT={'.git','node_modules','.wrangler','.sites-runtime','.history','.bridge','__pycache__','.next','.vinext','.agents','.codex','outputs'}
+TEXT={'.py','.java','.c','.h','.glsl','.md','.html','.js','.mjs','.css','.ts','.tsx','.json','.jsonl','.mcmeta','.mf','.txt','.yml','.yaml','.toml','.sql','.sh','.command','.plist','.properties','.lang','.svg','.xml','.fsh','.vsh','.gsh','.comp','.patch','.diff'}
+OMIT={'.git','node_modules','.wrangler','.sites-runtime','.history','.bridge','__pycache__','.next','.vinext','.agents','.codex','.cache','.venv','venv','coverage','minecraft-smoke','stratus-github','.aws','.ssh'}
 PATTERNS=[rb'gh[pousr]_[A-Za-z0-9_]{25,}',rb'github_pat_[A-Za-z0-9_]{30,}',rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',rb'AIza[0-9A-Za-z_-]{30,}',rb'\bsk-(?:proj-)?[A-Za-z0-9_-]{32,}']
 class SyncCommandError(RuntimeError):pass
 
@@ -42,8 +44,8 @@ def allowed(name):
 def inspect_bytes(name,data):
  if Path(name).suffix.lower() not in TEXT:return
  if any(re.search(pattern,data) for pattern in PATTERNS):raise ValueError('Possible credential in '+name)
- if Path(name).suffix.lower()=='.json':
-  try:value=json.loads(data)
+ if Path(name).suffix.lower() in {'.json','.mcmeta','.jsonl'}:
+  try:value=[json.loads(line) for line in data.splitlines() if line.strip()] if Path(name).suffix.lower()=='.jsonl' else json.loads(data)
   except (ValueError,UnicodeError):return
   def visit(v):
    if isinstance(v,dict):
@@ -97,9 +99,50 @@ def snapshot():
    for p in (ROOT/'outputs/Stratus').iterdir():
     if p.is_file() and allowed(p.name):files['outputs/Stratus/'+p.name]=p.read_bytes()
  files[f'outputs/Stratus-{v}-install.json']=json.dumps(receipt,indent=2).encode()+b'\n'
+ github_backups.augment_sources(_sys.modules[__name__],files)
+ files['README.md']=b'''# Stratus shader project
+
+Source, websites, development work, showcase images and verification evidence.
+
+- `outputs/Stratus/`: latest final documented shader package contents.
+- `development/Stratus/`: settled editable shader, including unfinished/candidate work.
+- `work/`: authored QA tools, reports, project documents and websites.
+- `outputs/*-showcase/`: curated showcase images and their provenance.
+- `WORK-BACKUP-INDEX.json`: exact paths/checksums and GitHub Release asset locations for historical and new binary work. Large images, QA packs and release archives live in Releases rather than ordinary Git files.
+- `tools/GITHUB-SYNC.md`: automatic sync coverage and operation.
+
+Final shader downloads use `shader-vVERSION` releases. `project-work-snapshots` contains explicitly unfinished development backups; it does not certify those builds. The historical project backup is retained.
+
+Standalone macOS code syncs without model calls. Private credentials, feedback, app logs, third-party Minecraft runtime and regenerable build caches are excluded.
+'''
  for name,data in files.items():inspect_bytes(name,data)
  fingerprint=digest(json.dumps({name:digest(data) for name,data in sorted(files.items())},sort_keys=True).encode())
  return files,heads,v,pack,fingerprint
+
+def settled_sources(files,state):
+ """Publish stable files without waiting for the entire active project to stop."""
+ candidates=state.setdefault('source_candidates',{});ready={};pending=0
+ prior_file=CHECKOUT/'AUTO-SYNC-MANIFEST.json'
+ prior=json.loads(prior_file.read_text()).get('files',[]) if prior_file.exists() else []
+ now=time.time()
+ for name in set(files)|set(prior):
+  data=files.get(name);checksum=digest(data) if data is not None else 'deleted'
+  target=CHECKOUT/name
+  if data is not None and target.is_file() and not target.is_symlink() and target.read_bytes()==data:
+   ready[name]=data;candidates.pop(name,None);continue
+  candidate=candidates.get(name)
+  if name=='WORK-BACKUP-INDEX.json':stable=True
+  else:
+   if not candidate or candidate['sha256']!=checksum:
+    candidates[name]={'sha256':checksum,'since':now};candidate=candidates[name]
+   stable=now-candidate['since']>=60
+  if stable:
+   if data is not None:ready[name]=data
+  else:
+   pending+=1
+   if name in prior and target.is_file() and not target.is_symlink():ready[name]=target.read_bytes()
+ state['pending_source_files']=pending
+ return ready
 
 def release_upload(repo,v,pack,state):
  if state.get('uploaded_releases',{}).get(v)==digest(pack.read_bytes()):return
@@ -141,11 +184,14 @@ def run():
   if git('status','--porcelain').strip():raise ValueError('The GitHub checkout has local edits; stopped without overwriting them.')
   if remote!=expected:git('remote','set-url','origin',expected)
   git('fetch','origin','main');git('merge','--ff-only','origin/main')
-  files,heads,v,pack,fingerprint=snapshot()
-  if state.get('candidate')!=fingerprint:
-   state.update(candidate=fingerprint,settled_since=time.time(),remote=expected,last_status='Waiting for unchanged files across two checks.')
-   state_save(state);return
-  if time.time()-state.get('settled_since',0)<60:return
+  files,heads,v,pack,_=snapshot()
+  index,groups=github_backups.backup_inventory(_sys.modules[__name__],state,files)
+  index=github_backups.upload_backups(_sys.modules[__name__],repo_name,state,index,groups)
+  files['WORK-BACKUP-INDEX.json']=json.dumps({'files':index,'source_files':'See AUTO-SYNC-MANIFEST.json for Git-tracked source.','binary_release':github_backups.SNAPSHOT_TAG,'policy':'Exact original historical archives plus checksum-verified immutable new work assets. Development snapshots are not final releases.','excluded':['credentials and private feedback','raw app logs and compiled caches','third-party Minecraft runtime','regenerable website deployment bundles']},indent=2).encode()+b'\n'
+  files=settled_sources(files,state)
+  fingerprint=digest(json.dumps({name:digest(data) for name,data in sorted(files.items())},sort_keys=True).encode())
+  state.update(candidate=fingerprint,remote=expected)
+  state_save(state)
   if state.get('published')!=fingerprint:
    prior_file=CHECKOUT/'AUTO-SYNC-MANIFEST.json'
    prior=json.loads(prior_file.read_text()).get('files',[]) if prior_file.exists() else []
@@ -158,7 +204,7 @@ def run():
     target=CHECKOUT/name
     if not target.resolve().is_relative_to(CHECKOUT.resolve()):raise ValueError('Invalid manifest path.')
     if target.is_file():target.unlink()
-   manifest={'files':sorted(files),'site_commits':heads,'shader_release':v,'fingerprint':fingerprint,'policy':'Committed websites, settled standalone services/docs and final packaged shader. No model calls.'}
+   manifest={'files':sorted(files),'site_commits':heads,'shader_release':v,'fingerprint':fingerprint,'policy':'Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls.'}
    atomic(prior_file,json.dumps(manifest,indent=2).encode()+b'\n')
    git('add','--all')
    if git('diff','--cached','--name-only').strip():git('commit','-m','Sync completed Stratus project updates ('+v+')')
@@ -168,7 +214,12 @@ def run():
    state.update(published=fingerprint,commit=local,remote=expected,last_pushed=datetime.now(timezone.utc).isoformat(),last_status='Source pushed and verified.')
    state_save(state);print('Source pushed: '+local,flush=True)
   release_upload(repo_name,v,pack,state)
-  state['last_checked']=datetime.now(timezone.utc).isoformat();state['last_status']='Up to date.';state_save(state)
+  state['last_checked']=datetime.now(timezone.utc).isoformat()
+  asset_waiting=sum(1 for name,item in state.get('asset_settling',{}).items() if state.get('work_backups',{}).get(name,{}).get('sha256')!=item['sha256'])
+  state['pending_asset_files']=asset_waiting
+  pending=state.get('pending_source_files',0)+asset_waiting
+  state['last_status']=f'Synced; {pending} files waiting to settle.' if pending else 'Up to date, including authored work and binary backups.'
+  state.pop('last_error',None);state_save(state);print(state['last_status'],flush=True)
 
 def install():
  target=Path.home()/'Library/LaunchAgents'/f'{LABEL}.plist';target.parent.mkdir(parents=True,exist_ok=True)
@@ -185,7 +236,12 @@ def main():
   elif args.action=='status':print(STATE.read_text() if STATE.exists() else 'Not run yet.')
   else:run()
  except Exception as error:
-  print('GitHub sync stopped: '+type(error).__name__+'. '+(str(error) if isinstance(error,(ValueError,SyncCommandError)) else 'Check authentication, network and the checkout; no force push was used.'),file=sys.stderr)
+  detail='GitHub sync stopped: '+type(error).__name__+'. '+(str(error) if isinstance(error,(ValueError,SyncCommandError)) else 'Check authentication, network and the checkout; no force push was used.')
+  print(detail,file=sys.stderr)
+  try:
+   state=json.loads(STATE.read_text()) if STATE.exists() else {}
+   state.update(last_status=detail,last_error=datetime.now(timezone.utc).isoformat());state_save(state)
+  except (OSError,ValueError):pass
   return 1
  return 0
 if __name__=='__main__':sys.exit(main())

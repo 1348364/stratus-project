@@ -1,0 +1,17 @@
+STRATUS 1.6.12 — VALIDATION
+768 native compatibility-shim compile/link pairs; zero failures. This is a
+syntax/link check, separate from actual Iris loading.
+192 actual water-surface GLSL GPU samples: zero identity, bounded HDR/black,
+strength interpolation, contrast preservation, texture response and biome-off.
+Ten actual underwater water-resolve cases passed with no API errors.
+All62 controls/defaults/ranges/menu paths and four preset assignments preserved.
+Live visual acceptance and installation status are recorded separately; see
+work/stratus-refine-1612 and the external release report/receipt.
+FPS remains explicitly deferred, with no new samples or speedup claim.
+
+KNOWN PENDING WATERLINE CHECK
+At feet164.5,61.24,40.5/yaw0/pitch0 in Terrain Lab, a rectangular sky/treetop
+tint band appears just below the surface. It is reproduced at matched settings
+on1.6.11 and1.6.12, so it predates this surface-tint change. It remains unresolved
+and pending; do not describe all waterline views as clean. See the external
+waterline baseline captures and work/stratus-refine-1612/waterline-issue.json.

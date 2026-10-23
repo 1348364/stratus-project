@@ -1,0 +1,162 @@
+{
+  "scope": "Actual normal-world loaded view disk and Sodium queues before visual captures; FPS explicitly deferred.",
+  "required_view_disk_columns": 441,
+  "render_distance": 12,
+  "stable_window_minimum_ms": 5000,
+  "observed_not_ready_count": 275,
+  "observed_max_pending_uploads": 100,
+  "observed_max_pending_tasks": 92,
+  "completed_gates": {
+    "baseline-river-visual": {
+      "stable_ms": 5114,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 650,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cirrus-sunset-off-retry": {
+      "stable_ms": 5119,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 794,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cirrus-day-on-retry": {
+      "stable_ms": 5123,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 794,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cirrus-sunset-on-retry": {
+      "stable_ms": 5132,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 794,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cirrus-day-loaded": {
+      "stable_ms": 5114,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 794,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cirrus-day-off-retry": {
+      "stable_ms": 5129,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 794,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "underwater-visual": {
+      "stable_ms": 5119,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 650,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "cloud-interior-loaded": {
+      "stable_ms": 5107,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 904,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "fixture-loaded": {
+      "stable_ms": 5121,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 791,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    },
+    "candidate-river-visual": {
+      "stable_ms": 5289,
+      "state": {
+        "ready": true,
+        "render_distance": 12,
+        "required_view_disk_columns": 441,
+        "present_view_disk_columns": 441,
+        "client_loaded_columns": 650,
+        "render_sections": 12792,
+        "queued_jobs": 0,
+        "busy_workers": 0,
+        "pending_uploads": 0,
+        "pending_task_lists": 0
+      }
+    }
+  },
+  "future_BENCH_guard": "Fresh successful gate required at sample start. During sampling poll queues/counts/camera and focus/size; reject nonsteady samples. Actual FPS integration remains deferred/unverified."
+}

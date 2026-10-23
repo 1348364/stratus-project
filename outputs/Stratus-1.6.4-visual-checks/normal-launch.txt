@@ -1,0 +1,7 @@
+[18:15:15] [main/INFO]: Loading Minecraft 1.21.11 with Fabric Loader 0.19.5
+[18:15:31] [Render thread/INFO]: Using shaderpack: Stratus-1.6.4.zip
+[18:15:31] [Render thread/INFO]: OpenGL Renderer: Apple M1
+[18:15:31] [Render thread/INFO]: OpenGL Version: 4.1 Metal - 91.7
+[18:15:39] [Server thread/INFO]: Starting integrated minecraft server version 1.21.11
+[18:15:42] [Render thread/INFO]: Creating pipeline for dimension minecraft:overworld
+Profile account joined the authorized test world; no temporary QA helper was loaded.

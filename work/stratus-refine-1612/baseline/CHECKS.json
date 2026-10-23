@@ -1,0 +1,733 @@
+{
+  "version": "1.6.11",
+  "date": "2026-10-22",
+  "request_id": "d5f466f4-5927-4054-a65f-6a32e48779c1",
+  "status": "Approved preset rebase, later-edit-safe migration and actual chunk readiness gate. Native/GPU/Iris/finite visual checks; FPS explicitly deferred. Final release load is recorded in external install receipt.",
+  "native": {
+    "program_pairs": 768,
+    "variants": 8,
+    "dimensions": 3,
+    "failures": 0,
+    "scope": "Native macOS compatibility-shim compile/link; separate from actual Iris load"
+  },
+  "options": {
+    "controls": 62,
+    "all_IDs_ranges_menu_paths_preserved": true,
+    "source_defaults_changed_by_user_approval": {
+      "SKY_AMBIENT": {
+        "before": "1.40",
+        "after": "1.00"
+      },
+      "SURFACE_DAMPNESS": {
+        "before": "1.00",
+        "after": "0.65"
+      },
+      "CLOUD_LAYERS": {
+        "before": "1",
+        "after": "2"
+      },
+      "MIST_DETAIL": {
+        "before": "2",
+        "after": "3"
+      },
+      "REFLECTION_MODE": {
+        "before": "2",
+        "after": "0"
+      },
+      "WATER_VISIBILITY": {
+        "before": "1.70",
+        "after": "2.20"
+      },
+      "WATER_EXTINCTION": {
+        "before": "3.00",
+        "after": "0.90"
+      },
+      "RIPPLE_HEIGHT": {
+        "before": "0.80",
+        "after": "0.55"
+      },
+      "RIPPLE_SIZE": {
+        "before": "1.00",
+        "after": "0.40"
+      },
+      "RIPPLE_RATE": {
+        "before": "0.45",
+        "after": "1.00"
+      },
+      "WATER_TURBIDITY": {
+        "before": "6.00",
+        "after": "3.00"
+      },
+      "REFRACTION_QUALITY": {
+        "before": "0",
+        "after": "1"
+      },
+      "WATER_RENDER_QUALITY": {
+        "before": "2",
+        "after": "1"
+      },
+      "WATER_TEXTURE": {
+        "before": "0.15",
+        "after": "1.00"
+      }
+    },
+    "reference_equals_all_62_effective_captured_Main_values": true,
+    "visual_options_shared_across_all_profiles": 56,
+    "quality_options_ordered_per_profile": {
+      "FAST": {
+        "WATER_RENDER_QUALITY": "0",
+        "ATMOSPHERE_QUALITY": "0",
+        "CLOUD_LAYERS": "1",
+        "MIST_DETAIL": "1",
+        "REFLECTION_MODE": "0",
+        "REFRACTION_QUALITY": "0"
+      },
+      "BALANCED": {
+        "WATER_RENDER_QUALITY": "1",
+        "ATMOSPHERE_QUALITY": "1",
+        "CLOUD_LAYERS": "1",
+        "MIST_DETAIL": "2",
+        "REFLECTION_MODE": "0",
+        "REFRACTION_QUALITY": "0"
+      },
+      "REFERENCE": {
+        "WATER_RENDER_QUALITY": "1",
+        "ATMOSPHERE_QUALITY": "1",
+        "CLOUD_LAYERS": "2",
+        "MIST_DETAIL": "3",
+        "REFLECTION_MODE": "0",
+        "REFRACTION_QUALITY": "1"
+      },
+      "HIGH": {
+        "WATER_RENDER_QUALITY": "2",
+        "ATMOSPHERE_QUALITY": "2",
+        "CLOUD_LAYERS": "3",
+        "MIST_DETAIL": "3",
+        "REFLECTION_MODE": "2",
+        "REFRACTION_QUALITY": "2"
+      }
+    },
+    "same_Reference_default_definition_in_source_and_profile": true,
+    "related_migration_keys": [
+      "ATMOSPHERE_QUALITY",
+      "CLOUD_LAYERS",
+      "MIST_DETAIL",
+      "REFLECTION_MODE",
+      "REFRACTION_QUALITY",
+      "RIPPLE_HEIGHT",
+      "RIPPLE_RATE",
+      "RIPPLE_SIZE",
+      "SKY_AMBIENT",
+      "SURFACE_DAMPNESS",
+      "WATER_EXTINCTION",
+      "WATER_RENDER_QUALITY",
+      "WATER_TEXTURE",
+      "WATER_TURBIDITY",
+      "WATER_VISIBILITY"
+    ],
+    "all_higher_quality_choices_still_available": true,
+    "rebase_is_not_an_optimisation_speedup": true
+  },
+  "Iris_profile_interpretation": {
+    "FAST": {
+      "option_count": 62,
+      "matches_after_applying_full_profile": true,
+      "values": {
+        "CIRRUS_AMOUNT": "0.65",
+        "WATER_TURBIDITY": "3.00",
+        "MIST_Y": "70.0",
+        "WATER_EXTINCTION": "0.90",
+        "CIRRUS_ALTITUDE": "360.0",
+        "GROUND_WARMTH": "0.00",
+        "CLOUD_DENSITY": "1.00",
+        "SUN_VISIBILITY": "0.85",
+        "WATER_TEXTURE": "1.00",
+        "CLOUD_THICKNESS": "12.0",
+        "CLOUD_AMOUNT": "0.68",
+        "MIST_THICKNESS": "18.0",
+        "SUN_HALO_RADIUS": "1.50",
+        "SKY_AMBIENT": "1.00",
+        "CLOUD_RELIEF": "0.75",
+        "REFLECTION_MODE": "0",
+        "FACE_BLEND": "1.00",
+        "MIST_SCALE": "96.0",
+        "WATER_VISIBILITY": "2.20",
+        "REFLECT_RANGE": "120.0",
+        "MIST_LIGHT": "0.65",
+        "BLOOM_RADIUS": "3.00",
+        "BIOME_WATER": "1",
+        "REFRACTION_QUALITY": "0",
+        "CLOUD_ALTITUDE": "256.0",
+        "WET_DARKENING": "1.00",
+        "SURFACE_SATURATION": "1.00",
+        "ATMOSPHERE_QUALITY": "0",
+        "CLOUD_DETAIL": "1.00",
+        "FACE_SHADING": "1.00",
+        "CIRRUS_DENSITY": "1.00",
+        "ambientOcclusionLevel": "1.00",
+        "SURFACE_DAMPNESS": "0.65",
+        "REFLECT_LEVEL": "1.00",
+        "REALISTIC_LIGHTING": "0",
+        "WET_SHEEN": "0.85",
+        "MIST_AMOUNT": "0.85",
+        "VANILLA_FACE_CONTRAST": "1.00",
+        "SUN_STYLE": "0",
+        "WATER_RENDER_QUALITY": "0",
+        "SKY_LEAK": "0.35",
+        "WATER_DISTORTION": "1.00",
+        "MIST_BREAKUP": "0.85",
+        "CLOUD_SPAN": "240.0",
+        "CLOUD_DISTORTION": "0.85",
+        "RIPPLE_SIZE": "0.40",
+        "REALISTIC_FACE_CONTRAST": "1.00",
+        "EXPOSURE": "0.20",
+        "CLOUD_LAYERS": "1",
+        "RIPPLE_HEIGHT": "0.55",
+        "CLOUD_STYLE": "0",
+        "RIPPLE_RATE": "1.00",
+        "WHITE_BALANCE": "0.00",
+        "MIST_DETAIL": "1",
+        "LAMP_HEAT": "0.25",
+        "CLOUD_DRIFT": "0.25",
+        "SUN_CORE_BRIGHTNESS": "4.50",
+        "WET_WEATHER_MODE": "0",
+        "SUN_HALO_STRENGTH": "2.00",
+        "LAMP_LEVEL": "1.00",
+        "MIST_CLEAR": "24.0",
+        "BLOOM_STRENGTH": "0.18"
+      }
+    },
+    "BALANCED": {
+      "option_count": 62,
+      "matches_after_applying_full_profile": true,
+      "values": {
+        "CIRRUS_AMOUNT": "0.65",
+        "WATER_TURBIDITY": "3.00",
+        "MIST_Y": "70.0",
+        "WATER_EXTINCTION": "0.90",
+        "CIRRUS_ALTITUDE": "360.0",
+        "GROUND_WARMTH": "0.00",
+        "CLOUD_DENSITY": "1.00",
+        "SUN_VISIBILITY": "0.85",
+        "WATER_TEXTURE": "1.00",
+        "CLOUD_THICKNESS": "12.0",
+        "CLOUD_AMOUNT": "0.68",
+        "MIST_THICKNESS": "18.0",
+        "SUN_HALO_RADIUS": "1.50",
+        "SKY_AMBIENT": "1.00",
+        "CLOUD_RELIEF": "0.75",
+        "REFLECTION_MODE": "0",
+        "FACE_BLEND": "1.00",
+        "MIST_SCALE": "96.0",
+        "WATER_VISIBILITY": "2.20",
+        "REFLECT_RANGE": "120.0",
+        "MIST_LIGHT": "0.65",
+        "BLOOM_RADIUS": "3.00",
+        "BIOME_WATER": "1",
+        "REFRACTION_QUALITY": "0",
+        "CLOUD_ALTITUDE": "256.0",
+        "WET_DARKENING": "1.00",
+        "SURFACE_SATURATION": "1.00",
+        "ATMOSPHERE_QUALITY": "1",
+        "CLOUD_DETAIL": "1.00",
+        "FACE_SHADING": "1.00",
+        "CIRRUS_DENSITY": "1.00",
+        "ambientOcclusionLevel": "1.00",
+        "SURFACE_DAMPNESS": "0.65",
+        "REFLECT_LEVEL": "1.00",
+        "REALISTIC_LIGHTING": "0",
+        "WET_SHEEN": "0.85",
+        "MIST_AMOUNT": "0.85",
+        "VANILLA_FACE_CONTRAST": "1.00",
+        "SUN_STYLE": "0",
+        "WATER_RENDER_QUALITY": "1",
+        "SKY_LEAK": "0.35",
+        "WATER_DISTORTION": "1.00",
+        "MIST_BREAKUP": "0.85",
+        "CLOUD_SPAN": "240.0",
+        "CLOUD_DISTORTION": "0.85",
+        "RIPPLE_SIZE": "0.40",
+        "REALISTIC_FACE_CONTRAST": "1.00",
+        "EXPOSURE": "0.20",
+        "CLOUD_LAYERS": "1",
+        "RIPPLE_HEIGHT": "0.55",
+        "CLOUD_STYLE": "0",
+        "RIPPLE_RATE": "1.00",
+        "WHITE_BALANCE": "0.00",
+        "MIST_DETAIL": "2",
+        "LAMP_HEAT": "0.25",
+        "CLOUD_DRIFT": "0.25",
+        "SUN_CORE_BRIGHTNESS": "4.50",
+        "WET_WEATHER_MODE": "0",
+        "SUN_HALO_STRENGTH": "2.00",
+        "LAMP_LEVEL": "1.00",
+        "MIST_CLEAR": "24.0",
+        "BLOOM_STRENGTH": "0.18"
+      }
+    },
+    "REFERENCE": {
+      "option_count": 62,
+      "matches_after_applying_full_profile": true,
+      "values": {
+        "CIRRUS_AMOUNT": "0.65",
+        "WATER_TURBIDITY": "3.00",
+        "MIST_Y": "70.0",
+        "WATER_EXTINCTION": "0.90",
+        "CIRRUS_ALTITUDE": "360.0",
+        "GROUND_WARMTH": "0.00",
+        "CLOUD_DENSITY": "1.00",
+        "SUN_VISIBILITY": "0.85",
+        "WATER_TEXTURE": "1.00",
+        "CLOUD_THICKNESS": "12.0",
+        "CLOUD_AMOUNT": "0.68",
+        "MIST_THICKNESS": "18.0",
+        "SUN_HALO_RADIUS": "1.50",
+        "SKY_AMBIENT": "1.00",
+        "CLOUD_RELIEF": "0.75",
+        "REFLECTION_MODE": "0",
+        "FACE_BLEND": "1.00",
+        "MIST_SCALE": "96.0",
+        "WATER_VISIBILITY": "2.20",
+        "REFLECT_RANGE": "120.0",
+        "MIST_LIGHT": "0.65",
+        "BLOOM_RADIUS": "3.00",
+        "BIOME_WATER": "1",
+        "REFRACTION_QUALITY": "1",
+        "CLOUD_ALTITUDE": "256.0",
+        "WET_DARKENING": "1.00",
+        "SURFACE_SATURATION": "1.00",
+        "ATMOSPHERE_QUALITY": "1",
+        "CLOUD_DETAIL": "1.00",
+        "FACE_SHADING": "1.00",
+        "CIRRUS_DENSITY": "1.00",
+        "ambientOcclusionLevel": "1.00",
+        "SURFACE_DAMPNESS": "0.65",
+        "REFLECT_LEVEL": "1.00",
+        "REALISTIC_LIGHTING": "0",
+        "WET_SHEEN": "0.85",
+        "MIST_AMOUNT": "0.85",
+        "VANILLA_FACE_CONTRAST": "1.00",
+        "SUN_STYLE": "0",
+        "WATER_RENDER_QUALITY": "1",
+        "SKY_LEAK": "0.35",
+        "WATER_DISTORTION": "1.00",
+        "MIST_BREAKUP": "0.85",
+        "CLOUD_SPAN": "240.0",
+        "CLOUD_DISTORTION": "0.85",
+        "RIPPLE_SIZE": "0.40",
+        "REALISTIC_FACE_CONTRAST": "1.00",
+        "EXPOSURE": "0.20",
+        "CLOUD_LAYERS": "2",
+        "RIPPLE_HEIGHT": "0.55",
+        "CLOUD_STYLE": "0",
+        "RIPPLE_RATE": "1.00",
+        "WHITE_BALANCE": "0.00",
+        "MIST_DETAIL": "3",
+        "LAMP_HEAT": "0.25",
+        "CLOUD_DRIFT": "0.25",
+        "SUN_CORE_BRIGHTNESS": "4.50",
+        "WET_WEATHER_MODE": "0",
+        "SUN_HALO_STRENGTH": "2.00",
+        "LAMP_LEVEL": "1.00",
+        "MIST_CLEAR": "24.0",
+        "BLOOM_STRENGTH": "0.18"
+      }
+    },
+    "HIGH": {
+      "option_count": 62,
+      "matches_after_applying_full_profile": true,
+      "values": {
+        "CIRRUS_AMOUNT": "0.65",
+        "WATER_TURBIDITY": "3.00",
+        "MIST_Y": "70.0",
+        "WATER_EXTINCTION": "0.90",
+        "CIRRUS_ALTITUDE": "360.0",
+        "GROUND_WARMTH": "0.00",
+        "CLOUD_DENSITY": "1.00",
+        "SUN_VISIBILITY": "0.85",
+        "WATER_TEXTURE": "1.00",
+        "CLOUD_THICKNESS": "12.0",
+        "CLOUD_AMOUNT": "0.68",
+        "MIST_THICKNESS": "18.0",
+        "SUN_HALO_RADIUS": "1.50",
+        "SKY_AMBIENT": "1.00",
+        "CLOUD_RELIEF": "0.75",
+        "REFLECTION_MODE": "2",
+        "FACE_BLEND": "1.00",
+        "MIST_SCALE": "96.0",
+        "WATER_VISIBILITY": "2.20",
+        "REFLECT_RANGE": "120.0",
+        "MIST_LIGHT": "0.65",
+        "BLOOM_RADIUS": "3.00",
+        "BIOME_WATER": "1",
+        "REFRACTION_QUALITY": "2",
+        "CLOUD_ALTITUDE": "256.0",
+        "WET_DARKENING": "1.00",
+        "SURFACE_SATURATION": "1.00",
+        "ATMOSPHERE_QUALITY": "2",
+        "CLOUD_DETAIL": "1.00",
+        "FACE_SHADING": "1.00",
+        "CIRRUS_DENSITY": "1.00",
+        "ambientOcclusionLevel": "1.00",
+        "SURFACE_DAMPNESS": "0.65",
+        "REFLECT_LEVEL": "1.00",
+        "REALISTIC_LIGHTING": "0",
+        "WET_SHEEN": "0.85",
+        "MIST_AMOUNT": "0.85",
+        "VANILLA_FACE_CONTRAST": "1.00",
+        "SUN_STYLE": "0",
+        "WATER_RENDER_QUALITY": "2",
+        "SKY_LEAK": "0.35",
+        "WATER_DISTORTION": "1.00",
+        "MIST_BREAKUP": "0.85",
+        "CLOUD_SPAN": "240.0",
+        "CLOUD_DISTORTION": "0.85",
+        "RIPPLE_SIZE": "0.40",
+        "REALISTIC_FACE_CONTRAST": "1.00",
+        "EXPOSURE": "0.20",
+        "CLOUD_LAYERS": "3",
+        "RIPPLE_HEIGHT": "0.55",
+        "CLOUD_STYLE": "0",
+        "RIPPLE_RATE": "1.00",
+        "WHITE_BALANCE": "0.00",
+        "MIST_DETAIL": "3",
+        "LAMP_HEAT": "0.25",
+        "CLOUD_DRIFT": "0.25",
+        "SUN_CORE_BRIGHTNESS": "4.50",
+        "WET_WEATHER_MODE": "0",
+        "SUN_HALO_STRENGTH": "2.00",
+        "LAMP_LEVEL": "1.00",
+        "MIST_CLEAR": "24.0",
+        "BLOOM_STRENGTH": "0.18"
+      }
+    }
+  },
+  "installer": {
+    "checks": [
+      "Dry run writes no destination",
+      "Captured related values reset to identical approved Reference defaults",
+      "Old preferences byte-identical",
+      "Later related manual edit preserved",
+      "Later removal preserves old source default",
+      "Unrelated latest override preserved",
+      "Existing new-version settings never overwritten",
+      "Atomic create cannot overwrite",
+      "Conflicting archive refused",
+      "Concurrent conflicting archive refused before preferences"
+    ],
+    "failures": 0,
+    "scope": "Temporary profiles, actual1.6.11 policy and installer. No Main writes."
+  },
+  "underwater": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.7265702,
+          0.3873817,
+          0.1988004
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.3774901,
+          0.3134322,
+          0.1913006
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.8,
+          0.4,
+          0.2
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.6162699,
+          0.1938531,
+          0.1048677
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.5786929,
+          0.1972679,
+          0.10793
+        ],
+        "max_error": 1e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.9453518,
+          0.4730772,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.712761,
+          0.3849262,
+          0.1985645
+        ],
+        "max_error": 6e-08
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
+  "chunk_readiness": {
+    "scope": "Actual normal-world loaded view disk and Sodium queues before visual captures; FPS explicitly deferred.",
+    "required_view_disk_columns": 441,
+    "render_distance": 12,
+    "stable_window_minimum_ms": 5000,
+    "observed_not_ready_count": 275,
+    "observed_max_pending_uploads": 100,
+    "observed_max_pending_tasks": 92,
+    "completed_gates": {
+      "baseline-river-visual": {
+        "stable_ms": 5114,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 650,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cirrus-sunset-off-retry": {
+        "stable_ms": 5119,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 794,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cirrus-day-on-retry": {
+        "stable_ms": 5123,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 794,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cirrus-sunset-on-retry": {
+        "stable_ms": 5132,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 794,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cirrus-day-loaded": {
+        "stable_ms": 5114,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 794,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cirrus-day-off-retry": {
+        "stable_ms": 5129,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 794,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "underwater-visual": {
+        "stable_ms": 5119,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 650,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "cloud-interior-loaded": {
+        "stable_ms": 5107,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 904,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "fixture-loaded": {
+        "stable_ms": 5121,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 791,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      },
+      "candidate-river-visual": {
+        "stable_ms": 5289,
+        "state": {
+          "ready": true,
+          "render_distance": 12,
+          "required_view_disk_columns": 441,
+          "present_view_disk_columns": 441,
+          "client_loaded_columns": 650,
+          "render_sections": 12792,
+          "queued_jobs": 0,
+          "busy_workers": 0,
+          "pending_uploads": 0,
+          "pending_task_lists": 0
+        }
+      }
+    },
+    "future_BENCH_guard": "Fresh successful gate required at sample start. During sampling poll queues/counts/camera and focus/size; reject nonsteady samples. Actual FPS integration remains deferred/unverified."
+  },
+  "performance": {
+    "version": "1.6.11",
+    "status": "Deferred by explicit user instruction: skip for now; user will request later.",
+    "new_FPS_samples": 0,
+    "target_approximately60FPS_verified": false,
+    "quality_baseline": "User explicitly approved latest saved Main visual and quality choices as Reference. Reference now uses water1/atmosphere1/cloud2/mist3/sky-only0/refraction1. High retains full/detailed settings.",
+    "preset_rebase_is_not_shader_code_speedup": true,
+    "new_render_algorithm_optimisation": false,
+    "chunk_gate_implemented_and_exercised_without_FPS": true,
+    "gate_evidence": "work/stratus-refine-1611/chunk-gate-checks.json",
+    "next_test": "Only when user requests FPS: same approved Reference settings/camera/resolution; READY gate until all441 view-disk columns present, workers/jobs/uploads/task queues empty, counts stable>=5seconds. Focused active game; record Dynamic FPS/AFK state. Loading-phase results must be labelled separately.",
+    "previous1_6_10_full_Reference": "Old full-detail Reference river19.6\u219220.2/forest17.8\u219218.1FPS used a different quality baseline; do not compare as an optimisation speedup."
+  },
+  "occupied_cloud_evidence": {
+    "source": "No VanillaTweaks override; preserved vanilla reference",
+    "cloud_cell": [
+      22,
+      1
+    ],
+    "camera_feet": [
+      270.0,
+      254.38,
+      14.04
+    ],
+    "eye_y": 256,
+    "drift_for_test": 0,
+    "alpha": 255,
+    "QA_only_not_distributed": true,
+    "actual_runtime_alpha_at_camera": 255,
+    "active_runtime_footprint_matches_planned": true,
+    "actual_resource_origin": "vanilla"
+  },
+  "live": {
+    "profile": "Modrinth Main / Minecraft (1)",
+    "world": "Stratus Terrain Lab normal world",
+    "Minecraft": "1.21.11",
+    "Iris": "1.10.8",
+    "Sodium": "0.8.14",
+    "hardware": "Apple M1 / macOS / OpenGL4.1",
+    "framebuffer": [
+      1440,
+      842
+    ],
+    "review": "Matched62-option river/underwater views, existing submerged fixtures, confirmed occupied cloud and clearer independent cirrus/day/sunset isolations. Unloaded first attempts are rejected and superseded by gated retries. Final release and menu review recorded separately in receipt/report.",
+    "report": "outputs/Stratus-1.6.11-visual-checks/index.html"
+  },
+  "limits": [
+    "No FPS sampling or60FPS verification: explicit user deferral",
+    "The approved Reference quality rebase is not a rendering-algorithm speedup",
+    "Exact historical pole/distant-leaf contexts and relevant leaf-fog acceptance remain pending",
+    "Finite visual checks do not certify every preset/mod/motion/weather combination",
+    "All original controls/ranges are retained; selecting a preset intentionally applies its common56 visual defaults plus six quality choices"
+  ]
+}

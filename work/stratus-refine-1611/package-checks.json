@@ -1,0 +1,18 @@
+{
+  "archive": "outputs/Stratus-1.6.11.zip",
+  "bytes": 7780712,
+  "sha256": "252e040c62f5be4847814a3227fab06924d46e875f54b67a7d3e60bf58462e62",
+  "entries": 245,
+  "runtime_assets": 235,
+  "all_archive_source_bytes_equal": true,
+  "manifest_verified": true,
+  "QA_candidate_runtime_equals_release": true,
+  "runtime_changes": [
+    "shaders/core/options.glsl",
+    "shaders/shaders.properties"
+  ],
+  "no_render_algorithm_changed": true,
+  "all_menu_paths_preserved": true,
+  "no_Minecraft_PNG_assets_bundled": true,
+  "prior_release_sha256": "6f33f582371c329fd65f9a5ada06fad317dceb1ecf08589e33b88e321d038387"
+}

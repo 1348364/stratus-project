@@ -1,0 +1,19 @@
+{
+  "pack": "Stratus-1.6.3.zip",
+  "sha256": "182c38a28b721c492e3b921a567d99e064949eb5a6dbaca65daf1104f387581d",
+  "installed_to": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.6.3.zip",
+  "tested_shader_assets_match_final": 235,
+  "runtime_visual_checks": true,
+  "native_compile_pairs": 768,
+  "gpu_cases": 13,
+  "test_world": "Stratus Terrain Lab",
+  "selected_in_iris": true,
+  "candidate": "Stratus-1.6.3.zip",
+  "gpu_failures": 0,
+  "gpu_errors": 0,
+  "main_selected_shader": "Stratus-1.6.3.zip",
+  "in_game_retest": "passed matched waterline/upward views, submerged wood, deep river and above river",
+  "main_reopened_normally": true,
+  "main_original_mod_files_unchanged": 34,
+  "main_options_preserved": true
+}

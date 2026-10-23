@@ -1,0 +1,2395 @@
+Compiled from "RenderSectionManager.java"
+public class net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager {
+  private static final float NEARBY_REBUILD_DISTANCE;
+
+  private static final float IMMEDIATE_PRESENT_DISTANCE;
+
+  private static final float NEARBY_SORT_DISTANCE;
+
+  private static final float FRAME_DURATION_UPLOAD_FRACTION;
+
+  private static final long MIN_UPLOAD_DURATION_BUDGET;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder builder;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.region.RenderRegionManager regions;
+
+  private final net.caffeinemc.mods.sodium.client.world.cloned.ClonedChunkSectionCache sectionCache;
+
+  private final it.unimi.dsi.fastutil.longs.Long2ReferenceMap<net.caffeinemc.mods.sodium.client.render.chunk.RenderSection> sectionByPosition;
+
+  private final java.util.concurrent.ConcurrentLinkedDeque<net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobResult<? extends net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput>> buildResults;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.JobDurationEstimator jobDurationEstimator;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.MeshTaskSizeEstimator meshTaskSizeEstimator;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadDurationEstimator jobUploadDurationEstimator;
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector lastBlockingCollector;
+
+  private int thisFrameBlockingTasks;
+
+  private int nextFrameBlockingTasks;
+
+  private int deferredTasks;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderer chunkRenderer;
+
+  private final net.minecraft.class_638 level;
+
+  private final it.unimi.dsi.fastutil.objects.ReferenceSet<net.caffeinemc.mods.sodium.client.render.chunk.RenderSection> sectionsWithGlobalEntities;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.occlusion.OcclusionCuller occlusionCuller;
+
+  private final int renderDistance;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.SortBehavior sortBehavior;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.trigger.SortTriggering sortTriggering;
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists renderLists;
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.lists.SectionCollector sectionCollector;
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.lists.SectionCollector lastSectionCollector;
+
+  private java.util.Map<net.caffeinemc.mods.sodium.client.render.chunk.TaskQueueType, java.util.ArrayDeque<net.caffeinemc.mods.sodium.client.render.chunk.RenderSection>> taskLists;
+
+  private int frame;
+
+  private long lastFrameDuration;
+
+  private long averageFrameDuration;
+
+  private long lastFrameAtTime;
+
+  private static final float FRAME_DURATION_UPDATE_RATIO;
+
+  private boolean needsGraphUpdate;
+
+  private int lastUpdatedFrame;
+
+  private org.joml.Vector3dc cameraPosition;
+
+  private final net.caffeinemc.mods.sodium.client.render.chunk.tree.RemovableMultiForest renderableSectionTree;
+
+  public net.caffeinemc.mods.sodium.client.render.chunk.RenderSectionManager(net.minecraft.class_638, int, net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.SortBehavior, net.caffeinemc.mods.sodium.client.gl.device.CommandList);
+    Code:
+         0: aload_0
+         1: invokespecial #117                // Method java/lang/Object."<init>":()V
+         4: aload_0
+         5: new           #119                // class it/unimi/dsi/fastutil/longs/Long2ReferenceOpenHashMap
+         8: dup
+         9: invokespecial #120                // Method it/unimi/dsi/fastutil/longs/Long2ReferenceOpenHashMap."<init>":()V
+        12: putfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        15: aload_0
+        16: new           #124                // class java/util/concurrent/ConcurrentLinkedDeque
+        19: dup
+        20: invokespecial #125                // Method java/util/concurrent/ConcurrentLinkedDeque."<init>":()V
+        23: putfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+        26: aload_0
+        27: new           #129                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator
+        30: dup
+        31: invokespecial #130                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator."<init>":()V
+        34: putfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+        37: aload_0
+        38: new           #134                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator
+        41: dup
+        42: invokespecial #135                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator."<init>":()V
+        45: putfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+        48: aload_0
+        49: new           #139                // class it/unimi/dsi/fastutil/objects/ReferenceOpenHashSet
+        52: dup
+        53: invokespecial #140                // Method it/unimi/dsi/fastutil/objects/ReferenceOpenHashSet."<init>":()V
+        56: putfield      #142                // Field sectionsWithGlobalEntities:Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+        59: aload_0
+        60: ldc2_w        #143                // long -1l
+        63: putfield      #146                // Field lastFrameDuration:J
+        66: aload_0
+        67: ldc2_w        #143                // long -1l
+        70: putfield      #148                // Field averageFrameDuration:J
+        73: aload_0
+        74: invokestatic  #154                // Method java/lang/System.nanoTime:()J
+        77: putfield      #156                // Field lastFrameAtTime:J
+        80: aload_0
+        81: iconst_1
+        82: putfield      #158                // Field needsGraphUpdate:Z
+        85: aload_0
+        86: new           #160                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator
+        89: dup
+        90: aload_1
+        91: invokespecial #163                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator."<init>":(Lnet/minecraft/class_638;)V
+        94: putfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+        97: aload_0
+        98: new           #167                // class net/caffeinemc/mods/sodium/client/render/chunk/DefaultChunkRenderer
+       101: dup
+       102: getstatic     #173                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+       105: getstatic     #179                // Field net/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkMeshFormats.COMPACT:Lnet/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkVertexType;
+       108: invokespecial #182                // Method net/caffeinemc/mods/sodium/client/render/chunk/DefaultChunkRenderer."<init>":(Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;Lnet/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkVertexType;)V
+       111: putfield      #184                // Field chunkRenderer:Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderer;
+       114: aload_0
+       115: aload_1
+       116: putfield      #186                // Field level:Lnet/minecraft/class_638;
+       119: aload_0
+       120: new           #188                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder
+       123: dup
+       124: aload_1
+       125: getstatic     #179                // Field net/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkMeshFormats.COMPACT:Lnet/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkVertexType;
+       128: invokespecial #191                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder."<init>":(Lnet/minecraft/class_638;Lnet/caffeinemc/mods/sodium/client/render/chunk/vertex/format/ChunkVertexType;)V
+       131: putfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       134: aload_0
+       135: iload_2
+       136: putfield      #195                // Field renderDistance:I
+       139: aload_0
+       140: aload_3
+       141: putfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       144: aload_0
+       145: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       148: getstatic     #200                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.OFF:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       151: if_acmpeq     168
+       154: aload_0
+       155: new           #202                // class net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering
+       158: dup
+       159: invokespecial #203                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering."<init>":()V
+       162: putfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+       165: goto          173
+       168: aload_0
+       169: aconst_null
+       170: putfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+       173: aload_0
+       174: new           #211                // class net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager
+       177: dup
+       178: aload         4
+       180: invokespecial #214                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager."<init>":(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+       183: putfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+       186: aload_0
+       187: new           #218                // class net/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache
+       190: dup
+       191: aload_0
+       192: getfield      #186                // Field level:Lnet/minecraft/class_638;
+       195: invokespecial #221                // Method net/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache."<init>":(Lnet/minecraft/class_1937;)V
+       198: putfield      #223                // Field sectionCache:Lnet/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache;
+       201: aload_0
+       202: invokestatic  #229                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.empty:()Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+       205: putfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+       208: aload_0
+       209: new           #233                // class net/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller
+       212: dup
+       213: aload_0
+       214: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+       217: invokestatic  #239                // Method it/unimi/dsi/fastutil/longs/Long2ReferenceMaps.unmodifiable:(Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;)Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+       220: aload_0
+       221: getfield      #186                // Field level:Lnet/minecraft/class_638;
+       224: invokespecial #242                // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller."<init>":(Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;Lnet/minecraft/class_1937;)V
+       227: putfield      #244                // Field occlusionCuller:Lnet/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller;
+       230: aload_0
+       231: new           #246                // class net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest
+       234: dup
+       235: iload_2
+       236: i2f
+       237: invokespecial #249                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest."<init>":(F)V
+       240: putfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+       243: aload_0
+       244: new           #253                // class java/util/EnumMap
+       247: dup
+       248: ldc           #255                // class net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType
+       250: invokespecial #258                // Method java/util/EnumMap."<init>":(Ljava/lang/Class;)V
+       253: putfield      #260                // Field taskLists:Ljava/util/Map;
+       256: invokestatic  #264                // Method net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.values:()[Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+       259: astore        5
+       261: aload         5
+       263: arraylength
+       264: istore        6
+       266: iconst_0
+       267: istore        7
+       269: iload         7
+       271: iload         6
+       273: if_icmpge     308
+       276: aload         5
+       278: iload         7
+       280: aaload
+       281: astore        8
+       283: aload_0
+       284: getfield      #260                // Field taskLists:Ljava/util/Map;
+       287: aload         8
+       289: new           #268                // class java/util/ArrayDeque
+       292: dup
+       293: invokespecial #269                // Method java/util/ArrayDeque."<init>":()V
+       296: invokeinterface #275,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       301: pop
+       302: iinc          7, 1
+       305: goto          269
+       308: return
+
+  public void prepareFrame(org.joml.Vector3dc);
+    Code:
+         0: invokestatic  #154                // Method java/lang/System.nanoTime:()J
+         3: lstore_2
+         4: aload_0
+         5: lload_2
+         6: aload_0
+         7: getfield      #156                // Field lastFrameAtTime:J
+        10: lsub
+        11: putfield      #146                // Field lastFrameDuration:J
+        14: aload_0
+        15: lload_2
+        16: putfield      #156                // Field lastFrameAtTime:J
+        19: aload_0
+        20: getfield      #148                // Field averageFrameDuration:J
+        23: ldc2_w        #143                // long -1l
+        26: lcmp
+        27: ifne          41
+        30: aload_0
+        31: aload_0
+        32: getfield      #146                // Field lastFrameDuration:J
+        35: putfield      #148                // Field averageFrameDuration:J
+        38: goto          58
+        41: aload_0
+        42: aload_0
+        43: getfield      #148                // Field averageFrameDuration:J
+        46: aload_0
+        47: getfield      #146                // Field lastFrameDuration:J
+        50: ldc           #103                // float 0.05f
+        52: invokestatic  #288                // Method net/caffeinemc/mods/sodium/client/util/MathUtil.exponentialMovingAverage:(JJF)J
+        55: putfield      #148                // Field averageFrameDuration:J
+        58: aload_0
+        59: aload_0
+        60: getfield      #148                // Field averageFrameDuration:J
+        63: ldc2_w        #289                // long 1000100l
+        66: ldc2_w        #291                // long 100000000l
+        69: invokestatic  #298                // Method net/minecraft/class_3532.method_53062:(JJJ)J
+        72: putfield      #148                // Field averageFrameDuration:J
+        75: aload_0
+        76: dup
+        77: getfield      #300                // Field frame:I
+        80: iconst_1
+        81: iadd
+        82: putfield      #300                // Field frame:I
+        85: aload_0
+        86: aload_1
+        87: putfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        90: return
+
+  public void update(net.minecraft.class_4184, net.caffeinemc.mods.sodium.client.render.viewport.Viewport, net.caffeinemc.mods.sodium.client.util.FogParameters, boolean);
+    Code:
+         0: aload_0
+         1: dup
+         2: getfield      #311                // Field lastUpdatedFrame:I
+         5: iconst_1
+         6: iadd
+         7: putfield      #311                // Field lastUpdatedFrame:I
+        10: aload_0
+        11: aload_0
+        12: aload_1
+        13: aload_2
+        14: aload_3
+        15: aload_0
+        16: getfield      #311                // Field lastUpdatedFrame:I
+        19: iload         4
+        21: invokevirtual #315                // Method createTerrainRenderList:(Lnet/minecraft/class_4184;Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;Lnet/caffeinemc/mods/sodium/client/util/FogParameters;IZ)Z
+        24: putfield      #158                // Field needsGraphUpdate:Z
+        27: return
+
+  private boolean createTerrainRenderList(net.minecraft.class_4184, net.caffeinemc.mods.sodium.client.render.viewport.Viewport, net.caffeinemc.mods.sodium.client.util.FogParameters, int, boolean);
+    Code:
+         0: aload_0
+         1: invokevirtual #321                // Method resetRenderLists:()V
+         4: aload_0
+         5: aload_3
+         6: invokevirtual #325                // Method getSearchDistance:(Lnet/caffeinemc/mods/sodium/client/util/FogParameters;)F
+         9: fstore        6
+        11: aload_0
+        12: aload_1
+        13: iload         5
+        15: invokevirtual #329                // Method shouldUseOcclusionCulling:(Lnet/minecraft/class_4184;Z)Z
+        18: istore        7
+        20: invokestatic  #335                // Method net/caffeinemc/mods/sodium/client/SodiumClientMod.options:()Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions;
+        23: getfield      #339                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions.performance:Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings;
+        26: getfield      #343                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings.chunkBuildDeferMode:Lnet/caffeinemc/mods/sodium/client/render/chunk/DeferMode;
+        29: invokevirtual #349                // Method net/caffeinemc/mods/sodium/client/render/chunk/DeferMode.getImportantRebuildQueueType:()Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        32: astore        8
+        34: aload_0
+        35: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        38: invokevirtual #353                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.getDeferMode:()Lnet/caffeinemc/mods/sodium/client/render/chunk/DeferMode;
+        41: invokevirtual #349                // Method net/caffeinemc/mods/sodium/client/render/chunk/DeferMode.getImportantRebuildQueueType:()Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        44: astore        9
+        46: aload_0
+        47: aload_2
+        48: invokevirtual #359                // Method net/caffeinemc/mods/sodium/client/render/viewport/Viewport.getChunkCoord:()Lnet/minecraft/class_4076;
+        51: invokevirtual #363                // Method isOutOfGraph:(Lnet/minecraft/class_4076;)Z
+        54: ifeq          104
+        57: new           #365                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/TreeSectionCollector
+        60: dup
+        61: iload         4
+        63: aload         8
+        65: aload         9
+        67: aload_0
+        68: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        71: invokespecial #368                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/TreeSectionCollector."<init>":(ILnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;)V
+        74: astore        10
+        76: aload_0
+        77: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+        80: invokevirtual #371                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.prepareForTraversal:()V
+        83: aload_0
+        84: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+        87: aload         10
+        89: aload_2
+        90: fload         6
+        92: invokevirtual #375                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.traverse:(Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/CoordinateSectionVisitor;Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;F)V
+        95: aload_0
+        96: aload         10
+        98: putfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       101: goto          141
+       104: new           #383                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/OcclusionSectionCollector
+       107: dup
+       108: iload         4
+       110: aload         8
+       112: aload         9
+       114: invokespecial #386                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/OcclusionSectionCollector."<init>":(ILnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;)V
+       117: astore        10
+       119: aload_0
+       120: getfield      #244                // Field occlusionCuller:Lnet/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller;
+       123: aload         10
+       125: aload_2
+       126: fload         6
+       128: iload         7
+       130: iload         4
+       132: invokevirtual #390                // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller.findVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/RenderSectionVisitor;Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;FZI)V
+       135: aload_0
+       136: aload         10
+       138: putfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       141: aload_0
+       142: aconst_null
+       143: putfield      #392                // Field lastSectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       146: aload_0
+       147: aload_0
+       148: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       151: invokevirtual #398                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector.getTaskLists:()Ljava/util/Map;
+       154: putfield      #260                // Field taskLists:Ljava/util/Map;
+       157: aload_0
+       158: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       161: invokevirtual #402                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector.needsRevisitForPendingUpdates:()Z
+       164: ireturn
+
+  public void finalizeRenderLists(net.caffeinemc.mods.sodium.client.render.viewport.Viewport);
+    Code:
+         0: aload_0
+         1: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+         4: ifnull        32
+         7: aload_0
+         8: aload_0
+         9: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+        12: aload_1
+        13: invokevirtual #415                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector.createRenderLists:(Lnet/caffeinemc/mods/sodium/client/render/viewport/Viewport;)Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+        16: putfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+        19: aload_0
+        20: aload_0
+        21: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+        24: putfield      #392                // Field lastSectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+        27: aload_0
+        28: aconst_null
+        29: putfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+        32: return
+
+  private boolean isOutOfGraph(net.minecraft.class_4076);
+    Code:
+         0: aload_1
+         1: invokevirtual #422                // Method net/minecraft/class_4076.method_10264:()I
+         4: istore_2
+         5: aload_0
+         6: getfield      #186                // Field level:Lnet/minecraft/class_638;
+         9: invokevirtual #425                // Method net/minecraft/class_638.method_32891:()I
+        12: iload_2
+        13: if_icmpgt     47
+        16: iload_2
+        17: aload_0
+        18: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        21: invokevirtual #428                // Method net/minecraft/class_638.method_31597:()I
+        24: if_icmpgt     47
+        27: aload_0
+        28: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        31: aload_1
+        32: invokevirtual #431                // Method net/minecraft/class_4076.method_18694:()J
+        35: invokeinterface #437,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.containsKey:(J)Z
+        40: ifne          47
+        43: iconst_1
+        44: goto          48
+        47: iconst_0
+        48: ireturn
+
+  private float getSearchDistance(net.caffeinemc.mods.sodium.client.util.FogParameters);
+    Code:
+         0: invokestatic  #335                // Method net/caffeinemc/mods/sodium/client/SodiumClientMod.options:()Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions;
+         3: getfield      #339                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions.performance:Lnet/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings;
+         6: getfield      #442                // Field net/caffeinemc/mods/sodium/client/gui/SodiumOptions$PerformanceSettings.useFogOcclusion:Z
+         9: ifeq          21
+        12: aload_0
+        13: aload_1
+        14: invokevirtual #445                // Method getEffectiveRenderDistance:(Lnet/caffeinemc/mods/sodium/client/util/FogParameters;)F
+        17: fstore_2
+        18: goto          26
+        21: aload_0
+        22: invokevirtual #449                // Method getRenderDistance:()F
+        25: fstore_2
+        26: fload_2
+        27: freturn
+
+  private boolean shouldUseOcclusionCulling(net.minecraft.class_4184, boolean);
+    Code:
+         0: aload_1
+         1: invokevirtual #454                // Method net/minecraft/class_4184.method_19328:()Lnet/minecraft/class_2338;
+         4: astore        4
+         6: iload_2
+         7: ifeq          30
+        10: aload_0
+        11: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        14: aload         4
+        16: invokevirtual #458                // Method net/minecraft/class_638.method_8320:(Lnet/minecraft/class_2338;)Lnet/minecraft/class_2680;
+        19: invokevirtual #463                // Method net/minecraft/class_2680.method_26216:()Z
+        22: ifeq          30
+        25: iconst_0
+        26: istore_3
+        27: goto          37
+        30: invokestatic  #471                // Method net/minecraft/class_310.method_1551:()Lnet/minecraft/class_310;
+        33: getfield      #474                // Field net/minecraft/class_310.field_1730:Z
+        36: istore_3
+        37: iload_3
+        38: ireturn
+
+  public void beforeSectionUpdates();
+    Code:
+         0: aload_0
+         1: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+         4: aload_0
+         5: invokevirtual #449                // Method getRenderDistance:()F
+         8: invokevirtual #480                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.ensureCapacity:(F)V
+        11: return
+
+  private void resetRenderLists();
+    Code:
+         0: aload_0
+         1: invokestatic  #229                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.empty:()Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         4: putfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         7: aload_0
+         8: getfield      #260                // Field taskLists:Ljava/util/Map;
+        11: invokeinterface #483,  1          // InterfaceMethod java/util/Map.values:()Ljava/util/Collection;
+        16: invokeinterface #489,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        21: astore_1
+        22: aload_1
+        23: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        28: ifeq          48
+        31: aload_1
+        32: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        37: checkcast     #268                // class java/util/ArrayDeque
+        40: astore_2
+        41: aload_2
+        42: invokevirtual #501                // Method java/util/ArrayDeque.clear:()V
+        45: goto          22
+        48: return
+
+  public void onSectionAdded(int, int, int);
+    Code:
+         0: iload_1
+         1: iload_2
+         2: iload_3
+         3: invokestatic  #513                // Method net/minecraft/class_4076.method_18685:(III)J
+         6: lstore        4
+         8: aload_0
+         9: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        12: lload         4
+        14: invokeinterface #437,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.containsKey:(J)Z
+        19: ifeq          23
+        22: return
+        23: aload_0
+        24: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+        27: iload_1
+        28: iload_2
+        29: iload_3
+        30: invokevirtual #517                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.createForChunk:(III)Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;
+        33: astore        6
+        35: new           #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        38: dup
+        39: aload         6
+        41: iload_1
+        42: iload_2
+        43: iload_3
+        44: invokespecial #522                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection."<init>":(Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;III)V
+        47: astore        7
+        49: aload         6
+        51: aload         7
+        53: invokevirtual #526                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.addSection:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        56: aload_0
+        57: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        60: lload         4
+        62: aload         7
+        64: invokeinterface #529,  4          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.put:(JLjava/lang/Object;)Ljava/lang/Object;
+        69: pop
+        70: aload_0
+        71: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        74: iload_1
+        75: iload_3
+        76: invokevirtual #533                // Method net/minecraft/class_638.method_8497:(II)Lnet/minecraft/class_2818;
+        79: astore        8
+        81: aload         8
+        83: invokevirtual #539                // Method net/minecraft/class_2791.method_12006:()[Lnet/minecraft/class_2826;
+        86: aload_0
+        87: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        90: iload_2
+        91: invokevirtual #543                // Method net/minecraft/class_638.method_31603:(I)I
+        94: aaload
+        95: astore        9
+        97: aload         9
+        99: invokevirtual #548                // Method net/minecraft/class_2826.method_38292:()Z
+       102: ifeq          118
+       105: aload_0
+       106: aload         7
+       108: getstatic     #554                // Field net/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo.EMPTY:Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;
+       111: invokevirtual #558                // Method updateSectionInfo:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z
+       114: pop
+       115: goto          138
+       118: aload_0
+       119: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+       122: aload         7
+       124: invokevirtual #561                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.add:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+       127: aload         7
+       129: bipush        8
+       131: aload_0
+       132: getfield      #156                // Field lastFrameAtTime:J
+       135: invokevirtual #565                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setPendingUpdate:(IJ)V
+       138: aload_0
+       139: aload         7
+       141: invokevirtual #568                // Method connectNeighborNodes:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+       144: aload_0
+       145: invokevirtual #571                // Method markGraphDirty:()V
+       148: return
+
+  public void onSectionRemoved(int, int, int);
+    Code:
+         0: iload_1
+         1: iload_2
+         2: iload_3
+         3: invokestatic  #513                // Method net/minecraft/class_4076.method_18685:(III)J
+         6: lstore        4
+         8: aload_0
+         9: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        12: lload         4
+        14: invokeinterface #585,  3          // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.remove:(J)Ljava/lang/Object;
+        19: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        22: astore        6
+        24: aload         6
+        26: ifnonnull     30
+        29: return
+        30: aload_0
+        31: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+        34: iload_1
+        35: iload_2
+        36: iload_3
+        37: invokevirtual #587                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.remove:(III)V
+        40: aload         6
+        42: invokevirtual #591                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getTranslucentData:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+        45: ifnull        62
+        48: aload_0
+        49: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+        52: aload         6
+        54: invokevirtual #591                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getTranslucentData:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+        57: lload         4
+        59: invokevirtual #595                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering.removeSection:(Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;J)V
+        62: aload         6
+        64: invokevirtual #599                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getRegion:()Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;
+        67: astore        7
+        69: aload         7
+        71: ifnull        81
+        74: aload         7
+        76: aload         6
+        78: invokevirtual #601                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.removeSection:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        81: aload_0
+        82: aload         6
+        84: invokevirtual #604                // Method disconnectNeighborNodes:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        87: aload_0
+        88: aload         6
+        90: aconst_null
+        91: invokevirtual #558                // Method updateSectionInfo:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z
+        94: pop
+        95: aload         6
+        97: invokevirtual #607                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.delete:()V
+       100: aload_0
+       101: invokevirtual #571                // Method markGraphDirty:()V
+       104: return
+
+  public void renderLayer(net.caffeinemc.mods.sodium.client.render.chunk.ChunkRenderMatrices, net.caffeinemc.mods.sodium.client.render.chunk.terrain.TerrainRenderPass, double, double, double, net.caffeinemc.mods.sodium.client.util.FogParameters, net.minecraft.class_12137);
+    Code:
+         0: getstatic     #173                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+         3: astore        11
+         5: aload         11
+         7: invokeinterface #617,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.createCommandList:()Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;
+        12: astore        12
+        14: aload_0
+        15: getfield      #184                // Field chunkRenderer:Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderer;
+        18: aload_1
+        19: aload         12
+        21: aload_0
+        22: getfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+        25: aload_2
+        26: new           #619                // class net/caffeinemc/mods/sodium/client/render/viewport/CameraTransform
+        29: dup
+        30: dload_3
+        31: dload         5
+        33: dload         7
+        35: invokespecial #622                // Method net/caffeinemc/mods/sodium/client/render/viewport/CameraTransform."<init>":(DDD)V
+        38: aload         9
+        40: aload_0
+        41: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        44: getstatic     #200                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.OFF:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        47: if_acmpeq     54
+        50: iconst_1
+        51: goto          55
+        54: iconst_0
+        55: aload         10
+        57: invokeinterface #634,  9          // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderer.render:(Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderMatrices;Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderListIterable;Lnet/caffeinemc/mods/sodium/client/render/chunk/terrain/TerrainRenderPass;Lnet/caffeinemc/mods/sodium/client/render/viewport/CameraTransform;Lnet/caffeinemc/mods/sodium/client/util/FogParameters;ZLnet/minecraft/class_12137;)V
+        62: aload         12
+        64: invokeinterface #637,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.flush:()V
+        69: return
+
+  public void tickVisibleRenders();
+    Code:
+         0: aload_0
+         1: getfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         4: invokevirtual #644                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.iterator:()Ljava/util/Iterator;
+         7: astore_1
+         8: aload_1
+         9: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        14: ifeq          140
+        17: aload_1
+        18: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        23: checkcast     #646                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList
+        26: astore_2
+        27: aload_2
+        28: invokevirtual #647                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.getRegion:()Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion;
+        31: astore_3
+        32: aload_2
+        33: invokevirtual #651                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.sectionsWithSpritesIterator:()Lnet/caffeinemc/mods/sodium/client/util/iterator/ByteIterator;
+        36: astore        4
+        38: aload         4
+        40: ifnonnull     46
+        43: goto          8
+        46: aload         4
+        48: invokeinterface #654,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.hasNext:()Z
+        53: ifeq          137
+        56: aload_3
+        57: aload         4
+        59: invokeinterface #657,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/util/iterator/ByteIterator.nextByteAsInt:()I
+        64: invokevirtual #661                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.getSection:(I)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        67: astore        5
+        69: aload         5
+        71: ifnonnull     77
+        74: goto          46
+        77: aload         5
+        79: invokevirtual #665                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getAnimatedSprites:()[Lnet/minecraft/class_1058;
+        82: astore        6
+        84: aload         6
+        86: ifnonnull     92
+        89: goto          46
+        92: aload         6
+        94: astore        7
+        96: aload         7
+        98: arraylength
+        99: istore        8
+       101: iconst_0
+       102: istore        9
+       104: iload         9
+       106: iload         8
+       108: if_icmpge     134
+       111: aload         7
+       113: iload         9
+       115: aaload
+       116: astore        10
+       118: getstatic     #672                // Field net/caffeinemc/mods/sodium/api/texture/SpriteUtil.INSTANCE:Lnet/caffeinemc/mods/sodium/api/texture/SpriteUtil;
+       121: aload         10
+       123: invokeinterface #676,  2          // InterfaceMethod net/caffeinemc/mods/sodium/api/texture/SpriteUtil.markSpriteActive:(Lnet/minecraft/class_1058;)V
+       128: iinc          9, 1
+       131: goto          104
+       134: goto          46
+       137: goto          8
+       140: return
+
+  public boolean isSectionVisible(int, int, int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iload_3
+         4: invokevirtual #691                // Method getRenderSection:(III)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+         7: astore        4
+         9: aload         4
+        11: ifnonnull     16
+        14: iconst_0
+        15: ireturn
+        16: aload         4
+        18: invokevirtual #694                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getLastVisibleFrame:()I
+        21: aload_0
+        22: getfield      #311                // Field lastUpdatedFrame:I
+        25: if_icmpne     32
+        28: iconst_1
+        29: goto          33
+        32: iconst_0
+        33: ireturn
+
+  public void uploadChunks();
+    Code:
+         0: aload_0
+         1: invokevirtual #699                // Method collectChunkBuildResults:()Ljava/util/ArrayList;
+         4: astore_1
+         5: aload_1
+         6: invokevirtual #704                // Method java/util/ArrayList.isEmpty:()Z
+         9: ifeq          13
+        12: return
+        13: aload_0
+        14: dup
+        15: getfield      #158                // Field needsGraphUpdate:Z
+        18: aload_0
+        19: aload_1
+        20: invokevirtual #708                // Method processChunkBuildResults:(Ljava/util/ArrayList;)Z
+        23: ior
+        24: putfield      #158                // Field needsGraphUpdate:Z
+        27: aload_1
+        28: invokevirtual #709                // Method java/util/ArrayList.iterator:()Ljava/util/Iterator;
+        31: astore_2
+        32: aload_2
+        33: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        38: ifeq          58
+        41: aload_2
+        42: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        47: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        50: astore_3
+        51: aload_3
+        52: invokevirtual #714                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.destroy:()V
+        55: goto          32
+        58: return
+
+  private boolean sectionVisible(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection);
+    Code:
+         0: aload_1
+         1: ifnull        15
+         4: aload_1
+         5: invokevirtual #694                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getLastVisibleFrame:()I
+         8: aload_0
+         9: getfield      #311                // Field lastUpdatedFrame:I
+        12: if_icmpne     19
+        15: iconst_1
+        16: goto          20
+        19: iconst_0
+        20: ireturn
+
+  private boolean isSectionImmediatePresentationCandidate(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection);
+    Code:
+         0: aload_0
+         1: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+         4: ifnonnull     9
+         7: iconst_0
+         8: ireturn
+         9: aload_1
+        10: aload_0
+        11: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        14: invokeinterface #727,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+        19: d2f
+        20: aload_0
+        21: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        24: invokeinterface #729,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+        29: d2f
+        30: aload_0
+        31: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        34: invokeinterface #731,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+        39: d2f
+        40: invokevirtual #735                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getSquaredDistance:(FFF)F
+        43: fstore_2
+        44: fload_2
+        45: getstatic     #737                // Field NEARBY_REBUILD_DISTANCE:F
+        48: fcmpg
+        49: ifge          54
+        52: iconst_1
+        53: ireturn
+        54: fload_2
+        55: getstatic     #739                // Field IMMEDIATE_PRESENT_DISTANCE:F
+        58: fcmpg
+        59: ifge          140
+        62: aload_0
+        63: aload_1
+        64: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+        67: ifne          136
+        70: aload_0
+        71: aload_1
+        72: getfield      #744                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentDown:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        75: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+        78: ifne          136
+        81: aload_0
+        82: aload_1
+        83: getfield      #747                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentUp:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        86: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+        89: ifne          136
+        92: aload_0
+        93: aload_1
+        94: getfield      #750                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentNorth:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        97: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+       100: ifne          136
+       103: aload_0
+       104: aload_1
+       105: getfield      #753                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentSouth:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       108: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+       111: ifne          136
+       114: aload_0
+       115: aload_1
+       116: getfield      #756                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentWest:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       119: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+       122: ifne          136
+       125: aload_0
+       126: aload_1
+       127: getfield      #759                // Field net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.adjacentEast:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       130: invokevirtual #741                // Method sectionVisible:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+       133: ifeq          140
+       136: iconst_1
+       137: goto          141
+       140: iconst_0
+       141: ireturn
+
+  private boolean processChunkBuildResults(java.util.ArrayList<net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput>);
+    Code:
+         0: aload_1
+         1: invokestatic  #765                // Method filterChunkBuildResults:(Ljava/util/ArrayList;)Ljava/util/List;
+         4: astore_2
+         5: invokestatic  #154                // Method java/lang/System.nanoTime:()J
+         8: lstore_3
+         9: aload_0
+        10: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+        13: getstatic     #173                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+        16: invokeinterface #617,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.createCommandList:()Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;
+        21: aload_2
+        22: invokevirtual #769                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.uploadResults:(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;Ljava/util/Collection;)V
+        25: invokestatic  #154                // Method java/lang/System.nanoTime:()J
+        28: lload_3
+        29: lsub
+        30: lstore        5
+        32: iconst_0
+        33: istore        7
+        35: lconst_0
+        36: lstore        8
+        38: aload_2
+        39: invokeinterface #772,  1          // InterfaceMethod java/util/List.iterator:()Ljava/util/Iterator;
+        44: astore        10
+        46: aload         10
+        48: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        53: ifeq          421
+        56: aload         10
+        58: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        63: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        66: astore        11
+        68: aload         11
+        70: invokevirtual #775                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.getResultSize:()J
+        73: lstore        12
+        75: aload         11
+        77: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        80: invokevirtual #781                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getRunningJob:()Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob;
+        83: astore        14
+        85: aload         11
+        87: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        90: invokevirtual #591                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getTranslucentData:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+        93: astore        15
+        95: aload         11
+        97: instanceof    #783                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput
+       100: ifeq          294
+       103: aload         11
+       105: checkcast     #783                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput
+       108: astore        16
+       110: aload         11
+       112: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       115: invokevirtual #786                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getFlags:()I
+       118: istore        19
+       120: iload         7
+       122: aload_0
+       123: aload         11
+       125: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       128: aload         16
+       130: getfield      #789                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput.info:Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;
+       133: invokevirtual #558                // Method updateSectionInfo:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z
+       136: ior
+       137: istore        7
+       139: aload         14
+       141: ifnull        215
+       144: aload         14
+       146: invokeinterface #794,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob.isBlocking:()Z
+       151: ifne          166
+       154: aload_0
+       155: aload         11
+       157: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       160: invokevirtual #796                // Method isSectionImmediatePresentationCandidate:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)Z
+       163: ifeq          215
+       166: iload         19
+       168: aload         16
+       170: getfield      #789                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput.info:Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;
+       173: getfield      #801                // Field net/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo.flags:I
+       176: invokestatic  #807                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionFlags.getNewRenderFlags:(II)I
+       179: istore        20
+       181: iload         20
+       183: ifeq          215
+       186: aload_0
+       187: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       190: ifnonnull     201
+       193: aload_0
+       194: aload_0
+       195: getfield      #392                // Field lastSectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       198: putfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       201: aload_0
+       202: getfield      #377                // Field sectionCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector;
+       205: aload         11
+       207: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       210: iload         20
+       212: invokevirtual #811                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SectionCollector.visitWithFlags:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;I)V
+       215: aload         11
+       217: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       220: lload         12
+       222: invokevirtual #815                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setLastMeshResultSize:(J)V
+       225: aload_0
+       226: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+       229: aload_0
+       230: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+       233: aload         11
+       235: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       238: lload         12
+       240: invokevirtual #819                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator.resultForSection:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;J)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshResultSize;
+       243: invokevirtual #823                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator.addData:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/Estimator$DataPoint;)V
+       246: aload         16
+       248: getfield      #827                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput.translucentData:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+       251: ifnull        291
+       254: aload_0
+       255: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+       258: aload         15
+       260: aload         16
+       262: getfield      #827                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput.translucentData:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+       265: aload_0
+       266: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+       269: aload_0
+       270: invokedynamic #847,  0            // InvokeDynamic #0:accept:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;)Ljava/util/function/BiConsumer;
+       275: invokevirtual #851                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering.integrateTranslucentData:(Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;Lorg/joml/Vector3dc;Ljava/util/function/BiConsumer;)V
+       278: aload         11
+       280: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       283: aload         16
+       285: getfield      #827                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput.translucentData:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+       288: invokevirtual #855                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setTranslucentData:(Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;)V
+       291: goto          368
+       294: aload         11
+       296: instanceof    #857                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkSortOutput
+       299: ifeq          368
+       302: aload         11
+       304: checkcast     #857                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkSortOutput
+       307: astore        17
+       309: aload         17
+       311: invokevirtual #861                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkSortOutput.getDynamicSorter:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData$DynamicTopoSorter;
+       314: ifnull        368
+       317: aload         11
+       319: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       322: invokevirtual #591                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getTranslucentData:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;
+       325: astore        19
+       327: aload         19
+       329: instanceof    #19                 // class net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData
+       332: ifeq          368
+       335: aload         19
+       337: checkcast     #19                 // class net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData
+       340: astore        18
+       342: aload_0
+       343: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+       346: aload         18
+       348: aload         17
+       350: invokevirtual #861                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkSortOutput.getDynamicSorter:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData$DynamicTopoSorter;
+       353: aload         11
+       355: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       358: invokevirtual #864                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPosition:()Lnet/minecraft/class_4076;
+       361: aload_0
+       362: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+       365: invokevirtual #868                // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering.applyTriggerChanges:(Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData;Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/DynamicTopoData$DynamicTopoSorter;Lnet/minecraft/class_4076;Lorg/joml/Vector3dc;)V
+       368: aload         14
+       370: ifnull        398
+       373: aload         11
+       375: getfield      #871                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.submitTime:I
+       378: aload         11
+       380: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       383: invokevirtual #874                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getLastSubmittedFrame:()I
+       386: if_icmplt     398
+       389: aload         11
+       391: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       394: aconst_null
+       395: invokevirtual #878                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setRunningJob:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob;)V
+       398: aload         11
+       400: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+       403: aload         11
+       405: getfield      #871                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.submitTime:I
+       408: invokevirtual #882                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setLastUploadFrame:(I)V
+       411: lload         8
+       413: lload         12
+       415: ladd
+       416: lstore        8
+       418: goto          46
+       421: aload_0
+       422: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+       425: invokevirtual #885                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator.updateModels:()V
+       428: aload_2
+       429: invokeinterface #886,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+       434: ifne          478
+       437: aload_0
+       438: getfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+       441: new           #888                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDuration
+       444: dup
+       445: lload         5
+       447: aload_2
+       448: invokeinterface #891,  1          // InterfaceMethod java/util/List.size:()I
+       453: i2l
+       454: ldiv
+       455: lload         8
+       457: aload_2
+       458: invokeinterface #891,  1          // InterfaceMethod java/util/List.size:()I
+       463: i2l
+       464: ldiv
+       465: invokespecial #894                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDuration."<init>":(JJ)V
+       468: invokevirtual #895                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator.addData:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/Estimator$DataPoint;)V
+       471: aload_0
+       472: getfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+       475: invokevirtual #896                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator.updateModels:()V
+       478: iload         7
+       480: ireturn
+
+  private boolean updateSectionInfo(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, net.caffeinemc.mods.sodium.client.render.chunk.data.BuiltSectionInfo);
+    Code:
+         0: aload_2
+         1: ifnull        14
+         4: aload_2
+         5: getfield      #801                // Field net/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo.flags:I
+         8: invokestatic  #919                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSectionFlags.needsRender:(I)Z
+        11: ifne          25
+        14: aload_0
+        15: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+        18: aload_1
+        19: invokevirtual #921                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.remove:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        22: goto          33
+        25: aload_0
+        26: getfield      #251                // Field renderableSectionTree:Lnet/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest;
+        29: aload_1
+        30: invokevirtual #561                // Method net/caffeinemc/mods/sodium/client/render/chunk/tree/RemovableMultiForest.add:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        33: aload_1
+        34: aload_2
+        35: invokevirtual #925                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setInfo:(Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;)Z
+        38: istore_3
+        39: aload_2
+        40: ifnull        53
+        43: aload_2
+        44: getfield      #929                // Field net/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo.globalBlockEntities:[Lnet/minecraft/class_2586;
+        47: invokestatic  #934                // Method org/apache/commons/lang3/ArrayUtils.isEmpty:([Ljava/lang/Object;)Z
+        50: ifeq          76
+        53: aload_0
+        54: getfield      #142                // Field sectionsWithGlobalEntities:Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+        57: aload_1
+        58: invokeinterface #939,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/ReferenceSet.remove:(Ljava/lang/Object;)Z
+        63: ifne          70
+        66: iload_3
+        67: ifeq          74
+        70: iconst_1
+        71: goto          75
+        74: iconst_0
+        75: ireturn
+        76: aload_0
+        77: getfield      #142                // Field sectionsWithGlobalEntities:Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+        80: aload_1
+        81: invokeinterface #941,  2          // InterfaceMethod it/unimi/dsi/fastutil/objects/ReferenceSet.add:(Ljava/lang/Object;)Z
+        86: ifne          93
+        89: iload_3
+        90: ifeq          97
+        93: iconst_1
+        94: goto          98
+        97: iconst_0
+        98: ireturn
+
+  private static java.util.List<net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput> filterChunkBuildResults(java.util.ArrayList<net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput>);
+    Code:
+         0: new           #946                // class it/unimi/dsi/fastutil/objects/Reference2ReferenceLinkedOpenHashMap
+         3: dup
+         4: invokespecial #947                // Method it/unimi/dsi/fastutil/objects/Reference2ReferenceLinkedOpenHashMap."<init>":()V
+         7: astore_1
+         8: aload_0
+         9: invokevirtual #709                // Method java/util/ArrayList.iterator:()Ljava/util/Iterator;
+        12: astore_2
+        13: aload_2
+        14: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        19: ifeq          104
+        22: aload_2
+        23: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        28: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        31: astore_3
+        32: aload_3
+        33: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        36: invokevirtual #950                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.isDisposed:()Z
+        39: ifne          13
+        42: aload_3
+        43: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        46: invokevirtual #953                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getLastUploadFrame:()I
+        49: aload_3
+        50: getfield      #871                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.submitTime:I
+        53: if_icmple     59
+        56: goto          13
+        59: aload_3
+        60: getfield      #777                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.render:Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        63: astore        4
+        65: aload_1
+        66: aload         4
+        68: invokevirtual #957                // Method it/unimi/dsi/fastutil/objects/Reference2ReferenceLinkedOpenHashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        71: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        74: astore        5
+        76: aload         5
+        78: ifnull        93
+        81: aload         5
+        83: getfield      #871                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.submitTime:I
+        86: aload_3
+        87: getfield      #871                // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.submitTime:I
+        90: if_icmpge     101
+        93: aload_1
+        94: aload         4
+        96: aload_3
+        97: invokevirtual #958                // Method it/unimi/dsi/fastutil/objects/Reference2ReferenceLinkedOpenHashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+       100: pop
+       101: goto          13
+       104: new           #701                // class java/util/ArrayList
+       107: dup
+       108: aload_1
+       109: invokevirtual #961                // Method it/unimi/dsi/fastutil/objects/Reference2ReferenceLinkedOpenHashMap.values:()Lit/unimi/dsi/fastutil/objects/ReferenceCollection;
+       112: invokespecial #964                // Method java/util/ArrayList."<init>":(Ljava/util/Collection;)V
+       115: areturn
+
+  private java.util.ArrayList<net.caffeinemc.mods.sodium.client.render.chunk.compile.BuilderTaskOutput> collectChunkBuildResults();
+    Code:
+         0: new           #701                // class java/util/ArrayList
+         3: dup
+         4: invokespecial #971                // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: aload_0
+         9: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+        12: invokevirtual #974                // Method java/util/concurrent/ConcurrentLinkedDeque.poll:()Ljava/lang/Object;
+        15: checkcast     #976                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobResult
+        18: dup
+        19: astore_2
+        20: ifnull        55
+        23: aload_1
+        24: aload_2
+        25: invokevirtual #979                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobResult.unwrap:()Ljava/lang/Object;
+        28: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        31: invokevirtual #980                // Method java/util/ArrayList.add:(Ljava/lang/Object;)Z
+        34: pop
+        35: aload_2
+        36: invokevirtual #984                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobResult.getJobEffort:()Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobEffort;
+        39: astore_3
+        40: aload_3
+        41: ifnull        52
+        44: aload_0
+        45: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+        48: aload_3
+        49: invokevirtual #985                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator.addData:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/Estimator$DataPoint;)V
+        52: goto          8
+        55: aload_0
+        56: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+        59: invokevirtual #986                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator.updateModels:()V
+        62: aload_1
+        63: areturn
+
+  public void cleanupAndFlip();
+    Code:
+         0: aload_0
+         1: getfield      #223                // Field sectionCache:Lnet/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache;
+         4: invokevirtual #994                // Method net/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache.cleanup:()V
+         7: aload_0
+         8: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+        11: invokevirtual #996                // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.update:()V
+        14: return
+
+  public void updateChunks(boolean);
+    Code:
+         0: aload_0
+         1: iconst_0
+         2: putfield      #1001               // Field thisFrameBlockingTasks:I
+         5: aload_0
+         6: iconst_0
+         7: putfield      #1003               // Field nextFrameBlockingTasks:I
+        10: aload_0
+        11: iconst_0
+        12: putfield      #1005               // Field deferredTasks:I
+        15: aload_0
+        16: getfield      #1007               // Field lastBlockingCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;
+        19: astore_2
+        20: aload_0
+        21: aconst_null
+        22: putfield      #1007               // Field lastBlockingCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;
+        25: aload_2
+        26: ifnonnull     51
+        29: new           #1009               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector
+        32: dup
+        33: aload_0
+        34: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+        37: dup
+        38: invokestatic  #1014               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        41: pop
+        42: invokedynamic #1023,  0           // InvokeDynamic #1:accept:(Ljava/util/concurrent/ConcurrentLinkedDeque;)Ljava/util/function/Consumer;
+        47: invokespecial #1026               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector."<init>":(Ljava/util/function/Consumer;)V
+        50: astore_2
+        51: iload_1
+        52: ifeq          84
+        55: aload_0
+        56: aload_2
+        57: aload_2
+        58: aload_2
+        59: getstatic     #1031               // Field net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UnlimitedResourceBudget.INSTANCE:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UnlimitedResourceBudget;
+        62: invokevirtual #1035               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;)V
+        65: aload_0
+        66: aload_2
+        67: invokevirtual #1038               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.getSubmittedTaskCount:()I
+        70: putfield      #1001               // Field thisFrameBlockingTasks:I
+        73: aload_2
+        74: aload_0
+        75: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+        78: invokevirtual #1042               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.awaitCompletion:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;)V
+        81: goto          234
+        84: aload_0
+        85: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+        88: aload_0
+        89: getfield      #148                // Field averageFrameDuration:J
+        92: invokevirtual #1046               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getTotalRemainingDuration:(J)J
+        95: lstore_3
+        96: new           #1048               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/LimitedResourceBudget
+        99: dup
+       100: aload_0
+       101: getfield      #148                // Field averageFrameDuration:J
+       104: l2f
+       105: ldc           #46                 // float 0.1f
+       107: fmul
+       108: f2l
+       109: ldc2_w        #49                 // long 2000000l
+       112: invokestatic  #1054               // Method java/lang/Math.max:(JJ)J
+       115: aload_0
+       116: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+       119: invokevirtual #1058               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.getStagingBuffer:()Lnet/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer;
+       122: aload_0
+       123: getfield      #148                // Field averageFrameDuration:J
+       126: invokeinterface #1063,  3         // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer.getUploadSizeLimit:(J)J
+       131: invokespecial #1064               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/LimitedResourceBudget."<init>":(JJ)V
+       134: astore        5
+       136: new           #1009               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector
+       139: dup
+       140: aload_0
+       141: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+       144: dup
+       145: invokestatic  #1014               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       148: pop
+       149: invokedynamic #1023,  0           // InvokeDynamic #1:accept:(Ljava/util/concurrent/ConcurrentLinkedDeque;)Ljava/util/function/Consumer;
+       154: invokespecial #1026               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector."<init>":(Ljava/util/function/Consumer;)V
+       157: astore        6
+       159: new           #1009               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector
+       162: dup
+       163: lload_3
+       164: aload_0
+       165: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+       168: dup
+       169: invokestatic  #1014               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       172: pop
+       173: invokedynamic #1023,  0           // InvokeDynamic #1:accept:(Ljava/util/concurrent/ConcurrentLinkedDeque;)Ljava/util/function/Consumer;
+       178: invokespecial #1067               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector."<init>":(JLjava/util/function/Consumer;)V
+       181: astore        7
+       183: aload_0
+       184: aload_2
+       185: aload         6
+       187: aload         7
+       189: aload         5
+       191: invokevirtual #1035               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;)V
+       194: aload_0
+       195: aload_2
+       196: invokevirtual #1038               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.getSubmittedTaskCount:()I
+       199: putfield      #1001               // Field thisFrameBlockingTasks:I
+       202: aload_0
+       203: aload         6
+       205: invokevirtual #1038               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.getSubmittedTaskCount:()I
+       208: putfield      #1003               // Field nextFrameBlockingTasks:I
+       211: aload_0
+       212: aload         7
+       214: invokevirtual #1038               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.getSubmittedTaskCount:()I
+       217: putfield      #1005               // Field deferredTasks:I
+       220: aload_2
+       221: aload_0
+       222: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       225: invokevirtual #1042               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.awaitCompletion:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;)V
+       228: aload_0
+       229: aload         6
+       231: putfield      #1007               // Field lastBlockingCollector:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;
+       234: return
+
+  private void submitSectionTasks(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector, net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector, net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector, net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget);
+    Code:
+         0: aload_0
+         1: aload_1
+         2: aload         4
+         4: getstatic     #1078               // Field net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.ZERO_FRAME_DEFER:Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+         7: invokevirtual #1081               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;)V
+        10: aload_0
+        11: aload_2
+        12: aload         4
+        14: getstatic     #1084               // Field net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.ONE_FRAME_DEFER:Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        17: invokevirtual #1081               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;)V
+        20: aload_0
+        21: aload_3
+        22: aload         4
+        24: getstatic     #1087               // Field net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.ALWAYS_DEFER:Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        27: invokevirtual #1081               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;)V
+        30: aload_0
+        31: aload_3
+        32: aload         4
+        34: getstatic     #1090               // Field net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.INITIAL_BUILD:Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        37: invokevirtual #1081               // Method submitSectionTasks:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;)V
+        40: return
+
+  private void submitSectionTasks(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector, net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget, net.caffeinemc.mods.sodium.client.render.chunk.TaskQueueType);
+    Code:
+         0: aload_0
+         1: getfield      #260                // Field taskLists:Ljava/util/Map;
+         4: aload_3
+         5: invokeinterface #1094,  2         // InterfaceMethod java/util/Map.get:(Ljava/lang/Object;)Ljava/lang/Object;
+        10: checkcast     #268                // class java/util/ArrayDeque
+        13: astore        4
+        15: aload         4
+        17: invokevirtual #1095               // Method java/util/ArrayDeque.isEmpty:()Z
+        20: ifne          101
+        23: aload_1
+        24: invokevirtual #1098               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.hasBudgetRemaining:()Z
+        27: ifeq          101
+        30: aload_2
+        31: invokeinterface #1103,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget.isAvailable:()Z
+        36: ifne          46
+        39: aload_3
+        40: invokevirtual #1106               // Method net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.allowsUnlimitedUploadDuration:()Z
+        43: ifeq          101
+        46: aload         4
+        48: invokevirtual #1107               // Method java/util/ArrayDeque.poll:()Ljava/lang/Object;
+        51: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        54: astore        5
+        56: aload         5
+        58: ifnonnull     64
+        61: goto          101
+        64: aload         5
+        66: invokevirtual #1110               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPendingUpdate:()I
+        69: istore        6
+        71: iload         6
+        73: ifeq          98
+        76: aload_0
+        77: aload_1
+        78: aload         5
+        80: iload         6
+        82: aload_2
+        83: aload_3
+        84: getstatic     #1078               // Field net/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType.ZERO_FRAME_DEFER:Lnet/caffeinemc/mods/sodium/client/render/chunk/TaskQueueType;
+        87: if_acmpne     94
+        90: iconst_1
+        91: goto          95
+        94: iconst_0
+        95: invokevirtual #1114               // Method submitSectionTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;ILnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget;Z)V
+        98: goto          15
+       101: return
+
+  private void submitSectionTask(net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkJobCollector, net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, int, net.caffeinemc.mods.sodium.client.render.chunk.compile.estimation.UploadResourceBudget, boolean);
+    Code:
+         0: aload_2
+         1: invokevirtual #950                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.isDisposed:()Z
+         4: ifeq          8
+         7: return
+         8: iload_3
+         9: invokestatic  #1122               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.isInitialBuild:(I)Z
+        12: ifne          22
+        15: iload_3
+        16: invokestatic  #1125               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.isRebuild:(I)Z
+        19: ifeq          103
+        22: aload_0
+        23: aload_2
+        24: aload_0
+        25: getfield      #300                // Field frame:I
+        28: invokevirtual #1129               // Method createRebuildTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;I)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderMeshingTask;
+        31: astore        6
+        33: aload         6
+        35: ifnonnull     124
+        38: aconst_null
+        39: astore        7
+        41: aload_0
+        42: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        45: getstatic     #200                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.OFF:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        48: if_acmpeq     60
+        51: aload_2
+        52: invokevirtual #864                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPosition:()Lnet/minecraft/class_4076;
+        55: invokestatic  #1135               // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/NoData.forEmptySection:(Lnet/minecraft/class_4076;)Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/NoData;
+        58: astore        7
+        60: new           #783                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput
+        63: dup
+        64: aload_2
+        65: aload_0
+        66: getfield      #300                // Field frame:I
+        69: aload         7
+        71: getstatic     #554                // Field net/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo.EMPTY:Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;
+        74: invokestatic  #1142               // Method java/util/Collections.emptyMap:()Ljava/util/Map;
+        77: invokespecial #1145               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/ChunkBuildOutput."<init>":(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;ILnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/data/TranslucentData;Lnet/caffeinemc/mods/sodium/client/render/chunk/data/BuiltSectionInfo;Ljava/util/Map;)V
+        80: invokestatic  #1149               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobResult.successfully:(Ljava/lang/Object;)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobResult;
+        83: astore        8
+        85: aload_0
+        86: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+        89: aload         8
+        91: invokevirtual #1017               // Method java/util/concurrent/ConcurrentLinkedDeque.add:(Ljava/lang/Object;)Z
+        94: pop
+        95: aload_2
+        96: aconst_null
+        97: invokevirtual #878                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setRunningJob:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob;)V
+       100: goto          124
+       103: aload_0
+       104: aload_2
+       105: aload_0
+       106: getfield      #300                // Field frame:I
+       109: invokevirtual #1153               // Method createSortTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;I)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderSortingTask;
+       112: astore        6
+       114: aload         6
+       116: ifnonnull     124
+       119: aload_2
+       120: invokevirtual #1156               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.clearPendingUpdate:()V
+       123: return
+       124: aload         6
+       126: ifnull        186
+       129: aload_0
+       130: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       133: aload         6
+       135: iload_3
+       136: invokestatic  #1159               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.isImportant:(I)Z
+       139: aload_1
+       140: dup
+       141: invokestatic  #1014               // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+       144: pop
+       145: invokedynamic #1166,  0           // InvokeDynamic #2:accept:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector;)Ljava/util/function/Consumer;
+       150: iload         5
+       152: invokevirtual #1170               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.scheduleTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderTask;ZLjava/util/function/Consumer;Z)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobTyped;
+       155: astore        7
+       157: aload_1
+       158: aload         7
+       160: invokevirtual #1173               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobCollector.addSubmittedJob:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob;)V
+       163: aload         4
+       165: aload         7
+       167: invokevirtual #1178               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobTyped.getEstimatedUploadDuration:()J
+       170: aload         7
+       172: invokevirtual #1181               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJobTyped.getEstimatedSize:()J
+       175: invokeinterface #1184,  5         // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadResourceBudget.consume:(JJ)V
+       180: aload_2
+       181: aload         7
+       183: invokevirtual #878                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setRunningJob:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkJob;)V
+       186: aload_2
+       187: aload_0
+       188: getfield      #300                // Field frame:I
+       191: invokevirtual #1187               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setLastSubmittedFrame:(I)V
+       194: aload_2
+       195: invokevirtual #1156               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.clearPendingUpdate:()V
+       198: return
+
+  public net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderMeshingTask createRebuildTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, int);
+    Code:
+         0: aload_0
+         1: getfield      #186                // Field level:Lnet/minecraft/class_638;
+         4: aload_1
+         5: invokevirtual #864                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPosition:()Lnet/minecraft/class_4076;
+         8: aload_0
+         9: getfield      #223                // Field sectionCache:Lnet/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache;
+        12: invokestatic  #1199               // Method net/caffeinemc/mods/sodium/client/world/LevelSlice.prepare:(Lnet/minecraft/class_1937;Lnet/minecraft/class_4076;Lnet/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache;)Lnet/caffeinemc/mods/sodium/client/world/cloned/ChunkRenderContext;
+        15: astore_3
+        16: aload_3
+        17: ifnonnull     22
+        20: aconst_null
+        21: areturn
+        22: new           #1203               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderMeshingTask
+        25: dup
+        26: aload_1
+        27: iload_2
+        28: aload_0
+        29: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        32: aload_3
+        33: aload_0
+        34: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        37: aload_1
+        38: invokevirtual #1110               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPendingUpdate:()I
+        41: invokestatic  #1206               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.isRebuildWithSort:(I)Z
+        44: invokespecial #1209               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderMeshingTask."<init>":(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;ILorg/joml/Vector3dc;Lnet/caffeinemc/mods/sodium/client/world/cloned/ChunkRenderContext;Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;Z)V
+        47: astore        4
+        49: aload         4
+        51: aload_0
+        52: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+        55: aload_0
+        56: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+        59: aload_0
+        60: getfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+        63: invokevirtual #1213               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderMeshingTask.calculateEstimations:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;)V
+        66: aload         4
+        68: areturn
+
+  public net.caffeinemc.mods.sodium.client.render.chunk.compile.tasks.ChunkBuilderSortingTask createSortTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, int);
+    Code:
+         0: aload_1
+         1: iload_2
+         2: aload_0
+         3: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+         6: invokestatic  #1222               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderSortingTask.createTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;ILorg/joml/Vector3dc;)Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderSortingTask;
+         9: astore_3
+        10: aload_3
+        11: ifnull        30
+        14: aload_3
+        15: aload_0
+        16: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+        19: aload_0
+        20: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+        23: aload_0
+        24: getfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+        27: invokevirtual #1223               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderSortingTask.calculateEstimations:(Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;)V
+        30: aload_3
+        31: areturn
+
+  public void processGFNIMovement(net.caffeinemc.mods.sodium.client.render.chunk.translucent_sorting.trigger.CameraMovement);
+    Code:
+         0: aload_0
+         1: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+         4: ifnull        21
+         7: aload_0
+         8: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+        11: aload_0
+        12: invokedynamic #847,  0            // InvokeDynamic #0:accept:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSectionManager;)Ljava/util/function/BiConsumer;
+        17: aload_1
+        18: invokevirtual #1231               // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering.triggerSections:(Ljava/util/function/BiConsumer;Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/CameraMovement;)V
+        21: return
+
+  public void markGraphDirty();
+    Code:
+         0: aload_0
+         1: iconst_1
+         2: putfield      #158                // Field needsGraphUpdate:Z
+         5: return
+
+  public boolean needsUpdate();
+    Code:
+         0: aload_0
+         1: getfield      #158                // Field needsGraphUpdate:Z
+         4: ireturn
+
+  public net.caffeinemc.mods.sodium.client.render.chunk.compile.executor.ChunkBuilder getBuilder();
+    Code:
+         0: aload_0
+         1: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+         4: areturn
+
+  public void destroy();
+    Code:
+         0: aload_0
+         1: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+         4: invokevirtual #1240               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.shutdown:()V
+         7: aload_0
+         8: invokevirtual #699                // Method collectChunkBuildResults:()Ljava/util/ArrayList;
+        11: invokevirtual #709                // Method java/util/ArrayList.iterator:()Ljava/util/Iterator;
+        14: astore_1
+        15: aload_1
+        16: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        21: ifeq          41
+        24: aload_1
+        25: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        30: checkcast     #711                // class net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput
+        33: astore_2
+        34: aload_2
+        35: invokevirtual #714                // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/BuilderTaskOutput.destroy:()V
+        38: goto          15
+        41: aload_0
+        42: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        45: invokeinterface #1241,  1         // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.values:()Lit/unimi/dsi/fastutil/objects/ReferenceCollection;
+        50: invokeinterface #1246,  1         // InterfaceMethod it/unimi/dsi/fastutil/objects/ReferenceCollection.iterator:()Lit/unimi/dsi/fastutil/objects/ObjectIterator;
+        55: astore_1
+        56: aload_1
+        57: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        62: ifeq          82
+        65: aload_1
+        66: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        71: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        74: astore_2
+        75: aload_2
+        76: invokevirtual #607                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.delete:()V
+        79: goto          56
+        82: aload_0
+        83: getfield      #142                // Field sectionsWithGlobalEntities:Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+        86: invokeinterface #1247,  1         // InterfaceMethod it/unimi/dsi/fastutil/objects/ReferenceSet.clear:()V
+        91: aload_0
+        92: invokevirtual #321                // Method resetRenderLists:()V
+        95: getstatic     #173                // Field net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.INSTANCE:Lnet/caffeinemc/mods/sodium/client/gl/device/RenderDevice;
+        98: invokeinterface #617,  1          // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/RenderDevice.createCommandList:()Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;
+       103: astore_1
+       104: aload_0
+       105: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+       108: aload_1
+       109: invokevirtual #1249               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.delete:(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+       112: aload_0
+       113: getfield      #184                // Field chunkRenderer:Lnet/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderer;
+       116: aload_1
+       117: invokeinterface #1250,  2         // InterfaceMethod net/caffeinemc/mods/sodium/client/render/chunk/ChunkRenderer.delete:(Lnet/caffeinemc/mods/sodium/client/gl/device/CommandList;)V
+       122: aload_1
+       123: ifnull        157
+       126: aload_1
+       127: invokeinterface #1253,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+       132: goto          157
+       135: astore_2
+       136: aload_1
+       137: ifnull        155
+       140: aload_1
+       141: invokeinterface #1253,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/device/CommandList.close:()V
+       146: goto          155
+       149: astore_3
+       150: aload_2
+       151: aload_3
+       152: invokevirtual #1257               // Method java/lang/Throwable.addSuppressed:(Ljava/lang/Throwable;)V
+       155: aload_2
+       156: athrow
+       157: return
+      Exception table:
+         from    to  target type
+           104   122   135   Class java/lang/Throwable
+           140   146   149   Class java/lang/Throwable
+
+  public int getTotalSections();
+    Code:
+         0: aload_0
+         1: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+         4: invokeinterface #1259,  1         // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.size:()I
+         9: ireturn
+
+  public int getVisibleChunkCount();
+    Code:
+         0: iconst_0
+         1: istore_1
+         2: aload_0
+         3: getfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         6: invokevirtual #644                // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists.iterator:()Ljava/util/Iterator;
+         9: astore_2
+        10: aload_2
+        11: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        16: ifeq          39
+        19: aload_2
+        20: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        25: checkcast     #646                // class net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList
+        28: astore_3
+        29: iload_1
+        30: aload_3
+        31: invokevirtual #1263               // Method net/caffeinemc/mods/sodium/client/render/chunk/lists/ChunkRenderList.getSectionsWithGeometryCount:()I
+        34: iadd
+        35: istore_1
+        36: goto          10
+        39: iload_1
+        40: ireturn
+
+  private boolean upgradePendingUpdate(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, int);
+    Code:
+         0: iload_2
+         1: ifne          6
+         4: iconst_0
+         5: ireturn
+         6: aload_1
+         7: invokevirtual #1110               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getPendingUpdate:()I
+        10: istore_3
+        11: iload_3
+        12: iload_2
+        13: invokestatic  #1270               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.join:(II)I
+        16: istore        4
+        18: iload         4
+        20: iload_3
+        21: if_icmpne     26
+        24: iconst_0
+        25: ireturn
+        26: aload_1
+        27: iload         4
+        29: aload_0
+        30: getfield      #156                // Field lastFrameAtTime:J
+        33: invokevirtual #565                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setPendingUpdate:(IJ)V
+        36: aload_0
+        37: invokevirtual #571                // Method markGraphDirty:()V
+        40: iconst_1
+        41: ireturn
+
+  public void scheduleSort(long, boolean);
+    Code:
+         0: aload_0
+         1: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+         4: lload_1
+         5: invokeinterface #1275,  3         // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.get:(J)Ljava/lang/Object;
+        10: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        13: astore        4
+        15: aload         4
+        17: ifnull        85
+        20: iconst_1
+        21: istore        5
+        23: aload_0
+        24: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+        27: invokevirtual #1279               // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.getPriorityMode:()Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior$PriorityMode;
+        30: astore        6
+        32: aload         6
+        34: getstatic     #1283               // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior$PriorityMode.NEARBY:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior$PriorityMode;
+        37: if_acmpne     52
+        40: aload_0
+        41: aload         4
+        43: getstatic     #1285               // Field NEARBY_SORT_DISTANCE:F
+        46: invokevirtual #1289               // Method shouldPrioritizeTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;F)Z
+        49: ifne          60
+        52: aload         6
+        54: getstatic     #1292               // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior$PriorityMode.ALL:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior$PriorityMode;
+        57: if_acmpne     68
+        60: iload         5
+        62: iconst_4
+        63: invokestatic  #1270               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.join:(II)I
+        66: istore        5
+        68: aload_0
+        69: aload         4
+        71: iload         5
+        73: invokevirtual #1294               // Method upgradePendingUpdate:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;I)Z
+        76: ifeq          85
+        79: aload         4
+        81: iload_3
+        82: invokevirtual #1297               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.prepareTrigger:(Z)V
+        85: return
+
+  public void scheduleRebuild(int, int, int, boolean);
+    Code:
+         0: invokestatic  #1306               // Method net/caffeinemc/mods/sodium/client/render/util/RenderAsserts.validateCurrentThread:()Z
+         3: pop
+         4: aload_0
+         5: getfield      #223                // Field sectionCache:Lnet/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache;
+         8: iload_1
+         9: iload_2
+        10: iload_3
+        11: invokevirtual #1309               // Method net/caffeinemc/mods/sodium/client/world/cloned/ClonedChunkSectionCache.invalidate:(III)V
+        14: aload_0
+        15: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+        18: iload_1
+        19: iload_2
+        20: iload_3
+        21: invokestatic  #513                // Method net/minecraft/class_4076.method_18685:(III)J
+        24: invokeinterface #1275,  3         // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.get:(J)Ljava/lang/Object;
+        29: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        32: astore        5
+        34: aload         5
+        36: ifnull        86
+        39: aload         5
+        41: invokevirtual #1312               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.isBuilt:()Z
+        44: ifeq          86
+        47: iload         4
+        49: ifeq          74
+        52: aload_0
+        53: aload         5
+        55: getstatic     #737                // Field NEARBY_REBUILD_DISTANCE:F
+        58: invokevirtual #1289               // Method shouldPrioritizeTask:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;F)Z
+        61: ifeq          74
+        64: iconst_2
+        65: iconst_4
+        66: invokestatic  #1270               // Method net/caffeinemc/mods/sodium/client/render/chunk/ChunkUpdateTypes.join:(II)I
+        69: istore        6
+        71: goto          77
+        74: iconst_2
+        75: istore        6
+        77: aload_0
+        78: aload         5
+        80: iload         6
+        82: invokevirtual #1294               // Method upgradePendingUpdate:(Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;I)Z
+        85: pop
+        86: return
+
+  private boolean shouldPrioritizeTask(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection, float);
+    Code:
+         0: aload_0
+         1: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+         4: ifnull        50
+         7: aload_1
+         8: aload_0
+         9: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        12: invokeinterface #727,  1          // InterfaceMethod org/joml/Vector3dc.x:()D
+        17: d2f
+        18: aload_0
+        19: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        22: invokeinterface #729,  1          // InterfaceMethod org/joml/Vector3dc.y:()D
+        27: d2f
+        28: aload_0
+        29: getfield      #302                // Field cameraPosition:Lorg/joml/Vector3dc;
+        32: invokeinterface #731,  1          // InterfaceMethod org/joml/Vector3dc.z:()D
+        37: d2f
+        38: invokevirtual #735                // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getSquaredDistance:(FFF)F
+        41: fload_2
+        42: fcmpg
+        43: ifge          50
+        46: iconst_1
+        47: goto          51
+        50: iconst_0
+        51: ireturn
+
+  private float getEffectiveRenderDistance(net.caffeinemc.mods.sodium.client.util.FogParameters);
+    Code:
+         0: aload_1
+         1: invokevirtual #1315               // Method net/caffeinemc/mods/sodium/client/util/FogParameters.alpha:()F
+         4: fstore_2
+         5: aload_0
+         6: invokevirtual #449                // Method getRenderDistance:()F
+         9: fstore_3
+        10: fload_2
+        11: fconst_1
+        12: invokestatic  #1319               // Method net/minecraft/class_3532.method_15347:(FF)Z
+        15: ifne          20
+        18: fload_3
+        19: freturn
+        20: fload_3
+        21: aload_1
+        22: invokevirtual #1322               // Method net/caffeinemc/mods/sodium/client/util/FogParameters.cullDistance:()F
+        25: ldc_w         #1323               // float 0.5f
+        28: fadd
+        29: invokestatic  #1327               // Method java/lang/Math.min:(FF)F
+        32: freturn
+
+  private float getRenderDistance();
+    Code:
+         0: aload_0
+         1: getfield      #195                // Field renderDistance:I
+         4: i2f
+         5: ldc_w         #1328               // float 16.0f
+         8: fmul
+         9: freturn
+
+  private void connectNeighborNodes(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection);
+    Code:
+         0: iconst_0
+         1: istore_2
+         2: iload_2
+         3: bipush        6
+         5: if_icmpge     65
+         8: aload_0
+         9: aload_1
+        10: invokevirtual #1331               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getChunkX:()I
+        13: iload_2
+        14: invokestatic  #1335               // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/GraphDirection.x:(I)I
+        17: iadd
+        18: aload_1
+        19: invokevirtual #1338               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getChunkY:()I
+        22: iload_2
+        23: invokestatic  #1340               // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/GraphDirection.y:(I)I
+        26: iadd
+        27: aload_1
+        28: invokevirtual #1343               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getChunkZ:()I
+        31: iload_2
+        32: invokestatic  #1345               // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/GraphDirection.z:(I)I
+        35: iadd
+        36: invokevirtual #691                // Method getRenderSection:(III)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        39: astore_3
+        40: aload_3
+        41: ifnull        59
+        44: aload_3
+        45: iload_2
+        46: invokestatic  #1348               // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/GraphDirection.opposite:(I)I
+        49: aload_1
+        50: invokevirtual #1352               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setAdjacentNode:(ILnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        53: aload_1
+        54: iload_2
+        55: aload_3
+        56: invokevirtual #1352               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setAdjacentNode:(ILnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        59: iinc          2, 1
+        62: goto          2
+        65: return
+
+  private void disconnectNeighborNodes(net.caffeinemc.mods.sodium.client.render.chunk.RenderSection);
+    Code:
+         0: iconst_0
+         1: istore_2
+         2: iload_2
+         3: bipush        6
+         5: if_icmpge     39
+         8: aload_1
+         9: iload_2
+        10: invokevirtual #1357               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.getAdjacent:(I)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+        13: astore_3
+        14: aload_3
+        15: ifnull        33
+        18: aload_3
+        19: iload_2
+        20: invokestatic  #1348               // Method net/caffeinemc/mods/sodium/client/render/chunk/occlusion/GraphDirection.opposite:(I)I
+        23: aconst_null
+        24: invokevirtual #1352               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setAdjacentNode:(ILnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        27: aload_1
+        28: iload_2
+        29: aconst_null
+        30: invokevirtual #1352               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.setAdjacentNode:(ILnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;)V
+        33: iinc          2, 1
+        36: goto          2
+        39: return
+
+  private net.caffeinemc.mods.sodium.client.render.chunk.RenderSection getRenderSection(int, int, int);
+    Code:
+         0: aload_0
+         1: getfield      #122                // Field sectionByPosition:Lit/unimi/dsi/fastutil/longs/Long2ReferenceMap;
+         4: iload_1
+         5: iload_2
+         6: iload_3
+         7: invokestatic  #513                // Method net/minecraft/class_4076.method_18685:(III)J
+        10: invokeinterface #1275,  3         // InterfaceMethod it/unimi/dsi/fastutil/longs/Long2ReferenceMap.get:(J)Ljava/lang/Object;
+        15: checkcast     #519                // class net/caffeinemc/mods/sodium/client/render/chunk/RenderSection
+        18: areturn
+
+  public java.util.Collection<java.lang.String> getDebugStrings(boolean);
+    Code:
+         0: new           #701                // class java/util/ArrayList
+         3: dup
+         4: invokespecial #971                // Method java/util/ArrayList."<init>":()V
+         7: astore_2
+         8: iconst_0
+         9: istore_3
+        10: lconst_0
+        11: lstore        4
+        13: lconst_0
+        14: lstore        6
+        16: lconst_0
+        17: lstore        8
+        19: lconst_0
+        20: lstore        10
+        22: aload_0
+        23: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+        26: invokevirtual #1364               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.getLoadedRegions:()Ljava/util/Collection;
+        29: invokeinterface #489,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+        34: astore        12
+        36: aload         12
+        38: invokeinterface #494,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+        43: ifeq          133
+        46: aload         12
+        48: invokeinterface #498,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+        53: checkcast     #29                 // class net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion
+        56: astore        13
+        58: aload         13
+        60: invokevirtual #1368               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion.getResources:()Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion$DeviceResources;
+        63: astore        14
+        65: aload         14
+        67: ifnonnull     73
+        70: goto          36
+        73: aload         14
+        75: invokevirtual #1372               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion$DeviceResources.getGeometryArena:()Lnet/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena;
+        78: astore        15
+        80: lload         4
+        82: aload         15
+        84: invokevirtual #1377               // Method net/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena.getDeviceUsedMemory:()J
+        87: ladd
+        88: lstore        4
+        90: lload         6
+        92: aload         15
+        94: invokevirtual #1380               // Method net/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena.getDeviceAllocatedMemory:()J
+        97: ladd
+        98: lstore        6
+       100: aload         14
+       102: invokevirtual #1383               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegion$DeviceResources.getIndexArena:()Lnet/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena;
+       105: astore        16
+       107: lload         8
+       109: aload         16
+       111: invokevirtual #1377               // Method net/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena.getDeviceUsedMemory:()J
+       114: ladd
+       115: lstore        8
+       117: lload         10
+       119: aload         16
+       121: invokevirtual #1380               // Method net/caffeinemc/mods/sodium/client/gl/arena/GlBufferArena.getDeviceAllocatedMemory:()J
+       124: ladd
+       125: lstore        10
+       127: iinc          3, 1
+       130: goto          36
+       133: iload_1
+       134: ifeq          240
+       137: aload_2
+       138: ldc_w         #1385               // String Pools: Geometry %d/%d MiB, Index %d/%d MiB (%d buffers)
+       141: iconst_5
+       142: anewarray     #4                  // class java/lang/Object
+       145: dup
+       146: iconst_0
+       147: lload         4
+       149: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       152: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       155: aastore
+       156: dup
+       157: iconst_1
+       158: lload         6
+       160: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       163: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       166: aastore
+       167: dup
+       168: iconst_2
+       169: lload         8
+       171: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       174: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       177: aastore
+       178: dup
+       179: iconst_3
+       180: lload         10
+       182: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       185: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       188: aastore
+       189: dup
+       190: iconst_4
+       191: iload_3
+       192: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       195: aastore
+       196: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       199: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       204: pop
+       205: aload_2
+       206: ldc_w         #1408               // String Transfer Queue: %s
+       209: iconst_1
+       210: anewarray     #4                  // class java/lang/Object
+       213: dup
+       214: iconst_0
+       215: aload_0
+       216: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+       219: invokevirtual #1058               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.getStagingBuffer:()Lnet/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer;
+       222: invokeinterface #1412,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer.toString:()Ljava/lang/String;
+       227: aastore
+       228: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       231: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       236: pop
+       237: goto          324
+       240: aload_2
+       241: ldc_w         #1414               // String G:%d/%d I:%d/%d MiB TQ: %s #%d
+       244: bipush        6
+       246: anewarray     #4                  // class java/lang/Object
+       249: dup
+       250: iconst_0
+       251: lload         4
+       253: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       256: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       259: aastore
+       260: dup
+       261: iconst_1
+       262: lload         6
+       264: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       267: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       270: aastore
+       271: dup
+       272: iconst_2
+       273: lload         8
+       275: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       278: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       281: aastore
+       282: dup
+       283: iconst_3
+       284: lload         10
+       286: invokestatic  #1388               // Method net/caffeinemc/mods/sodium/client/util/MathUtil.toMib:(J)J
+       289: invokestatic  #1394               // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+       292: aastore
+       293: dup
+       294: iconst_4
+       295: aload_0
+       296: getfield      #216                // Field regions:Lnet/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager;
+       299: invokevirtual #1058               // Method net/caffeinemc/mods/sodium/client/render/chunk/region/RenderRegionManager.getStagingBuffer:()Lnet/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer;
+       302: invokeinterface #1412,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/gl/arena/staging/StagingBuffer.toString:()Ljava/lang/String;
+       307: aastore
+       308: dup
+       309: iconst_5
+       310: iload_3
+       311: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       314: aastore
+       315: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       318: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       323: pop
+       324: iload_1
+       325: ifeq          409
+       328: aload_2
+       329: ldc_w         #1416               // String Chunk Builder: Schd=%02d | Busy=%02d (%04d%%) | Total=%02d
+       332: iconst_4
+       333: anewarray     #4                  // class java/lang/Object
+       336: dup
+       337: iconst_0
+       338: aload_0
+       339: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       342: invokevirtual #1419               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getScheduledJobCount:()I
+       345: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       348: aastore
+       349: dup
+       350: iconst_1
+       351: aload_0
+       352: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       355: invokevirtual #1422               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getBusyThreadCount:()I
+       358: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       361: aastore
+       362: dup
+       363: iconst_2
+       364: aload_0
+       365: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       368: aload_0
+       369: getfield      #146                // Field lastFrameDuration:J
+       372: invokevirtual #1426               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getBusyFraction:(J)F
+       375: ldc_w         #1427               // float 100.0f
+       378: fmul
+       379: f2i
+       380: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       383: aastore
+       384: dup
+       385: iconst_3
+       386: aload_0
+       387: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       390: invokevirtual #1430               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getTotalThreadCount:()I
+       393: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       396: aastore
+       397: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       400: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       405: pop
+       406: goto          465
+       409: aload_2
+       410: ldc_w         #1432               // String B: S%02d/B%02d/T%02d
+       413: iconst_3
+       414: anewarray     #4                  // class java/lang/Object
+       417: dup
+       418: iconst_0
+       419: aload_0
+       420: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       423: invokevirtual #1419               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getScheduledJobCount:()I
+       426: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       429: aastore
+       430: dup
+       431: iconst_1
+       432: aload_0
+       433: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       436: invokevirtual #1422               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getBusyThreadCount:()I
+       439: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       442: aastore
+       443: dup
+       444: iconst_2
+       445: aload_0
+       446: getfield      #193                // Field builder:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder;
+       449: invokevirtual #1430               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/executor/ChunkBuilder.getTotalThreadCount:()I
+       452: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       455: aastore
+       456: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       459: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       464: pop
+       465: iload_1
+       466: ifeq          529
+       469: aload_2
+       470: ldc_w         #1434               // String Tasks: N0=%03d | N1=%03d | Def=%03d, Recv=%03d
+       473: iconst_4
+       474: anewarray     #4                  // class java/lang/Object
+       477: dup
+       478: iconst_0
+       479: aload_0
+       480: getfield      #1001               // Field thisFrameBlockingTasks:I
+       483: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       486: aastore
+       487: dup
+       488: iconst_1
+       489: aload_0
+       490: getfield      #1003               // Field nextFrameBlockingTasks:I
+       493: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       496: aastore
+       497: dup
+       498: iconst_2
+       499: aload_0
+       500: getfield      #1005               // Field deferredTasks:I
+       503: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       506: aastore
+       507: dup
+       508: iconst_3
+       509: aload_0
+       510: getfield      #127                // Field buildResults:Ljava/util/concurrent/ConcurrentLinkedDeque;
+       513: invokevirtual #1435               // Method java/util/concurrent/ConcurrentLinkedDeque.size:()I
+       516: invokestatic  #1399               // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+       519: aastore
+       520: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       523: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       528: pop
+       529: iload_1
+       530: ifeq          713
+       533: invokestatic  #1441               // InterfaceMethod net/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation.getInstance:()Lnet/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation;
+       536: invokeinterface #1444,  1         // InterfaceMethod net/caffeinemc/mods/sodium/client/services/PlatformRuntimeInformation.isDevelopmentEnvironment:()Z
+       541: ifeq          713
+       544: aload_0
+       545: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+       548: ldc_w         #1203               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderMeshingTask
+       551: invokevirtual #1447               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator.toString:(Ljava/lang/Object;)Ljava/lang/String;
+       554: astore        12
+       556: aload_0
+       557: getfield      #132                // Field jobDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator;
+       560: ldc_w         #1218               // class net/caffeinemc/mods/sodium/client/render/chunk/compile/tasks/ChunkBuilderSortingTask
+       563: invokevirtual #1447               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/JobDurationEstimator.toString:(Ljava/lang/Object;)Ljava/lang/String;
+       566: astore        13
+       568: aload_0
+       569: getfield      #137                // Field jobUploadDurationEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator;
+       572: aconst_null
+       573: invokevirtual #1448               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/UploadDurationEstimator.toString:(Ljava/lang/Object;)Ljava/lang/String;
+       576: astore        14
+       578: aload_2
+       579: ldc_w         #1450               // String Duration: Mesh %s, Sort %s, Upload %s
+       582: iconst_3
+       583: anewarray     #4                  // class java/lang/Object
+       586: dup
+       587: iconst_0
+       588: aload         12
+       590: aastore
+       591: dup
+       592: iconst_1
+       593: aload         13
+       595: aastore
+       596: dup
+       597: iconst_2
+       598: aload         14
+       600: aastore
+       601: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       604: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       609: pop
+       610: new           #1452               // class it/unimi/dsi/fastutil/objects/ReferenceArrayList
+       613: dup
+       614: invokespecial #1453               // Method it/unimi/dsi/fastutil/objects/ReferenceArrayList."<init>":()V
+       617: astore        15
+       619: invokestatic  #1456               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshResultSize$SectionCategory.values:()[Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshResultSize$SectionCategory;
+       622: astore        16
+       624: aload         16
+       626: arraylength
+       627: istore        17
+       629: iconst_0
+       630: istore        18
+       632: iload         18
+       634: iload         17
+       636: if_icmpge     685
+       639: aload         16
+       641: iload         18
+       643: aaload
+       644: astore        19
+       646: aload         15
+       648: ldc_w         #1460               // String %s=%s
+       651: iconst_2
+       652: anewarray     #4                  // class java/lang/Object
+       655: dup
+       656: iconst_0
+       657: aload         19
+       659: aastore
+       660: dup
+       661: iconst_1
+       662: aload_0
+       663: getfield      #165                // Field meshTaskSizeEstimator:Lnet/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator;
+       666: aload         19
+       668: invokevirtual #1461               // Method net/caffeinemc/mods/sodium/client/render/chunk/compile/estimation/MeshTaskSizeEstimator.toString:(Ljava/lang/Object;)Ljava/lang/String;
+       671: aastore
+       672: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       675: invokevirtual #1462               // Method it/unimi/dsi/fastutil/objects/ReferenceArrayList.add:(Ljava/lang/Object;)Z
+       678: pop
+       679: iinc          18, 1
+       682: goto          632
+       685: aload_2
+       686: ldc_w         #1464               // String Size: %s
+       689: iconst_1
+       690: anewarray     #4                  // class java/lang/Object
+       693: dup
+       694: iconst_0
+       695: ldc_w         #1466               // String ,
+       698: aload         15
+       700: invokestatic  #1469               // Method java/lang/String.join:(Ljava/lang/CharSequence;Ljava/lang/Iterable;)Ljava/lang/String;
+       703: aastore
+       704: invokestatic  #1405               // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+       707: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       712: pop
+       713: aload_0
+       714: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       717: getstatic     #200                // Field net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior.OFF:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       720: if_acmpeq     739
+       723: aload_0
+       724: getfield      #205                // Field sortTriggering:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering;
+       727: aload_2
+       728: aload_0
+       729: getfield      #197                // Field sortBehavior:Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;
+       732: iload_1
+       733: invokevirtual #1473               // Method net/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/trigger/SortTriggering.addDebugStrings:(Ljava/util/List;Lnet/caffeinemc/mods/sodium/client/render/chunk/translucent_sorting/SortBehavior;Z)V
+       736: goto          749
+       739: aload_2
+       740: ldc_w         #1475               // String TS OFF
+       743: invokeinterface #1406,  2         // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+       748: pop
+       749: aload_2
+       750: areturn
+
+  public net.caffeinemc.mods.sodium.client.render.chunk.lists.SortedRenderLists getRenderLists();
+    Code:
+         0: aload_0
+         1: getfield      #231                // Field renderLists:Lnet/caffeinemc/mods/sodium/client/render/chunk/lists/SortedRenderLists;
+         4: areturn
+
+  public boolean isSectionBuilt(int, int, int);
+    Code:
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iload_3
+         4: invokevirtual #691                // Method getRenderSection:(III)Lnet/caffeinemc/mods/sodium/client/render/chunk/RenderSection;
+         7: astore        4
+         9: aload         4
+        11: ifnull        26
+        14: aload         4
+        16: invokevirtual #1312               // Method net/caffeinemc/mods/sodium/client/render/chunk/RenderSection.isBuilt:()Z
+        19: ifeq          26
+        22: iconst_1
+        23: goto          27
+        26: iconst_0
+        27: ireturn
+
+  public void onChunkAdded(int, int);
+    Code:
+         0: aload_0
+         1: getfield      #186                // Field level:Lnet/minecraft/class_638;
+         4: invokevirtual #425                // Method net/minecraft/class_638.method_32891:()I
+         7: istore_3
+         8: iload_3
+         9: aload_0
+        10: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        13: invokevirtual #428                // Method net/minecraft/class_638.method_31597:()I
+        16: if_icmpgt     32
+        19: aload_0
+        20: iload_1
+        21: iload_3
+        22: iload_2
+        23: invokevirtual #1500               // Method onSectionAdded:(III)V
+        26: iinc          3, 1
+        29: goto          8
+        32: return
+
+  public void onChunkRemoved(int, int);
+    Code:
+         0: aload_0
+         1: getfield      #186                // Field level:Lnet/minecraft/class_638;
+         4: invokevirtual #425                // Method net/minecraft/class_638.method_32891:()I
+         7: istore_3
+         8: iload_3
+         9: aload_0
+        10: getfield      #186                // Field level:Lnet/minecraft/class_638;
+        13: invokevirtual #428                // Method net/minecraft/class_638.method_31597:()I
+        16: if_icmpgt     32
+        19: aload_0
+        20: iload_1
+        21: iload_3
+        22: iload_2
+        23: invokevirtual #1503               // Method onSectionRemoved:(III)V
+        26: iinc          3, 1
+        29: goto          8
+        32: return
+
+  public java.util.Collection<net.caffeinemc.mods.sodium.client.render.chunk.RenderSection> getSectionsWithGlobalEntities();
+    Code:
+         0: aload_0
+         1: getfield      #142                // Field sectionsWithGlobalEntities:Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+         4: invokestatic  #1510               // Method it/unimi/dsi/fastutil/objects/ReferenceSets.unmodifiable:(Lit/unimi/dsi/fastutil/objects/ReferenceSet;)Lit/unimi/dsi/fastutil/objects/ReferenceSet;
+         7: areturn
+
+  static {};
+    Code:
+         0: ldc_w         #1328               // float 16.0f
+         3: invokestatic  #1515               // Method net/minecraft/class_3532.method_27285:(F)F
+         6: putstatic     #737                // Field NEARBY_REBUILD_DISTANCE:F
+         9: ldc_w         #1516               // float 64.0f
+        12: invokestatic  #1515               // Method net/minecraft/class_3532.method_27285:(F)F
+        15: putstatic     #739                // Field IMMEDIATE_PRESENT_DISTANCE:F
+        18: ldc_w         #1517               // float 25.0f
+        21: invokestatic  #1515               // Method net/minecraft/class_3532.method_27285:(F)F
+        24: putstatic     #1285               // Field NEARBY_SORT_DISTANCE:F
+        27: return
+}

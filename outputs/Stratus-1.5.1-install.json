@@ -1,0 +1,20 @@
+{
+  "version": "1.5.1",
+  "installed_shader": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.5.1.zip",
+  "sha256": "a4813ba8052ad8ff821764609d0695d3c8321b7f5189c395cc0e3499b3de040a",
+  "bytes": 7771445,
+  "tested_shader_assets_identical": 228,
+  "main_selected_shader": "Stratus-1.5.1.zip",
+  "new_world": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/saves/StratusTerrainLab",
+  "world_normal_generated": true,
+  "world_creative": true,
+  "main_mod_files_unchanged": 34,
+  "temporary_pause_on_focus_restored": "true",
+  "existing_world_directories": [
+    "Farms",
+    "WOW"
+  ],
+  "main_test_client_closed_normally": true,
+  "fps_validation": "pending user cleanup; no clean FPS claim",
+  "remaining_limit": "off-screen underwater reflection fallback can be plain blue"
+}

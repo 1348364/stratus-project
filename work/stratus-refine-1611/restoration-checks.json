@@ -1,0 +1,18 @@
+{
+  "camera_max_position_error_blocks": 2.7999049050819735e-05,
+  "yaw_modulo360_error_degrees": 3.999999989900971e-06,
+  "HUD_pause_flight_restored": true,
+  "screen": "net.minecraft.class_433",
+  "world_time": 1000,
+  "rain_gradient": 0,
+  "original_weather_timers_flags_daylight_restored": true,
+  "all_helper_stop_markers": [
+    "driver-stopped.txt",
+    "visual-driver-stopped.txt",
+    "activity-stopped.txt",
+    "world-time-stopped.txt",
+    "old-helper-bytecode-restored.txt"
+  ],
+  "test_helper_recovery": "Initial test helper hit a loaded-class version mismatch. Only its own test class was temporarily patched to stop and then restored; uniquely versioned replacement passed live gates. No Minecraft/Iris classes were modified.",
+  "no_fixture_blocks_modified": true
+}

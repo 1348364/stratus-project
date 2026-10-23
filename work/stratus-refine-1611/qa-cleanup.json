@@ -1,0 +1,16 @@
+{
+  "generated_Main_QA_copies_removed": [
+    "Stratus-1.6.11-QA-BaselineReference.zip",
+    "Stratus-1.6.11-QA-BaselineReference.zip.txt",
+    "Stratus-1.6.11-QA-CandidateReference.zip",
+    "Stratus-1.6.11-QA-CirrusOff.zip",
+    "Stratus-1.6.11-QA-CirrusOff.zip.txt",
+    "Stratus-1.6.11-QA-CirrusOn.zip",
+    "Stratus-1.6.11-QA-CirrusOn.zip.txt",
+    "Stratus-1.6.11-QA-CloudInterior.zip",
+    "Stratus-1.6.11-QA-CloudInterior.zip.txt"
+  ],
+  "unexpected_differences_preserved": [],
+  "all_workspace_evidence_retained": true,
+  "release_and_old_settings_untouched": true
+}

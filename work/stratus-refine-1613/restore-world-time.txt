@@ -1,0 +1,1 @@
+Restore after user skipped remaining live checks.

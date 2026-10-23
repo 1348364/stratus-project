@@ -1,0 +1,108 @@
+{
+  "controls": 62,
+  "all_IDs_ranges_menu_paths_preserved": true,
+  "source_defaults_changed_by_user_approval": {
+    "SKY_AMBIENT": {
+      "before": "1.40",
+      "after": "1.00"
+    },
+    "SURFACE_DAMPNESS": {
+      "before": "1.00",
+      "after": "0.65"
+    },
+    "CLOUD_LAYERS": {
+      "before": "1",
+      "after": "2"
+    },
+    "MIST_DETAIL": {
+      "before": "2",
+      "after": "3"
+    },
+    "REFLECTION_MODE": {
+      "before": "2",
+      "after": "0"
+    },
+    "WATER_VISIBILITY": {
+      "before": "1.70",
+      "after": "2.20"
+    },
+    "WATER_EXTINCTION": {
+      "before": "3.00",
+      "after": "0.90"
+    },
+    "RIPPLE_SIZE": {
+      "before": "1.00",
+      "after": "0.80"
+    },
+    "RIPPLE_RATE": {
+      "before": "0.45",
+      "after": "1.00"
+    },
+    "WATER_TURBIDITY": {
+      "before": "6.00",
+      "after": "3.00"
+    },
+    "REFRACTION_QUALITY": {
+      "before": "0",
+      "after": "1"
+    },
+    "WATER_RENDER_QUALITY": {
+      "before": "2",
+      "after": "1"
+    }
+  },
+  "reference_equals_all_62_effective_captured_Main_values": true,
+  "visual_options_shared_across_all_profiles": 56,
+  "quality_options_ordered_per_profile": {
+    "FAST": {
+      "WATER_RENDER_QUALITY": "0",
+      "ATMOSPHERE_QUALITY": "0",
+      "CLOUD_LAYERS": "1",
+      "MIST_DETAIL": "1",
+      "REFLECTION_MODE": "0",
+      "REFRACTION_QUALITY": "0"
+    },
+    "BALANCED": {
+      "WATER_RENDER_QUALITY": "1",
+      "ATMOSPHERE_QUALITY": "1",
+      "CLOUD_LAYERS": "1",
+      "MIST_DETAIL": "2",
+      "REFLECTION_MODE": "0",
+      "REFRACTION_QUALITY": "0"
+    },
+    "REFERENCE": {
+      "WATER_RENDER_QUALITY": "1",
+      "ATMOSPHERE_QUALITY": "1",
+      "CLOUD_LAYERS": "2",
+      "MIST_DETAIL": "3",
+      "REFLECTION_MODE": "0",
+      "REFRACTION_QUALITY": "1"
+    },
+    "HIGH": {
+      "WATER_RENDER_QUALITY": "2",
+      "ATMOSPHERE_QUALITY": "2",
+      "CLOUD_LAYERS": "3",
+      "MIST_DETAIL": "3",
+      "REFLECTION_MODE": "2",
+      "REFRACTION_QUALITY": "2"
+    }
+  },
+  "same_Reference_default_definition_in_source_and_profile": true,
+  "related_migration_keys": [
+    "ATMOSPHERE_QUALITY",
+    "CLOUD_LAYERS",
+    "MIST_DETAIL",
+    "REFLECTION_MODE",
+    "REFRACTION_QUALITY",
+    "RIPPLE_RATE",
+    "RIPPLE_SIZE",
+    "SKY_AMBIENT",
+    "SURFACE_DAMPNESS",
+    "WATER_EXTINCTION",
+    "WATER_RENDER_QUALITY",
+    "WATER_TURBIDITY",
+    "WATER_VISIBILITY"
+  ],
+  "all_higher_quality_choices_still_available": true,
+  "rebase_is_not_an_optimisation_speedup": true
+}

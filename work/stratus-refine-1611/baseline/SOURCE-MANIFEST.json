@@ -1,0 +1,1177 @@
+[
+  {
+    "path": "shaders/block.properties",
+    "bytes": 17829,
+    "sha256": "9b040f825fcfdef6cbe1ee8d849687348924836ac0974c39b3146095ffb55622"
+  },
+  {
+    "path": "shaders/composite.fsh",
+    "bytes": 96,
+    "sha256": "6ff634ea336a1f159388e7ea81f804290a4b3a10d21df494f1722f502fdcb85d"
+  },
+  {
+    "path": "shaders/composite.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite1.fsh",
+    "bytes": 84,
+    "sha256": "1df8e0676d0cad589c376fdb31f55d9dd6358e88dc7127f813012b5bce4b8599"
+  },
+  {
+    "path": "shaders/composite1.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite2.fsh",
+    "bytes": 93,
+    "sha256": "e4eba3c68b9c2c5719e5d2296a1509b0e4505be3dc131bf84a636ce24cefed36"
+  },
+  {
+    "path": "shaders/composite2.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite3.fsh",
+    "bytes": 90,
+    "sha256": "dce6f1089f4e9f0eb632e59144913b2a67d9c5373a61a5c5e3066df68796ca77"
+  },
+  {
+    "path": "shaders/composite3.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite4.fsh",
+    "bytes": 98,
+    "sha256": "f98a6907db81fe9d8fe7371a5e1d1028720c250d2d649b11e62d1fab50f43383"
+  },
+  {
+    "path": "shaders/composite4.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite5.fsh",
+    "bytes": 96,
+    "sha256": "34eb65f1d18d3acaf3f3058d6dae96b386487355d90ebf59cf82bdcead83475b"
+  },
+  {
+    "path": "shaders/composite5.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/composite6.fsh",
+    "bytes": 94,
+    "sha256": "d67192b6546d4196f15eae2d653ca01080f364222d19e367f8d6d71b0b42584f"
+  },
+  {
+    "path": "shaders/composite6.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/core/air.glsl",
+    "bytes": 4858,
+    "sha256": "697d833e0fc20b059392a343545461d5fa33908914c9fc04ea70d513e3573b3f"
+  },
+  {
+    "path": "shaders/core/atmosphere-resolve.frag.glsl",
+    "bytes": 1964,
+    "sha256": "b40159429d4dc1ef55a708e4a88caf9d3e5c5dea8faae575d32f9791205e02fc"
+  },
+  {
+    "path": "shaders/core/atmosphere.frag.glsl",
+    "bytes": 620,
+    "sha256": "a8ad87874adbc3b12f1564d55ae57ee380dd723a56402699e7217ad739b1784e"
+  },
+  {
+    "path": "shaders/core/bloom-horizontal.frag.glsl",
+    "bytes": 1152,
+    "sha256": "61a398632a34254242764f1bc1a06af575e7bcd987b7bdbd23bfaddb73803235"
+  },
+  {
+    "path": "shaders/core/bloom-vertical.frag.glsl",
+    "bytes": 527,
+    "sha256": "7acc666e5e688a3d13535438dfcaed0d5387a82daed39646e2f51ee0eaee9d09"
+  },
+  {
+    "path": "shaders/core/ceiling.glsl",
+    "bytes": 12180,
+    "sha256": "ff5b5e782ecc7666889da3a7021b891332946b9214b50a4d3a025e65aefbcf20"
+  },
+  {
+    "path": "shaders/core/diffuse.glsl",
+    "bytes": 5082,
+    "sha256": "8759547b25787a83a68de087a054028af5b4c8d91fe02b69462441b7a4d29bb8"
+  },
+  {
+    "path": "shaders/core/environment.frag.glsl",
+    "bytes": 611,
+    "sha256": "9dc5fd11bca6a220c9a6655846852cb81fb223787ba3ebeadeaf0146a08b16c8"
+  },
+  {
+    "path": "shaders/core/environment.glsl",
+    "bytes": 940,
+    "sha256": "24aad785f9ca69ae789eb17a27fe3cc71b8cad072c918ff03caab608cf263f28"
+  },
+  {
+    "path": "shaders/core/field.glsl",
+    "bytes": 2969,
+    "sha256": "8f2b97cf68a3bca0144a4f019cd89b2dc8a4cdf367ee06c769225bbd2a6261fb"
+  },
+  {
+    "path": "shaders/core/forward.glsl",
+    "bytes": 661,
+    "sha256": "9a84b96b1de9ea61a4ab6e99cbae98cf496c1e4536e4b0cdc4e4a53928ca0380"
+  },
+  {
+    "path": "shaders/core/frame.glsl",
+    "bytes": 2383,
+    "sha256": "05070e80777119c2c4d2dc128fdc192f121c1cfef9ee2bf75186c0f02246dad8"
+  },
+  {
+    "path": "shaders/core/lake-normal.glsl",
+    "bytes": 1134,
+    "sha256": "115abbbbb474ac74df83c9b13e9cfb3a7d08144c8b5d001c1d97bee971586c23"
+  },
+  {
+    "path": "shaders/core/lake.frag.glsl",
+    "bytes": 6163,
+    "sha256": "6033059faa576f43ff8d8adb25936053b67033274edb278d880003cc9b61795b"
+  },
+  {
+    "path": "shaders/core/medium.glsl",
+    "bytes": 2778,
+    "sha256": "ba3a3d1a0ea9a51b6a4cb1b0f985c64c0c2cd2cf9c45961dadaa5b29b12f441a"
+  },
+  {
+    "path": "shaders/core/moisture.glsl",
+    "bytes": 713,
+    "sha256": "542515b335b5ce2e091be6b9829d6121816004bff8bdbff0c08d7f79515d47cd"
+  },
+  {
+    "path": "shaders/core/options.glsl",
+    "bytes": 4852,
+    "sha256": "fa8825624eaf6fca2e2a72083e06126943e94eda69e7762a2ad2b2324b9c97fb"
+  },
+  {
+    "path": "shaders/core/output.frag.glsl",
+    "bytes": 1562,
+    "sha256": "7b9f5c02c4f3787557afc88c7e328eba350b8fbaa143885c4df142cd0c3e2c63"
+  },
+  {
+    "path": "shaders/core/raster.frag.glsl",
+    "bytes": 6069,
+    "sha256": "1f27877c7fb4679b288b2557bb74a3a87125aa2a4c0bbc06030355d337f44a99"
+  },
+  {
+    "path": "shaders/core/raster.vert.glsl",
+    "bytes": 866,
+    "sha256": "cac058d66a473b7eb92b2e00cefc6b49fcda1c1364f9f048ddb4284b0b841c57"
+  },
+  {
+    "path": "shaders/core/refraction.glsl",
+    "bytes": 1027,
+    "sha256": "aff5f9ad2ed6077955b7b2be6dc981683c9f01758d9aac64d6f79b564ad54a78"
+  },
+  {
+    "path": "shaders/core/resolve.frag.glsl",
+    "bytes": 3133,
+    "sha256": "876f47cf03836a597a11196e6870d94ffc47fa8f2ce4a68213513fe1d1e46557"
+  },
+  {
+    "path": "shaders/core/scene-depth.glsl",
+    "bytes": 707,
+    "sha256": "b865f0e9917e904bda5544ce545ada0fd86c58abe1e903f482d7b20b3f86648b"
+  },
+  {
+    "path": "shaders/core/scene-trace.glsl",
+    "bytes": 8469,
+    "sha256": "cea54efeef4927ff8b5b911fa4f171c0dfb3dcf6870364745352c7749f4b61e2"
+  },
+  {
+    "path": "shaders/core/screen.vert.glsl",
+    "bytes": 128,
+    "sha256": "b954e02a4ba1a49f7ad97b473307ec2592b71e170a4bcf4f55ec3ac1aecae8c9"
+  },
+  {
+    "path": "shaders/core/solar-warmth.glsl",
+    "bytes": 1470,
+    "sha256": "678ac108ff3e6d08c77101a0bd802c90a217f2046d60890e97f839e807dfed40"
+  },
+  {
+    "path": "shaders/core/submerged-compose.glsl",
+    "bytes": 1813,
+    "sha256": "145a0e863ad16ab03afca407e2300b0524fda311edb665521682e5c02b993b49"
+  },
+  {
+    "path": "shaders/core/submerged-reflection.glsl",
+    "bytes": 761,
+    "sha256": "eaa50a166a129ba37a0b165a321039e46fc86bf97f5502e3cd0e16a53f4abba7"
+  },
+  {
+    "path": "shaders/core/submerged-view.glsl",
+    "bytes": 1594,
+    "sha256": "66f69ef2f724227672ed768045e9a90f0a76e2603a6e037692e5727ecc0fe49c"
+  },
+  {
+    "path": "shaders/core/trace.glsl",
+    "bytes": 485,
+    "sha256": "239ddee1175526427c7547388184110e9d4ad4a32c797f7a9441d91703941d19"
+  },
+  {
+    "path": "shaders/core/volume.glsl",
+    "bytes": 5010,
+    "sha256": "8db277a2aeb3f20af0f8f58654376c8a56ec3bfed6da54d3d3e14664abee114a"
+  },
+  {
+    "path": "shaders/core/water-buffer.glsl",
+    "bytes": 1198,
+    "sha256": "0e952655f11d55378b995308b5292201cbb2a6effa553374b1dfcbc9eef2c161"
+  },
+  {
+    "path": "shaders/core/water-interface.glsl",
+    "bytes": 1098,
+    "sha256": "7569bef23acb443cd5e356c8534d0f9d9c7a848a2dce5d4ddc7a69dd1ab86125"
+  },
+  {
+    "path": "shaders/core/water-path.glsl",
+    "bytes": 3195,
+    "sha256": "e7676e2b9f083730253e488705310b0863256f2f074c40b2d8a3dc50cdcfccd5"
+  },
+  {
+    "path": "shaders/core/water-reflection.frag.glsl",
+    "bytes": 1489,
+    "sha256": "4c1c678b3d2e8c064734b7794089b5c5b4caf8e309c78ee9102469cdd3af71ef"
+  },
+  {
+    "path": "shaders/core/water-resolve.frag.glsl",
+    "bytes": 3482,
+    "sha256": "c9aa73f09e88b37583e7dc2f4966eefab5ed97f9da00de2729ea47116976c826"
+  },
+  {
+    "path": "shaders/core/weather-volume.glsl",
+    "bytes": 337,
+    "sha256": "d72bf406b67e03ad3f1093e7185d658f5944c9d4bbf7a07e93153884c5bdd003"
+  },
+  {
+    "path": "shaders/deferred.fsh",
+    "bytes": 87,
+    "sha256": "03b1e04a2af159ba714804d549bb55f8d85fd21a43e7d4f0d2cbc499cfb011d3"
+  },
+  {
+    "path": "shaders/deferred.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/deferred1.fsh",
+    "bytes": 91,
+    "sha256": "7593d9d471a037a99b86d7bc9d8aece95610b649647cec8f97bf75cc4e581a63"
+  },
+  {
+    "path": "shaders/deferred1.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/entity.properties",
+    "bytes": 151,
+    "sha256": "a55b7ad066cd77031df8e1031e0f12e685aba84df48e0ab34682ee8028a12802"
+  },
+  {
+    "path": "shaders/final.fsh",
+    "bytes": 86,
+    "sha256": "7d89c683209f49f1bfe00bd324356bb9010adbbbe0b5a17e1a798526dfc52403"
+  },
+  {
+    "path": "shaders/final.vsh",
+    "bytes": 86,
+    "sha256": "5cedcf58d0ec530dd126684613ca1dc94c1edfb036d64c236cce4d7d48858853"
+  },
+  {
+    "path": "shaders/gbuffers_armor_glint.fsh",
+    "bytes": 130,
+    "sha256": "ebc02dedc7a445648216a6b6058a75b4b6279417f002966bb2fbd18ada21c830"
+  },
+  {
+    "path": "shaders/gbuffers_armor_glint.vsh",
+    "bytes": 130,
+    "sha256": "0671c22957e0d3a84f411b00ac9b9cafdaa8e5db0c247fea9b67e06a495c1865"
+  },
+  {
+    "path": "shaders/gbuffers_basic.fsh",
+    "bytes": 129,
+    "sha256": "29a20aab85fb7d672e50d0982df4dbf40ced11adfe606730f494202e7d42b6db"
+  },
+  {
+    "path": "shaders/gbuffers_basic.vsh",
+    "bytes": 129,
+    "sha256": "53f6382f842aa8dfd4404fcdeaf0d2097c8ee82bad817c592f79de9d658858f0"
+  },
+  {
+    "path": "shaders/gbuffers_beaconbeam.fsh",
+    "bytes": 129,
+    "sha256": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7"
+  },
+  {
+    "path": "shaders/gbuffers_beaconbeam.vsh",
+    "bytes": 129,
+    "sha256": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c"
+  },
+  {
+    "path": "shaders/gbuffers_block.fsh",
+    "bytes": 153,
+    "sha256": "472057a313d113c8b61cd6d637c804ee8aeda7e22f6c518ecfed958110d30ca5"
+  },
+  {
+    "path": "shaders/gbuffers_block.vsh",
+    "bytes": 153,
+    "sha256": "c04d83ea447583562693ee31df104c5836dc6b0e606c446e76b6c30000be3d1d"
+  },
+  {
+    "path": "shaders/gbuffers_block_translucent.fsh",
+    "bytes": 153,
+    "sha256": "04c29eacfbbca611749d5216e97aca2c49a0f6f8bb4c846029743428bf4296cc"
+  },
+  {
+    "path": "shaders/gbuffers_block_translucent.vsh",
+    "bytes": 153,
+    "sha256": "2e9d33065a73bc745d38c41cd37c44574951e353f66d5be4c89418fbd7d7b218"
+  },
+  {
+    "path": "shaders/gbuffers_clouds.fsh",
+    "bytes": 130,
+    "sha256": "edee1c764d8d9383508864c7e2dfbfc941363609d39430ae0b21dc29613f1d48"
+  },
+  {
+    "path": "shaders/gbuffers_clouds.vsh",
+    "bytes": 130,
+    "sha256": "37924b7a55032a2f46169cb9a92622081e34aa75c64d936174d9f3f06e8d9d1c"
+  },
+  {
+    "path": "shaders/gbuffers_damagedblock.fsh",
+    "bytes": 129,
+    "sha256": "98e00051fda85f0a19ba123fa1c423e9f9c9f79662c8651c95fd401645e85c17"
+  },
+  {
+    "path": "shaders/gbuffers_damagedblock.vsh",
+    "bytes": 129,
+    "sha256": "ac7b4f67d89ee878d96c1bef16f374c177d6fa0cf878b7965a96f4b6ca05cec0"
+  },
+  {
+    "path": "shaders/gbuffers_entities.fsh",
+    "bytes": 129,
+    "sha256": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb"
+  },
+  {
+    "path": "shaders/gbuffers_entities.vsh",
+    "bytes": 129,
+    "sha256": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359"
+  },
+  {
+    "path": "shaders/gbuffers_entities_translucent.fsh",
+    "bytes": 129,
+    "sha256": "f2cf9fe0e8b8a2cde5becbc9d85b485ae31223a52b8ba6f00ad830bd7252d5c6"
+  },
+  {
+    "path": "shaders/gbuffers_entities_translucent.vsh",
+    "bytes": 129,
+    "sha256": "dbf14c14e9f07c3f153c287ccfdda3ce9a84fdaaa1a20fe0808ad86541e88fe5"
+  },
+  {
+    "path": "shaders/gbuffers_hand.fsh",
+    "bytes": 129,
+    "sha256": "1efd90b1395d241029fbc4d48de9a0a0baba88903530377c0e40b9456794511c"
+  },
+  {
+    "path": "shaders/gbuffers_hand.vsh",
+    "bytes": 129,
+    "sha256": "8a109ac5c7b3652473039c9cdb9615f61753259ae7f9892f5e6482bcd054f4c0"
+  },
+  {
+    "path": "shaders/gbuffers_hand_water.fsh",
+    "bytes": 129,
+    "sha256": "f81b5de5ec426d96a22583d5f9ff402134ae6f798533caab3489b99c45745084"
+  },
+  {
+    "path": "shaders/gbuffers_hand_water.vsh",
+    "bytes": 129,
+    "sha256": "cc578ce0b7a61f022ae140896ee3fd096fa1a00f9b904127acc5fb332ffc333e"
+  },
+  {
+    "path": "shaders/gbuffers_item.fsh",
+    "bytes": 129,
+    "sha256": "47fd8d5bb2b9c327501bff7efae9a879f6ce7080d0e6ed468ae467b2cf4a0fbb"
+  },
+  {
+    "path": "shaders/gbuffers_item.vsh",
+    "bytes": 129,
+    "sha256": "39362bc8f872836f23bdfeadfaee412094386700acfa9bd5d122c482f20e5359"
+  },
+  {
+    "path": "shaders/gbuffers_particles.fsh",
+    "bytes": 129,
+    "sha256": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901"
+  },
+  {
+    "path": "shaders/gbuffers_particles.vsh",
+    "bytes": 129,
+    "sha256": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9"
+  },
+  {
+    "path": "shaders/gbuffers_particles_translucent.fsh",
+    "bytes": 129,
+    "sha256": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901"
+  },
+  {
+    "path": "shaders/gbuffers_particles_translucent.vsh",
+    "bytes": 129,
+    "sha256": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9"
+  },
+  {
+    "path": "shaders/gbuffers_skybasic.fsh",
+    "bytes": 129,
+    "sha256": "1fb9f011df651ec39f915122220c0031285253b1e160fb320b0c8ce0225adf11"
+  },
+  {
+    "path": "shaders/gbuffers_skybasic.vsh",
+    "bytes": 129,
+    "sha256": "2ceb74b1ec124e373f3b13561920f7ed686fe47abfabb90b6346539f1a7e0413"
+  },
+  {
+    "path": "shaders/gbuffers_skytextured.fsh",
+    "bytes": 130,
+    "sha256": "ebc02dedc7a445648216a6b6058a75b4b6279417f002966bb2fbd18ada21c830"
+  },
+  {
+    "path": "shaders/gbuffers_skytextured.vsh",
+    "bytes": 130,
+    "sha256": "0671c22957e0d3a84f411b00ac9b9cafdaa8e5db0c247fea9b67e06a495c1865"
+  },
+  {
+    "path": "shaders/gbuffers_spidereyes.fsh",
+    "bytes": 130,
+    "sha256": "de3a2c9889607116dc391140cf62ab319cd2539542567a223423ab7d33076cb6"
+  },
+  {
+    "path": "shaders/gbuffers_spidereyes.vsh",
+    "bytes": 130,
+    "sha256": "736f939b2f40a449834e8ab7fdb9493e17d2431182af7f3a756afad2efac1cec"
+  },
+  {
+    "path": "shaders/gbuffers_terrain.fsh",
+    "bytes": 129,
+    "sha256": "e8e8b95c47a032ac4f6169c847b0f032179d9e8b8e57086ce12736de8079f44d"
+  },
+  {
+    "path": "shaders/gbuffers_terrain.vsh",
+    "bytes": 129,
+    "sha256": "6774bc0e1c657034ed1e9e9aeaf6c07f7896f18b0d0b073144a74cabeb7540e2"
+  },
+  {
+    "path": "shaders/gbuffers_textured.fsh",
+    "bytes": 129,
+    "sha256": "889c62ff143c7f83d3fcbabfb1a9068bd61ae41e3453d43ad4777cd322fcbdd7"
+  },
+  {
+    "path": "shaders/gbuffers_textured.vsh",
+    "bytes": 129,
+    "sha256": "046f3bec598f17a4bb33687c19879987bbff057bc747e46f38100a9d450d567c"
+  },
+  {
+    "path": "shaders/gbuffers_textured_lit.fsh",
+    "bytes": 129,
+    "sha256": "67be6733e3a0526de0dd1a3d786734d41f2e214ee37bbcd72197bc3386f5e901"
+  },
+  {
+    "path": "shaders/gbuffers_textured_lit.vsh",
+    "bytes": 129,
+    "sha256": "2942bd814a4c4fb0b2f243037829656f47c49133a05f6eea24f3d9f48aa809a9"
+  },
+  {
+    "path": "shaders/gbuffers_water.fsh",
+    "bytes": 129,
+    "sha256": "38a8aa70eed2ee7b4131dece244015a1e7929e5aa02e67174d2aaddca27c4c1a"
+  },
+  {
+    "path": "shaders/gbuffers_water.vsh",
+    "bytes": 129,
+    "sha256": "b3d737be55ddd8591d598bef84818ce4068fd20cfd7f0bb1d4d66874e3d7cf82"
+  },
+  {
+    "path": "shaders/gbuffers_weather.fsh",
+    "bytes": 129,
+    "sha256": "7eed5ce078b2972ab11a7c834419f7d2bc9057ee1605acca2c4a17b0cd7914ef"
+  },
+  {
+    "path": "shaders/gbuffers_weather.vsh",
+    "bytes": 129,
+    "sha256": "c13b91d66f8cfb7eda386b71a8e87bbfbabb6b762d5cb10dd8fc5081a43d25f2"
+  },
+  {
+    "path": "shaders/lang/en_us.lang",
+    "bytes": 14598,
+    "sha256": "5a8d6d25bc0d54aaec5bcc5fc147524d26367000d2ffb1bdb3cdf23c56bc4e75"
+  },
+  {
+    "path": "shaders/shaders.properties",
+    "bytes": 14067,
+    "sha256": "25f5c276c10a7f58ec06597c7d8c7b87f05c60e8fbc02195d10a6dd8f35eea01"
+  },
+  {
+    "path": "shaders/volumes/weather.rgba8",
+    "bytes": 8388608,
+    "sha256": "90d381201b4851eb65c6847678765eb71f4dfdc965b8b4e4d36f455c33b2e99a"
+  },
+  {
+    "path": "shaders/volumes/weather.rgba8.mcmeta",
+    "bytes": 60,
+    "sha256": "a9c0596d66a650e39e5a0b57c524bd21202b6223060ef84eef194ce6db585658"
+  },
+  {
+    "path": "shaders/world-1/composite.fsh",
+    "bytes": 97,
+    "sha256": "d4f5a2cbaec5c3b9f7d388cdb78afb296bb38bc37b304f006b6b3fc4133d5611"
+  },
+  {
+    "path": "shaders/world-1/composite.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite1.fsh",
+    "bytes": 85,
+    "sha256": "d2aeae09f2d82fd9758466a6c779c061425914f677eaa25e90def6d5e6ecd1b0"
+  },
+  {
+    "path": "shaders/world-1/composite1.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite2.fsh",
+    "bytes": 94,
+    "sha256": "ecdf403d26e22c6d93a8d1e981867792af1fc38191cf197cb06b3732f02ac788"
+  },
+  {
+    "path": "shaders/world-1/composite2.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite3.fsh",
+    "bytes": 91,
+    "sha256": "e5fd616578be2853982b25b6f6a1fa5059175362dc19f4b782f20822309edb0f"
+  },
+  {
+    "path": "shaders/world-1/composite3.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite4.fsh",
+    "bytes": 99,
+    "sha256": "f45971a016950a8c7fe33a348ab7640a16ea9a73b0451f486f2ece74ddcad37f"
+  },
+  {
+    "path": "shaders/world-1/composite4.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite5.fsh",
+    "bytes": 97,
+    "sha256": "3c5a7a787d688380bb171dd2162154a1be7a0b00afc221cc1410f3eaff8449aa"
+  },
+  {
+    "path": "shaders/world-1/composite5.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/composite6.fsh",
+    "bytes": 95,
+    "sha256": "45061aa1fee89b1cb16f231ff0dea6af30b68edcc0719d1e1a7de90e5edc3172"
+  },
+  {
+    "path": "shaders/world-1/composite6.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/deferred.fsh",
+    "bytes": 88,
+    "sha256": "5e83fc54eb12c58d357a210cab374b61454418382804c1aab8aabbd424a40961"
+  },
+  {
+    "path": "shaders/world-1/deferred.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/deferred1.fsh",
+    "bytes": 92,
+    "sha256": "525919a6079d73d808e8f414616ce9fe9ee93252f33aa00a057582b17a631ada"
+  },
+  {
+    "path": "shaders/world-1/deferred1.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/final.fsh",
+    "bytes": 87,
+    "sha256": "b37534de1efbe951fc0c8ab78442e8d59e5bf976ff8d6dbff5d300293d5e6544"
+  },
+  {
+    "path": "shaders/world-1/final.vsh",
+    "bytes": 87,
+    "sha256": "d75e8b76b5a06456eca26d8ca109307177a5f29c5b53ed2bfc6bbd1cee1d4608"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_armor_glint.fsh",
+    "bytes": 131,
+    "sha256": "3cd2e92fd15cd310f748754efd18f46afe03c64a6948b3cf5ee25dcda1de54a1"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_armor_glint.vsh",
+    "bytes": 131,
+    "sha256": "1f01afa50eb7968b7dd2ae73ae454b3daa170ba928918e75309a9a92976e98fd"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_basic.fsh",
+    "bytes": 130,
+    "sha256": "20a49989cd0511f2c80d7079bd7d00ff9097bd076638311ec7ab96f69d1c7066"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_basic.vsh",
+    "bytes": 130,
+    "sha256": "af5ac2615096af6bf1be2ac0028ad9821debf81b8b6201e2a2db5c79b055ab70"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_beaconbeam.fsh",
+    "bytes": 130,
+    "sha256": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_beaconbeam.vsh",
+    "bytes": 130,
+    "sha256": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_block.fsh",
+    "bytes": 154,
+    "sha256": "03c7b6d99624c1cdacdb8f36ff6141f58e7f398f2e0125e0cb0113379e211ee4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_block.vsh",
+    "bytes": 154,
+    "sha256": "da4a479bf19d68521e1b121b4adba83b58c8e7d6997dcdcb90d395ec0cb2f564"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_block_translucent.fsh",
+    "bytes": 154,
+    "sha256": "b2c7bbe8abf3f1c0c7578ec4e5f2fddf8bc13fabcc98772ab9209f60308d1eef"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_block_translucent.vsh",
+    "bytes": 154,
+    "sha256": "d8e77a90ec47fb1ee8d5a5e3333a3f589e9b3820f9bd56aa2ce153176e9868cd"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_clouds.fsh",
+    "bytes": 131,
+    "sha256": "69957d14dd990fc45a38c1179a238615730456ed9ed6f87cdcdc05e63034cb35"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_clouds.vsh",
+    "bytes": 131,
+    "sha256": "099252023a03a232e2705ce932922daad4cb3fd62050353decb23cef74085ebc"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_damagedblock.fsh",
+    "bytes": 130,
+    "sha256": "9745fe5187f1924c53facaa33f62f1ffc2eb3f302e093dda90906db2a4ef4e54"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_damagedblock.vsh",
+    "bytes": 130,
+    "sha256": "455171391733f7e6de5eec62735393dcf4c307e7cffe18d6b7dfde8b72599d14"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_entities.fsh",
+    "bytes": 130,
+    "sha256": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_entities.vsh",
+    "bytes": 130,
+    "sha256": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_entities_translucent.fsh",
+    "bytes": 130,
+    "sha256": "38a38d2b34f39ea6378f243e8ea40c755b8678591ce66a88e5605abf5366993e"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_entities_translucent.vsh",
+    "bytes": 130,
+    "sha256": "2ba02420f7484a0401eac9c98fa6e4b1108ee84e0d5c215b26d46681df02f4ad"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_hand.fsh",
+    "bytes": 130,
+    "sha256": "309bf1240171a2cdb61d72fc066c00c1817aa853a4a4947b9ca8c12fd63b5c48"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_hand.vsh",
+    "bytes": 130,
+    "sha256": "ae58f961f2c258e9369d8040ba44972465bbf35a7cb1b63fed4fd168bda753b8"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_hand_water.fsh",
+    "bytes": 130,
+    "sha256": "e373237be980b42a3309795f4ff7dbccec7ec61ced07ed12d348a61b15a0bed7"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_hand_water.vsh",
+    "bytes": 130,
+    "sha256": "c20daf6eee8e6da4fc5204e3e7b58b276a79439dd222ab4d2a080de7b6121245"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_item.fsh",
+    "bytes": 130,
+    "sha256": "755baef85a6aecc521b0a72736f51309e7c6f9e80d17d75fb5dcf317f24384b7"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_item.vsh",
+    "bytes": 130,
+    "sha256": "3f8d9054fb7bfb68f4e3acab7f3fcc20a4c797d935e83b94c25b0d11a4032ac4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_particles.fsh",
+    "bytes": 130,
+    "sha256": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_particles.vsh",
+    "bytes": 130,
+    "sha256": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_particles_translucent.fsh",
+    "bytes": 130,
+    "sha256": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_particles_translucent.vsh",
+    "bytes": 130,
+    "sha256": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_skybasic.fsh",
+    "bytes": 130,
+    "sha256": "11012cb4be5a6268792ffb2234624811ac94cfe2e3c36db6293d8e68252faff4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_skybasic.vsh",
+    "bytes": 130,
+    "sha256": "616d056b3e3a8b2b4e3c004cd1bd083908ad88f9a581836e93f9114fb3eac9cb"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_skytextured.fsh",
+    "bytes": 131,
+    "sha256": "3cd2e92fd15cd310f748754efd18f46afe03c64a6948b3cf5ee25dcda1de54a1"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_skytextured.vsh",
+    "bytes": 131,
+    "sha256": "1f01afa50eb7968b7dd2ae73ae454b3daa170ba928918e75309a9a92976e98fd"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_spidereyes.fsh",
+    "bytes": 131,
+    "sha256": "87c36ab1075508c3c8ec98cafb38e804912979125d7e904f6fd4a412d004d2e4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_spidereyes.vsh",
+    "bytes": 131,
+    "sha256": "004a3adc9b3191409e0259a5328eeb2be7f01b7aece0adceb3a6ef3a31c87632"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_terrain.fsh",
+    "bytes": 130,
+    "sha256": "5b02aa74481350964a0e3709584baae022f96094b2c581fe3daeec4a4f3fd5ef"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_terrain.vsh",
+    "bytes": 130,
+    "sha256": "097a34b0859a25311d156210678b23220f147d2059a3f6b02f86650c4a7b3c7b"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_textured.fsh",
+    "bytes": 130,
+    "sha256": "fcf0accc7e8e394a76fecea44f240134a0bfa46b10505e5444636d2308b6a67d"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_textured.vsh",
+    "bytes": 130,
+    "sha256": "8a6e313a05e12b7396395c4d920178869d82bf48d3d304768137f07262aad98e"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_textured_lit.fsh",
+    "bytes": 130,
+    "sha256": "5d8bb507cb44132e53e6c5a67ad5615a10b5ec44ce0b380850f553093c810072"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_textured_lit.vsh",
+    "bytes": 130,
+    "sha256": "3eda4886032ea9a7ebec1c87e4f50a530d02838485b849065403a997902e28d0"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_water.fsh",
+    "bytes": 130,
+    "sha256": "a16befd5d895d0eebcae298c5861777eadd397ea3b59327385ae225926cab393"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_water.vsh",
+    "bytes": 130,
+    "sha256": "dbf8bfb8149b4d49ad6a811f560247bfe6f499006d9e33c1db6d045d039e6ef4"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_weather.fsh",
+    "bytes": 130,
+    "sha256": "4f4db89b3f70caad36b7b5f206c2951693866f13cf496bbe6ae86129355f49dd"
+  },
+  {
+    "path": "shaders/world-1/gbuffers_weather.vsh",
+    "bytes": 130,
+    "sha256": "3aaf70c4c4170fe760556d036197e309c5a28eee6a60280f5e62c6022d63dcbf"
+  },
+  {
+    "path": "shaders/world1/composite.fsh",
+    "bytes": 96,
+    "sha256": "c4dbbc54d0491b04d2d0700c545f818decc00b45df75d8c545912a4b899c76a8"
+  },
+  {
+    "path": "shaders/world1/composite.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite1.fsh",
+    "bytes": 84,
+    "sha256": "76ab8fbda73c11d92540e4629be92ded81a4747ad6c50e5ec515813cf4bc2e9f"
+  },
+  {
+    "path": "shaders/world1/composite1.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite2.fsh",
+    "bytes": 93,
+    "sha256": "0fbbec4ffd493976e1b8ad14003842050b097617e844348b21b1c243205c211b"
+  },
+  {
+    "path": "shaders/world1/composite2.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite3.fsh",
+    "bytes": 90,
+    "sha256": "2ddfd6737be6a98fbe67ea2c19dd0ba00c35376d1736d8b41c404a060f3331f3"
+  },
+  {
+    "path": "shaders/world1/composite3.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite4.fsh",
+    "bytes": 98,
+    "sha256": "2f4916a1b4683f7923ed24b33da01d6808bf5f696c80ffb34b544d838f38a783"
+  },
+  {
+    "path": "shaders/world1/composite4.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite5.fsh",
+    "bytes": 96,
+    "sha256": "2a146987458402c12fc808b7af1a6b55d324551714d0cebed3d9415be0389610"
+  },
+  {
+    "path": "shaders/world1/composite5.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/composite6.fsh",
+    "bytes": 94,
+    "sha256": "7507055754989a3454a768d1228e83186d1b64ef92032c1b3b8916108a2b780f"
+  },
+  {
+    "path": "shaders/world1/composite6.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/deferred.fsh",
+    "bytes": 87,
+    "sha256": "2720d7dd6bb90f63b0772b73dcfac1506563253745651bd661a5a7d3f813ce4f"
+  },
+  {
+    "path": "shaders/world1/deferred.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/deferred1.fsh",
+    "bytes": 91,
+    "sha256": "e50a1077e9ed853ef6ba064d83d266e3a2746e0ab3793029198f15300674671f"
+  },
+  {
+    "path": "shaders/world1/deferred1.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/final.fsh",
+    "bytes": 86,
+    "sha256": "a0b0da88a31d508a945ff90108bf1ece8bdce2d9c35114c211ebbf4fbe5576f1"
+  },
+  {
+    "path": "shaders/world1/final.vsh",
+    "bytes": 86,
+    "sha256": "9bb5a7e2267fcc411466f3177fa9aa0b2863cea575a69c844df6f1086399f031"
+  },
+  {
+    "path": "shaders/world1/gbuffers_armor_glint.fsh",
+    "bytes": 130,
+    "sha256": "a009e3a776002a94e7e356717a524e13b59d83f4f348077a3fb0f2b34b49aabb"
+  },
+  {
+    "path": "shaders/world1/gbuffers_armor_glint.vsh",
+    "bytes": 130,
+    "sha256": "6367768b1f7d73d31e87b3d85eee2c8900dfac77ab8a70d57034d61508298f1d"
+  },
+  {
+    "path": "shaders/world1/gbuffers_basic.fsh",
+    "bytes": 129,
+    "sha256": "18ddf83530801b291d2d2391f237046d01191a74fa9b9fd68196cac3d7376911"
+  },
+  {
+    "path": "shaders/world1/gbuffers_basic.vsh",
+    "bytes": 129,
+    "sha256": "831c1720dc85f35a1c46e92413fe106c18a95cd2435cd59986654dd988b6c1ef"
+  },
+  {
+    "path": "shaders/world1/gbuffers_beaconbeam.fsh",
+    "bytes": 129,
+    "sha256": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70"
+  },
+  {
+    "path": "shaders/world1/gbuffers_beaconbeam.vsh",
+    "bytes": 129,
+    "sha256": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45"
+  },
+  {
+    "path": "shaders/world1/gbuffers_block.fsh",
+    "bytes": 153,
+    "sha256": "699f9b018322b0501f96836beb51f0099fe2e9d7fa5926fbad10dfaeb26bb645"
+  },
+  {
+    "path": "shaders/world1/gbuffers_block.vsh",
+    "bytes": 153,
+    "sha256": "6f7881ee7a2bbbb75947aa3b5524d06a099c9870f41d621d1888e14aa07e221f"
+  },
+  {
+    "path": "shaders/world1/gbuffers_block_translucent.fsh",
+    "bytes": 153,
+    "sha256": "fa3ec9ef902a9457460cba9aabaa7d3db35ea79fa63ea70916c712bce0a43f6e"
+  },
+  {
+    "path": "shaders/world1/gbuffers_block_translucent.vsh",
+    "bytes": 153,
+    "sha256": "e42751556f72cdd91bcc5bcf76d21ab068b8b501fc0440fb1f5d223638c70fcf"
+  },
+  {
+    "path": "shaders/world1/gbuffers_clouds.fsh",
+    "bytes": 130,
+    "sha256": "247c820b5c5702b744bce82f430c344cd9af8ee97b1ea33b92498b5e95cbac45"
+  },
+  {
+    "path": "shaders/world1/gbuffers_clouds.vsh",
+    "bytes": 130,
+    "sha256": "7559a78e474fd053ac30e14ada46d29827320bd68969e5adec50c1304514b32b"
+  },
+  {
+    "path": "shaders/world1/gbuffers_damagedblock.fsh",
+    "bytes": 129,
+    "sha256": "ba411b1b684813755e7fd3f4ad24eac91e4dd246080ff18e9b1ff69f96bceb3c"
+  },
+  {
+    "path": "shaders/world1/gbuffers_damagedblock.vsh",
+    "bytes": 129,
+    "sha256": "43acaebc0c1aab805e6f38a3fa1777ef38124487800d1106ddfad87fe1efa999"
+  },
+  {
+    "path": "shaders/world1/gbuffers_entities.fsh",
+    "bytes": 129,
+    "sha256": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f"
+  },
+  {
+    "path": "shaders/world1/gbuffers_entities.vsh",
+    "bytes": 129,
+    "sha256": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb"
+  },
+  {
+    "path": "shaders/world1/gbuffers_entities_translucent.fsh",
+    "bytes": 129,
+    "sha256": "4a5a002eb9fea936062e8e00a47c80d0758db00f04fecb575f986695419b33a9"
+  },
+  {
+    "path": "shaders/world1/gbuffers_entities_translucent.vsh",
+    "bytes": 129,
+    "sha256": "fdd05d05e4696ddab2d560442d771c0b455e706bb1041f387857f34351a8b5d2"
+  },
+  {
+    "path": "shaders/world1/gbuffers_hand.fsh",
+    "bytes": 129,
+    "sha256": "81ffa8811d41941df14fd594cd0e4ec4df8d4fe877ffcb93fbe7eeaacc5295b8"
+  },
+  {
+    "path": "shaders/world1/gbuffers_hand.vsh",
+    "bytes": 129,
+    "sha256": "e17a435a11fe13d2c0c5cd60f69fd8bf5d3fe6dd280e1e8974aca4448fb39fee"
+  },
+  {
+    "path": "shaders/world1/gbuffers_hand_water.fsh",
+    "bytes": 129,
+    "sha256": "ba4fe0664d4134f8a18f3c0431fd402b07d82a4a4f9ef65269ec777a447b7d25"
+  },
+  {
+    "path": "shaders/world1/gbuffers_hand_water.vsh",
+    "bytes": 129,
+    "sha256": "242adb5174901a4bee6d9fe541bc04b5e4b09962dda4a091bb284364f3953739"
+  },
+  {
+    "path": "shaders/world1/gbuffers_item.fsh",
+    "bytes": 129,
+    "sha256": "54b80397704277a898e58354c9a2707297a2eaccf6296cde9d3b1b57835baf6f"
+  },
+  {
+    "path": "shaders/world1/gbuffers_item.vsh",
+    "bytes": 129,
+    "sha256": "3d7112cd143f9e3dc2227f2272a62d9b268455c673e500cf0333875daf7d28fb"
+  },
+  {
+    "path": "shaders/world1/gbuffers_particles.fsh",
+    "bytes": 129,
+    "sha256": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6"
+  },
+  {
+    "path": "shaders/world1/gbuffers_particles.vsh",
+    "bytes": 129,
+    "sha256": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2"
+  },
+  {
+    "path": "shaders/world1/gbuffers_particles_translucent.fsh",
+    "bytes": 129,
+    "sha256": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6"
+  },
+  {
+    "path": "shaders/world1/gbuffers_particles_translucent.vsh",
+    "bytes": 129,
+    "sha256": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2"
+  },
+  {
+    "path": "shaders/world1/gbuffers_skybasic.fsh",
+    "bytes": 129,
+    "sha256": "3403f934a829e811329898b7ed3029a7c77b1d8a77c14c4bc97c89692fce4e14"
+  },
+  {
+    "path": "shaders/world1/gbuffers_skybasic.vsh",
+    "bytes": 129,
+    "sha256": "335dec9cfa1889e4ede7bd359f07d50311b83bc4a7751959d995771a9de6a870"
+  },
+  {
+    "path": "shaders/world1/gbuffers_skytextured.fsh",
+    "bytes": 130,
+    "sha256": "a009e3a776002a94e7e356717a524e13b59d83f4f348077a3fb0f2b34b49aabb"
+  },
+  {
+    "path": "shaders/world1/gbuffers_skytextured.vsh",
+    "bytes": 130,
+    "sha256": "6367768b1f7d73d31e87b3d85eee2c8900dfac77ab8a70d57034d61508298f1d"
+  },
+  {
+    "path": "shaders/world1/gbuffers_spidereyes.fsh",
+    "bytes": 130,
+    "sha256": "0cc12629c7cf9e8ee77798e1da82d2a4af8d614848c2398c9b440700a14df79f"
+  },
+  {
+    "path": "shaders/world1/gbuffers_spidereyes.vsh",
+    "bytes": 130,
+    "sha256": "0725e802896edd742b9336160119662f3aaf8abf30c98c48722d09a0ac761257"
+  },
+  {
+    "path": "shaders/world1/gbuffers_terrain.fsh",
+    "bytes": 129,
+    "sha256": "ffece8623ec99183f74b619a66c5030a4c45d87336cd18fdff18f575e802ff2c"
+  },
+  {
+    "path": "shaders/world1/gbuffers_terrain.vsh",
+    "bytes": 129,
+    "sha256": "055f2e5eb908af386d5bb7f926df61d20c3b414a6f23e4689a70a8bfd96e70cb"
+  },
+  {
+    "path": "shaders/world1/gbuffers_textured.fsh",
+    "bytes": 129,
+    "sha256": "0ec4d9824648de95394aeee8965eab1558f3f4e8eee3eeabbcd52745515bbb70"
+  },
+  {
+    "path": "shaders/world1/gbuffers_textured.vsh",
+    "bytes": 129,
+    "sha256": "7c82577797a2768fb0d0f4ab883102569059288533dede42ecb59a81092f3f45"
+  },
+  {
+    "path": "shaders/world1/gbuffers_textured_lit.fsh",
+    "bytes": 129,
+    "sha256": "96902c91bebcea0b047336d7fcacc568ff7c21d37a7c4c12556cbd5298eff4c6"
+  },
+  {
+    "path": "shaders/world1/gbuffers_textured_lit.vsh",
+    "bytes": 129,
+    "sha256": "99c6e10b3d176bbed335f613e686a2a29c1391a099a4803f7fcbb2da62ccd0b2"
+  },
+  {
+    "path": "shaders/world1/gbuffers_water.fsh",
+    "bytes": 129,
+    "sha256": "ec1ed2dbf0d3feee9675c03ceff5bfa954acd92490a6cc0a9da85f89ded0f7e8"
+  },
+  {
+    "path": "shaders/world1/gbuffers_water.vsh",
+    "bytes": 129,
+    "sha256": "7e34a7dbe5270fd147f0c785ab0f1a12fe2db5a6679d7a96abce738622663f92"
+  },
+  {
+    "path": "shaders/world1/gbuffers_weather.fsh",
+    "bytes": 129,
+    "sha256": "9d046549b3183ee46b70484334da7125d25339a8324b6a370ea9304c2132f1d8"
+  },
+  {
+    "path": "shaders/world1/gbuffers_weather.vsh",
+    "bytes": 129,
+    "sha256": "82ae8daac3fb3731c182c16cd99398e18c1767c5a6d366e593914f1afd1502d7"
+  }
+]

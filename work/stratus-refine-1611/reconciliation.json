@@ -1,0 +1,37 @@
+{
+  "request_id": "d5f466f4-5927-4054-a65f-6a32e48779c1",
+  "release": "1.6.11",
+  "initial_frozen_current_documents_match": true,
+  "TASK_delta_already_completed1_6_10_not_duplicated": true,
+  "explicit_user_approval_supersedes_old_Reference_definition": true,
+  "later_Main_tuning_snapshots_preserved": true,
+  "newer_manual_override_protection_implemented_and_tested": true,
+  "completed_moved_to_separate_archive": [
+    "Approved Main Reference preset/source defaults and ordered shared-style presets",
+    "Later manual edit safe migration",
+    "Occupied-cloud and clearer cirrus/day/sunset verification portions"
+  ],
+  "pending": [
+    "Approximately60FPS on new approved Reference; explicitly deferred by user",
+    "Actual FPS integration of fresh/stable chunk readiness and renewed-activity rejection",
+    "Relevant distant-leaf fog acceptance",
+    "Original historical pole/leaf contexts"
+  ],
+  "CHANGES_pending_only": true,
+  "new_FPS_samples": 0,
+  "hashes_after": {
+    "TASK.md": "d8fa6a15158e94068ecaffa5d8fe9207bd3f3631193401281128b9f1b654a2e4",
+    "CHANGES.md": "43a2dc2e728bf521a67ca1eb72f26e94489fc87ad03209d77279265684b1a859",
+    "CHANGE-LOG.md": "c530e6f1f9450e71989bcf8b735979816ee133978d936512ba181e667c01f138",
+    "COMPLETED-CHANGES.md": "a9abcc75d2ab2a44e5c1b7be8344cf55c12093d0a5f03cd34a97e6bae8c99058"
+  },
+  "later_workflow_edits_preserved": {
+    "files": [
+      "AGENTS.md",
+      "work/Custom instructions/AGENTS.md",
+      "work/Custom instructions/CHANGES.md header"
+    ],
+    "change": "New IN-PROGRESS batch workflow text added after initial reads",
+    "resolution": "Preserved verbatim. Current legacy frozen request has no named/existing batch; unfinished items remain in CHANGES per explicit request. No new execution inferred from save."
+  }
+}

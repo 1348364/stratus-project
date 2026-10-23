@@ -1,0 +1,11 @@
+{
+  "installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.3.0.zip",
+  "sha256": "4d0a45c2b42417865e33481200d3d9ff64e253241feeb39d69fe9116de8662ea",
+  "preset": "Balanced",
+  "ambient": "1.60",
+  "dampness": "0.00",
+  "water_clarity": "0.35",
+  "bloom_strength": "0.18",
+  "bloom_radius": "3.00",
+  "active_shader_selection_preserved": true
+}

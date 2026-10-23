@@ -1,0 +1,11 @@
+{
+  "enableVsync": "true",
+  "fov": "0.5",
+  "fullscreen": "false",
+  "maxFps": "70",
+  "renderDistance": "12",
+  "simulationDistance": "8",
+  "pauseOnLostFocus": "true",
+  "overrideWidth": "0",
+  "overrideHeight": "0"
+}

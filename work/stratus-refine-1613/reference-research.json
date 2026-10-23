@@ -1,0 +1,9 @@
+{
+  "sources": [
+    "https://sildurs-shaders.github.io/",
+    "https://sildurs-shaders.github.io/changelogs/"
+  ],
+  "reference": "Enhanced Default, vanilla-preserving reflections and optional refraction; tinted glass, ice, honey/slime support documented. No third-party shader code copied.",
+  "implementation": "Original thin-solid screen-space optics; fixed approximate1.5IOR; no new full-screen pass; existing reflection quality controls retained.",
+  "native_fog_primary_source": "Running Minecraft1.21.11 jar assets/minecraft/shaders/include/fog.glsl; linear environmental distance interpolation in native colour space. Iris1.10.8 FogUniforms decompiled: fogStart/End from Sodium environmentalStart/End; fogColor from CapturedRenderingState."
+}

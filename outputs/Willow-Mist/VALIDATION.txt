@@ -1,0 +1,55 @@
+WILLOW MIST 2.0 - VALIDATION REPORT
+16 October 2026
+
+1. SOURCE AND PACKAGE CHECKS
+All include paths, program partners, user option values, profile assignments,
+menu entries and material mappings checked. No shadow programs, compute
+shaders, SSBOs, image load/store or custom texture assets are present.
+Root, Nether and End each have 19 vertex/fragment program pairs. An explicit
+gbuffers_line program is intentionally absent for Iris compatibility fallback.
+The archive is checked against every editable source file and tested for ZIP
+integrity. SOURCE-SHA256.txt records the packaged shader source hashes.
+
+2. OFFLINE NATIVE DRIVER COMPILATION - PASSED
+Hardware: Apple M1; native OpenGL 4.1; GLSL 4.10.
+342 vertex/fragment program compile-and-link checks passed, zero failures:
+  19 programs x 3 dimension routes x 6 configurations.
+Configurations: defaults, Fast, Reference, High, all option minima and all
+option maxima. The independent ambientOcclusionLevel constant is included
+in the option-extreme checks.
+Benign warnings identify outputs unused in a particular program.
+
+The harness expanded Iris includes, applied options, supplied Iris's texture
+format constants and adapted legacy compatibility builtins to declared core
+inputs/uniforms before driver compilation. This tests syntax and stage linkage;
+it does not execute the actual Iris transformation or Minecraft bindings.
+
+3. STANDALONE GPU RENDER TEST - PASSED
+The actual shared geometry, deferred, water and final GLSL implementations
+were rendered using a synthetic block scene through an offscreen OpenGL
+framebuffer for Fast, Reference and High. The scene contains banks, tree
+silhouettes, an island, a water plane, a matte dock and an emissive test cube.
+The test provides depth and opaque colour/mask textures to exercise the real
+water reflection and transmission code, then runs the actual final shader.
+No OpenGL error was reported. The Reference image was visually inspected:
+terrain reflections, ripples, sky fallback, blue depth absorption, matte
+solid surfaces and spatial atmospheric fading were visible.
+
+The synthetic scene uses simple colours instead of Minecraft's texture atlas
+and does not reproduce the Iris pipeline. It is a diagnostic, not an in-game
+showcase, an AO-engine test, or proof of a match to the reference images.
+
+4. ACTUAL IRIS COMPILATION - NOT PERFORMED
+Inspected mod filenames: Iris 1.10.8, Sodium 0.8.14, Minecraft 1.21.11.
+No in-game selection or successful compilation through Iris was recorded.
+
+5. IN-GAME VISUAL TESTING - NOT PERFORMED
+Day/night transitions, cave/status fog, underwater views, overlapping glass,
+weather, settings menus, other dimensions and exact reference matching remain
+to be checked in an actual test world. The original reference images are
+design targets, not output captures from this shader pack.
+
+6. TARGET-HARDWARE GAME PERFORMANCE - NOT MEASURED
+No game FPS numbers are asserted. Offline render completion is not a game
+performance benchmark. Record resolution, render distance and other mods
+when measuring. All presets keep the same artistic controls.

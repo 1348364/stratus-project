@@ -1,0 +1,19 @@
+{
+  "source": "No VanillaTweaks override; preserved vanilla reference",
+  "cloud_cell": [
+    22,
+    1
+  ],
+  "camera_feet": [
+    270.0,
+    254.38,
+    14.04
+  ],
+  "eye_y": 256,
+  "drift_for_test": 0,
+  "alpha": 255,
+  "QA_only_not_distributed": true,
+  "actual_runtime_alpha_at_camera": 255,
+  "active_runtime_footprint_matches_planned": true,
+  "actual_resource_origin": "vanilla"
+}

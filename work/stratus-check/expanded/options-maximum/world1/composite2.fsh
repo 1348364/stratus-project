@@ -6,7 +6,8 @@
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
 #define SKY_AMBIENT 4.00 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE 3.00 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
@@ -69,8 +70,14 @@ const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00
 #define MIST_SCALE 480.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
 #define MIST_BREAKUP 2.00 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
 #define MIST_LIGHT 2.00 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
+// Active native layer strength; retained patterned tint in Stratus mode.
 #define WATER_TEXTURE 1.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 1 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl
@@ -179,6 +186,12 @@ float suspendedSediment(vec3 tint,float skyExposure){
     return WATER_TURBIDITY*0.06;
 #endif
 }
+// Native underwater fog uses the running game's environmental range/colour.
+// Above the interface vanilla has a surface alpha layer, not water-depth fog.
+float nativeWaterOpacity(float distanceInWater){
+    if(isEyeInWater!=1||distanceInWater<=0.0)return 0.0;
+    return clamp((distanceInWater-fogStart)/max(fogEnd-fogStart,0.0001),0.0,1.0);
+}
 vec3 waterExtinction(vec3 tint,float skyExposure){
     tint=activeWaterTint(tint);
     float sediment=suspendedSediment(tint,skyExposure);
@@ -188,6 +201,9 @@ vec3 waterExtinction(vec3 tint,float skyExposure){
     return (absorption+vec3(sediment*0.42))*WATER_EXTINCTION/max(WATER_VISIBILITY,0.05);
 }
 vec3 waterBodyColour(vec3 tint,float skyExposure,float blockLight){
+#if WATER_STYLE == 1
+    return decodeDisplay(fogColor);
+#else
     tint=activeWaterTint(tint);
     float sediment=suspendedSediment(tint,skyExposure);
     vec3 regional=clamp(tint/vec3(0.247,0.463,0.894),vec3(0.15),vec3(2.0));
@@ -195,10 +211,22 @@ vec3 waterBodyColour(vec3 tint,float skyExposure,float blockLight){
     vec3 body=mix(blueGreen,vec3(0.16,0.13,0.065),clamp(sediment*0.8,0.0,0.65));
     float lighting=0.025+skyExposure*daytimeWeight()*0.9+blockLight*0.45;
     return body*lighting;
+#endif
+}
+vec3 waterTransmission(float distanceInWater,vec3 tint,float skyExposure){
+#if WATER_STYLE == 1
+    return vec3(1.0-nativeWaterOpacity(distanceInWater));
+#else
+    return exp(-waterExtinction(tint,skyExposure)*max(distanceInWater,0.0));
+#endif
 }
 vec3 travelThroughWater(vec3 radiance,float distanceInWater,vec3 tint,float skyExposure,float blockLight){
-    vec3 transmission=exp(-waterExtinction(tint,skyExposure)*max(distanceInWater,0.0));
+#if WATER_STYLE == 1
+    return decodeDisplay(mix(encodeDisplay(radiance),fogColor,nativeWaterOpacity(distanceInWater)));
+#else
+    vec3 transmission=waterTransmission(distanceInWater,tint,skyExposure);
     return radiance*transmission+waterBodyColour(tint,skyExposure,blockLight)*(1.0-transmission);
+#endif
 }
 // Shared defaults also cover underwater pixels with no visible interface.
 vec3 waterExtinction(){return waterExtinction(biomeWaterTint,1.0);}
@@ -207,6 +235,27 @@ vec3 travelThroughWater(vec3 c,float d,float sky){return travelThroughWater(c,d,
 #endif
 
 // END INCLUDE /core/medium.glsl
+
+
+// BEGIN INCLUDE /core/water-surface.glsl
+#ifndef STRATUS_WATER_SURFACE_INCLUDED
+#define STRATUS_WATER_SURFACE_INCLUDED
+// Native animated still/flow luminance is already sampled with atlas derivatives
+// in the water geometry pass. Apply a bounded, multiplicative surface tint to
+// the completed optics: no extra sampling, blur, opacity or added radiance.
+vec3 vanillaWaterSurface(vec3 radiance,float nativePattern,vec3 biomeTint){
+    float pattern=mix(0.65,1.0,clamp(nativePattern,0.0,1.0));
+    vec3 tint=mix(vec3(1.0),activeWaterTint(biomeTint),0.40);
+    return radiance*mix(vec3(1.0),pattern*tint,WATER_TEXTURE);
+}
+// Native alpha blend in display space, matching the game's texture/light path.
+vec3 nativeWaterSurface(vec3 behind,vec4 nativeLayer){
+    float coverage=clamp(nativeLayer.a*WATER_TEXTURE,0.0,1.0);
+    return decodeDisplay(mix(encodeDisplay(behind),encodeDisplay(nativeLayer.rgb),coverage));
+}
+#endif
+
+// END INCLUDE /core/water-surface.glsl
 
 
 // BEGIN INCLUDE /core/forward.glsl
@@ -249,14 +298,25 @@ vec3 submergedDirectView(vec3 scene,vec3 opaque,float transmission,vec2 screen,
     float lamp=clamp(float(eyeBrightnessSmooth.x)/240.0,0.0,1.0);
     float backgroundPath=submergedWaterDistance(screen,opaqueDepth,exitData);
     float foregroundPath=submergedWaterDistance(screen,frontDepth,exitData);
+#if WATER_STYLE == 1
+    // Minecraft applies its linear fog to native display-space radiance.
+    vec3 nativeOpaque=encodeDisplay(opaque),nativeScene=encodeDisplay(scene);
+    vec3 bg=mix(nativeOpaque,fogColor,nativeWaterOpacity(backgroundPath));
+    float t=1.0-nativeWaterOpacity(foregroundPath);
+    if(transmission>=0.999)return decodeDisplay(bg+(nativeScene-nativeOpaque)*t);
+    vec3 fg=forwardRadiance(nativeScene,nativeOpaque,transmission)*t;
+    fg+=fogColor*(1.0-transmission)*(1.0-t);
+    return decodeDisplay(compositeForward(bg,fg,transmission));
+#else
     vec3 background=travelThroughWater(opaque,backgroundPath,biomeWaterTint,sky,lamp);
-    vec3 attenuation=exp(-waterExtinction(biomeWaterTint,sky)*foregroundPath);
+    vec3 attenuation=waterTransmission(foregroundPath,biomeWaterTint,sky);
     // Keep signed additive/crack corrections, while alpha-covered glass and
     // particles use their own foreground path and preserve background tint.
     if(transmission>=0.999)return background+(scene-opaque)*attenuation;
     vec3 foreground=forwardRadiance(scene,opaque,transmission)*attenuation;
     foreground+=waterBodyColour(biomeWaterTint,sky,lamp)*(1.0-transmission)*(1.0-attenuation);
     return compositeForward(background,foreground,transmission);
+#endif
 }
 #endif
 
@@ -311,7 +371,12 @@ void main(){
         float z=texture(depthtex1,rasterUV).r;
         float path=z<0.999999?length(positionFromDepth(rasterUV,z)-water):24.0;
         optics=travelThroughWater(texture(colortex4,rasterUV).rgb,path,tint.rgb,depth.y,tint.a);
+
     }
+#if WATER_STYLE == 1
+    // Preserve native atlas detail independently of the selected optics buffer.
+    optics=nativeWaterSurface(optics,vec4(tint.rgb,mark.g));
+#endif
     // Keep glass, particles and other forward surfaces at full resolution.
     // A dark/tinted pane replaces part of the background; it is not a signed
     // colour delta that can be added to a different water background.

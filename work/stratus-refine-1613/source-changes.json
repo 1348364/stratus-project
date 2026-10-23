@@ -1,0 +1,18 @@
+[
+  "shaders/block.properties",
+  "shaders/core/air.glsl",
+  "shaders/core/atmosphere-resolve.frag.glsl",
+  "shaders/core/bloom-horizontal.frag.glsl",
+  "shaders/core/diffuse.glsl",
+  "shaders/core/lake.frag.glsl",
+  "shaders/core/medium.glsl",
+  "shaders/core/options.glsl",
+  "shaders/core/raster.frag.glsl",
+  "shaders/core/resolve.frag.glsl",
+  "shaders/core/submerged-compose.glsl",
+  "shaders/core/transparent-optics.glsl",
+  "shaders/core/water-resolve.frag.glsl",
+  "shaders/core/water-surface.glsl",
+  "shaders/lang/en_us.lang",
+  "shaders/shaders.properties"
+]

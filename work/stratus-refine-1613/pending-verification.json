@@ -1,0 +1,8 @@
+[
+  "Just-below-surface rectangular sky/treetop tint band remains visible in native mode, as on the previous baseline. No waterline acceptance or fix claimed.",
+  "Remaining live wet-film side/underside, shelter/rain and transparent glass/ice/slime/honey controls-off comparisons skipped at user request after Mac locked.",
+  "Native underwater biome, status-effect, night-vision, mod and resource-pack compatibility not fully verified. Native mode retains Stratus straight-through underwater exit rather than vanilla back-face surface overlay, so it is not pixel-identical vanilla.",
+  "Only nearest visible transparent interface; bounded screen-space refraction, missing scenery uses sky fallback, overlapping solids/particles and water-behind-glass require final live acceptance.",
+  "No FPS samples. Performance and the approximately60FPS target remain deferred.",
+  "Candidate archive is packaged only. Temporary QA equivalents loaded; final candidate archive not installed/selected/reviewed. Stable1.6.12 restored."
+]

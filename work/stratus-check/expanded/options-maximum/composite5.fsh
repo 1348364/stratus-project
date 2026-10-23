@@ -6,7 +6,8 @@
 // BEGIN INCLUDE /core/options.glsl
 #ifndef STRATUS_OPTIONS_INCLUDED
 #define STRATUS_OPTIONS_INCLUDED
-// Balanced defaults retain physical water optics; High restores the finest sampling.
+// Reference defaults use the explicitly approved latest Main tuning.
+// All quality choices remain available; higher presets retain detailed optics.
 #define SKY_AMBIENT 4.00 //  [0.20 0.40 0.60 0.80 1.00 1.20 1.40 1.60 1.80 2.00 2.50 3.00 4.00]
 #define EXPOSURE 3.00 //  [-3.00 -2.00 -1.50 -1.00 -0.50 0.00 0.20 0.50 0.75 1.00 1.50 2.00 3.00]
 const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00]
@@ -69,8 +70,14 @@ const float ambientOcclusionLevel = 1.00; // [0.00 0.15 0.30 0.45 0.60 0.80 1.00
 #define MIST_SCALE 480.0 //  [24.0 40.0 64.0 96.0 144.0 224.0 320.0 480.0]
 #define MIST_BREAKUP 2.00 //  [0.00 0.25 0.50 0.85 1.00 1.30 1.70 2.00]
 #define MIST_LIGHT 2.00 //  [0.00 0.20 0.40 0.65 0.85 1.00 1.50 2.00]
-// Reuse the active animated water atlas pattern without changing opacity.
+// Active native layer strength; retained patterned tint in Stratus mode.
 #define WATER_TEXTURE 1.00 //  [0.00 0.05 0.10 0.15 0.25 0.35 0.50 0.75 1.00]
+
+// Native appearance with Stratus optics, or the retained physical water model.
+#define WATER_STYLE 1 //  [0 1]
+#define TRANSPARENT_REFLECTIONS 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+#define TRANSPARENT_REFRACTION 2.00 //  [0.00 0.25 0.50 0.75 1.00 1.50 2.00]
+
 #endif
 
 // END INCLUDE /core/options.glsl
@@ -156,7 +163,8 @@ vec3 brightPixels(vec2 coordinate){
     vec2 uv=clamp(coordinate,vec2(0.0),vec2(1.0));
     vec3 colour=max(texture(colortex3,uv).rgb,vec3(0.0));
     float brightness=dot(colour,vec3(0.2126,0.7152,0.0722));
-    float emission=clamp(texture(colortex0,uv).g,0.0,1.0);
+    vec4 metadata=texture(colortex0,uv);
+    float emission=metadata.a>0.5?0.0:clamp(metadata.g,0.0,1.0);
     float threshold=mix(2.2,0.22,emission);
     if(texture(depthtex0,uv).r>=0.999999)threshold=min(threshold,0.72);
     float knee=clamp(brightness-threshold+0.20,0.0,0.40);

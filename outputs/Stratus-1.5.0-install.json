@@ -1,0 +1,27 @@
+{
+  "version": "1.5.0",
+  "zip": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/outputs/Stratus-1.5.0.zip",
+  "bytes": 7774118,
+  "sha256": "c01f8e5d20bdd20c2cda937a615d841900fd762d99f156fca51ddb79af2a76a9",
+  "source_files": 219,
+  "main_installed": "/Users/william.lei/Library/Application Support/ModrinthApp/profiles/Minecraft (1)/shaderpacks/Stratus-1.5.0.zip",
+  "test_installed": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/minecraft-smoke/shaderpacks/Stratus-1.5.0.zip",
+  "main_protected_files_byte_identical_during_install": true,
+  "main_files_match_task_start_snapshot": {
+    "options.txt": true,
+    "config/iris.properties": true,
+    "config/sodium-options.json": true
+  },
+  "main_selection_unchanged": true,
+  "main_changes_restricted_to_shaderpacks": true,
+  "preferences": [
+    "SKY_AMBIENT=1.60",
+    "FACE_BLEND=1.00",
+    "WATER_VISIBILITY=1.70",
+    "SURFACE_SATURATION=1.00",
+    "REFLECTION_MODE=2",
+    "REFRACTION_QUALITY=2",
+    "CLOUD_LAYERS=3",
+    "MIST_DETAIL=3"
+  ]
+}

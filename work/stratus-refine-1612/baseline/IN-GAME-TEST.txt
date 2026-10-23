@@ -1,0 +1,22 @@
+STRATUS1.6.11 — LIVE CHECKS / NEXT PERFORMANCE RUN
+Select the new ZIP after running the change-aware installer. Reference now
+represents the explicitly approved Main visual AND quality baseline. High keeps
+full-resolution detailed optics; Fast/Balanced are lighter. Every control remains.
+Confirm Reference(Recommended) in Iris and the expected film/water defaults.
+A later preserved manual override can correctly make the active profile Custom.
+
+Completed technical/live checks are listed in VALIDATION.txt and the external
+visual report. Initial unloaded frames are rejected and labelled separately.
+The active cloud texture was read only into private work evidence; no Minecraft
+texture is bundled with the shader. Existing source uses active resource assets.
+
+FPS TESTING IS DEFERRED: do not start sampling until the user requests it again.
+For that future run: confirm actual profile/pack/options/framebuffer/render and
+simulation distances/weather/time/camera. READY must wait for all view-distance
+columns plus empty Sodium jobs/workers/uploads/task queues and stable counts
+>=5seconds. A fresh successful gate is required at BENCH start. Record focus,
+Dynamic FPS and vanilla AFK limiter continuously. Label chunk-loading samples
+separately; never use them as steady-state results. Compare at matched quality;
+the preset rebase is not a rendering-algorithm speedup. Keep60FPS pending until
+actual evidence supports it. Stop all temporary helpers and restore client/world
+state afterwards. Do not substitute old full-detail Reference benchmarks.

@@ -1,0 +1,1 @@
+Restore exact initial current-session daylight, rain/thunder flags/timers and total world time.
