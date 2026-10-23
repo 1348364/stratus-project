@@ -10,5 +10,9 @@ Put only the changes you want worked on now under **Pending changes**. `TASK.md`
 
 - Fix indoor flowing water bug. An image of it can be found in my minecraft screenshots folder. 
 
+- Fix entity shading: entities currently does not have any shade, appily vanilla shading back to the entities
+
+- This shader is soo laggy for no reason (FPS Avg about 25), please research and find ways to fix this, its been a problem for many versions. 
+
 - Make sure that every new shader you make is inside the game shaderpacks too.
 
