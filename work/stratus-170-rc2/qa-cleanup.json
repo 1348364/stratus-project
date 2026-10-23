@@ -1,0 +1,130 @@
+[
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Before.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Before.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Candidate.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Candidate.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Dry.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-Dry.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-TextureHalf.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-TextureHalf.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-TextureZero.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-TextureZero.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Before.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Before.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Candidate.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Candidate.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Dry.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-Dry.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-FullResolution.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-FullResolution.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-TextureHalf.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-TextureHalf.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-TextureZero.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v2-TextureZero.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Before.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Before.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Candidate.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Candidate.zip.txt",
+    "status": "already absent"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Dry.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-Dry.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-TextureHalf.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-TextureHalf.zip.txt",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-TextureZero.zip",
+    "status": "removed own unchanged QA file"
+  },
+  {
+    "file": "Stratus-1.7.0-rc2-QA-v3-TextureZero.zip.txt",
+    "status": "removed own unchanged QA file"
+  }
+]

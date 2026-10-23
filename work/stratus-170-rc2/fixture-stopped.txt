@@ -1,0 +1,1 @@
+Recovered exact original 3042 air blocks; UUID sheep absent. Original watcher ended after its recorded failure. Recovery ran once on server thread.

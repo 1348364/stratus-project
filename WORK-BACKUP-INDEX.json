@@ -12179,6 +12179,30 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-rocks-live-png-805f822b637945df.zip",
       "bytes": 58702
+    },
+    "work/stratus-170-rc2/agent/recover-c.jar": {
+      "sha256": "33661b564fbd9740ca07e65177a2f0bac154c793e37c766960e0af4a55d6adbc",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-0da7a8600a927f6e.zip",
+      "bytes": 6681
+    },
+    "work/stratus-170-rc2/agent/recover-d.jar": {
+      "sha256": "ac33c6727514fb4e3b40018e559cda2a6dd8010fa7a2393a71e20c16e64304f0",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-0da7a8600a927f6e.zip",
+      "bytes": 6901
+    },
+    "work/stratus-170-rc2/agent/recover.jar": {
+      "sha256": "bb22cd634514c30172d9b1622ee0a4a9d45a3a78ceefb909e9345e37485e2696",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-0da7a8600a927f6e.zip",
+      "bytes": 6776
+    },
+    "work/stratus-170-rc2/agent/restore-camera.jar": {
+      "sha256": "4e37d2293f5587aa95aab7574e70a70dd6f4ada33871e681a1bb0cdc4f5bdec3",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-0da7a8600a927f6e.zip",
+      "bytes": 4066
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

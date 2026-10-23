@@ -1,0 +1,1 @@
+Original exact saved position/yaw/pitch restored through server teleport.

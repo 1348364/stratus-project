@@ -1,0 +1,4 @@
+public net.minecraft.class_1297 net.minecraft.class_3218.method_73284(java.util.UUID)
+public net.minecraft.class_1657 net.minecraft.class_3218.method_73285(java.util.UUID)
+public net.minecraft.class_1297 net.minecraft.class_1937.method_66347(java.util.UUID)
+public default net.minecraft.class_1657 net.minecraft.class_1924.method_18470(java.util.UUID)

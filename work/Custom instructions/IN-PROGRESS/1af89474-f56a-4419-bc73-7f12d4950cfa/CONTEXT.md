@@ -2,12 +2,12 @@
 
 Navigation and fingerprints only; this file does not certify a release or authorise additional work.
 Project: /Users/william.lei/Documents/ChatGPT/MC Shader Making
-Active brief: /Users/william.lei/Documents/ChatGPT/MC Shader Making/work/Custom instructions/IN-PROGRESS/1af89474-f56a-4419-bc73-7f12d4950cfa/CHANGES.md
-Target snapshot: /Users/william.lei/Documents/ChatGPT/MC Shader Making/work/Custom instructions/IN-PROGRESS/1af89474-f56a-4419-bc73-7f12d4950cfa/TASK.md
-Brief SHA256: 25de90ef1f2fc23b27ab9ee18fe1daa585581631a7e1bea1b5c62dadf7c1002d
+Active brief: work/Custom instructions/IN-PROGRESS/1af89474-f56a-4419-bc73-7f12d4950cfa/CHANGES.md
+Target snapshot: work/Custom instructions/IN-PROGRESS/1af89474-f56a-4419-bc73-7f12d4950cfa/TASK.md
+Brief SHA256: 1c6e9be1ec415353f13b067c7dc45341b1503cf47a31cd8bd53f3432b7476a73
 Target SHA256: 6c8aadb31672b73c97524c6a6942e4209aad361053066ee9c4279bcec7ee398d
 Current shared TASK SHA256: 6c8aadb31672b73c97524c6a6942e4209aad361053066ee9c4279bcec7ee398d
-Current shader tree SHA256: a14800da94765d93bd0a60ac91292beba4608e1ae3c585fec307cbca3202cf7f (238 files)
+Current shader tree SHA256: f658e4ce29a551c7c2bb66fc5aaa252f58b92f3bd06e7ec36b2d453c11c27a3d (239 files)
 
 ## Read first
 - Project AGENTS.md, work/Custom instructions/AGENTS.md, GOALS.md and WORKFLOW.md.
@@ -29,15 +29,16 @@ Current shader tree SHA256: a14800da94765d93bd0a60ac91292beba4608e1ae3c585fec307
 
 ## Current source navigation hints
 - outputs/Stratus/shaders/block.properties
-- outputs/Stratus/shaders/shaders.properties
+- outputs/Stratus/shaders/core/entity-lighting.glsl
+- outputs/Stratus/shaders/core/water-surface.glsl
 - outputs/Stratus/shaders/core/frame.glsl
-- outputs/Stratus/shaders/core/options.glsl
-- outputs/Stratus/shaders/core/screen.vert.glsl
-- outputs/Stratus/shaders/core/water-buffer.glsl
+- outputs/Stratus/shaders/core/submerged-reflection.glsl
 - outputs/Stratus/shaders/core/water-interface.glsl
 - outputs/Stratus/shaders/core/water-path.glsl
 - outputs/Stratus/shaders/core/water-reflection.frag.glsl
-- outputs/Stratus/shaders/core/water-resolve.frag.glsl
+- outputs/Stratus/shaders/shaders.properties
+- outputs/Stratus/shaders/core/bloom-vertical.frag.glsl
+- outputs/Stratus/shaders/core/options.glsl
 - outputs/Stratus/package.py and outputs/Stratus/install.py: existing release tooling.
 Hints are filename matches only, not a diagnosis or a complete dependency list.
 
