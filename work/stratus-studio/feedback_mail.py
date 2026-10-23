@@ -44,11 +44,46 @@ def credentials():
     return c
 
 def connect(c):
-    client=smtplib.SMTP_SSL('smtp.gmail.com',465,timeout=30,context=public_sync.bridge.TLS)
-    try:client.login(c['email'],c['password'])
-    except BaseException:
-        client.close();raise
-    return client
+    failures=[]
+    # Retry transport establishment only. No message has been claimed or sent here.
+    for port in (465,587):
+        client=None
+        stage='connection'
+        try:
+            if port==465:
+                client=smtplib.SMTP_SSL(timeout=30,context=public_sync.bridge.TLS)
+            else:
+                client=smtplib.SMTP(timeout=30)
+            code,message=client.connect('smtp.gmail.com',port)
+            if code!=220:raise smtplib.SMTPConnectError(code,message)
+            stage='server greeting'
+            client.ehlo_or_helo_if_needed()
+            if port==587:
+                stage='STARTTLS'
+                client.starttls(context=public_sync.bridge.TLS)
+                client.ehlo_or_helo_if_needed()
+            stage='authentication'
+            client.login(c['email'],c['password'])
+            return client
+        except (smtplib.SMTPAuthenticationError,ssl.SSLError):
+            if client:client.close()
+            raise
+        except (smtplib.SMTPServerDisconnected,smtplib.SMTPConnectError,OSError) as error:
+            if client:client.close()
+            # Only fixed labels/error classes are retained; provider text can be private.
+            failures.append(f'{port}: {stage} ({type(error).__name__})')
+        except BaseException:
+            if client:client.close()
+            raise
+    raise SetupError('Gmail disconnected or could not be reached over either encrypted SMTP connection. '
+                     +'; '.join(failures)+'. Check your internet connection and any VPN, firewall or network SMTP restrictions, then run setup again. '
+                     'This does not establish that your app password is wrong. Pending feedback is retained.')
+
+def disconnect(client):
+    # QUIT is cleanup: a dropped goodbye must not invalidate successful login or delivery.
+    try:client.quit()
+    except (smtplib.SMTPException,OSError):pass
+    finally:client.close()
 
 def install():
     config={'Label':LABEL,'ProgramArguments':[str(PYTHON),str(server.HERE/'feedback_mail.py'),'run'],'WorkingDirectory':str(server.PROJECT),'RunAtLoad':True,'StartInterval':60,'ProcessType':'Background','StandardOutPath':str(server.HERE/'.feedback-mail.log'),'StandardErrorPath':str(server.HERE/'.feedback-mail-error.log')}
@@ -72,7 +107,8 @@ def setup():
         print('The app password must contain 16 letters/numbers. Spaces between Google’s four groups are accepted. Create an app password, then paste it here; do not use your normal Google password.')
     c={'email':email,'password':password}
     print('Checking Gmail authentication…',flush=True)
-    smtp=connect(c);smtp.quit()
+    smtp=connect(c)
+    disconnect(smtp)
     command='add-generic-password -U -a '+ACCOUNT+' -s '+SERVICE+' -w '+shlex.quote(json.dumps(c))+'\n'
     r=subprocess.run(['security','-i'],input=command,capture_output=True,text=True)
     if r.returncode:raise SetupError('Gmail accepted the credentials, but macOS Keychain could not save them. Unlock your login keychain and run setup again.')
@@ -150,8 +186,7 @@ def run(cache_only=False):
                 acknowledged(item_id)
                 print('Feedback delivered: '+item_id,flush=True)
         finally:
-            try:smtp.quit()
-            except Exception:smtp.close()
+            disconnect(smtp)
 
 def status():
     print('Gmail configured: '+('yes' if credentials() else 'no — run feedback-mail-setup.command'))

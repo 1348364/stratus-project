@@ -101,6 +101,8 @@ The plain developer home contains only document links, coding actions and connec
 
 Double-click `feedback-mail-setup.command` once. Enter your Gmail address and a Google app password into its hidden password prompt. Setup checks Gmail authentication, saves credentials in macOS Keychain (`stratus-feedback-mail` / `smtp`) and installs `au.stratus.studio.feedback-mail` in your user LaunchAgents. No password appears in source, shell arguments, logs or browser files. Google app passwords require 2-Step Verification and may not be offered for some accounts. Never enter your normal Google password.
 
+The sender tries encrypted SMTP on port 465, then STARTTLS on port 587 if the transport disconnects or cannot connect. Password rejection and TLS certificate errors are reported directly. A disconnect during the final QUIT does not invalidate successful authentication. If both connections fail, setup reports the port and connection stage without exposing credentials; check the network, VPN or firewall and retry. This fallback happens before sending and never retries an uncertain message delivery.
+
 The background sender checks every minute while the Mac is awake and logged in. It does not need Codex or the Studio editor open. The cloud form remains available while the Mac is offline and queues submissions. `python3 feedback_mail.py status` reports setup state. Logs are `.feedback-mail.log` and `.feedback-mail-error.log`; local delivery receipts are `.feedback-mail-state.json`. Transport acceptance is recorded, not proof that Gmail placed the message in Inbox. Uncertain sends remain for manual review to avoid duplicate messages.
 
 ### Local feedback cache
