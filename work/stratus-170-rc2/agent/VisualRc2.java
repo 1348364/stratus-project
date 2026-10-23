@@ -231,6 +231,14 @@ public final class VisualRc2 {
                     resumeAt = System.currentTimeMillis()+5000;
                 }
                 case "STOP" -> {
+                    Class<?> iris=gameLoader.loadClass("net.irisshaders.iris.Iris");
+                    Object config=iris.getMethod("getIrisConfig").invoke(null);
+                    String selected=call(config,"getShaderPackName").toString();
+                    if(selected.contains("Stratus-1.7.0-rc2")){
+                        call(config,"setShaderPackName","Stratus-1.7.0-rc1.zip");
+                        call(config,"setShadersEnabled",false);call(config,"save");
+                        iris.getMethod("reload").invoke(null);
+                    }
                     Object options=client.getClass().getField("field_1690").get(client);
                     options.getClass().getField("field_1842").setBoolean(options,originalHud);
                     options.getClass().getField("field_1837").setBoolean(options,originalPause);

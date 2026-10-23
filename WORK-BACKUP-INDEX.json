@@ -11615,6 +11615,18 @@
       "tag": "project-work-snapshots",
       "asset": "public-site-history-0e99ae557299ffef.zip",
       "bytes": 19405
+    },
+    "work/stratus-170-rc2/agent/visual.jar": {
+      "sha256": "c3e0e946bdb9b045148637cbc59dd6ee2be188e11d1fe14a38f5f289b4726391",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-4ed1c257cdee015c.zip",
+      "bytes": 16224
+    },
+    "work/stratus-170-rc2/agent/world.jar": {
+      "sha256": "1ab0cfdc92afedcb2ae4e14e2fffa37af0b8425db9f692d8041863b629b33288",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-4ed1c257cdee015c.zip",
+      "bytes": 3027
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
