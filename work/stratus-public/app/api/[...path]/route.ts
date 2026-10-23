@@ -1,4 +1,5 @@
 import {env} from 'cloudflare:workers';
+import {serverMailEnabled} from '../../../lib/feedback-mail';
 export const dynamic='force-dynamic';
 const json=(v:any,s=200)=>Response.json(v,{status:s,headers:{'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'}});
 const sha=async(s:string)=>[...new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s)))].map(x=>x.toString(16).padStart(2,'0')).join('');
@@ -37,14 +38,14 @@ async function handle(req:Request){
   const db=e.DB;if(await db.prepare('SELECT id FROM feedback WHERE id=?').bind(b.id).first())return json({ok:true,id:b.id});
   const hour=new Date().toISOString().slice(0,13),day=hour.slice(0,10);const ip=await sha(e.UPDATE_KEY+day+(req.headers.get('cf-connecting-ip')||'unknown'));const key='ip:'+hour+':'+ip,global='all:'+day;
   for(const [k,max] of [[key,5],[global,100]]){const row=await db.prepare('INSERT INTO limits (key,count) VALUES (?,1) ON CONFLICT(key) DO UPDATE SET count=count+1 WHERE count<? RETURNING count').bind(k,max).first();if(!row)return json({error:'Too many submissions. Please try again later.'},429);}
-  await db.prepare('INSERT OR IGNORE INTO feedback (id,topic,message,reply,created,status,ip) VALUES (?,?,?,?,?,?,?)').bind(b.id,b.topic,b.message.trim(),b.reply.trim(),new Date().toISOString(),'pending',ip).run();
+  await db.prepare('INSERT OR IGNORE INTO feedback (id,topic,message,reply,created,status,ip) VALUES (?,?,?,?,?,?,?)').bind(b.id,b.topic,b.message.trim(),b.reply.trim(),new Date().toISOString(),serverMailEnabled(e)?'cloud-pending':'pending',ip).run();
   await db.prepare('DELETE FROM limits WHERE key<?').bind('all:'+new Date(Date.now()-7*86400000).toISOString().slice(0,10)).run();
   return json({ok:true,id:b.id});
  }
- if(req.method==='GET'&&p==='/api/manage/feedback'){const {results}=await e.DB.prepare("SELECT id,topic,message,reply,created,status,receipt FROM feedback WHERE status!='sent' ORDER BY created LIMIT 25").all();return json({items:results});}
+ if(req.method==='GET'&&p==='/api/manage/feedback'){const query=u.searchParams.get('include_sent')==='1'?"SELECT id,topic,message,reply,created,status,receipt FROM feedback ORDER BY created DESC LIMIT 500":"SELECT id,topic,message,reply,created,status,receipt FROM feedback WHERE status!='sent' ORDER BY created LIMIT 25";const {results}=await e.DB.prepare(query).all();return json({items:results,delivery:serverMailEnabled(e)?'server':'local'});}
  if(req.method==='POST'&&p==='/api/manage/feedback'){
   const b=await req.json();if(!['sending','sent','unknown'].includes(b.status)||typeof b.id!=='string'||(b.status==='sent'&&(typeof b.receipt!=='string'||!b.receipt.length)))return json({error:'Invalid receipt.'},400);
-  if(b.status==='sending'){const r=await e.DB.prepare("UPDATE feedback SET status='sending' WHERE id=? AND status='pending'").bind(b.id).run();return json({claimed:!!r.meta.changes});}
+  if(b.status==='sending'){if(serverMailEnabled(e))return json({claimed:false,delivery:'server'});const r=await e.DB.prepare("UPDATE feedback SET status='sending' WHERE id=? AND status='pending'").bind(b.id).run();return json({claimed:!!r.meta.changes});}
   await e.DB.prepare("UPDATE feedback SET status=?,receipt=? WHERE id=? AND status IN ('sending','unknown')").bind(b.status,String(b.receipt||'').slice(0,250),b.id).run();return json({ok:true});
  }
  return json({error:'Not found.'},404);

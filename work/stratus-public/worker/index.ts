@@ -1,6 +1,7 @@
 import handler from "vinext/server/fetch-handler";
 import { runWithConnectorBinding } from "../lib/connector-context";
 import type { ConnectorBinding } from "../lib/connector-contract.mjs";
+import { deliverFeedback, serverMailEnabled } from "../lib/feedback-mail";
 
 const worker = {
   fetch(request: Request, env: Cloudflare.Env, ctx: ExecutionContext<{ CONNECTORS?: ConnectorBinding }>) {
@@ -23,7 +24,17 @@ const worker = {
         },
       };
     }
-    return runWithConnectorBinding(binding, () => handler.fetch(request, env, ctx));
+    const response = runWithConnectorBinding(binding, () => handler.fetch(request, env, ctx));
+    const path = new URL(request.url).pathname;
+    if (serverMailEnabled(env as any) &&
+        ((request.method === 'POST' && path === '/api/feedback') ||
+         (request.method === 'GET' && ['/api/release', '/api/updates'].includes(path)))) {
+      // After the submission commits; delivery continues after returning the page/form response.
+      // Public feed refreshes also retry saved records while visitors have the site open.
+      ctx.waitUntil(Promise.resolve(response).then(() => deliverFeedback(env as any))
+        .catch(() => console.warn('Feedback queue retained; delivery needs another attempt.')));
+    }
+    return response;
   },
 };
 

@@ -103,6 +103,8 @@ Double-click `feedback-mail-setup.command` once. Enter your Gmail address and a 
 
 The sender tries encrypted SMTP on port 465, then STARTTLS on port 587 if the transport disconnects or cannot connect. Password rejection and TLS certificate errors are reported directly. A disconnect during the final QUIT does not invalidate successful authentication. If both connections fail, setup reports the port and connection stage without exposing credentials; check the network, VPN or firewall and retry. This fallback happens before sending and never retries an uncertain message delivery.
 
+When the public site's server email delivery is enabled, this background job only refreshes the private feedback cache and hosted receipts. It does not sign in to Gmail or send a second copy. The hosted claim endpoint blocks legacy SMTP claims during handover. See `work/stratus-public/README.md` for server configuration and retry behaviour.
+
 The background sender checks every minute while the Mac is awake and logged in. It does not need Codex or the Studio editor open. The cloud form remains available while the Mac is offline and queues submissions. `python3 feedback_mail.py status` reports setup state. Logs are `.feedback-mail.log` and `.feedback-mail-error.log`; local delivery receipts are `.feedback-mail-state.json`. Transport acceptance is recorded, not proof that Gmail placed the message in Inbox. Uncertain sends remain for manual review to avoid duplicate messages.
 
 ### Local feedback cache

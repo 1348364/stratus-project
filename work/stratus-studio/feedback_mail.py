@@ -127,16 +127,18 @@ def run(cache_only=False):
         cache=json.loads(CACHE.read_text()) if CACHE.exists() else {'schema_version':1,'items':{}}
         # Save full messages before checking SMTP credentials or attempting delivery.
         # Missing cloud rows never delete local copies, including delivered feedback.
-        items=public_sync.api('/api/manage/feedback')['items']
+        outbox=public_sync.api('/api/manage/feedback?include_sent=1')
+        items=outbox['items']
         for item in items:
             prior=cache['items'].get(item['id'],{})
             cache['items'][item['id']]={**prior,**item,'cached_at':prior.get('cached_at') or datetime.now(timezone.utc).isoformat()}
+            if item['status']=='sent':
+                cache['items'][item['id']]['delivery_status']='accepted'
+                cache['items'][item['id']]['delivery_receipt']=item.get('receipt')
         save_cache(cache)
         if cache_only:
             print(f"Cached {len(cache['items'])} feedback message(s) in {CACHE}")
             return
-        c=credentials()
-        if c is None:return  # Caching works before Gmail setup is complete.
         state=json.loads(STATE.read_text()) if STATE.exists() else {}
         def persist():
             server.atomic_write(STATE,json.dumps(state,indent=2).encode())
@@ -152,9 +154,14 @@ def run(cache_only=False):
         # A local acceptance receipt survives a crash or failed cloud acknowledgement.
         for item in items:
             prior=state.get(item['id'],{})
-            if prior.get('status')=='accepted':
+            if prior.get('status')=='accepted' and item['status']!='sent':
                 public_sync.api('/api/manage/feedback','POST',{'id':item['id'],'status':'sent','receipt':prior['message_id']})
                 acknowledged(item['id'])
+        # Once the hosted sender is enabled this job only maintains the private cache.
+        # Reconcile any earlier SMTP acceptance receipts before handing over.
+        if outbox.get('delivery')=='server':return
+        c=credentials()
+        if c is None:return  # Caching works before Gmail setup is complete.
         pending=[item for item in items if item['status']=='pending' and item['id'] not in state]
         if not pending:return
         smtp=connect(c)  # Authenticate before claiming, so auth/network failures leave the queue untouched.
