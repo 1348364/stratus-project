@@ -9633,13 +9633,15 @@
     "work/validation/gl_compile.c",
     "work/validation/prepare.py",
     "work/validation/render_fixture.c",
-    "work/validation/variants.json"
+    "work/validation/variants.json",
+    "work/visual-brief.txt",
+    "work/write_pack.py"
   ],
   "site_commits": {
     "stratus-public": "c6b2d090f4c918c9930ee6adfedf85dc1a749422",
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "fe9cb61be27298334d9e6ed62ddeba98b7da2a8455a31ab26538a080c6cb5e85",
+  "fingerprint": "8183d0cdb28ea6ff9f7edb32076c9a248ff1b428476b78fef165cafb5ce0c3cf",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
