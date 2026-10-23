@@ -820,6 +820,9 @@ in vec3 relativeLocation;
 in vec3 orientedNormal;
 uniform sampler2D gtexture;
 uniform sampler2D lightmap;
+#if PASS_KIND == 6 && WATER_STYLE == 1
+uniform sampler2D colortex4;
+#endif
 uniform int entityId;
 #if PASS_KIND == 3 || PASS_KIND == 6
 flat in int blockCategory;
@@ -893,7 +896,15 @@ void main() {
         vec3 fn=unitVector(orientedNormal);
         nativeColour*=dot(fn*fn,vec3(0.6,fn.y>=0.0?1.0:0.5,0.8));
 #endif
-        underside=vec4(decodeDisplay(nativeColour),clamp(surface.a*WATER_TEXTURE,0.0,1.0));
+        float nativeAlpha=clamp(surface.a*WATER_TEXTURE,0.0,1.0);
+        vec3 behind=texture(colortex4,gl_FragCoord.xy/viewportSize()).rgb;
+        // Invert the HDR fixed-function alpha blend so the native layer blends
+        // in display space, as vanilla does. Opaque background is snapshotted
+        // before translucency; nearer layers retain the existing draw order.
+        vec3 nativeResult=decodeDisplay(mix(encodeDisplay(behind),nativeColour,nativeAlpha));
+        vec3 blendColour=nativeAlpha>0.00001
+            ?(nativeResult-behind*(1.0-nativeAlpha))/nativeAlpha:vec3(0.0);
+        underside=vec4(blendColour,nativeAlpha);
 #endif
         shim_FragData[0] = underside;
         shim_FragData[1] = vec4(0.0);

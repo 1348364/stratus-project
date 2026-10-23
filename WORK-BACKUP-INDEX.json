@@ -11717,6 +11717,78 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-d529df08f9e712f8.zip",
       "bytes": 36856
+    },
+    "work/stratus-170-rc2/agent/fixture.jar": {
+      "sha256": "94927574c74dec1259f45f4878710672e0a38fed25b965f6cc84c09ea81a72f3",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 4332
+    },
+    "work/stratus-170-rc2/packs-v1/Stratus-1.7.0-rc2-QA-Before.zip": {
+      "sha256": "23b289a72036b1df64a322504c48dcbb016c9ab465f671884b5a10daafc45f42",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7760320
+    },
+    "work/stratus-170-rc2/packs-v1/Stratus-1.7.0-rc2-QA-Candidate.zip": {
+      "sha256": "c0a4480d0fb1e88c9723628318fd51407300308f561c3c38322e8fb93fd4d931",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761286
+    },
+    "work/stratus-170-rc2/packs-v1/Stratus-1.7.0-rc2-QA-Dry.zip": {
+      "sha256": "c0a4480d0fb1e88c9723628318fd51407300308f561c3c38322e8fb93fd4d931",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761286
+    },
+    "work/stratus-170-rc2/packs-v1/Stratus-1.7.0-rc2-QA-TextureHalf.zip": {
+      "sha256": "c0a4480d0fb1e88c9723628318fd51407300308f561c3c38322e8fb93fd4d931",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761286
+    },
+    "work/stratus-170-rc2/packs-v1/Stratus-1.7.0-rc2-QA-TextureZero.zip": {
+      "sha256": "c0a4480d0fb1e88c9723628318fd51407300308f561c3c38322e8fb93fd4d931",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761286
+    },
+    "work/stratus-170-rc2/packs/Stratus-1.7.0-rc2-QA-v2-Before.zip": {
+      "sha256": "23b289a72036b1df64a322504c48dcbb016c9ab465f671884b5a10daafc45f42",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7760320
+    },
+    "work/stratus-170-rc2/packs/Stratus-1.7.0-rc2-QA-v2-Candidate.zip": {
+      "sha256": "1e4bda79dcb47ac5341c0f30f32211916a7bb1d94240cfda5b93df70a26a3079",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761501
+    },
+    "work/stratus-170-rc2/packs/Stratus-1.7.0-rc2-QA-v2-Dry.zip": {
+      "sha256": "1e4bda79dcb47ac5341c0f30f32211916a7bb1d94240cfda5b93df70a26a3079",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761501
+    },
+    "work/stratus-170-rc2/packs/Stratus-1.7.0-rc2-QA-v2-TextureHalf.zip": {
+      "sha256": "1e4bda79dcb47ac5341c0f30f32211916a7bb1d94240cfda5b93df70a26a3079",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761501
+    },
+    "work/stratus-170-rc2/packs/Stratus-1.7.0-rc2-QA-v2-TextureZero.zip": {
+      "sha256": "1e4bda79dcb47ac5341c0f30f32211916a7bb1d94240cfda5b93df70a26a3079",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 7761501
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v2-underwater.png": {
+      "sha256": "672529f1d04eda96736aa4a6e657ef350963db1e91bc142346817b4fc2531bc0",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-db55158b2c9ff45f.zip",
+      "bytes": 1190492
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

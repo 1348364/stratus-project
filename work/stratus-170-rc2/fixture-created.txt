@@ -1,0 +1,14 @@
+fill 4200 160 4200 4208 171 4206 minecraft:stone hollow
+fill 4201 161 4201 4201 168 4205 minecraft:stone
+fill 4202 161 4201 4202 167 4205 minecraft:stone
+fill 4203 161 4201 4203 166 4205 minecraft:stone
+fill 4204 161 4201 4204 165 4205 minecraft:stone
+fill 4205 161 4201 4205 164 4205 minecraft:stone
+fill 4206 161 4201 4206 163 4205 minecraft:stone
+fill 4207 161 4201 4207 162 4205 minecraft:stone
+setblock 4204 170 4201 minecraft:sea_lantern
+setblock 4201 169 4203 minecraft:water[level=0]
+fill 4210 160 4208 4216 160 4212 minecraft:stone
+fill 4210 162 4204 4212 164 4204 minecraft:oak_leaves[persistent=true]
+fill 4214 162 4204 4216 164 4204 minecraft:quartz_block
+summon minecraft:sheep 4213.5 161 4209.5 {NoAI:1b,Silent:1b,Invulnerable:1b,PersistenceRequired:1b,Rotation:[35f,0f],Tags:["StratusRc2QA"],UUID:[I;3245321,6789864,3456743,6789745]}
