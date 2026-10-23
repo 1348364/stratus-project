@@ -4,6 +4,19 @@ Archive of completed requests and their release/evidence references. This is his
 
 ## Completed changes
 
+### Stratus 1.7.0-rc2 — 24 October 2026 — batch1af89474
+
+- [x] Repaired the reproduced indoor stepped-flow pale strips/patches: native dark/black atlas-light colours retain explicit valid coverage instead of bright biome substitution. Prior-source regression fails three cases; final source passes; exact installed ZIP clean cave capture reviewed. Original screenshot location unknown; finite reproduced-geometry acceptance only.
+- [x] Restored ordinary vanilla entity directional face shading while preserving lightmap, textures, emissive paths and settings. Six GPU normals and matched daylight/indoor shaders-off comparisons pass.
+- [x] Installed final candidate in Main/shaderpacks, verified ZIP/source/install bytes and actual Iris loading with65 Reference values, safe selective migration and13 migration checks. Candidate remains installed; original rc1/shaders-disabled session restored; unchanged temporary QA files removed.
+- [x] Completed foliage portion of hidden sheen request: material4113 is matte, including internal leaf quads visible through holes. Other solid-occluder live checks remain pending; this is whole-material exclusion, not voxel occlusion.
+- [x] Implemented restrained solar-film term0.035→0.008 and preserved all controls/palette. Technical wet-film checks and limited midday panel comparison pass; additional solar/adjacent/shaded live acceptance stays pending.
+- [x] Restored native underwater atlas/light/biome/alpha with smooth zero/half/full WATER_TEXTURE response. GPU alpha/exit/transmission cases and reviewed submerged views including exact release ZIP pass; full native waterline/glass and Stratus-mode live regression remain pending.
+- [x] Avoided exact-zero underwater atmosphere reconstruction with equal controlled output and measured narrow GPU-pass work reduction. Overall FPS/sustained lag target remains pending and explicitly deferred; no game-speedup claim.
+
+[Release](../../outputs/Stratus-1.7.0-rc2.zip) · [Change log and scope](CHANGE-LOG.md#24-october-2026--stratus-170-rc2--targeted-repair-candidate) · [24 actual comparisons](../../outputs/Stratus-1.7.0-rc2-visual-checks/index.html) · [Install/load](../../outputs/Stratus-1.7.0-rc2-install.json). Remaining requests stay in `IN-PROGRESS/1af89474-f56a-4419-bc73-7f12d4950cfa/CHANGES.md`; earlier batches unchanged.
+
+
 ### Stratus 1.6.12 — 23 October 2026
 
 - [x] Completed the whole-surface tint portion: native animated water texture/biome tint visibly covers the whole water surface, including distant and reflection-dominated views; zero disables the added treatment. Reflections/refraction, shallow-bed clarity, water paths and every control/range/preset quality choice remain. Passed technical/installer/Iris checks and finite matched Main river/grazing/downward/underwater/preset/fixture/waterline review. The pre-existing below-surface rectangular tint band remains unresolved; the original request’s remaining waterline acceptance is kept pending in its active batch. FPS and the original unknown pole/leaf contexts also remain pending.

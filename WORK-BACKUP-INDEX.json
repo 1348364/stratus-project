@@ -12203,6 +12203,150 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-0da7a8600a927f6e.zip",
       "bytes": 4066
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-after-indoor-entity.png": {
+      "sha256": "5ac0a2c5679ae307e2c23e713edffba3b48f93bdae991c1b7c66bafb58de0050",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 604502
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-after-sun-peak.png": {
+      "sha256": "e76725ea401fae570202f3ac269bbac2f7b3b12ceeb93b9afa8bc634c9515f44",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1010436
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-cave-down.png": {
+      "sha256": "96cc5949d6ea6e26feb3731b962780fb225989a36edd7edad65ae96ede28a89c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 700516
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-cave-flow.png": {
+      "sha256": "51346d536e6793640f02bc70197b9887312c87e038bf115343c0ad4753436670",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 740971
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-entity.png": {
+      "sha256": "0df6db83f9362c8e759442a9c46b091b7db63afa38a94fbd5b6a38cc5c9c0ca2",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 744116
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-indoor-entity.png": {
+      "sha256": "0abd72a49fadfbb39792917bada19728134cb9ceb9f98e68997296d1e56928bf",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 606306
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-leaf-close.png": {
+      "sha256": "afdabd958f6917c21d50c43dbd068567d5b52c52950226fef11394ef4a641154",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 313927
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-before-sun-peak.png": {
+      "sha256": "5eb0d4fcab76b4822ce6d9998e49e1d0249c89c72e45c6205c97236752c9b57e",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 721500
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-candidate-cave-flow.png": {
+      "sha256": "5ce92aab1642378706d9d7a6f1390eb6cfb766e866f453a392a1a72c40ae4021",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 739802
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-dry-sun-peak.png": {
+      "sha256": "3669708da1182f34af86e4d40d72ada2df83f9466f3b1d505417473ca4699468",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 972796
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-half-underwater.png": {
+      "sha256": "df9f5f8f788f3469e7fa2172c94e27ee9d7cd5eb54a6cc8202a5088c03769edf",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1271012
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-native-under-glass.png": {
+      "sha256": "58f5e78b86bfebfc719000bf2fc858454378e40e006c50f526b779daee9c48d7",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 205292
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-release-cave-flow.png": {
+      "sha256": "9c767fa77574928efe9a3cd41263308ff8ec76dbba95aa72758b7fa2e36e458c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 736690
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-release-underwater.png": {
+      "sha256": "95a7a71df982e00bfa3c5bc12f2dfa1ec006ccae45ad2ad068af2158d6ba0f13",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1196874
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-v2-underwater.png": {
+      "sha256": "672529f1d04eda96736aa4a6e657ef350963db1e91bc142346817b4fc2531bc0",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1190492
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-v3-cave-down.png": {
+      "sha256": "53bc7abdab6980fa4950e4b39d4c84171e79cb10445bc2ee73b043647b89b9a2",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 704003
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-v3-cave-flow.png": {
+      "sha256": "e25077c544d58a03165e2a2dc744208d9d0741cff9972ac438bacce06912a63b",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 737588
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-v3-entity.png": {
+      "sha256": "8a9afc26dd7cb0cfa058a81500248c3133dc41fc8818932288ecc6693682e0c6",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 713321
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-v3-leaf-close.png": {
+      "sha256": "e866eb5fb8b0e29c8644cde457b3e248441c06b1f414557d42a9db1ba165fa64",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 280237
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-vanilla-entity.png": {
+      "sha256": "859cc62ab5e52de22617c6385f46b00204bfafb8b1b1d009ab478434981d174c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 638421
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-vanilla-indoor-entity.png": {
+      "sha256": "573a3d07848b05cc91a2121560e3f31afba2d9eaef82ad6fc39aac82056873c1",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 613971
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-vanilla-under-glass.png": {
+      "sha256": "36a167ed940c9487eb7a257ea7e582fb7a979c623096b0e3519d682d29d894e0",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 216059
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-vanilla-underwater.png": {
+      "sha256": "88d078afa7f189e443727983cb78c83fbe51319ef5f344cbcf7dbdb896b066f1",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1181490
+    },
+    "outputs/Stratus-1.7.0-rc2-visual-checks/captures/rc2-zero-underwater.png": {
+      "sha256": "fd8650f52bc69ffb9619c88465f8ca5837fb6c28503ce807a94c189295b08d3c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
+      "bytes": 1323267
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

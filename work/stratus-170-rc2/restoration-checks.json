@@ -1,0 +1,11 @@
+{
+  "fixture_exact_original": true,
+  "fixture_block_count": 3042,
+  "test_sheep_absent": true,
+  "world_exact_original": true,
+  "iris_config_original": true,
+  "position_restored": true,
+  "angles_restored": true,
+  "HUD_pause_flight_menu_restored": true,
+  "watchers_stopped": true
+}

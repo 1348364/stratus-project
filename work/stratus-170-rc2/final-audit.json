@@ -1,0 +1,21 @@
+{
+  "sha256": "ba966b25c3160e2d325dbb8627634afa274dbaa37175dfc67a51e7a85b9cca2c",
+  "entries": 248,
+  "archive_source_installed_bytes_equal": true,
+  "protected_next_queue_and_target_snapshot_unchanged": true,
+  "QA_temporary_files_remaining": 0,
+  "release_installed_and_previously_loaded": true,
+  "current_selection": "Stratus-1.7.0-rc1.zip; shaders disabled, original session restored",
+  "restoration": {
+    "fixture_exact_original": true,
+    "fixture_block_count": 3042,
+    "test_sheep_absent": true,
+    "world_exact_original": true,
+    "iris_config_original": true,
+    "position_restored": true,
+    "angles_restored": true,
+    "HUD_pause_flight_menu_restored": true,
+    "watchers_stopped": true
+  },
+  "FPS_samples": 0
+}

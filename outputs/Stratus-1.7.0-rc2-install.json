@@ -85,5 +85,7 @@
   "runtime_evidence": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-170-rc2/runtime-v3-Optional_Stratus-1.7.0-rc2.zip_.txt",
   "release_cave_capture": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-170-rc2/screenshots/rc2-release-cave-flow.png",
   "release_underwater_capture": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-170-rc2/screenshots/rc2-release-underwater.png",
-  "restoration": "Will restore initial rc1 selection with shaders disabled after finite QA; final state recorded separately."
+  "restoration": "Stratus-1.7.0-rc1.zip; shaders disabled, original session restored",
+  "restoration_evidence": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-170-rc2/restoration-checks.json",
+  "QA_cleanup_evidence": "/Users/william.lei/Documents/ChatGPT/MC Shader Making/work/stratus-170-rc2/qa-cleanup.json"
 }

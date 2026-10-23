@@ -1,0 +1,144 @@
+{
+  "release": "1.7.0-rc2",
+  "profile": "Main / Minecraft (1)",
+  "world": "Stratus Terrain Lab",
+  "framebuffer": [
+    1440,
+    842
+  ],
+  "render_distance": 12,
+  "FPS_samples": 0,
+  "installed_and_loaded": true,
+  "capture_scope": "Strict five-second FPS-style gates intermittently fail to settle with background mesh uploads in the locked/unfocused client. No FPS sampled. First water/cave/foliage baseline views passed full gates. Remaining local-fixture images use existing loaded columns/sections and camera/pipeline assertions; inspect actual rendered geometry for holes/clipping before accepting. Fixed waits are only scheduling delays, not proof of chunk readiness or FPS validity. No claim these finite visual frames passed the stable FPS gate.\n",
+  "limitations": [
+    "Focused Minecraft FPS comparison skipped at user request after locked-Mac prerequisite. No global speedup or60FPS claim; sustained approximately25FPS report still pending.",
+    "Progressive unfinished-frame presentation cannot be implemented by a shader pack. No renderer/mod or swapchain changes made.",
+    "Known rectangular waterline band and earlier unverified cloud/fog/transparent-solid coverage remain in their earlier batches; no clean1.7 milestone claim.",
+    "Finite current-world/fixture coverage only; exact original cave camera not recovered. Original user screenshot and controlled stepped-water reproduction both informed the repair.",
+    "Native underwater surface texture is restored, with native atlas/light and slider coverage. Submerged-only fog keeps air beyond the interface clearer than shaders-off vanilla; not pixel-identical vanilla rendering.",
+    "Foliage/cutout material4113 stays matte as a whole, avoiding interior leaf-plane sheen. This is a material exclusion, not full voxel-based occlusion or cast shadows.",
+    "Remaining local-fixture frames are reviewed as finite visual evidence; several five-second stable FPS-style gates could not settle while unfocused. Scheduling waits are not chunk-readiness or FPS proof."
+  ],
+  "captures": [
+    {
+      "file": "captures/rc2-before-cave-flow.png",
+      "sha256": "51346d536e6793640f02bc70197b9887312c87e038bf115343c0ad4753436670",
+      "review": "rc1: pale strips along enclosed falling-water steps."
+    },
+    {
+      "file": "captures/rc2-candidate-cave-flow.png",
+      "sha256": "5ce92aab1642378706d9d7a6f1390eb6cfb766e866f453a392a1a72c40ae4021",
+      "review": "Superseded v2: sky-exposure clamp alone did not repair the strips."
+    },
+    {
+      "file": "captures/rc2-v3-cave-flow.png",
+      "sha256": "e25077c544d58a03165e2a2dc744208d9d0741cff9972ac438bacce06912a63b",
+      "review": "Final shader source: valid dark native colours retained; strips removed."
+    },
+    {
+      "file": "captures/rc2-release-cave-flow.png",
+      "sha256": "9c767fa77574928efe9a3cd41263308ff8ec76dbba95aa72758b7fa2e36e458c",
+      "review": "Exact installed final rc2 ZIP: corrected enclosed stepped flow. Controlled reproduction, not the original screenshot location."
+    },
+    {
+      "file": "captures/rc2-before-cave-down.png",
+      "sha256": "96cc5949d6ea6e26feb3731b962780fb225989a36edd7edad65ae96ede28a89c",
+      "review": "rc1 downward view: pale patch at lower step."
+    },
+    {
+      "file": "captures/rc2-v3-cave-down.png",
+      "sha256": "53bc7abdab6980fa4950e4b39d4c84171e79cb10445bc2ee73b043647b89b9a2",
+      "review": "Final source downward view: pale patch removed."
+    },
+    {
+      "file": "captures/rc2-vanilla-underwater.png",
+      "sha256": "88d078afa7f189e443727983cb78c83fbe51319ef5f344cbcf7dbdb896b066f1",
+      "review": "Shaders off: native underside comparison. Animation phase differs."
+    },
+    {
+      "file": "captures/rc2-v2-underwater.png",
+      "sha256": "672529f1d04eda96736aa4a6e657ef350963db1e91bc142346817b4fc2531bc0",
+      "review": "Final underside path after display-space blending correction. v3 changes the above-water cache path only."
+    },
+    {
+      "file": "captures/rc2-half-underwater.png",
+      "sha256": "df9f5f8f788f3469e7fa2172c94e27ee9d7cd5eb54a6cc8202a5088c03769edf",
+      "review": "Native underside at half texture strength."
+    },
+    {
+      "file": "captures/rc2-zero-underwater.png",
+      "sha256": "fd8650f52bc69ffb9619c88465f8ca5837fb6c28503ce807a94c189295b08d3c",
+      "review": "Texture strength zero: clear exit retained."
+    },
+    {
+      "file": "captures/rc2-release-underwater.png",
+      "sha256": "95a7a71df982e00bfa3c5bc12f2dfa1ec006ccae45ad2ad068af2158d6ba0f13",
+      "review": "Exact installed final rc2 ZIP: native atlas visible across underside. Strict loaded-chunk gate passed. Submerged-only fog differs deliberately from vanilla."
+    },
+    {
+      "file": "captures/rc2-before-indoor-entity.png",
+      "sha256": "0abd72a49fadfbb39792917bada19728134cb9ceb9f98e68997296d1e56928bf",
+      "review": "rc1: flattened sheep shading in enclosed lamp-lit room."
+    },
+    {
+      "file": "captures/rc2-after-indoor-entity.png",
+      "sha256": "5ac0a2c5679ae307e2c23e713edffba3b48f93bdae991c1b7c66bafb58de0050",
+      "review": "Final source: directional face shading restored, native warm lightmap retained."
+    },
+    {
+      "file": "captures/rc2-vanilla-indoor-entity.png",
+      "sha256": "573a3d07848b05cc91a2121560e3f31afba2d9eaef82ad6fc39aac82056873c1",
+      "review": "Shaders off at matched enclosed entity camera."
+    },
+    {
+      "file": "captures/rc2-before-entity.png",
+      "sha256": "0df6db83f9362c8e759442a9c46b091b7db63afa38a94fbd5b6a38cc5c9c0ca2",
+      "review": "rc1 outdoor entity: flat white shading. Distant terrain is outside acceptance scope."
+    },
+    {
+      "file": "captures/rc2-v3-entity.png",
+      "sha256": "8a9afc26dd7cb0cfa058a81500248c3133dc41fc8818932288ecc6693682e0c6",
+      "review": "Final source outdoor entity: restored face shading. Distant terrain has incomplete sections; only the complete local fixture is reviewed."
+    },
+    {
+      "file": "captures/rc2-vanilla-entity.png",
+      "sha256": "859cc62ab5e52de22617c6385f46b00204bfafb8b1b1d009ab478434981d174c",
+      "review": "Shaders off outdoor entity comparison; distant terrain excluded."
+    },
+    {
+      "file": "captures/rc2-before-leaf-close.png",
+      "sha256": "afdabd958f6917c21d50c43dbd068567d5b52c52950226fef11394ef4a641154",
+      "review": "rc1: shiny internal leaf quads, viewed from outside through cutout holes."
+    },
+    {
+      "file": "captures/rc2-v3-leaf-close.png",
+      "sha256": "e866eb5fb8b0e29c8644cde457b3e248441c06b1f414557d42a9db1ba165fa64",
+      "review": "Final source: matte leaf quads, texture detail retained. Entire material4113 excluded; not voxel-exact interior detection."
+    },
+    {
+      "file": "captures/rc2-before-sun-peak.png",
+      "sha256": "5eb0d4fcab76b4822ce6d9998e49e1d0249c89c72e45c6205c97236752c9b57e",
+      "review": "rc1 midday downward quartz-panel view. Not proof of analytical maximum highlight."
+    },
+    {
+      "file": "captures/rc2-after-sun-peak.png",
+      "sha256": "e76725ea401fae570202f3ac269bbac2f7b3b12ceeb93b9afa8bc634c9515f44",
+      "review": "Final source: modest reduction with native texture preserved. Additional adjacent/shaded-face acceptance remains pending."
+    },
+    {
+      "file": "captures/rc2-dry-sun-peak.png",
+      "sha256": "3669708da1182f34af86e4d40d72ada2df83f9466f3b1d505417473ca4699468",
+      "review": "Dry matched midday panel. Full solar-angle coverage remains pending."
+    },
+    {
+      "file": "captures/rc2-native-under-glass.png",
+      "sha256": "58f5e78b86bfebfc719000bf2fc858454378e40e006c50f526b779daee9c48d7",
+      "review": "Native-mode pool looking upward. Glass edge not distinct enough for complete layering acceptance."
+    },
+    {
+      "file": "captures/rc2-vanilla-under-glass.png",
+      "sha256": "36a167ed940c9487eb7a257ea7e582fb7a979c623096b0e3519d682d29d894e0",
+      "review": "Shaders-off pool baseline; broad glass/waterline layering still pending."
+    }
+  ]
+}
