@@ -1,6 +1,6 @@
 """Reproducible, reviewed natural-world Stratus 1.6.10 showcase selection."""
 from pathlib import Path
-import hashlib,json,shutil,zipfile
+import hashlib,json,shutil,subprocess,zipfile
 
 ROOT=Path(__file__).resolve().parents[1]
 VERSION='1.6.10'
@@ -35,6 +35,10 @@ def curate():
      assert all(candidate.read(n)==release.read(n) for n in release.namelist() if n.startswith('shaders/'))
    filename=f'{index:02d}-{name}.png';shutil.copyfile(source,folder/filename);shutil.copyfile(source,assets/filename)
    scenes.append({'file':filename,'title':title,'description':description+' '+settings+'. Actual Stratus 1.6.10 in-game capture.','sha256':digest,'source':source.relative_to(ROOT).as_posix(),'pack':pack,'natural_world':True,'reviewed':True})
+   web=folder/(Path(filename).stem+'.jpg')
+   subprocess.run(['/usr/bin/sips','-s','format','jpeg','-s','formatOptions','88',str(source),'--out',str(web)],check=True,stdout=subprocess.DEVNULL)
+   shutil.copyfile(web,assets/web.name)
+   scenes[-1].update(web_file=web.name,web_sha256=hashlib.sha256(web.read_bytes()).hexdigest())
  manifest={'version':VERSION,'scene_policy':'natural-world-only','reviewed':True,'runtime_assets_match_release':True,'scenes':scenes}
  (folder/'showcase.json').write_text(json.dumps(manifest,indent=2)+'\n')
  print('Prepared 10 reviewed natural-world captures; all shader runtime assets match the 1.6.10 release.')

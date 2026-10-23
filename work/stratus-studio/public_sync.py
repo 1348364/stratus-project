@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Publish verified release captures and manage the private feedback outbox."""
-import argparse,hashlib,json,re,ssl,subprocess,sys,termios,urllib.request
+import argparse,hashlib,json,re,ssl,subprocess,sys,termios,urllib.request,urllib.error
 from pathlib import Path
 import cloud_bridge as bridge
 import server
@@ -49,7 +49,7 @@ def sync_updates():
 
 def api(path,method='GET',body=None,raw=None):
  c=bridge.load_config()['public'];data=raw if raw is not None else (json.dumps(body).encode() if body is not None else None)
- headers={'User-Agent':'StratusStudio/1.0','X-Stratus-Update':c['key'],'Content-Type':'image/png' if raw is not None else 'application/json'}
+ headers={'User-Agent':'StratusStudio/1.0','X-Stratus-Update':c['key'],'Content-Type':('image/jpeg' if raw.startswith(b'\xff\xd8\xff') else 'image/png') if raw is not None else 'application/json'}
  req=urllib.request.Request(c['url']+path,data=data,method=method,headers=headers)
  with urllib.request.urlopen(req,timeout=40,context=bridge.TLS) as r:return json.load(r)
 
@@ -95,17 +95,27 @@ def sync_showcase():
   if labelled.get('version')!=v:raise ValueError('Showcase labels have the wrong version.')
   labels={item['file']:item for item in labelled.get('scenes',[])}
  scenes=[];uploads=[]
+ try:jpeg=api('/api/image-formats').get('jpeg') is True
+ except urllib.error.HTTPError:jpeg=False
  for i,p in enumerate(images):
   if not p.resolve().is_relative_to(server.PROJECT):raise ValueError('Image is outside project.')
   raw=p.read_bytes()
   if not raw.startswith(b'\x89PNG\r\n\x1a\n') or len(raw)>10000000:continue
   label=labels.get(p.name,{})
   if labels and (not label or hashlib.sha256(raw).hexdigest()!=label.get('sha256')):raise ValueError('Curated showcase capture hash mismatch.')
+  extension='png'
+  if label.get('web_file'):
+   web=p.parent/label['web_file']
+   if not web.resolve().is_relative_to(p.parent.resolve()):raise ValueError('Optimised showcase is outside its folder.')
+   optimized=web.read_bytes()
+   if not optimized.startswith(b'\xff\xd8\xff') or hashlib.sha256(optimized).hexdigest()!=label.get('web_sha256'):raise ValueError('Optimised showcase hash mismatch.')
+   # Keep using PNG until the deployed image endpoint accepts JPEG.
+   if jpeg:raw=optimized;extension='jpg'
   digest=hashlib.sha256(raw).hexdigest()[:12];name=re.sub(r'^s\d+-release-','',p.stem);name=re.sub('[^a-z0-9-]','-',name.lower())[:40]
   if any(scene['id']==name for scene in scenes):name=f'{name[:27]}-{digest}'
   title=label.get('title',name.replace('-',' ').capitalize()+'.')
   description=label.get('description',f'Actual Minecraft release capture from Stratus {v}.')
-  key=f'{v}/{name}-{digest}.png';uploads.append((key,raw));scenes.append({'id':name,'title':title,'description':description,'alt':f'Stratus {v}: '+title,'image':'/api/images/'+key})
+  key=f'{v}/{name}-{digest}.{extension}';uploads.append((key,raw));scenes.append({'id':name,'title':title,'description':description,'alt':f'Stratus {v}: '+title,'image':'/api/images/'+key})
  if len(scenes)!=10:return {'status':'waiting','detail':'Ten reviewed natural-world captures are required; existing gallery preserved.'}
  # Prefer a river/landscape over a material close-up for the home image.
  scenes.sort(key=lambda s:('river' not in s['id'],s['id']))

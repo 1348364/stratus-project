@@ -31,30 +31,34 @@
  gallery?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();advance(e.key==='ArrowRight'?1:-1);gallery.querySelector('.carousel-current')?.focus({preventScroll:true});}});
  gallery?.addEventListener('click',e=>{const card=e.target.closest('.scene');if(card&&!card.classList.contains('carousel-current')){e.preventDefault();e.stopPropagation();selected=[...gallery.children].indexOf(card);carousel();}},true);
  document.addEventListener('stratus:scenes-updated',carousel);if(gallery)new MutationObserver(carousel).observe(gallery,{childList:true});carousel();
- let frame=0,px=0,py=0,active=false;
+ const motion=window.StratusMotion;let px=0,py=0,active=false,pointer=null;
  const enabled=()=>!reduced.matches&&!body.classList.contains('effects-paused');
  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
- function paint(){frame=0;if(document.hidden)return;active=enabled();body.classList.toggle('spatial-paused',!active);
-  const r=journey.getBoundingClientRect(),progress=clamp(-r.top/Math.max(1,r.height-innerHeight));
-  journey.style.setProperty('--unfold',active?progress:0.5);
-  journey.style.setProperty('--journey-turn',`${active?(progress-.5)*24:0}deg`);
-  stage.style.setProperty('--orbit-x',`${active?px*13:0}deg`);stage.style.setProperty('--orbit-y',`${active?py*-9:0}deg`);
-  if(wordmark){const box=wordmark.getBoundingClientRect(),travel=clamp((innerHeight-box.top)/(innerHeight+box.height));wordmark.style.setProperty('--word-turn',`${active?(travel-.5)*20:0}deg`);}
+ function read(state){if(state.hidden||hero.closest('[data-view][hidden]'))return null;const r=journey.getBoundingClientRect(),box=wordmark?.getBoundingClientRect();let tilt=null;
+  if(pointer&&pointer.card.isConnected&&enabled()){const b=pointer.card.getBoundingClientRect();tilt={card:pointer.card,x:(pointer.x-b.left)/b.width,y:(pointer.y-b.top)/b.height};}pointer=null;
+  return {progress:clamp(-r.top/Math.max(1,r.height-state.h)),travel:box?clamp((state.h-box.top)/(state.h+box.height)):.5,tilt};
+ }
+ function paint(data){if(!data)return;const {progress,travel,tilt}=data;active=enabled();body.classList.toggle('spatial-paused',!active);
+  motion.style(journey,'--unfold',active?progress:0.5);
+  motion.style(journey,'--journey-turn',`${active?(progress-.5)*24:0}deg`);
+  motion.style(stage,'--orbit-x',`${active?px*13:0}deg`);motion.style(stage,'--orbit-y',`${active?py*-9:0}deg`);
+  if(wordmark)motion.style(wordmark,'--word-turn',`${active?(travel-.5)*20:0}deg`);
+  if(tilt){motion.style(tilt.card,'--tilt-x',`${(tilt.x-.5)*7}deg`);motion.style(tilt.card,'--tilt-y',`${(tilt.y-.5)*-7}deg`);motion.style(tilt.card,'--shine-x',`${tilt.x*100}%`);}
   const part=Math.min(2,Math.floor(progress*3));journey.querySelectorAll('.spatial-steps article').forEach((el,i)=>el.classList.toggle('step-active',part===i));
  }
- const schedule=()=>{if(!frame)frame=requestAnimationFrame(paint);};
+ const schedule=motion.request;motion.register('spatial',read,paint);
  if('IntersectionObserver'in window)new IntersectionObserver(entries=>stage.classList.toggle('sculpture-dormant',!entries[0].isIntersecting)).observe(hero);
- hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const r=hero.getBoundingClientRect();px=(e.clientX-r.left)/r.width-.5;py=(e.clientY-r.top)/r.height-.5;schedule();},{passive:true});
+ hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;schedule();},{passive:true});
  hero.addEventListener('pointerleave',()=>{px=py=0;schedule();});
  const heroImage=hero.querySelector('.hero-image');
  function syncImage(){const image=heroImage?.getAttribute('src');if(image){journey.style.setProperty('--world-image',`url(${JSON.stringify(image)})`);stage.style.setProperty('--world-image',`url(${JSON.stringify(image)})`);}}
  if(heroImage)new MutationObserver(syncImage).observe(heroImage,{attributes:true,attributeFilter:['src']});syncImage();
  // Event delegation also handles galleries replaced by the automatic release feed.
- document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||!enabled())return;const card=e.target.closest('.showcase-image,.workspace-card');if(!card)return;card.dataset.effect='3';const r=card.getBoundingClientRect();card.style.setProperty('--tilt-x',`${((e.clientX-r.left)/r.width-.5)*7}deg`);card.style.setProperty('--tilt-y',`${((e.clientY-r.top)/r.height-.5)*-7}deg`);card.style.setProperty('--shine-x',`${(e.clientX-r.left)/r.width*100}%`);},{passive:true});
+ document.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||!enabled())return;const card=e.target.closest('.showcase-image,.workspace-card');if(!card)return;pointer={card,x:e.clientX,y:e.clientY};schedule();},{passive:true});
  document.addEventListener('pointerout',e=>{const card=e.target.closest('.scene,.showcase-image,.workspace-card');if(card&&!card.contains(e.relatedTarget)){card.style.removeProperty('--tilt-x');card.style.removeProperty('--tilt-y');}},{passive:true});
  const intro=document.querySelector('.hero h1');
- if(intro){intro.classList.add('spatial-title');if(!reduced.matches)intro.animate([{opacity:0,transform:'translateY(32px)',filter:'blur(12px)'},{opacity:1,transform:'none',filter:'blur(0)'}],{duration:1200,easing:'cubic-bezier(.18,.7,.2,1)'});}
- function route(){schedule();if(!enabled())return;const view=[...document.querySelectorAll('[data-view]')].find(el=>!el.hidden);if(view&&view.dataset.view!=='overview')view.animate([{opacity:0,transform:'translateY(18px)'},{opacity:1,transform:'none'}],{duration:650,easing:'cubic-bezier(.2,.7,.2,1)'});}
+ if(intro)intro.classList.add('spatial-title');
+ function route(){schedule();if(!enabled())return;const view=[...document.querySelectorAll('[data-view]')].find(el=>!el.hidden);if(view&&view.dataset.view!=='overview')view.animate([{opacity:0},{opacity:1}],{duration:400,easing:'ease-out'});}
  new MutationObserver(schedule).observe(body,{attributes:true,attributeFilter:['class']});
- window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('hashchange',route);document.addEventListener('visibilitychange',()=>{body.classList.toggle('spatial-background',document.hidden);schedule();});reduced.addEventListener('change',schedule);schedule();
+ window.addEventListener('hashchange',route);document.addEventListener('visibilitychange',()=>{body.classList.toggle('spatial-background',document.hidden);schedule();});reduced.addEventListener('change',schedule);schedule();
 })();

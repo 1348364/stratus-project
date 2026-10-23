@@ -10,6 +10,7 @@ const compare=(a:string,b:string)=>{const x=a.split('.').map(Number),y=b.split('
 async function handle(req:Request){
  const e=env as any,u=new URL(req.url),p=u.pathname;
  const service=!!e.UPDATE_KEY&&req.headers.get('X-Stratus-Update')===e.UPDATE_KEY;
+ if(req.method==='GET'&&p==='/api/image-formats')return json({jpeg:true,png:true});
  if(req.method==='GET'&&p==='/api/studio'){
   const user=await getChatGPTUser();
   if(!user)return new Response(null,{status:302,headers:{Location:chatGPTSignInPath('/api/studio'),'Cache-Control':'private, no-store','Referrer-Policy':'no-referrer'}});
@@ -32,8 +33,8 @@ async function handle(req:Request){
   const prior=await e.BUCKET.get('updates.json');if(prior){const old=await prior.json();if(old.releases?.length&&compare(releases[0].version,old.releases[0].version)<0)return json({error:'Update downgrade rejected.'},409);}
   const value={releases,updated:new Date().toISOString()};await e.BUCKET.put('updates.json',JSON.stringify(value),{httpMetadata:{contentType:'application/json'}});return json({ok:true});
  }
- if(req.method==='GET'&&p.startsWith('/api/images/')){const key=p.slice('/api/images/'.length);if(!/^\d+\.\d+\.\d+\/[a-z0-9-]+-[a-f0-9]{12}\.png$/.test(key))return json({error:'Not found.'},404);const o=await e.BUCKET.get('images/'+key);return o?new Response(o.body,{headers:{'Content-Type':'image/png','Cache-Control':'public,max-age=31536000,immutable','X-Content-Type-Options':'nosniff'}}):json({error:'Not found.'},404);}
- if(req.method==='PUT'&&p.startsWith('/api/manage/images/')){const key=p.slice('/api/manage/images/'.length);if(!/^\d+\.\d+\.\d+\/[a-z0-9-]+-[a-f0-9]{12}\.png$/.test(key))return json({error:'Invalid image key.'},400);const data=await req.arrayBuffer();if(data.byteLength>10000000||data.byteLength<8||new Uint8Array(data).slice(0,8).join(',')!=='137,80,78,71,13,10,26,10')return json({error:'Expected a PNG under 10 MB.'},400);await e.BUCKET.put('images/'+key,data,{httpMetadata:{contentType:'image/png'}});return json({ok:true});}
+ if(req.method==='GET'&&p.startsWith('/api/images/')){const key=p.slice('/api/images/'.length);if(!/^\d+\.\d+\.\d+\/[a-z0-9-]+-[a-f0-9]{12}\.(?:png|jpg)$/.test(key))return json({error:'Not found.'},404);const o=await e.BUCKET.get('images/'+key);return o?new Response(o.body,{headers:{'Content-Type':key.endsWith('.jpg')?'image/jpeg':'image/png','Cache-Control':'public,max-age=31536000,immutable','X-Content-Type-Options':'nosniff'}}):json({error:'Not found.'},404);}
+ if(req.method==='PUT'&&p.startsWith('/api/manage/images/')){const key=p.slice('/api/manage/images/'.length);if(!/^\d+\.\d+\.\d+\/[a-z0-9-]+-[a-f0-9]{12}\.(?:png|jpg)$/.test(key))return json({error:'Invalid image key.'},400);const data=await req.arrayBuffer(),bytes=new Uint8Array(data),jpg=key.endsWith('.jpg');const valid=jpg?bytes[0]===255&&bytes[1]===216&&bytes[2]===255:bytes.slice(0,8).join(',')==='137,80,78,71,13,10,26,10';if(data.byteLength>10000000||data.byteLength<8||!valid)return json({error:'Expected a matching PNG or JPEG under 10 MB.'},400);await e.BUCKET.put('images/'+key,data,{httpMetadata:{contentType:jpg?'image/jpeg':'image/png'}});return json({ok:true});}
  if(req.method==='PUT'&&p==='/api/manage/release'){
   const b=await req.json();if(containsPrivateContent(b,e))return json({error:'Private content cannot be published.'},400);if(!version(b.version)||!Array.isArray(b.scenes)||!b.scenes.length||b.scenes.length>10||typeof b.summary!=='string'||b.summary.length>3000)return json({error:'Invalid release.'},400);
   const previous=await e.BUCKET.get('release.json');if(previous){const old=await previous.json();if(compare(b.version,old.version)<0)return json({error:'Release downgrade rejected.'},409);}

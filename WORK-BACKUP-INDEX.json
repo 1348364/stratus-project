@@ -12083,6 +12083,90 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
       "bytes": 216059
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/01-release-river.jpg": {
+      "sha256": "8a91a59e5d2936d50a7a95f4ee25a1357244751b8fdca6ed3d5dac2158c2e18a",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 341982
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/02-river-screen-edge.jpg": {
+      "sha256": "7d0e008bb30c2076d6e50d32897c091d287b757f88b19daedc1d4b7127afd3bf",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 473641
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/03-reference-waterline.jpg": {
+      "sha256": "6db9cbfa12b36b0da84b6932a7a8e73c2baabecf2918dcd5ae5aa910d5921027",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 509534
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/04-river-downward.jpg": {
+      "sha256": "2f7ecf4b92177e946e32591c06e22a7c7b43f2965d49106f03f2c1d9320d3c79",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 323109
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/05-release-underwater.jpg": {
+      "sha256": "5e03cafb42955ae998bf430bcad70b49b0746e6a3a0706c063ab2ba6cccfc021",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 211486
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/06-reference-underwater-air-exit.jpg": {
+      "sha256": "48d43276688c53d673ecad662ec765b4ee751aaf80a88af6ee23c5a5b578926c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 248834
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/07-candidate-reference-river.jpg": {
+      "sha256": "6aa1fabdc85e7439261fce4c59d6064f7d67d4acb2304a0ec63b37a4cf177752",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 512044
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/08-polished-sun.jpg": {
+      "sha256": "5772a59a4ea6f3d7dac6b93f8e05b38945e199d82fdf065103bc9a24be45f272",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 107427
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/09-clouds-native.jpg": {
+      "sha256": "cef23842ef4e2d6dcaa3adb37b3ccec42923d0051408a3d272ab408d225fd973",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 81640
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/10-clouds-below.jpg": {
+      "sha256": "f4797f7180d840577495a21c7e519b217499e6f5468dae511607737731611a40",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-240de4a46fa50aff.zip",
+      "bytes": 62626
+    },
+    "work/public-site-history/509df3dd59793e84f511c85eb37e349b42b6d97f.zip": {
+      "sha256": "dc86c7de52872f0791919874549ba39f9f10321980db14a89e8eed2b9c328dfe",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-c8c0270c207feadd.zip",
+      "bytes": 24244007
+    },
+    "work/stratus-170-rc2/screenshots/rc2-after-sun-peak.png": {
+      "sha256": "e76725ea401fae570202f3ac269bbac2f7b3b12ceeb93b9afa8bc634c9515f44",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-6fa2b29ed8b78fcc.zip",
+      "bytes": 1010436
+    },
+    "work/stratus-170-rc2/screenshots/rc2-before-sun-peak.png": {
+      "sha256": "5eb0d4fcab76b4822ce6d9998e49e1d0249c89c72e45c6205c97236752c9b57e",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-6fa2b29ed8b78fcc.zip",
+      "bytes": 721500
+    },
+    "work/stratus-170-rc2/screenshots/rc2-dry-sun-peak.png": {
+      "sha256": "3669708da1182f34af86e4d40d72ada2df83f9466f3b1d505417473ca4699468",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-6fa2b29ed8b78fcc.zip",
+      "bytes": 972796
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

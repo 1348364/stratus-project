@@ -1,0 +1,6 @@
+fill 4200 160 4207 4208 165 4212 minecraft:stone hollow
+fill 4201 161 4208 4207 163 4211 minecraft:water[level=0]
+setblock 4204 164 4209 minecraft:glass
+fill 4210 160 4207 4217 165 4212 minecraft:stone hollow
+setblock 4211 164 4210 minecraft:sea_lantern
+fill 4213 166 4202 4217 166 4206 minecraft:quartz_block

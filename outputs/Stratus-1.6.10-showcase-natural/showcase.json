@@ -12,7 +12,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-river.png",
       "pack": "Stratus-1.6.10.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "01-release-river.jpg",
+      "web_sha256": "8a91a59e5d2936d50a7a95f4ee25a1357244751b8fdca6ed3d5dac2158c2e18a"
     },
     {
       "file": "02-river-screen-edge.png",
@@ -22,7 +24,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-river-screen-edge.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "02-river-screen-edge.jpg",
+      "web_sha256": "7d0e008bb30c2076d6e50d32897c091d287b757f88b19daedc1d4b7127afd3bf"
     },
     {
       "file": "03-reference-waterline.png",
@@ -32,7 +36,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-waterline.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "03-reference-waterline.jpg",
+      "web_sha256": "6db9cbfa12b36b0da84b6932a7a8e73c2baabecf2918dcd5ae5aa910d5921027"
     },
     {
       "file": "04-river-downward.png",
@@ -42,7 +48,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-river-downward.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "04-river-downward.jpg",
+      "web_sha256": "2f7ecf4b92177e946e32591c06e22a7c7b43f2965d49106f03f2c1d9320d3c79"
     },
     {
       "file": "05-release-underwater.png",
@@ -52,7 +60,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-underwater.png",
       "pack": "Stratus-1.6.10.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "05-release-underwater.jpg",
+      "web_sha256": "5e03cafb42955ae998bf430bcad70b49b0746e6a3a0706c063ab2ba6cccfc021"
     },
     {
       "file": "06-reference-underwater-air-exit.png",
@@ -62,7 +72,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-underwater-air-exit.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "06-reference-underwater-air-exit.jpg",
+      "web_sha256": "48d43276688c53d673ecad662ec765b4ee751aaf80a88af6ee23c5a5b578926c"
     },
     {
       "file": "07-candidate-reference-river.png",
@@ -72,7 +84,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-candidate-reference-river.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "07-candidate-reference-river.jpg",
+      "web_sha256": "6aa1fabdc85e7439261fce4c59d6064f7d67d4acb2304a0ec63b37a4cf177752"
     },
     {
       "file": "08-polished-sun.png",
@@ -82,7 +96,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-polished-sun.png",
       "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "08-polished-sun.jpg",
+      "web_sha256": "5772a59a4ea6f3d7dac6b93f8e05b38945e199d82fdf065103bc9a24be45f272"
     },
     {
       "file": "09-clouds-native.png",
@@ -92,7 +108,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-clouds-native.png",
       "pack": "Stratus-1.6.10-QA-CloudsNative.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "09-clouds-native.jpg",
+      "web_sha256": "cef23842ef4e2d6dcaa3adb37b3ccec42923d0051408a3d272ab408d225fd973"
     },
     {
       "file": "10-clouds-below.png",
@@ -102,7 +120,9 @@
       "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-clouds-below.png",
       "pack": "Stratus-1.6.10-QA-Clouds.zip",
       "natural_world": true,
-      "reviewed": true
+      "reviewed": true,
+      "web_file": "10-clouds-below.jpg",
+      "web_sha256": "f4797f7180d840577495a21c7e519b217499e6f5468dae511607737731611a40"
     }
   ]
 }
