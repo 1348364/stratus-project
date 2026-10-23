@@ -4,5 +4,11 @@ Put only the changes you want worked on now under **Pending changes**. `TASK.md`
 
 ## Pending changes
 
-No pending changes.
+- Disallow sheem behind blocks like inside leaf blocks. Current: sheem applies to all surfaces including inside faces/blocks. 
+
+- Block faces that are facing the sun is too reflective, reflecting sunlight too much. 
+
+- Fix indoor flowing water bug. An image of it can be found in my minecraft screenshots folder. 
+
+- Make sure that every new shader you make is inside the game shaderpacks too.
 
