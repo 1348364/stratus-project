@@ -23,7 +23,7 @@ const upcoming=[['Focused performance checks','Matched foreground FPS and frame-
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function sceneButton(scene){return `<button class="scene" data-scene="${scene.id}" aria-label="Open ${esc(scene.title)}"><img src="${esc(scene.image||`/assets/${scene.id}.png`)}" alt="${esc(scene.alt)}" loading="lazy"><span><b>${esc(scene.title)}</b><small>${scene.tag}</small></span><i aria-hidden="true">↗</i></button>`;}
 function renderScenes(){
-document.querySelector('#home-gallery').innerHTML=scenes.slice(0,3).map(sceneButton).join('');
+document.querySelector('#home-gallery').innerHTML=scenes.map(sceneButton).join('');
 document.querySelector('#showcase-gallery').innerHTML=scenes.map(scene=>`<figure class="showcase-shot"><button class="showcase-image" data-scene="${esc(scene.id)}" aria-label="Open ${esc(scene.title)}"><img src="${esc(scene.image||`/assets/${scene.id}.png`)}" alt="${esc(scene.alt)}" loading="lazy"><span aria-hidden="true">↗</span></button><figcaption><div class="shot-name"><small>${esc(scene.tag)}</small><h2>${esc(scene.title)}</h2></div><p>${esc(scene.description)}</p></figcaption></figure>`).join('');
 }
 renderScenes();

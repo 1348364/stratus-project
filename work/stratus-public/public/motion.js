@@ -1,68 +1,17 @@
 'use strict';
-// Presentation only: native scrolling, no network requests or persistent state.
+// Presentation only. Dynamic feed elements join the same finite reveal system.
 (() => {
- const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
- const root = document.documentElement;
- const revealSelectors = '.home-heading,.workspace-card,.reference-strip,.gallery .scene,.section-intro,.showcase-shot,.release,.spec-section,.platform-strip,.spec-footnote,.upcoming-item,.water-story-image,.water-story-copy,.public-faq .home-heading,.faq-list details,.release-focus>div,.preset-guide,.roadmap-process>h2,.roadmap-process li,.workflow-note,.roadmap-note';
- const reveals = [...document.querySelectorAll(revealSelectors)];
- const layers = [...document.querySelectorAll('.hero,.water-story-image,.showcase-image')];
- let observer, frame = 0, resizeObserver;
- function visible(element) { return !element.closest('[data-view][hidden]'); }
- function update() {
-  frame = 0;
-  const height = window.innerHeight;
-  const range = Math.max(1, document.documentElement.scrollHeight - height);
-  root.style.setProperty('--read-progress', String(Math.min(1, Math.max(0, window.scrollY / range))));
-  document.body.classList.toggle('has-scrolled', window.scrollY > 24);
-  if (preference.matches) return;
-  for (const layer of layers) {
-   if (!visible(layer)) continue;
-   const box = layer.getBoundingClientRect();
-   if (box.bottom < 0 || box.top > height) continue;
-   const travel = (height / 2 - (box.top + box.height / 2)) / height;
-   const maximum = window.innerWidth < 600 ? 12 : 25;
-   layer.style.setProperty('--scene-shift', `${Math.max(-maximum, Math.min(maximum, travel * maximum))}px`);
-  }
- }
- function schedule() { if (!frame) frame = requestAnimationFrame(update); }
- function setup() {
-  observer?.disconnect();
-  document.body.classList.toggle('motion-enabled', !preference.matches && 'IntersectionObserver' in window);
-  if (preference.matches || !('IntersectionObserver' in window)) {
-   reveals.forEach(element => element.classList.add('is-revealed'));
-   layers.forEach(element => element.style.removeProperty('--scene-shift'));
-   schedule(); return;
-  }
-  observer = new IntersectionObserver(entries => {
-   for (const entry of entries) {
-    if (!entry.isIntersecting) continue;
-    entry.target.classList.add('is-revealed');
-    observer.unobserve(entry.target);
-   }
-  }, {threshold:0.06, rootMargin:'0px 0px -20px 0px'});
-  reveals.forEach((element,index) => {
-   element.classList.add('scroll-reveal');
-   // Small offsets make grouped cards and gallery scenes arrive in sequence.
-   const siblings = element.parentElement?.children;
-   const stagger = siblings ? [...siblings].indexOf(element) % 3 : index % 3;
-   element.style.setProperty('--reveal-delay', `${stagger * 65}ms`);
-   if (!element.classList.contains('is-revealed')) observer.observe(element);
-  });
-  schedule();
- }
- function routeMotion() {
-  // Pages already read remain revealed. First visits animate on entry.
-  requestAnimationFrame(() => {
-   for (const element of reveals) if (visible(element) && !element.classList.contains('is-revealed')) observer?.observe(element);
-   schedule();
-  });
- }
- window.addEventListener('scroll',schedule,{passive:true});
- window.addEventListener('resize',schedule,{passive:true});
- window.addEventListener('hashchange',routeMotion);
- window.addEventListener('load',schedule,{once:true});
- preference.addEventListener('change',setup);
- if ('ResizeObserver' in window) {resizeObserver=new ResizeObserver(schedule);resizeObserver.observe(document.body);}
- document.addEventListener('focusin',event=>event.target.closest?.('.scroll-reveal')?.classList.add('is-revealed'));
- setup();
+ const preference=matchMedia('(prefers-reduced-motion: reduce)'),root=document.documentElement,body=document.body;
+ const groups=[['.home-heading h2,.section-intro h1,.water-story-copy h2','heading'],['.eyebrow,.chapter-label','tracking'],['.workspace-card,.upcoming-item,.roadmap-process li','rise'],['.reference-strip,.platform-strip,.workflow-note,.roadmap-note','line'],['.gallery-section,.showcase-shot,.water-story-image','wipe'],['.release','slide'],['.spec-section,.preset-guide,.spec-footnote','soft'],['.spec-section dl>div,.preset-guide tbody tr,.faq-list details,.feedback-form>label,.feedback-form>input,.feedback-form>textarea,.feedback-form>select','detail']];
+ let observer,frame=0;
+ const disabled=()=>preference.matches||body.classList.contains('effects-paused');
+ function update(){frame=0;const height=innerHeight,range=Math.max(1,root.scrollHeight-height);root.style.setProperty('--read-progress',Math.min(1,Math.max(0,scrollY/range)));body.classList.toggle('has-scrolled',scrollY>24);}
+ function schedule(){if(!frame)frame=requestAnimationFrame(update);}
+ function register(){for(const [selector,type] of groups){document.querySelectorAll(selector).forEach((el,index)=>{if(el.dataset.reveal)return;el.dataset.reveal=type;el.classList.add('scroll-reveal');el.style.setProperty('--reveal-delay',`${index%3*65}ms`);if(disabled()||!observer)el.classList.add('is-revealed');else observer.observe(el);});}schedule();}
+ function setup(){observer?.disconnect();body.classList.toggle('motion-enabled',!preference.matches&&'IntersectionObserver'in window);observer='IntersectionObserver'in window?new IntersectionObserver(entries=>{for(const entry of entries){if(!entry.isIntersecting||entry.target.closest('[data-view][hidden]'))continue;entry.target.classList.add('is-revealed');observer.unobserve(entry.target);}},{threshold:.05,rootMargin:'0px 0px -15px 0px'}):null;
+  for(const el of document.querySelectorAll('[data-reveal]')){if(disabled())el.classList.add('is-revealed');else if(!el.classList.contains('is-revealed'))observer?.observe(el);}register();}
+ window.addEventListener('scroll',schedule,{passive:true});window.addEventListener('resize',schedule,{passive:true});window.addEventListener('hashchange',()=>requestAnimationFrame(register));preference.addEventListener('change',setup);
+ document.addEventListener('focusin',e=>{let el=e.target;while(el&&el!==body){if(el.dataset?.reveal)el.classList.add('is-revealed');el=el.parentElement;}});
+ new MutationObserver(records=>{if(records.some(r=>r.type==='childList'&&r.addedNodes.length))register();}).observe(document.querySelector('main'),{childList:true,subtree:true});
+ new MutationObserver(()=>{if(disabled())document.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('is-revealed'));}).observe(body,{attributes:true,attributeFilter:['class']});setup();
 })();

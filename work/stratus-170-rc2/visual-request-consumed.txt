@@ -1,0 +1,17 @@
+PACK Stratus-1.7.0-rc2-QA-Before.zip
+CAM 164.5 60 40.5 0 -35
+READY before-underwater 180
+SHOT rc2-before-underwater
+PACK Stratus-1.7.0-rc2-QA-Candidate.zip
+READY after-underwater 180
+SHOT rc2-after-underwater
+VANILLA
+READY vanilla-underwater 180
+SHOT rc2-vanilla-underwater
+PACK Stratus-1.7.0-rc2-QA-TextureZero.zip
+READY zero-underwater 180
+SHOT rc2-zero-underwater
+PACK Stratus-1.7.0-rc2-QA-TextureHalf.zip
+READY half-underwater 180
+SHOT rc2-half-underwater
+DONE underwater-route
