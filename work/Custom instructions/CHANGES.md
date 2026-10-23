@@ -8,6 +8,8 @@ Put only the changes you want worked on now under **Pending changes**. `TASK.md`
 
 - Block faces that are facing the sun is too reflective, reflecting sunlight too much. 
 
+- When water is set to Vanilla, looking up underwater does not match vanilla underwater style, match it with the vanilla texture options slider. 
+
 - Fix indoor flowing water bug. An image of it can be found in my minecraft screenshots folder. 
 
 - Fix entity shading: entities currently does not have any shade, appily vanilla shading back to the entities
