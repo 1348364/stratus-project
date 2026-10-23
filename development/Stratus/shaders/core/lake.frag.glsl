@@ -66,7 +66,10 @@ void main(){
         float shiftedDepth=texture(depthtex1,shifted).r;
         vec3 transmitted=texture(colortex4,shifted).rgb;
         vec3 backRay=unitVector(mat3(gbufferModelViewInverse)*positionFromDepth(shifted,0.5));
-        if(shiftedDepth>=0.999999)transmitted=reflectedEnvironment(backRay);
+        // Missing screen-space geometry must not import an outdoor sky into
+        // an unlit cave. Use the same local-exposure fallback as reflection.
+        if(shiftedDepth>=0.999999)transmitted=reflectedEnvironment(backRay)
+            *mix(0.03,1.0,smoothstep(0.04,0.8,waterSky));
         bool backgroundGeometry=shiftedDepth<0.999999;
         vec3 receiver=backgroundGeometry?positionFromDepth(shifted,shiftedDepth):waterView+unitVector(waterView)*7000.0;
         float receiverDistance=length(receiver-waterView);

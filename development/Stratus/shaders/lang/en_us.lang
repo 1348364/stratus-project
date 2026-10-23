@@ -184,7 +184,7 @@ screen.COLOUR.comment=Camera grading for Stratus lighting. Saved values remain w
 screen.BLOOM=Bloom
 screen.BLOOM.comment=Global light halos. The polished sun also has independent local halo controls.
 option.WATER_TEXTURE=Vanilla water texture
-option.WATER_TEXTURE.comment=Native animated still/flow contribution across the whole visible surface. In Vanilla appearance it controls native surface colour/alpha; zero removes that layer. In Stratus appearance it controls the retained patterned biome tint. Reflection/refraction settings remain independent.
+option.WATER_TEXTURE.comment=In Vanilla mode this also controls the animated underside seen from underwater. Native animated still/flow contribution across the whole visible surface. In Vanilla appearance it controls native surface colour/alpha; zero removes that layer. In Stratus appearance it controls the retained patterned biome tint. Reflection/refraction settings remain independent.
 
 option.WATER_STYLE=Water appearance
 option.WATER_STYLE.comment=Vanilla uses the active still/flow texture, biome colour, light and game underwater fog, with Stratus reflections/refraction retained. Stratus restores depth-based absorption and clarity tuning.

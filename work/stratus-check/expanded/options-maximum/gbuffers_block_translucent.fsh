@@ -693,7 +693,7 @@ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material
             float exponent=mix(80.0,16.0,clamp(material.y,0.0,1.0));
             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
             dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
-                *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
+                *lobe*film*WET_SHEEN*0.008*(1.0-0.65*rainStrength);
         }
     }
 #endif
@@ -883,19 +883,29 @@ void main() {
 #endif
 #if PASS_KIND == 6
     if (isEyeInWater == 1 && (blockCategory == 4100 || blockCategory == 4103)) {
-        // Invisible exit-depth capture only. The scene and interface-optics
-        // buffers stay untouched, so no surface window/reflection is drawn.
-        // This independent attachment survives glass and particles and lets
-        // the resolve stop water fog before objects in the air beyond it.
+        // Independent exit depth stops fog before air beyond the interface.
+        // Stratus mode stays clear; native mode also supplies its atlas layer.
         vec3 exitView = (gbufferModelView * vec4(relativeLocation, 1.0)).xyz;
-        shim_FragData[0] = vec4(0.0);
+        // Native mode restores the animated underside at the actual exit.
+        // Ordinary alpha blending keeps nearer glass/particles in draw order;
+        // the dedicated transmission buffer carries its coverage into fog.
+        vec4 underside=vec4(0.0);
+#if WATER_STYLE == 1
+        vec3 nativeColour=surface.rgb*lm;
+#if REALISTIC_LIGHTING != 0
+        vec3 fn=unitVector(orientedNormal);
+        nativeColour*=dot(fn*fn,vec3(0.6,fn.y>=0.0?1.0:0.5,0.8));
+#endif
+        underside=vec4(decodeDisplay(nativeColour),clamp(surface.a*WATER_TEXTURE,0.0,1.0));
+#endif
+        shim_FragData[0] = underside;
         shim_FragData[1] = vec4(0.0);
         shim_FragData[2] = vec4(0.0);
         shim_FragData[3] = vec4(0.0);
         shim_FragData[4] = vec4(0.0);
         shim_FragData[5] = vec4(-exitView.z, sky,
             clamp((illuminationCoordinate.s * 32.0 - 1.0) / 30.0, 0.0, 1.0), 1.0);
-        shim_FragData[6] = vec4(0.0);
+        shim_FragData[6] = vec4(0.0,0.0,0.0,underside.a);
         shim_FragData[7] = vec4(0.0);
         return;
     }
@@ -992,7 +1002,7 @@ void main() {
     shim_FragData[3] = vec4(depth, sky, radialDepth, mark);
 #else
     shim_FragData[1] = vec4(sky, emission, 0.0, reflectable);
-    shim_FragData[2] = vec4(unitVector(orientedNormal),float(category>1.05&&category<1.5));
+    shim_FragData[2] = vec4(unitVector(orientedNormal),float(category>1.05&&category<1.5&&material!=4113));
     shim_FragData[3] = vec4(wetMaterialProperties(material),0.0,0.0);
 #endif
 #endif

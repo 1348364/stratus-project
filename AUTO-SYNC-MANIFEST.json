@@ -36,6 +36,7 @@
     "development/Stratus/shaders/core/bloom-vertical.frag.glsl",
     "development/Stratus/shaders/core/ceiling.glsl",
     "development/Stratus/shaders/core/diffuse.glsl",
+    "development/Stratus/shaders/core/entity-lighting.glsl",
     "development/Stratus/shaders/core/environment.frag.glsl",
     "development/Stratus/shaders/core/environment.glsl",
     "development/Stratus/shaders/core/field.glsl",
@@ -827,6 +828,7 @@
     "work/Custom instructions/TASK.md",
     "work/Custom instructions/WORKFLOW.md",
     "work/domain-setup/stratus-shader.is-a.dev-dns.json",
+    "work/public-site-history/versions.json",
     "work/stratus-170-rc2/Iris-vanilla-lighting.txt",
     "work/stratus-170-rc2/agent/ChunkGateRc2.java",
     "work/stratus-170-rc2/agent/ChunkGateRc2.mf",
@@ -1087,6 +1089,7 @@
     "work/stratus-170-rc2/baseline/shaders/world1/gbuffers_weather.fsh",
     "work/stratus-170-rc2/baseline/shaders/world1/gbuffers_weather.vsh",
     "work/stratus-170-rc2/final-client-state-v2.txt",
+    "work/stratus-170-rc2/implement.py",
     "work/stratus-170-rc2/initial-CHANGE-LOG.md",
     "work/stratus-170-rc2/initial-CHANGES.md",
     "work/stratus-170-rc2/initial-COMPLETED-CHANGES.md",
@@ -9990,6 +9993,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "ad8c4372452c19b7b2e768715f7d5e74f91c70f592cacc399b0bd8bff3e27b20",
+  "fingerprint": "d700753f8d0356d0fe94af49d7e3af4c582ce739a5ab166bc2e5ec5ef0656e58",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

@@ -60,7 +60,7 @@ vec3 wetSurfaceResponse(vec3 dry,vec3 n,vec3 playerPoint,float sky,vec2 material
             float exponent=mix(80.0,16.0,clamp(material.y,0.0,1.0));
             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
             dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
-                *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
+                *lobe*film*WET_SHEEN*0.008*(1.0-0.65*rainStrength);
         }
     }
 #endif

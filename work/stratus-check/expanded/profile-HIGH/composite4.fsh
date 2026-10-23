@@ -893,6 +893,9 @@ in vec2 rasterUV;
 layout(location=0)out vec4 completedScene;
 void main(){
     vec3 scene=transparentSolidOptics(texture(colortex3,rasterUV).rgb,rasterUV);
+    // The atmosphere producer writes exact zero in water/lava/snow. Avoid
+    // depth reconstruction and four bilateral taps that cannot contribute.
+    if(isEyeInWater!=0){completedScene=vec4(max(scene,vec3(0.0)),1.0);return;}
     float distanceToScene=sceneDistance(rasterUV);
     ivec2 size=textureSize(colortex11,0);
     vec2 p=rasterUV*vec2(size)-0.5;

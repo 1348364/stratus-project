@@ -5,6 +5,7 @@ import argparse,fcntl,hashlib,io,json,os,plistlib,re,shutil,subprocess,sys,tarfi
 from datetime import datetime,timezone
 from pathlib import Path
 import github_backups
+import site_version_history
 ROOT=Path(__file__).resolve().parents[1]
 CHECKOUT=ROOT/'work/stratus-github'
 STATE=ROOT/'work/stratus-studio/.github-sync-state.json'
@@ -66,6 +67,7 @@ def final_release():
  raise ValueError('No final documented package with a matching receipt.')
 
 def snapshot():
+ site_version_history.archive_versions(sys.modules[__name__])
  files={};heads={}
  # Website edits are included only after they have been committed.
  for site in ['stratus-public','stratus-studio-cloud']:

@@ -165,6 +165,22 @@ vec2 viewportSize() { return max(vec2(viewWidth, viewHeight), vec2(1.0)); }
 
 // END INCLUDE /core/frame.glsl
 
+
+// BEGIN INCLUDE /core/entity-lighting.glsl
+#ifndef STRATUS_ENTITY_LIGHTING_INCLUDED
+#define STRATUS_ENTITY_LIGHTING_INCLUDED
+// Vanilla's two fixed diffuse lights, 0.6 direct + 0.4 ambient, clamp at one.
+// World/player normal retains model orientation without rotating with camera.
+// The lightmap remains independent; emissive/spidereyes passes bypass this.
+float nativeEntityLighting(vec3 normal){
+    vec3 a=normalize(vec3(0.2,1.0,-0.7));
+    vec3 b=normalize(vec3(-0.2,1.0,0.7));
+    return min(1.0,0.4+0.6*(max(dot(a,normal),0.0)+max(dot(b,normal),0.0)));
+}
+#endif
+
+// END INCLUDE /core/entity-lighting.glsl
+
 out vec4 tintAndOpacity;
 out vec2 atlasCoordinate;
 out vec2 illuminationCoordinate;
@@ -179,6 +195,11 @@ void main() {
     relativeLocation = playerFromView(cameraVertex.xyz);
     orientedNormal = mat3(gbufferModelViewInverse) * (shim_NormalMatrix * shim_Normal);
     tintAndOpacity = shim_Color;
+#if REALISTIC_LIGHTING == 0 && PASS_KIND == 4 && (!defined(BLOCK_SURFACE) || BLOCK_SURFACE == 0)
+    // Iris pack geometry supplies unlit entity vertex colour. Terrain's native
+    // oldLighting shading is already present and must not be applied twice.
+    tintAndOpacity.rgb*=nativeEntityLighting(unitVector(orientedNormal));
+#endif
     atlasCoordinate = (shim_TextureMatrix[0] * shim_MultiTexCoord0).st;
     illuminationCoordinate = (shim_TextureMatrix[1] * shim_MultiTexCoord1).st;
 #if PASS_KIND == 3 || PASS_KIND == 6

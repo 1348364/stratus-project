@@ -1,0 +1,72 @@
+{
+  "site": "stratus-public",
+  "versions": [
+    {
+      "commit": "9b0effbec7fc12555288ececc1322c2dca40e3e3",
+      "archive": "9b0effbec7fc12555288ececc1322c2dca40e3e3.zip",
+      "sha256": "39ea0026c21cb0869f1045243d4f73fb8decfcf9c4a8827990f6373e260ed41a"
+    },
+    {
+      "commit": "abbf2801c9451fa83327641f9fd8ab611a498e33",
+      "archive": "abbf2801c9451fa83327641f9fd8ab611a498e33.zip",
+      "sha256": "af9060b634b3970979e59867cc320226ba6bd3e2568b8e788dbb86bf7523f412"
+    },
+    {
+      "commit": "d55209d9ffb79d3c2f0ed08e4ca4b77271c77bb2",
+      "archive": "d55209d9ffb79d3c2f0ed08e4ca4b77271c77bb2.zip",
+      "sha256": "913b14c8722f6392aa1bc9d0fc79f60e6856c66a06b7a3ff6d1f6e4021d6d094"
+    },
+    {
+      "commit": "2c93b171d927fe2cb01c07928732e42719b59d6d",
+      "archive": "2c93b171d927fe2cb01c07928732e42719b59d6d.zip",
+      "sha256": "8967ed74b78d15c5d400ddd077c0338fe50d01d0fcd29473cbc91a4510a4d1b1"
+    },
+    {
+      "commit": "7ec93d08234c6fd1b92b000e82b9d0dcc20c3142",
+      "archive": "7ec93d08234c6fd1b92b000e82b9d0dcc20c3142.zip",
+      "sha256": "bffc09edda4837603877e6937ea81159a1d1386cf5b8a48ac2d6500bc453eacd"
+    },
+    {
+      "commit": "351f7cb8988a60b2f26a7cf1f057025f8e86b7b5",
+      "archive": "351f7cb8988a60b2f26a7cf1f057025f8e86b7b5.zip",
+      "sha256": "5477222bf738277f5fe49521095aabe9b076e07d34c43abc8cc2004039a8a87e"
+    },
+    {
+      "commit": "944087f467f85e4bc15fbafd4128bf694cd12f92",
+      "archive": "944087f467f85e4bc15fbafd4128bf694cd12f92.zip",
+      "sha256": "8e4a6df43caaf82856381e8ffddeb82c116d8f5fe53ed6c5cc4d88056959fc98"
+    },
+    {
+      "commit": "9662dfbd0b96e6028c0a8069e90e94d4d69240cb",
+      "archive": "9662dfbd0b96e6028c0a8069e90e94d4d69240cb.zip",
+      "sha256": "1ef148d5dabce309c7f9b32551101fd22d0b917a10f55acac78d8a8d0ca6d1be"
+    },
+    {
+      "commit": "883b7e49eea2107b03b0a3a4df68da0ac1846b17",
+      "archive": "883b7e49eea2107b03b0a3a4df68da0ac1846b17.zip",
+      "sha256": "c097f3fb9425c60b108c903a0e010b6682f4a3cb4fa873ab83990c3d2c162521"
+    },
+    {
+      "commit": "c6b2d090f4c918c9930ee6adfedf85dc1a749422",
+      "archive": "c6b2d090f4c918c9930ee6adfedf85dc1a749422.zip",
+      "sha256": "267d552a198895de141359efdb424d384c655db33e198e1b9e0b09bf8015a491"
+    },
+    {
+      "commit": "824f96d9beb8d2daf34f90ef0eccf6a6ef51a399",
+      "archive": "824f96d9beb8d2daf34f90ef0eccf6a6ef51a399.zip",
+      "sha256": "4fe7cc14dd3eca32a7c19ff13fa2a0bf0e81467ad4297fd0bbc32f7dfb4e349c"
+    },
+    {
+      "commit": "a832e739a6e32532f648cdaaa27f73aeb118acc2",
+      "archive": "a832e739a6e32532f648cdaaa27f73aeb118acc2.zip",
+      "sha256": "f23d7ae1dff493267b83a70b54978d62edb5f3427cefe18ef6a933c7f6bcf6f8"
+    },
+    {
+      "commit": "a9c885beef9a6cd520ec4debb5f03debe919a668",
+      "archive": "a9c885beef9a6cd520ec4debb5f03debe919a668.zip",
+      "sha256": "940a3ca9c69e4441d849bee8a4dbe3f772e2bc6b4aa909f65aec5ba558259394"
+    }
+  ],
+  "privacy_filtered": true,
+  "restore": "Each ZIP contains source for its named commit. See SOURCE-VERSION.json for privacy omissions. Deployment bundles are rebuilt from source; no credentials are included."
+}
