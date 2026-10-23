@@ -1,0 +1,441 @@
+Compiled from "ShaderSynthesizer.java"
+public class net.irisshaders.iris.pipeline.fallback.ShaderSynthesizer {
+  public net.irisshaders.iris.pipeline.fallback.ShaderSynthesizer();
+    Code:
+         0: aload_0
+         1: invokespecial #14                 // Method java/lang/Object."<init>":()V
+         4: return
+
+  public static java.lang.String vsh(boolean, net.irisshaders.iris.gl.state.ShaderAttributeInputs, net.irisshaders.iris.gl.state.FogMode, boolean, boolean);
+    Code:
+         0: new           #25                 // class java/lang/StringBuilder
+         3: dup
+         4: invokespecial #26                 // Method java/lang/StringBuilder."<init>":()V
+         7: astore        5
+         9: new           #25                 // class java/lang/StringBuilder
+        12: dup
+        13: invokespecial #26                 // Method java/lang/StringBuilder."<init>":()V
+        16: astore        6
+        18: aload         5
+        20: ldc           #28                 // String #version 150 core\n
+        22: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        25: pop
+        26: aload         5
+        28: ldc           #34                 // String layout(std140) uniform Projection {\n    mat4 ProjMat;\n};\n
+        30: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        33: pop
+        34: aload         5
+        36: ldc           #36                 // String layout(std140) uniform DynamicTransforms {\n    mat4 ModelViewMat;\n    vec4 ColorModulator;\n    vec3 ModelOffset;\n    mat4 TextureMat;\n};\n
+        38: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        41: pop
+        42: aload         5
+        44: ldc           #38                 // String layout(std140) uniform Globals {\n    vec2 ScreenSize;\n    float GlintAlpha;\n    float GameTime;\n    int MenuBlurRadius;\n};\n
+        46: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        49: pop
+        50: aload         5
+        52: ldc           #40                 // String in vec3 Position;\n
+        54: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        57: pop
+        58: iload_0
+        59: ifeq          69
+        62: ldc           #42                 // String Position + ModelOffset
+        64: astore        7
+        66: goto          73
+        69: ldc           #44                 // String Position
+        71: astore        7
+        73: aload_1
+        74: invokevirtual #52                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.isNewLines:()Z
+        77: ifeq          114
+        80: aload         5
+        82: ldc           #54                 // String in float LineWidth;\n
+        84: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        87: pop
+        88: aload         5
+        90: ldc           #56                 // String const float VIEW_SHRINK = 1.0 - (1.0 / 256.0);\nconst mat4 VIEW_SCALE = mat4(\n    VIEW_SHRINK, 0.0, 0.0, 0.0,\n    0.0, VIEW_SHRINK, 0.0, 0.0,\n    0.0, 0.0, VIEW_SHRINK, 0.0,\n    0.0, 0.0, 0.0, 1.0\n);\n
+        92: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        95: pop
+        96: aload         6
+        98: aload         7
+       100: aload         7
+       102: invokedynamic #68,  0             // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       107: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       110: pop
+       111: goto          138
+       114: aload         6
+       116: ldc           #70                 // String     gl_Position = ProjMat * ModelViewMat * vec4(
+       118: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       121: pop
+       122: aload         6
+       124: aload         7
+       126: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       129: pop
+       130: aload         6
+       132: ldc           #72                 // String , 1.0);\n
+       134: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       137: pop
+       138: iload         4
+       140: ifeq          151
+       143: aload         5
+       145: ldc           #74                 // String flat
+       147: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       150: pop
+       151: aload         5
+       153: ldc           #76                 // String out vec4 iris_vertexColor;\n
+       155: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       158: pop
+       159: aload_1
+       160: invokevirtual #79                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasNormal:()Z
+       163: ifeq          257
+       166: aload_1
+       167: invokevirtual #82                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasColor:()Z
+       170: ifeq          257
+       173: aload         5
+       175: ldc           #84                 // String in vec4 Color;\n
+       177: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       180: pop
+       181: iload_3
+       182: ifeq          220
+       185: aload         5
+       187: ldc           #86                 // String layout(std140) uniform Lighting {\n    vec3 Light0_Direction;\n    vec3 Light1_Direction;\n};
+       189: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       192: pop
+       193: aload         5
+       195: ldc           #88                 // String vec4 minecraft_mix_light(vec3 lightDir0, vec3 lightDir1, vec3 normal, vec4 color) {\n    float light0 = max(0.0, dot(lightDir0, normal));\n    float light1 = max(0.0, dot(lightDir1, normal));\n    float lightAccum = min(1.0, (light0 + light1) * 0.6 + 0.4);\n    return vec4(color.rgb * lightAccum, color.a);\n}\n
+       197: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       200: pop
+       201: aload         5
+       203: ldc           #90                 // String in vec3 Normal;\n
+       205: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       208: pop
+       209: aload         6
+       211: ldc           #92                 // String     iris_vertexColor = minecraft_mix_light(Light0_Direction, Light1_Direction, Normal, Color * ColorModulator);\n
+       213: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       216: pop
+       217: goto          291
+       220: aload_1
+       221: invokevirtual #52                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.isNewLines:()Z
+       224: ifeq          246
+       227: aload         5
+       229: ldc           #90                 // String in vec3 Normal;\n
+       231: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       234: pop
+       235: aload         6
+       237: ldc           #94                 // String     iris_vertexColor = Color * ColorModulator;\n
+       239: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       242: pop
+       243: goto          291
+       246: aload         6
+       248: ldc           #94                 // String     iris_vertexColor = Color * ColorModulator;\n
+       250: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       253: pop
+       254: goto          291
+       257: aload_1
+       258: invokevirtual #82                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasColor:()Z
+       261: ifeq          283
+       264: aload         5
+       266: ldc           #84                 // String in vec4 Color;\n
+       268: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       271: pop
+       272: aload         6
+       274: ldc           #94                 // String     iris_vertexColor = Color * ColorModulator;\n
+       276: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       279: pop
+       280: goto          291
+       283: aload         6
+       285: ldc           #96                 // String     iris_vertexColor = ColorModulator;\n
+       287: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       290: pop
+       291: aload_1
+       292: invokevirtual #99                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasOverlay:()Z
+       295: ifeq          330
+       298: aload         5
+       300: ldc           #101                // String uniform sampler2D Sampler1;\n
+       302: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       305: pop
+       306: aload         5
+       308: ldc           #103                // String in ivec2 UV1;\n
+       310: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       313: pop
+       314: aload         5
+       316: ldc           #105                // String out vec4 overlayColor;\n
+       318: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       321: pop
+       322: aload         6
+       324: ldc           #107                // String     overlayColor = texelFetch(Sampler1, UV1, 0);\n
+       326: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       329: pop
+       330: aload_1
+       331: invokevirtual #110                // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasTex:()Z
+       334: ifeq          361
+       337: aload         5
+       339: ldc           #112                // String in vec2 UV0;\n
+       341: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       344: pop
+       345: aload         5
+       347: ldc           #114                // String out vec2 texCoord;\n
+       349: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       352: pop
+       353: aload         6
+       355: ldc           #116                // String     texCoord = (TextureMat * vec4(UV0, 0.0, 1.0)).xy;\n
+       357: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       360: pop
+       361: aload_2
+       362: getstatic     #122                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       365: if_acmpne     400
+       368: aload         5
+       370: ldc           #124                // String out float vertexDistance;\n
+       372: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       375: pop
+       376: aload         6
+       378: ldc           #126                // String     vertexDistance = length((ModelViewMat * vec4(
+       380: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       383: pop
+       384: aload         6
+       386: aload         7
+       388: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       391: pop
+       392: aload         6
+       394: ldc           #128                // String , 1.0)).xyz);\n
+       396: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       399: pop
+       400: aload_1
+       401: invokevirtual #131                // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasLight:()Z
+       404: ifeq          431
+       407: aload         5
+       409: ldc           #133                // String in ivec2 UV2;\n
+       411: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       414: pop
+       415: aload         5
+       417: ldc           #135                // String out vec2 lightCoord;\n
+       419: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       422: pop
+       423: aload         6
+       425: ldc           #137                // String     lightCoord = clamp(UV2 / 256.0, vec2(0.5 / 16.0), vec2(15.5 / 16.0));\n
+       427: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       430: pop
+       431: aload         5
+       433: ldc           #139                // String void main() {\n
+       435: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       438: pop
+       439: aload         5
+       441: aload         6
+       443: invokevirtual #142                // Method java/lang/StringBuilder.append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+       446: pop
+       447: aload         5
+       449: ldc           #144                // String }\n
+       451: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       454: pop
+       455: aload         5
+       457: invokevirtual #148                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       460: areturn
+
+  public static java.lang.String fsh(net.irisshaders.iris.gl.state.ShaderAttributeInputs, net.irisshaders.iris.gl.state.FogMode, net.irisshaders.iris.gl.blending.AlphaTest, boolean, boolean);
+    Code:
+         0: new           #25                 // class java/lang/StringBuilder
+         3: dup
+         4: invokespecial #26                 // Method java/lang/StringBuilder."<init>":()V
+         7: astore        5
+         9: new           #25                 // class java/lang/StringBuilder
+        12: dup
+        13: invokespecial #26                 // Method java/lang/StringBuilder."<init>":()V
+        16: astore        6
+        18: aload         5
+        20: ldc           #28                 // String #version 150 core\n
+        22: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        25: pop
+        26: aload         5
+        28: ldc           #161                // String out vec4 fragColor;\n
+        30: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        33: pop
+        34: aload         5
+        36: ldc           #163                // String uniform float AlphaTestValue;\n
+        38: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        41: pop
+        42: iload         4
+        44: ifeq          55
+        47: aload         5
+        49: ldc           #74                 // String flat
+        51: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        54: pop
+        55: aload         5
+        57: ldc           #165                // String in vec4 iris_vertexColor;\n
+        59: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        62: pop
+        63: aload         5
+        65: ldc           #34                 // String layout(std140) uniform Projection {\n    mat4 ProjMat;\n};\n
+        67: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        70: pop
+        71: aload         6
+        73: ldc           #167                // String float iris_vertexColorAlpha = iris_vertexColor.a;
+        75: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        78: pop
+        79: aload_0
+        80: invokevirtual #110                // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasTex:()Z
+        83: ifeq          151
+        86: aload         5
+        88: ldc           #169                // String uniform sampler2D Sampler0;\n
+        90: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        93: pop
+        94: aload         5
+        96: ldc           #171                // String in vec2 texCoord;\n
+        98: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       101: pop
+       102: aload         6
+       104: ldc           #173                // String     vec4 color = texture(Sampler0, texCoord)
+       106: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       109: pop
+       110: iload_3
+       111: ifeq          122
+       114: aload         6
+       116: ldc           #175                // String .rrrr
+       118: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       121: pop
+       122: aload_2
+       123: getstatic     #181                // Field net/irisshaders/iris/gl/blending/AlphaTests.VERTEX_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       126: if_acmpne     140
+       129: aload         6
+       131: ldc           #183                // String  * vec4(iris_vertexColor.rgb, 1);\n
+       133: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       136: pop
+       137: goto          177
+       140: aload         6
+       142: ldc           #185                // String  * iris_vertexColor;\n
+       144: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       147: pop
+       148: goto          177
+       151: aload_2
+       152: getstatic     #181                // Field net/irisshaders/iris/gl/blending/AlphaTests.VERTEX_ALPHA:Lnet/irisshaders/iris/gl/blending/AlphaTest;
+       155: if_acmpne     169
+       158: aload         6
+       160: ldc           #187                // String vec4 color = vec4(iris_vertexColor.rgb, 1);\n
+       162: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       165: pop
+       166: goto          177
+       169: aload         6
+       171: ldc           #189                // String vec4 color = iris_vertexColor;\n
+       173: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       176: pop
+       177: aload_0
+       178: invokevirtual #99                 // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasOverlay:()Z
+       181: ifeq          200
+       184: aload         5
+       186: ldc           #191                // String in vec4 overlayColor;\n
+       188: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       191: pop
+       192: aload         6
+       194: ldc           #193                // String     color.rgb = mix(overlayColor.rgb, color.rgb, overlayColor.a);\n
+       196: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       199: pop
+       200: aload_0
+       201: invokevirtual #131                // Method net/irisshaders/iris/gl/state/ShaderAttributeInputs.hasLight:()Z
+       204: ifeq          231
+       207: aload         5
+       209: ldc           #195                // String uniform sampler2D Sampler2;\n
+       211: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       214: pop
+       215: aload         5
+       217: ldc           #197                // String in vec2 lightCoord;\n
+       219: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       222: pop
+       223: aload         6
+       225: ldc           #199                // String     color *= texture(Sampler2, lightCoord);\n
+       227: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       230: pop
+       231: aload_1
+       232: getstatic     #122                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       235: if_acmpeq     245
+       238: aload_1
+       239: getstatic     #202                // Field net/irisshaders/iris/gl/state/FogMode.PER_FRAGMENT:Lnet/irisshaders/iris/gl/state/FogMode;
+       242: if_acmpne     375
+       245: aload         5
+       247: ldc           #204                // String layout(std140) uniform Fog {\n    vec4 FogColor;\n    float FogEnvironmentalStart;\n    float FogEnvironmentalEnd;\n    float FogRenderDistanceStart;\n    float FogRenderDistanceEnd;\n    float FogSkyEnd;\n    float FogCloudsEnd;\n};
+       249: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       252: pop
+       253: aload_1
+       254: getstatic     #122                // Field net/irisshaders/iris/gl/state/FogMode.PER_VERTEX:Lnet/irisshaders/iris/gl/state/FogMode;
+       257: if_acmpne     279
+       260: aload         5
+       262: ldc           #206                // String in float vertexDistance;\n
+       264: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       267: pop
+       268: aload         6
+       270: ldc           #208                // String float fragmentDistance = vertexDistance;\n
+       272: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       275: pop
+       276: goto          287
+       279: aload         6
+       281: ldc           #210                // String float fragmentDistance = -ProjMat[3].z / ((gl_FragCoord.z) * -2.0 + 1.0 - ProjMat[2].z);\n
+       283: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       286: pop
+       287: aload         5
+       289: ldc           #212                // String uniform float FogDensity = 1.0;\n
+       291: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       294: pop
+       295: aload         5
+       297: ldc           #214                // String uniform int FogIsExp2 = 1;\n
+       299: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       302: pop
+       303: aload         6
+       305: ldc           #216                // String     float fogFactor;\n
+       307: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       310: pop
+       311: aload         6
+       313: ldc           #218                // String     if (FogIsExp2 == 1) {\n
+       315: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       318: pop
+       319: aload         6
+       321: ldc           #220                // String         float x = fragmentDistance * FogDensity;\n
+       323: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       326: pop
+       327: aload         6
+       329: ldc           #222                // String         fogFactor = exp(-x * x);\n
+       331: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       334: pop
+       335: aload         6
+       337: ldc           #224                // String     } else {\n
+       339: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       342: pop
+       343: aload         6
+       345: ldc           #226                // String         fogFactor = (FogRenderDistanceEnd - fragmentDistance) / (FogRenderDistanceEnd - FogRenderDistanceStart);\n
+       347: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       350: pop
+       351: aload         6
+       353: ldc           #228                // String     }\n
+       355: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       358: pop
+       359: aload         6
+       361: ldc           #230                // String     fogFactor = clamp(fogFactor, 0.0, 1.0);\n
+       363: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       366: pop
+       367: aload         6
+       369: ldc           #232                // String     color.rgb = mix(FogColor.rgb, color.rgb, fogFactor * FogColor.a);\n
+       371: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       374: pop
+       375: aload         6
+       377: ldc           #234                // String     fragColor = color;\n
+       379: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       382: pop
+       383: aload         5
+       385: ldc           #139                // String void main() {\n
+       387: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       390: pop
+       391: aload         5
+       393: aload         6
+       395: invokevirtual #142                // Method java/lang/StringBuilder.append:(Ljava/lang/CharSequence;)Ljava/lang/StringBuilder;
+       398: pop
+       399: aload         5
+       401: aload_2
+       402: ldc           #236                // String fragColor.a
+       404: ldc           #238                // String AlphaTestValue
+       406: ldc           #240                // String
+       408: invokevirtual #246                // Method net/irisshaders/iris/gl/blending/AlphaTest.toExpression:(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+       411: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       414: pop
+       415: aload         5
+       417: ldc           #144                // String }\n
+       419: invokevirtual #32                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+       422: pop
+       423: aload         5
+       425: invokevirtual #148                // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+       428: areturn
+}
