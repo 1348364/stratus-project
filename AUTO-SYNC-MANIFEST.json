@@ -756,6 +756,7 @@
     "work/Custom instructions/TASK-previous-brief.md",
     "work/Custom instructions/TASK.md",
     "work/Custom instructions/WORKFLOW.md",
+    "work/domain-setup/stratus-shader.is-a.dev-dns.json",
     "work/stratus-check/ACTIVE-150.txt",
     "work/stratus-check/ACTIVE-151.txt",
     "work/stratus-check/ACTIVE-153.txt",
@@ -9647,6 +9648,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "8415f860e0d595f017ec1188bb939140da50757bc3381e92904fcaf09f7d8558",
+  "fingerprint": "b5d914bac30d3cf9da46857bf1b57d8fc200e4963e5046771211f7851b45f37d",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

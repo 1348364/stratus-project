@@ -1,0 +1,23 @@
+{
+  "hostname": "stratus-shader.is-a.dev",
+  "status": "pending",
+  "cname": {
+    "name": "stratus-shader.is-a.dev",
+    "value": "custom-domains.chatgpt.site."
+  },
+  "validation_records": [
+    {
+      "record_type": "TXT",
+      "name": "_openai-site-verification.stratus-shader.is-a.dev",
+      "value": "openai-site-verification=5TYnTqtRxq2xRCAai8yX8r1h5eA-q6NJzZvVNHe6U4w"
+    },
+    {
+      "record_type": "TXT",
+      "name": "_cf-custom-hostname.stratus-shader.is-a.dev",
+      "value": "db6b3605-e643-4970-ab37-940b4212f52e"
+    }
+  ],
+  "registration_guide": "https://docs.is-a.dev/quickstart/",
+  "terms": "https://is-a.dev/terms",
+  "note": "Hosting is configured but DNS is not registered. The owner must create and submit the registration request manually under the provider's terms."
+}
