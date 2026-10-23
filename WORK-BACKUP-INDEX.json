@@ -11825,6 +11825,72 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-0d097050346c8eee.zip",
       "bytes": 739802
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/01-release-river.png": {
+      "sha256": "5c5be803b34ebc26958d65246dfb2b2763fa1a7e2270b961ae5c6041952f07e2",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 1907285
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/02-river-screen-edge.png": {
+      "sha256": "6625ead85183f9980204163e1d7e486d268e604b95297134548064a9a631fd97",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 2200041
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/03-reference-waterline.png": {
+      "sha256": "b37e2b2b148aeaf348ef1006a84faa772bd3e02749d73eda0d6530ee4e2d56ae",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 2131960
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/04-river-downward.png": {
+      "sha256": "fa2f6214c51211d7d2fce2ba025a2becbba915b033136742c2b709dd932347ca",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 1358743
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/05-release-underwater.png": {
+      "sha256": "d3e9a38fc3325e9155d078765ea33850c02eb0bdb1741a25d6db2f33396abf71",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 951179
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/06-reference-underwater-air-exit.png": {
+      "sha256": "88205e1d2e70f33c2084654f9f3654d863a36af3d6048a3947f79948595e4d0c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 1080115
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/07-candidate-reference-river.png": {
+      "sha256": "73ecebe593edf347ef9941de090868a307e51fb7bfc8264951d8e4f80482409f",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 2603629
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/08-polished-sun.png": {
+      "sha256": "f4202e792fd0d6efdf1385d98d375718c190a518e74aa30e4d9a1a09af671689",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 478712
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/09-clouds-native.png": {
+      "sha256": "ce03a1768be322247005d8a0c4b8072892b6ef3f7bfd0abba8411d7e460c920a",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 177953
+    },
+    "outputs/Stratus-1.6.10-showcase-natural/10-clouds-below.png": {
+      "sha256": "d2f9356ae873e2e5e6de7e6f8155863888eb58781fed4ba08e050ac2ca3064f5",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-6-10-32d49819ba6eef8f.zip",
+      "bytes": 328771
+    },
+    "work/stratus-170-rc2/screenshots/rc2-full-cave-flow.png": {
+      "sha256": "fa33bb5cca959100abbd1ee4df87d434f995ff81bc393f3857cfa35e105e2ece",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-896a747540eddeab.zip",
+      "bytes": 734428
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

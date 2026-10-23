@@ -291,6 +291,7 @@
     "outputs/Stratus-1.6.1-visual-checks/index.html",
     "outputs/Stratus-1.6.10-install.json",
     "outputs/Stratus-1.6.10-performance.json",
+    "outputs/Stratus-1.6.10-showcase-natural/showcase.json",
     "outputs/Stratus-1.6.10-showcase/01-river.png",
     "outputs/Stratus-1.6.10-showcase/02-underwater.png",
     "outputs/Stratus-1.6.10-showcase/03-river-screen-edge.png",
@@ -726,6 +727,7 @@
     "outputs/Willow-Mist/shaders/world1/gbuffers_weather.vsh",
     "outputs/showcase-scenes/generation-prompts.txt",
     "tools/GITHUB-SYNC.md",
+    "tools/curate_natural_showcase.py",
     "tools/export_github.py",
     "tools/github-sync.json",
     "tools/github_backups.py",
@@ -1073,6 +1075,7 @@
     "work/stratus-170-rc2/raster-final-checks.json",
     "work/stratus-170-rc2/raster.vsh",
     "work/stratus-170-rc2/raster_probe.c",
+    "work/stratus-170-rc2/readiness-failure.txt",
     "work/stratus-170-rc2/readiness/after-underwater.json",
     "work/stratus-170-rc2/readiness/before-cave-flow.json",
     "work/stratus-170-rc2/readiness/before-entity.json",
@@ -9996,6 +9999,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "2562751c4d65ec95f3e79f65b368108c7acfcb3eb1480a3e8c0cb7cefb2ccf61",
+  "fingerprint": "c6928e3218390e032d1d31047f88890a9678cd95a402039deba425f1dd6cd481",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

@@ -1,0 +1,108 @@
+{
+  "version": "1.6.10",
+  "scene_policy": "natural-world-only",
+  "reviewed": true,
+  "runtime_assets_match_release": true,
+  "scenes": [
+    {
+      "file": "01-release-river.png",
+      "title": "Forest river",
+      "description": "The naturally generated river and spruce banks. Saved release settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "5c5be803b34ebc26958d65246dfb2b2763fa1a7e2270b961ae5c6041952f07e2",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-river.png",
+      "pack": "Stratus-1.6.10.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "02-river-screen-edge.png",
+      "title": "Across the river",
+      "description": "Natural shoreline, forest reflections and clear shallows. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "6625ead85183f9980204163e1d7e486d268e604b95297134548064a9a631fd97",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-river-screen-edge.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "03-reference-waterline.png",
+      "title": "Along the waterline",
+      "description": "A low view across the naturally generated river. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "b37e2b2b148aeaf348ef1006a84faa772bd3e02749d73eda0d6530ee4e2d56ae",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-waterline.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "04-river-downward.png",
+      "title": "Below the ripples",
+      "description": "Natural sand, gravel and riverbed shapes viewed through the water. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "fa2f6214c51211d7d2fce2ba025a2becbba915b033136742c2b709dd932347ca",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-river-downward.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "05-release-underwater.png",
+      "title": "Under the surface",
+      "description": "Looking towards the naturally generated bank from underwater. Saved release settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "d3e9a38fc3325e9155d078765ea33850c02eb0bdb1741a25d6db2f33396abf71",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-release-underwater.png",
+      "pack": "Stratus-1.6.10.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "06-reference-underwater-air-exit.png",
+      "title": "Towards the forest",
+      "description": "A submerged view of the natural spruce shoreline. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "88205e1d2e70f33c2084654f9f3654d863a36af3d6048a3947f79948595e4d0c",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-reference-underwater-air-exit.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "07-candidate-reference-river.png",
+      "title": "Reflected woodland",
+      "description": "A full-quality view of the naturally generated forest river. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "73ecebe593edf347ef9941de090868a307e51fb7bfc8264951d8e4f80482409f",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-candidate-reference-river.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "08-polished-sun.png",
+      "title": "Sun through the canopy",
+      "description": "The square sun, clouds and a natural treetop silhouette. Reference settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "f4202e792fd0d6efdf1385d98d375718c190a518e74aa30e4d9a1a09af671689",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-polished-sun.png",
+      "pack": "Stratus-1.6.10-QA-CandidateReference.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "09-clouds-native.png",
+      "title": "Over the treetops",
+      "description": "Cloud layers above the naturally generated forest. Cloud-focused settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "ce03a1768be322247005d8a0c4b8072892b6ef3f7bfd0abba8411d7e460c920a",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-clouds-native.png",
+      "pack": "Stratus-1.6.10-QA-CloudsNative.zip",
+      "natural_world": true,
+      "reviewed": true
+    },
+    {
+      "file": "10-clouds-below.png",
+      "title": "Beneath the clouds",
+      "description": "A skyward view of the cloud layer from the natural world. Cloud-focused settings. Actual Stratus 1.6.10 in-game capture.",
+      "sha256": "d2f9356ae873e2e5e6de7e6f8155863888eb58781fed4ba08e050ac2ca3064f5",
+      "source": "outputs/Stratus-1.6.10-visual-checks/captures/s1610-clouds-below.png",
+      "pack": "Stratus-1.6.10-QA-Clouds.zip",
+      "natural_world": true,
+      "reviewed": true
+    }
+  ]
+}
