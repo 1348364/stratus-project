@@ -1,0 +1,1 @@
+{"scope":"actual full-resolution native water resolve: valid dark, valid black, absent native cache","cases":[{"case":0,"max_error":0.38381547,"rgb":[0.120044,0.216049,0.392454]},{"case":1,"max_error":0.38414273,"rgb":[0.120044,0.216049,0.392454]},{"case":2,"max_error":0.35245404,"rgb":[0.120044,0.216049,0.392454]}],"failures":3,"gl_error":0,"worst_error":0.38414273}

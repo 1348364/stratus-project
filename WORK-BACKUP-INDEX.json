@@ -11975,6 +11975,36 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-355d98fbd501949c.zip",
       "bytes": 737588
+    },
+    "work/stratus-170-rc2/native_dark_probe": {
+      "sha256": "a3dcf1fceffc535833fa2c3678496abdde99263fed47cd3834d8676f94762716",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-d4242ec6b7432bee.zip",
+      "bytes": 37104
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v3-cave-down.png": {
+      "sha256": "53bc7abdab6980fa4950e4b39d4c84171e79cb10445bc2ee73b043647b89b9a2",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-d4242ec6b7432bee.zip",
+      "bytes": 704003
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v3-entity.png": {
+      "sha256": "8a9afc26dd7cb0cfa058a81500248c3133dc41fc8818932288ecc6693682e0c6",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-d4242ec6b7432bee.zip",
+      "bytes": 713321
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v3-film-foliage.png": {
+      "sha256": "d0197644f45013d793cfe477628899ffc088f1817041e20b37fd5a194757c95d",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-d4242ec6b7432bee.zip",
+      "bytes": 746674
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v3-leaf-close.png": {
+      "sha256": "e866eb5fb8b0e29c8644cde457b3e248441c06b1f414557d42a9db1ba165fa64",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-d4242ec6b7432bee.zip",
+      "bytes": 280237
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
