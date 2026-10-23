@@ -12173,6 +12173,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-a93bc1f8fe9627e5.zip",
       "bytes": 2993
+    },
+    "outputs/stratus-rocks-live.png": {
+      "sha256": "b717925112440ae68c03a76e9e7e15af22b4937df737e9385a7413e2b5a4069a",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-rocks-live-png-805f822b637945df.zip",
+      "bytes": 58702
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
