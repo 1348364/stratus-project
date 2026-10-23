@@ -37,3 +37,9 @@ Original Stratus layout inspired by the cinematic composition of igloo.inc: full
 Pre-redesign backup: `backups/stratus-public-before-igloo-20261022-214335/` in the project root contains source, source history, deployment build, public R2 feed snapshots/images, checksums and restoration instructions.
 
 Curated `outputs/Stratus-VERSION-showcase/showcase.json` entries supply public scene titles and settings descriptions and must match each PNG hash. A QA-named pack may be used for curated captures only after its shader runtime assets are verified byte-identical to the final release; describe the preset difference explicitly. Original source captures are preserved.
+
+## Public privacy boundary
+
+Only curated shader copy, public release notes and approved game captures are served. The unused developer seed snapshot has been removed from this source. Owner addresses, identity and the Studio destination are runtime secrets, not public assets. The small Studio link uses `/api/studio`: ChatGPT sign-in is required, and only the configured owner is redirected to the private Studio. Public feedback and management reads remain protected by the service secret. Feedback is never included in release feeds. Outgoing links use a no-referrer policy.
+
+Public release writes and reads reject owner identifiers, email addresses, local filesystem paths and recognisable credential strings. These checks are a guard against accidental disclosure; approved image content and prose still require review. The hosting account name remains part of the platform's public hostname. A custom domain is needed to hide that hostname from visitors. Removing a file from current source does not erase any prior public Git history or backups.

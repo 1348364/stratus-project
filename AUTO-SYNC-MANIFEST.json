@@ -4806,6 +4806,7 @@
     "work/stratus-public/.openai/hosting.json",
     "work/stratus-public/README.md",
     "work/stratus-public/app/api/[...path]/route.ts",
+    "work/stratus-public/app/chatgpt-auth.ts",
     "work/stratus-public/app/layout.tsx",
     "work/stratus-public/app/page.tsx",
     "work/stratus-public/db/schema.ts",
@@ -4821,7 +4822,7 @@
     "work/stratus-public/lib/connector-preview.d.ts",
     "work/stratus-public/lib/connectors.ts",
     "work/stratus-public/lib/feedback-mail.ts",
-    "work/stratus-public/lib/seed.json",
+    "work/stratus-public/lib/public-content.ts",
     "work/stratus-public/lib/utils.ts",
     "work/stratus-public/next.config.ts",
     "work/stratus-public/package-lock.json",
@@ -9642,10 +9643,10 @@
     "work/write_pack.py"
   ],
   "site_commits": {
-    "stratus-public": "824f96d9beb8d2daf34f90ef0eccf6a6ef51a399",
+    "stratus-public": "a832e739a6e32532f648cdaaa27f73aeb118acc2",
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "47f29303332ba46432d401caff78740c3ecb6d7f164131526604ba60d0a5baec",
+  "fingerprint": "8415f860e0d595f017ec1188bb939140da50757bc3381e92904fcaf09f7d8558",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
