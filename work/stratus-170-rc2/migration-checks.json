@@ -1,0 +1,19 @@
+{
+  "checks": [
+    "Dry run writes nothing",
+    "Related native water default resets selectively; unrelated wet and quality carry",
+    "Previous preferences byte-identical",
+    "Later manual native-layer value 0.00 wins",
+    "Later manual native-layer value 0.50 wins",
+    "Later manual native-layer value 0.75 wins",
+    "Missing overrides use source defaults",
+    "Explicit saved manual WATER_STYLE preserved",
+    "Explicit saved manual TRANSPARENT_REFLECTIONS preserved",
+    "Explicit saved manual TRANSPARENT_REFRACTION preserved",
+    "Existing new release preferences win",
+    "Atomic create never overwrites",
+    "Conflicting archive refused"
+  ],
+  "failures": 0,
+  "scope": "Actual candidate policy/unchanged installer in temporary profiles; no Main writes"
+}

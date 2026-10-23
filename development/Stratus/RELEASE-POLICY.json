@@ -1,10 +1,7 @@
 {
-  "version": "1.7.0-rc1",
+  "version": "1.7.0-rc2",
   "reset_related_overrides": [
-    "WATER_TEXTURE",
-    "WATER_STYLE",
-    "TRANSPARENT_REFLECTIONS",
-    "TRANSPARENT_REFRACTION"
+    "WATER_TEXTURE"
   ],
   "visual_defaults": {
     "WATER_RENDER_QUALITY": "1",
@@ -99,6 +96,12 @@
   ],
   "migration_rule": "Only the changed water-surface visual control is related. All presets retain WATER_TEXTURE=1.00; unrelated latest overrides carry, newer manual water choices differing from the captured baseline and existing new-version preferences win. Old files never overwritten.",
   "previous_source_defaults": {
+    "WATER_RENDER_QUALITY": "1",
+    "ATMOSPHERE_QUALITY": "1",
+    "CLOUD_LAYERS": "2",
+    "MIST_DETAIL": "3",
+    "REFLECTION_MODE": "0",
+    "REFRACTION_QUALITY": "1",
     "SKY_AMBIENT": "1.00",
     "EXPOSURE": "0.20",
     "WHITE_BALANCE": "0.00",
@@ -112,14 +115,11 @@
     "CLOUD_DISTORTION": "0.85",
     "CLOUD_RELIEF": "0.75",
     "CLOUD_DRIFT": "0.25",
-    "CLOUD_LAYERS": "2",
     "MIST_AMOUNT": "0.85",
     "MIST_Y": "70.0",
     "MIST_THICKNESS": "18.0",
     "MIST_CLEAR": "24.0",
-    "MIST_DETAIL": "3",
     "REFLECT_LEVEL": "1.00",
-    "REFLECTION_MODE": "0",
     "REFLECT_RANGE": "120.0",
     "WATER_VISIBILITY": "2.20",
     "WATER_EXTINCTION": "0.90",
@@ -151,9 +151,6 @@
     "SUN_STYLE": "0",
     "WATER_TURBIDITY": "3.00",
     "BIOME_WATER": "1",
-    "REFRACTION_QUALITY": "1",
-    "ATMOSPHERE_QUALITY": "1",
-    "WATER_RENDER_QUALITY": "1",
     "CLOUD_DENSITY": "1.00",
     "CLOUD_DETAIL": "1.00",
     "MIST_SCALE": "96.0",
@@ -161,11 +158,17 @@
     "MIST_LIGHT": "0.65",
     "WATER_TEXTURE": "1.00",
     "ambientOcclusionLevel": "1.00",
-    "WATER_STYLE": null,
-    "TRANSPARENT_REFLECTIONS": null,
-    "TRANSPARENT_REFRACTION": null
+    "WATER_STYLE": "1",
+    "TRANSPARENT_REFLECTIONS": "0.75",
+    "TRANSPARENT_REFRACTION": "0.50"
   },
   "captured_previous_values": {
+    "WATER_RENDER_QUALITY": "1",
+    "ATMOSPHERE_QUALITY": "1",
+    "CLOUD_LAYERS": "2",
+    "MIST_DETAIL": "3",
+    "REFLECTION_MODE": "0",
+    "REFRACTION_QUALITY": "1",
     "SKY_AMBIENT": "1.00",
     "EXPOSURE": "0.20",
     "WHITE_BALANCE": "0.00",
@@ -179,14 +182,11 @@
     "CLOUD_DISTORTION": "0.85",
     "CLOUD_RELIEF": "0.75",
     "CLOUD_DRIFT": "0.25",
-    "CLOUD_LAYERS": "2",
     "MIST_AMOUNT": "0.85",
     "MIST_Y": "70.0",
     "MIST_THICKNESS": "18.0",
     "MIST_CLEAR": "24.0",
-    "MIST_DETAIL": "3",
     "REFLECT_LEVEL": "1.00",
-    "REFLECTION_MODE": "0",
     "REFLECT_RANGE": "120.0",
     "WATER_VISIBILITY": "2.20",
     "WATER_EXTINCTION": "0.90",
@@ -218,9 +218,6 @@
     "SUN_STYLE": "0",
     "WATER_TURBIDITY": "3.00",
     "BIOME_WATER": "1",
-    "REFRACTION_QUALITY": "1",
-    "ATMOSPHERE_QUALITY": "1",
-    "WATER_RENDER_QUALITY": "1",
     "CLOUD_DENSITY": "1.00",
     "CLOUD_DETAIL": "1.00",
     "MIST_SCALE": "96.0",
@@ -228,10 +225,9 @@
     "MIST_LIGHT": "0.65",
     "WATER_TEXTURE": "1.00",
     "ambientOcclusionLevel": "1.00",
-    "WATER_STYLE": null,
-    "TRANSPARENT_REFLECTIONS": null,
-    "TRANSPARENT_REFRACTION": null
+    "WATER_STYLE": "1",
+    "TRANSPARENT_REFLECTIONS": "0.75",
+    "TRANSPARENT_REFRACTION": "0.50"
   },
-  "preserve_newer_manual_overrides": true,
-  "new_option_policy": "null previous/captured entries denote absent old-version controls; source/preset defaults apply unless an actual later manual value exists."
+  "preserve_newer_manual_overrides": true
 }
