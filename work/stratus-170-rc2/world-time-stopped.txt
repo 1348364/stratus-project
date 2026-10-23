@@ -1,0 +1,1 @@
+Original daylight/weather values restored; watcher stopped.
