@@ -1,38 +1,31 @@
-STRATUS 1.7.0-rc1 — CANDIDATE VALIDATION
+STRATUS 1.7.0-rc2 — TECHNICAL EVIDENCE
 
-Native Apple M1 OpenGL4.1 / GLSL330 compatibility-shim compilation:
-768 program pairs,0 failures, on final shader source. This is not Iris runtime
-transformation or visual proof. Includes all dimensions, four preset choices
-and extrema. Warnings are retained in work/stratus-refine-1613/compile-final.log.
+Final source:768 native Apple M1 OpenGL4.1 compatibility-shim program pairs,
+0 failures (compile-final-v3.log). All dimensions/presets/extrema; this is not
+Iris transformation or visual proof. Exact warnings/logs retained in project.
 
-Targeted actual GLSL GPU probes:
--96 wet-film samples: all six face normals, weather, shelter and zero controls.
--24,576 transparent-optics pixel samples: metadata/foreground guards, separate
-  reflection/refraction and both-zero identity;814 interior pixels changed for
-  each independently enabled effect.
--Ten physical-mode and ten native-mode full-resolution underwater composition
-  cases: actual submerged distances, nearest exits, glass and additive paths.
-All reported0 failures and0 OpenGL errors. Controlled GPU inputs are not live
-Minecraft glass, particle or fog-status acceptance.
+Targeted actual GLSL GPU checks:
+-13 raster/entity cases: opaque/cutout/emissive film masks, native underside
+  full/half/zero and physical-mode coverage/transmission, six directional faces.
+-96 wet-film weather/shelter/zero/face samples,0 failures/API errors.
+-Ten native and ten physical full-resolution underwater composition cases,
+  including glass/additive/exit inputs,0 failures/API errors.
+-Three dark/native-cache cases: prior source reproduced bright substitution
+  on valid dark, valid black and absent-cache inputs. Final source passes all
+  three to within1e-8 maximum error; valid black stays valid and missing alpha
+  skips the native layer. The prior failures are intentional reproduction proof.
+-Single-pass submerged atmosphere timing uses native GL_TIME_ELAPSED at512².
+  Output is identical with the zero-contribution bypass. All timing batches are
+  recorded, with warm-up variance. This is not Minecraft FPS or proof that the
+  user's sustained25FPS problem is solved.
 
-Control audit:65 reachable options, all previous62 defaults/allowed ranges and
-all original four quality assignments preserved. English tooltips present.
-Iris parsed all four65-value profiles and matched them when fully applied;
-this is a read-only parser/matcher check, not four new live preset captures.
-Thirteen installer policy checks passed in temporary profiles, including
-preserving later manual/unknown controls and refusing archive replacement.
+Control audit:65 controls, every old default/range/menu path, all four original
+preset assignments and all620 material tokens preserved; tooltips updated.
+Thirteen temporary-profile installer checks pass. Source/ZIP integrity and
+installed-byte comparison use existing package/install tools. Final selection,
+load and effective options are recorded externally in the versioned receipt.
 
-Live QA equivalents loaded on Minecraft1.21.11, Iris1.10.8, Sodium0.8.14,
-Main / Stratus Terrain Lab. Final v3 river surface/far/underwater/waterline
-views and shaders-off comparisons reviewed. Native texture sharpness was
-corrected after v2 softness. v1's Iris scalar vec4 clear parsing failure was
-fixed by explicit four-component clear. Shader-only v3 variants use final
-candidate shader bytes with controlled options. Exact final release ZIP has
-not been installed, selected or loaded; it is a packaged candidate only.
-
-Remaining visual checks were skipped by user after the Mac locked. The native
-waterline capture still has a rectangular sky/treetop band; no clean waterline
-acceptance. Additional biome/status/resource-pack, wet faces and transparent
-solid layering/zero controls remain pending. FPS remains explicitly deferred.
-Candidate packaging uses byte-equivalent source manifest and ZIP integrity
-checks. No asset/licence from Minecraft or Sildur is redistributed.
+No FPS sample accepted. Performance remains pending after user skipped the
+locked-Mac focus prerequisite. Research used primary Sodium/Khronos/GLFW
+sources; existing culling configuration was inspected and preserved. No new
+mod, presentation/frame skipping, cast-shadow pass or quality reduction added.

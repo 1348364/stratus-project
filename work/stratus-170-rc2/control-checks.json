@@ -14,6 +14,7 @@
     "shaders/core/lake.frag.glsl",
     "shaders/core/raster.frag.glsl",
     "shaders/core/raster.vert.glsl",
+    "shaders/core/water-resolve.frag.glsl",
     "shaders/lang/en_us.lang"
   ],
   "failures": 0

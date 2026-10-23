@@ -1,0 +1,27 @@
+{
+  "sources": [
+    {
+      "url": "https://github.com/CaffeineMC/sodium/blob/dev/common/src/main/java/net/caffeinemc/mods/sodium/client/render/chunk/occlusion/OcclusionCuller.java",
+      "use": "Existing renderer visibility culling; shader packs do not own chunk submission."
+    },
+    {
+      "url": "https://wikis.khronos.org/opengl/Default_Framebuffer",
+      "use": "Double-buffered presentation; writing fragments into render targets is separate from presenting the window."
+    },
+    {
+      "url": "https://www.glfw.org/docs/latest/window",
+      "use": "Window frame swap is application-owned; progressive incomplete-frame scanout is not a shader-pack setting."
+    },
+    {
+      "url": "https://registry.khronos.org/OpenGL/extensions/ARB/ARB_timer_query.txt",
+      "use": "GL_TIME_ELAPSED single-pass native GPU timing, separately labelled from gameplay FPS."
+    }
+  ],
+  "local_primary": [
+    "Running1.21.11 assets/minecraft/shaders/include/light.glsl:0.6 direct plus0.4 ambient, clamp1; original implementation of equivalent two-light arithmetic.",
+    "Installed Iris1.10.8 ShaderSynthesizer confirms same fallback entity light coefficients.",
+    "Current Main Sodium performance configuration: entity/block-face culling enabled, visible-texture animation enabled; fog occlusion false, preserved."
+  ],
+  "requested_partial_frame_presentation": "Unavailable in a shader pack; no game/mod/presentation changes made. Kept explicit in pending performance request.",
+  "global_FPS": "User skipped focused validation when asked to unlock; no sample accepted."
+}

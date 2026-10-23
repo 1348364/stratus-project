@@ -1,10 +1,59 @@
 {
-  "version": "1.7.0-rc1",
-  "batch": "43b4c0ad-c217-4a82-8534-29d34345f150",
-  "status": "Release candidate; incomplete live acceptance. All four requests remain pending.",
+  "version": "1.7.0-rc2",
+  "batch": "1af89474-f56a-4419-bc73-7f12d4950cfa",
   "native_pairs": 768,
   "native_failures": 0,
-  "native_matrix_log": "work/stratus-refine-1613/compile-final.log",
+  "native_matrix_log": "work/stratus-170-rc2/compile-final-v3.log",
+  "raster_GPU": {
+    "scope": "actual geometry raster metadata and native underside coverage; native entity helper",
+    "cases": [
+      {
+        "variant": "terrain",
+        "material": 4112,
+        "coverage_or_film_mask": 1.0,
+        "transmission_coverage": 0.0
+      },
+      {
+        "variant": "terrain",
+        "material": 4113,
+        "coverage_or_film_mask": 0.0,
+        "transmission_coverage": 0.0
+      },
+      {
+        "variant": "terrain",
+        "material": 4101,
+        "coverage_or_film_mask": 0.0,
+        "transmission_coverage": 0.0
+      },
+      {
+        "variant": "underside",
+        "material": 4100,
+        "coverage_or_film_mask": 0.6,
+        "transmission_coverage": 0.6
+      },
+      {
+        "variant": "underside-half",
+        "material": 4100,
+        "coverage_or_film_mask": 0.3,
+        "transmission_coverage": 0.3
+      },
+      {
+        "variant": "underside-zero",
+        "material": 4100,
+        "coverage_or_film_mask": 0.0,
+        "transmission_coverage": 0.0
+      },
+      {
+        "variant": "underside-stratus",
+        "material": 4100,
+        "coverage_or_film_mask": 0.0,
+        "transmission_coverage": 0.0
+      }
+    ],
+    "samples": 13,
+    "failures": 0,
+    "gl_error": 0
+  },
   "wet_GPU": {
     "scope": "actual wet-film GLSL, all six face normals, shelter/weather/zero controls",
     "samples": 96,
@@ -12,110 +61,75 @@
     "failures": 0,
     "gl_error": 0
   },
-  "transparent_GPU": {
-    "scope": "actual transparent-solid GLSL, no-interface/foreground guards and zero/independent optics",
-    "pixel_samples": 24576,
-    "reflection_changed_interior_pixels": 814,
-    "refraction_changed_interior_pixels": 814,
-    "failures": 0,
-    "gl_error": 0
-  },
-  "legacy_underwater_GPU": {
-    "scope": "actual full-resolution water-resolve shader",
+  "native_dark_cache_before_expected_failure": {
+    "scope": "actual full-resolution native water resolve: valid dark, valid black, absent native cache",
     "cases": [
       {
-        "name": "air_receiver_near",
+        "case": 0,
+        "max_error": 0.38381547,
         "rgb": [
-          0.6602546,
-          0.3753241,
-          0.1976346
-        ],
-        "max_error": 6e-08
+          0.120044,
+          0.216049,
+          0.392454
+        ]
       },
       {
-        "name": "air_receiver_far",
+        "case": 1,
+        "max_error": 0.38414273,
         "rgb": [
-          0.6602546,
-          0.3753241,
-          0.1976346
-        ],
-        "max_error": 6e-08
+          0.120044,
+          0.216049,
+          0.392454
+        ]
       },
       {
-        "name": "submerged_receiver",
+        "case": 2,
+        "max_error": 0.35245404,
         "rgb": [
-          0.7265702,
-          0.3873817,
-          0.1988004
-        ],
-        "max_error": 6e-08
+          0.120044,
+          0.216049,
+          0.392454
+        ]
+      }
+    ],
+    "failures": 3,
+    "gl_error": 0,
+    "worst_error": 0.38414273
+  },
+  "native_dark_cache_after": {
+    "scope": "actual full-resolution native water resolve: valid dark, valid black, absent native cache",
+    "cases": [
+      {
+        "case": 0,
+        "max_error": 0.0,
+        "rgb": [
+          0.005046,
+          0.006873,
+          0.008639
+        ]
       },
       {
-        "name": "deep_submerged",
+        "case": 1,
+        "max_error": 0.0,
         "rgb": [
-          0.3774901,
-          0.3134322,
-          0.1913006
-        ],
-        "max_error": 3e-08
+          0.004966,
+          0.006681,
+          0.008311
+        ]
       },
       {
-        "name": "sky_after_exit",
+        "case": 2,
+        "max_error": 1e-08,
         "rgb": [
-          0.6602546,
-          0.3753241,
-          0.1976346
-        ],
-        "max_error": 6e-08
-      },
-      {
-        "name": "sky_missing_exit",
-        "rgb": [
-          0.8,
-          0.4,
-          0.2
-        ],
-        "max_error": 0.0
-      },
-      {
-        "name": "glass_before_exit",
-        "rgb": [
-          0.6162699,
-          0.1938531,
-          0.1048677
-        ],
-        "max_error": 6e-08
-      },
-      {
-        "name": "glass_after_exit",
-        "rgb": [
-          0.5786929,
-          0.1972679,
-          0.10793
-        ],
-        "max_error": 1e-08
-      },
-      {
-        "name": "additive_particle",
-        "rgb": [
-          0.9453518,
-          0.4730772,
-          0.1976346
-        ],
-        "max_error": 6e-08
-      },
-      {
-        "name": "vertical_exit",
-        "rgb": [
-          0.712761,
-          0.3849262,
-          0.1985645
-        ],
-        "max_error": 6e-08
+          0.02,
+          0.03,
+          0.04
+        ]
       }
     ],
     "failures": 0,
-    "opengl_errors": 0
+    "gl_error": 0,
+    "worst_error": 1e-08
   },
   "native_underwater_GPU": {
     "scope": "actual full-resolution water-resolve shader",
@@ -214,32 +228,121 @@
     "failures": 0,
     "opengl_errors": 0
   },
+  "physical_underwater_GPU": {
+    "scope": "actual full-resolution water-resolve shader",
+    "cases": [
+      {
+        "name": "air_receiver_near",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "air_receiver_far",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "submerged_receiver",
+        "rgb": [
+          0.7265702,
+          0.3873817,
+          0.1988004
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "deep_submerged",
+        "rgb": [
+          0.3774901,
+          0.3134322,
+          0.1913006
+        ],
+        "max_error": 3e-08
+      },
+      {
+        "name": "sky_after_exit",
+        "rgb": [
+          0.6602546,
+          0.3753241,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "sky_missing_exit",
+        "rgb": [
+          0.8,
+          0.4,
+          0.2
+        ],
+        "max_error": 0.0
+      },
+      {
+        "name": "glass_before_exit",
+        "rgb": [
+          0.6162699,
+          0.1938531,
+          0.1048677
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "glass_after_exit",
+        "rgb": [
+          0.5786929,
+          0.1972679,
+          0.10793
+        ],
+        "max_error": 1e-08
+      },
+      {
+        "name": "additive_particle",
+        "rgb": [
+          0.9453518,
+          0.4730772,
+          0.1976346
+        ],
+        "max_error": 6e-08
+      },
+      {
+        "name": "vertical_exit",
+        "rgb": [
+          0.712761,
+          0.3849262,
+          0.1985645
+        ],
+        "max_error": 6e-08
+      }
+    ],
+    "failures": 0,
+    "opengl_errors": 0
+  },
   "controls": {
-    "previous_controls": 62,
+    "previous_controls": 65,
     "current_controls": 65,
     "previous_defaults_and_ranges_preserved": true,
     "reachable_controls": 65,
     "tooltips_present": true,
     "all_four_original_preset_assignments_preserved": true,
     "all_presets_native_water_default": true,
-    "block_tokens_preserved": 618,
+    "block_tokens_preserved": 620,
     "changed_shader_files": [
-      "shaders/block.properties",
-      "shaders/core/air.glsl",
       "shaders/core/atmosphere-resolve.frag.glsl",
-      "shaders/core/bloom-horizontal.frag.glsl",
       "shaders/core/diffuse.glsl",
+      "shaders/core/entity-lighting.glsl",
       "shaders/core/lake.frag.glsl",
-      "shaders/core/medium.glsl",
-      "shaders/core/options.glsl",
       "shaders/core/raster.frag.glsl",
-      "shaders/core/resolve.frag.glsl",
-      "shaders/core/submerged-compose.glsl",
-      "shaders/core/transparent-optics.glsl",
+      "shaders/core/raster.vert.glsl",
       "shaders/core/water-resolve.frag.glsl",
-      "shaders/core/water-surface.glsl",
-      "shaders/lang/en_us.lang",
-      "shaders/shaders.properties"
+      "shaders/lang/en_us.lang"
     ],
     "failures": 0
   },
@@ -251,10 +354,10 @@
       "Later manual native-layer value 0.00 wins",
       "Later manual native-layer value 0.50 wins",
       "Later manual native-layer value 0.75 wins",
-      "Missing new controls use source defaults",
-      "Explicit previously unknown manual WATER_STYLE preserved",
-      "Explicit previously unknown manual TRANSPARENT_REFLECTIONS preserved",
-      "Explicit previously unknown manual TRANSPARENT_REFRACTION preserved",
+      "Missing overrides use source defaults",
+      "Explicit saved manual WATER_STYLE preserved",
+      "Explicit saved manual TRANSPARENT_REFLECTIONS preserved",
+      "Explicit saved manual TRANSPARENT_REFRACTION preserved",
       "Existing new release preferences win",
       "Atomic create never overwrites",
       "Conflicting archive refused"
@@ -262,34 +365,40 @@
     "failures": 0,
     "scope": "Actual candidate policy/unchanged installer in temporary profiles; no Main writes"
   },
-  "Iris_profiles": {
-    "FAST": {
-      "option_count": 65,
-      "matches_after_applying_full_profile": true
-    },
-    "BALANCED": {
-      "option_count": 65,
-      "matches_after_applying_full_profile": true
-    },
-    "REFERENCE": {
-      "option_count": 65,
-      "matches_after_applying_full_profile": true
-    },
-    "HIGH": {
-      "option_count": 65,
-      "matches_after_applying_full_profile": true
-    }
+  "atmosphere_single_pass": {
+    "scope": "actual atmosphere resolve, controlled submerged zero-volume 512x512; native GL_TIME_ELAPSED, not Minecraft FPS",
+    "equal_pixel_output": true,
+    "before_ms": [
+      0.039086,
+      0.023076,
+      0.022464,
+      0.022547,
+      0.022242,
+      0.022013,
+      0.021635
+    ],
+    "after_ms": [
+      0.036906,
+      0.056867,
+      0.014716,
+      0.010937,
+      0.009979,
+      0.009742,
+      0.009422
+    ],
+    "failures": 0,
+    "gl_error": 0
   },
   "FPS_samples": 0,
+  "performance_acceptance": "Pending; focused comparison skipped by user. Native pass timings do not establish gameplay performance.",
+  "live_evidence": "See versioned gallery and external install/load receipt. Source-equivalent QA checks are separate from final ZIP loading.",
   "limits": [
-    "Just-below-surface rectangular sky/treetop tint band remains visible in native mode, as on the previous baseline. No waterline acceptance or fix claimed.",
-    "Remaining live wet-film side/underside, shelter/rain and transparent glass/ice/slime/honey controls-off comparisons skipped at user request after Mac locked.",
-    "Native underwater biome, status-effect, night-vision, mod and resource-pack compatibility not fully verified. Native mode retains Stratus straight-through underwater exit rather than vanilla back-face surface overlay, so it is not pixel-identical vanilla.",
-    "Only nearest visible transparent interface; bounded screen-space refraction, missing scenery uses sky fallback, overlapping solids/particles and water-behind-glass require final live acceptance.",
-    "No FPS samples. Performance and the approximately60FPS target remain deferred.",
-    "Candidate archive is packaged only. Temporary QA equivalents loaded; final candidate archive not installed/selected/reviewed. Stable1.6.12 restored."
-  ],
-  "release_installed": false,
-  "release_loaded": false,
-  "source_equivalent_QA_loaded": true
+    "Focused Minecraft FPS comparison skipped at user request after locked-Mac prerequisite. No global speedup or60FPS claim; sustained approximately25FPS report still pending.",
+    "Progressive unfinished-frame presentation cannot be implemented by a shader pack. No renderer/mod or swapchain changes made.",
+    "Known rectangular waterline band and earlier unverified cloud/fog/transparent-solid coverage remain in their earlier batches; no clean1.7 milestone claim.",
+    "Finite current-world/fixture coverage only; exact original cave camera not recovered. Original user screenshot and controlled stepped-water reproduction both informed the repair.",
+    "Native underwater surface texture is restored, with native atlas/light and slider coverage. Submerged-only fog keeps air beyond the interface clearer than shaders-off vanilla; not pixel-identical vanilla rendering.",
+    "Foliage/cutout material4113 stays matte as a whole, avoiding interior leaf-plane sheen. This is a material exclusion, not full voxel-based occlusion or cast shadows.",
+    "Remaining local-fixture frames are reviewed as finite visual evidence; several five-second stable FPS-style gates could not settle while unfocused. Scheduling waits are not chunk-readiness or FPS proof."
+  ]
 }

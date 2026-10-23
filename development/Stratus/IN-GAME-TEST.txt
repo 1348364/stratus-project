@@ -1,30 +1,30 @@
-STRATUS 1.7.0-rc1 — FINITE LIVE EVIDENCE AND REMAINING CHECKS
+STRATUS 1.7.0-rc2 — FINITE LIVE CHECKS
 
-Actual Main normal-world captures at1440x842, render distance12, clear/time1000.
-Labels and individual cameras/loaded pack/readiness gates are in the report:
-outputs/Stratus-1.7.0-rc1-visual-checks/index.html and manifest.json.
-Animated textures, particles and clouds advance between captures. Unfocused
-visual captures are not FPS results. No FPS samples were taken.
+Main / Stratus Terrain Lab, Minecraft1.21.11, Iris1.10.8, Sodium0.8.14,
+Apple M1/macOS,1440x842, render distance12, time1000/clear. Variant names and
+per-capture cameras/reviews are in the saved versioned gallery manifest.
+Animations and particles advance between frames. Unfocused visual evidence
+is not gameplay FPS; no benchmark commands or accepted FPS samples.
 
-Reviewed: shaders-off vanilla river and underwater, native isolated river,
-Reference candidate river/far-bank/underwater and just-below-waterline views;
-legacy Stratus mode river was reviewed on v2. v3 preserves the legacy source
-and passes the updated physical resolve GPU cases. Above-water native water
-colour/texture are close to vanilla, with extra Stratus optics retained when
-enabled. Underwater foreground geometry is coherent at the finite tested
-camera, but the exit overlay differs from vanilla by the retained straight-
-through design. The waterline band is visible and remains unresolved.
+Compare native underside texture at zero/half/full with shaders-off and rc1;
+matched stepped-water cave views reproduce pale faces/edges on the prior
+source and remove them with dark-native validity handling; inspect matte leaf
+cutouts and exposed solid film; compare ordinary entity face shading with
+shaders-off. Supplemental indoor/entity/glass views are recorded in the
+report only when actually captured/reviewed. Exact original screenshot cave
+camera is not known; do not label the controlled fixture as the same location.
 
-After user said skip to unlocking for further live checks, the remaining
-visual route was cancelled. Original1.6.12 selection and original player/HUD/
-pause/flight/daylight/weather state are restored by guarded test helpers;
-restoration evidence is recorded separately in the project, not assumed from
-this file. No temporary fixture blocks were placed in this batch.
+Initial water/fixture captures passed full loaded-column/mesh gates. Some
+five-second FPS-style gates could not settle while background mesh uploads
+continued. Remaining already-loaded local-fixture views use camera/pipeline
+assertions plus inspection of the actual changed geometry, with this narrower
+scope labelled in the manifest. Waits only schedule capture; no FPS gate claim.
+Unloaded/clipped views must be rejected or their acceptance kept pending.
 
-Before stable acceptance: resume the named batch, verify existing state, then
-inspect final ZIP and all new wet-film face/weather/zero conditions; compare
-glass/stained/tinted/panes, ice/slime/honey with optics off/on, underwater/glass/
-water/particles, cave fallbacks and scenery mode; compare a real water biome
-and fog/status changes to shaders-off; inspect menus and finite motion. Resolve
-the waterline defect before claiming the roadmap1.7 milestone passed.
-FPS stays deferred until explicitly requested. Retain unrelated queued work.
+The user skipped focused FPS when asked to unlock. Native fog/status/resource-
+pack extremes, prior transparent-solid/cloud acceptance and the known
+waterline band remain outside accepted completion. No general60FPS/speedup
+claim. Restore original session state, all temporary fixture blocks/sheep and
+world weather/daylight, then stop helpers and remove only unchanged temporary
+QA copies; keep deliverable candidates installed. Actual restoration proof
+belongs in the external restoration receipt, not an assumption from this file.

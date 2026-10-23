@@ -1,46 +1,38 @@
-STRATUS 1.7.0-rc1 — NATIVE WATER AND TRANSPARENT OPTICS CANDIDATE
+STRATUS 1.7.0-rc2 — MATERIAL, ENTITY AND NATIVE WATER REPAIRS
 
-A standalone original Iris shader pack, MIT licensed. This is a development
-candidate with incomplete live acceptance, not the completed1.7 water milestone.
-The stable previous1.6.12 archive and saved preferences are preserved.
+Original Iris shader pack, MIT licensed. Release candidate; the full1.7 water
+milestone and sustained gameplay performance have not passed acceptance.
 
-Changes:
-- Water style: Vanilla default in every preset, or the retained Stratus physical
-  colour/extinction mode. Native mode samples the active animated water atlas,
-  vertex biome colour, native lightmap and game environmental underwater fog.
-  Full-resolution native surface detail survives reduced-resolution optics.
-- Stronger exposed film on top, side and underside faces, retaining shelter,
-  roughness, drainage, weather choices and independent true-zero controls.
-- Original nearest-interface thin-solid optics for mapped glass/panes, ice,
-  slime and honey; independent reflection/refraction strengths. Related material
-  render-path and visual acceptance is still pending.
--65 reachable options; all previous62 IDs/defaults/ranges and preset quality
-  assignments preserved. No new fullscreen pass; one additional metadata buffer.
+Changes from rc1:
+- Preserve valid dark native water colours instead of substituting a bright
+  biome tint. This fixes the reproduced pale cave-water step faces/edge bands.
+- Vanilla water mode now includes the active animated underside texture, tied
+  to WATER_TEXTURE, with zero and intermediate strengths. Stratus physical mode
+  retains its clear underwater interface. Fog still stops at the true water exit.
+- Ordinary entities regain vanilla-style two-light face shading in vanilla
+  lighting mode, with their actual lightmap, texture and model normals. The
+  existing enhanced lighting path and emissive/spidereyes passes remain.
+- Leaf/plant cutout surfaces stay matte; their interior planes do not receive
+  film. Exposed solid film remains, with a substantially lower solar lobe gain.
+- Missing-background water transmission respects local sky exposure. An exact
+  zero-contribution underwater atmosphere resolve skips redundant depth/taps.
 
-Install manually by copying the versioned ZIP into shaderpacks and selecting it
-in Iris. Manual copying does not migrate settings. install.py --profile PATH
---previous-settings OLD.zip.txt performs selective migration without selecting
-or loading the candidate. --dry-run previews the result. Old preferences and
-existing new-version files always win over replacement. Related WATER_TEXTURE
-uses approved defaults unless changed manually after the captured baseline;
-new controls use source defaults unless a prior explicit manual value exists.
-All unrelated current overrides carry forward.
+All65 controls, defaults/ranges and preset quality assignments are retained.
+No added pass, reduced resolution, removed quality choice or forced preset.
+Related WATER_TEXTURE uses approved defaults where appropriate; later manual
+choices and every unrelated override carry forward. Old and existing new-
+version settings/archives are never overwritten. Use install.py --profile PATH
+--previous-settings OLD.zip.txt, or --dry-run to inspect migration. Manual ZIP
+copying does not migrate settings; installation does not imply selection/load.
 
-Water controls remain accessible in both modes. Visibility, extinction,
-turbidity and the biome override govern Stratus mode; native mode follows the
-actual game colour/fog instead. WATER_TEXTURE scales the native alpha layer in
-Vanilla mode, and retains whole-surface patterned tint in Stratus mode.
+Deliverable archives belong in the intended Minecraft shaderpacks folder and
+remain installed after QA cleanup. Exact final installation/loading evidence is
+in the external versioned receipt. Preserve older deliverables/preferences.
 
-Transparent optics use flat block face normals and bounded screen-space
-sampling, not water waves or full-volume ray tracing. Off-screen/hidden scenery
-cannot be reconstructed. Multiple overlapping transparent layers and particles
-have limited nearest-interface information. Both new optics controls at zero
-bypass the effect. No third-party shader implementation was copied.
-
-IMPORTANT LIMITS: known rectangular waterline band remains. Wet-face and glass
-live acceptance, biome/status/resource-pack fog coverage and final ZIP loading
-remain pending after the user skipped further live checks. Native underwater
-mode keeps the prior straight-through exit: it deliberately omits vanilla's
-back-face texture overlay, and enabled Stratus optics/atmosphere also differ.
-No FPS was measured; no speedup or60FPS claim. See VALIDATION.txt,
-IN-GAME-TEST.txt and CHECKS.json for exact evidence boundaries.
+LIMITS: no focused FPS sample or general speedup claim. Requested progressive
+partial-frame display is owned by Minecraft's renderer, beyond a shader pack.
+Submerged-only fog intentionally differs from vanilla's distance fog for air
+beyond an exit. Foliage exclusion covers the whole cutout material, not only
+neighbour-facing leaf planes. Known waterline defect and earlier pending checks
+remain explicit; this is not exhaustive weather/mod/resource-pack certification.
+See VALIDATION.txt, IN-GAME-TEST.txt, CHECKS.json and the project change log.

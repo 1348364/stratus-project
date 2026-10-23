@@ -12023,6 +12023,66 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-b227a48e9d5ff593.zip",
       "bytes": 638421
+    },
+    "outputs/Stratus-1.7.0-rc2.zip": {
+      "sha256": "ba966b25c3160e2d325dbb8627634afa274dbaa37175dfc67a51e7a85b9cca2c",
+      "tag": "project-work-snapshots",
+      "asset": "Stratus-1-7-0-rc2-1634f55ccd855d1f.zip",
+      "bytes": 7783674
+    },
+    "work/stratus-170-rc2/agent/metrics.jar": {
+      "sha256": "6a0bed29b7a3eb391f240c65aa527e1f0db178d73b654b73b2f4e121d23d85d1",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 5476
+    },
+    "work/stratus-170-rc2/agent/profile.jar": {
+      "sha256": "e409450b0a07050c21df5d4e65828537463ea4e110cef49d7ff11fd889ca7660",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 3524
+    },
+    "work/stratus-170-rc2/screenshots/rc2-after-indoor-entity.png": {
+      "sha256": "5ac0a2c5679ae307e2c23e713edffba3b48f93bdae991c1b7c66bafb58de0050",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 604502
+    },
+    "work/stratus-170-rc2/screenshots/rc2-before-indoor-entity.png": {
+      "sha256": "0abd72a49fadfbb39792917bada19728134cb9ceb9f98e68997296d1e56928bf",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 606306
+    },
+    "work/stratus-170-rc2/screenshots/rc2-native-under-glass.png": {
+      "sha256": "58f5e78b86bfebfc719000bf2fc858454378e40e006c50f526b779daee9c48d7",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 205292
+    },
+    "work/stratus-170-rc2/screenshots/rc2-release-cave-flow.png": {
+      "sha256": "9c767fa77574928efe9a3cd41263308ff8ec76dbba95aa72758b7fa2e36e458c",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 736690
+    },
+    "work/stratus-170-rc2/screenshots/rc2-release-underwater.png": {
+      "sha256": "95a7a71df982e00bfa3c5bc12f2dfa1ec006ccae45ad2ad068af2158d6ba0f13",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 1196874
+    },
+    "work/stratus-170-rc2/screenshots/rc2-vanilla-indoor-entity.png": {
+      "sha256": "573a3d07848b05cc91a2121560e3f31afba2d9eaef82ad6fc39aac82056873c1",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 613971
+    },
+    "work/stratus-170-rc2/screenshots/rc2-vanilla-under-glass.png": {
+      "sha256": "36a167ed940c9487eb7a257ea7e582fb7a979c623096b0e3519d682d29d894e0",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-874f24e5797ff6f8.zip",
+      "bytes": 216059
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
