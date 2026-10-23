@@ -1034,6 +1034,7 @@
     "work/stratus-170-rc2/changes.diff",
     "work/stratus-170-rc2/chunk-readiness.jsonl",
     "work/stratus-170-rc2/control-checks.json",
+    "work/stratus-170-rc2/culling-configuration.json",
     "work/stratus-170-rc2/entity.fsh",
     "work/stratus-170-rc2/final-client-state-v2.txt",
     "work/stratus-170-rc2/fixture-created.txt",
@@ -1048,6 +1049,7 @@
     "work/stratus-170-rc2/initial-client-state.txt",
     "work/stratus-170-rc2/initial-fingerprints.json",
     "work/stratus-170-rc2/initial-iris.properties",
+    "work/stratus-170-rc2/leaf-view-revision.txt",
     "work/stratus-170-rc2/legacy-water-checks.json",
     "work/stratus-170-rc2/legacy/screen.vsh",
     "work/stratus-170-rc2/legacy/water.fsh",
@@ -1073,8 +1075,11 @@
     "work/stratus-170-rc2/raster_probe.c",
     "work/stratus-170-rc2/readiness/after-underwater.json",
     "work/stratus-170-rc2/readiness/before-cave-flow.json",
+    "work/stratus-170-rc2/readiness/before-entity.json",
     "work/stratus-170-rc2/readiness/before-film-foliage.json",
+    "work/stratus-170-rc2/readiness/before-leaf-close.json",
     "work/stratus-170-rc2/readiness/before-underwater.json",
+    "work/stratus-170-rc2/readiness/candidate-cave-flow.json",
     "work/stratus-170-rc2/readiness/half-underwater.json",
     "work/stratus-170-rc2/readiness/native-display-blend.json",
     "work/stratus-170-rc2/readiness/vanilla-underwater.json",
@@ -9991,6 +9996,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "bc61e2cc79fc8e00487c9c26d1b2bc5be30548c8a55be559e1a799d30510e2ba",
+  "fingerprint": "2562751c4d65ec95f3e79f65b368108c7acfcb3eb1480a3e8c0cb7cefb2ccf61",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
