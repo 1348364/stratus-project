@@ -2,6 +2,7 @@
 """Sync the private cloud Studio with this Mac; credentials stay in Keychain."""
 import fcntl
 import hashlib
+import importlib
 import json
 import shlex
 import ssl
@@ -110,6 +111,7 @@ def main():
                 public_checked=time.monotonic()
                 try:
                     import public_sync
+                    public_sync=importlib.reload(public_sync)
                     if config.get('public'):public_sync.sync()
                 except Exception as public_error:
                     print('Public release sync waiting: '+type(public_error).__name__+'. Existing images preserved.',flush=True)

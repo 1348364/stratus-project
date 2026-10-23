@@ -11963,6 +11963,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-170-rc2-df2da7206750e00a.zip",
       "bytes": 747528
+    },
+    "work/public-site-history/ba8f1ab6c47b2e22e61ff3e5983316a289542699.zip": {
+      "sha256": "46a927c339a5ff8a916c20002f369e0f8b6121017eb6ae5d232487e2b61aee22",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-5c64bd91c2d35ad5.zip",
+      "bytes": 21404506
+    },
+    "work/stratus-170-rc2/screenshots/rc2-v3-cave-flow.png": {
+      "sha256": "e25077c544d58a03165e2a2dc744208d9d0741cff9972ac438bacce06912a63b",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-355d98fbd501949c.zip",
+      "bytes": 737588
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
