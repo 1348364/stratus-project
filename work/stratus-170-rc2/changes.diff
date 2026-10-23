@@ -1,0 +1,148 @@
+--- before/shaders/core/atmosphere-resolve.frag.glsl
++++ after/shaders/core/atmosphere-resolve.frag.glsl
+@@ -11,6 +11,9 @@
+ layout(location=0)out vec4 completedScene;
+ void main(){
+     vec3 scene=transparentSolidOptics(texture(colortex3,rasterUV).rgb,rasterUV);
++    // The atmosphere producer writes exact zero in water/lava/snow. Avoid
++    // depth reconstruction and four bilateral taps that cannot contribute.
++    if(isEyeInWater!=0){completedScene=vec4(max(scene,vec3(0.0)),1.0);return;}
+     float distanceToScene=sceneDistance(rasterUV);
+     ivec2 size=textureSize(colortex11,0);
+     vec2 p=rasterUV*vec2(size)-0.5;
+--- before/shaders/core/diffuse.glsl
++++ after/shaders/core/diffuse.glsl
+@@ -60,7 +60,7 @@
+             float exponent=mix(80.0,16.0,clamp(material.y,0.0,1.0));
+             float lobe=pow(max(dot(n,halfway),0.0),exponent)*(exponent+2.0)/6.283185307;
+             dry+=sunlightColour()*solarDaylight()*max(dot(n,light),0.0)
+-                *lobe*film*WET_SHEEN*0.035*(1.0-0.65*rainStrength);
++                *lobe*film*WET_SHEEN*0.008*(1.0-0.65*rainStrength);
+         }
+     }
+ #endif
+--- before/shaders/core/entity-lighting.glsl
++++ after/shaders/core/entity-lighting.glsl
+@@ -0,0 +1,11 @@
++#ifndef STRATUS_ENTITY_LIGHTING_INCLUDED
++#define STRATUS_ENTITY_LIGHTING_INCLUDED
++// Vanilla's two fixed diffuse lights, 0.6 direct + 0.4 ambient, clamp at one.
++// World/player normal retains model orientation without rotating with camera.
++// The lightmap remains independent; emissive/spidereyes passes bypass this.
++float nativeEntityLighting(vec3 normal){
++    vec3 a=normalize(vec3(0.2,1.0,-0.7));
++    vec3 b=normalize(vec3(-0.2,1.0,0.7));
++    return min(1.0,0.4+0.6*(max(dot(a,normal),0.0)+max(dot(b,normal),0.0)));
++}
++#endif
+--- before/shaders/core/lake.frag.glsl
++++ after/shaders/core/lake.frag.glsl
+@@ -66,7 +66,10 @@
+         float shiftedDepth=texture(depthtex1,shifted).r;
+         vec3 transmitted=texture(colortex4,shifted).rgb;
+         vec3 backRay=unitVector(mat3(gbufferModelViewInverse)*positionFromDepth(shifted,0.5));
+-        if(shiftedDepth>=0.999999)transmitted=reflectedEnvironment(backRay);
++        // Missing screen-space geometry must not import an outdoor sky into
++        // an unlit cave. Use the same local-exposure fallback as reflection.
++        if(shiftedDepth>=0.999999)transmitted=reflectedEnvironment(backRay)
++            *mix(0.03,1.0,smoothstep(0.04,0.8,waterSky));
+         bool backgroundGeometry=shiftedDepth<0.999999;
+         vec3 receiver=backgroundGeometry?positionFromDepth(shifted,shiftedDepth):waterView+unitVector(waterView)*7000.0;
+         float receiverDistance=length(receiver-waterView);
+--- before/shaders/core/raster.frag.glsl
++++ after/shaders/core/raster.frag.glsl
+@@ -14,6 +14,9 @@
+ in vec3 orientedNormal;
+ uniform sampler2D gtexture;
+ uniform sampler2D lightmap;
++#if PASS_KIND == 6 && WATER_STYLE == 1
++uniform sampler2D colortex4;
++#endif
+ uniform int entityId;
+ #if PASS_KIND == 3 || PASS_KIND == 6
+ flat in int blockCategory;
+@@ -74,19 +77,37 @@
+ #endif
+ #if PASS_KIND == 6
+     if (isEyeInWater == 1 && (blockCategory == 4100 || blockCategory == 4103)) {
+-        // Invisible exit-depth capture only. The scene and interface-optics
+-        // buffers stay untouched, so no surface window/reflection is drawn.
+-        // This independent attachment survives glass and particles and lets
+-        // the resolve stop water fog before objects in the air beyond it.
++        // Independent exit depth stops fog before air beyond the interface.
++        // Stratus mode stays clear; native mode also supplies its atlas layer.
+         vec3 exitView = (gbufferModelView * vec4(relativeLocation, 1.0)).xyz;
+-        gl_FragData[0] = vec4(0.0);
++        // Native mode restores the animated underside at the actual exit.
++        // Ordinary alpha blending keeps nearer glass/particles in draw order;
++        // the dedicated transmission buffer carries its coverage into fog.
++        vec4 underside=vec4(0.0);
++#if WATER_STYLE == 1
++        vec3 nativeColour=surface.rgb*lm;
++#if REALISTIC_LIGHTING != 0
++        vec3 fn=unitVector(orientedNormal);
++        nativeColour*=dot(fn*fn,vec3(0.6,fn.y>=0.0?1.0:0.5,0.8));
++#endif
++        float nativeAlpha=clamp(surface.a*WATER_TEXTURE,0.0,1.0);
++        vec3 behind=texture(colortex4,gl_FragCoord.xy/viewportSize()).rgb;
++        // Invert the HDR fixed-function alpha blend so the native layer blends
++        // in display space, as vanilla does. Opaque background is snapshotted
++        // before translucency; nearer layers retain the existing draw order.
++        vec3 nativeResult=decodeDisplay(mix(encodeDisplay(behind),nativeColour,nativeAlpha));
++        vec3 blendColour=nativeAlpha>0.00001
++            ?(nativeResult-behind*(1.0-nativeAlpha))/nativeAlpha:vec3(0.0);
++        underside=vec4(blendColour,nativeAlpha);
++#endif
++        gl_FragData[0] = underside;
+         gl_FragData[1] = vec4(0.0);
+         gl_FragData[2] = vec4(0.0);
+         gl_FragData[3] = vec4(0.0);
+         gl_FragData[4] = vec4(0.0);
+         gl_FragData[5] = vec4(-exitView.z, sky,
+             clamp((illuminationCoordinate.s * 32.0 - 1.0) / 30.0, 0.0, 1.0), 1.0);
+-        gl_FragData[6] = vec4(0.0);
++        gl_FragData[6] = vec4(0.0,0.0,0.0,underside.a);
+         gl_FragData[7] = vec4(0.0);
+         return;
+     }
+@@ -183,7 +204,7 @@
+     gl_FragData[3] = vec4(depth, sky, radialDepth, mark);
+ #else
+     gl_FragData[1] = vec4(sky, emission, 0.0, reflectable);
+-    gl_FragData[2] = vec4(unitVector(orientedNormal),float(category>1.05&&category<1.5));
++    gl_FragData[2] = vec4(unitVector(orientedNormal),float(category>1.05&&category<1.5&&material!=4113));
+     gl_FragData[3] = vec4(wetMaterialProperties(material),0.0,0.0);
+ #endif
+ #endif
+--- before/shaders/core/raster.vert.glsl
++++ after/shaders/core/raster.vert.glsl
+@@ -1,5 +1,6 @@
+ #include "/core/options.glsl"
+ #include "/core/frame.glsl"
++#include "/core/entity-lighting.glsl"
+ out vec4 tintAndOpacity;
+ out vec2 atlasCoordinate;
+ out vec2 illuminationCoordinate;
+@@ -14,6 +15,11 @@
+     relativeLocation = playerFromView(cameraVertex.xyz);
+     orientedNormal = mat3(gbufferModelViewInverse) * (gl_NormalMatrix * gl_Normal);
+     tintAndOpacity = gl_Color;
++#if REALISTIC_LIGHTING == 0 && PASS_KIND == 4 && (!defined(BLOCK_SURFACE) || BLOCK_SURFACE == 0)
++    // Iris pack geometry supplies unlit entity vertex colour. Terrain's native
++    // oldLighting shading is already present and must not be applied twice.
++    tintAndOpacity.rgb*=nativeEntityLighting(unitVector(orientedNormal));
++#endif
+     atlasCoordinate = (gl_TextureMatrix[0] * gl_MultiTexCoord0).st;
+     illuminationCoordinate = (gl_TextureMatrix[1] * gl_MultiTexCoord1).st;
+ #if PASS_KIND == 3 || PASS_KIND == 6
+--- before/shaders/lang/en_us.lang
++++ after/shaders/lang/en_us.lang
+@@ -184,7 +184,7 @@
+ screen.BLOOM=Bloom
+ screen.BLOOM.comment=Global light halos. The polished sun also has independent local halo controls.
+ option.WATER_TEXTURE=Vanilla water texture
+-option.WATER_TEXTURE.comment=Native animated still/flow contribution across the whole visible surface. In Vanilla appearance it controls native surface colour/alpha; zero removes that layer. In Stratus appearance it controls the retained patterned biome tint. Reflection/refraction settings remain independent.
++option.WATER_TEXTURE.comment=In Vanilla mode this also controls the animated underside seen from underwater. Native animated still/flow contribution across the whole visible surface. In Vanilla appearance it controls native surface colour/alpha; zero removes that layer. In Stratus appearance it controls the retained patterned biome tint. Reflection/refraction settings remain independent.
+ 
+ option.WATER_STYLE=Water appearance
+ option.WATER_STYLE.comment=Vanilla uses the active still/flow texture, biome colour, light and game underwater fog, with Stratus reflections/refraction retained. Stratus restores depth-based absorption and clarity tuning.

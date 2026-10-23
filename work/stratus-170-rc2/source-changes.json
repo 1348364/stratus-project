@@ -1,0 +1,9 @@
+[
+  "shaders/core/atmosphere-resolve.frag.glsl",
+  "shaders/core/diffuse.glsl",
+  "shaders/core/entity-lighting.glsl",
+  "shaders/core/lake.frag.glsl",
+  "shaders/core/raster.frag.glsl",
+  "shaders/core/raster.vert.glsl",
+  "shaders/lang/en_us.lang"
+]
