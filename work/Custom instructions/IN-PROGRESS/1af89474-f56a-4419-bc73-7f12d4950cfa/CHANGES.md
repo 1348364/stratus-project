@@ -4,17 +4,12 @@ Put only the changes you want worked on now under **Pending changes**. `TASK.md`
 
 ## Pending changes
 
-- Disallow sheem behind blocks like inside leaf blocks. Current: sheem applies to all surfaces including inside faces/blocks. 
+Active batch1af89474. The frozen TASK delta records the already documented stable/candidate reference distinction; it adds no separate shader behaviour to rebuild. Preserve the prior candidate features and all65 controls, presets/ranges and later preferences. Work only on this batch; the shared brief is the next unsent queue.
 
-- Block faces that are facing the sun is too reflective, reflecting sunlight too much. 
-
-- When water is set to Vanilla, looking up underwater does not match vanilla underwater style, match it with the vanilla texture options slider. 
-
-- Fix indoor flowing water bug. An image of it can be found in my minecraft screenshots folder. 
-
-- Fix entity shading: entities currently does not have any shade, appily vanilla shading back to the entities
-
-- This shader is soo laggy for no reason (FPS Avg about 25), please research and find ways to fix this, its been a problem for many versions. Oh! I think it might be bc its not using screen space curlling, so like the places the camera can't see won't get renderd. And frame skipping, so when rendering a frame the camera won't wait for the frame to finsh calculating before showing it on screen, it instead does live rendering so what every pixel the GPU outputs gets directly shown on screen, if the frame hasn't been fully renderd then it would just go on to the next frame, making it reach the users fps. When frame skipping is active in high demand areas I should be able to see some pexels not being renderd like starting a render in Blender. 
-
-- Make sure that every new shader you make is inside the game shaderpacks too.
-
+- [ ] **Remove hidden/interior sheen**, particularly inside leaf blocks and behind occluders. Preserve restrained film on genuinely exposed solid faces, shelter/drainage/weather/roughness and true film/sheen zero settings. Verify exposed/blocked solid and foliage views; retain no cast shadows.
+- [ ] **Reduce excessive sun-facing block reflection.** Diagnose and tune the responsible solar/film contribution, retaining diffuse palette, native face shading and the existing controls/ranges. Compare sun-facing/adjacent/shaded faces with film off/on.
+- [ ] **Native underwater surface texture.** In Vanilla water mode, looking up should show the active native animated underside texture/colour/alpha, scaled smoothly by existing WATER_TEXTURE, including zero. Preserve above-water behaviour, Stratus-style underwater path and submerged-only fog distance. Compare shaders-off and zero/intermediate/full strengths at matched submerged/waterline/glass views. This deliberately replaces the candidate's missing native underside overlay; track the known rectangular waterline defect separately.
+- [ ] **Fix indoor flowing water**, using actual user screenshot `2026-10-23_11.29.58.png` in Main/screenshots (bright pale bands on vertical faces of cave water flowing down steps). Also inspect `2026-10-23_11.17.06.png` (bright water/wall edge). Reproduce the relevant geometry/shelter and identify the responsible rendering path before acceptance; preserve still/flowing water, waterfalls, shore/transparency/fog behaviour.
+- [ ] **Restore vanilla entity shading.** Diagnose the entity normal/lightmap/directional-light path; preserve native textures, colours, transparency, emissive exceptions and all lighting settings. Compare entities/orientations in daylight and indoors with shaders-off.
+- [ ] **Investigate sustained low FPS.** User reports about25 average FPS; validate current pack/options/hardware/focus/AFK and matched scenes. This new run authorises performance investigation and focused validation. Research primary expert sources and measure actual bottlenecks. Sodium already performs terrain visibility culling; distinguish that from costly visible fullscreen shader work. Preserve all intended visuals, controls and preset/manual quality, and the approved Reference baseline. Use TASK's stable loaded-chunk gate and matched focused active-game frame times; record blockers honestly. The requested progressive partial-frame display/abandoning unfinished frames is a renderer/presentation change unavailable to a shader pack; retain that limitation explicitly, do not silently call shader optimisation frame skipping or promise partially rendered pixels. Implement supported measured shader work; leave unsupported/unverified portions pending.
+- [ ] **Install deliverable packs in game.** Verify latest saved candidate and each newly packaged release/candidate exist in intended Main/shaderpacks, with archive-byte equivalence and safe selective settings migration. Preserve old archives and later preferences. Leave deliverable packs installed after removing owned temporary QA variants; record installed/selected/loaded/visually accepted separately.

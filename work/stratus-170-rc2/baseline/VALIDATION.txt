@@ -1,0 +1,38 @@
+STRATUS 1.7.0-rc1 — CANDIDATE VALIDATION
+
+Native Apple M1 OpenGL4.1 / GLSL330 compatibility-shim compilation:
+768 program pairs,0 failures, on final shader source. This is not Iris runtime
+transformation or visual proof. Includes all dimensions, four preset choices
+and extrema. Warnings are retained in work/stratus-refine-1613/compile-final.log.
+
+Targeted actual GLSL GPU probes:
+-96 wet-film samples: all six face normals, weather, shelter and zero controls.
+-24,576 transparent-optics pixel samples: metadata/foreground guards, separate
+  reflection/refraction and both-zero identity;814 interior pixels changed for
+  each independently enabled effect.
+-Ten physical-mode and ten native-mode full-resolution underwater composition
+  cases: actual submerged distances, nearest exits, glass and additive paths.
+All reported0 failures and0 OpenGL errors. Controlled GPU inputs are not live
+Minecraft glass, particle or fog-status acceptance.
+
+Control audit:65 reachable options, all previous62 defaults/allowed ranges and
+all original four quality assignments preserved. English tooltips present.
+Iris parsed all four65-value profiles and matched them when fully applied;
+this is a read-only parser/matcher check, not four new live preset captures.
+Thirteen installer policy checks passed in temporary profiles, including
+preserving later manual/unknown controls and refusing archive replacement.
+
+Live QA equivalents loaded on Minecraft1.21.11, Iris1.10.8, Sodium0.8.14,
+Main / Stratus Terrain Lab. Final v3 river surface/far/underwater/waterline
+views and shaders-off comparisons reviewed. Native texture sharpness was
+corrected after v2 softness. v1's Iris scalar vec4 clear parsing failure was
+fixed by explicit four-component clear. Shader-only v3 variants use final
+candidate shader bytes with controlled options. Exact final release ZIP has
+not been installed, selected or loaded; it is a packaged candidate only.
+
+Remaining visual checks were skipped by user after the Mac locked. The native
+waterline capture still has a rectangular sky/treetop band; no clean waterline
+acceptance. Additional biome/status/resource-pack, wet faces and transparent
+solid layering/zero controls remain pending. FPS remains explicitly deferred.
+Candidate packaging uses byte-equivalent source manifest and ZIP integrity
+checks. No asset/licence from Minecraft or Sildur is redistributed.

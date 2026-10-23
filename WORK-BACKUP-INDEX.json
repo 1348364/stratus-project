@@ -11525,6 +11525,18 @@
       "tag": "project-work-snapshots",
       "asset": "write-pack-py-aca5874d12e80576.zip",
       "bytes": 6994
+    },
+    "work/stratus-170-rc2/agent/state.jar": {
+      "sha256": "ca18db60f20f72931b57dcafd2ec02bc768fbd780bf5b909339b85e67a4857a6",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-e831b7ec4f888d31.zip",
+      "bytes": 2779
+    },
+    "work/stratus-170-rc2/baseline/shaders/volumes/weather.rgba8": {
+      "sha256": "90d381201b4851eb65c6847678765eb71f4dfdc965b8b4e4d36f455c33b2e99a",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-170-rc2-e831b7ec4f888d31.zip",
+      "bytes": 8388608
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
