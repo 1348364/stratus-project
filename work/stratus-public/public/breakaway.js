@@ -12,11 +12,11 @@
  }
  function build(s){
   lastWidth=s.w;lastHeight=s.h;layer.replaceChildren();pieces=[];
-  const count=s.w<650?9:15;
+  const count=s.w<650?8:12;
   for(let i=0;i<count;i++){
-   const seed=i*19+11,w=(s.w<650?48:72)+noise(seed)*150,h=32+noise(seed+2)*Math.min(90,s.h*.12),el=document.createElement('i');
+   const seed=i*19+11,w=(s.w<650?62:92)+noise(seed)*170,h=58+noise(seed+2)*Math.min(85,s.h*.11),el=document.createElement('i');
    const points=i%3===0?[[w*.08,h*.12],[w*.94,0],[w*.65,h*.96],[w*.02,h*.64]]:[[w*.04,h*.15],[w*.96,h*.02],[w*(.25+noise(seed+5)*.5),h*.97]];
-   const d=roundedPath(points,5),edge=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><defs><linearGradient id="e" x2=".8" y2="1"><stop stop-color="white" stop-opacity=".55"/><stop offset=".36" stop-color="white" stop-opacity=".06"/><stop offset=".72" stop-color="white" stop-opacity=".02"/><stop offset="1" stop-color="white" stop-opacity=".25"/></linearGradient></defs><path d="${d}" fill="none" stroke="url(#e)" stroke-width="1.25"/></svg>`;
+   const d=roundedPath(points,5),edge=`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><defs><linearGradient id="e" x2=".8" y2="1"><stop stop-color="white" stop-opacity="1"/><stop offset=".36" stop-color="white" stop-opacity=".36"/><stop offset=".72" stop-color="#0c2422" stop-opacity=".42"/><stop offset="1" stop-color="white" stop-opacity=".75"/></linearGradient></defs><path d="${d}" fill="none" stroke="#031411" stroke-opacity=".38" stroke-width="3.8"/><path d="${d}" fill="none" stroke="url(#e)" stroke-width="1.8"/></svg>`;
    el.className='liquid-fragment';el.style.width=`${w}px`;el.style.height=`${h}px`;el.style.clipPath=`path('${d}')`;el.style.setProperty('--glass-edge',`url("data:image/svg+xml,${encodeURIComponent(edge)}")`);layer.append(el);
    el.style.opacity='0';pieces.push({el,w,h,x:(i+.5)/count,seed,phase:noise(seed+8),range:260+noise(seed+3)*230,turn:(noise(seed+4)-.5)*34,opacity:0});
   }
@@ -35,16 +35,16 @@
   if(reset||Math.abs(s.y-animatedY)>s.h*1.3){animatedY=s.y;for(const p of pieces)p.opacity=0;reset=false;}
   animatedY+=(s.y-animatedY)*(1-Math.exp(-dt/110));
   let settling=Math.abs(s.y-animatedY)>.2;
-  const zone=s.h*.25,gain=clamp((animatedY-25)/180),mobile=coarse.matches?.65:1;let visible=0;
+  const zone=s.h*.25,gain=clamp((animatedY-25)/160),mobile=coarse.matches ? .86 : 1;let visible=0;
   for(const p of pieces){
    // Reversible positions follow scroll distance, with staggered sizes and timings.
-   const t=((animatedY/p.range+p.phase)%1+1)%1,y=zone*(.85-t*1.2)-p.h*.35,angle=p.turn*(t-.5),drift=Math.sin(t*Math.PI)*(noise(p.seed+6)-.5)*55,x=p.x*s.w-p.w*.5+drift;
-   const fade=Math.sin(t*Math.PI)**2,target=gain*fade*.66*mobile;
+   const t=((animatedY/p.range+p.phase)%1+1)%1,y=zone*.91-p.h*.4-t*t*(zone*.98+p.h*.4),angle=p.turn*(t-.5),drift=Math.sin(t*Math.PI)*(noise(p.seed+6)-.5)*55,x=p.x*s.w-p.w*.5+drift;
+   const entrance=clamp(t/.22),exit=clamp((1-t)/.5),fade=entrance*entrance*(3-2*entrance)*exit*exit*(3-2*exit),target=gain*fade*.94*mobile;
    p.opacity+=(target-p.opacity)*(1-Math.exp(-dt/(190+noise(p.seed+9)*120)));
    if(Math.abs(target-p.opacity)>.002)settling=true;
    motion.style(p.el,'transform',`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0) rotate(${angle.toFixed(2)}deg)`);motion.style(p.el,'opacity',p.opacity.toFixed(3));
    // Every piece becomes fully transparent before the quarter-height limit.
-   const fadeEnd=Math.max(0,zone-24-y-p.w*Math.abs(Math.sin(angle*Math.PI/180))*.5),fadeStart=Math.max(0,fadeEnd-55);
+   const fadeEnd=Math.max(0,zone-12-y-p.w*Math.abs(Math.sin(angle*Math.PI/180))*.5),fadeStart=Math.max(0,fadeEnd-32);
    motion.style(p.el,'--fade-start',`${fadeStart.toFixed(1)}px`);motion.style(p.el,'--fade-end',`${fadeEnd.toFixed(1)}px`);motion.style(p.el,'--shine',`${(t*100).toFixed(1)}%`);if(p.opacity>.03&&y+p.h>0)visible++;
   }
   layer.dataset.visible=String(visible);layer.dataset.zoneHeight=zone.toFixed(1);layer.dataset.settling=String(settling);if(settling)motion.request();

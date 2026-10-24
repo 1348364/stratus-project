@@ -12401,6 +12401,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-web-glass-live-png-54868e425c7b036b.zip",
       "bytes": 42809
+    },
+    "work/public-site-history/c01c1f79d488deae749a8ca1adefea644ea0380d.zip": {
+      "sha256": "c258ce0a38e5d59582bb465b2dd2d252aff7abcdeecc3ed76c4a16ab89999cc9",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-40e224e7ed5c8173.zip",
+      "bytes": 24246770
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
