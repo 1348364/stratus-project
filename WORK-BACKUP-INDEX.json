@@ -12359,6 +12359,12 @@
       "tag": "project-work-snapshots",
       "asset": "public-site-history-94b1a433bf3e8734.zip",
       "bytes": 24244378
+    },
+    "outputs/stratus-stone-rows-live.png": {
+      "sha256": "3ef58b7002dae9fd8eb7daf2cb7e521af5e6a34e0a10ea7dff967f5405d1cb41",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-stone-rows-live-png-5ea140cf9136fa7d.zip",
+      "bytes": 35862
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
