@@ -1,5 +1,5 @@
-/* Continuous glass fracture across the page, with usable fixed navigation. */
-.glass-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:12;pointer-events:none;contain:strict}
+/* Glass stays inside the upper viewport quarter, including at the end of the document. */
+.glass-canvas{position:fixed;inset:0 0 auto;width:100%;height:25vh;z-index:12;pointer-events:none;contain:strict}
 .glass-surface{clip-path:inset(var(--glass-cut,0px) 0 0 0)}
 body.effects-paused .glass-surface{clip-path:none!important}
 body.effects-paused .glass-canvas{display:none!important}

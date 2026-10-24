@@ -95,6 +95,11 @@
       "commit": "9cc976b02fc367bb99916b5f122b55e9f491009f",
       "archive": "9cc976b02fc367bb99916b5f122b55e9f491009f.zip",
       "sha256": "4f08cedc904813e0c3da327b054705b7520e678bb5fbfa717ae209ea33fa3fe6"
+    },
+    {
+      "commit": "e10cfa70a88b0b869cfa046155ecb56e15a823ee",
+      "archive": "e10cfa70a88b0b869cfa046155ecb56e15a823ee.zip",
+      "sha256": "ecdf32bdf3834e4ee86f3652e79d31c6a01e7ef3400bdc9bbf45964d0f08a485"
     }
   ],
   "privacy_filtered": true,
