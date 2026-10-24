@@ -4,5 +4,7 @@ Put only the changes you want worked on now under **Pending changes**. `TASK.md`
 
 ## Pending changes
 
-No pending changes.
+- Implement temporal optimisation.
+
+- I'll allow you to temporeraly dissable some mods preventing you from live testing.
 
