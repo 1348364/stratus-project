@@ -12545,6 +12545,18 @@
       "tag": "project-work-snapshots",
       "asset": "studio-dictation-preview-png-3425f7de66d25b70.zip",
       "bytes": 118203
+    },
+    "outputs/stratus-right-header-390.png": {
+      "sha256": "f57521815ab459bf0b29ea74a2de85f8993ea62c03acc6b65a3d26fb8e0ad415",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-right-header-390-png-e0e5c643f7c94b56.zip",
+      "bytes": 40116
+    },
+    "outputs/stratus-right-header-sharp-shards.png": {
+      "sha256": "9eb8785ba011b864532dd3070a1cd22ce751ac71e53e0177356788683be4bc09",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-right-header-sharp-shards-png-88d719b065c8e5d5.zip",
+      "bytes": 65843
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
