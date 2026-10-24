@@ -1,6 +1,4 @@
-/* Glass fragments remain above the content; their lower edges dissolve before 25vh. */
-.liquid-fragments{position:fixed;inset:0 0 auto;height:25vh;z-index:12;pointer-events:none;overflow:hidden;mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 98%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 98%,transparent 100%)}
-.liquid-fragment{position:absolute;left:0;top:0;display:block;background:var(--glass-edge) 0 0/100% 100%,radial-gradient(ellipse at var(--shine,30%) 0,#ffffff70,transparent 60%),linear-gradient(145deg,#effffb40,#d4efe51b 42%,#0a28232e 72%,#ffffff32);backdrop-filter:blur(2.4px) saturate(1.22) brightness(1.14);-webkit-backdrop-filter:blur(2.4px) saturate(1.22) brightness(1.14);mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));-webkit-mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));transform-origin:center}
-body.effects-paused .liquid-fragments{display:none!important}
-@media(prefers-reduced-motion:reduce),(prefers-reduced-transparency:reduce){.liquid-fragments{display:none!important}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.liquid-fragments{display:none}}
+/* A single, bounded canvas replaces independently filtered fragment layers. */
+.shard-reflections{position:fixed;inset:0 0 auto;width:100%;height:25vh;z-index:12;pointer-events:none;contain:strict}
+body.effects-paused .shard-reflections{display:none!important}
+@media(prefers-reduced-motion:reduce),(prefers-reduced-transparency:reduce){.shard-reflections{display:none!important}}

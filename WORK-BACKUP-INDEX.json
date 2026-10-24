@@ -12419,6 +12419,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-glass-system-live-png-76651005d5f5ac40.zip",
       "bytes": 76565
+    },
+    "work/public-site-history/9e873de4f6a7d593dd0b8760881bf7cc996f2d6d.zip": {
+      "sha256": "e0ff407fd6815c983eb7602494a08d94953307d0614bdf6d2e00c444514c5cb8",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-04ebab4bd8114cf8.zip",
+      "bytes": 24250106
+    },
+    "outputs/stratus-reflected-shards-live.png": {
+      "sha256": "fd6c9d4458c5bb72de662197dc2c2132c95d0ddf4d57004c62c112b346f4f7ba",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-reflected-shards-live-png-734913b21d08ebdd.zip",
+      "bytes": 46756
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
