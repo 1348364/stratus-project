@@ -12461,6 +12461,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-wordmark-restored-live-png-3062ba9a1f4955a3.zip",
       "bytes": 48672
+    },
+    "work/public-site-history/063d52b172156b76490b96a1842783ab17749010.zip": {
+      "sha256": "da4039e3a4f4d25282bef6999d82da3776cff56ece127554da0037c9e5035647",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-645b8eeebf87206b.zip",
+      "bytes": 24250724
+    },
+    "outputs/stratus-shatter-35-preview.png": {
+      "sha256": "960ea8a1f65cbd1a673011d89833fd15dfa44e76b71844f6844a430a8e6e174a",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-shatter-35-preview-png-ef5716d5f611423f.zip",
+      "bytes": 70715
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
