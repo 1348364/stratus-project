@@ -1,5 +1,0 @@
-/* Only the outer 10% on each side is rasterised; the middle 80% stays clear. */
-.shard-reflections{position:fixed;top:0;bottom:0;width:10vw;height:100vh;z-index:12;pointer-events:none;contain:strict}
-.shard-edge-left{left:0}.shard-edge-right{right:0}
-body.effects-paused .shard-reflections{display:none!important}
-@media(prefers-reduced-motion:reduce),(prefers-reduced-transparency:reduce){.shard-reflections{display:none!important}}

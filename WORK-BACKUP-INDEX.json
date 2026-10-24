@@ -12509,6 +12509,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-edge-header-expanded-png-e1a9223df433cd7b.zip",
       "bytes": 71363
+    },
+    "work/public-site-history/a08f76be179ee13ca65e0dfe53d9a07bdeba699a.zip": {
+      "sha256": "06e6fff7c50f5dbb3f2eeb6e6c997d6a9559353051bbe48f5a65a01d26573c32",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-12c1377b9d914190.zip",
+      "bytes": 24254197
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
