@@ -12623,6 +12623,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-travel-header-mobile-png-844b7056f759ff0d.zip",
       "bytes": 46489
+    },
+    "work/public-site-history/81e0b37cc28db1d05feb5aa3d36405ecbdf0e737.zip": {
+      "sha256": "d8a7f97770c07913e7abb508b05a7cf6d04543aec0069ad423cfcef94d96ef2c",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-d9172735fd5dafe4.zip",
+      "bytes": 24255370
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
