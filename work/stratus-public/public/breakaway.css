@@ -1,21 +1,6 @@
-/* Small live glass surfaces. No page cut, rasterised text, or full-width glass band. */
-.liquid-fragments{position:fixed;inset:0 0 auto;height:25vh;z-index:12;pointer-events:none;overflow:hidden}
-.liquid-fragment{position:absolute;left:0;top:0;display:block;background:var(--glass-edge) 0 0/100% 100%,radial-gradient(ellipse at var(--shine,30%) 0,#ffffff24,transparent 56%),linear-gradient(135deg,#ffffff0c,#d9f4ed03 45%,#07201a08 72%,#ffffff0e);backdrop-filter:blur(1.1px) saturate(1.15) brightness(1.06);-webkit-backdrop-filter:blur(1.1px) saturate(1.15) brightness(1.06);mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));-webkit-mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));transform-origin:center}
-/* Liquid Glass inspired navigation uses a few bounded blur surfaces. */
-.stratus-immersive .topbar,.stratus-immersive.has-scrolled .topbar,.stratus-immersive.internal-page .topbar{background:linear-gradient(#09131060,transparent);border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
-.stratus-immersive .topbar .brand,.stratus-immersive .topbar nav{background:linear-gradient(140deg,#ffffff13,#ffffff03 40%),#14251c61;border:1px solid #ffffff24;box-shadow:inset 0 1px 0 #ffffff19,0 6px 22px #00000012;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);border-radius:30px}
-.stratus-immersive .topbar .brand{min-width:185px;padding:8px 15px 8px 8px;gap:10px;font-size:15px;letter-spacing:3px}
-.stratus-immersive .topbar .brand img{width:34px;height:34px}
-.stratus-immersive .topbar nav{align-self:center;gap:3px;padding:5px}
-.stratus-immersive .topbar nav a{height:36px;padding:0 13px;border-radius:22px;font-size:10px;color:#e1eae4;transition:background .2s,color .2s,box-shadow .2s}
-.stratus-immersive .topbar nav a:hover{background:#ffffff12;color:#fff}
-.stratus-immersive .topbar nav a[aria-current=page]{background:#edf9f01b;box-shadow:inset 0 1px 0 #ffffff23;color:#fff}
-.stratus-immersive .topbar nav a[aria-current=page]:after{display:none}
-.stratus-immersive .topbar nav .feedback-nav{background:#edf9f01c;border:0;backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-.stratus-immersive .hero .button{border-radius:26px}
-.stratus-immersive .hero .glass{background:linear-gradient(135deg,#ffffff1b,#ffffff07);border-color:#ffffff3a;box-shadow:inset 0 1px 0 #ffffff2a,0 5px 16px #00000012;backdrop-filter:blur(12px) saturate(1.2)!important;-webkit-backdrop-filter:blur(12px) saturate(1.2)!important}
+/* Glass fragments remain above the content; their lower edges dissolve before 25vh. */
+.liquid-fragments{position:fixed;inset:0 0 auto;height:25vh;z-index:12;pointer-events:none;overflow:hidden;mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 98%,transparent 100%);-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 55%,transparent 98%,transparent 100%)}
+.liquid-fragment{position:absolute;left:0;top:0;display:block;background:var(--glass-edge) 0 0/100% 100%,radial-gradient(ellipse at var(--shine,30%) 0,#ffffff70,transparent 60%),linear-gradient(145deg,#effffb40,#d4efe51b 42%,#0a28232e 72%,#ffffff32);backdrop-filter:blur(2.4px) saturate(1.22) brightness(1.14);-webkit-backdrop-filter:blur(2.4px) saturate(1.22) brightness(1.14);mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));-webkit-mask-image:linear-gradient(#000 0,#000 var(--fade-start),transparent var(--fade-end));transform-origin:center}
 body.effects-paused .liquid-fragments{display:none!important}
-@media(max-width:800px){.stratus-immersive .topbar{padding-top:10px}.stratus-immersive .topbar .brand{display:inline-flex;min-width:0;padding:6px 12px 6px 6px;font-size:13px}.stratus-immersive .topbar .brand img{width:28px;height:28px}.stratus-immersive .topbar nav{margin-top:7px;min-height:41px;padding:4px;gap:2px;border-radius:24px}.stratus-immersive .topbar nav a{height:30px;min-height:30px;padding:0 12px;font-size:9px}.stratus-immersive .topbar nav .feedback-nav{position:static;flex-shrink:0;min-height:30px;margin:0;padding:0 12px;font-size:9px}.stratus-immersive .hero .glass{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}}
-@media(prefers-reduced-motion:reduce){.liquid-fragments{display:none!important}.stratus-immersive .topbar nav a{transition:none}}
-@media(prefers-reduced-transparency:reduce){.liquid-fragments{display:none!important}.stratus-immersive .topbar .brand,.stratus-immersive .topbar nav,.stratus-immersive .hero .glass{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#19291f}}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.liquid-fragments{display:none}.stratus-immersive .topbar .brand,.stratus-immersive .topbar nav{background:#18271ff2}}
+@media(prefers-reduced-motion:reduce),(prefers-reduced-transparency:reduce){.liquid-fragments{display:none!important}}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.liquid-fragments{display:none}}

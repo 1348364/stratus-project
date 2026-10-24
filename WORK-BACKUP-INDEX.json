@@ -12407,6 +12407,18 @@
       "tag": "project-work-snapshots",
       "asset": "public-site-history-40e224e7ed5c8173.zip",
       "bytes": 24246770
+    },
+    "work/public-site-history/34d2cd2576a48441d0e86dbf76234d6b16e47f33.zip": {
+      "sha256": "ac52632ffe472eddeed7adfc8c828fcfd5c03b0b56ecc1671ca5c2d363af90d1",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-4a7acc4c6a165791.zip",
+      "bytes": 24246803
+    },
+    "outputs/stratus-glass-system-live.png": {
+      "sha256": "493474b3f4b4bc88209eefa4966411e72d6988a8ed1e4df15e2168759c1c03f6",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-glass-system-live-png-76651005d5f5ac40.zip",
+      "bytes": 76565
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
