@@ -1,8 +1,6 @@
 /* Canvas fragments replace content visually; document geometry and hit areas never drift. */
 .rock-canvas{position:fixed;inset:0;width:100%;height:100%;z-index:12;pointer-events:none;contain:strict}
-body.stratus-immersive [data-rock-group].rock-active{background:transparent!important;border-color:transparent!important;box-shadow:none!important}
-body.stratus-immersive [data-rock-group].rock-active>*{opacity:calc(1 - var(--rock-blend,0))!important}
-[data-rock-group]:focus-within{--rock-blend:0}
-body.effects-paused [data-rock-group].rock-active>*,body.spatial-paused [data-rock-group].rock-active>*{opacity:1!important}
+body.stratus-immersive [data-rock-group].rock-active{clip-path:inset(var(--rock-cut,0px) 0 0 0)}
+body.effects-paused [data-rock-group].rock-active,body.spatial-paused [data-rock-group].rock-active{clip-path:none!important}
 body.effects-paused .rock-canvas,body.spatial-paused .rock-canvas{display:none!important}
-@media(prefers-reduced-motion:reduce){.rock-canvas{display:none!important}body.stratus-immersive [data-rock-group].rock-active>*{opacity:1!important}}
+@media(prefers-reduced-motion:reduce){.rock-canvas{display:none!important}body.stratus-immersive [data-rock-group].rock-active{clip-path:none!important}}

@@ -12347,6 +12347,12 @@
       "tag": "project-work-snapshots",
       "asset": "Stratus-1-7-0-rc2-d87c09d787d0a49b.zip",
       "bytes": 1323267
+    },
+    "work/public-site-history/b5be6c0c596308ee8a05e6956b46ce3b29025317.zip": {
+      "sha256": "f095d98e6b3f73d4819bcbee67a30afdf1e246ed774a1a81e9696964291df9d2",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-513e84ac8110ba08.zip",
+      "bytes": 24244377
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
