@@ -306,9 +306,16 @@
     "development/stratus-public/public/assets/sunset.png",
     "development/stratus-public/public/assets/underwater.png",
     "development/stratus-public/public/base.css",
+    "development/stratus-public/public/breakaway.css",
+    "development/stratus-public/public/breakaway.js",
     "development/stratus-public/public/experience.css",
     "development/stratus-public/public/immersive.css",
+    "development/stratus-public/public/immersive.js",
+    "development/stratus-public/public/index.html",
     "development/stratus-public/public/live.js",
+    "development/stratus-public/public/motion-runtime.js",
+    "development/stratus-public/public/motion.js",
+    "development/stratus-public/public/performance.css",
     "development/stratus-public/public/showcase.css",
     "development/stratus-public/public/showcase.js",
     "development/stratus-public/public/spatial.css",
@@ -333,6 +340,7 @@
     "development/stratus-public/scripts/vite/sites-vite-plugin.ts",
     "development/stratus-public/tsconfig.json",
     "development/stratus-public/verification/IMMERSIVE-REVIEW.md",
+    "development/stratus-public/verification/NATURAL-BREAKAWAY-REVIEW.md",
     "development/stratus-public/verification/SPATIAL-REVIEW.md",
     "development/stratus-public/verification/automatic-release-notes.png",
     "development/stratus-public/verification/igloo-inspired-home.png",
@@ -10168,6 +10176,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "a75c667824ba80d7995aaf278ab7b338106ac434dffb89bcbbc20eaf50b50f66",
+  "fingerprint": "f0be73703b5168846eb57bf1afa928ba2ecd1b1dc7131148e39bb5d1f01a279f",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
