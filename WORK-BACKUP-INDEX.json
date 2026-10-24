@@ -12497,6 +12497,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-finer-shards-preview-png-89f849654b72fd11.zip",
       "bytes": 81045
+    },
+    "outputs/stratus-edge-header-compact.png": {
+      "sha256": "e2fa8d3f20b277de6acece27369da2d92611160903a048d4814abb5643fe103c",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-edge-header-compact-png-099627f8fe4dcc3a.zip",
+      "bytes": 66280
+    },
+    "outputs/stratus-edge-header-expanded.png": {
+      "sha256": "f0bbba6146fbf65ee4b47c2247eec93195dca12d1c2f5f00e862fb2cafd56126",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-edge-header-expanded-png-e1a9223df433cd7b.zip",
+      "bytes": 71363
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
