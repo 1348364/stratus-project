@@ -135,6 +135,11 @@
       "commit": "063d52b172156b76490b96a1842783ab17749010",
       "archive": "063d52b172156b76490b96a1842783ab17749010.zip",
       "sha256": "da4039e3a4f4d25282bef6999d82da3776cff56ece127554da0037c9e5035647"
+    },
+    {
+      "commit": "8cb1dba0574a8726a6ccd568ff25df45b3f18693",
+      "archive": "8cb1dba0574a8726a6ccd568ff25df45b3f18693.zip",
+      "sha256": "6c7b8fd7ad4dcb96241f5cafd74a80ab47154b0c3cf6777659322dd647296720"
     }
   ],
   "privacy_filtered": true,

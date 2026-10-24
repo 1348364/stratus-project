@@ -12473,6 +12473,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-shatter-35-preview-png-ef5716d5f611423f.zip",
       "bytes": 70715
+    },
+    "work/public-site-history/8cb1dba0574a8726a6ccd568ff25df45b3f18693.zip": {
+      "sha256": "6c7b8fd7ad4dcb96241f5cafd74a80ab47154b0c3cf6777659322dd647296720",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-c092979a43ea4b1d.zip",
+      "bytes": 24250730
+    },
+    "outputs/stratus-more-shards-preview.png": {
+      "sha256": "b2e5f18eedab961ecdfdb45658c6656a64d6ceaf5c02e791bd5b306d5b95835f",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-more-shards-preview-png-0c82e95ed9b999eb.zip",
+      "bytes": 80620
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

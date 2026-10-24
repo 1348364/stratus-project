@@ -12,9 +12,9 @@
  function invalidate(){epoch++;textures.clear();patterns.clear();routeSeed=[...location.hash].reduce((s,c)=>s*31+c.charCodeAt(0),17)%100003;reset=true;motion.request();}
  function setup(s){w=s.w;h=s.h;bandHeight=Math.max(300,Math.round(h*.55));span=Math.max(260,Math.min(420,h*.42));invalidate();}
  function mesh(index){
-  if(patterns.has(index))return patterns.get(index);const count=w<650?4:6,result=[];
+  if(patterns.has(index))return patterns.get(index);const count=w<650?8:14,result=[];
   for(let i=0;i<count;i++){
-   const seed=(index+1)*1271+i*83+routeSeed,width=105+noise(seed)*215,height=64+noise(seed+1)*106,n=noise(seed+3)<.43?3:noise(seed+3)<.8?4:5,points=[];
+   const seed=(index+1)*1271+i*83+routeSeed,width=75+noise(seed)*195,height=48+noise(seed+1)*92,n=noise(seed+3)<.43?3:noise(seed+3)<.8?4:5,points=[];
    for(let j=0;j<n;j++){const a=(j/n+(noise(seed+j+20)-.5)*.09)*Math.PI*2,r=.68+noise(seed+j+40)*.32;points.push([Math.cos(a)*width*.5*r,Math.sin(a)*height*.5*r]);}
    result.push({seed,points,width,height,x:(i+.12+noise(seed+4)*.76)/count*w,start:index*span+noise(seed+5)*span,travel:350+noise(seed+6)*300,turn:(noise(seed+7)-.5)*.8,drift:(noise(seed+8)-.5)*110});
   }
@@ -61,7 +61,7 @@
   animatedY+=(s.y-animatedY)*(1-Math.exp(-dt/85));const gain=smooth((animatedY-20)/160)*smooth((now-gateAt)/280);let settling=Math.abs(animatedY-s.y)>.2||now-gateAt<280,count=0,reflected=0;
   const first=Math.max(0,Math.floor((animatedY-690)/span)),last=Math.floor(animatedY/span),signature=[];
   for(let index=first;index<=last;index++)for(const p of mesh(index)){
-   const t=(animatedY-p.start)/p.travel;if(t<=0||t>=1||count>=(coarse.matches?7:10))continue;
+   const t=(animatedY-p.start)/p.travel;if(t<=0||t>=1||count>=(coarse.matches?16:26))continue;
    const y=zone*.94-p.height*.35-t*t*(zone*.93+p.height*.35),x=p.x+Math.sin(t*Math.PI)*p.drift,opacity=gain*smooth(t/.2)*smooth((1-t)/.42);if(y+p.height*.65<0||opacity<.008)continue;
    count++;signature.push(p.seed);ctx.save();ctx.translate(x,y);ctx.rotate(p.turn+t*p.turn*.8);ctx.scale(1-t*.08,1-t*.14);path(p.points);ctx.clip();ctx.globalAlpha=opacity;
    const sourceY=s.y+zone*(.36+noise(p.seed+31)*.48),record=textures.get(Math.floor(sourceY/bandHeight)),zoom=1.02+noise(p.seed+32)*.62;
