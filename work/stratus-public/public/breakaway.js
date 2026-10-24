@@ -2,10 +2,10 @@
 // Two narrow viewport canvases keep the centre clear while glass drifts outwards.
 (()=>{
  const motion=window.StratusMotion,body=document.body,reduced=matchMedia('(prefers-reduced-motion: reduce)'),coarse=matchMedia('(pointer: coarse)'),transparency=matchMedia('(prefers-reduced-transparency: reduce)');if(!motion)return;
- const edgeFraction=.10,surfaces=['left','right'].map(side=>{const canvas=document.createElement('canvas');canvas.className=`shard-reflections shard-edge-${side}`;canvas.setAttribute('aria-hidden','true');body.append(canvas);return {side,canvas,ctx:canvas.getContext('2d',{alpha:true})};});if(surfaces.some(s=>!s.ctx))return;
+ const edgeFraction=.10,edgeFadeFraction=.72,verticalFadeFraction=.10,renderResolution=()=>Math.min(3,Math.max(2,devicePixelRatio||1)),surfaces=['left','right'].map(side=>{const canvas=document.createElement('canvas');canvas.className=`shard-reflections shard-edge-${side}`;canvas.setAttribute('aria-hidden','true');body.append(canvas);return {side,canvas,ctx:canvas.getContext('2d',{alpha:true})};});if(surfaces.some(s=>!s.ctx))return;
  const canvas=surfaces[0].canvas,clamp=n=>Math.max(0,Math.min(1,n)),noise=n=>{const v=Math.sin(n*127.1+311.7)*43758.5453;return v-Math.floor(v);},smooth=n=>{n=clamp(n);return n*n*(3-2*n);};
  const idle=fn=>'requestIdleCallback'in window?requestIdleCallback(fn,{timeout:500}):setTimeout(fn,24);
- const textures=new Map(),particles=new Map();let epoch=0,w=0,h=0,bandHeight=400,routeSeed=0,lastTick=0,lastDraw=0,gateAt=performance.now(),latestY=0,elapsed=0,timer=0,diagnosticAt=0;
+ const textures=new Map(),particles=new Map();let epoch=0,w=0,h=0,bandHeight=400,routeSeed=0,lastTick=0,lastDraw=0,gateAt=performance.now(),latestY=0,elapsed=0,timer=0,diagnosticAt=0,resolution=renderResolution();
  const disabled=s=>s.hidden||s.paused||reduced.matches||transparency.matches||location.hash==='#feedback'||document.activeElement?.matches('input,textarea,select,:focus-visible')||document.querySelector('dialog[open]');
  function schedule(){if(!timer)timer=setTimeout(()=>{timer=0;motion.request();},coarse.matches?42:32);}
  function invalidate(){epoch++;textures.clear();particles.clear();routeSeed=[...location.hash].reduce((s,c)=>s*31+c.charCodeAt(0),17)%100003;gateAt=performance.now();motion.request();}
@@ -14,7 +14,7 @@
   if(index<0||textures.has(index))return;const version=epoch,record={index,y:index*bandHeight,ready:false,bitmap:null,readyAt:0,words:0,scale:1};textures.set(index,record);
   idle(()=>{
    if(version!==epoch||document.hidden||textures.get(index)!==record){if(textures.get(index)===record)textures.delete(index);return;}
-   const scale=Math.min(1,(coarse.matches?680:960)/w),bitmap=document.createElement('canvas');bitmap.width=Math.ceil(w*scale);bitmap.height=Math.ceil(bandHeight*scale);const c=bitmap.getContext('2d');c.scale(scale,scale);c.fillStyle='#101817';c.fillRect(0,0,w,bandHeight);
+   const scale=Math.min(resolution,(coarse.matches?1440:2880)/w),bitmap=document.createElement('canvas');bitmap.width=Math.ceil(w*scale);bitmap.height=Math.ceil(bandHeight*scale);const c=bitmap.getContext('2d');c.scale(scale,scale);c.fillStyle='#101817';c.fillRect(0,0,w,bandHeight);
    const root=document.querySelector('[data-view]:not([hidden])');if(!root||root.dataset.view==='feedback'){textures.delete(index);return;}
    // Reflection sources are the public view only. Form values, dialogs and private routes never enter a texture.
    const excluded='[hidden],.carousel-hidden,form,dialog,.voxel-stage,.layer-axis,.wordmark-depth i';
@@ -42,18 +42,18 @@
 
  function path(ctx,points){ctx.beginPath();points.forEach(([x,y],i)=>i?ctx.lineTo(x,y):ctx.moveTo(x,y));ctx.closePath();}
  function read(s){
-  if(w!==s.w||h!==s.h)setup(s);latestY=s.y;const off=disabled(s);
+  const nextResolution=renderResolution();if(w!==s.w||h!==s.h||resolution!==nextResolution){resolution=nextResolution;setup(s);}latestY=s.y;const off=disabled(s);
   if(!off){const first=Math.floor(s.y/bandHeight),last=Math.floor((s.y+s.h)/bandHeight);for(let i=first;i<=last;i++)capture(i);if(textures.size>4){const far=[...textures.values()].sort((a,b)=>Math.abs(b.y-latestY)-Math.abs(a.y-latestY));for(const old of far.slice(0,textures.size-4))textures.delete(old.index);}}return off;
  }
  function write(off,s){
   const now=performance.now(),edge=s.w*edgeFraction,interval=coarse.matches?40:30;
-  if(off){for(const {canvas,ctx}of surfaces){canvas.hidden=true;ctx.clearRect(0,0,canvas.width,canvas.height);}clearTimeout(timer);timer=0;lastTick=0;lastDraw=0;gateAt=now;return;}
+  if(off){for(const {canvas,ctx}of surfaces){canvas.hidden=true;ctx.setTransform(1,0,0,1,0,0);ctx.clearRect(0,0,canvas.width,canvas.height);}clearTimeout(timer);timer=0;lastTick=0;lastDraw=0;gateAt=now;return;}
   if(lastDraw&&now-lastDraw<interval){schedule();return;}
   const dt=lastTick?Math.min(60,now-lastTick):16;lastTick=now;lastDraw=now;elapsed+=dt;
   const gain=smooth((now-gateAt)/450),perSide=coarse.matches?13:26,report=now-diagnosticAt>250;if(report)diagnosticAt=now;let total=0,reflected=0;
   for(const {side,canvas,ctx}of surfaces){
-   if(canvas.width!==Math.ceil(edge)||canvas.height!==Math.ceil(s.h)){canvas.width=Math.ceil(edge);canvas.height=Math.ceil(s.h);canvas.style.height=`${s.h}px`;}canvas.hidden=false;
-   const right=side==='right',origin=right?s.w-edge:0;ctx.setTransform(1,0,0,1,-origin,0);ctx.clearRect(origin,0,edge,s.h);let count=0;const signature=[];
+   if(canvas.width!==Math.ceil(edge*resolution)||canvas.height!==Math.ceil(s.h*resolution)){canvas.width=Math.ceil(edge*resolution);canvas.height=Math.ceil(s.h*resolution);canvas.style.height=`${s.h}px`;ctx.imageSmoothingEnabled=true;ctx.imageSmoothingQuality="high";}canvas.hidden=false;
+   const right=side==='right',origin=right?s.w-edge:0;ctx.setTransform(resolution,0,0,resolution,-origin*resolution,0);ctx.clearRect(origin,0,edge,s.h);let count=0;const signature=[];
    for(let i=0;i<perSide;i++){
     const id=routeSeed+(right?200003:31)+i*173,duration=6500+noise(id+1)*5500,phase=elapsed/duration+noise(id+2),cycle=Math.floor(phase),t=phase-cycle,seed=id+cycle*3011;
     const key=(right?perSide:0)+i;let particle=particles.get(key);
@@ -66,9 +66,9 @@
     ctx.fillStyle='rgba(183,230,207,.18)';ctx.fill();const sheen=ctx.createLinearGradient(-width*.5,-height*.5,width*.5,height*.5);sheen.addColorStop(0,'rgba(232,255,244,.58)');sheen.addColorStop(.35,'rgba(183,230,207,.16)');sheen.addColorStop(.7,'rgba(8,48,32,.30)');sheen.addColorStop(1,'rgba(210,255,231,.42)');ctx.fillStyle=sheen;ctx.fill();
     path(ctx,points);ctx.strokeStyle='rgba(3,24,16,.76)';ctx.lineWidth=3;ctx.stroke();ctx.strokeStyle='rgba(228,255,240,.94)';ctx.lineWidth=1.25;ctx.stroke();ctx.restore();
    }
-   ctx.setTransform(1,0,0,1,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';const fade=ctx.createLinearGradient(0,0,edge,0);fade.addColorStop(0,right?'transparent':'#000');fade.addColorStop(right?.28:.72,'#000');fade.addColorStop(1,right?'#000':'transparent');ctx.fillStyle=fade;ctx.fillRect(0,0,edge,s.h);
-   const vertical=ctx.createLinearGradient(0,0,0,s.h);vertical.addColorStop(0,'transparent');vertical.addColorStop(.055,'#000');vertical.addColorStop(.945,'#000');vertical.addColorStop(1,'transparent');ctx.fillStyle=vertical;ctx.fillRect(0,0,edge,s.h);ctx.globalCompositeOperation='source-over';
-   total+=count;if(report)Object.assign(canvas.dataset,{side,shards:String(count),reflected:String(reflected),cached:String([...textures.values()].filter(r=>r.ready).length),pattern:signature.join('.'),zonePercent:'10',outward:'true',frame:String(Math.round(elapsed)),viewportY:String(s.y)});
+   ctx.setTransform(resolution,0,0,resolution,0,0);ctx.globalAlpha=1;ctx.globalCompositeOperation='destination-in';const fade=ctx.createLinearGradient(0,0,edge,0);fade.addColorStop(0,right?'transparent':'#000');fade.addColorStop(right?edgeFadeFraction:1-edgeFadeFraction,'#000');fade.addColorStop(1,right?'#000':'transparent');ctx.fillStyle=fade;ctx.fillRect(0,0,edge,s.h);
+   const vertical=ctx.createLinearGradient(0,0,0,s.h);vertical.addColorStop(0,'transparent');vertical.addColorStop(verticalFadeFraction,'#000');vertical.addColorStop(1-verticalFadeFraction,'#000');vertical.addColorStop(1,'transparent');ctx.fillStyle=vertical;ctx.fillRect(0,0,edge,s.h);ctx.globalCompositeOperation='source-over';
+   total+=count;if(report)Object.assign(canvas.dataset,{side,shards:String(count),reflected:String(reflected),cached:String([...textures.values()].filter(r=>r.ready).length),pattern:signature.join('.'),zonePercent:'10',renderScale:String(resolution),fadePercent:String(edgeFadeFraction*100),outward:'true',frame:String(Math.round(elapsed)),viewportY:String(s.y)});
   }
   if(report)canvas.dataset.totalShards=String(total);schedule();
  }

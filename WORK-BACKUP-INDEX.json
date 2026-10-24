@@ -12557,6 +12557,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-right-header-sharp-shards-png-88d719b065c8e5d5.zip",
       "bytes": 65843
+    },
+    "work/public-site-history/f88890e17473810ffc5e591ee6ae7929a82ff151.zip": {
+      "sha256": "1439da1d040067d1e82a4f2b866144acb00c04f25a6d7ad6bd2472736d3ae8ca",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-06e4db16ffd9e050.zip",
+      "bytes": 24254221
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

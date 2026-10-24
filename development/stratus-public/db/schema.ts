@@ -1,3 +1,0 @@
-import {sqliteTable,text,integer} from "drizzle-orm/sqlite-core";
-export const feedback=sqliteTable("feedback",{id:text("id").primaryKey(),topic:text("topic").notNull(),message:text("message").notNull(),reply:text("reply").notNull(),created:text("created").notNull(),status:text("status").notNull(),receipt:text("receipt"),ip:text("ip").notNull(),mail_attempts:integer("mail_attempts").notNull().default(0),mail_first:integer("mail_first").notNull().default(0),mail_next:integer("mail_next").notNull().default(0),mail_lease:integer("mail_lease").notNull().default(0),mail_payload:text("mail_payload"),mail_error:text("mail_error")});
-export const limits=sqliteTable("limits",{key:text("key").primaryKey(),count:integer("count").notNull()});
