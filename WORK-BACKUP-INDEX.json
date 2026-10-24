@@ -12443,6 +12443,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-wordmark-3d-live-png-21b9e88c72b66409.zip",
       "bytes": 48846
+    },
+    "outputs/stratus-wordmark-restored-preview.png": {
+      "sha256": "3fe5c035de9be8ac8fc69e812048dcb4c530d95b551a7ddd8c2deeee64ee50d5",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-wordmark-restored-preview-png-6f3a866936af0460.zip",
+      "bytes": 48681
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
