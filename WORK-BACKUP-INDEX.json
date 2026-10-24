@@ -12563,6 +12563,12 @@
       "tag": "project-work-snapshots",
       "asset": "public-site-history-06e4db16ffd9e050.zip",
       "bytes": 24254221
+    },
+    "outputs/stratus-right-header-live-v31.png": {
+      "sha256": "f3b731d07cd61871569f84af762751a9c4b6302084a07c13fd593201f6756c4d",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-right-header-live-v31-png-1850491d39367158.zip",
+      "bytes": 49301
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
