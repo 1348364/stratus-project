@@ -80,6 +80,16 @@
       "commit": "509df3dd59793e84f511c85eb37e349b42b6d97f",
       "archive": "509df3dd59793e84f511c85eb37e349b42b6d97f.zip",
       "sha256": "dc86c7de52872f0791919874549ba39f9f10321980db14a89e8eed2b9c328dfe"
+    },
+    {
+      "commit": "b5be6c0c596308ee8a05e6956b46ce3b29025317",
+      "archive": "b5be6c0c596308ee8a05e6956b46ce3b29025317.zip",
+      "sha256": "f095d98e6b3f73d4819bcbee67a30afdf1e246ed774a1a81e9696964291df9d2"
+    },
+    {
+      "commit": "ca65d6627d6c0bd8f9b5a9482b653c0eb6dea552",
+      "archive": "ca65d6627d6c0bd8f9b5a9482b653c0eb6dea552.zip",
+      "sha256": "fb4a850429a49e159aa80c4d5bdef03fab617c6fc1e9afdf3881a9d42b848b5f"
     }
   ],
   "privacy_filtered": true,

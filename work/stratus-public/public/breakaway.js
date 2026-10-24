@@ -1,10 +1,10 @@
 'use strict';
-// Uniform faceted stones, drawn on one bounded canvas. The accessible DOM never moves.
+// A scroll-driven fracture front releases one row of matte stones at a time.
 (() => {
  const motion=window.StratusMotion,body=document.body,reduced=matchMedia('(prefers-reduced-motion: reduce)');
  const canvas=document.createElement('canvas');canvas.className='rock-canvas';canvas.setAttribute('aria-hidden','true');body.append(canvas);
  const context=canvas.getContext('2d',{alpha:true});if(!context)return;
- const records=new Map(),near=new Set(),active=new Set();let dirty=true,size=82,lastMetrics=0,totalMs=0,draws=0,worst=0,captureQueue=false;
+ const records=new Map(),near=new Set(),active=new Set();let dirty=true,size=82,lastMetrics=0,totalMs=0,draws=0,worst=0;
  const clamp=x=>Math.max(0,Math.min(1,x));
  const idle=fn=>'requestIdleCallback'in window?requestIdleCallback(fn,{timeout:1200}):setTimeout(fn,40);
  const off=()=>reduced.matches||body.classList.contains('effects-paused')||document.hidden;
@@ -19,7 +19,8 @@
   const b=r.el.getBoundingClientRect(),old=r.bounds;r.bounds={x:b.left,y:b.top+scrollY,w:b.width,h:b.height};
   if(old&&(Math.abs(old.w-b.width)>1||Math.abs(old.h-b.height)>1)){r.cache=null;r.generation++;}
  }dirty=false;}
- function stonePath(ctx,x,y,s){ctx.beginPath();ctx.moveTo(x+s*.18,y);ctx.lineTo(x+s*.77,y);ctx.lineTo(x+s,y+s*.21);ctx.lineTo(x+s,y+s*.77);ctx.lineTo(x+s*.8,y+s);ctx.lineTo(x+s*.2,y+s);ctx.lineTo(x,y+s*.79);ctx.lineTo(x,y+s*.2);ctx.closePath();}
+ const outlines=[[[.12,.11],[.49,.02],[.84,.17],[.98,.48],[.8,.88],[.45,.97],[.08,.72],[.02,.4]],[[.22,.02],[.65,.09],[.96,.34],[.85,.7],[.58,.98],[.18,.88],[.03,.55],[.08,.25]],[[.08,.24],[.4,.04],[.78,.08],[.99,.5],[.72,.94],[.37,.86],[.04,.66],[.02,.42]]];
+ function stonePath(ctx,x,y,s,seed,amount=1){const points=outlines[seed%outlines.length],square=[[0,0],[.5,0],[1,0],[1,.5],[1,1],[.5,1],[0,1],[0,.5]];ctx.beginPath();points.forEach(([px,py],j)=>{const a=square[j],xx=x+(a[0]+(px-a[0])*amount)*s,yy=y+(a[1]+(py-a[1])*amount)*s;j?ctx.lineTo(xx,yy):ctx.moveTo(xx,yy);});ctx.closePath();}
  function drawImage(ctx,img,b,origin){if(!img.complete||!img.naturalWidth)return;const x=b.left-origin.left,y=b.top-origin.top,w=b.width,h=b.height;if(w<1||h<1)return;
   const scale=Math.max(w/img.naturalWidth,h/img.naturalHeight),sw=w/scale,sh=h/scale;
   ctx.drawImage(img,(img.naturalWidth-sw)/2,(img.naturalHeight-sh)/2,sw,sh,x,y,w,h);
@@ -55,28 +56,37 @@
   const list=[];if(off())return list;
   for(const r of near){const b=r.bounds;if(!b||!r.el.isConnected)continue;const top=b.y-state.y;
    const focused=r.el.contains(document.activeElement)&&document.activeElement.matches(':focus-visible');
-   const p=focused?0:clamp((-70-top)/Math.max(300,Math.min(b.h,state.h)));
-   if(!r.cache){warm(r);continue;}if(p>.035&&top+b.h> -100&&top<state.h){r.used=performance.now();list.push({r,p,top});}
+   const front=focused?0:Math.max(0,r.el.matches('.immersive-hero')?-top*1.6:state.y-Math.max(0,b.y-state.h*.28));
+   if(!r.cache){warm(r);continue;}if(front>0&&top+b.h> -size*3&&top<state.h){r.used=performance.now();list.push({r,front,top});}
   }return list.sort((a,b)=>(b.r.bounds.h+b.top)-(a.r.bounds.h+a.top)).slice(0,2);
  }
  function write(list,state){const start=performance.now();const width=Math.ceil(state.w),height=Math.ceil(state.h);
   if(canvas.width!==width||canvas.height!==height){canvas.width=width;canvas.height=height;}
   context.clearRect(0,0,width,height);
-  const current=new Set(list.map(x=>x.r));for(const r of active)if(!current.has(r)){r.el.classList.remove('rock-active');r.el.style.removeProperty('--rock-blend');}active.clear();
-  let count=0;const budget=state.w<650?130:240;
-  for(const {r,p,top} of list){const b=r.bounds,cache=r.cache,blend=clamp((p-.035)/.07),scatter=clamp((p-.04)*1.5);active.add(r);r.el.classList.add('rock-active');motion.style(r.el,'--rock-blend',blend.toFixed(3));
-   for(let y=0;y<cache.height&&count<budget;y+=size)for(let x=0;x<b.w&&count<budget;x+=size){
-    const i=Math.round(x/size)+Math.round(y/size)*31,s=Math.sin(i*12.9898),dx=(x+size/2-b.w/2)*scatter*.5+s*size*scatter*1.2,dy=(y+size/2-cache.height/2)*scatter*.3-scatter*95;
+  const current=new Set(list.map(x=>x.r));for(const r of active)if(!current.has(r)){r.el.classList.remove('rock-active');r.el.style.removeProperty('--rock-cut');}active.clear();
+  let count=0,rows=0;const budget=state.w<650?100:180;
+  for(const {r,front,top} of list){const b=r.bounds,cache=r.cache;active.add(r);r.el.classList.add('rock-active');
+   // Clip only rows that have reached the fracture front; everything below remains live DOM.
+   const cut=Math.min(cache.height,Math.ceil(front/size)*size);motion.style(r.el,'--rock-cut',`${cut.toFixed(1)}px`);
+   for(let y=Math.max(0,Math.floor((front-size*1.7)/size)*size);y<Math.min(front,cache.height)&&count<budget;y+=size){
+    const p=clamp((front-y)/(size*1.7));if(p>=1)continue;rows++;
+    for(let x=0;x<b.w&&count<budget;x+=size){
+    const i=Math.round(x/size)+Math.round(y/size)*31,s=Math.sin(i*12.9898),scatter=p*p,dx=(x+size/2-b.w/2)*scatter*.24+s*size*scatter*.6,dy=scatter*size*1.7;
     const px=b.x+x+dx,py=top+y+dy;if(py>height+size||py+size< -size||px>width+size||px+size< -size)continue;
-    count++;context.save();context.globalAlpha=blend*(1-scatter*.65);context.translate(px+size/2,py+size/2);context.rotate(s*scatter*.6);context.scale(1-scatter*.15,1-scatter*.15);
-    const half=-size/2;stonePath(context,half+2,half+4,size-2);context.fillStyle='#071710';context.fill();context.save();stonePath(context,half,half,size-2);context.clip();
-    const sw=Math.min(size,b.w-x),sh=Math.min(size,cache.height-y);context.drawImage(cache.bitmap,x*cache.scale,y*cache.scale,sw*cache.scale,sh*cache.scale,half,half,sw,sh);context.fillStyle=`rgba(76,97,84,${scatter*.2})`;context.fillRect(half,half,size,size);context.restore();
-    stonePath(context,half,half,size-2);context.strokeStyle='#cbe6d337';context.lineWidth=.75;context.stroke();
-    context.beginPath();context.moveTo(half+size*.8,half+size*.04);context.lineTo(half+size*.95,half+size*.23);context.lineTo(half+size*.95,half+size*.76);context.lineTo(half+size*.8,half+size*.91);context.closePath();context.fillStyle='#07171055';context.fill();context.restore();
+    count++;context.save();context.globalAlpha=1-Math.pow(p,3);context.translate(px+size/2,py+size/2);context.rotate(s*scatter*.85);context.scale(1-scatter*.25,1-scatter*.25);
+    const half=-size/2,shape=clamp(p*4);stonePath(context,half,half,size,i,shape);context.clip();
+    const sw=Math.min(size,b.w-x),sh=Math.min(size,cache.height-y);context.drawImage(cache.bitmap,x*cache.scale,y*cache.scale,sw*cache.scale,sh*cache.scale,half,half,sw,sh);
+    // Broad, uneven mineral planes. No outline, rim or glazed inset.
+    context.fillStyle=`rgba(80,76,64,${shape*.38})`;context.fillRect(half,half,size,size);
+    const ridgeX=half+size*(.36+(i%4)*.07),ridgeY=half+size*(.3+(i%3)*.09);
+    context.beginPath();context.moveTo(half,half);context.lineTo(half+size,half);context.lineTo(ridgeX,ridgeY);context.lineTo(half,half+size*.67);context.closePath();context.fillStyle=`rgba(188,183,159,${shape*.18})`;context.fill();
+    context.beginPath();context.moveTo(ridgeX,ridgeY);context.lineTo(half+size,half+size*.26);context.lineTo(half+size,half+size);context.lineTo(half+size*.32,half+size);context.closePath();context.fillStyle=`rgba(10,15,12,${shape*.42})`;context.fill();context.restore();
+    }
    }
   }
   canvas.hidden=count===0;const ms=performance.now()-start;if(count){totalMs+=ms;draws++;worst=Math.max(worst,ms);}
-  if(performance.now()-lastMetrics>500){canvas.dataset.fragments=String(count);canvas.dataset.drawMs=ms.toFixed(2);canvas.dataset.averageMs=(draws?totalMs/draws:0).toFixed(2);canvas.dataset.worstMs=worst.toFixed(2);canvas.dataset.cached=String([...records.values()].filter(r=>r.cache).length);lastMetrics=performance.now();}
+  canvas.dataset.fragments=String(count);canvas.dataset.activeRows=String(rows);
+  if(performance.now()-lastMetrics>500){canvas.dataset.drawMs=ms.toFixed(2);canvas.dataset.averageMs=(draws?totalMs/draws:0).toFixed(2);canvas.dataset.worstMs=worst.toFixed(2);canvas.dataset.cached=String([...records.values()].filter(r=>r.cache).length);lastMetrics=performance.now();}
  }
  motion.register('rocks',read,write);
  const invalidate=()=>{dirty=true;for(const r of records.values()){r.cache=null;r.generation++;}motion.request();};
