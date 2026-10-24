@@ -12431,6 +12431,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-reflected-shards-live-png-734913b21d08ebdd.zip",
       "bytes": 46756
+    },
+    "work/public-site-history/6ce494e80f2102ae41e67e4ce9dfa8447efb3689.zip": {
+      "sha256": "5d634c4c688fbe1b392470bcb93ba9ef1f80a014dda6e35acf8285ef7aa1b794",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-b0b8b1f13ead78fa.zip",
+      "bytes": 24253476
+    },
+    "outputs/stratus-wordmark-3d-live.png": {
+      "sha256": "5da98134b2a7cd08d6255fc162e189feb10041079f9430f230953a6d31e62a30",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-wordmark-3d-live-png-21b9e88c72b66409.zip",
+      "bytes": 48846
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

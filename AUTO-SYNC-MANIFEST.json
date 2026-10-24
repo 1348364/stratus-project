@@ -5260,6 +5260,7 @@
     "work/stratus-public/public/assets/sky.png",
     "work/stratus-public/public/assets/sunset.png",
     "work/stratus-public/public/assets/underwater.png",
+    "work/stratus-public/public/assets/wordmark.svg",
     "work/stratus-public/public/base.css",
     "work/stratus-public/public/breakaway.css",
     "work/stratus-public/public/breakaway.js",
@@ -5278,12 +5279,14 @@
     "work/stratus-public/public/showcase.js",
     "work/stratus-public/public/spatial.css",
     "work/stratus-public/public/spatial.js",
+    "work/stratus-public/public/wordmark.css",
     "work/stratus-public/scripts/build-verified.sh",
     "work/stratus-public/scripts/connector-preview/connector-preview-session.mjs",
     "work/stratus-public/scripts/connector-preview/host-binding.mjs",
     "work/stratus-public/scripts/connector-preview/protocol.mjs",
     "work/stratus-public/scripts/connector-preview/worker.mjs",
     "work/stratus-public/scripts/execution-profile.mjs",
+    "work/stratus-public/scripts/generate-wordmark.swift",
     "work/stratus-public/scripts/install-ci.mjs",
     "work/stratus-public/scripts/install-ci.sh",
     "work/stratus-public/scripts/install-pnpm.sh",
@@ -10081,10 +10084,10 @@
     "work/write_pack.py"
   ],
   "site_commits": {
-    "stratus-public": "9e873de4f6a7d593dd0b8760881bf7cc996f2d6d",
+    "stratus-public": "6ce494e80f2102ae41e67e4ce9dfa8447efb3689",
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "fc828b02aa2925235f1e952ce5b155bf02641b7daa34b17554cdbb38af31bb65",
+  "fingerprint": "b14748869e9e9eca9b2fc7709daddb49fa62d1b7c68daa721a5d742ee67c684a",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

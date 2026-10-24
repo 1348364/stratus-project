@@ -120,6 +120,11 @@
       "commit": "9e873de4f6a7d593dd0b8760881bf7cc996f2d6d",
       "archive": "9e873de4f6a7d593dd0b8760881bf7cc996f2d6d.zip",
       "sha256": "e0ff407fd6815c983eb7602494a08d94953307d0614bdf6d2e00c444514c5cb8"
+    },
+    {
+      "commit": "6ce494e80f2102ae41e67e4ce9dfa8447efb3689",
+      "archive": "6ce494e80f2102ae41e67e4ce9dfa8447efb3689.zip",
+      "sha256": "5d634c4c688fbe1b392470bcb93ba9ef1f80a014dda6e35acf8285ef7aa1b794"
     }
   ],
   "privacy_filtered": true,
