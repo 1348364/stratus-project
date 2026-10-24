@@ -100,6 +100,11 @@
       "commit": "e10cfa70a88b0b869cfa046155ecb56e15a823ee",
       "archive": "e10cfa70a88b0b869cfa046155ecb56e15a823ee.zip",
       "sha256": "ecdf32bdf3834e4ee86f3652e79d31c6a01e7ef3400bdc9bbf45964d0f08a485"
+    },
+    {
+      "commit": "caefb4b06ad4bc80b6dfd5d8a3384e213556328d",
+      "archive": "caefb4b06ad4bc80b6dfd5d8a3384e213556328d.zip",
+      "sha256": "cb325406b1a5e54ad4781f42cdcb798d5439123a36d8d89d777f3bf99a7b4bf7"
     }
   ],
   "privacy_filtered": true,

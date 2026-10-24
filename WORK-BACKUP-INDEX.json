@@ -12389,6 +12389,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-liquid-glass-live-png-f07a5271e4a559fd.zip",
       "bytes": 42027
+    },
+    "work/public-site-history/caefb4b06ad4bc80b6dfd5d8a3384e213556328d.zip": {
+      "sha256": "cb325406b1a5e54ad4781f42cdcb798d5439123a36d8d89d777f3bf99a7b4bf7",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-22b5907f5dd05167.zip",
+      "bytes": 24243347
+    },
+    "outputs/stratus-web-glass-live.png": {
+      "sha256": "0696cd317e6c0e6bcea3f49d52b40ef20be781e05395439edf4a48da93f02184",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-web-glass-live-png-54868e425c7b036b.zip",
+      "bytes": 42809
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
