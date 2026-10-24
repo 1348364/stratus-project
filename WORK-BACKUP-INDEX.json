@@ -12371,6 +12371,12 @@
       "tag": "project-work-snapshots",
       "asset": "public-site-history-b7f12b96fcbd9cd7.zip",
       "bytes": 24243732
+    },
+    "outputs/stratus-glass-shatter-live.png": {
+      "sha256": "3811e2420c71e69dd6dbcff44598818de7249e89d64201099376c5a4e46c13a8",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-glass-shatter-live-png-d8481b3d3211ca76.zip",
+      "bytes": 53332
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
