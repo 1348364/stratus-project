@@ -10085,9 +10085,9 @@
   ],
   "site_commits": {
     "stratus-public": "36a4a196ac70a6f0f81e8f73628a1497403dd2c2",
-    "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
+    "stratus-studio-cloud": "7a6b1f68f05b437467d981b8c9e1f03284084b7c"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "dbbb12f704b28640d22007e1926a4ca538ec0527c300aa6c8b6823c8c7bd3ca2",
+  "fingerprint": "a49c17fbdf3d35ac7b4c47cf244c9a4862f33e78902dc3987ced9736a759df36",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }

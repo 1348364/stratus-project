@@ -12533,6 +12533,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-unified-logo-expanded-png-3e0772a5ea886f3f.zip",
       "bytes": 70221
+    },
+    "outputs/stratus-unified-logo-live.png": {
+      "sha256": "7b5766592841f9bf5cad1566d5d203ffa5a09b01eea5cc44747a5f53418c4567",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-unified-logo-live-png-6ff2cc319005b9d4.zip",
+      "bytes": 65635
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
