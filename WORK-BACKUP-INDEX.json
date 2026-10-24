@@ -12539,6 +12539,12 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-unified-logo-live-png-6ff2cc319005b9d4.zip",
       "bytes": 65635
+    },
+    "outputs/studio-dictation-preview.png": {
+      "sha256": "deae7ba0d9b8ae9f4d80d72e6065fa2d29f19f197075bf8aefb4a486cfb6a1f5",
+      "tag": "project-work-snapshots",
+      "asset": "studio-dictation-preview-png-3425f7de66d25b70.zip",
+      "bytes": 118203
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

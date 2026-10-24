@@ -8662,6 +8662,8 @@
     "work/stratus-studio-cloud/public/vendor/vs/workers-BeMslOxK.js",
     "work/stratus-studio-cloud/public/vendor/vs/xml-DHCggo_L.js",
     "work/stratus-studio-cloud/public/vendor/vs/yaml-C-RIivnc.js",
+    "work/stratus-studio-cloud/public/voice.css",
+    "work/stratus-studio-cloud/public/voice.js",
     "work/stratus-studio-cloud/scripts/build-verified.sh",
     "work/stratus-studio-cloud/scripts/connector-preview/connector-preview-session.mjs",
     "work/stratus-studio-cloud/scripts/connector-preview/host-binding.mjs",
@@ -8848,6 +8850,8 @@
     "work/stratus-studio/dist/vendor/vs/workers-BeMslOxK.js",
     "work/stratus-studio/dist/vendor/vs/xml-DHCggo_L.js",
     "work/stratus-studio/dist/vendor/vs/yaml-C-RIivnc.js",
+    "work/stratus-studio/dist/voice.css",
+    "work/stratus-studio/dist/voice.js",
     "work/stratus-studio/feedback-mail-setup.command",
     "work/stratus-studio/feedback_mail.py",
     "work/stratus-studio/launch.py",
@@ -10088,6 +10092,6 @@
     "stratus-studio-cloud": "7a6b1f68f05b437467d981b8c9e1f03284084b7c"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "a49c17fbdf3d35ac7b4c47cf244c9a4862f33e78902dc3987ced9736a759df36",
+  "fingerprint": "6efcca2a1ebc3c7a80a67b5ed808c583670419b360bcc63aec29ce111e447ae5",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
