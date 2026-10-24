@@ -12569,6 +12569,36 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-right-header-live-v31-png-1850491d39367158.zip",
       "bytes": 49301
+    },
+    "work/public-site-history/f9176eaedad458836795c8aa42e55e0d09a543da.zip": {
+      "sha256": "488a4eaab2c8094a81d0d2d254c13cbcf7eaa5704f9f2cd79c562f577492795e",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-adbaca74b4533b21.zip",
+      "bytes": 24254903
+    },
+    "outputs/stratus-joined-header-expanded.png": {
+      "sha256": "26fcb9d0557bb35846f47ac5bfa373ae1a7708d197d257bbfc78447e56fa4e0c",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-joined-header-expanded-png-686abf37eeecc793.zip",
+      "bytes": 112147
+    },
+    "outputs/stratus-joined-header-mobile.png": {
+      "sha256": "cca97440e4e833bca0c5ceafc19107b37db3d227137ecb2420496a255328f629",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-joined-header-mobile-png-c2032d4001fa1257.zip",
+      "bytes": 50085
+    },
+    "outputs/stratus-joined-header-split.png": {
+      "sha256": "1ca28d948c140937a4f9e51867dcde437fbd10490cb9d0f3fbd332a72a4ea2be",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-joined-header-split-png-f7ba661eb31eccb7.zip",
+      "bytes": 66287
+    },
+    "outputs/stratus-joined-header-transition.png": {
+      "sha256": "26b73c734c705a23632a129e4bf988b838e2904240935f39f475c0c267792922",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-joined-header-transition-png-161883b61a6f59f6.zip",
+      "bytes": 70586
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",

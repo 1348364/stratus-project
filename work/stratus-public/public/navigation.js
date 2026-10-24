@@ -1,27 +1,29 @@
 'use strict';
-// The original header returns at the hero; a temporary peek closes on the next scroll.
+// One connected glass bar opens from a centre seam into two corner capsules.
 (()=>{
  const header=document.querySelector('.topbar'),motion=window.StratusMotion,reduced=matchMedia('(prefers-reduced-motion: reduce)');if(!header||!motion)return;
  const brand=header.querySelector('.brand'),nav=header.querySelector('nav'),links=[...nav.querySelectorAll('a')],label=brand.querySelector('span');if(!brand||!nav||!links.length)return;
  const cluster=document.createElement('div');cluster.className='brand-cluster';brand.before(cluster);cluster.append(brand);label.classList.add('brand-label');
  const toggle=document.createElement('button');toggle.type='button';toggle.className='nav-expand';toggle.setAttribute('aria-label','Expand navigation');toggle.setAttribute('aria-expanded','true');toggle.setAttribute('aria-controls','public-navigation');toggle.innerHTML='<svg viewBox="0 0 18 18" aria-hidden="true"><path d="M6 4.5 12 9 6 13.5Z"/></svg>';cluster.append(toggle);nav.id='public-navigation';
- const track=document.createElement('div');track.className='nav-track';track.append(...links);nav.append(track);header.classList.add('navigation-ready');
+ const track=document.createElement('div');track.className='nav-track';track.append(...links);const navViewport=document.createElement('div');navViewport.className='nav-window';navViewport.append(track);nav.append(navViewport);header.classList.add('navigation-ready');
  let manual=false,lastY=scrollY,mode='';
  function read(s){
   const changed=Math.abs(s.y-lastY)>1;lastY=s.y;if(changed)manual=false;
   const view=document.querySelector('[data-view]:not([hidden])'),anchor=view?.querySelector('.immersive-hero,.section-intro'),bottom=anchor?.getBoundingClientRect().bottom??1,past=bottom<=0;
-  if(!past)manual=false;const compact=past&&!manual,active=nav.querySelector('[aria-current=page]')||links[0],narrow=s.w<=760,inset=Math.max(12,s.w*.04),fullWidth=Math.min(track.scrollWidth+12,s.w-inset*2),closedWidth=active.offsetWidth+12;
-  return {compact,past,active,mode:compact?'compact':past?'peek':'open',inset,y:narrow?(compact?10:76):14,width:compact?closedWidth:fullWidth,shift:compact?-active.offsetLeft:0,paused:s.paused||reduced.matches};
+  if(!past)manual=false;const compact=past&&!manual,active=nav.querySelector('[aria-current=page]')||links[0],inset=Math.max(12,s.w*.04),barWidth=s.w-inset*2,trackWidth=track.scrollWidth+12,narrow=barWidth<185+trackWidth+24,fullNavWidth=narrow?barWidth:trackWidth,closedWidth=active.offsetWidth+12;
+  const leftOpen=Math.max(Math.min(185,barWidth-100),Math.round(barWidth*.5)),rightOpen=barWidth-leftOpen,openHeight=narrow?122:56;
+  return {compact,past,active,mode:compact?'compact':past?'peek':'open',inset,narrow,barWidth,openHeight,top:narrow?10:14,leftWidth:compact?100:leftOpen,rightWidth:compact?closedWidth:rightOpen,height:compact?56:openHeight,windowLeft:compact?5:rightOpen-fullNavWidth+5,windowTop:compact||!narrow?5:71,windowWidth:(compact?closedWidth:fullNavWidth)-12,shift:compact?-active.offsetLeft:0,paused:s.paused||reduced.matches};
  }
  function write(v){
   const changed=mode!==v.mode;
   if(changed){mode=v.mode;header.dataset.navMode=mode;header.classList.toggle('nav-compact',v.compact);header.classList.toggle('nav-peek',mode==='peek');const expanderFocused=document.activeElement===toggle;toggle.setAttribute('aria-expanded',String(!v.compact));toggle.setAttribute('aria-label','Expand navigation');toggle.tabIndex=v.compact?0:-1;toggle.setAttribute('aria-hidden',String(!v.compact));if(!v.compact&&expanderFocused)v.active.focus({preventScroll:true});toggle.inert=!v.compact;
    if(v.compact&&links.includes(document.activeElement)&&document.activeElement!==v.active)toggle.focus({preventScroll:true});
-   if(v.compact)nav.scrollLeft=0;
+   if(v.compact)navViewport.scrollLeft=0;
    for(const link of links){const hide=v.compact&&link!==v.active;link.inert=hide;link.tabIndex=hide?-1:0;if(hide)link.setAttribute('aria-hidden','true');else link.removeAttribute('aria-hidden');}
   }
-  motion.style(header,'--header-inset',`${v.inset}px`);motion.style(nav,'--nav-top',`${v.y}px`);
-  motion.style(nav,'--nav-width',`${v.width}px`);motion.style(track,'--nav-track-shift',`${v.shift}px`);
+  const geometry={'--header-inset':v.inset,'--header-open-width':v.barWidth,'--header-open-height':v.openHeight,'--header-top':v.top,'--split-left-width':v.leftWidth,'--split-right-width':v.rightWidth,'--split-height':v.height,'--nav-window-left':v.windowLeft,'--nav-window-top':v.windowTop,'--nav-window-width':v.windowWidth};
+  for(const [name,value]of Object.entries(geometry))motion.style(header,name,`${value}px`);
+  motion.style(track,'--nav-track-shift',`${v.shift}px`);header.classList.toggle('nav-stacked',v.narrow);header.dataset.headerShape=v.compact?'split':'joined';
   header.classList.toggle('nav-motion-off',v.paused);
  }
  motion.register('compact-navigation',read,write);

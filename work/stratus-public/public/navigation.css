@@ -1,25 +1,40 @@
-/* The logo contracts on the left; navigation contracts against its original right edge. */
-body.stratus-immersive .topbar.navigation-ready{--header-glass-height:56px;display:block;min-height:84px;height:84px;padding:0;pointer-events:none;transition:background .35s}
-body.stratus-immersive .navigation-ready :is(.brand-cluster,nav){height:var(--header-glass-height);min-height:var(--header-glass-height);border:1px solid var(--lg-rim);border-radius:999px;background:var(--lg-material);box-shadow:var(--lg-shadow);backdrop-filter:blur(10px) saturate(1.18);-webkit-backdrop-filter:blur(10px) saturate(1.18);pointer-events:auto}
-body.stratus-immersive .navigation-ready .brand-cluster{position:absolute;left:var(--header-inset,4%);top:14px;width:185px;isolation:isolate;transition:width .48s cubic-bezier(.22,.65,.2,1)}
-body.stratus-immersive .navigation-ready .brand{width:100%;min-width:0;height:54px;min-height:54px;padding:6px 16px 6px 6px;gap:10px;overflow:hidden;background:transparent;border:0;box-shadow:none;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;font-size:15px;transition:width .48s cubic-bezier(.22,.65,.2,1),padding .48s,gap .48s}
-body.stratus-immersive .navigation-ready .brand-label{display:block;overflow:hidden;white-space:nowrap;opacity:1;transform:translateX(0);transition:opacity .2s,transform .35s;flex-shrink:0}
-body.stratus-immersive .navigation-ready .brand img{width:40px;height:40px;flex-shrink:0}
-body.stratus-immersive .navigation-ready nav{position:absolute;left:auto;right:var(--header-inset,4%);top:var(--nav-top,14px);margin:0;display:block;align-self:auto;width:var(--nav-width,480px);max-width:calc(100% - var(--header-inset,4%) * 2);padding:5px;overflow:hidden;transform:none;transition:width .48s cubic-bezier(.22,.65,.2,1),top .48s cubic-bezier(.22,.65,.2,1);scrollbar-width:none}
-body.stratus-immersive .navigation-ready .nav-track{position:relative;display:flex;width:max-content;gap:3px;align-items:center;transform:translateX(var(--nav-track-shift,0px));transition:transform .48s cubic-bezier(.22,.65,.2,1)}
-body.stratus-immersive .navigation-ready nav a{height:44px;min-height:44px;flex-shrink:0;white-space:nowrap;padding:0 13px;font-size:10px;transition:opacity .2s,transform .35s,background .2s}
-body.stratus-immersive .navigation-ready .nav-expand{position:absolute;right:4px;top:5px;z-index:2;width:44px;height:44px;padding:10px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;color:#d3f3e3;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .14s,visibility .14s}
-body.stratus-immersive .navigation-ready .nav-expand:before{content:'';position:absolute;left:0;top:13px;width:1px;height:18px;background:linear-gradient(transparent,#e4fff43b,transparent)}
-body.stratus-immersive .navigation-ready .nav-expand svg{width:18px;height:18px;fill:currentColor}
-body.stratus-immersive .navigation-ready .nav-expand:hover{color:#fff;background:#effff00d}
-body.stratus-immersive .navigation-ready:is(.nav-compact,.nav-peek){background:transparent}
-body.stratus-immersive .navigation-ready.nav-compact .brand-cluster{width:100px}
-body.stratus-immersive .navigation-ready.nav-compact .brand{width:54px;padding-right:6px;gap:0}
-body.stratus-immersive .navigation-ready.nav-compact .brand-label{opacity:0;transform:translateX(-15px)}
-body.stratus-immersive .navigation-ready.nav-compact nav a:not([aria-current=page]){opacity:0;transform:translateX(-18px);pointer-events:none}
-body.stratus-immersive .navigation-ready.nav-compact nav a[aria-current=page]{background:transparent;box-shadow:none;border:0}
-body.stratus-immersive .navigation-ready.nav-compact .nav-expand{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .18s .14s,visibility .18s .14s}
-body.stratus-immersive .navigation-ready.nav-motion-off :is(.brand-cluster,.brand,.brand-label,nav,.nav-track,nav a,.nav-expand){transition:none!important}
-@media(max-width:760px){body.stratus-immersive .topbar.navigation-ready{height:142px;min-height:142px}body.stratus-immersive .navigation-ready .brand-cluster{top:10px}body.stratus-immersive .navigation-ready nav{overflow-x:auto}body.stratus-immersive .navigation-ready.nav-compact nav{overflow:hidden}body.stratus-immersive .navigation-ready.nav-compact{height:84px;min-height:84px}body.stratus-immersive .navigation-ready nav .feedback-nav{position:static;margin:0;height:44px;min-height:44px;padding:0 13px}}
-@media(prefers-reduced-motion:reduce){body.stratus-immersive .navigation-ready :is(.brand-cluster,.brand,.brand-label,nav,.nav-track,nav a,.nav-expand){transition:none!important}}
-@media(prefers-reduced-transparency:reduce){body.stratus-immersive .navigation-ready .brand-cluster{backdrop-filter:none;-webkit-backdrop-filter:none;background:#1b2e24}}
+/* Two abutting halves form one bar. Their inside edges retreat and round into two capsules. */
+body.stratus-immersive .topbar.navigation-ready{--split-duration:.66s;--split-ease:cubic-bezier(.22,.65,.2,1);display:block;min-height:84px;height:84px;padding:0;pointer-events:none;transition:background .35s}
+body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav){position:absolute;top:var(--header-top,14px);height:var(--split-height,56px);min-height:0;border:1px solid var(--lg-rim);background:var(--lg-material);background-size:var(--header-open-width,92vw) var(--header-open-height,56px);background-repeat:no-repeat;box-shadow:inset 0 1px 1px #f3fff947,inset 0 -1px 1px #00191052;backdrop-filter:blur(10px) saturate(1.18);-webkit-backdrop-filter:blur(10px) saturate(1.18);pointer-events:auto;transition:width var(--split-duration) var(--split-ease),height var(--split-duration) var(--split-ease),border-radius .54s var(--split-ease),border-color .22s}
+body.stratus-immersive .topbar.navigation-ready .brand-cluster{left:var(--header-inset,4%);width:var(--split-left-width,46vw);border-radius:28px 0 0 28px;border-right-color:transparent;background-position:left top;isolation:isolate;z-index:1}
+body.stratus-immersive .topbar.navigation-ready .brand{width:min(185px,100%);min-width:0;height:54px;min-height:54px;padding:6px 16px 6px 6px;gap:10px;overflow:hidden;background:transparent;border:0;box-shadow:none;backdrop-filter:none!important;-webkit-backdrop-filter:none!important;font-size:15px;transition:width var(--split-duration) var(--split-ease),padding .48s,gap .48s}
+body.stratus-immersive .topbar.navigation-ready .brand-label{display:block;overflow:hidden;white-space:nowrap;opacity:1;transform:translateX(0);transition:opacity .2s,transform .35s;flex-shrink:0}
+body.stratus-immersive .topbar.navigation-ready .brand img{width:40px;height:40px;flex-shrink:0}
+body.stratus-immersive .topbar.navigation-ready nav{left:auto;right:var(--header-inset,4%);margin:0;display:block;align-self:auto;width:var(--split-right-width,46vw);max-width:none;padding:0;overflow:visible;transform:none;border-radius:0 28px 28px 0;border-left-color:transparent;background-position:right top;z-index:2}
+body.stratus-immersive .topbar.navigation-ready .nav-window{position:absolute;left:var(--nav-window-left,5px);top:var(--nav-window-top,5px);width:var(--nav-window-width,455px);height:44px;overflow:hidden;scrollbar-width:none;transition:left var(--split-duration) var(--split-ease),top var(--split-duration) var(--split-ease),width var(--split-duration) var(--split-ease)}
+body.stratus-immersive .topbar.navigation-ready .nav-track{position:relative;display:flex;width:max-content;gap:3px;align-items:center;transform:translateX(var(--nav-track-shift,0px));transition:transform var(--split-duration) var(--split-ease)}
+body.stratus-immersive .topbar.navigation-ready nav a{height:44px;min-height:44px;flex-shrink:0;white-space:nowrap;padding:0 13px;font-size:10px;transition:opacity .2s,transform .35s,background .2s}
+body.stratus-immersive .topbar.navigation-ready .nav-expand{position:absolute;right:4px;top:5px;z-index:2;width:44px;height:44px;padding:10px;display:grid;place-items:center;border:0;border-radius:50%;background:transparent;box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none;color:#d3f3e3;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .14s,visibility .14s}
+body.stratus-immersive .topbar.navigation-ready .nav-expand:before{content:'';position:absolute;left:0;top:13px;width:1px;height:18px;background:linear-gradient(transparent,#e4fff43b,transparent)}
+body.stratus-immersive .topbar.navigation-ready .nav-expand svg{width:18px;height:18px;fill:currentColor}
+body.stratus-immersive .topbar.navigation-ready .nav-expand:hover{color:#fff;background:#effff00d}
+body.stratus-immersive .topbar.navigation-ready:is(.nav-compact,.nav-peek){background:transparent}
+body.stratus-immersive .topbar.navigation-ready.nav-compact :is(.brand-cluster,nav){border-radius:28px;border-color:var(--lg-rim);box-shadow:var(--lg-shadow)}
+body.stratus-immersive .topbar.navigation-ready.nav-compact .brand{width:54px;padding-right:6px;gap:0}
+body.stratus-immersive .topbar.navigation-ready.nav-compact .brand-label{opacity:0;transform:translateX(-15px)}
+body.stratus-immersive .topbar.navigation-ready.nav-compact nav a:not([aria-current=page]){opacity:0;transform:translateX(-18px);pointer-events:none}
+body.stratus-immersive .topbar.navigation-ready.nav-compact nav a[aria-current=page]{background:transparent;box-shadow:none;border:0}
+body.stratus-immersive .topbar.navigation-ready.nav-compact .nav-expand{opacity:1;visibility:visible;pointer-events:auto;transition:opacity .18s .14s}
+body.stratus-immersive .topbar.navigation-ready.nav-stacked{height:142px;min-height:142px}
+body.stratus-immersive .topbar.navigation-ready.nav-stacked .nav-window{overflow-x:auto}
+body.stratus-immersive .topbar.navigation-ready.nav-compact{height:84px;min-height:84px}
+body.stratus-immersive .topbar.navigation-ready.nav-compact .nav-window{overflow:hidden}
+body.stratus-immersive .topbar.navigation-ready nav .feedback-nav{position:static;margin:0;height:44px;min-height:44px;padding:0 13px}
+/* A shared surface hides the sampling seam when the two panels have rejoined. */
+body.stratus-immersive .topbar.navigation-ready:before{content:'';position:absolute;left:var(--header-inset,4%);right:var(--header-inset,4%);top:var(--header-top,14px);height:var(--header-open-height,56px);border:1px solid var(--lg-rim);border-radius:28px;background:var(--lg-material);box-shadow:var(--lg-shadow);backdrop-filter:blur(10px) saturate(1.18);-webkit-backdrop-filter:blur(10px) saturate(1.18);pointer-events:none;opacity:1;transition:opacity .11s .55s}
+body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav){isolation:isolate;background:transparent;box-shadow:none;border-color:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
+body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav):before{content:'';position:absolute;inset:-1px;z-index:-1;border:1px solid var(--lg-rim);border-radius:inherit;background:var(--lg-material);box-shadow:var(--lg-shadow);backdrop-filter:blur(10px) saturate(1.18);-webkit-backdrop-filter:blur(10px) saturate(1.18);pointer-events:none;opacity:0;transition:opacity .11s .55s}
+body.stratus-immersive .topbar.navigation-ready.nav-compact:before{opacity:0;transition:opacity .11s}
+body.stratus-immersive .topbar.navigation-ready.nav-compact :is(.brand-cluster,nav):before{opacity:1;transition:opacity .11s}
+body.stratus-immersive .topbar.navigation-ready.nav-motion-off :is(.brand-cluster,.brand,.brand-label,nav,.nav-window,.nav-track,nav a,.nav-expand){transition:none!important}
+@media(prefers-reduced-motion:reduce){body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,.brand,.brand-label,nav,.nav-window,.nav-track,nav a,.nav-expand){transition:none!important}}
+@media(prefers-reduced-transparency:reduce){body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav){backdrop-filter:none;-webkit-backdrop-filter:none;background:#1b2e24}}
+
+body.stratus-immersive .topbar.navigation-ready.nav-motion-off:before,body.stratus-immersive .topbar.navigation-ready.nav-motion-off :is(.brand-cluster,nav):before{transition:none!important}
+@media(prefers-reduced-motion:reduce){body.stratus-immersive .topbar.navigation-ready:before,body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav):before{transition:none!important}}
+@media(prefers-reduced-transparency:reduce){body.stratus-immersive .topbar.navigation-ready:before,body.stratus-immersive .topbar.navigation-ready :is(.brand-cluster,nav):before{backdrop-filter:none;-webkit-backdrop-filter:none;background:#1b2e24}}
