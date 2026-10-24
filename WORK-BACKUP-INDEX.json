@@ -12601,22 +12601,28 @@
       "bytes": 70586
     },
     "outputs/stratus-travel-header-expanded.png": {
-      "sha256": "32a953723392d783c4d9ad2d39f0420570d8213f0f4d85283775a6681e4659e1",
+      "sha256": "af455ef5dd48cf90d4884827e2b34601d3c32a1896e4737bab0fd09b62aec09d",
       "tag": "project-work-snapshots",
-      "asset": "stratus-travel-header-expanded-png-efdce53ac1ddf480.zip",
-      "bytes": 111778
+      "asset": "stratus-travel-header-expanded-png-edc8576c8c31d317.zip",
+      "bytes": 111298
     },
     "outputs/stratus-travel-header-flight.png": {
-      "sha256": "785ec61822349241f2f03a6dc96a94f10a57e3529e9645abaee094a76fc8cce8",
+      "sha256": "e71bf294261f371426aed5250536bf9ecbb6f7e6337aee1e7f11b284cc13cca7",
       "tag": "project-work-snapshots",
-      "asset": "stratus-travel-header-flight-png-66f2ed0c4e8377b6.zip",
-      "bytes": 67368
+      "asset": "stratus-travel-header-flight-png-3697f81016053516.zip",
+      "bytes": 68998
     },
     "outputs/stratus-travel-header-return.png": {
-      "sha256": "28c696af35b98bdf876f6c6eb145c3fb9987431da444e28b0ffcc1741b0e5947",
+      "sha256": "ca4f23cebf5061fb831e53e6a3c6511980f4e3003135c4294200e135c7e0b613",
       "tag": "project-work-snapshots",
-      "asset": "stratus-travel-header-return-png-4c1cf3947562671a.zip",
-      "bytes": 69401
+      "asset": "stratus-travel-header-return-png-202270590fbdcf08.zip",
+      "bytes": 70742
+    },
+    "outputs/stratus-travel-header-mobile.png": {
+      "sha256": "9457bac2075f839794aaed03eaad108283f94e6216060df179fd5e8ea1361648",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-travel-header-mobile-png-844b7056f759ff0d.zip",
+      "bytes": 46489
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
