@@ -12485,6 +12485,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-more-shards-preview-png-0c82e95ed9b999eb.zip",
       "bytes": 80620
+    },
+    "work/public-site-history/5180c15ec361ceab1372d09320bbbcc5465afbf9.zip": {
+      "sha256": "8034a55fe3ad4477e2bb3b9ce148bb5b36d2ae47c2eaf42a57ec794589b25a6b",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-02d51f965629bfab.zip",
+      "bytes": 24250728
+    },
+    "outputs/stratus-finer-shards-preview.png": {
+      "sha256": "32251d771723b3c9a76d4905adf0aa4eaace4cb096feedbf9c4589050c41cbba",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-finer-shards-preview-png-89f849654b72fd11.zip",
+      "bytes": 81045
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
