@@ -12,7 +12,7 @@
  journey.innerHTML=`<div class="spatial-sticky"><div class="spatial-heading"><p class="eyebrow">A WORLD, LAYER BY LAYER</p><h2 id="spatial-title">Nothing exists<br>in <em>isolation.</em></h2><p>Scroll through the elements that give Stratus its atmosphere.</p></div><div class="layer-stage" aria-hidden="true"><div class="layer-world"><div class="world-layer layer-sky"><span>03 / ATMOSPHERE</span></div><div class="world-layer layer-light"><span>02 / LIGHT</span><i></i></div><div class="world-layer layer-water"><span>01 / WATER</span></div><div class="layer-axis"></div></div></div><span class="spatial-counter" aria-hidden="true">01 — 03 <i></i> SCROLL TO UNFOLD</span></div><div class="spatial-steps"><article><span>01 / WATER</span><h3>Depth you can feel.</h3><p>Reflections meet refraction. The world above connects with the riverbed below.</p></article><article><span>02 / LIGHT</span><h3>A familiar sun.<br>A different mood.</h3><p>Square light, warm horizons and the character of the original world.</p></article><article><span>03 / ATMOSPHERE</span><h3>The space<br>between everything.</h3><p>Clouds, high wisps and mist bring distance and weather into the picture.</p></article></div>`;
  journey.querySelector('.spatial-sticky').append(journey.querySelector('.spatial-steps'));
  const wordmark=document.querySelector('.atmosphere-wordmark');
- if(wordmark){wordmark.dataset.effect='5';wordmark.removeAttribute('aria-hidden');wordmark.setAttribute('role','img');wordmark.setAttribute('aria-label','STRATUS');wordmark.innerHTML=`<span class="wordmark-ground" aria-hidden="true"></span><span class="wordmark-depth">${Array.from({length:8},(_,i)=>`<i aria-hidden="true" style="--layer:${8-i};--layer-color:${['#153d2a','#1b4832','#23563c','#2f6749','#427a59','#5a906c','#74a783','#93bea0'][i]}"></i>`).join('')}<img class="wordmark-face" src="/assets/wordmark.svg?v=depth-1" alt="" width="4589.00" height="774.00"><span class="wordmark-light" aria-hidden="true"></span><img class="wordmark-mirror" src="/assets/wordmark.svg?v=depth-1" alt="" aria-hidden="true" width="4589.00" height="774.00"></span><span class="wordmark-arrow" aria-hidden="true">↘</span>`;wordmark.after(journey);}
+ if(wordmark){wordmark.dataset.effect='5';wordmark.removeAttribute('aria-hidden');wordmark.setAttribute('role','img');wordmark.setAttribute('aria-label','STRATUS');wordmark.innerHTML=`<span class="wordmark-depth" aria-hidden="true">${Array.from({length:8},(_,i)=>`<i style="--layer:${8-i};--layer-color:${['#153d2a','#1b4832','#23563c','#2f6749','#427a59','#5a906c','#74a783','#93bea0'][i]}">STRATUS</i>`).join('')}<b>STRATUS</b></span><span class="wordmark-arrow" aria-hidden="true">↘</span>`;wordmark.after(journey);}
  // Effect 4: every release image lives in an accessible depth carousel.
  const gallery=document.querySelector('#home-gallery');
  let selected=0;
@@ -31,22 +31,18 @@
  gallery?.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();advance(e.key==='ArrowRight'?1:-1);gallery.querySelector('.carousel-current')?.focus({preventScroll:true});}});
  gallery?.addEventListener('click',e=>{const card=e.target.closest('.scene');if(card&&!card.classList.contains('carousel-current')){e.preventDefault();e.stopPropagation();selected=[...gallery.children].indexOf(card);carousel();}},true);
  document.addEventListener('stratus:scenes-updated',carousel);if(gallery)new MutationObserver(carousel).observe(gallery,{childList:true});carousel();
- const motion=window.StratusMotion;let px=0,py=0,active=false,pointer=null,wordPointer=null,wordX=0,wordY=0;
+ const motion=window.StratusMotion;let px=0,py=0,active=false,pointer=null;
  const enabled=()=>!reduced.matches&&!body.classList.contains('effects-paused');
  const clamp=(v,a=0,b=1)=>Math.max(a,Math.min(b,v));
  function read(state){if(state.hidden||hero.closest('[data-view][hidden]'))return null;const r=journey.getBoundingClientRect(),box=wordmark?.getBoundingClientRect();let tilt=null;
   if(pointer&&pointer.card.isConnected&&enabled()){const b=pointer.card.getBoundingClientRect();tilt={card:pointer.card,x:(pointer.x-b.left)/b.width,y:(pointer.y-b.top)/b.height};}pointer=null;
-  const wordVisible=!!box&&box.bottom>0&&box.top<state.h,aim=wordVisible&&wordPointer?{x:clamp((wordPointer.x-box.left)/box.width)-.5,y:clamp((wordPointer.y-box.top)/box.height)-.5}:{x:0,y:0};
-  return {progress:clamp(-r.top/Math.max(1,r.height-state.h)),travel:box?clamp((state.h-box.top)/(state.h+box.height)):.5,tilt,wordVisible,aim};
+  return {progress:clamp(-r.top/Math.max(1,r.height-state.h)),travel:box?clamp((state.h-box.top)/(state.h+box.height)):.5,tilt};
  }
- function paint(data){if(!data)return;const {progress,travel,tilt,wordVisible,aim}=data;active=enabled();body.classList.toggle('spatial-paused',!active);
+ function paint(data){if(!data)return;const {progress,travel,tilt}=data;active=enabled();body.classList.toggle('spatial-paused',!active);
   motion.style(journey,'--unfold',active?progress:0.5);
   motion.style(journey,'--journey-turn',`${active?(progress-.5)*24:0}deg`);
   motion.style(stage,'--orbit-x',`${active?px*13:0}deg`);motion.style(stage,'--orbit-y',`${active?py*-9:0}deg`);
-  if(wordmark&&wordVisible){wordX=active?wordX+(aim.x-wordX)*.2:0;wordY=active?wordY+(aim.y-wordY)*.2:0;
-   motion.style(wordmark,'--word-turn',`${active?-4+(travel-.5)*15-wordY*7:0}deg`);motion.style(wordmark,'--word-yaw',`${active?-4+(travel-.5)*7+wordX*11:0}deg`);motion.style(wordmark,'--word-lift',`${active?(travel-.5)*-18:0}px`);motion.style(wordmark,'--word-light-x',`${35+wordX*45}%`);
-   if(active&&(Math.abs(aim.x-wordX)>.001||Math.abs(aim.y-wordY)>.001))motion.request();
-  }
+  if(wordmark)motion.style(wordmark,'--word-turn',`${active?(travel-.5)*20:0}deg`);
   if(tilt){motion.style(tilt.card,'--tilt-x',`${(tilt.x-.5)*7}deg`);motion.style(tilt.card,'--tilt-y',`${(tilt.y-.5)*-7}deg`);motion.style(tilt.card,'--shine-x',`${tilt.x*100}%`);}
   const part=Math.min(2,Math.floor(progress*3));journey.querySelectorAll('.spatial-steps article').forEach((el,i)=>el.classList.toggle('step-active',part===i));
  }
@@ -54,8 +50,6 @@
  if('IntersectionObserver'in window)new IntersectionObserver(entries=>stage.classList.toggle('sculpture-dormant',!entries[0].isIntersecting)).observe(hero);
  hero.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;px=e.clientX/innerWidth-.5;py=e.clientY/innerHeight-.5;schedule();},{passive:true});
  hero.addEventListener('pointerleave',()=>{px=py=0;schedule();});
- wordmark?.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse'||!enabled())return;wordPointer={x:e.clientX,y:e.clientY};schedule();},{passive:true});
- wordmark?.addEventListener('pointerleave',()=>{wordPointer=null;schedule();});
  const heroImage=hero.querySelector('.hero-image');
  function syncImage(){const image=heroImage?.getAttribute('src');if(image){journey.style.setProperty('--world-image',`url(${JSON.stringify(image)})`);stage.style.setProperty('--world-image',`url(${JSON.stringify(image)})`);}}
  if(heroImage)new MutationObserver(syncImage).observe(heroImage,{attributes:true,attributeFilter:['src']});syncImage();

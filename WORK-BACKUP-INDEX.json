@@ -12449,6 +12449,18 @@
       "tag": "project-work-snapshots",
       "asset": "stratus-wordmark-restored-preview-png-6f3a866936af0460.zip",
       "bytes": 48681
+    },
+    "work/public-site-history/f40218dc1fbc38ef7da639a69b2b2fc2aed4a8cf.zip": {
+      "sha256": "d776aabb0b52315f8afa12bc18f4122aba9dbde292a3c4b74dedde4cc1cc1867",
+      "tag": "project-work-snapshots",
+      "asset": "public-site-history-eb6bcb6e6165515e.zip",
+      "bytes": 24250636
+    },
+    "outputs/stratus-wordmark-restored-live.png": {
+      "sha256": "12013cbecb75b101a17691477aaaaf846c40bd8ed53439fe0ebdc17c6206d639",
+      "tag": "project-work-snapshots",
+      "asset": "stratus-wordmark-restored-live-png-3062ba9a1f4955a3.zip",
+      "bytes": 48672
     }
   },
   "source_files": "See AUTO-SYNC-MANIFEST.json for Git-tracked source.",
