@@ -1,0 +1,8 @@
+/* Keep visual depth while removing full-screen filters and expensive moving blur surfaces. */
+.atmosphere-grain{display:none}.stratus-immersive .hero-image{filter:none!important;transition:none;will-change:auto}
+.atmosphere-fog{filter:none!important;mix-blend-mode:normal;background:radial-gradient(ellipse,#d8e4df1c,transparent 70%);will-change:auto;animation:none!important}
+.stratus-immersive .topbar,.stratus-immersive.has-scrolled .topbar,.stratus-immersive.internal-page .topbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:#101817ee}
+.stratus-immersive .glass,.stratus-immersive .scene>span,.stratus-immersive .reference-strip,.stratus-immersive .water-story-copy,.stratus-immersive .spec-section,.stratus-immersive .live-release,.stratus-immersive .feedback-nav,#motion-control,.layer-sky{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+.voxel-stage{filter:none}.voxel i{box-shadow:none}.voxel-aura{animation:none}.voxel-world{animation-duration:14s}.voxel{animation:none!important}.stratus-immersive .scene img{filter:none}.stratus-immersive.motion-enabled [data-reveal=soft]{filter:none!important}
+.stratus-immersive:not(.scroll-scrub) .hero-content{opacity:1!important}.stratus-immersive .hero-image{transform:translate3d(var(--camera-x),var(--camera-y),0) scale(1.03)}
+@media(pointer:coarse){.voxel-world{animation:none!important}.stratus-immersive .workspace-card,.stratus-immersive .showcase-image{transition:opacity .4s!important}.stratus-immersive .button:after{display:none}}
