@@ -5272,6 +5272,8 @@
     "work/stratus-public/public/live.js",
     "work/stratus-public/public/motion-runtime.js",
     "work/stratus-public/public/motion.js",
+    "work/stratus-public/public/navigation.css",
+    "work/stratus-public/public/navigation.js",
     "work/stratus-public/public/performance.css",
     "work/stratus-public/public/scroll-performance.css",
     "work/stratus-public/public/showcase.css",
@@ -10086,6 +10088,6 @@
     "stratus-studio-cloud": "b5032287dd8b65df99beb4716b3fc3539537d13d"
   },
   "shader_release": "1.6.12",
-  "fingerprint": "a5063abe3958fa46522c6c3a41514c22d0137fdd7032c44ba65ea9db9a569bd3",
+  "fingerprint": "dbbb12f704b28640d22007e1926a4ca538ec0527c300aa6c8b6823c8c7bd3ca2",
   "policy": "Per-file settled authored work, separately labelled development source, committed websites, final shader and indexed binary backups. No model calls."
 }
